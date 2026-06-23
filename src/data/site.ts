@@ -21,12 +21,115 @@ export const mainNav = [
   { label: "בית", href: "/" },
   { label: "אודות", href: "/about" },
   { label: "שירותים", href: "/services" },
+  { label: "אופטימיזציה", href: "/services#optimization-hub" },
   { label: "בינה מלאכותית ואוטומציה", href: "/services/ai-automation" },
   { label: "אתרים ומערכות", href: "/services/web-development" },
   { label: "איקומרס", href: "/services/ecommerce" },
   { label: "כלים ומוצרים", href: "/products" },
   { label: "בלוג", href: "/blog" },
   { label: "יצירת קשר", href: "/contact" },
+];
+
+export type OptimizationHubItem = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+export type OptimizationHubGroup = {
+  title: string;
+  intro: string;
+  items: OptimizationHubItem[];
+};
+
+export const optimizationHub: OptimizationHubGroup[] = [
+  {
+    title: "ביצועים ומהירות אתר",
+    intro: "שירותים שמטפלים במהירות, טעינה, קוד, שרת וחוויית מובייל כדי שהאתר יעבוד מהר וברור יותר.",
+    items: [
+      { title: "שיפור מהירות אתר", description: "בדיקה ושיפור של זמן טעינה, משקל עמודים, קבצים ותשתית טעינה.", href: "/services/website-speed-optimization" },
+      { title: "שיפור ביצועים במובייל", description: "התאמת האתר למכשירים ניידים כך שהגלישה תהיה מהירה ונוחה גם בסלולר.", href: "/services/website-speed-optimization" },
+      { title: "תיקון חסימות טעינה", description: "זיהוי קבצים, סקריפטים ותוספים שמעכבים את טעינת העמוד.", href: "/services/website-speed-optimization" },
+      { title: "אופטימיזציית עיצוב וקוד חזיתי", description: "סידור קבצי עיצוב וטעינה כדי להפחית עומס ולשפר תגובה.", href: "/services/website-speed-optimization" },
+      { title: "אופטימיזציית קוד אתר", description: "ניקוי עומס טכני, קוד מיותר, כפילויות ושאריות שמאטות את האתר.", href: "/services/web-development" },
+      { title: "שיפור טעינת התוכן הראשי", description: "שיפור הזמן שבו החלק החשוב בעמוד מופיע לגולש.", href: "/services/website-speed-optimization" },
+      { title: "שיפור תגובתיות לפעולות משתמש", description: "הפחתת עיכובים בלחיצות, פתיחת תפריטים, טפסים ופעולות באתר.", href: "/services/website-speed-optimization" },
+      { title: "אופטימיזציית קאש רדיס", description: "שימוש נכון בקאש מתקדם כדי להפחית עומס ולשפר זמני תגובה.", href: "/services/website-speed-optimization" },
+      { title: "שיפור ביצועי שרת", description: "בדיקת שרת, תגובת אחסון, עומסים והגדרות שמשפיעות על מהירות.", href: "/services/website-speed-optimization" },
+      { title: "אופטימיזציית תוספי האצה לוורדפרס", description: "הגדרה נכונה של תוספי האצה בלי לשבור עיצוב, טפסים או חנות.", href: "/services/website-speed-optimization" },
+    ],
+  },
+  {
+    title: "אופטימיזציית חנויות ופלטפורמות",
+    intro: "שיפור ביצועים לחנויות ואתרים שבנויים על מערכות נפוצות, עם דגש על מכירות, מובייל וניהול שוטף.",
+    items: [
+      { title: "שיפור מהירות וורדפרס", description: "טיפול בתבניות, תוספים, קבצים ותמונות שמכבידים על האתר.", href: "/services/web-development" },
+      { title: "אופטימיזציית ווקומרס", description: "שיפור טעינת חנות, עמודי מוצר, עגלה ותשלום כדי להפחית נטישה.", href: "/services/woocommerce" },
+      { title: "אופטימיזציית שופיפיי", description: "שיפור תבנית, אפליקציות, עמודי מוצר וחוויית קנייה בשופיפיי.", href: "/services/shopify" },
+      { title: "אופטימיזציית דפי נחיתה", description: "שיפור מהירות, מסר, מבנה והמרה בדפים שמטרתם להביא פניות.", href: "/services/seo-digital-marketing" },
+    ],
+  },
+  {
+    title: "תשתיות והעברת תוכן",
+    intro: "הבסיס שמחזיק את האתר יציב: אחסון, דומיין, אבטחת חיבור, קאש והפצת תוכן מהירה.",
+    items: [
+      { title: "אופטימיזציית קלאודפלייר", description: "הגדרות קאש, אבטחה והפצה מהירה דרך קלאודפלייר בצורה נכונה.", href: "/services/website-speed-optimization" },
+      { title: "אופטימיזציית אחסון ותשתית", description: "בדיקה ושיפור של סביבת האחסון כדי שהאתר יהיה יציב ומהיר יותר.", href: "/services/api-integrations" },
+      { title: "אופטימיזציית רשומות דומיין", description: "סידור רשומות דומיין, הפניות ותצורה טכנית שמונעת תקלות.", href: "/services/api-integrations" },
+      { title: "תעודת אבטחה וחיבור מאובטח", description: "בדיקה ותיקון של חיבור מאובטח, תעודות והפניות תקינות.", href: "/services/security-recovery" },
+    ],
+  },
+  {
+    title: "אבטחה, תיקון ושחזור",
+    intro: "שירותי חירום והקשחה לאתרים שנפרצו, נפלו, נדבקו או הפסיקו לעבוד כמו שצריך.",
+    items: [
+      { title: "הקשחת אבטחה", description: "חיזוק שכבות אבטחה כדי לצמצם פריצות, ספאם ונזק לנכסים דיגיטליים.", href: "/services/security-recovery" },
+      { title: "ניקוי נוזקות", description: "איתור וניקוי קוד זדוני, קבצים חשודים והפניות מסוכנות.", href: "/services/security-recovery" },
+      { title: "שחזור אתר ותיקוני חירום", description: "החזרת אתר לפעולה אחרי קריסה, תקלה או פגיעה.", href: "/services/security-recovery" },
+      { title: "איתור תקלות באתר", description: "בדיקה שיטתית של תקלות טעינה, תוספים, קוד, שרת וטפסים.", href: "/services/security-recovery" },
+      { title: "תיקון שגיאות ובאגים באתר", description: "תיקון בעיות שמפריעות לשימוש, מכירה, מדידה או ניהול.", href: "/services/security-recovery" },
+      { title: "תיקון אתרים קריטיים", description: "טיפול באתרים עסקיים פעילים שבהם תקלה גורמת לפגיעה מיידית.", href: "/services/security-recovery" },
+      { title: "תיקון דחוף לאתר", description: "תגובה מהירה למצבים שבהם האתר לא עובד, לא נטען או לא שולח פניות.", href: "/services/security-recovery" },
+    ],
+  },
+  {
+    title: "בינה מלאכותית ואוטומציה תפעולית",
+    intro: "חיבור בין האתר, הלקוחות והמערכות כדי להפחית עבודה ידנית ולשפר תגובה.",
+    items: [
+      { title: "מערכות אוטומציה עם בינה מלאכותית", description: "בניית תהליכים שמטפלים במידע, פניות ומשימות בצורה חכמה.", href: "/services/ai-automation" },
+      { title: "שילוב צ׳אטבוט חכם", description: "צ׳אט שמבין שאלות, אוסף מידע ומכוון את הלקוח לשלב הבא.", href: "/services/ai-automation" },
+      { title: "אוטומציה לוואטסאפ עסקי", description: "חיבור וואטסאפ לתהליכי שירות, מכירות, סיכום וניתוב פניות.", href: "/services/ai-automation" },
+      { title: "חיבורי מערכות ואינטגרציות", description: "חיבור אתר, טפסים, מערכות ניהול, נתונים ומשימות בלי העתקות ידניות.", href: "/services/api-integrations" },
+    ],
+  },
+  {
+    title: "אנליטיקה, ניטור ומודיעין אתר",
+    intro: "שירותים שמראים מה קורה באתר בפועל, איפה יש בעיה ומה כדאי לתקן קודם.",
+    items: [
+      { title: "ניטור משתמשים אמיתיים", description: "מדידה של חוויית משתמשים אמיתיים ולא רק בדיקות מעבדה.", href: "/services/business-intelligence" },
+      { title: "גוגל אנליטיקס ותובנות משתמשים", description: "הגדרת מדידה, אירועים ותובנות שמראות מה באמת עובד.", href: "/services/business-intelligence" },
+      { title: "בדיקת ביצועים ותוכנית פעולה", description: "דוח ברור שמתרגם נתונים לפעולות תיקון לפי סדר עדיפויות.", href: "/services/website-speed-optimization" },
+      { title: "ניתוח צווארי בקבוק באתר", description: "איתור המקומות שבהם מהירות, קוד, שרת או חוויית משתמש נתקעים.", href: "/services/website-speed-optimization" },
+      { title: "מערכות ניטור אתרים", description: "התראות ודוחות שמזהים נפילות, האטות, תקלות וטפסים שלא עובדים.", href: "/products" },
+    ],
+  },
+  {
+    title: "תשתיות מייל ותקשורת",
+    intro: "הגדרות מייל שמאפשרות לעסק לשלוח ולקבל הודעות בצורה יציבה ואמינה יותר.",
+    items: [
+      { title: "אימות דומיין למיילים", description: "הגדרת שכבות אימות שמפחיתות בעיות ספאם וזיוף כתובות.", href: "/services/api-integrations" },
+      { title: "הגדרת תיבות מייל ושליחה", description: "סידור תיבות, שרתי שליחה והגדרות עבודה תקינות.", href: "/services/api-integrations" },
+      { title: "שיפור עבירות מיילים", description: "טיפול בבעיות שגורמות למיילים להגיע לספאם או לא להגיע בכלל.", href: "/services/seo-digital-marketing" },
+    ],
+  },
+  {
+    title: "מדיה ונכסים באתר",
+    intro: "שיפור תמונות וקבצים כדי שהאתר יישאר חד, יפה ומהיר.",
+    items: [
+      { title: "אופטימיזציית תמונות", description: "הקטנת משקל תמונות בלי לפגוע בתחושה המקצועית של האתר.", href: "/services/website-speed-optimization" },
+      { title: "המרת תמונות לפורמטים מודרניים", description: "שימוש בפורמטי תמונה קלים ומהירים יותר לטעינה טובה.", href: "/services/website-speed-optimization" },
+    ],
+  },
 ];
 
 export type ServiceEcosystemGroup = {
@@ -246,7 +349,7 @@ export const services: Service[] = [
     problems: ["טעינה איטית שמרחיקה לקוחות", "ציון מובייל נמוך ופגיעה בקידום אורגני", "לקוחות שנוטשים לפני פנייה או רכישה"],
     faqs: [
       { question: "כמה מהר אפשר לשפר אתר?", answer: "תלוי במבנה האתר. לעיתים יש שיפורים מהירים, ולעיתים נדרש טיפול עמוק בתבנית, קוד או שרת." },
-      { question: "האם אתם עובדים עם Cloudflare?", answer: "כן. Cloudflare יכול לעזור בביצועים, CDN, אבטחה ו־DNS כשמגדירים אותו נכון." },
+      { question: "האם אתם עובדים עם קלאודפלייר?", answer: "כן. קלאודפלייר יכול לעזור בביצועים, רשת הפצה מהירה, אבטחה ורשומות דומיין כשמגדירים אותו נכון." },
       { question: "האם מהירות משפיעה על קידום אורגני?", answer: "כן. היא משפיעה על חוויית משתמש, מדדי איכות אתר, נטישה והמרות." },
     ],
   },

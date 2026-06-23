@@ -1,12 +1,12 @@
 import { ServiceCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { Section } from "@/components/Section";
-import { serviceEcosystem, services } from "@/data/site";
+import { optimizationHub, serviceEcosystem, services } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "שירותים",
-  description: "שירותי נביא נס ישראל בע״מ לעסקים: בינה מלאכותית, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, שיווק, נתונים ותשתיות דיגיטליות במקום אחד.",
+  description: "שירותי נביא נס ישראל בע״מ לעסקים: מרכז אופטימיזציה מלא, בינה מלאכותית, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, שיווק ותשתיות דיגיטליות.",
   path: "/services",
 });
 
@@ -39,6 +39,28 @@ export default function ServicesPage() {
                   <span className="tag" key={item}>
                     {item}
                   </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+      <Section eyebrow="מרכז אופטימיזציה" title="כל שירותי האופטימיזציה מהאתר הרשמי, בעברית ובשפה עסקית" id="optimization-hub">
+        <p className="mb-8 max-w-4xl text-lg leading-8 text-zinc-300">
+          באתר הבינלאומי יש שכבה רחבה של שירותי אופטימיזציה. כאן הם מסודרים לעסק ישראלי בצורה פשוטה:
+          מהירות, מובייל, קוד, וורדפרס, ווקומרס, שופיפיי, שרתים, אבטחה, ניטור, מיילים ומדיה. כל פריט מוביל לעמוד השירות הרלוונטי.
+        </p>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {optimizationHub.map((group) => (
+            <article className="rounded-[1.6rem] border border-purple-300/15 bg-black/30 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.24)]" key={group.title}>
+              <h2 className="text-2xl font-black text-white">{group.title}</h2>
+              <p className="mt-3 text-base leading-7 text-zinc-300">{group.intro}</p>
+              <div className="mt-5 grid gap-2">
+                {group.items.map((item) => (
+                  <a className="rounded-[1rem] border border-white/10 bg-white/[0.035] p-3 transition hover:border-purple-300/45 hover:bg-purple-500/10" href={item.href} key={item.title}>
+                    <span className="block text-lg font-black text-white">{item.title}</span>
+                    <span className="mt-1 block text-sm leading-6 text-zinc-400">{item.description}</span>
+                  </a>
                 ))}
               </div>
             </article>
