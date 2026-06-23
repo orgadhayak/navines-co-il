@@ -28,9 +28,10 @@ export function Footer() {
         <div className="mb-12 rounded-premium border border-white/10 bg-gradient-to-br from-navred/18 to-white/[0.03] p-8">
           <p className="mb-3 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
           <h2 className="max-w-3xl text-4xl font-black text-white md:text-5xl">רוצים להבין מה כדאי לשפר קודם?</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">שיחת היכרות חינם וחברית בוואטסאפ. אנחנו מפתח תקווה, גאים במערכות ובכלים שבנינו, ומחכים לשמוע מה תרצו לבנות או לשפר.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a className="btn-primary" href={site.whatsappHref}>
-              דברו איתנו בוואטסאפ
+              דברו איתנו בוואטסאפ בחינם
             </a>
             <a className="btn-secondary" href={site.whatsappHref}>
               שלחו הודעה זריזה

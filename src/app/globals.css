@@ -173,6 +173,17 @@ body {
   text-transform: uppercase;
 }
 
+.bsd-mark {
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-family: "Times New Roman", "Noto Serif Hebrew", "David", serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex min-h-12 min-w-44 items-center justify-center rounded-full border border-navred/80 bg-gradient-to-br from-navred to-purple-950 px-7 py-3 text-center text-lg font-black text-white shadow-glow transition hover:brightness-110;

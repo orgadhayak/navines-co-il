@@ -3,7 +3,7 @@ import { site } from "@/data/site";
 
 export function CTA({
   title = "לא בטוחים מאיפה להתחיל?",
-  text = "כתבו לנו בוואטסאפ מה קורה בעסק, מה לא עובד מספיק טוב ומה הייתם רוצים לשפר. נכוון אתכם בצורה פשוטה וברורה, בלי התחייבות ובלי סיבוכים.",
+  text = "כתבו לנו בוואטסאפ מה קורה בעסק ומה הייתם רוצים לשפר. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.",
 }: {
   title?: string;
   text?: string;
@@ -16,7 +16,7 @@ export function CTA({
         <p className="mt-4 max-w-2xl text-lg text-zinc-300">{text}</p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a className="btn-primary" href={site.whatsappHref}>
-            דברו איתנו בוואטסאפ
+            דברו איתנו בוואטסאפ בחינם
           </a>
           <Link className="btn-secondary" href="/services">
             ראו שירותים

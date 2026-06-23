@@ -54,6 +54,17 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         <p className="mt-5 text-xl leading-9 text-zinc-300">
           <BrandInline text={post.excerpt} />
         </p>
+        {post.englishTitle && post.englishExcerpt ? (
+          <div className="mt-5 rounded-[1.4rem] border border-purple-300/16 bg-purple-500/[0.07] p-5">
+            <p className="text-sm font-black text-glowred">תקציר באנגלית</p>
+            <h2 className="mt-2 text-2xl font-black text-white">
+              <BrandInline text={post.englishTitle} />
+            </h2>
+            <p className="mt-3 text-lg leading-8 text-zinc-300">
+              <BrandInline text={post.englishExcerpt} />
+            </p>
+          </div>
+        ) : null}
         <p className="mt-4 text-sm text-zinc-500">
           {post.date} • מחבר:{" "}
           {site.name}{" "}
@@ -77,7 +88,21 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             <BrandInline text={post.excerpt} /> עסקים שמטפלים בנושא הזה בצורה מסודרת מקבלים יותר שליטה, פחות עבודה ידנית ויכולת למדוד מה באמת מתקדם.
           </p>
           <h2>איך זה נראה בפועל?</h2>
-          <p>העבודה מתחילה ממיפוי קצר של האתר, המערכות, הנתונים והתהליך העסקי. לאחר מכן בוחרים את הפעולות שייתנו ערך מהיר: שיפור מהירות, חיבור מערכת, אוטומציה, ניטור או תיקון נקודת אמון קריטית.</p>
+          <p>
+            {post.serviceIntro ? (
+              <BrandInline text={post.serviceIntro} />
+            ) : (
+              "העבודה מתחילה ממיפוי קצר של האתר, המערכות, הנתונים והתהליך העסקי. לאחר מכן בוחרים את הפעולות שייתנו ערך מהיר: שיפור מהירות, חיבור מערכת, אוטומציה, ניטור או תיקון נקודת אמון קריטית."
+            )}
+          </p>
+          {post.englishServiceIntro ? (
+            <>
+              <h2>הסבר באנגלית</h2>
+              <p>
+                <BrandInline text={post.englishServiceIntro} />
+              </p>
+            </>
+          ) : null}
           <h2>דוגמאות מעשיות</h2>
           <ul>
             <li>בדיקת אתר עם כלי מדידה מקצועיים וזיהוי צווארי בקבוק במובייל.</li>
@@ -92,10 +117,10 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             <li>האם אפשר להרחיב את הפתרון בהמשך?</li>
           </ul>
           <h2>סיכום</h2>
-          <p>בינה מלאכותית טובה מתחילה מתהליך עסקי נכון. לפני שמפתחים, מבינים את העסק, ואז בונים תשתית שמחברת מהירות, אבטחה, אוטומציה וחוויית משתמש במקום אחד.</p>
+          <p>אנחנו גאים במערכות, בכלים ובאתרים שבנינו כי הם נולדו מתוך בעיות אמיתיות של עסקים. אם אתם לא בטוחים מאיפה להתחיל, שלחו לנו הודעה בוואטסאפ. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה נכון לפרויקט.</p>
         </div>
       </article>
-      <CTA title="רוצים שנבדוק את האתר או התהליך העסקי שלכם?" text="כתבו לנו בוואטסאפ מה אתם רוצים לשפר. נענה בצורה פשוטה ונכוון אתכם לצעד הבא." />
+      <CTA title="רוצים שנבדוק את האתר או התהליך העסקי שלכם?" text="כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון." />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
         <div className="grid gap-5 md:grid-cols-3">

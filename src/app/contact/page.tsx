@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(216,180,254,0.22),transparent_18rem)]" aria-hidden="true" />
           <div className="relative">
             <p className="max-w-2xl text-xl leading-9 text-zinc-200">
-              לא צריך להכין מסמך ארוך. כתבו לנו בוואטסאפ מה יש לכם היום ומה הייתם רוצים לשפר: אתר, חנות, מערכת, אוטומציה, מהירות או אבטחה. נחזור עם שאלות נכונות וכיוון ברור להמשך.
+              לא צריך להכין מסמך ארוך. כתבו לנו בוואטסאפ מה יש לכם היום ומה הייתם רוצים לשפר: אתר, חנות, מערכת, אוטומציה, מהירות או אבטחה. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">

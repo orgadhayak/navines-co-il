@@ -83,6 +83,11 @@ export function BlogCard({ post }: { post: BlogPost }) {
         <p className="mt-3 text-base leading-8 text-zinc-400">
           <BrandInline text={post.excerpt} />
         </p>
+        {post.englishTitle ? (
+          <span className="mt-3 inline-flex rounded-full border border-purple-300/20 bg-purple-500/10 px-3 py-1 text-sm font-black text-silver">
+            כולל תקציר באנגלית
+          </span>
+        ) : null}
         <span className="mt-4 inline-flex min-w-36 justify-center rounded-full border border-white/10 px-4 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white">
           קראו מאמר
         </span>

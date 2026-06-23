@@ -34,6 +34,8 @@ const ecosystemLinks: Record<string, string> = {
 };
 
 export default function HomePage() {
+  const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
+
   return (
     <>
       <section className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-14">
@@ -42,9 +44,9 @@ export default function HomePage() {
           <h1 className="max-w-4xl text-4xl font-black leading-[1.03] text-white md:text-6xl">מערכות בינה מלאכותית, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-300">נביא נס ישראל בע״מ עוזרת לבעלי עסקים להפוך אתר, חנות, מערכת או רעיון לתשתית שעובדת ביום יום. אנחנו מחברים בין לקוחות, נתונים, תפעול ומכירות כדי לחסוך זמן, להקטין טעויות וליצור עסק דיגיטלי ברור יותר.</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link className="btn-primary" href="/contact">
-              דברו איתנו בוואטסאפ
-            </Link>
+            <a className="btn-primary" href={site.whatsappHref}>
+              דברו איתנו בוואטסאפ בחינם
+            </a>
             <Link className="btn-secondary" href="/products">
               ראו כלים ומוצרים
             </Link>
@@ -133,6 +135,7 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="כלים ומוצרים" title="כלים שעוזרים לראות בעיות לפני שהן עולות כסף" className="py-10 lg:py-14">
+        <p className="mb-6 max-w-4xl text-lg leading-8 text-zinc-300">אנחנו גאים בכלים שבנינו, כי הם נולדו מתוך עבודה אמיתית עם אתרים, חנויות, נתונים ותהליכים עסקיים. המטרה פשוטה: לראות מהר יותר מה קורה, לקבל החלטה טובה יותר ולחסוך עבודה ידנית.</p>
         <div className="grid gap-5 md:grid-cols-3">
           {products.slice(0, 3).map((product) => (
             <ProductCard key={product.slug} product={product} />
@@ -147,7 +150,7 @@ export default function HomePage() {
 
       <Section eyebrow="בלוג" title="מדריכים קצרים לקבלת החלטות חכמות יותר" className="py-10 lg:py-14">
         <div className="grid gap-4 md:grid-cols-3">
-          {blogPosts.slice(0, 3).map((post) => (
+          {latestPosts.map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}
         </div>
@@ -161,12 +164,12 @@ export default function HomePage() {
       <Section eyebrow="יצירת קשר" title="יש לכם אתר, חנות או מערכת שצריך לשפר?" className="py-10 lg:py-14">
         <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.045] p-6 shadow-premium lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div className="max-w-2xl">
-            <p className="text-lg leading-8 text-zinc-300">שלחו לנו הודעה קצרה בוואטסאפ: מה יש לכם היום, מה מפריע לכם ומה הייתם רוצים שיקרה. נחזור עם כיוון ברור, בלי שיחת מכירה כבדה ובלי מילים מסובכות.</p>
+            <p className="text-lg leading-8 text-zinc-300">שלחו לנו הודעה קצרה בוואטסאפ: מה יש לכם היום, מה מפריע לכם ומה הייתם רוצים שיקרה. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.</p>
             <p className="mt-3 text-base text-zinc-400">{site.hebrewLegalName} · {site.companyNumberLabel} · {site.phone}</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-3 lg:mt-0">
             <a className="btn-primary" href={site.whatsappHref}>
-              דברו איתנו בוואטסאפ
+              דברו איתנו בוואטסאפ בחינם
             </a>
             <Link className="btn-secondary" href="/contact">
               יצירת קשר

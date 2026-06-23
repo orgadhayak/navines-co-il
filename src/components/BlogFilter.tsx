@@ -10,10 +10,12 @@ export function BlogFilter({ categories, posts }: { categories: string[]; posts:
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return posts.filter((post) => {
-      const text = `${post.title} ${post.excerpt} ${post.tags.join(" ")}`.toLowerCase();
-      return (!category || post.category === category) && (!normalized || text.includes(normalized));
-    });
+    return [...posts]
+      .sort((first, second) => second.publishedAt.localeCompare(first.publishedAt))
+      .filter((post) => {
+        const text = `${post.title} ${post.excerpt} ${post.tags.join(" ")}`.toLowerCase();
+        return (!category || post.category === category) && (!normalized || text.includes(normalized));
+      });
   }, [category, posts, query]);
 
   return (
