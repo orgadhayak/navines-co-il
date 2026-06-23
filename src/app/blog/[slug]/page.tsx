@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
 import { BlogCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
@@ -23,6 +24,86 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
+const solutionArticleContent: Record<
+  string,
+  {
+    solutionHref: string;
+    solutionLabel: string;
+    intro: string;
+    why: string;
+    examples: string[];
+    checklist: string[];
+    summary: string;
+  }
+> = {
+  "accountants-ai-data-automation": {
+    solutionHref: "/solutions/accountants",
+    solutionLabel: "פתרונות AI ואוטומציה לרואי חשבון",
+    intro:
+      "במשרד רואי חשבון יש הרבה מידע חשוב: דוחות, מסמכים, שאלות לקוחות, טבלאות, תזכורות ומשימות. כשהמידע מפוזר, הצוות מבזבז זמן על חיפוש במקום על עבודה מקצועית. מערכת AI טובה לא מחליפה רואה חשבון, אלא עוזרת לסדר את המידע ולהחזיר תשובות ראשוניות וברורות.",
+    why:
+      "הערך העסקי פשוט: במקום לחפש ידנית בקבצים, דוחות וטבלאות, אפשר לשאול את המערכת שאלה בעברית ולקבל סיכום, כיוון לבדיקה או רשימת פעולות להמשך. הפתרון מבוסס על יכולות AI מתקדמות וטכנולוגיות OpenAI, אבל נבנה סביב תהליך העבודה של המשרד ולא סביב מילים טכנולוגיות מסובכות.",
+    examples: [
+      "אילו לקוחות חסרים מסמכים החודש?",
+      "סכם לי את הנקודות החשובות בדוח לפני שיחה עם לקוח",
+      "אילו משימות פתוחות דורשות טיפול השבוע?",
+      "האם יש חריגה שצריך לבדוק לפני שליחת הדוח?",
+    ],
+    checklist: [
+      "איפה נשמרים הדוחות והמסמכים היום?",
+      "אילו שאלות חוזרות מגיעות מלקוחות?",
+      "איזה מידע הצוות מחפש שוב ושוב?",
+      "אילו פעולות אפשר להפוך לתזכורת או משימה אוטומטית?",
+    ],
+    summary:
+      "AI לרואי חשבון עובד טוב כשהוא בנוי בזהירות, עם הבנה מקצועית ועם גבולות ברורים. המטרה היא לחסוך זמן, לארגן מידע ולהציף נקודות חשובות, בזמן ששיקול הדעת המקצועי נשאר אצל רואה החשבון.",
+  },
+  "amazon-sellers-ai-data-monitoring": {
+    solutionHref: "/solutions/amazon-sellers",
+    solutionLabel: "פתרונות למוכרי Amazon",
+    intro:
+      "מוכר Amazon צריך לעקוב אחרי הרבה דברים במקביל: Account Health, השעיות, Listings, מלאי, מחירים, ביקורות, הודעות, דוחות ופרסום. כשהכל מפוזר, קל לפספס סימן חשוב או להגיב מאוחר מדי.",
+    why:
+      "שילוב של AI, דאטה וניטור עוזר להפוך את הפעילות מתגובה ללחץ לניהול מסודר. במקום לפתוח הרבה דוחות ולנסות להבין מה דחוף, אפשר לבנות דשבורד, התראות ושכבת שאלות שמראה מה ירד, מה דורש טיפול ומה מסוכן. אין כאן הבטחה לתוצאה או להחזרת חשבון, אלא דרך מסודרת לנתח מצב ולפעול נכון יותר.",
+    examples: [
+      "איזה מוצר ירד בביצועים השבוע?",
+      "איזה Listing דורש שיפור תוכן או מחיר?",
+      "מה ההתראה הכי דחופה ב־Account Health?",
+      "איפה יש סיכון במלאי, ביקורות או הודעות לקוחות?",
+    ],
+    checklist: [
+      "האם יש מעקב קבוע אחרי Account Health?",
+      "האם יש דוח ברור למלאי, מחירים ומוצרים חלשים?",
+      "האם אתם יודעים לזהות התראות לפני שהן הופכות לחירום?",
+      "האם יש לכם דרך לשאול את הדאטה שאלות רגילות ולקבל כיוון?",
+    ],
+    summary:
+      "מוכרי Amazon צריכים גם תפעול וגם מודיעין עסקי. NAVINES Beacon, TalkToData ואוטומציות מותאמות יכולים לעזור לראות בעיות מוקדם יותר, להבין דוחות מהר יותר ולנהל חשבון בצורה רגועה וחכמה יותר.",
+  },
+  "freelancers-ai-automation-systems": {
+    solutionHref: "/solutions/freelancers",
+    solutionLabel: "פתרונות AI ואוטומציה לפרילנסרים",
+    intro:
+      "פרילנסר מנהל עסק שלם לבד או עם צוות קטן: לידים, לקוחות, הצעות מחיר, משימות, תשלומים, דוחות ותזכורות. כשכל דבר נמצא במקום אחר, הרבה אנרגיה הולכת על מעקב במקום על עבודה מקצועית.",
+    why:
+      "אוטומציה טובה לפרילנסרים לא חייבת להיות גדולה או יקרה. לפעמים מערכת קטנה שמרכזת פניות, משימות ותשלומים משנה את כל היום. אפשר גם לחבר שכבת AI שמאפשרת לשאול מה פתוח, מי מחכה לתשובה, איזה פרויקט תקוע ומה צריך לעשות השבוע.",
+    examples: [
+      "איזה לקוחות מחכים להצעת מחיר?",
+      "מי לא שילם עדיין?",
+      "איזה פרויקט תקוע יותר מדי זמן?",
+      "איזה אתר לקוח האט או מציג תקלה?",
+    ],
+    checklist: [
+      "מאיפה מגיעות הפניות היום?",
+      "איפה נשמרות הצעות מחיר ומשימות?",
+      "מה חוזר על עצמו בכל שבוע ואפשר לאוטומט?",
+      "האם אתם מנהלים אתרי לקוחות שצריכים ניטור?",
+    ],
+    summary:
+      "פרילנסרים לא צריכים לעבוד ידנית על כל דבר. מערכת קטנה, ברורה וחכמה יכולה לתת סדר, לחסוך זמן ולעזור לתת שירות טוב יותר בלי להרגיש שהעסק בורח מהידיים.",
+  },
+};
+
 export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = blogPosts.find((item) => item.slug === slug);
@@ -30,6 +111,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
+  const solutionArticle = solutionArticleContent[post.slug];
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -84,11 +166,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isTalkToDataPost ? <TalkToDataArticleBody /> : <DefaultArticleBody post={post} />}
+        {isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isTalkToDataPost ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isTalkToDataPost ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס או מערכת פנימית. נבדוק איך אפשר לחבר אותה בצורה שימושית וברורה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -99,6 +181,51 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </div>
       </section>
     </>
+  );
+}
+
+function SolutionArticleBody({ content }: { content: (typeof solutionArticleContent)[string] }) {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>מה זה אומר בפועל?</h2>
+      <p>
+        <BrandInline text={content.intro} />
+      </p>
+      <h2>למה זה חשוב לעסק?</h2>
+      <p>
+        <BrandInline text={content.why} />
+      </p>
+      <h2>דוגמאות לשאלות שאפשר לשאול</h2>
+      <ul>
+        {content.examples.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <h2>רשימת בדיקה קצרה לפני שמתחילים</h2>
+      <ul>
+        {content.checklist.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <h2>הפתרון המתאים</h2>
+      <p>
+        נביא נס ישראל בע״מ בונה פתרונות כאלה לפי סוג העסק, בלי להעמיס מערכת מיותרת ובלי להבטיח קסמים. מתחילים
+        משיחה פשוטה, מבינים איפה המידע נמצא ומה באמת כואב, ואז בודקים מה אפשר לחבר, לאוטומט ולמדוד.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href={content.solutionHref}>
+          {content.solutionLabel}
+        </Link>
+      </p>
+      <h2>סיכום</h2>
+      <p>
+        <BrandInline text={content.summary} />
+      </p>
+      <p>
+        רוצים לבדוק מה אפשר לבנות אצלכם? שלחו הודעה קצרה בוואטסאפ, ספרו לנו איזה עסק יש לכם ואיפה אתם מרגישים
+        שהמידע או העבודה הידנית מעכבים אתכם. נכוון אתכם בצורה פשוטה וחברית.
+      </p>
+    </div>
   );
 }
 

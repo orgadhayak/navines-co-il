@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import { solutionPages } from "@/data/solutions";
 import { mainNav, site } from "@/data/site";
 
 const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
+const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -45,9 +47,28 @@ export function Header() {
       <div className="hidden border-t border-white/5 lg:block">
         <nav className="mx-auto flex max-w-7xl items-center justify-center gap-1 px-4 py-2 sm:px-6 lg:px-8" aria-label="תפריט ראשי">
           {primaryDesktopNav.map((item) => (
-            <Link className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white" href={item.href} key={item.href}>
-              {item.label}
-            </Link>
+            <Fragment key={item.href}>
+              <Link className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white" href={item.href}>
+                {item.label}
+              </Link>
+              {item.href === "/services" ? (
+                <details className="group relative">
+                  <summary className="list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
+                    פתרונות
+                  </summary>
+                  <div className="absolute left-0 top-full z-50 mt-2 grid min-w-60 gap-1 rounded-[1.2rem] border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
+                    <Link className="whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href="/solutions">
+                      כל הפתרונות
+                    </Link>
+                    {solutionNav.map((item) => (
+                      <Link className="whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href={item.href} key={item.href}>
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              ) : null}
+            </Fragment>
           ))}
           <details className="group relative">
             <summary className="list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
@@ -72,6 +93,18 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <div className="rounded-[1.25rem] border border-purple-200/16 bg-purple-500/[0.06] p-2">
+              <Link className="block rounded-full px-4 py-3 text-center text-lg font-black text-purple-100 hover:bg-purple-500/12" href="/solutions" onClick={() => setOpen(false)}>
+                פתרונות
+              </Link>
+              <div className="grid gap-1">
+                {solutionNav.map((item) => (
+                  <Link className="rounded-full px-4 py-2.5 text-center text-base font-black text-zinc-200 hover:bg-white/8" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <a className="mt-2 rounded-full border border-purple-300/20 bg-purple-500/15 px-4 py-3 text-center text-lg font-black text-white" href={site.whatsappHref} onClick={() => setOpen(false)}>
               דברו איתנו בוואטסאפ
             </a>

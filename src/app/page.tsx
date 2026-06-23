@@ -3,6 +3,7 @@ import { BlogCard, ProductCard } from "@/components/Cards";
 import { HeroVisual } from "@/components/HeroVisual";
 import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
 import { Section } from "@/components/Section";
+import { solutionPages } from "@/data/solutions";
 import { blogPosts, products, serviceEcosystem, site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
@@ -186,6 +187,34 @@ export default function HomePage() {
           <Link className="btn-secondary" href="/optimization-hub">
             ראו את מרכז האופטימיזציה
           </Link>
+        </div>
+      </Section>
+
+      <Section eyebrow="פתרונות לפי סוג עסק" title="לא כל עסק צריך אותה מערכת, לכן מתחילים מהיום יום שלכם" className="py-5 lg:py-8">
+        <p className="mb-6 max-w-4xl text-lg leading-8 text-zinc-300">
+          רואה חשבון צריך סדר בדוחות ומסמכים. מוכר Amazon צריך לראות חשבון, מוצרים והתראות לפני שזה נהיה דחוף. פרילנסר צריך לנהל לקוחות, משימות ופניות בלי להישאב לעבודה ידנית. נביא נס ישראל בע״מ בונה לכל אחד מהם תשתית חכמה שמחברת נתונים, תהליכים ו־AI לממשק ברור ופשוט.
+        </p>
+        <div className="grid gap-4 md:grid-cols-3">
+          {solutionPages.map((solution) => (
+            <article className="command-glass group rounded-[1.45rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" key={solution.slug}>
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-black text-glowred">{solution.eyebrow}</p>
+                <span className="status-pip bg-purple-200 text-purple-200" />
+              </div>
+              <Link className="mt-3 block text-2xl font-black leading-tight text-white transition hover:text-glowred" href={`/solutions/${solution.slug}`}>
+                {solution.navLabel}
+              </Link>
+              <p className="mt-3 text-base leading-7 text-zinc-400">{solution.seoDescription}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <Link className="rounded-full border border-purple-200/20 bg-purple-500/12 px-4 py-2 text-sm font-black text-white transition hover:bg-purple-500/24" href={`/solutions/${solution.slug}`}>
+                  לעמוד הפתרון
+                </Link>
+                <a className="rounded-full border border-white/10 px-4 py-2 text-sm font-black text-zinc-200 transition hover:bg-purple-500/18 hover:text-white" href={site.whatsappHref}>
+                  דברו בוואטסאפ
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </Section>
 
