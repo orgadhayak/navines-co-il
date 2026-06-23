@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "יצירת קשר",
-  description: "צרו קשר עם נביא נס ישראל בע״מ בוואטסאפ, במייל או בטלפון. ח.פ. 516647161, וינקלר אלתר 8 פתח תקווה.",
+  description: "דברו עם נביא נס ישראל בע״מ בוואטסאפ, מייל או טלפון לגבי אתר, חנות, מערכת, אוטומציה או שיפור תשתית דיגיטלית.",
   path: "/contact",
 });
 
@@ -28,13 +28,13 @@ const contactActions = [
 
 export default function ContactPage() {
   return (
-    <Section eyebrow="יצירת קשר" title="דברו איתנו זריז" titleAs="h1" className="lg:py-14">
+    <Section eyebrow="יצירת קשר" title="שלחו הודעה קצרה ונכוון אתכם" titleAs="h1" className="lg:py-14">
       <div className="mx-auto max-w-4xl">
         <div className="sparkle-field relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 shadow-premium sm:p-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(216,180,254,0.22),transparent_18rem)]" aria-hidden="true" />
           <div className="relative">
             <p className="max-w-2xl text-xl leading-9 text-zinc-200">
-              בלי טפסים ובלי סיבוכים. כתבו לנו בוואטסאפ או במייל מה אתם רוצים לבנות, לשפר או לחבר, ונחזור אליכם עם כיוון ברור.
+              לא צריך להכין מסמך ארוך. כתבו לנו בוואטסאפ מה יש לכם היום ומה הייתם רוצים לשפר: אתר, חנות, מערכת, אוטומציה, מהירות או אבטחה. נחזור עם שאלות נכונות וכיוון ברור להמשך.
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">

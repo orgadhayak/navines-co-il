@@ -27,13 +27,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="mb-12 rounded-premium border border-white/10 bg-gradient-to-br from-navred/18 to-white/[0.03] p-8">
           <p className="mb-3 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
-          <h2 className="max-w-3xl text-4xl font-black text-white md:text-5xl">תשתית דיגיטלית חכמה לעסק שרוצה לגדול.</h2>
+          <h2 className="max-w-3xl text-4xl font-black text-white md:text-5xl">רוצים להבין מה כדאי לשפר קודם?</h2>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link className="btn-primary" href="/contact">
-              דברו איתנו
+              דברו איתנו בוואטסאפ
             </Link>
             <a className="btn-secondary" href={site.whatsappHref}>
-              שלחו וואטסאפ
+              שלחו הודעה זריזה
             </a>
           </div>
         </div>
@@ -44,9 +44,9 @@ export function Footer() {
               <a className="inline-flex h-10 items-center rounded-premium bg-white px-3" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי הבינלאומי">
                 <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
               </a>
-              <strong className="text-lg text-white">נביא נס ישראל</strong>
+              <strong className="text-lg text-white">נביא נס ישראל בע״מ</strong>
             </div>
-            <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע"מ בונה אתרים, מערכות, אוטומציות, כלי בינה מלאכותית ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
+            <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע״מ בונה אתרים, מערכות, אוטומציות, כלי בינה מלאכותית ותשתיות דיגיטליות לעסקים שרוצים לעבוד ברור, מהר ומסודר יותר.</p>
             <p className="mt-3 text-base font-black text-silver">{site.companyNumberLabel}</p>
           </div>
 
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500">
-          <span>© 2026 נביא נס ישראל בע"מ, ח.פ. {site.companyNumber}. כל הזכויות שמורות.</span>
+          <span>© 2026 נביא נס ישראל בע״מ, ח.פ. {site.companyNumber}. כל הזכויות שמורות.</span>
           <a className="english-tech text-glowred hover:text-white" href={site.internationalUrl} rel="noreferrer" target="_blank">{site.internationalDisplay}</a>
         </div>
       </div>

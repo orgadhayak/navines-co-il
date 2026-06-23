@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export function CTA({
-  title = "רוצים לבנות משהו חכם יותר לעסק שלכם?",
-  text = "ספרו לנו מה אתם רוצים לבנות, לשפר, לחבר או לאוטומט. נחזור עם כיוון ברור להמשך.",
+  title = "לא בטוחים מאיפה להתחיל?",
+  text = "כתבו לנו בוואטסאפ מה קורה בעסק, מה לא עובד מספיק טוב ומה הייתם רוצים לשפר. נכוון אתכם בצורה פשוטה וברורה, בלי התחייבות ובלי סיבוכים.",
 }: {
   title?: string;
   text?: string;
@@ -15,7 +15,7 @@ export function CTA({
         <p className="mt-4 max-w-2xl text-lg text-zinc-300">{text}</p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link className="btn-primary" href="/contact">
-            דברו איתנו
+            דברו איתנו בוואטסאפ
           </Link>
           <Link className="btn-secondary" href="/services">
             ראו שירותים

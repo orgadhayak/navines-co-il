@@ -56,7 +56,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="grid gap-5">
           <InfoBlock title="מה השירות?" items={[service.summary]} />
           <InfoBlock title="למי זה מתאים?" items={service.audience} />
-          <InfoBlock title="מה אנחנו עושים בפועל?" items={service.actions} />
+          <InfoBlock title="מה עושים בפועל ודוגמה פשוטה" items={service.actions} />
           <InfoBlock title="בעיות שאנחנו פותרים" items={service.problems} />
           <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
             <h2 className="text-2xl font-black text-white">תהליך עבודה</h2>
@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </article>
         </div>
       </Section>
-      <CTA title={`רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`} />
+      <CTA title={`רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`} text="כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי." />
     </>
   );
 }

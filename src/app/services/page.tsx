@@ -6,7 +6,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "שירותים",
-  description: "שירותי נביא נס ישראל: בינה מלאכותית, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, קידום אורגני, ניתוח נתונים ואינטגרציות.",
+  description: "שירותי נביא נס ישראל בע״מ לעסקים: אתרים, מערכות, אוטומציה, בינה מלאכותית, חנויות, אבטחה, מהירות וחיבורי מערכות שמייצרים סדר ותוצאות.",
   path: "/services",
 });
 
@@ -21,15 +21,15 @@ const groups: { title: string; items: string[] }[] = [
 export default function ServicesPage() {
   return (
     <>
-      <Section eyebrow="שירותים" title="שירותי נביא נס ישראל" titleAs="h1">
-        <p className="max-w-4xl text-lg leading-8 text-zinc-300">אנחנו מספקים מעטפת טכנולוגית מלאה לעסקים: מהקמת אתרים וחנויות, דרך מערכות בינה מלאכותית ואוטומציה, ועד אבטחה, ניטור, ביצועים, אינטגרציות ושיווק דיגיטלי.</p>
+      <Section eyebrow="שירותים" title="שירותים שמסדרים את העסק הדיגיטלי מקצה לקצה" titleAs="h1">
+        <p className="max-w-4xl text-lg leading-8 text-zinc-300">אם האתר לא מביא פניות, החנות קשה לניהול, הצוות עובד ידנית או המערכות לא מדברות אחת עם השנייה, אנחנו עוזרים לעשות סדר. בונים את מה שצריך, מחברים את מה שקיים ומשפרים את מה שכבר עובד כדי שהעסק יהיה מהיר, ברור ומדיד יותר.</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard index={index} key={service.slug} service={service} />
           ))}
         </div>
       </Section>
-      <Section eyebrow="יכולות" title="תחומי מומחיות מתוך עולם נביא נס">
+      <Section eyebrow="יכולות" title="תחומי מומחיות שמתחברים לצרכים אמיתיים בעסק">
         <div className="grid gap-5 lg:grid-cols-2">
           {groups.map(({ title, items }) => (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" key={title}>
@@ -45,7 +45,7 @@ export default function ServicesPage() {
           ))}
         </div>
       </Section>
-      <CTA />
+      <CTA title="לא בטוחים איזה שירות מתאים לכם?" text="כתבו לנו בוואטסאפ מה אתם רוצים לשפר: אתר, חנות, מערכת, אוטומציה או בעיית ביצועים. נכוון אתכם לשלב הראשון הכי נכון." />
     </>
   );
 }

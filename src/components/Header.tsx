@@ -14,8 +14,8 @@ export function Header() {
           <a className="inline-flex h-10 items-center rounded-full bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
             <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
           </a>
-          <Link className="leading-tight" href="/" aria-label="נביא נס ישראל, בית">
-            <strong className="block text-lg font-black text-white">נביא נס ישראל</strong>
+          <Link className="leading-tight" href="/" aria-label="נביא נס ישראל בע״מ, בית">
+            <strong className="block text-lg font-black text-white">נביא נס ישראל בע״מ</strong>
             <span className="block text-base text-zinc-400">בינה מלאכותית ותשתיות דיגיטליות</span>
           </Link>
         </div>

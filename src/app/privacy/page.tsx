@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "מדיניות פרטיות",
-  description: "מדיניות פרטיות בסיסית עבור אתר נביא נס ישראל.",
+  description: "מדיניות פרטיות בסיסית עבור אתר נביא נס ישראל בע״מ.",
   path: "/privacy",
 });
 

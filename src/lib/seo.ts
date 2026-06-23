@@ -6,8 +6,8 @@ export function createMetadata({
   description,
   path = "",
   type = "website",
-  image = "/og.svg",
-  imageAlt = 'נביא נס ישראל בע"מ, תשתיות דיגיטליות חכמות',
+  image = "/og-navines-israel.jpg",
+  imageAlt = 'נביא נס ישראל בע״מ, תשתיות דיגיטליות חכמות',
 }: {
   title: string;
   description: string;
@@ -17,10 +17,12 @@ export function createMetadata({
   imageAlt?: string;
 }): Metadata {
   const url = `${site.url}${path}`;
-  const pageTitle = path === "" ? `${title} | נביא נס ישראל` : title;
+  const pageTitle = `${title} | ${site.name}`;
 
   return {
-    title: pageTitle,
+    title: {
+      absolute: pageTitle,
+    },
     description,
     metadataBase: new URL(site.url),
     alternates: {
@@ -43,7 +45,7 @@ export function createMetadata({
       siteName: site.name,
       locale: "he_IL",
       type,
-      images: [{ url: image, width: 1200, height: 630, alt: imageAlt }],
+      images: [{ url: image, width: 1106, height: 746, alt: imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
