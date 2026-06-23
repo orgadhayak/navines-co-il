@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">NAVINES ישראל</title>
+  <desc id="desc">תשתיות דיגיטליות, AI, אוטומציה ופיתוח מערכות לעסקים</desc>
+  <rect width="1200" height="630" fill="#070708"/>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#e11d2e"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".18"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="180" cy="120" r="260" fill="#e11d2e" opacity=".16"/>
+  <circle cx="980" cy="450" r="240" fill="#ffffff" opacity=".07"/>
+  <rect x="700" y="130" width="350" height="320" rx="20" fill="#111318" stroke="#ffffff" stroke-opacity=".16"/>
+  <rect x="735" y="175" width="280" height="38" rx="8" fill="url(#g)"/>
+  <rect x="735" y="245" width="220" height="24" rx="8" fill="#ffffff" opacity=".2"/>
+  <rect x="735" y="292" width="250" height="24" rx="8" fill="#ffffff" opacity=".14"/>
+  <rect x="735" y="340" width="180" height="24" rx="8" fill="#ffffff" opacity=".18"/>
+  <text x="120" y="220" fill="#ffffff" font-family="Arial, sans-serif" font-size="76" font-weight="900">NAVINES ישראל</text>
+  <text x="120" y="305" fill="#d8dde6" font-family="Arial, sans-serif" font-size="38" font-weight="700">AI · אוטומציה · אתרים · איקומרס · תשתיות</text>
+  <text x="120" y="375" fill="#ff3b4e" font-family="Arial, sans-serif" font-size="30" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
+</svg>
