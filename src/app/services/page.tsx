@@ -1,12 +1,12 @@
 import { ServiceCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { Section } from "@/components/Section";
-import { services } from "@/data/site";
+import { serviceEcosystem, services } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "שירותים",
-  description: "שירותי נביא נס ישראל בע״מ לעסקים: אתרים, מערכות, אוטומציה, בינה מלאכותית, חנויות, אבטחה, מהירות וחיבורי מערכות שמייצרים סדר ותוצאות.",
+  description: "שירותי נביא נס ישראל בע״מ לעסקים: בינה מלאכותית, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, שיווק, נתונים ותשתיות דיגיטליות במקום אחד.",
   path: "/services",
 });
 
@@ -35,6 +35,28 @@ export default function ServicesPage() {
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" key={title}>
               <h2 className="text-2xl font-black text-white">{title}</h2>
               <div className="mt-4 flex flex-wrap gap-2">
+                {items.map((item) => (
+                  <span className="tag" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+      <Section eyebrow="אקוסיסטם השירותים" title="כל היכולות הדיגיטליות שהעסק יכול לקבל מנביא נס ישראל בע״מ">
+        <p className="mb-8 max-w-4xl text-lg leading-8 text-zinc-300">
+          לקחנו את רוח השירותים של המותג הבינלאומי ובנינו ממנה שכבה עברית ברורה לעסקים בישראל. במקום רשימת מושגים ריקים,
+          כל תחום כאן מתורגם לצורך עסקי פשוט: יותר סדר, פחות עבודה ידנית, אתר מהיר יותר, חנות יציבה יותר, אבטחה טובה יותר
+          ומערכות שמדברות אחת עם השנייה.
+        </p>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {serviceEcosystem.map(({ title, intro, items }) => (
+            <article className="rounded-[1.6rem] border border-purple-300/15 bg-black/28 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.24)]" key={title}>
+              <h2 className="text-2xl font-black text-white">{title}</h2>
+              <p className="mt-3 text-base leading-7 text-zinc-300">{intro}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
                 {items.map((item) => (
                   <span className="tag" key={item}>
                     {item}
