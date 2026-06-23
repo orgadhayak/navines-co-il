@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
 import type { BlogPost, Product, Service } from "@/data/site";
-import { getBlogVisual } from "@/lib/blogVisuals";
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
@@ -67,15 +66,9 @@ export function ProductCard({ product }: { product: Product }) {
 }
 
 export function BlogCard({ post }: { post: BlogPost }) {
-  const visual = getBlogVisual(post.slug);
-
   return (
-    <article className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] shadow-premium transition hover:border-navred/55" data-category={post.category} data-tags={post.tags.join(" ")}>
-      <div className="sparkle-field relative h-36 overflow-hidden border-b border-white/10 bg-black/30">
-        <img alt={visual.alt} className="h-full w-full object-cover opacity-80 mix-blend-screen transition duration-500 hover:scale-105" loading="lazy" src={visual.src} />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(7,7,8,0.72))]" aria-hidden="true" />
-      </div>
-      <div className="p-5">
+    <article className="rounded-[1.4rem] border border-white/10 bg-white/[0.035] p-5 shadow-premium transition hover:border-navred/55" data-category={post.category} data-tags={post.tags.join(" ")}>
+      <div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-black text-zinc-500">
           <span className="text-glowred">
             <BrandInline text={post.category} />

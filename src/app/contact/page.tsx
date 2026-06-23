@@ -58,7 +58,7 @@ export default function ContactPage() {
                 <a className="block font-black text-white transition hover:text-glowred" href={site.phoneHref}>
                   {site.phone}
                 </a>
-                <a className="mt-2 block font-black text-white transition hover:text-glowred" href={site.emailHref}>
+                <a className="english-tech mt-2 block font-black text-white transition hover:text-glowred" href={site.emailHref}>
                   {site.email}
                 </a>
                 <a

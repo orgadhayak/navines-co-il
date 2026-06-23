@@ -85,14 +85,14 @@ export function Footer() {
               <span>{site.companyNumberLabel}</span>
               <span>{site.hebrewAddress}</span>
               <a href={site.phoneHref}>{site.phone}</a>
-              <a href={site.emailHref}>{site.email}</a>
+              <a className="english-tech" href={site.emailHref}>{site.email}</a>
             </div>
           </div>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500">
           <span>© 2026 נביא נס ישראל בע"מ, ח.פ. {site.companyNumber}. כל הזכויות שמורות.</span>
-          <a href={site.internationalUrl} rel="noreferrer" target="_blank">האתר הבינלאומי</a>
+          <a className="english-tech text-glowred hover:text-white" href={site.internationalUrl} rel="noreferrer" target="_blank">{site.internationalDisplay}</a>
         </div>
       </div>
     </footer>
