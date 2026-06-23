@@ -5,6 +5,7 @@ export function HeroVisual() {
         <span className="hero-electric hero-electric-a" aria-hidden="true" />
         <span className="hero-electric hero-electric-b" aria-hidden="true" />
         <span className="hero-electric hero-electric-c" aria-hidden="true" />
+        <span className="hero-electric hero-electric-d" aria-hidden="true" />
         <span className="hero-spark hero-spark-a left-[9%] top-[29%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-b left-[20%] bottom-[19%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-c right-[12%] top-[17%]" aria-hidden="true" />
@@ -15,6 +16,10 @@ export function HeroVisual() {
         <span className="hero-spark hero-spark-h left-[64%] bottom-[6%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-i right-[31%] top-[8%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-j left-[32%] top-[13%]" aria-hidden="true" />
+        <span className="hero-spark hero-spark-k right-[40%] bottom-[22%]" aria-hidden="true" />
+        <span className="hero-spark hero-spark-l left-[15%] top-[54%]" aria-hidden="true" />
+        <span className="hero-spark hero-spark-m right-[17%] top-[38%]" aria-hidden="true" />
+        <span className="hero-spark hero-spark-n left-[41%] bottom-[10%]" aria-hidden="true" />
         <img
           alt="מגן דוד טכנולוגי סגול וזוהר"
           className="glow-asset relative h-full w-full object-contain"
