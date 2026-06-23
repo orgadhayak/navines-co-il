@@ -114,7 +114,39 @@ body {
     0 0 48px rgba(126, 34, 206, 0.22);
 }
 
+.hero-image-stage {
+  isolation: isolate;
+  background: #000;
+}
+
+.hero-image-stage::before,
+.hero-image-stage::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 9999px;
+}
+
+.hero-image-stage::before {
+  box-shadow:
+    0 0 42px rgba(255, 255, 255, 0.08),
+    0 0 76px rgba(216, 180, 254, 0.16),
+    inset 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+.hero-image-stage::after {
+  inset: 17%;
+  background:
+    linear-gradient(115deg, transparent 0 41%, rgba(255, 255, 255, 0.15) 41.3% 41.7%, transparent 42.1% 100%),
+    linear-gradient(25deg, transparent 0 57%, rgba(216, 180, 254, 0.12) 57.2% 57.55%, transparent 57.9% 100%);
+  opacity: 0.9;
+  filter: blur(0.2px);
+}
+
 .glow-asset {
+  z-index: 1;
   filter:
     drop-shadow(0 0 28px rgba(255, 255, 255, 0.22))
     drop-shadow(0 0 54px rgba(216, 180, 254, 0.66))

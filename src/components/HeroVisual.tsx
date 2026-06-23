@@ -30,7 +30,7 @@ export function HeroVisual() {
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0_26%,rgba(255,255,255,0.09)_26.2%_26.45%,transparent_26.7%_100%),linear-gradient(35deg,transparent_0_68%,rgba(216,180,254,0.1)_68.2%_68.45%,transparent_68.7%_100%)]" aria-hidden="true" />
       <div className="pointer-events-none absolute left-[18%] top-[18%] h-24 w-32 rotate-[-18deg] rounded-full bg-white/10 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-[12%] right-[12%] h-28 w-40 rotate-[20deg] rounded-full bg-white/8 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute bottom-[12%] right-[12%] h-28 w-40 rotate-[20deg] rounded-full bg-[rgba(255,255,255,0.07)] blur-3xl" aria-hidden="true" />
 
       <div className="relative z-10 grid gap-3">
         <div className="grid gap-2 sm:grid-cols-3">
@@ -48,12 +48,9 @@ export function HeroVisual() {
           ))}
         </div>
 
-        <div className="relative mx-auto h-64 w-full max-w-[34rem] bg-black sm:h-[23rem] lg:h-[25rem]">
-          <div className="absolute inset-8 rounded-full border border-white/8 bg-black shadow-[0_0_58px_rgba(255,255,255,0.08),0_0_78px_rgba(216,180,254,0.16)]" aria-hidden="true" />
-          <div className="absolute inset-16 rounded-full bg-white/[0.035] blur-[38px]" aria-hidden="true" />
-          <div className="absolute inset-x-10 top-8 hidden rounded-full border border-purple-300/12 bg-black/36 px-4 py-2 text-center text-sm font-black text-glowred shadow-[0_0_35px_rgba(168,85,247,0.18)] sm:block">
-            מרכז פיקוד דיגיטלי לעסק
-          </div>
+        <div className="hero-image-stage relative mx-auto h-64 w-full max-w-[34rem] sm:h-[23rem] lg:h-[25rem]">
+          <span className="absolute inset-x-8 top-8 h-px bg-gradient-to-l from-transparent via-white/45 to-transparent shadow-[0_0_24px_rgba(216,180,254,0.32)]" aria-hidden="true" />
+          <span className="absolute inset-x-10 bottom-8 h-px bg-gradient-to-l from-transparent via-purple-200/35 to-transparent shadow-[0_0_24px_rgba(168,85,247,0.25)]" aria-hidden="true" />
           <div className="absolute left-[12%] top-[19%] h-px w-2/3 rotate-[-16deg] bg-gradient-to-l from-transparent via-white/55 to-transparent shadow-[0_0_24px_rgba(216,180,254,0.36)]" aria-hidden="true" />
           <div className="absolute bottom-[24%] right-[8%] h-px w-3/4 rotate-[22deg] bg-gradient-to-l from-transparent via-purple-300/48 to-transparent shadow-[0_0_24px_rgba(168,85,247,0.34)]" aria-hidden="true" />
           <div className="absolute inset-x-10 top-1/2 h-px bg-gradient-to-l from-transparent via-purple-200/25 to-transparent" aria-hidden="true" />

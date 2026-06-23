@@ -4,6 +4,7 @@ import { site } from "@/data/site";
 
 export function Footer() {
   const serviceLinks = [
+    ["נתונים ו־ChatGPT", "/services/chatgpt-business-data"],
     ["אתרים ומערכות", "/services/web-development"],
     ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
     ["איקומרס", "/services/ecommerce"],
@@ -24,12 +25,14 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/10 bg-[#050506]">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mb-12 rounded-premium border border-white/10 bg-gradient-to-br from-navred/18 to-white/[0.03] p-8">
-          <p className="mb-3 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
-          <h2 className="max-w-3xl text-4xl font-black text-white md:text-5xl">רוצים להבין מה כדאי לשפר קודם?</h2>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">שיחת היכרות חינם וחברית בוואטסאפ. אנחנו מפתח תקווה, גאים במערכות ובכלים שבנינו, ומחכים לשמוע מה תרצו לבנות או לשפר.</p>
-          <div className="mt-6 flex flex-wrap gap-3">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="command-glass mb-10 rounded-[1.8rem] p-6 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="max-w-3xl">
+            <p className="mb-2 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
+            <h2 className="text-3xl font-black leading-tight text-white md:text-5xl">רוצים להבין מה כדאי לשפר קודם?</h2>
+            <p className="mt-3 text-lg leading-8 text-zinc-300">שיחת היכרות חינם וחברית בוואטסאפ. אנחנו מפתח תקווה, גאים במערכות ובכלים שבנינו, ומחכים לשמוע מה תרצו לבנות או לשפר.</p>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:justify-end">
             <a className="btn-primary" href={site.whatsappHref}>
               דברו איתנו בוואטסאפ בחינם
             </a>
@@ -39,15 +42,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-          <div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1.1fr]">
+          <div className="max-w-sm">
             <div className="mb-4 flex items-center gap-3">
-              <a className="inline-flex h-10 items-center rounded-premium bg-white px-3" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי הבינלאומי">
-                <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
+              <a className="inline-flex items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי הבינלאומי">
+                <img alt="NAVINES" className="h-5 w-auto object-contain drop-shadow-[0_0_14px_rgba(216,180,254,0.34)]" src="/brand/navines-wordmark-slim.png" />
               </a>
-              <strong className="text-lg text-white">נביא נס ישראל בע״מ</strong>
             </div>
-            <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע״מ בונה אתרים, מערכות, אוטומציות, כלי בינה מלאכותית ותשתיות דיגיטליות לעסקים שרוצים לעבוד ברור, מהר ומסודר יותר.</p>
+            <strong className="block text-xl font-black text-white">נביא נס ישראל בע״מ</strong>
+            <p className="mt-3 text-base leading-8 text-zinc-400">בונים אתרים, מערכות, אוטומציות, כלי בינה מלאכותית ותשתיות דיגיטליות לעסקים שרוצים לעבוד ברור, מהר ומסודר יותר.</p>
             <p className="mt-3 text-base font-black text-silver">{site.companyNumberLabel}</p>
           </div>
 
