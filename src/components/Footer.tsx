@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { services, site } from "@/data/site";
+import { site } from "@/data/site";
 
 export function Footer() {
   const serviceLinks = [
@@ -12,7 +12,7 @@ export function Footer() {
     ["ייעוץ טכנולוגי", "/services/consulting"],
   ];
 
-  const toolLinks = ["NAVINES Beacon", "Website Analyzer", "CheckLink.ai", "Real Estate Intelligence", "Maor Israel"];
+  const toolLinks = ["NAVINES Beacon", "TalkToData", "Website Analyzer", "CheckLink.ai", "Real Estate Intelligence", "Maor Israel"];
 
   return (
     <footer className="border-t border-white/10 bg-[#050506]">
@@ -33,8 +33,10 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-premium bg-gradient-to-br from-white to-zinc-400 font-black text-ink">N</span>
-              <strong className="text-white">NAVINES ישראל</strong>
+              <span className="inline-flex h-10 items-center rounded-premium bg-white px-3">
+                <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
+              </span>
+              <strong className="text-white">נבינס ישראל</strong>
             </div>
             <p className="text-sm leading-7 text-zinc-400">נבינס ישראל בע״מ בונה אתרים, מערכות, אוטומציות, כלי AI ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
           </div>
@@ -73,7 +75,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500">
-          <span>© 2026 NAVINES Israel Ltd. All rights reserved.</span>
+          <span>© 2026 נבינס ישראל בע״מ. כל הזכויות שמורות.</span>
           <Link href={site.internationalUrl}>navines.com</Link>
         </div>
       </div>

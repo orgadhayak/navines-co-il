@@ -1,6 +1,7 @@
 export const site = {
   name: "NAVINES ישראל",
-  legalName: "NAVINES Israel Ltd.",
+  legalName: "נבינס ישראל בע״מ",
+  englishLegalName: "NAVINES Israel Ltd.",
   hebrewLegalName: "נבינס ישראל בע״מ",
   url: "https://www.navines.co.il",
   internationalUrl: "https://www.navines.com",
@@ -242,10 +243,13 @@ export type Product = {
   description: string;
   audience: string;
   solves: string;
+  url?: string;
+  cta?: string;
 };
 
 export const products: Product[] = [
   { slug: "navines-beacon", name: "NAVINES Beacon", status: "בטא", description: "מערכת מודיעין תפעולי לניטור אתרים, חנויות ונכסים דיגיטליים.", audience: "עסקים עם נכסים דיגיטליים פעילים", solves: "זיהוי מוקדם של בעיות, סיכונים ושינויי ביצועים" },
+  { slug: "talk-to-data", name: "TalkToData", status: "פעיל", description: "כלי שמאפשר לשאול שאלות עסקיות בשפה טבעית ולקבל תובנות מנתונים, דוחות וקבצים בלי להסתבך עם שאילתות או דשבורדים כבדים.", audience: "מנהלים, צוותי מכירות, איקומרס ותפעול שרוצים להבין נתונים מהר", solves: "הופך נתונים מפוזרים לשיחה ברורה שמובילה להחלטות מהירות יותר", url: "https://talktodata.navines.com", cta: "לצפייה ב־TalkToData" },
   { slug: "website-analyzer", name: "NAVINES Website Analyzer", status: "פעיל", description: "כלי בדיקת אתר שמבצע ניתוח Lighthouse למהירות, SEO, נגישות ואיכות טכנית.", audience: "בעלי עסקים שרוצים להבין מה קורה באתר שלהם", solves: "איתור צווארי בקבוק טכניים לפני שהם פוגעים בהמרות" },
   { slug: "checklink", name: "CheckLink.ai", status: "פעיל", description: "כלי חכם לבדיקה, ניתוח ואימות קישורים ונכסים דיגיטליים לפני שלוחצים או משתפים.", audience: "צוותים, עסקים ומשתמשים זהירים", solves: "הפחתת סיכוני קישור, אמון והתחזות" },
   { slug: "real-estate-intelligence", name: "NAVINES Real Estate Intelligence", status: "בטא", description: "מערכת מודיעין נדל״ן לניתוח נכסים, הזדמנויות, נתונים וסביבת החלטה.", audience: "חברות נדל״ן ומשקיעים", solves: "קבלת החלטות מבוססת נתונים" },

@@ -17,8 +17,8 @@ export function BlogFilter({ categories, posts }: { categories: string[]; posts:
   }, [category, posts, query]);
 
   return (
-    <div className="grid gap-8">
-      <div className="rounded-premium border border-white/10 bg-white/[0.045] p-4">
+    <div className="grid gap-6">
+      <div className="border-b border-white/10 pb-5">
         <input className="form-field" onChange={(event) => setQuery(event.target.value)} placeholder="חיפוש במאמרים" value={query} />
         <div className="mt-4 flex flex-wrap gap-2">
           <button className={`tag ${category === "" ? "tag-active" : ""}`} onClick={() => setCategory("")} type="button">
@@ -31,7 +31,7 @@ export function BlogFilter({ categories, posts }: { categories: string[]; posts:
           ))}
         </div>
       </div>
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((post) => (
           <BlogCard key={post.slug} post={post} />
         ))}

@@ -1,25 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">NAVINES ישראל</title>
-  <desc id="desc">תשתיות דיגיטליות, AI, אוטומציה ופיתוח מערכות לעסקים</desc>
+  <title id="title">נבינס ישראל בע״מ</title>
+  <desc id="desc">מערכות AI, אוטומציה, אתרים ותשתיות דיגיטליות לעסקים</desc>
   <rect width="1200" height="630" fill="#070708"/>
   <defs>
-    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+    <linearGradient id="red" x1="0" x2="1" y1="0" y2="1">
       <stop stop-color="#e11d2e"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#ff7a86"/>
     </linearGradient>
-    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M42 0H0V42" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
-    </pattern>
+    <linearGradient id="steel" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#20242c"/>
+      <stop offset="1" stop-color="#0c0d10"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <circle cx="180" cy="120" r="260" fill="#e11d2e" opacity=".16"/>
-  <circle cx="980" cy="450" r="240" fill="#ffffff" opacity=".07"/>
-  <rect x="700" y="130" width="350" height="320" rx="20" fill="#111318" stroke="#ffffff" stroke-opacity=".16"/>
-  <rect x="735" y="175" width="280" height="38" rx="8" fill="url(#g)"/>
-  <rect x="735" y="245" width="220" height="24" rx="8" fill="#ffffff" opacity=".2"/>
-  <rect x="735" y="292" width="250" height="24" rx="8" fill="#ffffff" opacity=".14"/>
-  <rect x="735" y="340" width="180" height="24" rx="8" fill="#ffffff" opacity=".18"/>
-  <text x="120" y="220" fill="#ffffff" font-family="Arial, sans-serif" font-size="76" font-weight="900">NAVINES ישראל</text>
-  <text x="120" y="305" fill="#d8dde6" font-family="Arial, sans-serif" font-size="38" font-weight="700">AI · אוטומציה · אתרים · איקומרס · תשתיות</text>
-  <text x="120" y="375" fill="#ff3b4e" font-family="Arial, sans-serif" font-size="30" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
+  <path d="M0 0h1200v630H0z" fill="#070708"/>
+  <path d="M70 512C214 418 338 390 503 428c169 39 293 20 420-68 87-61 151-85 207-88v358H70z" fill="url(#steel)" opacity=".72"/>
+  <path d="M80 456c138-92 263-112 416-70 170 47 292 14 432-84 68-48 128-73 192-82" fill="none" stroke="url(#red)" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+  <rect x="80" y="74" width="238" height="72" rx="8" fill="#ffffff"/>
+  <text x="106" y="123" fill="#050506" font-family="Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">NAVINES</text>
+  <text x="80" y="236" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="900">נבינס ישראל בע״מ</text>
+  <text x="80" y="306" fill="#d8dde6" font-family="Arial, sans-serif" font-size="38" font-weight="700">AI · אוטומציה · אתרים · איקומרס · תשתיות</text>
+  <text x="80" y="370" fill="#ff3b4e" font-family="Arial, sans-serif" font-size="31" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
 </svg>

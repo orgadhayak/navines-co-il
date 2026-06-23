@@ -33,9 +33,9 @@ export default function HomePage() {
         <HeroVisual />
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-premium border border-white/10 bg-white/10 px-0 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="mx-auto grid max-w-7xl gap-3 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {metrics.map((metric) => (
-          <div className="bg-steel p-6" key={metric}>
+          <div className="rounded-premium border border-white/10 border-r-navred/40 bg-white/[0.035] p-5" key={metric}>
             <strong className="text-2xl text-white">{metric}</strong>
             <p className="mt-2 text-sm text-zinc-400">פחות עבודה ידנית. יותר שליטה, מדידה ואוטומציה.</p>
           </div>
@@ -67,7 +67,7 @@ export default function HomePage() {
 
       <Section eyebrow="בלוג" title="מאמרים, תובנות וכלים לעסקים דיגיטליים">
         <p className="mb-8 max-w-3xl text-lg leading-8 text-zinc-300">בבלוג של NAVINES ישראל נפרסם מדריכים, תובנות, ניתוחים ודוגמאות מעשיות על AI, אוטומציה, אתרים, איקומרס, SEO, אבטחה, ביצועים, שיווק וכלים דיגיטליים לעסקים.</p>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {blogPosts.slice(0, 4).map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}

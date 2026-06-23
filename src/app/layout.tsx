@@ -9,11 +9,35 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.navines.co.il"),
+  applicationName: "נבינס ישראל",
   title: {
-    default: "NAVINES ישראל | AI, אוטומציה ותשתיות דיגיטליות",
-    template: "%s | NAVINES ישראל",
+    default: "נבינס ישראל בע״מ | AI, אוטומציה ותשתיות דיגיטליות",
+    template: "%s | נבינס ישראל",
   },
   description: "נבינס ישראל בע״מ בונה מערכות AI, אתרים, אוטומציות, חנויות ותשתיות דיגיטליות לעסקים בישראל.",
+  keywords: ["נבינס ישראל", "NAVINES", "AI לעסקים", "אוטומציה", "בניית אתרים", "איקומרס", "תשתיות דיגיטליות"],
+  authors: [{ name: "נבינס ישראל בע״מ" }],
+  creator: "נבינס ישראל בע״מ",
+  publisher: "נבינס ישראל בע״מ",
+  icons: {
+    icon: [{ url: "/brand/navines-symbol.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/brand/navines-symbol.jpg", type: "image/jpeg" }],
+  },
+  openGraph: {
+    title: "נבינס ישראל בע״מ | AI, אוטומציה ותשתיות דיגיטליות",
+    description: "אתר NAVINES ישראל הרשמי: מערכות AI, אתרים, אוטומציה, איקומרס ותשתיות דיגיטליות לעסקים.",
+    url: "https://www.navines.co.il",
+    siteName: "נבינס ישראל",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "/og.svg", width: 1200, height: 630, alt: "נבינס ישראל - תשתיות דיגיטליות חכמות" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "נבינס ישראל בע״מ | AI, אוטומציה ותשתיות דיגיטליות",
+    description: "מערכות AI, אתרים, אוטומציה, איקומרס ותשתיות דיגיטליות לעסקים בישראל.",
+    images: ["/og.svg"],
+  },
 };
 
 export const viewport: Viewport = {
