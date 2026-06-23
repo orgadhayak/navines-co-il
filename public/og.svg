@@ -4,8 +4,8 @@
   <rect width="1200" height="630" fill="#070708"/>
   <defs>
     <linearGradient id="red" x1="0" x2="1" y1="0" y2="1">
-      <stop stop-color="#e11d2e"/>
-      <stop offset="1" stop-color="#ff7a86"/>
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#d8b4fe"/>
     </linearGradient>
     <linearGradient id="steel" x1="0" x2="1" y1="0" y2="1">
       <stop stop-color="#20242c"/>
@@ -19,6 +19,6 @@
   <text x="106" y="123" fill="#050506" font-family="Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">NAVINES</text>
   <text x="80" y="236" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="900">נביא נס ישראל בע"מ</text>
   <text x="80" y="306" fill="#d8dde6" font-family="Arial, sans-serif" font-size="38" font-weight="700">AI · אוטומציה · אתרים · איקומרס · תשתיות</text>
-  <text x="80" y="362" fill="#ff3b4e" font-family="Arial, sans-serif" font-size="31" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
+  <text x="80" y="362" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="31" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
   <text x="80" y="414" fill="#d8dde6" font-family="Arial, sans-serif" font-size="26" font-weight="700">ח.פ. 516647161</text>
 </svg>

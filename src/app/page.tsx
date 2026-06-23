@@ -28,6 +28,9 @@ export default function HomePage() {
             <Link className="btn-secondary" href="/products">
               ראו מה אנחנו בונים
             </Link>
+            <a className="btn-secondary" href="https://analyze.navines.com" rel="noreferrer" target="_blank">
+              בדקו את האתר שלכם
+            </a>
           </div>
         </div>
         <HeroVisual />

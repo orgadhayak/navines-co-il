@@ -27,7 +27,7 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(135deg, rgba(225, 29, 46, 0.13), transparent 32rem),
+    linear-gradient(135deg, rgba(139, 92, 246, 0.18), transparent 32rem),
     linear-gradient(210deg, rgba(255, 255, 255, 0.06), transparent 28rem),
     #070708;
   color: #f7f7f8;
@@ -37,12 +37,12 @@ body {
 }
 
 ::selection {
-  background: rgba(225, 29, 46, 0.5);
+  background: rgba(139, 92, 246, 0.5);
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-navred/80 bg-gradient-to-br from-navred to-red-900 px-6 py-3 text-center text-base font-black text-white shadow-glow transition hover:brightness-110;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-navred/80 bg-gradient-to-br from-navred to-purple-950 px-6 py-3 text-center text-base font-black text-white shadow-glow transition hover:brightness-110;
   }
 
   .btn-secondary {

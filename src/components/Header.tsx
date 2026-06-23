@@ -10,15 +10,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/82 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link className="flex items-center gap-3" href="/" aria-label="נביא נס ישראל, בית">
-          <span className="inline-flex h-10 items-center rounded-premium bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]">
+        <div className="flex items-center gap-3">
+          <a className="inline-flex h-10 items-center rounded-premium bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES official website">
             <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
-          </span>
-          <span className="leading-tight">
+          </a>
+          <Link className="leading-tight" href="/" aria-label="נביא נס ישראל, בית">
             <strong className="block text-lg font-black text-white">נביא נס ישראל</strong>
             <span className="block text-base text-zinc-400">AI ותשתיות דיגיטליות</span>
-          </span>
-        </Link>
+          </Link>
+        </div>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="תפריט ראשי">
           {mainNav.map((item) => (

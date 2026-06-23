@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { BrandInline } from "@/components/BrandInline";
 import { BlogCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
@@ -44,11 +45,23 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "בלוג", href: "/blog" }, { name: post.title, href: `/blog/${post.slug}` }])} />
       <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mb-8 min-h-64 rounded-premium border border-white/10 bg-[linear-gradient(135deg,rgba(225,29,46,0.38),rgba(255,255,255,0.08)),linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:auto,28px_28px,28px_28px]" aria-label="תמונת מאמר טכנולוגית" role="img" />
-        <p className="text-sm font-black text-glowred">{post.category}</p>
-        <h1 className="mt-3 text-4xl font-black leading-tight text-white md:text-6xl">{post.title}</h1>
-        <p className="mt-5 text-xl leading-9 text-zinc-300">{post.excerpt}</p>
-        <p className="mt-4 text-sm text-zinc-500">{post.date} · מחבר: NAVINES · {post.readingTime}</p>
+        <div className="mb-8 min-h-64 rounded-premium border border-white/10 bg-[linear-gradient(145deg,rgba(139,92,246,0.32),rgba(255,255,255,0.07)),linear-gradient(210deg,rgba(216,180,254,0.18),transparent)]" aria-label="תמונת מאמר טכנולוגית" role="img" />
+        <p className="text-sm font-black text-glowred">
+          <BrandInline text={post.category} />
+        </p>
+        <h1 className="mt-3 text-4xl font-black leading-tight text-white md:text-6xl">
+          <BrandInline text={post.title} />
+        </h1>
+        <p className="mt-5 text-xl leading-9 text-zinc-300">
+          <BrandInline text={post.excerpt} />
+        </p>
+        <p className="mt-4 text-sm text-zinc-500">
+          {post.date} · מחבר:{" "}
+          <a className="text-glowred hover:text-white" href={site.internationalUrl} rel="noreferrer" target="_blank">
+            NAVINES
+          </a>{" "}
+          · {post.readingTime}
+        </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a className="btn-secondary" href={`https://www.linkedin.com/sharing/share-offsite/?url=${site.url}/blog/${post.slug}`}>
             שיתוף ב־LinkedIn
@@ -63,7 +76,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
         <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
           <h2>למה זה חשוב לעסק?</h2>
-          <p>{post.excerpt} עסקים שמטפלים בנושא הזה בצורה מסודרת מקבלים יותר שליטה, פחות עבודה ידנית ויכולת למדוד מה באמת מתקדם.</p>
+          <p>
+            <BrandInline text={post.excerpt} /> עסקים שמטפלים בנושא הזה בצורה מסודרת מקבלים יותר שליטה, פחות עבודה ידנית ויכולת למדוד מה באמת מתקדם.
+          </p>
           <h2>איך זה נראה בפועל?</h2>
           <p>העבודה מתחילה ממיפוי קצר של האתר, המערכות, הנתונים והתהליך העסקי. לאחר מכן בוחרים את הפעולות שייתנו ערך מהר: שיפור מהירות, חיבור מערכת, אוטומציה, ניטור או תיקון נקודת אמון קריטית.</p>
           <h2>דוגמאות מעשיות</h2>

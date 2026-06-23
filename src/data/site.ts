@@ -250,12 +250,12 @@ export type Product = {
 };
 
 export const products: Product[] = [
-  { slug: "navines-beacon", name: "NAVINES Beacon", status: "בטא", description: "מערכת מודיעין תפעולי לניטור אתרים, חנויות ונכסים דיגיטליים.", audience: "עסקים עם נכסים דיגיטליים פעילים", solves: "זיהוי מוקדם של בעיות, סיכונים ושינויי ביצועים" },
+  { slug: "navines-beacon", name: "NAVINES Beacon", status: "בטא", description: "מערכת מודיעין תפעולי לניטור אתרים, חנויות ונכסים דיגיטליים.", audience: "עסקים עם נכסים דיגיטליים פעילים", solves: "זיהוי מוקדם של בעיות, סיכונים ושינויי ביצועים", url: "https://beacon.navines.com", cta: "לצפייה ב־Beacon" },
   { slug: "talk-to-data", name: "TalkToData", status: "פעיל", description: "כלי שמאפשר לשאול שאלות עסקיות בשפה טבעית ולקבל תובנות מנתונים, דוחות וקבצים בלי להסתבך עם שאילתות או דשבורדים כבדים.", audience: "מנהלים, צוותי מכירות, איקומרס ותפעול שרוצים להבין נתונים מהר", solves: "הופך נתונים מפוזרים לשיחה ברורה שמובילה להחלטות מהירות יותר", url: "https://talktodata.navines.com", cta: "לצפייה ב־TalkToData" },
-  { slug: "website-analyzer", name: "NAVINES Website Analyzer", status: "פעיל", description: "כלי בדיקת אתר שמבצע ניתוח Lighthouse למהירות, SEO, נגישות ואיכות טכנית.", audience: "בעלי עסקים שרוצים להבין מה קורה באתר שלהם", solves: "איתור צווארי בקבוק טכניים לפני שהם פוגעים בהמרות" },
-  { slug: "checklink", name: "CheckLink.ai", status: "פעיל", description: "כלי חכם לבדיקה, ניתוח ואימות קישורים ונכסים דיגיטליים לפני שלוחצים או משתפים.", audience: "צוותים, עסקים ומשתמשים זהירים", solves: "הפחתת סיכוני קישור, אמון והתחזות" },
+  { slug: "website-analyzer", name: "NAVINES Website Analyzer", status: "פעיל", description: "כלי בדיקת אתר שמבצע ניתוח Lighthouse למהירות, SEO, נגישות ואיכות טכנית.", audience: "בעלי עסקים שרוצים להבין מה קורה באתר שלהם", solves: "איתור צווארי בקבוק טכניים לפני שהם פוגעים בהמרות", url: "https://analyze.navines.com", cta: "בדקו את האתר שלכם" },
+  { slug: "checklink", name: "CheckLink.ai", status: "פעיל", description: "כלי חכם לבדיקה, ניתוח ואימות קישורים ונכסים דיגיטליים לפני שלוחצים או משתפים.", audience: "צוותים, עסקים ומשתמשים זהירים", solves: "הפחתת סיכוני קישור, אמון והתחזות", url: "https://checklink.ai", cta: "לבדיקת קישור" },
   { slug: "real-estate-intelligence", name: "NAVINES Real Estate Intelligence", status: "בטא", description: "מערכת מודיעין נדל״ן לניתוח נכסים, הזדמנויות, נתונים וסביבת החלטה.", audience: "חברות נדל״ן ומשקיעים", solves: "קבלת החלטות מבוססת נתונים" },
-  { slug: "maor-israel", name: "Maor Israel", status: "פנימי", description: "מערכת ניטור AI מאובטחת לסביבות רגישות ללא Agents, API, Credentials או גישה ישירה.", audience: "ארגונים וסביבות רגישות", solves: "ניטור חד־כיווני בלי חשיפת מערכות פנימיות" },
+  { slug: "maor-israel", name: "Maor Israel", status: "פנימי", description: "מערכת ניטור AI מאובטחת לסביבות רגישות ללא Agents, API, Credentials או גישה ישירה.", audience: "ארגונים וסביבות רגישות", solves: "ניטור חד־כיווני בלי חשיפת מערכות פנימיות", url: "https://maorisrael.com", cta: "לצפייה ב־Maor Israel" },
   { slug: "ai-tools-portfolio", name: "AI Tools Portfolio", status: "פעיל", description: "אוסף כלים לשיפור קבלת החלטות, ניטור, אוטומציה, אמון, תוכן וביצועים.", audience: "עסקים וצוותים דיגיטליים", solves: "גישה מרוכזת לכלי NAVINES" },
   { slug: "amazon-listing-analyzer", name: "Amazon Listing Analyzer", status: "בטא", description: "ניתוח עמודי מוצר, תוכן, אמון והזדמנויות שיפור ב־Amazon.", audience: "מוכרי Amazon", solves: "שיפור הצגת מוצר והמרה" },
   { slug: "shopify-product-analyzer", name: "Shopify Product Analyzer", status: "בטא", description: "ניתוח דפי מוצר, מסרים, תוכן וחוויית קנייה ב־Shopify.", audience: "חנויות Shopify", solves: "שיפור דפי מוצר והצעת מכר" },
@@ -285,7 +285,7 @@ export const blogPosts: BlogPost[] = [
   { slug: "amazon-ebay-mistakes", title: "טעויות נפוצות במוכרי Amazon ו־eBay", category: "Amazon ו־eBay", tags: ["Amazon", "eBay", "Account Health"], date: "2026-01-22", readingTime: "6 דקות", excerpt: "מוכרים רבים מפסידים זמן וכסף בגלל תוכן חלש, ניטור חסר ותהליכי חשבון לא מסודרים." },
   { slug: "api-save-hours", title: "למה חיבורי API יכולים לחסוך לעסק עשרות שעות בחודש", category: "תשתיות דיגיטליות", tags: ["API", "אינטגרציות"], date: "2026-01-25", readingTime: "5 דקות", excerpt: "API טוב מחבר מערכות ומצמצם העתקות ידניות, טעויות ועיכובים." },
   { slug: "website-trust", title: "איך לשפר אמון באתר ולגרום ליותר לקוחות לפנות", category: "מדריכים לעסקים", tags: ["אמון", "המרות", "UX"], date: "2026-01-28", readingTime: "5 דקות", excerpt: "אמון באתר נבנה דרך מהירות, תוכן ברור, הוכחות, אבטחה וחוויית משתמש נקייה." },
-  { slug: "navines-beacon", title: "מה זה NAVINES Beacon ולמה עסקים צריכים ניטור דיגיטלי", category: "כלים מבית NAVINES", tags: ["Beacon", "ניטור"], date: "2026-02-02", readingTime: "5 דקות", excerpt: "ניטור דיגיטלי עוזר לזהות בעיות לפני שהן הופכות לפגיעה במכירות, אמון או שירות." },
+  { slug: "navines-beacon", title: "מה זה NAVINES Beacon ולמה עסקים צריכים ניטור דיגיטלי", category: "כלים מבית המותג", tags: ["Beacon", "ניטור"], date: "2026-02-02", readingTime: "5 דקות", excerpt: "ניטור דיגיטלי עוזר לזהות בעיות לפני שהן הופכות לפגיעה במכירות, אמון או שירות." },
   { slug: "internal-business-system", title: "איך בונים מערכת פנימית לעסק בלי להסתבך", category: "מערכות עסקיות", tags: ["מערכות", "תפעול"], date: "2026-02-06", readingTime: "6 דקות", excerpt: "מערכת פנימית טובה מתחילה מתהליך ברור, הרשאות נכונות ומדידה של מה שבאמת חשוב." },
   { slug: "wordpress-security", title: "אבטחת אתרי WordPress, מה כל בעל עסק חייב לדעת", category: "אבטחה", tags: ["WordPress", "Security"], date: "2026-02-10", readingTime: "5 דקות", excerpt: "הקשחת WordPress, גיבויים ועדכונים הם שכבת בסיס לכל אתר עסקי פעיל." },
   { slug: "technical-seo-hebrew", title: "SEO טכני בעברית, הבסיס שאתרים בישראל מפספסים", category: "SEO", tags: ["SEO", "עברית", "מבנה אתר"], date: "2026-02-14", readingTime: "6 דקות", excerpt: "מבנה נכון, מהירות, תגיות ומדידה עוזרים לאתר ישראלי להיסרק ולהתקדם." },
@@ -302,5 +302,5 @@ export const blogCategories = [
   "אבטחה",
   "תשתיות דיגיטליות",
   "מדריכים לעסקים",
-  "כלים מבית NAVINES",
+  "כלים מבית המותג",
 ];

@@ -8,13 +8,13 @@ const config: Config = {
         ink: "#070708",
         graphite: "#101114",
         steel: "#171a1f",
-        navred: "#e11d2e",
-        glowred: "#ff3b4e",
+        navred: "#8b5cf6",
+        glowred: "#d8b4fe",
         silver: "#d8dde6",
       },
       boxShadow: {
         premium: "0 24px 90px rgba(0,0,0,0.36)",
-        glow: "0 0 60px rgba(225,29,46,0.22)",
+        glow: "0 0 60px rgba(139,92,246,0.28)",
       },
       borderRadius: {
         premium: "22px",

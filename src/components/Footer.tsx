@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandInline } from "@/components/BrandInline";
 import { site } from "@/data/site";
 
 export function Footer() {
@@ -12,7 +13,14 @@ export function Footer() {
     ["ייעוץ טכנולוגי", "/services/consulting"],
   ];
 
-  const toolLinks = ["NAVINES Beacon", "TalkToData", "Website Analyzer", "CheckLink.ai", "Real Estate Intelligence", "Maor Israel"];
+  const toolLinks = [
+    ["Beacon", "https://beacon.navines.com"],
+    ["TalkToData", "https://talktodata.navines.com"],
+    ["Website Analyzer", "https://analyze.navines.com"],
+    ["CheckLink.ai", "https://checklink.ai"],
+    ["Real Estate Intelligence", "/products"],
+    ["Maor Israel", "https://maorisrael.com"],
+  ];
 
   return (
     <footer className="border-t border-white/10 bg-[#050506]">
@@ -33,9 +41,9 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="inline-flex h-10 items-center rounded-premium bg-white px-3">
+              <a className="inline-flex h-10 items-center rounded-premium bg-white px-3" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES official website">
                 <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
-              </span>
+              </a>
               <strong className="text-lg text-white">נביא נס ישראל</strong>
             </div>
             <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע"מ בונה אתרים, מערכות, אוטומציות, כלי AI ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
@@ -46,10 +54,16 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-black text-white">כלים</h3>
             <div className="grid gap-2">
-              {toolLinks.map((tool) => (
-                <Link className="text-base text-zinc-400 hover:text-white" href="/products" key={tool}>
-                  {tool}
-                </Link>
+              {toolLinks.map(([label, href]) => (
+                href.startsWith("http") ? (
+                  <a className="text-base text-zinc-400 hover:text-white" href={href} key={label} rel="noreferrer" target="_blank">
+                    <BrandInline text={label} />
+                  </a>
+                ) : (
+                  <Link className="text-base text-zinc-400 hover:text-white" href={href} key={label}>
+                    <BrandInline text={label} />
+                  </Link>
+                )
               ))}
             </div>
           </div>
