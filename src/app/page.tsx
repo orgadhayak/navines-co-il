@@ -250,8 +250,8 @@ export default function HomePage() {
                 <p className="text-base font-black text-glowred">מצב עסק דיגיטלי</p>
                 <h3 className="mt-2 text-3xl font-black leading-tight text-white">פחות ניחושים. יותר שליטה.</h3>
               </div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-4 py-2 text-sm font-black text-emerald-200">
-                <span className="status-pip bg-emerald-300" />
+              <span className="live-status-chip inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-black text-purple-100">
+                <span className="status-pip bg-purple-200 text-purple-200" />
                 מוכן לבדיקה
               </span>
             </div>

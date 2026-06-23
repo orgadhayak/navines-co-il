@@ -22,11 +22,11 @@ export function Header() {
       </div>
       <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-2.5 sm:px-6 lg:grid-cols-[minmax(15rem,0.95fr)_minmax(0,1.7fr)_auto] lg:px-8">
         <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-          <a className="inline-flex shrink-0 items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
+          <Link className="inline-flex shrink-0 items-center transition hover:opacity-90" href="/" aria-label="חזרה לעמוד הבית">
             <img alt="NAVINES" className="h-5 w-auto object-contain drop-shadow-[0_0_14px_rgba(216,180,254,0.38)] sm:h-5" src="/brand/navines-wordmark-slim.png" />
-          </a>
-          <Link className="block min-w-0 leading-tight" href="/" aria-label="נבינס ישראל בע״מ, בית">
-            <strong className="block truncate text-[1.05rem] font-black text-white sm:text-lg xl:text-xl">נבינס ישראל בע״מ</strong>
+          </Link>
+          <Link className="block min-w-0 leading-tight" href="/" aria-label="נביא נס ישראל בע״מ, בית">
+            <strong className="block truncate text-[1.05rem] font-black text-white sm:text-lg xl:text-xl">נביא נס ישראל בע״מ</strong>
             <span className="block truncate text-[0.76rem] text-zinc-400 sm:text-sm xl:text-base">בינה מלאכותית ותשתיות דיגיטליות</span>
           </Link>
         </div>
