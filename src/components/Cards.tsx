@@ -4,7 +4,7 @@ import type { BlogPost, Product, Service } from "@/data/site";
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
-    <article className="group rounded-[1.7rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] p-6 shadow-premium transition hover:-translate-y-0.5 hover:border-navred/50">
+    <Link className="group block rounded-[1.7rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] p-6 shadow-premium transition hover:-translate-y-0.5 hover:border-navred/50" href={`/services/${service.slug}`}>
       <div className="flex items-center justify-between gap-3">
         <p className="text-base font-black text-glowred">
           <BrandInline text={service.eyebrow} />
@@ -17,19 +17,18 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       <p className="mt-3 text-lg leading-8 text-zinc-400">
         <BrandInline text={service.summary} />
       </p>
-      <Link className="mt-5 inline-flex rounded-full border border-white/10 px-5 py-2 text-base font-black text-zinc-200 transition group-hover:bg-navred group-hover:text-white" href={`/services/${service.slug}`}>
+      <span className="mt-5 inline-flex rounded-full border border-white/10 px-5 py-2 text-base font-black text-zinc-200 transition group-hover:bg-navred group-hover:text-white">
         לעמוד השירות
-      </Link>
-    </article>
+      </span>
+    </Link>
   );
 }
 
 export function ProductCard({ product }: { product: Product }) {
   const ctaLabel = product.cta || "מעבר לכלי";
   const ctaClass = "mt-5 inline-flex min-w-40 justify-center rounded-full border border-white/10 px-5 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white";
-
-  return (
-    <article className="rounded-[1.7rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] p-6 shadow-premium">
+  const content = (
+    <article className="h-full rounded-[1.7rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] p-6 shadow-premium transition hover:-translate-y-0.5 hover:border-purple-300/50">
       <span className="inline-flex rounded-full border border-navred/40 bg-navred/15 px-4 py-1 text-sm font-black text-silver">{product.status}</span>
       <h3 className="mt-4 text-2xl font-black text-white">
         <BrandInline text={product.name} />
@@ -52,22 +51,24 @@ export function ProductCard({ product }: { product: Product }) {
           </dd>
         </div>
       </dl>
-      {product.url ? (
-        <a className={ctaClass} href={product.url} rel="noreferrer" target="_blank">
-          {ctaLabel}
-        </a>
-      ) : (
-        <Link className={ctaClass} href="/contact">
-          {ctaLabel}
-        </Link>
-      )}
+      <span className={ctaClass}>{ctaLabel}</span>
     </article>
+  );
+
+  return product.url ? (
+    <a className="block h-full" href={product.url} rel="noreferrer" target="_blank">
+      {content}
+    </a>
+  ) : (
+    <Link className="block h-full" href="/contact">
+      {content}
+    </Link>
   );
 }
 
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
-    <article className="rounded-[1.4rem] border border-white/10 bg-white/[0.035] p-5 shadow-premium transition hover:border-navred/55" data-category={post.category} data-tags={post.tags.join(" ")}>
+    <Link className="block rounded-[1.4rem] border border-white/10 bg-white/[0.035] p-5 shadow-premium transition hover:border-navred/55" data-category={post.category} data-tags={post.tags.join(" ")} href={`/blog/${post.slug}`}>
       <div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-black text-zinc-500">
           <span className="text-glowred">
@@ -82,10 +83,10 @@ export function BlogCard({ post }: { post: BlogPost }) {
         <p className="mt-3 text-base leading-8 text-zinc-400">
           <BrandInline text={post.excerpt} />
         </p>
-        <Link className="mt-4 inline-flex min-w-36 justify-center rounded-full border border-white/10 px-4 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white" href={`/blog/${post.slug}`}>
+        <span className="mt-4 inline-flex min-w-36 justify-center rounded-full border border-white/10 px-4 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white">
           קראו מאמר
-        </Link>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }

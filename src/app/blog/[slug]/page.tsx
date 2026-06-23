@@ -36,7 +36,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     description: post.excerpt,
     author: { "@type": "Organization", name: site.hebrewLegalName },
     publisher: { "@type": "Organization", name: site.hebrewLegalName },
-    datePublished: post.date,
+    datePublished: post.publishedAt,
     inLanguage: "he-IL",
   };
 

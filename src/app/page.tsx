@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BlogCard, ProductCard, ServiceCard } from "@/components/Cards";
 import { HeroVisual } from "@/components/HeroVisual";
 import { Section } from "@/components/Section";
-import { blogPosts, products, services, site } from "@/data/site";
+import { blogPosts, products, serviceEcosystem, services, site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -10,7 +10,27 @@ export const metadata = createMetadata({
   description: "נביא נס ישראל בע״מ עוזרת לעסקים לבנות אתר, חנות, מערכת או אוטומציה שעובדים באמת: יותר פניות, פחות עבודה ידנית ותשתית דיגיטלית שאפשר לסמוך עליה.",
 });
 
-const metrics = ["בינה מלאכותית", "אתרים ומערכות", "איקומרס", "אבטחה וביצועים"];
+const metrics = [
+  { label: "בינה מלאכותית", href: "/services/ai-automation" },
+  { label: "אתרים ומערכות", href: "/services/web-development" },
+  { label: "איקומרס", href: "/services/ecommerce" },
+  { label: "אבטחה וביצועים", href: "/services/security-recovery" },
+];
+
+const ecosystemLinks: Record<string, string> = {
+  "בינה מלאכותית ואוטומציה": "/services/ai-automation",
+  "פיתוח אתרים, מערכות וקוד": "/services/web-development",
+  "אופטימיזציה, מהירות וביצועים": "/services/website-speed-optimization",
+  "תשתיות, אחסון ואבטחת תקשורת": "/services/api-integrations",
+  "אבטחה, תיקון תקלות ושחזור": "/services/security-recovery",
+  "איקומרס ומרקטפלייסים": "/services/ecommerce",
+  "שיווק דיגיטלי וצמיחה": "/services/seo-digital-marketing",
+  "נתונים, מודיעין עסקי ואסטרטגיה": "/services/business-intelligence",
+  "מובייל ואפליקציות": "/services/mobile-app-development",
+  "בדיקות איכות וניטור משתמשים": "/services/consulting",
+  "מדיה, נכסים ותוכן דיגיטלי": "/services/consulting",
+  "כלים מבית נביא נס ישראל בע״מ": "/products",
+};
 
 export default function HomePage() {
   return (
@@ -37,9 +57,9 @@ export default function HomePage() {
 
       <section className="mx-auto grid max-w-7xl gap-3 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {metrics.map((metric) => (
-          <div className="rounded-full border border-white/10 bg-white/[0.035] px-5 py-4 text-center" key={metric}>
-            <strong className="text-xl text-white">{metric}</strong>
-          </div>
+          <Link className="rounded-full border border-white/10 bg-white/[0.035] px-5 py-4 text-center transition hover:border-purple-300/50 hover:bg-purple-400/10" href={metric.href} key={metric.label}>
+            <strong className="text-xl text-white">{metric.label}</strong>
+          </Link>
         ))}
       </section>
 
@@ -47,6 +67,14 @@ export default function HomePage() {
         <div className="grid gap-5 lg:grid-cols-2">
           <p className="text-lg leading-8 text-zinc-300">נביא נס ישראל בע״מ בונה אתרים מהירים, חנויות, מערכות ניהול, אוטומציות וכלי בינה מלאכותית שמטפלים בבעיות אמיתיות: פניות שמתפספסות, עבודה ידנית, אתר שלא מביא תוצאות או חנות שקשה לנהל.</p>
           <p className="text-lg leading-8 text-zinc-300">אנחנו מסתכלים על האתר כנכס עסקי ולא כעמוד יפה בלבד. הוא צריך להביא אמון, פניות ומכירות, להתחבר לכלים הנכונים, להיטען מהר ולהיות מספיק יציב כדי ללוות את העסק לאורך זמן.</p>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link className="btn-secondary" href="/about">
+            קראו על החברה
+          </Link>
+          <a className="btn-primary" href={site.whatsappHref}>
+            דברו איתנו בוואטסאפ
+          </a>
         </div>
       </Section>
 
@@ -60,6 +88,30 @@ export default function HomePage() {
           <Link className="btn-secondary" href="/services">
             לכל השירותים
           </Link>
+        </div>
+      </Section>
+
+      <Section eyebrow="כל השירותים" title="כל השירותים מתוך האקוסיסטם של המותג, בעברית וללקוחות בישראל" className="py-10 lg:py-14" id="service-catalog">
+        <p className="mb-6 max-w-4xl text-lg leading-8 text-zinc-300">
+          כאן רואים את התמונה המלאה: אופטימיזציה, תשתיות, אבטחה, שיווק, איקומרס, אפליקציות, בדיקות, נתונים וכלי בינה מלאכותית.
+          כל תג מוביל לעמוד השירות או הכלים שמתאים לתחום.
+        </p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {serviceEcosystem.map((group) => (
+            <article className="rounded-[1.5rem] border border-purple-300/12 bg-black/30 p-5" key={group.title}>
+              <Link className="inline-flex text-2xl font-black text-white transition hover:text-glowred" href={ecosystemLinks[group.title] || "/services"}>
+                {group.title}
+              </Link>
+              <p className="mt-2 text-base leading-7 text-zinc-400">{group.intro}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <Link className="tag hover:bg-purple-500/12" href={ecosystemLinks[group.title] || "/services"} key={item}>
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </Section>
 
@@ -81,6 +133,11 @@ export default function HomePage() {
           {blogPosts.slice(0, 3).map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}
+        </div>
+        <div className="mt-6">
+          <Link className="btn-secondary" href="/blog">
+            לכל המאמרים
+          </Link>
         </div>
       </Section>
 

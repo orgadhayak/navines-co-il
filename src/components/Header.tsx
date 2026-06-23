@@ -9,6 +9,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/82 backdrop-blur-xl">
+      <div className="border-b border-purple-300/10 bg-black/55 px-4 py-1 text-center text-sm font-black text-glowred sm:text-base">
+        בְּסִיַּעְתָּא דִשְׁמַיָּא
+      </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <a className="inline-flex h-10 items-center rounded-full bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
