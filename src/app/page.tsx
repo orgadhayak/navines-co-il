@@ -61,6 +61,14 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="כלים ומוצרים" title="מערכות וכלים חכמים מבית NAVINES">
+        <div className="sparkle-field mb-8 overflow-hidden rounded-[2rem] border border-white/10 bg-black/25 shadow-premium lg:grid lg:grid-cols-[0.9fr_1.1fr]">
+          <img alt="גלי נתונים סגולים על רשת דיגיטלית" className="h-56 w-full object-cover opacity-85 mix-blend-screen lg:h-full" loading="lazy" src="/visuals/signal-wave.jpg" />
+          <div className="grid content-center gap-3 p-6 sm:p-8">
+            <p className="text-base font-black text-glowred">שכבת בקרה חכמה</p>
+            <h3 className="text-3xl font-black leading-tight text-white">כלים שמזהים, מודדים ומחזירים לעסק תמונת מצב ברורה</h3>
+            <p className="text-lg leading-8 text-zinc-300">המערכות שאנחנו בונים מחברות בין נתונים, ביצועים, אבטחה ואוטומציה, כדי שתראו מוקדם יותר מה עובד ומה דורש טיפול.</p>
+          </div>
+        </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {products.slice(0, 6).map((product) => (
             <ProductCard key={product.slug} product={product} />

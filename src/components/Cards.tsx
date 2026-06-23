@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
 import type { BlogPost, Product, Service } from "@/data/site";
+import { getBlogVisual } from "@/lib/blogVisuals";
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
-    <article className="group rounded-premium border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-premium transition hover:-translate-y-0.5 hover:border-navred/50">
+    <article className="group rounded-[1.7rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] p-6 shadow-premium transition hover:-translate-y-0.5 hover:border-navred/50">
       <div className="flex items-center justify-between gap-3">
         <p className="text-base font-black text-glowred">
           <BrandInline text={service.eyebrow} />
@@ -26,10 +27,10 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
 
 export function ProductCard({ product }: { product: Product }) {
   const ctaLabel = product.cta || "מעבר לכלי";
-  const ctaClass = "mt-5 inline-flex rounded-full border border-white/10 px-5 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white";
+  const ctaClass = "mt-5 inline-flex min-w-40 justify-center rounded-full border border-white/10 px-5 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white";
 
   return (
-    <article className="rounded-premium border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-premium">
+    <article className="rounded-[1.7rem] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] p-6 shadow-premium">
       <span className="inline-flex rounded-full border border-navred/40 bg-navred/15 px-4 py-1 text-sm font-black text-silver">{product.status}</span>
       <h3 className="mt-4 text-2xl font-black text-white">
         <BrandInline text={product.name} />
@@ -65,24 +66,32 @@ export function ProductCard({ product }: { product: Product }) {
 }
 
 export function BlogCard({ post }: { post: BlogPost }) {
+  const visual = getBlogVisual(post.slug);
+
   return (
-    <article className="rounded-premium border border-white/10 bg-white/[0.035] p-5 shadow-premium transition hover:border-navred/55" data-category={post.category} data-tags={post.tags.join(" ")}>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-black text-zinc-500">
-        <span className="text-glowred">
-          <BrandInline text={post.category} />
-        </span>
-        <span>{post.date}</span>
-        <span>{post.readingTime}</span>
+    <article className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] shadow-premium transition hover:border-navred/55" data-category={post.category} data-tags={post.tags.join(" ")}>
+      <div className="sparkle-field relative h-36 overflow-hidden border-b border-white/10 bg-black/30">
+        <img alt={visual.alt} className="h-full w-full object-cover opacity-80 mix-blend-screen transition duration-500 hover:scale-105" loading="lazy" src={visual.src} />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(7,7,8,0.72))]" aria-hidden="true" />
       </div>
-      <h3 className="mt-3 text-2xl font-black leading-tight text-white">
-        <BrandInline text={post.title} />
-      </h3>
-      <p className="mt-3 text-base leading-8 text-zinc-400">
-        <BrandInline text={post.excerpt} />
-      </p>
-      <Link className="mt-4 inline-flex rounded-full border border-white/10 px-4 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white" href={`/blog/${post.slug}`}>
-        קראו מאמר
-      </Link>
+      <div className="p-5">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-black text-zinc-500">
+          <span className="text-glowred">
+            <BrandInline text={post.category} />
+          </span>
+          <span>{post.date}</span>
+          <span>{post.readingTime}</span>
+        </div>
+        <h3 className="mt-3 text-2xl font-black leading-tight text-white">
+          <BrandInline text={post.title} />
+        </h3>
+        <p className="mt-3 text-base leading-8 text-zinc-400">
+          <BrandInline text={post.excerpt} />
+        </p>
+        <Link className="mt-4 inline-flex min-w-36 justify-center rounded-full border border-white/10 px-4 py-2 text-base font-black text-zinc-200 transition hover:bg-navred hover:text-white" href={`/blog/${post.slug}`}>
+          קראו מאמר
+        </Link>
+      </div>
     </article>
   );
 }

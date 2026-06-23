@@ -6,11 +6,15 @@ export function createMetadata({
   description,
   path = "",
   type = "website",
+  image = "/og.svg",
+  imageAlt = 'נביא נס ישראל בע"מ, תשתיות דיגיטליות חכמות',
 }: {
   title: string;
   description: string;
   path?: string;
   type?: "website" | "article";
+  image?: string;
+  imageAlt?: string;
 }): Metadata {
   const url = `${site.url}${path}`;
   const pageTitle = path === "" ? `${title} | נביא נס ישראל` : title;
@@ -39,13 +43,13 @@ export function createMetadata({
       siteName: site.name,
       locale: "he_IL",
       type,
-      images: [{ url: "/og.svg", width: 1200, height: 630, alt: "נביא נס ישראל בע\"מ, תשתיות דיגיטליות חכמות" }],
+      images: [{ url: image, width: 1200, height: 630, alt: imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | ${site.name}`,
       description,
-      images: ["/og.svg"],
+      images: [image],
     },
     robots: {
       index: true,

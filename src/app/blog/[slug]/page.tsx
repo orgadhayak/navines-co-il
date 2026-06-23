@@ -4,6 +4,7 @@ import { BlogCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { blogPosts, site } from "@/data/site";
+import { getBlogVisual } from "@/lib/blogVisuals";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -14,11 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = blogPosts.find((item) => item.slug === slug);
   if (!post) return {};
+  const visual = getBlogVisual(post.slug);
   return createMetadata({
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     type: "article",
+    image: visual.src,
+    imageAlt: visual.alt,
   });
 }
 
@@ -26,6 +30,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const post = blogPosts.find((item) => item.slug === slug);
   if (!post) notFound();
+
+  const visual = getBlogVisual(post.slug);
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
 
   const articleSchema = {
@@ -36,7 +42,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     author: { "@type": "Organization", name: "NAVINES" },
     publisher: { "@type": "Organization", name: site.hebrewLegalName },
     datePublished: post.date,
-    image: `${site.url}/og.svg`,
+    image: `${site.url}${visual.src}`,
     inLanguage: "he-IL",
   };
 
@@ -45,7 +51,14 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "בלוג", href: "/blog" }, { name: post.title, href: `/blog/${post.slug}` }])} />
       <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mb-8 min-h-64 rounded-premium border border-white/10 bg-[linear-gradient(145deg,rgba(139,92,246,0.32),rgba(255,255,255,0.07)),linear-gradient(210deg,rgba(216,180,254,0.18),transparent)]" aria-label="תמונת מאמר טכנולוגית" role="img" />
+        <div className="sparkle-field relative mb-8 min-h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 shadow-premium">
+          <img alt={visual.alt} className="h-72 w-full object-cover opacity-85 mix-blend-screen" src={visual.src} />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,7,8,0.05),rgba(7,7,8,0.82))]" aria-hidden="true" />
+          <div className="absolute bottom-5 right-5 rounded-full border border-navred/40 bg-navred/15 px-5 py-2 text-base font-black text-glowred">
+            {post.category}
+          </div>
+        </div>
+
         <p className="text-sm font-black text-glowred">
           <BrandInline text={post.category} />
         </p>
@@ -56,15 +69,15 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           <BrandInline text={post.excerpt} />
         </p>
         <p className="mt-4 text-sm text-zinc-500">
-          {post.date} · מחבר:{" "}
+          {post.date} • מחבר:{" "}
           <a className="text-glowred hover:text-white" href={site.internationalUrl} rel="noreferrer" target="_blank">
             NAVINES
           </a>{" "}
-          · {post.readingTime}
+          • {post.readingTime}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a className="btn-secondary" href={`https://www.linkedin.com/sharing/share-offsite/?url=${site.url}/blog/${post.slug}`}>
-            שיתוף ב־LinkedIn
+            שיתוף בלינקדאין
           </a>
           <a className="btn-secondary" href={`https://wa.me/?text=${encodeURIComponent(`${post.title} ${site.url}/blog/${post.slug}`)}`}>
             שיתוף בוואטסאפ
@@ -80,7 +93,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             <BrandInline text={post.excerpt} /> עסקים שמטפלים בנושא הזה בצורה מסודרת מקבלים יותר שליטה, פחות עבודה ידנית ויכולת למדוד מה באמת מתקדם.
           </p>
           <h2>איך זה נראה בפועל?</h2>
-          <p>העבודה מתחילה ממיפוי קצר של האתר, המערכות, הנתונים והתהליך העסקי. לאחר מכן בוחרים את הפעולות שייתנו ערך מהר: שיפור מהירות, חיבור מערכת, אוטומציה, ניטור או תיקון נקודת אמון קריטית.</p>
+          <p>העבודה מתחילה ממיפוי קצר של האתר, המערכות, הנתונים והתהליך העסקי. לאחר מכן בוחרים את הפעולות שייתנו ערך מהיר: שיפור מהירות, חיבור מערכת, אוטומציה, ניטור או תיקון נקודת אמון קריטית.</p>
           <h2>דוגמאות מעשיות</h2>
           <ul>
             <li>בדיקת אתר עם Lighthouse וזיהוי צווארי בקבוק במובייל.</li>

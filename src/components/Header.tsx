@@ -11,7 +11,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/82 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
-          <a className="inline-flex h-10 items-center rounded-premium bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES official website">
+          <a className="inline-flex h-10 items-center rounded-full bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
             <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
           </a>
           <Link className="leading-tight" href="/" aria-label="נביא נס ישראל, בית">
@@ -20,9 +20,9 @@ export function Header() {
           </Link>
         </div>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="תפריט ראשי">
+        <nav className="hidden items-center gap-1.5 lg:flex" aria-label="תפריט ראשי">
           {mainNav.map((item) => (
-            <Link className="rounded-premium px-3 py-2 text-sm font-bold text-zinc-300 transition hover:bg-white/8 hover:text-white" href={item.href} key={item.href}>
+            <Link className="rounded-full px-3.5 py-2.5 text-base font-black text-zinc-300 transition hover:bg-white/8 hover:text-white xl:px-4" href={item.href} key={item.href}>
               {item.label}
             </Link>
           ))}
@@ -37,7 +37,7 @@ export function Header() {
         <button
           aria-expanded={open}
           aria-label="פתיחת תפריט"
-          className="grid h-11 w-11 place-items-center rounded-premium border border-white/10 bg-white/5 lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 lg:hidden"
           onClick={() => setOpen((value) => !value)}
           type="button"
         >
@@ -53,7 +53,7 @@ export function Header() {
         <nav className="border-t border-white/10 bg-ink px-4 py-3 lg:hidden" aria-label="תפריט מובייל">
           <div className="mx-auto grid max-w-7xl gap-1">
             {mainNav.map((item) => (
-              <Link className="rounded-premium px-3 py-3 font-bold text-zinc-200 hover:bg-white/8" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+              <Link className="rounded-full px-4 py-3.5 text-lg font-black text-zinc-200 hover:bg-white/8" href={item.href} key={item.href} onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             ))}
