@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { BlogCard, ProductCard, ServiceCard } from "@/components/Cards";
 import { HeroVisual } from "@/components/HeroVisual";
+import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
 import { Section } from "@/components/Section";
-import { blogPosts, optimizationHub, products, serviceEcosystem, services, site } from "@/data/site";
+import { blogPosts, products, serviceEcosystem, services, site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -96,21 +97,14 @@ export default function HomePage() {
           זה החלק שמטפל במה שקורה מאחורי הקלעים: מהירות, קוד, מובייל, שרתים, קלאודפלייר, אבטחה, ניטור, מיילים ותמונות.
           אם האתר נראה תקין אבל איטי, לא יציב, לא נמדד נכון או מפספס פניות, כאן מתחילים לעשות סדר.
         </p>
-        <div className="grid gap-4 lg:grid-cols-2">
-          {optimizationHub.map((group) => (
-            <article className="rounded-[1.5rem] border border-purple-300/12 bg-black/34 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.22)]" key={group.title}>
-              <h2 className="text-2xl font-black text-white">{group.title}</h2>
-              <p className="mt-2 text-base leading-7 text-zinc-400">{group.intro}</p>
-              <div className="mt-4 grid gap-2">
-                {group.items.map((item) => (
-                  <Link className="rounded-[1rem] border border-white/10 bg-white/[0.035] p-3 transition hover:border-purple-300/45 hover:bg-purple-500/10" href={item.href} key={item.title}>
-                    <span className="block text-lg font-black text-white">{item.title}</span>
-                    <span className="mt-1 block text-sm leading-6 text-zinc-400">{item.description}</span>
-                  </Link>
-                ))}
-              </div>
-            </article>
-          ))}
+        <OptimizationHubShowcase compact />
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link className="btn-secondary" href="/optimization-hub">
+            לעמוד מרכז האופטימיזציה
+          </Link>
+          <a className="btn-primary" href={site.whatsappHref}>
+            שלחו לנו הודעה ונכוון אתכם
+          </a>
         </div>
       </Section>
 

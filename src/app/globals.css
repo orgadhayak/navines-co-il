@@ -106,15 +106,15 @@ body {
 
 .hero-spark {
   position: absolute;
-  height: 0.4rem;
-  width: 0.4rem;
+  height: 0.46rem;
+  width: 0.46rem;
   border-radius: 9999px;
-  background: rgba(192, 132, 252, 0.9);
+  background: rgba(216, 180, 254, 0.95);
   box-shadow:
-    0 0 10px rgba(192, 132, 252, 0.92),
-    0 0 22px rgba(168, 85, 247, 0.7),
-    0 0 36px rgba(126, 34, 206, 0.42);
-  animation: hero-spark 2.8s ease-in-out infinite;
+    0 0 12px rgba(216, 180, 254, 0.96),
+    0 0 28px rgba(168, 85, 247, 0.76),
+    0 0 48px rgba(126, 34, 206, 0.48);
+  animation: hero-spark 2.55s ease-in-out infinite;
 }
 
 .hero-spark:nth-of-type(2n) {
@@ -126,7 +126,7 @@ body {
 }
 
 .glow-asset {
-  filter: drop-shadow(0 0 28px rgba(216, 180, 254, 0.48)) drop-shadow(0 18px 55px rgba(139, 92, 246, 0.32));
+  filter: drop-shadow(0 0 34px rgba(216, 180, 254, 0.56)) drop-shadow(0 20px 65px rgba(139, 92, 246, 0.38));
   animation: hero-image-glow 4.8s ease-in-out infinite alternate;
 }
 
@@ -156,7 +156,15 @@ body {
     filter: drop-shadow(0 0 20px rgba(216, 180, 254, 0.38)) drop-shadow(0 15px 46px rgba(139, 92, 246, 0.24));
   }
   to {
-    filter: drop-shadow(0 0 42px rgba(216, 180, 254, 0.72)) drop-shadow(0 20px 62px rgba(168, 85, 247, 0.42));
+    filter: drop-shadow(0 0 56px rgba(216, 180, 254, 0.78)) drop-shadow(0 24px 80px rgba(168, 85, 247, 0.48));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-star-field::before,
+  .hero-spark,
+  .glow-asset {
+    animation: none;
   }
 }
 

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { blogPosts, services, site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/about", "/services", "/products", "/tools", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
+  const staticPages = ["", "/about", "/services", "/optimization-hub", "/products", "/tools", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
   const servicePages = services.map((service) => `/services/${service.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
 

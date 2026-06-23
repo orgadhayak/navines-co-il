@@ -1,7 +1,8 @@
 import { ServiceCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
+import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
 import { Section } from "@/components/Section";
-import { optimizationHub, serviceEcosystem, services } from "@/data/site";
+import { serviceEcosystem, services, site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -50,21 +51,11 @@ export default function ServicesPage() {
           באתר הבינלאומי יש שכבה רחבה של שירותי אופטימיזציה. כאן הם מסודרים לעסק ישראלי בצורה פשוטה:
           מהירות, מובייל, קוד, וורדפרס, ווקומרס, שופיפיי, שרתים, אבטחה, ניטור, מיילים ומדיה. כל פריט מוביל לעמוד השירות הרלוונטי.
         </p>
-        <div className="grid gap-5 lg:grid-cols-2">
-          {optimizationHub.map((group) => (
-            <article className="rounded-[1.6rem] border border-purple-300/15 bg-black/30 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.24)]" key={group.title}>
-              <h2 className="text-2xl font-black text-white">{group.title}</h2>
-              <p className="mt-3 text-base leading-7 text-zinc-300">{group.intro}</p>
-              <div className="mt-5 grid gap-2">
-                {group.items.map((item) => (
-                  <a className="rounded-[1rem] border border-white/10 bg-white/[0.035] p-3 transition hover:border-purple-300/45 hover:bg-purple-500/10" href={item.href} key={item.title}>
-                    <span className="block text-lg font-black text-white">{item.title}</span>
-                    <span className="mt-1 block text-sm leading-6 text-zinc-400">{item.description}</span>
-                  </a>
-                ))}
-              </div>
-            </article>
-          ))}
+        <OptimizationHubShowcase />
+        <div className="mt-8">
+          <a className="btn-primary" href={site.whatsappHref}>
+            לא בטוחים מה תוקע את האתר? כתבו לנו בוואטסאפ
+          </a>
         </div>
       </Section>
       <Section eyebrow="אקוסיסטם השירותים" title="כל היכולות הדיגיטליות שהעסק יכול לקבל מנביא נס ישראל בע״מ" id="ecosystem">

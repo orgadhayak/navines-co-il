@@ -29,9 +29,9 @@ export function Footer() {
           <p className="mb-3 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
           <h2 className="max-w-3xl text-4xl font-black text-white md:text-5xl">רוצים להבין מה כדאי לשפר קודם?</h2>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link className="btn-primary" href="/contact">
+            <a className="btn-primary" href={site.whatsappHref}>
               דברו איתנו בוואטסאפ
-            </Link>
+            </a>
             <a className="btn-secondary" href={site.whatsappHref}>
               שלחו הודעה זריזה
             </a>

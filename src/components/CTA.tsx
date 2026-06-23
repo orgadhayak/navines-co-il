@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "@/data/site";
 
 export function CTA({
   title = "לא בטוחים מאיפה להתחיל?",
@@ -14,9 +15,9 @@ export function CTA({
         <h2 className="max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">{title}</h2>
         <p className="mt-4 max-w-2xl text-lg text-zinc-300">{text}</p>
         <div className="mt-7 flex flex-wrap gap-3">
-          <Link className="btn-primary" href="/contact">
+          <a className="btn-primary" href={site.whatsappHref}>
             דברו איתנו בוואטסאפ
-          </Link>
+          </a>
           <Link className="btn-secondary" href="/services">
             ראו שירותים
           </Link>
