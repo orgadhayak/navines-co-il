@@ -19,7 +19,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="mb-12 rounded-premium border border-white/10 bg-gradient-to-br from-navred/18 to-white/[0.03] p-8">
           <p className="mb-3 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
-          <h2 className="max-w-3xl text-3xl font-black text-white md:text-5xl">תשתית דיגיטלית חכמה לעסק שרוצה לגדול.</h2>
+          <h2 className="max-w-3xl text-4xl font-black text-white md:text-5xl">תשתית דיגיטלית חכמה לעסק שרוצה לגדול.</h2>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link className="btn-primary" href="/contact">
               דברו איתנו
@@ -36,9 +36,10 @@ export function Footer() {
               <span className="inline-flex h-10 items-center rounded-premium bg-white px-3">
                 <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
               </span>
-              <strong className="text-white">נבינס ישראל</strong>
+              <strong className="text-lg text-white">נביא נס ישראל</strong>
             </div>
-            <p className="text-sm leading-7 text-zinc-400">נבינס ישראל בע״מ בונה אתרים, מערכות, אוטומציות, כלי AI ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
+            <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע"מ בונה אתרים, מערכות, אוטומציות, כלי AI ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
+            <p className="mt-3 text-base font-black text-silver">{site.companyNumberLabel}</p>
           </div>
 
           <FooterColumn title="שירותים" items={serviceLinks} />
@@ -46,7 +47,7 @@ export function Footer() {
             <h3 className="mb-4 font-black text-white">כלים</h3>
             <div className="grid gap-2">
               {toolLinks.map((tool) => (
-                <Link className="text-sm text-zinc-400 hover:text-white" href="/products" key={tool}>
+                <Link className="text-base text-zinc-400 hover:text-white" href="/products" key={tool}>
                   {tool}
                 </Link>
               ))}
@@ -65,8 +66,9 @@ export function Footer() {
           />
           <div>
             <h3 className="mb-4 font-black text-white">יצירת קשר</h3>
-            <div className="grid gap-2 text-sm text-zinc-400">
+            <div className="grid gap-2 text-base text-zinc-400">
               <span>{site.hebrewLegalName}</span>
+              <span>{site.companyNumberLabel}</span>
               <span>{site.hebrewAddress}</span>
               <a href={site.phoneHref}>{site.phone}</a>
               <a href={site.emailHref}>{site.email}</a>
@@ -75,7 +77,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500">
-          <span>© 2026 נבינס ישראל בע״מ. כל הזכויות שמורות.</span>
+          <span>© 2026 נביא נס ישראל בע"מ, ח.פ. {site.companyNumber}. כל הזכויות שמורות.</span>
           <Link href={site.internationalUrl}>navines.com</Link>
         </div>
       </div>
@@ -89,7 +91,7 @@ function FooterColumn({ title, items }: { title: string; items: string[][] }) {
       <h3 className="mb-4 font-black text-white">{title}</h3>
       <div className="grid gap-2">
         {items.map(([label, href]) => (
-          <Link className="text-sm text-zinc-400 hover:text-white" href={href} key={href}>
+          <Link className="text-base text-zinc-400 hover:text-white" href={href} key={href}>
             {label}
           </Link>
         ))}

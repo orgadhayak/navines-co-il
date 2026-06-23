@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">נבינס ישראל בע״מ</title>
+  <title id="title">נביא נס ישראל בע"מ</title>
   <desc id="desc">מערכות AI, אוטומציה, אתרים ותשתיות דיגיטליות לעסקים</desc>
   <rect width="1200" height="630" fill="#070708"/>
   <defs>
@@ -17,7 +17,8 @@
   <path d="M80 456c138-92 263-112 416-70 170 47 292 14 432-84 68-48 128-73 192-82" fill="none" stroke="url(#red)" stroke-width="5" stroke-linecap="round" opacity=".9"/>
   <rect x="80" y="74" width="238" height="72" rx="8" fill="#ffffff"/>
   <text x="106" y="123" fill="#050506" font-family="Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">NAVINES</text>
-  <text x="80" y="236" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="900">נבינס ישראל בע״מ</text>
+  <text x="80" y="236" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="900">נביא נס ישראל בע"מ</text>
   <text x="80" y="306" fill="#d8dde6" font-family="Arial, sans-serif" font-size="38" font-weight="700">AI · אוטומציה · אתרים · איקומרס · תשתיות</text>
-  <text x="80" y="370" fill="#ff3b4e" font-family="Arial, sans-serif" font-size="31" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
+  <text x="80" y="362" fill="#ff3b4e" font-family="Arial, sans-serif" font-size="31" font-weight="900">מערכות שעובדות, לא רק אתרים שנראים טוב</text>
+  <text x="80" y="414" fill="#d8dde6" font-family="Arial, sans-serif" font-size="26" font-weight="700">ח.פ. 516647161</text>
 </svg>

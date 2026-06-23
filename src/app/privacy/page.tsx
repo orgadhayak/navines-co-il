@@ -2,7 +2,7 @@ import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata = createMetadata({ title: "מדיניות פרטיות", description: "מדיניות פרטיות בסיסית עבור אתר NAVINES ישראל.", path: "/privacy" });
+export const metadata = createMetadata({ title: "מדיניות פרטיות", description: "מדיניות פרטיות בסיסית עבור אתר נביא נס ישראל.", path: "/privacy" });
 
 export default function PrivacyPage() {
   return (

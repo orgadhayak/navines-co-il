@@ -1,8 +1,10 @@
 export const site = {
-  name: "NAVINES ישראל",
-  legalName: "נבינס ישראל בע״מ",
+  name: "נביא נס ישראל",
+  legalName: "נביא נס ישראל בע\"מ",
   englishLegalName: "NAVINES Israel Ltd.",
-  hebrewLegalName: "נבינס ישראל בע״מ",
+  hebrewLegalName: "נביא נס ישראל בע\"מ",
+  companyNumber: "516647161",
+  companyNumberLabel: "ח.פ. 516647161",
   url: "https://www.navines.co.il",
   internationalUrl: "https://www.navines.com",
   phone: "054-818-0200",
@@ -279,14 +281,14 @@ export const blogPosts: BlogPost[] = [
   { slug: "business-website-2026", title: "למה אתר עסקי בשנת 2026 חייב להיות יותר מעמוד יפה", category: "בניית אתרים", tags: ["אתרים", "UX", "תשתית"], date: "2026-01-08", readingTime: "6 דקות", excerpt: "אתר עסקי מודרני הוא מערכת מכירה, אמון, מדידה ושירות. עיצוב טוב הוא רק חלק מהתמונה." },
   { slug: "slow-website-cost", title: "איך לבדוק אם האתר שלכם איטי ומה זה עולה לכם", category: "שיפור מהירות", tags: ["מהירות", "Lighthouse", "Core Web Vitals"], date: "2026-01-12", readingTime: "5 דקות", excerpt: "טעינה איטית פוגעת באמון, SEO והמרות. כך מתחילים לבדוק את הבעיה בצורה עסקית וטכנית." },
   { slug: "business-automation-start", title: "מה זה אוטומציה עסקית ואיפה מתחילים", category: "AI ואוטומציה", tags: ["CRM", "וואטסאפ", "תהליכים"], date: "2026-01-15", readingTime: "5 דקות", excerpt: "אוטומציה טובה מתחילה במיפוי תהליך עסקי ברור, לא בבחירת כלי נוצץ." },
-  { slug: "shopify-israel", title: "Shopify לעסקים בישראל — מה חשוב לדעת לפני שבונים חנות", category: "Shopify", tags: ["Shopify", "איקומרס"], date: "2026-01-18", readingTime: "7 דקות", excerpt: "לפני שבונים חנות Shopify צריך לחשוב על תשלומים, שילוח, תוכן, ביצועים ותפעול יומיומי." },
+  { slug: "shopify-israel", title: "Shopify לעסקים בישראל, מה חשוב לדעת לפני שבונים חנות", category: "Shopify", tags: ["Shopify", "איקומרס"], date: "2026-01-18", readingTime: "7 דקות", excerpt: "לפני שבונים חנות Shopify צריך לחשוב על תשלומים, שילוח, תוכן, ביצועים ותפעול יומיומי." },
   { slug: "amazon-ebay-mistakes", title: "טעויות נפוצות במוכרי Amazon ו־eBay", category: "Amazon ו־eBay", tags: ["Amazon", "eBay", "Account Health"], date: "2026-01-22", readingTime: "6 דקות", excerpt: "מוכרים רבים מפסידים זמן וכסף בגלל תוכן חלש, ניטור חסר ותהליכי חשבון לא מסודרים." },
   { slug: "api-save-hours", title: "למה חיבורי API יכולים לחסוך לעסק עשרות שעות בחודש", category: "תשתיות דיגיטליות", tags: ["API", "אינטגרציות"], date: "2026-01-25", readingTime: "5 דקות", excerpt: "API טוב מחבר מערכות ומצמצם העתקות ידניות, טעויות ועיכובים." },
   { slug: "website-trust", title: "איך לשפר אמון באתר ולגרום ליותר לקוחות לפנות", category: "מדריכים לעסקים", tags: ["אמון", "המרות", "UX"], date: "2026-01-28", readingTime: "5 דקות", excerpt: "אמון באתר נבנה דרך מהירות, תוכן ברור, הוכחות, אבטחה וחוויית משתמש נקייה." },
   { slug: "navines-beacon", title: "מה זה NAVINES Beacon ולמה עסקים צריכים ניטור דיגיטלי", category: "כלים מבית NAVINES", tags: ["Beacon", "ניטור"], date: "2026-02-02", readingTime: "5 דקות", excerpt: "ניטור דיגיטלי עוזר לזהות בעיות לפני שהן הופכות לפגיעה במכירות, אמון או שירות." },
   { slug: "internal-business-system", title: "איך בונים מערכת פנימית לעסק בלי להסתבך", category: "מערכות עסקיות", tags: ["מערכות", "תפעול"], date: "2026-02-06", readingTime: "6 דקות", excerpt: "מערכת פנימית טובה מתחילה מתהליך ברור, הרשאות נכונות ומדידה של מה שבאמת חשוב." },
-  { slug: "wordpress-security", title: "אבטחת אתרי WordPress — מה כל בעל עסק חייב לדעת", category: "אבטחה", tags: ["WordPress", "Security"], date: "2026-02-10", readingTime: "5 דקות", excerpt: "הקשחת WordPress, גיבויים ועדכונים הם שכבת בסיס לכל אתר עסקי פעיל." },
-  { slug: "technical-seo-hebrew", title: "SEO טכני בעברית — הבסיס שאתרים בישראל מפספסים", category: "SEO", tags: ["SEO", "עברית", "מבנה אתר"], date: "2026-02-14", readingTime: "6 דקות", excerpt: "מבנה נכון, מהירות, תגיות ומדידה עוזרים לאתר ישראלי להיסרק ולהתקדם." },
+  { slug: "wordpress-security", title: "אבטחת אתרי WordPress, מה כל בעל עסק חייב לדעת", category: "אבטחה", tags: ["WordPress", "Security"], date: "2026-02-10", readingTime: "5 דקות", excerpt: "הקשחת WordPress, גיבויים ועדכונים הם שכבת בסיס לכל אתר עסקי פעיל." },
+  { slug: "technical-seo-hebrew", title: "SEO טכני בעברית, הבסיס שאתרים בישראל מפספסים", category: "SEO", tags: ["SEO", "עברית", "מבנה אתר"], date: "2026-02-14", readingTime: "6 דקות", excerpt: "מבנה נכון, מהירות, תגיות ומדידה עוזרים לאתר ישראלי להיסרק ולהתקדם." },
 ];
 
 export const blogCategories = [

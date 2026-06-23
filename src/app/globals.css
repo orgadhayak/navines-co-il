@@ -32,6 +32,8 @@ body {
     #070708;
   color: #f7f7f8;
   font-family: "Comix No2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 ::selection {
@@ -40,15 +42,15 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-premium border border-navred/80 bg-gradient-to-br from-navred to-red-900 px-5 py-3 text-center text-sm font-black text-white shadow-glow transition hover:brightness-110;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-navred/80 bg-gradient-to-br from-navred to-red-900 px-6 py-3 text-center text-base font-black text-white shadow-glow transition hover:brightness-110;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-premium border border-white/10 bg-white/[0.06] px-5 py-3 text-center text-sm font-black text-white transition hover:bg-white/[0.1];
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] px-6 py-3 text-center text-base font-black text-white transition hover:bg-white/[0.1];
   }
 
   .form-label {
-    @apply grid gap-2 text-sm font-black text-silver;
+    @apply grid gap-2 text-base font-black text-silver;
   }
 
   .form-field {
@@ -56,7 +58,7 @@ body {
   }
 
   .tag {
-    @apply rounded-premium border border-white/10 bg-white/[0.045] px-3 py-2 text-sm font-bold text-zinc-300 transition hover:border-navred/60 hover:text-white;
+    @apply rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-base font-bold text-zinc-300 transition hover:border-navred/60 hover:text-white;
   }
 
   .tag-active {

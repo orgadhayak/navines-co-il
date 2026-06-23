@@ -17,7 +17,7 @@ const config: Config = {
         glow: "0 0 60px rgba(225,29,46,0.22)",
       },
       borderRadius: {
-        premium: "8px",
+        premium: "22px",
       },
     },
   },

@@ -9,7 +9,7 @@ export function ContactForm() {
   return (
     <form
       action={site.emailHref}
-      className="grid gap-4 rounded-premium border border-white/10 bg-white/[0.045] p-5 shadow-premium"
+      className="grid gap-4 rounded-premium border border-white/10 bg-white/[0.04] p-6 shadow-premium"
       encType="text/plain"
       method="post"
       onSubmit={(event) => {
@@ -68,15 +68,15 @@ export function ContactForm() {
         אתר
         <input autoComplete="off" name="website" tabIndex={-1} />
       </label>
-      <label className="flex items-start gap-3 text-sm text-zinc-300">
+      <label className="flex items-start gap-3 text-base text-zinc-300">
         <input className="mt-1 accent-navred" name="consent" required type="checkbox" />
-        אני מסכים/ה ש־NAVINES ישראל תיצור איתי קשר לגבי הפנייה.
+        אני מסכים/ה שנביא נס ישראל תיצור איתי קשר לגבי הפנייה.
       </label>
       <button className="btn-primary w-full" type="submit">
         שלחו ליד למייל
       </button>
-      {sent && <p className="rounded-premium border border-navred/30 bg-navred/10 p-3 text-sm text-silver">תודה שפניתם ל־NAVINES ישראל. קיבלנו את הפרטים ונחזור אליכם בהקדם.</p>}
-      <p className="text-xs leading-6 text-zinc-500">הטופס נשלח למייל {site.email} ומוכן לחיבור עתידי ל־CRM.</p>
+      {sent && <p className="rounded-premium border border-navred/30 bg-navred/10 p-4 text-base text-silver">תודה שפניתם לנביא נס ישראל. קיבלנו את הפרטים ונחזור אליכם בהקדם.</p>}
+      <p className="text-base leading-7 text-zinc-500">הטופס נשלח למייל {site.email} ומוכן לחיבור עתידי ל־CRM.</p>
     </form>
   );
 }

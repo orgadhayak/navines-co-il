@@ -13,7 +13,7 @@ export function createMetadata({
   type?: "website" | "article";
 }): Metadata {
   const url = `${site.url}${path}`;
-  const pageTitle = path === "" ? `${title} | נבינס ישראל` : title;
+  const pageTitle = path === "" ? `${title} | נביא נס ישראל` : title;
 
   return {
     title: pageTitle,
@@ -39,7 +39,7 @@ export function createMetadata({
       siteName: site.name,
       locale: "he_IL",
       type,
-      images: [{ url: "/og.svg", width: 1200, height: 630, alt: "נבינס ישראל בע״מ - תשתיות דיגיטליות חכמות" }],
+      images: [{ url: "/og.svg", width: 1200, height: 630, alt: "נביא נס ישראל בע\"מ, תשתיות דיגיטליות חכמות" }],
     },
     twitter: {
       card: "summary_large_image",

@@ -80,10 +80,10 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             <li>האם אפשר להרחיב את הפתרון בהמשך?</li>
           </ul>
           <h2>סיכום</h2>
-          <p>AI טוב מתחיל מתהליך עסקי נכון. לפני שמפתחים — מבינים את העסק, ואז בונים תשתית שמחברת מהירות, אבטחה, אוטומציה וחוויית משתמש במקום אחד.</p>
+          <p>AI טוב מתחיל מתהליך עסקי נכון. לפני שמפתחים, מבינים את העסק, ואז בונים תשתית שמחברת מהירות, אבטחה, אוטומציה וחוויית משתמש במקום אחד.</p>
         </div>
       </article>
-      <CTA title="רוצים שנבדוק את האתר או התהליך העסקי שלכם?" text="דברו עם NAVINES ישראל." />
+      <CTA title="רוצים שנבדוק את האתר או התהליך העסקי שלכם?" text="דברו עם נביא נס ישראל." />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
         <div className="grid gap-5 md:grid-cols-3">

@@ -5,7 +5,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "יצירת קשר",
-  description: "צרו קשר עם NAVINES ישראל: נבינס ישראל בע״מ, וינקלר אלתר 8 פתח תקווה, 054-818-0200, hello@navines.com.",
+  description: "צרו קשר עם נביא נס ישראל: נביא נס ישראל בע\"מ, ח.פ. 516647161, וינקלר אלתר 8 פתח תקווה, 054-818-0200, hello@navines.com.",
   path: "/contact",
 });
 
@@ -17,6 +17,7 @@ export default function ContactPage() {
           <p className="text-lg leading-8 text-zinc-300">ספרו לנו מה אתם רוצים לבנות, לשפר, לחבר או לאוטומט. נחזור אליכם עם כיוון ברור, שאלות נכונות והמלצה מעשית להמשך.</p>
           <div className="mt-6 grid gap-2 text-zinc-300">
             <strong className="text-white">{site.hebrewLegalName}</strong>
+            <span>{site.companyNumberLabel}</span>
             <span>{site.hebrewAddress}</span>
             <a href={site.phoneHref}>{site.phone}</a>
             <a href={site.emailHref}>{site.email}</a>
@@ -33,7 +34,7 @@ export default function ContactPage() {
               שלחו מייל
             </a>
           </div>
-          <div className="mt-6 rounded-premium border border-white/10 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:28px_28px] p-5">
+          <div className="mt-6 rounded-premium border border-white/10 bg-white/[0.035] p-6">
             <strong className="text-white">פתח תקווה</strong>
             <p className="mt-1 text-zinc-400">{site.hebrewAddress}</p>
             <a className="mt-3 inline-flex text-sm font-black text-glowred" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.hebrewAddress)}`}>

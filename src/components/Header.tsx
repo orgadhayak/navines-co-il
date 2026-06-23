@@ -10,13 +10,13 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/82 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link className="flex items-center gap-3" href="/" aria-label="NAVINES ישראל - בית">
+        <Link className="flex items-center gap-3" href="/" aria-label="נביא נס ישראל, בית">
           <span className="inline-flex h-10 items-center rounded-premium bg-white px-3 shadow-[0_0_34px_rgba(255,255,255,0.08)]">
             <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
           </span>
           <span className="leading-tight">
-            <strong className="block text-base font-black text-white">נבינס ישראל</strong>
-            <span className="block text-sm text-zinc-400">AI ותשתיות דיגיטליות</span>
+            <strong className="block text-lg font-black text-white">נביא נס ישראל</strong>
+            <span className="block text-base text-zinc-400">AI ותשתיות דיגיטליות</span>
           </span>
         </Link>
 

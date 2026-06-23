@@ -8,7 +8,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "מערכות AI, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים",
-  description: "NAVINES ישראל בונה אתרים, מערכות, חנויות, אוטומציות וכלי AI שמחברים בין העסק, הלקוחות, הנתונים והתפעול.",
+  description: "נביא נס ישראל בונה אתרים, מערכות, חנויות, אוטומציות וכלי AI שמחברים בין העסק, הלקוחות, הנתונים והתפעול.",
 });
 
 const metrics = ["AI ואוטומציה", "אתרים ומערכות", "איקומרס", "אבטחה וביצועים"];
@@ -20,7 +20,7 @@ export default function HomePage() {
         <div>
           <p className="mb-4 text-sm font-black text-glowred">תשתית דיגיטלית חכמה לעסק שרוצה לגדול</p>
           <h1 className="max-w-4xl text-4xl font-black leading-[1.02] text-white md:text-6xl lg:text-7xl">מערכות AI, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">NAVINES ישראל עוזרת לעסקים לבנות אתרים, מערכות, חנויות, אוטומציות וכלי AI שמחברים בין העסק, הלקוחות, הנתונים והתפעול. אנחנו משלבים פיתוח, אסטרטגיה, איקומרס, אבטחה, ביצועים ותשתיות דיגיטליות במקום אחד.</p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">נביא נס ישראל עוזרת לעסקים לבנות אתרים, מערכות, חנויות, אוטומציות וכלי AI שמחברים בין העסק, הלקוחות, הנתונים והתפעול. אנחנו משלבים פיתוח, אסטרטגיה, איקומרס, אבטחה, ביצועים ותשתיות דיגיטליות במקום אחד.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link className="btn-primary" href="/contact">
               דברו איתנו
@@ -33,23 +33,23 @@ export default function HomePage() {
         <HeroVisual />
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-3 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {metrics.map((metric) => (
-          <div className="rounded-premium border border-white/10 border-r-navred/40 bg-white/[0.035] p-5" key={metric}>
+          <div className="rounded-full border border-white/10 bg-white/[0.035] px-6 py-5" key={metric}>
             <strong className="text-2xl text-white">{metric}</strong>
-            <p className="mt-2 text-sm text-zinc-400">פחות עבודה ידנית. יותר שליטה, מדידה ואוטומציה.</p>
+            <p className="mt-2 text-base text-zinc-400">פחות עבודה ידנית. יותר שליטה, מדידה ואוטומציה.</p>
           </div>
         ))}
       </section>
 
-      <Section eyebrow="מי אנחנו" title="NAVINES ישראל — בונים תשתיות דיגיטליות חכמות">
+      <Section eyebrow="מי אנחנו" title="נביא נס ישראל, בונים תשתיות דיגיטליות חכמות">
         <div className="grid gap-8 lg:grid-cols-2">
-          <p className="text-lg leading-8 text-zinc-300">נבינס ישראל בע״מ היא חברת טכנולוגיה ופיתוח שמתמקדת בבניית מערכות דיגיטליות מתקדמות לעסקים. אנחנו בונים אתרים מהירים, מערכות ניהול, חנויות אונליין, אוטומציות עסקיות, כלי AI, אינטגרציות, מערכות ניטור ותשתיות שמאפשרות לעסק לעבוד בצורה חכמה יותר.</p>
+          <p className="text-xl leading-9 text-zinc-300">נביא נס ישראל בע"מ היא חברת טכנולוגיה ופיתוח שמתמקדת בבניית מערכות דיגיטליות מתקדמות לעסקים. אנחנו בונים אתרים מהירים, מערכות ניהול, חנויות אונליין, אוטומציות עסקיות, כלי AI, אינטגרציות, מערכות ניטור ותשתיות שמאפשרות לעסק לעבוד בצורה חכמה יותר.</p>
           <p className="text-lg leading-8 text-zinc-300">האתר שלך הוא לא כרטיס ביקור. הוא תשתית עסקית: נקודת מכירה, מקור לידים, כלי אמון, מערכת מדידה ונכס דיגיטלי שצריך לעבוד, למדוד, להתריע ולגדול עם העסק.</p>
         </div>
       </Section>
 
-      <Section eyebrow="שירותים" title="כל מה שהעסק הדיגיטלי שלך צריך — במקום אחד">
+      <Section eyebrow="שירותים" title="כל מה שהעסק הדיגיטלי שלך צריך במקום אחד">
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.slice(0, 6).map((service, index) => (
             <ServiceCard index={index} key={service.slug} service={service} />
@@ -66,7 +66,7 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="בלוג" title="מאמרים, תובנות וכלים לעסקים דיגיטליים">
-        <p className="mb-8 max-w-3xl text-lg leading-8 text-zinc-300">בבלוג של NAVINES ישראל נפרסם מדריכים, תובנות, ניתוחים ודוגמאות מעשיות על AI, אוטומציה, אתרים, איקומרס, SEO, אבטחה, ביצועים, שיווק וכלים דיגיטליים לעסקים.</p>
+        <p className="mb-8 max-w-3xl text-lg leading-8 text-zinc-300">בבלוג של נביא נס ישראל נפרסם מדריכים, תובנות, ניתוחים ודוגמאות מעשיות על AI, אוטומציה, אתרים, איקומרס, SEO, אבטחה, ביצועים, שיווק וכלים דיגיטליים לעסקים.</p>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {blogPosts.slice(0, 4).map((post) => (
             <BlogCard key={post.slug} post={post} />
@@ -80,6 +80,7 @@ export default function HomePage() {
             <p className="text-lg leading-8 text-zinc-300">ספרו לנו מה אתם רוצים לבנות, לשפר, לחבר או לאוטומט. נחזור אליכם עם כיוון ברור, שאלות נכונות והמלצה מעשית להמשך.</p>
             <div className="mt-6 grid gap-2 text-zinc-300">
               <strong className="text-white">{site.hebrewLegalName}</strong>
+              <span>{site.companyNumberLabel}</span>
               <span>{site.hebrewAddress}</span>
               <a href={site.phoneHref}>{site.phone}</a>
               <a href={site.emailHref}>{site.email}</a>

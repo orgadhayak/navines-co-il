@@ -6,7 +6,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "שירותים",
-  description: "שירותי NAVINES ישראל: AI, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, SEO, BI ואינטגרציות.",
+  description: "שירותי נביא נס ישראל: AI, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, SEO, BI ואינטגרציות.",
   path: "/services",
 });
 
@@ -21,7 +21,7 @@ const groups: { title: string; items: string[] }[] = [
 export default function ServicesPage() {
   return (
     <>
-      <Section eyebrow="שירותים" title="שירותי NAVINES ישראל" titleAs="h1">
+      <Section eyebrow="שירותים" title="שירותי נביא נס ישראל" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">אנחנו מספקים מעטפת טכנולוגית מלאה לעסקים: מהקמת אתרים וחנויות, דרך מערכות AI ואוטומציה, ועד אבטחה, ניטור, ביצועים, אינטגרציות ושיווק דיגיטלי.</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
