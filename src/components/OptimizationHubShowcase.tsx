@@ -3,26 +3,25 @@ import { optimizationHub, site } from "@/data/site";
 
 export function OptimizationHubShowcase({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="grid gap-4">
-      {optimizationHub.map((group, index) => (
+    <div className={`grid ${compact ? "gap-3" : "gap-4"}`}>
+      {optimizationHub.map((group) => (
         <details
-          className="group overflow-hidden rounded-[1.6rem] border border-purple-300/14 bg-black/32 shadow-[0_18px_70px_rgba(0,0,0,0.24)]"
+          className="command-glass group overflow-hidden rounded-[1.35rem]"
           key={group.title}
-          open={!compact || index < 2}
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 transition hover:bg-purple-500/[0.08]">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-3.5 transition hover:bg-purple-500/[0.08]">
             <span>
-              <span className="block text-2xl font-black text-white">{group.title}</span>
+              <span className="block text-[1.55rem] font-black leading-tight text-white">{group.title}</span>
               <span className="mt-1 block text-base leading-7 text-zinc-400">{group.intro}</span>
             </span>
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-purple-300/20 bg-white/[0.04] text-lg font-black text-glowred transition group-open:rotate-45">
+            <span className="accordion-plus grid h-9 w-9 shrink-0 place-items-center rounded-full border border-purple-300/25 bg-purple-500/10 text-lg font-black text-glowred transition group-open:rotate-45">
               +
             </span>
           </summary>
           <div className="grid gap-2 border-t border-white/10 p-4">
             {group.items.map((item) => (
               <Link
-                className="rounded-[1.1rem] border border-white/10 bg-white/[0.035] p-4 transition hover:border-purple-300/45 hover:bg-purple-500/10"
+                className="dashboard-row rounded-[1.05rem] p-3.5 transition"
                 href={item.href}
                 key={item.title}
               >

@@ -13,7 +13,7 @@ export function BlogFilter({ categories, posts }: { categories: string[]; posts:
     return [...posts]
       .sort((first, second) => second.publishedAt.localeCompare(first.publishedAt))
       .filter((post) => {
-        const text = `${post.title} ${post.excerpt} ${post.tags.join(" ")}`.toLowerCase();
+        const text = `${post.title} ${post.excerpt} ${post.englishTitle || ""} ${post.englishExcerpt || ""} ${post.tags.join(" ")}`.toLowerCase();
         return (!category || post.category === category) && (!normalized || text.includes(normalized));
       });
   }, [category, posts, query]);

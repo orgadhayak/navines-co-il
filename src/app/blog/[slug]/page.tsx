@@ -4,6 +4,7 @@ import { BlogCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { blogPosts, site } from "@/data/site";
+import { formatBlogDate } from "@/lib/dates";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -66,7 +67,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </div>
         ) : null}
         <p className="mt-4 text-sm text-zinc-500">
-          {post.date} • מחבר:{" "}
+          {formatBlogDate(post.publishedAt)} • מחבר:{" "}
           {site.name}{" "}
           • {post.readingTime}
         </p>

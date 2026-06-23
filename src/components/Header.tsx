@@ -17,14 +17,14 @@ export function Header() {
           </a>
         </div>
       </div>
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <div className="flex min-w-0 items-center gap-3">
-          <a className="inline-flex h-10 min-w-32 items-center rounded-full border border-purple-300/16 bg-white/[0.035] px-3 shadow-[0_0_26px_rgba(168,85,247,0.14)] transition hover:border-purple-300/34 hover:bg-white/[0.055] sm:h-11 sm:min-w-36" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
-            <img alt="NAVINES" className="h-5 w-auto object-contain drop-shadow-[0_0_14px_rgba(216,180,254,0.34)] sm:h-6" src="/brand/navines-wordmark-slim.png" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 lg:px-8">
+        <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+          <a className="inline-flex shrink-0 items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
+            <img alt="NAVINES" className="h-6 w-auto object-contain drop-shadow-[0_0_16px_rgba(216,180,254,0.45)] sm:h-7" src="/brand/navines-wordmark-slim.png" />
           </a>
-          <Link className="block min-w-0 leading-tight" href="/" aria-label="נביא נס ישראל בע״מ, בית">
-            <strong className="block truncate text-sm font-black text-white sm:text-base xl:text-lg">נביא נס ישראל בע״מ</strong>
-            <span className="block truncate text-[0.72rem] text-zinc-400 sm:text-sm xl:text-base">בינה מלאכותית ותשתיות דיגיטליות</span>
+          <Link className="block min-w-0 leading-tight" href="/" aria-label="נבינס ישראל בע״מ, בית">
+            <strong className="block truncate text-[1.05rem] font-black text-white sm:text-lg xl:text-xl">נבינס ישראל בע״מ</strong>
+            <span className="block truncate text-[0.76rem] text-zinc-400 sm:text-sm xl:text-base">בינה מלאכותית ותשתיות דיגיטליות</span>
           </Link>
         </div>
 
@@ -37,7 +37,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <a className="inline-flex h-9 items-center rounded-full border border-purple-300/14 bg-white/[0.03] px-3 transition hover:border-purple-300/35 hover:bg-white/[0.055]" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES.COM">
+          <a className="inline-flex h-8 items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES.COM">
             <img alt="NAVINES" className="h-5 w-auto object-contain opacity-90 drop-shadow-[0_0_12px_rgba(216,180,254,0.3)]" src="/brand/navines-wordmark-slim.png" />
           </a>
           <a className="btn-primary min-w-0 px-5 py-2.5 text-base" href={site.whatsappHref}>
