@@ -72,15 +72,15 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="mx-auto grid max-w-7xl items-center gap-6 px-4 py-7 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8 lg:py-11">
+      <section className="mx-auto grid max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-7">
         <div className="min-w-0">
-          <div className="mb-4 flex flex-wrap gap-2">
+          <div className="mb-3 flex flex-wrap gap-2">
             <span className="command-glass rounded-full px-4 py-2 text-sm font-black text-glowred">מרכז פיקוד דיגיטלי לעסקים</span>
             <span className="command-glass rounded-full px-4 py-2 text-sm font-black text-zinc-300">מערכות פעילות, נתונים ואוטומציה</span>
           </div>
-          <h1 className="max-w-4xl text-[2.85rem] font-black leading-[1.02] text-white sm:text-5xl md:text-6xl">מערכות בינה מלאכותית, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-300">נביא נס ישראל בע״מ עוזרת לבעלי עסקים להפוך אתר, חנות, מערכת או רעיון לתשתית שעובדת ביום יום. אנחנו מחברים בין לקוחות, נתונים, תפעול ומכירות כדי לחסוך זמן, להקטין טעויות וליצור עסק דיגיטלי ברור יותר.</p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <h1 className="max-w-4xl text-[2.45rem] font-black leading-[1.03] text-white sm:text-[3rem] md:text-[3.55rem]">מערכות בינה מלאכותית, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים</h1>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">נביא נס ישראל בע״מ עוזרת לבעלי עסקים להפוך אתר, חנות, מערכת או רעיון לתשתית שעובדת ביום יום. אנחנו מחברים בין לקוחות, נתונים, תפעול ומכירות כדי לחסוך זמן, להקטין טעויות וליצור עסק דיגיטלי ברור יותר.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
             <a className="btn-primary" href={site.whatsappHref}>
               דברו איתנו בוואטסאפ בחינם
             </a>
@@ -91,12 +91,12 @@ export default function HomePage() {
               בדקו את האתר
             </a>
           </div>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">לא בטוחים מאיפה להתחיל? כתבו לנו בוואטסאפ כמה מילים על האתר, החנות או המערכת, ונכוון אתכם בצורה פשוטה וחברית.</p>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-400">לא בטוחים מאיפה להתחיל? כתבו לנו בוואטסאפ כמה מילים על האתר, החנות או המערכת, ונכוון אתכם בצורה פשוטה וחברית.</p>
         </div>
         <HeroVisual />
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-3 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
         <div className="command-glass rounded-[1.65rem] p-5">
           <p className="text-sm font-black text-glowred">סטטוס מערכת</p>
           <h2 className="mt-2 text-3xl font-black leading-tight text-white">העסק הדיגיטלי צריך לעבוד כמו מערכת אחת</h2>
@@ -166,7 +166,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section eyebrow="מה אפשר לשפר אצלכם?" title="מתחילים מהבעיה העסקית, לא מהטכנולוגיה" className="py-8 lg:py-11">
+      <Section eyebrow="מה אפשר לשפר אצלכם?" title="מתחילים מהבעיה העסקית, לא מהטכנולוגיה" className="py-5 lg:py-8">
         <div className="grid gap-3 lg:grid-cols-2">
           {improvementRows.map((row) => (
             <Link className="dashboard-row group rounded-[1.35rem] p-4 transition" href={row.href} key={row.title}>
@@ -189,7 +189,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="מי אנחנו" title="בונים תשתית דיגיטלית חכמה, לא רק אתר יפה" className="py-8 lg:py-12">
+      <Section eyebrow="מי אנחנו" title="בונים תשתית דיגיטלית חכמה, לא רק אתר יפה" className="py-5 lg:py-8">
         <div className="grid gap-5 lg:grid-cols-2">
           <p className="text-lg leading-8 text-zinc-300">נביא נס ישראל בע״מ בונה אתרים מהירים, חנויות, מערכות ניהול, אוטומציות וכלי בינה מלאכותית שמטפלים בבעיות אמיתיות: פניות שמתפספסות, עבודה ידנית, אתר שלא מביא תוצאות או חנות שקשה לנהל.</p>
           <p className="text-lg leading-8 text-zinc-300">אנחנו מסתכלים על האתר כנכס עסקי ולא כעמוד יפה בלבד. הוא צריך להביא אמון, פניות ומכירות, להתחבר לכלים הנכונים, להיטען מהר ולהיות מספיק יציב כדי ללוות את העסק לאורך זמן.</p>
@@ -204,7 +204,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="מערכות שאנחנו בונים" title="כלים שמסדרים את העבודה, לא רק נראים טוב במסך" className="py-8 lg:py-11">
+      <Section eyebrow="מערכות שאנחנו בונים" title="כלים שמסדרים את העבודה, לא רק נראים טוב במסך" className="py-5 lg:py-8">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {systemRows.map((row) => (
             <Link className="command-glass group rounded-[1.35rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" href={row.href} key={row.title}>
@@ -217,7 +217,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="לוח שירותים" title="בחרו את האזור בעסק שצריך שיפור" className="py-8 lg:py-11">
+      <Section eyebrow="לוח שירותים" title="בחרו את האזור בעסק שצריך שיפור" className="py-5 lg:py-8">
         <div className="command-glass overflow-hidden rounded-[1.8rem] p-2">
           {controlPanelServices.map((service, index) => (
             <Link className="group grid gap-3 rounded-[1.35rem] px-4 py-4 transition hover:bg-purple-500/10 md:grid-cols-[0.85fr_1fr_1fr_1fr_auto] md:items-center" href={service.href} key={service.title}>
@@ -242,7 +242,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="ניטור, ביצועים ואוטומציה" title="מערכת חכמה שמראה מה קורה ומציעה את הצעד הבא" className="py-8 lg:py-11">
+      <Section eyebrow="ניטור, ביצועים ואוטומציה" title="מערכת חכמה שמראה מה קורה ומציעה את הצעד הבא" className="py-5 lg:py-8">
         <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">
           <div className="command-glass rounded-[1.8rem] p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -279,7 +279,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="מרכז אופטימיזציה" title="כל שירותי האופטימיזציה של נביא נס ישראל בע״מ במקום אחד" className="py-8 lg:py-12" id="optimization-hub">
+      <Section eyebrow="מרכז אופטימיזציה" title="כל שירותי האופטימיזציה של נביא נס ישראל בע״מ במקום אחד" className="py-5 lg:py-8" id="optimization-hub">
         <p className="mb-6 max-w-4xl text-lg leading-8 text-zinc-300">
           זה החלק שמטפל במה שקורה מאחורי הקלעים: מהירות, קוד, מובייל, שרתים, קלאודפלייר, אבטחה, ניטור, מיילים ותמונות.
           אם האתר נראה תקין אבל איטי, לא יציב, לא נמדד נכון או מפספס פניות, כאן מתחילים לעשות סדר.
@@ -295,7 +295,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="כל השירותים" title="כל השירותים מתוך האקוסיסטם של המותג, בעברית וללקוחות בישראל" className="py-8 lg:py-12" id="service-catalog">
+      <Section eyebrow="כל השירותים" title="כל השירותים מתוך האקוסיסטם של המותג, בעברית וללקוחות בישראל" className="py-5 lg:py-8" id="service-catalog">
         <p className="mb-6 max-w-4xl text-lg leading-8 text-zinc-300">
           כאן רואים את התמונה המלאה: אופטימיזציה, תשתיות, אבטחה, שיווק, איקומרס, אפליקציות, בדיקות, נתונים וכלי בינה מלאכותית.
           כל תג מוביל לעמוד השירות או הכלים שמתאים לתחום.
@@ -320,7 +320,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="כלים ומוצרים" title="כלים שעוזרים לראות בעיות לפני שהן עולות כסף" className="py-8 lg:py-12">
+      <Section eyebrow="כלים ומוצרים" title="כלים שעוזרים לראות בעיות לפני שהן עולות כסף" className="py-5 lg:py-8">
         <p className="mb-6 max-w-4xl text-lg leading-8 text-zinc-300">אנחנו גאים בכלים שבנינו, כי הם נולדו מתוך עבודה אמיתית עם אתרים, חנויות, נתונים ותהליכים עסקיים. המטרה פשוטה: לראות מהר יותר מה קורה, לקבל החלטה טובה יותר ולחסוך עבודה ידנית.</p>
         <div className="grid gap-5 md:grid-cols-3">
           {products.slice(0, 3).map((product) => (
@@ -334,7 +334,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="בלוג" title="מדריכים קצרים לקבלת החלטות חכמות יותר" className="py-8 lg:py-12">
+      <Section eyebrow="בלוג" title="מדריכים קצרים לקבלת החלטות חכמות יותר" className="py-5 lg:py-8">
         <div className="grid gap-4 md:grid-cols-3">
           {latestPosts.map((post) => (
             <BlogCard key={post.slug} post={post} />
@@ -347,7 +347,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="יצירת קשר" title="יש לכם אתר, חנות או מערכת שצריך לשפר?" className="py-8 lg:py-12">
+      <Section eyebrow="יצירת קשר" title="יש לכם אתר, חנות או מערכת שצריך לשפר?" className="py-5 lg:py-8">
         <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.045] p-6 shadow-premium lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div className="max-w-2xl">
             <p className="text-lg leading-8 text-zinc-300">שלחו לנו הודעה קצרה בוואטסאפ: מה יש לכם היום, מה מפריע לכם ומה הייתם רוצים שיקרה. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.</p>
