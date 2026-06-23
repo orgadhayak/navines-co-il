@@ -1,48 +1,78 @@
-import { ContactForm } from "@/components/ContactForm";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "יצירת קשר",
-  description: "צרו קשר עם נביא נס ישראל: נביא נס ישראל בע\"מ, ח.פ. 516647161, וינקלר אלתר 8 פתח תקווה, 054-818-0200, hello@navines.com.",
+  description: "צרו קשר עם נביא נס ישראל בע״מ בוואטסאפ, במייל או בטלפון. ח.פ. 516647161, וינקלר אלתר 8 פתח תקווה.",
   path: "/contact",
 });
 
+const contactActions = [
+  {
+    label: "שלחו וואטסאפ",
+    href: site.whatsappHref,
+    className: "btn-primary",
+  },
+  {
+    label: "שלחו מייל",
+    href: site.emailHref,
+    className: "btn-secondary",
+  },
+  {
+    label: "התקשרו עכשיו",
+    href: site.phoneHref,
+    className: "btn-secondary",
+  },
+];
+
 export default function ContactPage() {
   return (
-    <Section eyebrow="יצירת קשר" title="רוצים לבנות משהו חכם יותר לעסק שלכם?" titleAs="h1" className="lg:py-16">
-      <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.045] p-5 shadow-premium">
-          <p className="text-lg leading-8 text-zinc-300">ספרו לנו מה אתם רוצים לבנות, לשפר, לחבר או לאוטומט. נחזור אליכם עם כיוון ברור והמלצה מעשית להמשך.</p>
-          <div className="mt-5 grid gap-2 text-zinc-300">
-            <strong className="text-white">{site.hebrewLegalName}</strong>
-            <span>{site.companyNumberLabel}</span>
-            <span>{site.hebrewAddress}</span>
-            <a href={site.phoneHref}>{site.phone}</a>
-            <a href={site.emailHref}>{site.email}</a>
-            <span>השאירו פרטים ונחזור אליכם בהקדם.</span>
-          </div>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a className="btn-primary" href={site.whatsappHref}>
-              שלחו וואטסאפ
-            </a>
-            <a className="btn-secondary" href={site.phoneHref}>
-              התקשרו עכשיו
-            </a>
-            <a className="btn-secondary" href={site.emailHref}>
-              שלחו מייל
-            </a>
-          </div>
-          <div className="mt-5 rounded-[1.4rem] border border-white/10 bg-white/[0.035] p-4">
-            <strong className="text-white">פתח תקווה</strong>
-            <p className="mt-1 text-zinc-400">{site.hebrewAddress}</p>
-            <a className="mt-2 inline-flex text-sm font-black text-glowred" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.hebrewAddress)}`}>
-              פתיחה במפה
-            </a>
+    <Section eyebrow="יצירת קשר" title="דברו איתנו זריז" titleAs="h1" className="lg:py-14">
+      <div className="mx-auto max-w-4xl">
+        <div className="sparkle-field relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 shadow-premium sm:p-8">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(216,180,254,0.22),transparent_18rem)]" aria-hidden="true" />
+          <div className="relative">
+            <p className="max-w-2xl text-xl leading-9 text-zinc-200">
+              בלי טפסים ובלי סיבוכים. כתבו לנו בוואטסאפ או במייל מה אתם רוצים לבנות, לשפר או לחבר, ונחזור אליכם עם כיוון ברור.
+            </p>
+
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              {contactActions.map((action) => {
+                return (
+                  <a className={`${action.className} justify-center`} href={action.href} key={action.href}>
+                    {action.label}
+                  </a>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 grid gap-4 text-base text-zinc-300 sm:grid-cols-2">
+              <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-5">
+                <strong className="block text-lg text-white">{site.hebrewLegalName}</strong>
+                <span className="mt-2 block">{site.companyNumberLabel}</span>
+                <span className="mt-2 block">{site.hebrewAddress}</span>
+              </div>
+
+              <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-5">
+                <a className="block font-black text-white transition hover:text-glowred" href={site.phoneHref}>
+                  {site.phone}
+                </a>
+                <a className="mt-2 block font-black text-white transition hover:text-glowred" href={site.emailHref}>
+                  {site.email}
+                </a>
+                <a
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-black text-glowred transition hover:text-white"
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.hebrewAddress)}`}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  פתיחה במפה
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <ContactForm />
       </div>
     </Section>
   );
