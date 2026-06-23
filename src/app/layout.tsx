@@ -5,6 +5,7 @@ import { FloatingContact } from "@/components/FloatingContact";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <FloatingContact />
         <AnalyticsEvents />
+        <Analytics />
       </body>
     </html>
   );
