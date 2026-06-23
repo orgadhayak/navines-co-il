@@ -16,7 +16,7 @@ export function Header() {
           </a>
           <Link className="leading-tight" href="/" aria-label="נביא נס ישראל, בית">
             <strong className="block text-lg font-black text-white">נביא נס ישראל</strong>
-            <span className="block text-base text-zinc-400">AI ותשתיות דיגיטליות</span>
+            <span className="block text-base text-zinc-400">בינה מלאכותית ותשתיות דיגיטליות</span>
           </Link>
         </div>
 

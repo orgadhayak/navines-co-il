@@ -6,30 +6,30 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "שירותים",
-  description: "שירותי נביא נס ישראל: AI, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, SEO, BI ואינטגרציות.",
+  description: "שירותי נביא נס ישראל: בינה מלאכותית, אוטומציה, אתרים, מערכות, איקומרס, אבטחה, ביצועים, קידום אורגני, ניתוח נתונים ואינטגרציות.",
   path: "/services",
 });
 
 const groups: { title: string; items: string[] }[] = [
-  { title: "AI ואוטומציה", items: ["צ׳אטבוטים", "WhatsApp Business", "אוטומציות Telegram", "סוכני AI", "מערכות עוזר וירטואלי"] },
-  { title: "פיתוח וטכנולוגיה", items: ["פיתוח אתרים", "WordPress", "React", "Python", "Laravel", "QA ובדיקות"] },
-  { title: "איקומרס", items: ["Shopify", "WooCommerce", "Amazon", "eBay", "ניהול מלאי", "איקומרס B2B"] },
-  { title: "תשתיות", items: ["Cloudflare", "DNS", "SSL", "אחסון", "ניטור אתרים", "Google Analytics"] },
-  { title: "שיווק ונתונים", items: ["SEO", "PPC", "Email Marketing", "יצירת לידים", "מוניטין", "ניתוח נתונים עסקיים"] },
+  { title: "בינה מלאכותית ואוטומציה", items: ["צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
+  { title: "פיתוח וטכנולוגיה", items: ["פיתוח אתרים", "וורדפרס", "מערכות מותאמות", "קוד נקי", "פיתוח צד שרת", "בדיקות איכות"] },
+  { title: "איקומרס", items: ["שופיפיי", "ווקומרס", "אמזון", "איביי", "ניהול מלאי", "איקומרס לעסקים"] },
+  { title: "תשתיות", items: ["קלאודפלייר", "דומיינים", "תעודת אבטחה", "אחסון", "ניטור אתרים", "מדידה ונתונים"] },
+  { title: "שיווק ונתונים", items: ["קידום אורגני", "פרסום ממומן", "שיווק במייל", "יצירת פניות", "מוניטין", "ניתוח נתונים עסקיים"] },
 ];
 
 export default function ServicesPage() {
   return (
     <>
       <Section eyebrow="שירותים" title="שירותי נביא נס ישראל" titleAs="h1">
-        <p className="max-w-4xl text-lg leading-8 text-zinc-300">אנחנו מספקים מעטפת טכנולוגית מלאה לעסקים: מהקמת אתרים וחנויות, דרך מערכות AI ואוטומציה, ועד אבטחה, ניטור, ביצועים, אינטגרציות ושיווק דיגיטלי.</p>
+        <p className="max-w-4xl text-lg leading-8 text-zinc-300">אנחנו מספקים מעטפת טכנולוגית מלאה לעסקים: מהקמת אתרים וחנויות, דרך מערכות בינה מלאכותית ואוטומציה, ועד אבטחה, ניטור, ביצועים, אינטגרציות ושיווק דיגיטלי.</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard index={index} key={service.slug} service={service} />
           ))}
         </div>
       </Section>
-      <Section eyebrow="יכולות" title="תחומי מומחיות מתוך עולם NAVINES">
+      <Section eyebrow="יכולות" title="תחומי מומחיות מתוך עולם נביא נס">
         <div className="grid gap-5 lg:grid-cols-2">
           {groups.map(({ title, items }) => (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" key={title}>

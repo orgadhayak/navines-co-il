@@ -5,21 +5,21 @@ import { site } from "@/data/site";
 export function Footer() {
   const serviceLinks = [
     ["אתרים ומערכות", "/services/web-development"],
-    ["AI ואוטומציה", "/services/ai-automation"],
+    ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
     ["איקומרס", "/services/ecommerce"],
     ["שיפור מהירות", "/services/website-speed-optimization"],
     ["אבטחה", "/services/security-recovery"],
-    ["SEO", "/services/seo-digital-marketing"],
+    ["קידום אורגני", "/services/seo-digital-marketing"],
     ["ייעוץ טכנולוגי", "/services/consulting"],
   ];
 
   const toolLinks = [
-    ["Beacon", "https://beacon.navines.com"],
-    ["TalkToData", "https://talktodata.navines.com"],
-    ["Website Analyzer", "https://analyze.navines.com"],
-    ["CheckLink.ai", "https://checklink.ai"],
-    ["Real Estate Intelligence", "/products"],
-    ["Maor Israel", "https://maorisrael.com"],
+    ["ביקון", "https://beacon.navines.com"],
+    ["לדבר עם הנתונים", "https://talktodata.navines.com"],
+    ["בודק אתרים", "https://analyze.navines.com"],
+    ["בדיקת קישורים", "https://checklink.ai"],
+    ["מודיעין נדל״ן", "/products"],
+    ["מאור ישראל", "https://maorisrael.com"],
   ];
 
   return (
@@ -41,12 +41,12 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <a className="inline-flex h-10 items-center rounded-premium bg-white px-3" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES official website">
+              <a className="inline-flex h-10 items-center rounded-premium bg-white px-3" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי הבינלאומי">
                 <img alt="NAVINES" className="h-6 w-auto" src="/brand/navines-wordmark.png" />
               </a>
               <strong className="text-lg text-white">נביא נס ישראל</strong>
             </div>
-            <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע"מ בונה אתרים, מערכות, אוטומציות, כלי AI ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
+            <p className="text-base leading-8 text-zinc-400">נביא נס ישראל בע"מ בונה אתרים, מערכות, אוטומציות, כלי בינה מלאכותית ותשתיות דיגיטליות לעסקים. אנחנו בונים מערכות שעובדות, לא רק אתרים שנראים טוב.</p>
             <p className="mt-3 text-base font-black text-silver">{site.companyNumberLabel}</p>
           </div>
 
@@ -92,7 +92,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500">
           <span>© 2026 נביא נס ישראל בע"מ, ח.פ. {site.companyNumber}. כל הזכויות שמורות.</span>
-          <Link href={site.internationalUrl}>navines.com</Link>
+          <a href={site.internationalUrl} rel="noreferrer" target="_blank">האתר הבינלאומי</a>
         </div>
       </div>
     </footer>

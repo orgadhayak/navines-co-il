@@ -35,6 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
       <h3 className="mt-4 text-2xl font-black text-white">
         <BrandInline text={product.name} />
       </h3>
+      <p className="mt-1 text-lg font-black text-glowred">{product.hebrewName}</p>
       <p className="mt-3 text-lg leading-8 text-zinc-400">
         <BrandInline text={product.description} />
       </p>

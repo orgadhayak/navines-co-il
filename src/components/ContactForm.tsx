@@ -9,7 +9,7 @@ export function ContactForm() {
   return (
     <form
       action={site.emailHref}
-      className="grid gap-4 rounded-premium border border-white/10 bg-white/[0.04] p-6 shadow-premium"
+      className="grid gap-3 rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-5 shadow-premium"
       encType="text/plain"
       method="post"
       onSubmit={(event) => {
@@ -51,9 +51,9 @@ export function ContactForm() {
           <option value="">בחרו שירות</option>
           <option>אתר חדש</option>
           <option>שדרוג אתר קיים</option>
-          <option>AI ואוטומציה</option>
+          <option>בינה מלאכותית ואוטומציה</option>
           <option>חנות אונליין</option>
-          <option>Amazon / eBay</option>
+          <option>אמזון ואיביי</option>
           <option>שיפור מהירות</option>
           <option>אבטחה / תקלה דחופה</option>
           <option>מערכת פנימית</option>
@@ -62,7 +62,7 @@ export function ContactForm() {
       </label>
       <label className="form-label">
         הודעה חופשית
-        <textarea className="form-field min-h-32" minLength={10} name="message" required />
+        <textarea className="form-field min-h-24" minLength={10} name="message" required />
       </label>
       <label className="sr-only" aria-hidden="true">
         אתר
@@ -73,10 +73,10 @@ export function ContactForm() {
         אני מסכים/ה שנביא נס ישראל תיצור איתי קשר לגבי הפנייה.
       </label>
       <button className="btn-primary w-full" type="submit">
-        שלחו ליד למייל
+        שלחו פנייה
       </button>
       {sent && <p className="rounded-premium border border-navred/30 bg-navred/10 p-4 text-base text-silver">תודה שפניתם לנביא נס ישראל. קיבלנו את הפרטים ונחזור אליכם בהקדם.</p>}
-      <p className="text-base leading-7 text-zinc-500">הטופס נשלח למייל {site.email} ומוכן לחיבור עתידי ל־CRM.</p>
+      <p className="text-sm leading-6 text-zinc-500">הטופס נשלח למייל {site.email} ומוכן לחיבור עתידי למערכת ניהול לקוחות.</p>
     </form>
   );
 }

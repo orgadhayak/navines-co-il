@@ -39,7 +39,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    author: { "@type": "Organization", name: "NAVINES" },
+    author: { "@type": "Organization", name: site.hebrewLegalName },
     publisher: { "@type": "Organization", name: site.hebrewLegalName },
     datePublished: post.date,
     image: `${site.url}${visual.src}`,
@@ -70,9 +70,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </p>
         <p className="mt-4 text-sm text-zinc-500">
           {post.date} • מחבר:{" "}
-          <a className="text-glowred hover:text-white" href={site.internationalUrl} rel="noreferrer" target="_blank">
-            NAVINES
-          </a>{" "}
+          {site.name}{" "}
           • {post.readingTime}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
@@ -96,8 +94,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           <p>העבודה מתחילה ממיפוי קצר של האתר, המערכות, הנתונים והתהליך העסקי. לאחר מכן בוחרים את הפעולות שייתנו ערך מהיר: שיפור מהירות, חיבור מערכת, אוטומציה, ניטור או תיקון נקודת אמון קריטית.</p>
           <h2>דוגמאות מעשיות</h2>
           <ul>
-            <li>בדיקת אתר עם Lighthouse וזיהוי צווארי בקבוק במובייל.</li>
-            <li>חיבור טופס ל־CRM והפיכת פנייה למשימה מסודרת.</li>
+            <li>בדיקת אתר עם כלי מדידה מקצועיים וזיהוי צווארי בקבוק במובייל.</li>
+            <li>חיבור טופס למערכת ניהול לקוחות והפיכת פנייה למשימה מסודרת.</li>
             <li>הוספת ניטור שמתריע על בעיות לפני שהלקוחות מרגישים אותן.</li>
           </ul>
           <h2>רשימת בדיקה</h2>
@@ -108,7 +106,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             <li>האם אפשר להרחיב את הפתרון בהמשך?</li>
           </ul>
           <h2>סיכום</h2>
-          <p>AI טוב מתחיל מתהליך עסקי נכון. לפני שמפתחים, מבינים את העסק, ואז בונים תשתית שמחברת מהירות, אבטחה, אוטומציה וחוויית משתמש במקום אחד.</p>
+          <p>בינה מלאכותית טובה מתחילה מתהליך עסקי נכון. לפני שמפתחים, מבינים את העסק, ואז בונים תשתית שמחברת מהירות, אבטחה, אוטומציה וחוויית משתמש במקום אחד.</p>
         </div>
       </article>
       <CTA title="רוצים שנבדוק את האתר או התהליך העסקי שלכם?" text="דברו עם נביא נס ישראל." />

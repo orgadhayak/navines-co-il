@@ -1,25 +1,21 @@
 const visuals = [
-  { src: "/visuals/brain1.webp", alt: "מוח AI סגול עם נקודות חיבור" },
-  { src: "/visuals/signal-wave.jpg", alt: "גלי נתונים סגולים על רשת דיגיטלית" },
-  { src: "/visuals/automation-hand.jpg", alt: "יד מחזיקה רשת נתונים ואוטומציה" },
-  { src: "/visuals/ai-board.webp", alt: "לוח אלקטרוני עם שכבות AI ונתונים" },
-  { src: "/visuals/ai-chip.webp", alt: "שבב AI סגול על לוח אלקטרוני" },
-  { src: "/visuals/purple-circuit-core.png", alt: "מעגל תשתית דיגיטלית סגול" },
+  { src: "/visuals/navines-israel-core-star.jpg", alt: "ליבת טכנולוגיה סגולה בצורת מגן דוד" },
+  { src: "/visuals/navines-israel-light-ring.jpg", alt: "סמל מגן דוד סגול וזוהר עם טבעת דיגיטלית" },
 ];
 
 const bySlug: Record<string, (typeof visuals)[number]> = {
   "ai-business-israel": visuals[0],
-  "business-website-2026": visuals[3],
-  "slow-website-cost": visuals[1],
-  "business-automation-start": visuals[2],
-  "shopify-israel": visuals[4],
-  "amazon-ebay-mistakes": visuals[3],
-  "api-save-hours": visuals[5],
-  "website-trust": visuals[2],
-  "navines-beacon": visuals[1],
-  "internal-business-system": visuals[4],
-  "wordpress-security": visuals[5],
-  "technical-seo-hebrew": visuals[3],
+  "business-website-2026": visuals[1],
+  "slow-website-cost": visuals[0],
+  "business-automation-start": visuals[1],
+  "shopify-israel": visuals[0],
+  "amazon-ebay-mistakes": visuals[1],
+  "api-save-hours": visuals[0],
+  "website-trust": visuals[1],
+  "navines-beacon": visuals[0],
+  "internal-business-system": visuals[1],
+  "wordpress-security": visuals[0],
+  "technical-seo-hebrew": visuals[1],
 };
 
 export function getBlogVisual(slug: string) {
