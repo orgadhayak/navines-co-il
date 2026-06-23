@@ -16,8 +16,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-black/[0.9] backdrop-blur-xl">
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
         <Link className="grid shrink-0 justify-items-center gap-1 transition hover:opacity-90" href="/" aria-label="חזרה לעמוד הבית">
-          <span className="bsd-royal inline-flex items-center justify-center gap-1">
-            <span className="crown-mark" aria-hidden="true">♛</span>
+          <span className="bsd-royal inline-flex items-center justify-center">
             בְּסִיַּעְתָּא דִשְׁמַיָּא
           </span>
           <img alt="NAVINES" className="h-4 w-auto object-contain drop-shadow-[0_0_13px_rgba(216,180,254,0.42)] sm:h-[1.1rem]" src="/brand/navines-wordmark-slim.png" />
@@ -35,11 +34,11 @@ export function Header() {
           <button
             aria-expanded={open}
             aria-label="פתיחת תפריט"
-            className="mobile-menu-button inline-flex min-h-10 min-w-[4.2rem] items-center justify-center px-1 text-center transition lg:hidden"
+            className="mobile-menu-button inline-flex min-h-11 min-w-[4.8rem] items-center justify-center px-1 text-center transition lg:hidden"
             onClick={() => setOpen((value) => !value)}
             type="button"
           >
-            <span className="text-[0.9rem] font-black leading-none text-purple-100">תפריט</span>
+            <span className="text-[1.08rem] font-black leading-none text-purple-300">תפריט</span>
           </button>
         </div>
       </div>
