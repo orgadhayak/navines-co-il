@@ -3,17 +3,19 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import { solutionPages } from "@/data/solutions";
-import { mainNav, site } from "@/data/site";
+import { mainNav, services, site } from "@/data/site";
 
 const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
 const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
+const mobilePrimaryNav = mainNav.filter((item) => !["/services/ai-automation", "/services/web-development", "/services/ecommerce"].includes(item.href));
+const mobileServiceNav = services.map((service) => ({ label: service.title, href: `/services/${service.slug}` }));
 
 export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-black/[0.9] backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-purple-500/18 bg-black/[0.94] backdrop-blur-xl">
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
         <Link className="grid shrink-0 justify-items-center gap-1 transition hover:opacity-90" href="/" aria-label="חזרה לעמוד הבית">
           <span className="bsd-royal inline-flex items-center justify-center">
@@ -85,26 +87,38 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-white/10 bg-black px-4 py-3 lg:hidden" aria-label="תפריט מובייל">
-          <div className="mx-auto grid max-w-7xl gap-1">
-            {mainNav.map((item) => (
-              <Link className="rounded-full px-4 py-3 text-center text-lg font-black text-zinc-200 hover:bg-white/8" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+        <nav className="mobile-menu-panel px-4 py-3 lg:hidden" aria-label="תפריט מובייל">
+          <div className="mx-auto grid max-w-7xl gap-2 pb-6">
+            {mobilePrimaryNav.map((item) => (
+              <Link className="mobile-menu-link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             ))}
-            <div className="rounded-[1.25rem] border border-purple-200/16 bg-purple-500/[0.06] p-2">
-              <Link className="block rounded-full px-4 py-3 text-center text-lg font-black text-purple-100 hover:bg-purple-500/12" href="/solutions" onClick={() => setOpen(false)}>
-                פתרונות
+            <div className="mobile-menu-group">
+              <Link className="mobile-menu-group-title" href="/services" onClick={() => setOpen(false)}>
+                כל השירותים
               </Link>
-              <div className="grid gap-1">
-                {solutionNav.map((item) => (
-                  <Link className="rounded-full px-4 py-2.5 text-center text-base font-black text-zinc-200 hover:bg-white/8" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+              <div className="grid gap-1.5">
+                {mobileServiceNav.map((item) => (
+                  <Link className="mobile-menu-sub-link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
                     {item.label}
                   </Link>
                 ))}
               </div>
             </div>
-            <a className="mt-2 rounded-full border border-purple-300/20 bg-purple-500/15 px-4 py-3 text-center text-lg font-black text-white" href={site.whatsappHref} onClick={() => setOpen(false)}>
+            <div className="mobile-menu-group">
+              <Link className="mobile-menu-group-title" href="/solutions" onClick={() => setOpen(false)}>
+                פתרונות
+              </Link>
+              <div className="grid gap-1.5">
+                {solutionNav.map((item) => (
+                  <Link className="mobile-menu-sub-link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <a className="mobile-menu-cta" href={site.whatsappHref} onClick={() => setOpen(false)}>
               דברו איתנו בוואטסאפ
             </a>
           </div>
