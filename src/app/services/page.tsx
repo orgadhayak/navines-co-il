@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ServiceCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
@@ -12,7 +13,7 @@ export const metadata = createMetadata({
 });
 
 const groups: { title: string; items: string[] }[] = [
-  { title: "בינה מלאכותית ואוטומציה", items: ["צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
+  { title: "בינה מלאכותית ואוטומציה", items: ["לדבר עם הנתונים באמצעות ChatGPT", "חיבור נתונים עסקיים ל־ChatGPT", "צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
   { title: "פיתוח וטכנולוגיה", items: ["פיתוח אתרים", "וורדפרס", "מערכות מותאמות", "קוד נקי", "פיתוח צד שרת", "בדיקות איכות"] },
   { title: "איקומרס", items: ["שופיפיי", "ווקומרס", "אמזון", "איביי", "ניהול מלאי", "איקומרס לעסקים"] },
   { title: "תשתיות", items: ["קלאודפלייר", "דומיינים", "תעודת אבטחה", "אחסון", "ניטור אתרים", "מדידה ונתונים"] },
@@ -20,10 +21,32 @@ const groups: { title: string; items: string[] }[] = [
 ];
 
 export default function ServicesPage() {
+  const talkToDataService = services.find((service) => service.slug === "chatgpt-business-data");
+
   return (
     <>
       <Section eyebrow="שירותים" title="שירותים שמסדרים את העסק הדיגיטלי מקצה לקצה" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">אם האתר לא מביא פניות, החנות קשה לניהול, הצוות עובד ידנית או המערכות לא מדברות אחת עם השנייה, אנחנו עוזרים לעשות סדר. בונים את מה שצריך, מחברים את מה שקיים ומשפרים את מה שכבר עובד כדי שהעסק יהיה מהיר, ברור ומדיד יותר.</p>
+        {talkToDataService ? (
+          <div className="command-glass mt-7 rounded-[1.8rem] p-5 lg:grid lg:grid-cols-[1fr_0.7fr] lg:items-center lg:gap-6">
+            <div>
+              <p className="text-sm font-black text-glowred">השירות הראשון שכדאי להכיר</p>
+              <h2 className="mt-2 text-3xl font-black leading-tight text-white md:text-5xl">{talkToDataService.title}</h2>
+              <p className="mt-4 text-lg leading-8 text-zinc-300">{talkToDataService.summary}</p>
+            </div>
+            <div className="mt-5 grid gap-3 lg:mt-0">
+              <Link className="btn-primary" href="/services/chatgpt-business-data">
+                לעמוד השירות
+              </Link>
+              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank">
+                לצפייה ב־TalkToData
+              </a>
+              <a className="btn-secondary" href={site.whatsappHref}>
+                שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה
+              </a>
+            </div>
+          </div>
+        ) : null}
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard index={index} key={service.slug} service={service} />

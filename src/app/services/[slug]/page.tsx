@@ -24,6 +24,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
+  const isChatGptDataService = service.slug === "chatgpt-business-data";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -83,7 +84,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </article>
         </div>
       </Section>
-      <CTA title={`רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`} text="כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי." />
+      <CTA
+        title={isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+      />
     </>
   );
 }

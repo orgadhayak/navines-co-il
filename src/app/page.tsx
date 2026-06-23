@@ -8,7 +8,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "פתרונות בינה מלאכותית, אתרים ואוטומציה לעסקים בישראל",
-  description: "נביא נס ישראל בע״מ עוזרת לעסקים לבנות אתר, חנות, מערכת, אוטומציה ומרכז אופטימיזציה מלא: מהירות, אבטחה, ניטור, תשתיות ופחות עבודה ידנית.",
+  description: "נביא נס ישראל בע״מ עוזרת לעסקים לדבר עם הנתונים באמצעות ChatGPT, לבנות אתר, חנות, מערכת, אוטומציה ומרכז אופטימיזציה מלא.",
 });
 
 const ecosystemLinks: Record<string, string> = {
@@ -29,24 +29,25 @@ const ecosystemLinks: Record<string, string> = {
 const commandStats = [
   { label: "פניות ושירות", value: "פחות פספוסים", text: "וואטסאפ, אתר ומשימות במקום אחד", href: "/services/ai-automation" },
   { label: "מהירות ואמון", value: "טעינה ברורה", text: "אתר שמרגיש יציב גם במובייל", href: "/optimization-hub" },
-  { label: "נתונים ותובנות", value: "פחות ניחושים", text: "מדידה שמובילה לפעולה", href: "/services/business-intelligence" },
+  { label: "נתונים ו־ChatGPT", value: "שיחה עם העסק", text: "שאלות רגילות על מכירות, מלאי ודוחות", href: "/services/chatgpt-business-data" },
 ];
 
 const improvementRows = [
+  { title: "רוצים לשאול את הנתונים שלכם שאלות רגילות", text: "נחבר את ChatGPT למכירות, הזמנות, מלאי, לקוחות, מוצרים ודוחות כדי לקבל תשובות בלי לחפש ידנית במערכות.", status: "TalkToData", href: "/services/chatgpt-business-data" },
   { title: "האתר איטי או לא מביא מספיק פניות", text: "נבדוק מה מעכב טעינה, מסר, מובייל ואמון, ונראה מה כדאי לתקן קודם.", status: "בדיקת אתר", href: "/services/website-speed-optimization" },
   { title: "העסק עובד ידנית מדי", text: "נאתר פעולות שחוזרות על עצמן ונחבר אוטומציה פשוטה לפניות, משימות ודוחות.", status: "אוטומציה", href: "/services/ai-automation" },
   { title: "החנות קיימת אבל קשה לגדול איתה", text: "נסדר מוצרים, ביצועים, מדידה ותהליך רכישה כדי להפחית נטישה ולשפר מכירות.", status: "איקומרס", href: "/services/ecommerce" },
-  { title: "אין תמונת מצב ברורה", text: "נבנה דוחות, ניטור וכלים שמראים מה קורה באתר, בחנות ובתפעול.", status: "דשבורד", href: "/services/business-intelligence" },
 ];
 
 const systemRows = [
+  { title: "ChatGPT לנתוני העסק", text: "שיחה פשוטה עם מכירות, הזמנות, מלאי, לקוחות ודוחות.", href: "/services/chatgpt-business-data" },
   { title: "אתרי חברה ותדמית", text: "אתר ברור, מהיר ומשכנע שמוביל לפנייה.", href: "/services/web-development" },
   { title: "מערכות פנימיות", text: "כלי עבודה שמסדרים לקוחות, משימות, נתונים ותהליכים.", href: "/services/web-development" },
   { title: "חנויות ומרקטפלייסים", text: "שופיפיי, ווקומרס, אמזון ואיביי עם תשתית מכירה מסודרת.", href: "/services/ecommerce" },
-  { title: "אוטומציות ווואטסאפ", text: "תגובה מהירה, סיכום פניות וניתוב לצוות בלי בלגן.", href: "/services/ai-automation" },
 ];
 
 const controlPanelServices = [
+  { title: "לדבר עם הנתונים של העסק באמצעות ChatGPT", what: "חיבור נתונים עסקיים לשכבת שיחה פשוטה.", solves: "במקום לחפש בדוחות, שואלים על מכירות, הזמנות, מלאי, לקוחות וביצועים.", why: "בעל העסק מקבל תשובה ברורה מהר יותר ומבין מה דורש פעולה.", href: "/services/chatgpt-business-data" },
   { title: "בינה מלאכותית ואוטומציה", what: "תהליכים חכמים שמטפלים בפניות, משימות ומידע.", solves: "פחות עבודה ידנית ופחות דברים שנופלים בין הכיסאות.", why: "הצוות מגיב מהר יותר והלקוח מקבל תשובה ברורה.", href: "/services/ai-automation" },
   { title: "אתרים ומערכות", what: "אתרי חברה, פורטלים, דשבורדים ומערכות מותאמות.", solves: "אתר שלא מביא תוצאות או תהליך עסקי שמנוהל בקבצים.", why: "העסק מקבל תשתית שאפשר למדוד, לשפר ולהרחיב.", href: "/services/web-development" },
   { title: "איקומרס", what: "חנויות, עמודי מוצר, מלאי, תשלום ומרקטפלייסים.", solves: "חנות שקשה לנהל או לקוחות שנוטשים לפני רכישה.", why: "תהליך קנייה ברור ומהיר עוזר להגדיל מכירות.", href: "/services/ecommerce" },
@@ -59,14 +60,15 @@ const controlPanelServices = [
 ];
 
 const monitoringRows = [
+  { label: "ChatGPT לנתונים", text: "לשאול כמה מכרנו, מה ירד, איזה מוצר מוביל ואיפה צריך טיפול.", href: "/services/chatgpt-business-data" },
   { label: "ניטור", text: "לזהות האטות, נפילות ותקלות לפני שהלקוח מדווח.", href: "/products" },
   { label: "ביצועים", text: "להבין מה כבד, מה מעכב ומה כדאי לתקן ראשון.", href: "/optimization-hub" },
   { label: "אוטומציה", text: "להפוך פנייה, סיכום, משימה ודוח לתהליך מסודר.", href: "/services/ai-automation" },
-  { label: "דוחות", text: "לקבל תמונה פשוטה במקום טבלאות שקשה לקרוא.", href: "/services/business-intelligence" },
 ];
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
+  const talkToDataProduct = products.find((product) => product.slug === "talk-to-data");
 
   return (
     <>
@@ -114,6 +116,53 @@ export default function HomePage() {
               <span className="mt-2 block text-base leading-7 text-zinc-400">{metric.text}</span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="command-glass overflow-hidden rounded-[1.8rem] p-4 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-5">
+          <div className="rounded-[1.45rem] bg-black p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-purple-200/24 bg-purple-500/14 px-4 py-1.5 text-sm font-black text-glowred">השירות החם עכשיו</span>
+              <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-sm font-black text-zinc-300">TalkToData</span>
+            </div>
+            <h2 className="mt-4 text-[2.2rem] font-black leading-tight text-white md:text-5xl">לדבר עם הנתונים של העסק באמצעות ChatGPT</h2>
+            <p className="mt-4 text-lg leading-8 text-zinc-300">עסק יכול לחבר את הנתונים שלו ל־ChatGPT ולשאול שאלות רגילות על מכירות, הזמנות, מלאי, לקוחות, מוצרים, ביצועים ודוחות בלי להסתבך עם מערכות מורכבות.</p>
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              {["כמה מכרנו החודש?", "איזה מוצר הכי נמכר?", "איזה לקוחות לא חזרו?", "אילו הזמנות דורשות טיפול?"].map((question) => (
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-black text-zinc-200" key={question}>
+                  {question}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a className="btn-primary" href={site.whatsappHref}>
+                רוצים לדבר עם הנתונים שלכם? דברו איתנו בוואטסאפ
+              </a>
+              <Link className="btn-secondary" href="/services/chatgpt-business-data">
+                לעמוד השירות
+              </Link>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-3 lg:mt-0">
+            <a className="dashboard-row rounded-[1.35rem] p-4 transition" href="https://talktodata.navines.com" rel="noreferrer" target="_blank">
+              <p className="text-sm font-black text-glowred">דוגמה אמיתית שבנינו</p>
+              <h3 className="mt-2 text-3xl font-black text-white">TalkToData</h3>
+              <p className="mt-2 text-lg leading-8 text-zinc-300">Your data. Your ChatGPT. One conversation.</p>
+              <span className="mt-4 inline-flex rounded-full border border-purple-200/24 bg-purple-500/14 px-4 py-2 text-base font-black text-white">לצפייה בכלי</span>
+            </a>
+            {talkToDataProduct ? (
+              <Link className="dashboard-row rounded-[1.35rem] p-4 transition" href="/products">
+                <p className="text-sm font-black text-glowred">כלים ומוצרים</p>
+                <h3 className="mt-2 text-2xl font-black text-white">{talkToDataProduct.hebrewName}</h3>
+                <p className="mt-2 text-base leading-7 text-zinc-300">{talkToDataProduct.solves}</p>
+              </Link>
+            ) : null}
+            <a className="dashboard-row rounded-[1.35rem] p-4 transition" href={site.whatsappHref}>
+              <p className="text-sm font-black text-glowred">לא בטוחים אם זה אפשרי?</p>
+              <h3 className="mt-2 text-2xl font-black text-white">שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה</h3>
+            </a>
+          </div>
         </div>
       </section>
 

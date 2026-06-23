@@ -20,7 +20,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
           <a className="inline-flex shrink-0 items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי של NAVINES">
-            <img alt="NAVINES" className="h-6 w-auto object-contain drop-shadow-[0_0_16px_rgba(216,180,254,0.45)] sm:h-7" src="/brand/navines-wordmark-slim.png" />
+            <img alt="NAVINES" className="h-5 w-auto object-contain drop-shadow-[0_0_14px_rgba(216,180,254,0.38)] sm:h-5" src="/brand/navines-wordmark-slim.png" />
           </a>
           <Link className="block min-w-0 leading-tight" href="/" aria-label="נבינס ישראל בע״מ, בית">
             <strong className="block truncate text-[1.05rem] font-black text-white sm:text-lg xl:text-xl">נבינס ישראל בע״מ</strong>
@@ -38,7 +38,7 @@ export function Header() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <a className="inline-flex h-8 items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="NAVINES.COM">
-            <img alt="NAVINES" className="h-5 w-auto object-contain opacity-90 drop-shadow-[0_0_12px_rgba(216,180,254,0.3)]" src="/brand/navines-wordmark-slim.png" />
+            <img alt="NAVINES" className="h-4 w-auto object-contain opacity-90 drop-shadow-[0_0_10px_rgba(216,180,254,0.25)]" src="/brand/navines-wordmark-slim.png" />
           </a>
           <a className="btn-primary min-w-0 px-5 py-2.5 text-base" href={site.whatsappHref}>
             וואטסאפ

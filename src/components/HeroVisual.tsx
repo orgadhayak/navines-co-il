@@ -2,17 +2,17 @@ import Link from "next/link";
 import { site } from "@/data/site";
 
 const signals = [
+  { label: "נתונים ו־ChatGPT", href: "/services/chatgpt-business-data" },
   { label: "בינה מלאכותית", href: "/services/ai-automation" },
   { label: "אוטומציה", href: "/services/ai-automation" },
   { label: "אתרים", href: "/services/web-development" },
   { label: "איקומרס", href: "/services/ecommerce" },
   { label: "אבטחה", href: "/services/security-recovery" },
-  { label: "ביצועים", href: "/services/website-speed-optimization" },
 ];
 
 const livePanels = [
   { title: "מערכות פעילות", value: "זמין", text: "אתר, וואטסאפ, מדידה וניטור" },
-  { title: "בינה מלאכותית", value: "מחובר", text: "פניות, משימות וסיכומי מידע" },
+  { title: "ChatGPT לנתונים", value: "מחובר", text: "מכירות, מלאי, הזמנות ודוחות" },
   { title: "אופטימיזציה", value: "בבדיקה", text: "מהירות, אבטחה וחוויית מובייל" },
 ];
 
@@ -28,10 +28,9 @@ export function HeroVisual() {
       className="hero-star-field relative overflow-hidden rounded-[2rem] border border-purple-300/12 bg-black p-3 shadow-[0_28px_120px_rgba(0,0,0,0.55)] sm:p-5"
       data-section="hero-visual"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_43%,rgba(216,180,254,0.24),transparent_16rem),radial-gradient(circle_at_54%_48%,rgba(126,34,206,0.23),transparent_23rem),linear-gradient(115deg,transparent_0_26%,rgba(255,255,255,0.1)_26.2%_26.45%,transparent_26.7%_100%)]" aria-hidden="true" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-500/18 blur-[70px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0_26%,rgba(255,255,255,0.09)_26.2%_26.45%,transparent_26.7%_100%),linear-gradient(35deg,transparent_0_68%,rgba(216,180,254,0.1)_68.2%_68.45%,transparent_68.7%_100%)]" aria-hidden="true" />
       <div className="pointer-events-none absolute left-[18%] top-[18%] h-24 w-32 rotate-[-18deg] rounded-full bg-white/10 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-[12%] right-[12%] h-28 w-40 rotate-[20deg] rounded-full bg-purple-300/14 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute bottom-[12%] right-[12%] h-28 w-40 rotate-[20deg] rounded-full bg-white/8 blur-3xl" aria-hidden="true" />
 
       <div className="relative z-10 grid gap-3">
         <div className="grid gap-2 sm:grid-cols-3">
@@ -49,9 +48,9 @@ export function HeroVisual() {
           ))}
         </div>
 
-        <div className="relative mx-auto h-72 w-full max-w-[36rem] sm:h-[25rem] lg:h-[27rem]">
-          <div className="absolute inset-8 rounded-full bg-purple-500/12 blur-[58px]" aria-hidden="true" />
-          <div className="absolute inset-14 rounded-full bg-white/8 blur-[46px]" aria-hidden="true" />
+        <div className="relative mx-auto h-64 w-full max-w-[34rem] bg-black sm:h-[23rem] lg:h-[25rem]">
+          <div className="absolute inset-8 rounded-full border border-white/8 bg-black shadow-[0_0_58px_rgba(255,255,255,0.08),0_0_78px_rgba(216,180,254,0.16)]" aria-hidden="true" />
+          <div className="absolute inset-16 rounded-full bg-white/[0.035] blur-[38px]" aria-hidden="true" />
           <div className="absolute inset-x-10 top-8 hidden rounded-full border border-purple-300/12 bg-black/36 px-4 py-2 text-center text-sm font-black text-glowred shadow-[0_0_35px_rgba(168,85,247,0.18)] sm:block">
             מרכז פיקוד דיגיטלי לעסק
           </div>
