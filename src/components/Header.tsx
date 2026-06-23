@@ -33,12 +33,11 @@ export function Header() {
           <button
             aria-expanded={open}
             aria-label="פתיחת תפריט"
-            className="mobile-menu-button inline-flex min-h-12 min-w-[4.8rem] flex-col items-center justify-center rounded-[1rem] border border-purple-200/25 bg-purple-500/10 px-2.5 py-1.5 text-center text-white shadow-[0_0_24px_rgba(168,85,247,0.16)] transition hover:bg-purple-500/18 lg:hidden"
+            className="mobile-menu-button inline-flex min-h-10 min-w-[4.2rem] items-center justify-center px-1 text-center transition lg:hidden"
             onClick={() => setOpen((value) => !value)}
             type="button"
           >
-            <img alt="" aria-hidden="true" className="menu-wordmark h-2.5 w-auto object-contain" src="/brand/navines-wordmark-slim.png" />
-            <span className="mt-1 text-[0.76rem] font-black leading-none">תפריט</span>
+            <span className="text-[0.9rem] font-black leading-none text-purple-100">תפריט</span>
           </button>
         </div>
       </div>

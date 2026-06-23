@@ -8,6 +8,10 @@ export function HeroVisual() {
         <span className="hero-electric hero-electric-d" aria-hidden="true" />
         <span className="hero-electric hero-electric-e" aria-hidden="true" />
         <span className="hero-electric hero-electric-f" aria-hidden="true" />
+        <span className="hero-electric hero-electric-g" aria-hidden="true" />
+        <span className="hero-electric hero-electric-h" aria-hidden="true" />
+        <span className="hero-electric hero-electric-i" aria-hidden="true" />
+        <span className="hero-electric hero-electric-j" aria-hidden="true" />
         <span className="hero-arc hero-arc-a" aria-hidden="true" />
         <span className="hero-arc hero-arc-b" aria-hidden="true" />
         <span className="hero-spark hero-spark-a left-[9%] top-[29%]" aria-hidden="true" />

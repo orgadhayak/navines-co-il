@@ -85,20 +85,24 @@ span.rounded-full {
 .mobile-menu-button {
   position: relative;
   isolation: isolate;
+  border: 0;
+  background: transparent;
+  color: #f3e8ff;
+  text-shadow:
+    0 0 8px rgba(233, 213, 255, 0.82),
+    0 0 18px rgba(192, 132, 252, 0.72),
+    0 0 34px rgba(147, 51, 234, 0.48);
+  filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.38));
+  animation: menuPurpleGlow 3.4s ease-in-out infinite;
 }
 
-.mobile-menu-button::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(216, 180, 254, 0.34), transparent 48%, rgba(255, 255, 255, 0.18));
-  opacity: 0.5;
-}
-
-.menu-wordmark {
-  filter: drop-shadow(0 0 10px rgba(216, 180, 254, 0.46));
+.mobile-menu-button:hover,
+.mobile-menu-button:focus-visible {
+  color: #fff;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.86),
+    0 0 24px rgba(216, 180, 254, 0.88),
+    0 0 42px rgba(168, 85, 247, 0.58);
 }
 
 h1,
@@ -204,7 +208,7 @@ h3 {
 
 .hero-image-stage {
   isolation: isolate;
-  background: transparent;
+  background: #000;
 }
 
 .hero-electric {
@@ -212,11 +216,13 @@ h3 {
   z-index: 2;
   height: 2px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.12), rgba(250, 245, 255, 0.82), rgba(168, 85, 247, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(126, 34, 206, 0.18), rgba(233, 213, 255, 0.96), rgba(192, 132, 252, 0.84), rgba(91, 33, 182, 0.24), transparent);
   box-shadow:
-    0 0 16px rgba(216, 180, 254, 0.44),
-    0 0 28px rgba(168, 85, 247, 0.24);
-  opacity: 0.64;
+    0 0 10px rgba(255, 255, 255, 0.48),
+    0 0 22px rgba(216, 180, 254, 0.78),
+    0 0 44px rgba(168, 85, 247, 0.42),
+    0 0 74px rgba(109, 40, 217, 0.2);
+  opacity: 0.72;
   clip-path: polygon(0 50%, 16% 30%, 28% 58%, 41% 20%, 54% 66%, 68% 34%, 84% 56%, 100% 44%, 84% 70%, 67% 48%, 54% 80%, 40% 42%, 28% 76%, 15% 50%);
   animation: heroElectric 11s ease-in-out infinite;
 }
@@ -225,14 +231,14 @@ h3 {
   left: 9%;
   top: 26%;
   width: 10rem;
-  transform: rotate(-18deg);
+  --electric-tilt: rotate(-18deg);
 }
 
 .hero-electric-b {
   right: 5%;
   top: 58%;
   width: 9rem;
-  transform: rotate(21deg);
+  --electric-tilt: rotate(21deg);
   animation-delay: -4s;
 }
 
@@ -240,7 +246,7 @@ h3 {
   bottom: 18%;
   left: 27%;
   width: 11rem;
-  transform: rotate(-7deg);
+  --electric-tilt: rotate(-7deg);
   animation-delay: -7s;
 }
 
@@ -248,7 +254,7 @@ h3 {
   right: 19%;
   top: 33%;
   width: 7.5rem;
-  transform: rotate(-38deg);
+  --electric-tilt: rotate(-38deg);
   animation-delay: -2.2s;
   animation-duration: 9.5s;
 }
@@ -257,7 +263,7 @@ h3 {
   left: 13%;
   bottom: 34%;
   width: 8.5rem;
-  transform: rotate(35deg);
+  --electric-tilt: rotate(35deg);
   animation-delay: -5.1s;
   animation-duration: 8.8s;
 }
@@ -266,9 +272,45 @@ h3 {
   right: 25%;
   bottom: 24%;
   width: 6.8rem;
-  transform: rotate(-24deg);
+  --electric-tilt: rotate(-24deg);
   animation-delay: -6.4s;
   animation-duration: 10.4s;
+}
+
+.hero-electric-g {
+  left: 4%;
+  top: 47%;
+  width: 13rem;
+  --electric-tilt: rotate(8deg);
+  animation-delay: -1.4s;
+  animation-duration: 7.8s;
+}
+
+.hero-electric-h {
+  right: 3%;
+  top: 44%;
+  width: 12rem;
+  --electric-tilt: rotate(-11deg);
+  animation-delay: -3.8s;
+  animation-duration: 8.6s;
+}
+
+.hero-electric-i {
+  left: 31%;
+  top: 15%;
+  width: 9.2rem;
+  --electric-tilt: rotate(68deg);
+  animation-delay: -5.9s;
+  animation-duration: 9.2s;
+}
+
+.hero-electric-j {
+  right: 32%;
+  bottom: 13%;
+  width: 9.8rem;
+  --electric-tilt: rotate(62deg);
+  animation-delay: -7.1s;
+  animation-duration: 9.8s;
 }
 
 .hero-arc {
@@ -400,6 +442,20 @@ h3 {
   }
 }
 
+@keyframes menuPurpleGlow {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.34));
+  }
+  50% {
+    transform: translateY(-1px);
+    filter:
+      drop-shadow(0 0 14px rgba(216, 180, 254, 0.72))
+      drop-shadow(0 0 28px rgba(147, 51, 234, 0.42));
+  }
+}
+
 @keyframes smallTextGlow {
   0%,
   100% {
@@ -463,12 +519,18 @@ h3 {
 @keyframes heroElectric {
   0%,
   100% {
-    opacity: 0.16;
-    filter: blur(0.2px);
+    opacity: 0.22;
+    filter: blur(0.25px) brightness(0.88);
+    transform: translate3d(0, 0, 0) var(--electric-tilt, rotate(0deg));
   }
   48% {
-    opacity: 0.82;
-    filter: blur(0);
+    opacity: 0.94;
+    filter: blur(0) brightness(1.25);
+    transform: translate3d(0.12rem, -0.08rem, 0) var(--electric-tilt, rotate(0deg));
+  }
+  68% {
+    opacity: 0.56;
+    filter: blur(0.15px) brightness(1.05);
   }
 }
 
@@ -575,6 +637,7 @@ summary:focus-visible .accordion-plus {
   h3,
   .bsd-royal,
   .crown-mark,
+  .mobile-menu-button,
   .text-glowred,
   .hero-image-stage::before,
   .hero-image-stage::after,
