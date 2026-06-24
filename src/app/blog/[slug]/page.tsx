@@ -111,6 +111,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
+  const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
   const solutionArticle = solutionArticleContent[post.slug];
 
   const articleSchema = {
@@ -166,11 +167,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : <DefaultArticleBody post={post} />}
+        {isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -224,6 +225,68 @@ function SolutionArticleBody({ content }: { content: (typeof solutionArticleCont
       <p>
         רוצים לבדוק מה אפשר לבנות אצלכם? שלחו הודעה קצרה בוואטסאפ, ספרו לנו איזה עסק יש לכם ואיפה אתם מרגישים
         שהמידע או העבודה הידנית מעכבים אתכם. נכוון אתכם בצורה פשוטה וחברית.
+      </p>
+    </div>
+  );
+}
+
+function EmailToChatGptArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה אימייל הוא מקור נתונים חשוב כל כך?</h2>
+      <p>
+        תיבת המייל של העסק מחזיקה הרבה יותר מהודעות. יש בה פניות חדשות, שאלות לקוחות, הצעות מחיר, בקשות שירות,
+        חשבוניות, הודעות מספקים, שרשורי טיפול ומשימות שמחכות למענה. בפועל, הרבה עסקים מנהלים חלק גדול מהתפעול
+        מתוך המייל, אבל עדיין מחפשים ידנית ומפספסים דברים.
+      </p>
+      <h2>מה TalkToData יכול לעשות עם אימיילים?</h2>
+      <p>
+        באמצעות TalkToData אפשר לבדוק חיבור מאובטח לתיבת מייל ולהפוך אותה למקור מידע שאפשר לשאול עליו שאלות
+        רגילות. זה לא חייב להיות רק Gmail או Outlook/Hotmail. במקרים רבים אפשר לבדוק גם תיבות מייל אחרות, כל עוד
+        יש דרך גישה מסודרת כמו IMAP, API, ייצוא נתונים או חיבור דרך ספק המייל.
+      </p>
+      <p>
+        הפתרון מבוסס על יכולות AI מתקדמות וטכנולוגיות OpenAI, אבל העבודה האמיתית היא תכנון נכון: מה מחברים, מה
+        לא מחברים, אילו הרשאות נותנים, איזה מידע צריך לסכם ואיזה מידע צריך להישאר מחוץ למערכת.
+      </p>
+      <h2>דוגמאות לשאלות שאפשר לשאול</h2>
+      <ul>
+        <li>אילו לקוחות מחכים לתשובה?</li>
+        <li>אילו מיילים דחופים הגיעו השבוע?</li>
+        <li>איזה פניות חוזרות על עצמן הרבה?</li>
+        <li>מי ביקש הצעת מחיר ועדיין לא קיבל מענה?</li>
+        <li>אילו שרשורים קשורים להזמנה, חשבונית או תקלה פתוחה?</li>
+        <li>מה הנושאים הכי נפוצים בשירות לקוחות החודש?</li>
+      </ul>
+      <h2>למה זה יכול להיות שינוי גדול לעסק?</h2>
+      <p>
+        במקום לפתוח עשרות הודעות ולנסות לזכור מה חשוב, העסק מקבל דרך לשאול ולקבל סיכום ברור. זה יכול לחסוך זמן
+        לצוות שירות, מכירות, הנהלה ותפעול. זה גם עוזר לזהות פניות שלא טופלו, לקוחות שמחכים יותר מדי זמן ונושאים
+        שחוזרים שוב ושוב.
+      </p>
+      <h2>אבטחה והרשאות</h2>
+      <p>
+        חיבור מיילים חייב להיות זהיר. לא מחברים הכל בלי לחשוב. מתחילים ממיפוי: איזה מידע צריך, מי רשאי לראות אותו,
+        מה רגיש, מה לא צריך להיכנס ומה מטרת השימוש. נביא נס ישראל בע״מ בודקת את דרך החיבור האפשרית ומתכננת שכבת
+        עבודה שמעדיפה מינימום גישה, שימוש ברור ותוצאה מעשית.
+      </p>
+      <h2>רשימת בדיקה לפני שמתחילים</h2>
+      <ul>
+        <li>באיזה ספק מייל העסק משתמש?</li>
+        <li>האם קיימת גישה מסודרת דרך IMAP, API או ייצוא נתונים?</li>
+        <li>אילו סוגי הודעות חשוב לנתח?</li>
+        <li>מי בצוות צריך לקבל תשובות מהמערכת?</li>
+        <li>אילו תהליכים ידניים אפשר להפוך לסיכום, תזכורת או משימה?</li>
+      </ul>
+      <h2>איך מתחילים?</h2>
+      <p>
+        לא צריך להחליף את המייל ולא צריך להבין בטכנולוגיה. שולחים לנו איזה ספק מייל יש לכם, מה אתם רוצים לשאול ומה
+        כואב בתהליך היום. אנחנו בודקים אם יש דרך חיבור מאובטחת ומסודרת, ומציעים כיוון מעשי.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/chatgpt-business-data">
+          לעמוד השירות: חיבור נתונים עסקיים ל־ChatGPT בהתאמה אישית
+        </Link>
       </p>
     </div>
   );

@@ -30,25 +30,25 @@ const ecosystemLinks: Record<string, string> = {
 const commandStats = [
   { label: "פניות ושירות", value: "פחות פספוסים", text: "וואטסאפ, אתר ומשימות במקום אחד", href: "/services/ai-automation" },
   { label: "מהירות ואמון", value: "טעינה ברורה", text: "אתר שמרגיש יציב גם במובייל", href: "/optimization-hub" },
-  { label: "נתונים ו־ChatGPT", value: "שיחה עם העסק", text: "שאלות רגילות על מכירות, מלאי ודוחות", href: "/services/chatgpt-business-data" },
+  { label: "TalkToData", value: "מוצר מנצח", text: "שאלות על אימיילים, מכירות, מלאי ודוחות", href: "/services/chatgpt-business-data" },
 ];
 
 const improvementRows = [
-  { title: "רוצים לשאול את הנתונים שלכם שאלות רגילות", text: "נחבר את ChatGPT למכירות, הזמנות, מלאי, לקוחות, מוצרים ודוחות כדי לקבל תשובות בלי לחפש ידנית במערכות.", status: "TalkToData", href: "/services/chatgpt-business-data" },
+  { title: "רוצים לדבר עם הנתונים, הדוחות והאימיילים של העסק", text: "נחבר את ChatGPT למכירות, הזמנות, מלאי, לקוחות, מוצרים, דוחות וגם תיבות מייל מאובטחות כדי לקבל תשובות בלי לחפש ידנית במערכות.", status: "TalkToData", href: "/services/chatgpt-business-data" },
   { title: "האתר איטי או לא מביא מספיק פניות", text: "נבדוק מה מעכב טעינה, מסר, מובייל ואמון, ונראה מה כדאי לתקן קודם.", status: "בדיקת אתר", href: "/services/website-speed-optimization" },
   { title: "העסק עובד ידנית מדי", text: "נאתר פעולות שחוזרות על עצמן ונחבר אוטומציה פשוטה לפניות, משימות ודוחות.", status: "אוטומציה", href: "/services/ai-automation" },
   { title: "החנות קיימת אבל קשה לגדול איתה", text: "נסדר מוצרים, ביצועים, מדידה ותהליך רכישה כדי להפחית נטישה ולשפר מכירות.", status: "איקומרס", href: "/services/ecommerce" },
 ];
 
 const systemRows = [
-  { title: "ChatGPT לנתוני העסק", text: "שיחה פשוטה עם מכירות, הזמנות, מלאי, לקוחות ודוחות.", href: "/services/chatgpt-business-data" },
+  { title: "ChatGPT לנתונים ולאימיילים", text: "שיחה פשוטה עם מכירות, הזמנות, מלאי, לקוחות, דוחות ופניות מתוך המייל.", href: "/services/chatgpt-business-data" },
   { title: "אתרי חברה ותדמית", text: "אתר ברור, מהיר ומשכנע שמוביל לפנייה.", href: "/services/web-development" },
   { title: "מערכות פנימיות", text: "כלי עבודה שמסדרים לקוחות, משימות, נתונים ותהליכים.", href: "/services/web-development" },
   { title: "חנויות ומרקטפלייסים", text: "שופיפיי, ווקומרס, אמזון ואיביי עם תשתית מכירה מסודרת.", href: "/services/ecommerce" },
 ];
 
 const controlPanelServices = [
-  { title: "לדבר עם הנתונים של העסק באמצעות ChatGPT", what: "חיבור נתונים עסקיים לשכבת שיחה פשוטה.", solves: "במקום לחפש בדוחות, שואלים על מכירות, הזמנות, מלאי, לקוחות וביצועים.", why: "בעל העסק מקבל תשובה ברורה מהר יותר ומבין מה דורש פעולה.", href: "/services/chatgpt-business-data" },
+  { title: "לדבר עם הנתונים והאימיילים של העסק באמצעות ChatGPT", what: "חיבור נתונים, דוחות ותיבות מייל לשכבת שיחה פשוטה ומאובטחת.", solves: "במקום לחפש בדוחות ובשרשורי מייל, שואלים על מכירות, הזמנות, פניות, לקוחות וביצועים.", why: "בעל העסק מקבל תשובה ברורה מהר יותר, מבין מי מחכה לטיפול ומה דורש פעולה.", href: "/services/chatgpt-business-data" },
   { title: "בינה מלאכותית ואוטומציה", what: "תהליכים חכמים שמטפלים בפניות, משימות ומידע.", solves: "פחות עבודה ידנית ופחות דברים שנופלים בין הכיסאות.", why: "הצוות מגיב מהר יותר והלקוח מקבל תשובה ברורה.", href: "/services/ai-automation" },
   { title: "אתרים ומערכות", what: "אתרי חברה, פורטלים, דשבורדים ומערכות מותאמות.", solves: "אתר שלא מביא תוצאות או תהליך עסקי שמנוהל בקבצים.", why: "העסק מקבל תשתית שאפשר למדוד, לשפר ולהרחיב.", href: "/services/web-development" },
   { title: "איקומרס", what: "חנויות, עמודי מוצר, מלאי, תשלום ומרקטפלייסים.", solves: "חנות שקשה לנהל או לקוחות שנוטשים לפני רכישה.", why: "תהליך קנייה ברור ומהיר עוזר להגדיל מכירות.", href: "/services/ecommerce" },
@@ -81,6 +81,13 @@ export default function HomePage() {
           </div>
           <h1 className="max-w-4xl text-[2.45rem] font-black leading-[1.03] text-white sm:text-[3rem] md:text-[3.55rem]">מערכות בינה מלאכותית, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">נביא נס ישראל בע״מ עוזרת לבעלי עסקים להפוך אתר, חנות, מערכת או רעיון לתשתית שעובדת ביום יום. אנחנו מחברים בין לקוחות, נתונים, תפעול ומכירות כדי לחסוך זמן, להקטין טעויות וליצור עסק דיגיטלי ברור יותר.</p>
+          <Link className="command-glass mt-4 block max-w-3xl rounded-[1.35rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/chatgpt-business-data">
+            <p className="text-sm font-black text-glowred">מוצר מנצח לכל עסק</p>
+            <h2 className="mt-1 text-2xl font-black leading-tight text-white">TalkToData מחבר נתונים, דוחות ואימיילים ל־ChatGPT</h2>
+            <p className="mt-2 text-base leading-7 text-zinc-300">
+              נוחות מקסימלית, חיבור מאובטח ותשובות בשפה פשוטה: אפשר לבדוק חיבור גם לתיבות מייל שאינן Gmail או Outlook/Hotmail, כל עוד יש גישה מסודרת כמו IMAP, API או ייצוא נתונים.
+            </p>
+          </Link>
           <div className="mt-5 flex flex-wrap gap-3">
             <a className="btn-primary" href={site.whatsappHref}>
               דברו איתנו בוואטסאפ בחינם
