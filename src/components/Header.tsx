@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import { solutionPages } from "@/data/solutions";
-import { mainNav, services, site } from "@/data/site";
+import { courseTracks, mainNav, services, site } from "@/data/site";
 
-const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
+const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/courses", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
 const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
-const mobilePrimaryNav = mainNav.filter((item) => !["/services/ai-automation", "/services/web-development", "/services/ecommerce"].includes(item.href));
+const courseNav = courseTracks.map((course) => ({ label: course.navLabel, href: `/courses/${course.slug}` }));
+const mobilePrimaryNav = mainNav.filter((item) => !["/courses", "/services/ai-automation", "/services/web-development", "/services/ecommerce"].includes(item.href));
 const mobileServiceNav = services.map((service) => ({ label: service.title, href: `/services/${service.slug}` }));
 
 export function Header() {
@@ -69,6 +70,23 @@ export function Header() {
                   </div>
                 </details>
               ) : null}
+              {item.href === "/courses" ? (
+                <details className="group relative">
+                  <summary className="list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
+                    מסלולי קורס
+                  </summary>
+                  <div className="absolute left-0 top-full z-50 mt-2 grid min-w-60 gap-1 rounded-[1.2rem] border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
+                    <Link className="whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href="/courses">
+                      כל הקורסים
+                    </Link>
+                    {courseNav.map((item) => (
+                      <Link className="whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href={item.href} key={item.href}>
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              ) : null}
             </Fragment>
           ))}
           <details className="group relative">
@@ -100,6 +118,18 @@ export function Header() {
               </Link>
               <div className="grid gap-1.5">
                 {mobileServiceNav.map((item) => (
+                  <Link className="mobile-menu-sub-link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="mobile-menu-group">
+              <Link className="mobile-menu-group-title" href="/courses" onClick={() => setOpen(false)}>
+                קורסים
+              </Link>
+              <div className="grid gap-1.5">
+                {courseNav.map((item) => (
                   <Link className="mobile-menu-sub-link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
                     {item.label}
                   </Link>

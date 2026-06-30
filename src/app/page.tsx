@@ -4,7 +4,7 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
 import { Section } from "@/components/Section";
 import { solutionPages } from "@/data/solutions";
-import { blogPosts, products, serviceEcosystem, site } from "@/data/site";
+import { blogPosts, courseTracks, products, serviceEcosystem, site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -222,6 +222,46 @@ export default function HomePage() {
               </div>
             </article>
           ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="קורסי AI מעשיים" title="קורסי AI מעשיים לילדים ולבוגרים" className="py-5 lg:py-8">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="max-w-3xl text-lg leading-8 text-zinc-300">
+              ב־NAVINES לומדים איך לעבור מרעיון למשהו אמיתי: מוצר, אתר, כלי חכם או מערכת פשוטה שאפשר להציג, לשפר ולהשתמש בה. הקורסים פרונטליים, ממוקדים ומעשיים, עם 10 מפגשים ושנה של ליווי ותמיכה.
+            </p>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-400">
+              לא נדרש ידע מוקדם. כן נדרשים רצון ללמוד, לבנות ולהתקדם. הקבלה נעשית לאחר מבחן התאמה קצר, מפגש וראיון אישי.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link className="btn-secondary" href="/courses">
+                לכל קורסי ה־AI
+              </Link>
+              <a className="btn-primary" href={site.whatsappHref}>
+                רוצים לבדוק התאמה? דברו איתנו בוואטסאפ
+              </a>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {courseTracks.map((course) => (
+              <article className="command-glass group rounded-[1.45rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" key={course.slug}>
+                <p className="text-sm font-black text-glowred">{course.eyebrow}</p>
+                <Link className="mt-3 block text-2xl font-black leading-tight text-white transition hover:text-glowred" href={`/courses/${course.slug}`}>
+                  {course.navLabel}
+                </Link>
+                <p className="mt-3 text-base leading-7 text-zinc-400">{course.summary}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <Link className="rounded-full border border-purple-200/20 bg-purple-500/12 px-4 py-2 text-sm font-black text-white transition hover:bg-purple-500/24" href={`/courses/${course.slug}`}>
+                    לעמוד הקורס
+                  </Link>
+                  <a className="rounded-full border border-white/10 px-4 py-2 text-sm font-black text-zinc-200 transition hover:bg-purple-500/18 hover:text-white" href={site.whatsappHref}>
+                    וואטסאפ
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </Section>
 

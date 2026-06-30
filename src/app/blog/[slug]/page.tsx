@@ -104,6 +104,74 @@ const solutionArticleContent: Record<
   },
 };
 
+const courseArticleContent: Record<
+  string,
+  {
+    courseHref: string;
+    courseLabel: string;
+    intro: string;
+    why: string;
+    practical: string;
+    yearSupport: string;
+    examples: string[];
+    checklist: string[];
+    summary: string;
+  }
+> = {
+  "ai-course-for-kids-from-idea-to-product": {
+    courseHref: "/courses/ai-for-kids",
+    courseLabel: "קורס AI לילדים",
+    intro:
+      "ילדים גדלים לתוך עולם שבו AI נמצא כמעט בכל מקום, אבל הדרך הנכונה ללמוד אותו היא לא רק לשאול צ׳אטבוט שאלות. הדרך הנכונה היא להבין איך רעיון הופך למשהו שאפשר לבנות, לבדוק, לשפר ולהציג.",
+    why:
+      "ילד שלומד AI בצורה מעשית לומד לחשוב אחרת: לשאול שאלות טובות, לפרק בעיה לחלקים קטנים, לבחור כיוון, לעבוד עם זמן ולהמשיך גם כשהדבר הראשון שבנה עדיין לא מושלם.",
+    practical:
+      "במקום רק לצפות בשיעורים, החניכים עובדים על פרויקטים. הם לומדים לבנות אתרים קטנים, כלים חכמים, עוזרים דיגיטליים ופרויקטים יצירתיים שמתאימים לרמה שלהם. המטרה היא לא להפוך כל רעיון לעסק, אלא לתת ביטחון וכלים ליצור.",
+    yearSupport:
+      "הליווי לאורך שנה חשוב כי רעיונות טובים לא נגמרים אחרי 10 מפגשים. במהלך השנה אפשר להמשיך לשפר, לשאול, לקבל כיוון ולהפוך תוצר ראשוני למשהו הרבה יותר ברור ואיכותי.",
+    examples: [
+      "ילד שמגיע עם רעיון למשחק, אתר או עוזר דיגיטלי ולומד להפוך אותו לתוצר שאפשר להציג",
+      "ילדה שרוצה לבנות כלי שעוזר לה ללמוד, לארגן מידע או להציג תחום שמעניין אותה",
+      "חניך שלומד לא להיתקע בגלל חוסר זמן, אלא לפרק את הפרויקט לצעדים קטנים",
+      "פרויקט שמתחיל פשוט ומשתפר מפגישה לפגישה"
+    ],
+    checklist: [
+      "האם הילד סקרן ורוצה ליצור?",
+      "האם הוא מוכן לעבוד גם בין המפגשים?",
+      "האם יש רעיון שמסקרן אותו, גם אם הוא עדיין לא מסודר?",
+      "האם המשפחה מבינה שהתהליך דורש התמדה ולא רק השתתפות בשיעור?"
+    ],
+    summary:
+      "קורס AI לילדים צריך לתת הרבה יותר מידע. הוא צריך לתת צורת חשיבה, ביטחון ליצור ויכולת להתחיל לבנות דברים אמיתיים בעולם החדש. לכן המסלול של נביא נס ישראל בע״מ משלב מפגשים פרונטליים, פרויקטים וליווי לאורך שנה.",
+  },
+  "ai-course-for-adults-build-products-with-ai": {
+    courseHref: "/courses/ai-for-adults",
+    courseLabel: "קורס AI לבוגרים",
+    intro:
+      "AI הפך לכלי עבודה אמיתי, אבל הרבה אנשים עדיין משתמשים בו בצורה שטחית: כותבים שאלה, מקבלים תשובה, וממשיכים הלאה. בקורס מעשי לומדים איך להפוך AI לשיטת עבודה שמייצרת תוצרים.",
+    why:
+      "בוגרים, בעלי עסקים, פרילנסרים ומנהלים צריכים לדעת לא רק איזה כלי לפתוח, אלא איך לחשוב מוצרית: מה הבעיה, למי זה מיועד, איזה תוצר צריך לבנות ואיך מתקדמים גם בלי רקע טכנולוגי.",
+    practical:
+      "במהלך המסלול עובדים על רעיונות אמיתיים: כלי קטן שחוסך זמן, אתר שמציג שירות, תהליך עבודה שמסדר משימות או מוצר דיגיטלי שאפשר להציג. לא חושפים שיטות פנימיות פרטיות, אלא מלמדים עקרונות עבודה, סדר, תכנון ובנייה.",
+    yearSupport:
+      "ליווי לאורך שנה משנה את הקורס מתוכן שנגמר למסגרת שממשיכה לדחוף קדימה. המשתתפים יכולים לחזור לפרויקטים, לשפר אותם, לקבל כיוון ולהבין מה הצעד הבא במקום להיתקע לבד אחרי המפגשים.",
+    examples: [
+      "בעל עסק שמבין איך להפוך תהליך ידני לכלי עבודה פשוט",
+      "פרילנסר שבונה עמוד או מוצר שמציג את השירות שלו טוב יותר",
+      "מנהל שרוצה לסדר משימות, תוכן ונתונים בעזרת AI",
+      "יזם שמתחיל מרעיון ומתקדם לתוצר שאפשר להראות למשקיעים, לקוחות או שותפים"
+    ],
+    checklist: [
+      "איזה רעיון או תהליך הייתם רוצים לשפר?",
+      "איפה אתם מבזבזים זמן ידני היום?",
+      "איזה תוצר הייתם רוצים להציג בסוף התהליך?",
+      "האם אתם מוכנים לעבוד בין המפגשים ולהמשיך לשפר לאורך השנה?"
+    ],
+    summary:
+      "קורס AI לבוגרים צריך ללמד שיטת עבודה ולא רק כלי אחד. המטרה היא לעזור למשתתפים לבנות כמה פרויקטים אמיתיים בהתאם למחויבות ולהתקדמות שלהם, בלי הבטחות שווא ובלי צורך ברקע טכנולוגי קודם.",
+  },
+};
+
 export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = blogPosts.find((item) => item.slug === slug);
@@ -113,6 +181,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
   const solutionArticle = solutionArticleContent[post.slug];
+  const courseArticle = courseArticleContent[post.slug];
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -167,11 +236,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : <DefaultArticleBody post={post} />}
+        {isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -182,6 +251,54 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </div>
       </section>
     </>
+  );
+}
+
+function CourseArticleBody({ content }: { content: (typeof courseArticleContent)[string] }) {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה ללמוד AI בצורה מעשית?</h2>
+      <p>
+        <BrandInline text={content.intro} />
+      </p>
+      <h2>למה זה חשוב דווקא עכשיו?</h2>
+      <p>
+        <BrandInline text={content.why} />
+      </p>
+      <h2>למה פרויקטים חשובים יותר מצפייה בשיעורים?</h2>
+      <p>
+        <BrandInline text={content.practical} />
+      </p>
+      <h2>למה ליווי לאורך שנה משנה את התהליך?</h2>
+      <p>
+        <BrandInline text={content.yearSupport} />
+      </p>
+      <h2>דוגמאות מעשיות</h2>
+      <ul>
+        {content.examples.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <h2>רשימת בדיקה לפני שנרשמים</h2>
+      <ul>
+        {content.checklist.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <h2>המסלול המתאים</h2>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href={content.courseHref}>
+          {content.courseLabel}
+        </Link>
+      </p>
+      <h2>סיכום</h2>
+      <p>
+        <BrandInline text={content.summary} />
+      </p>
+      <p>
+        רוצים לבדוק אם זה מתאים? שלחו הודעה קצרה בוואטסאפ. לא צריך לבוא עם תוכנית מושלמת, רק עם רצון ללמוד, לבנות ולהתקדם.
+      </p>
+    </div>
   );
 }
 

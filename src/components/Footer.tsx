@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
-import { site } from "@/data/site";
+import { courseTracks, site } from "@/data/site";
 
 export function Footer() {
   const serviceLinks = [
@@ -23,6 +23,11 @@ export function Footer() {
     ["מאור ישראל", "https://maorisrael.com"],
   ];
 
+  const courseLinks = [
+    ["כל קורסי ה־AI", "/courses"],
+    ...courseTracks.map((course) => [course.navLabel, `/courses/${course.slug}`]),
+  ];
+
   return (
     <footer className="border-t border-white/10 bg-[#050506]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -42,7 +47,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1.1fr]">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr_0.95fr_1fr_1fr_1.1fr]">
           <div className="max-w-sm">
             <div className="mb-4 flex items-center gap-3">
               <a className="inline-flex items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי הבינלאומי">
@@ -55,6 +60,7 @@ export function Footer() {
           </div>
 
           <FooterColumn title="שירותים" items={serviceLinks} />
+          <FooterColumn title="קורסים" items={courseLinks} />
           <div>
             <h3 className="mb-4 font-black text-white">כלים</h3>
             <div className="grid gap-2">

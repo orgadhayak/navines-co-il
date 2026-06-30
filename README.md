@@ -1,4 +1,4 @@
-# NAVINES Israel
+# נביא נס ישראל בע״מ
 
 Premium Hebrew RTL website for `navines.co.il`, built with Next.js App Router, TypeScript and Tailwind CSS.
 
