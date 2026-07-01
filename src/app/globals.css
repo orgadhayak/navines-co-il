@@ -168,6 +168,34 @@ span.rounded-full {
   box-shadow: 0 0 14px rgba(168, 85, 247, 0.55);
 }
 
+.site-assistant-scroll {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: rgba(192, 132, 252, 0.86) rgba(16, 4, 28, 0.82);
+  scrollbar-width: thin;
+}
+
+.site-assistant-scroll::-webkit-scrollbar {
+  width: 0.44rem;
+}
+
+.site-assistant-scroll::-webkit-scrollbar-track {
+  border-radius: 9999px;
+  background: rgba(14, 3, 24, 0.82);
+}
+
+.site-assistant-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(245, 243, 255, 0.92), rgba(192, 132, 252, 0.92), rgba(91, 33, 182, 0.95));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 0 14px rgba(168, 85, 247, 0.58);
+}
+
+.site-assistant-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffffff, #d8b4fe 45%, #7e22ce);
+}
+
 .mobile-menu-link,
 .mobile-menu-group-title,
 .mobile-menu-sub-link,
