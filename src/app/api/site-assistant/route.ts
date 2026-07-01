@@ -19,6 +19,11 @@ type HistoryMessage = {
   text: string;
 };
 
+type ResponseInputMessage = {
+  role: "assistant" | "user";
+  content: string;
+};
+
 const whatsappAction: AssistantAction = { label: "דברו בוואטסאפ", href: "https://wa.me/972548180200", tone: "primary" };
 const phoneAction: AssistantAction = { label: "התקשרו עכשיו", href: "tel:0548180200", tone: "danger" };
 
@@ -41,6 +46,8 @@ const leadKeys = [
 ];
 
 const urgentKeys = ["דחוף", "נפל", "לא עובד", "פריצה", "תקלה", "הושעה", "חסימה", "מיילים לא עובדים"];
+const priceKeys = ["כמה עולה", "מחיר", "עלות", "כמה זה", "תמחור"];
+const pageRequestKeys = ["שלח אותי לעמוד", "תשלח לעמוד", "קישור", "עמוד", "איפה קוראים"];
 
 const topics: Topic[] = [
   {
@@ -92,7 +99,6 @@ const topics: Topic[] = [
       "אנחנו עוזרים למוכרי Amazon ו־eBay בניהול חשבון, דוחות, Account Health, אוטומציה, ניטור וטיפול במצבים דחופים. לא מבטיחים תוצאה, כן עוזרים להבין את המצב ולבנות כיוון פעולה.",
     href: "/solutions/amazon-sellers",
     label: "לעמוד מוכרי Amazon",
-    urgent: true,
   },
   {
     keys: ["רואה חשבון", "רואי חשבון", "הנהלת חשבונות", "דוחות כספיים"],
@@ -173,7 +179,7 @@ function hasAny(question: string, keys: string[]) {
 }
 
 function buildActions(topic: Topic | undefined, question: string): AssistantAction[] {
-  const isLead = hasAny(question, leadKeys);
+  const isLead = hasAny(question, leadKeys) || hasAny(question, priceKeys);
   const isUrgent = topic?.urgent || hasAny(question, urgentKeys);
   const actions: AssistantAction[] = [];
 
@@ -210,29 +216,35 @@ function sanitizeHistory(input: unknown): HistoryMessage[] {
     .filter((item): item is HistoryMessage => Boolean(item));
 }
 
-function buildConversationInput(question: string, history: HistoryMessage[]) {
-  const recent = history
-    .slice(-8)
-    .map((item) => `${item.role === "user" ? "משתמש" : "עוזר"}: ${item.text}`)
-    .join("\n");
-
-  return recent ? `היסטוריית השיחה הקצרה:\n${recent}\n\nהשאלה הנוכחית:\n${question}` : question;
+function buildConversationInput(question: string, history: HistoryMessage[]): ResponseInputMessage[] {
+  return [
+    ...history.slice(-8).map((item) => ({
+      role: item.role,
+      content: item.text,
+    })),
+    { role: "user", content: question },
+  ];
 }
 
 function fallbackPayload(question: string, history: HistoryMessage[]) {
   const topic = findTopic(question, history);
-  const lead = hasAny(question, leadKeys);
+  const lead = hasAny(question, leadKeys) || hasAny(question, priceKeys);
   const urgent = topic?.urgent || hasAny(question, urgentKeys);
+  const wantsPage = hasAny(question, pageRequestKeys);
   let answer =
     topic?.answer ||
     "אפשר לשאול אותי על אתרים, AI, אוטומציה, TalkToData, Beacon, Amazon, קורסים, תמיכה טכנית ומשחקים באתר. אם לא בטוחים מה מתאים, כתבו לנו ונכוון אתכם.";
 
-  if (lead || urgent) {
+  if (hasAny(question, priceKeys)) {
+    answer = "כדי לתת מחיר נכון צריך להבין מה בדיוק בונים ומה כבר קיים. הכי נכון לשלוח לנו הודעה קצרה בוואטסאפ, ונכוון אתכם מהר בלי התחייבות.";
+  } else if (wantsPage && topic?.href) {
+    answer = "צירפתי כאן את העמוד הרלוונטי. אם תרצו, אפשר גם לשלוח לנו הודעה בוואטסאפ ונכוון אתכם לפי המקרה שלכם.";
+  } else if (lead || urgent) {
     answer =
       "נשמע שזה משהו שכדאי לבדוק יחד. אפשר לדבר איתנו בוואטסאפ או בטלפון ונכוון אותך מהר.\nאם יש עמוד מתאים באתר, צירפתי אותו כאן למטה.";
   }
 
-  return { answer, actions: buildActions(topic, question), mode: "fallback" };
+  return { answer, actions: buildActions(topic, question), mode: "fallback", source: "fallback" };
 }
 
 function extractResponseText(data: unknown) {
@@ -270,6 +282,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         answer: "אפשר לכתוב שאלה קצרה על שירותי נביא נס ישראל בע״מ, ואענה בקצרה.",
         actions: [whatsappAction],
+        source: "fallback",
       });
     }
 
@@ -283,14 +296,20 @@ export async function POST(request: NextRequest) {
 
     const systemPrompt = `
 אתה העוזר החכם של נביא נס ישראל בע״מ.
-תענה בעברית קצרה, מדויקת, ידידותית ומכירתית בעדינות.
-המטרה שלך היא לעזור לגולש להבין איזה שירות מתאים לו, להפנות לעמוד הנכון באתר, ולהציע וואטסאפ או טלפון כשצריך.
-אל תכתוב תשובות ארוכות. בדרך כלל עד 4-6 שורות. אם צריך רשימה, 2-4 נקודות בלבד.
-אל תבקש מידע רגיש. אל תשמור מידע. אל תבטיח תוצאות. אל תמציא התחייבויות.
-אם לא בטוח, הצע לדבר עם הצוות בוואטסאפ.
+תענה בעברית טבעית, קצרה, מדויקת וידידותית.
+המטרה: להבין את כוונת הגולש, לענות ישירות, להפנות לעמוד הנכון, ולהציע וואטסאפ או טלפון כשזה מתאים.
+השתמש בהיסטוריית השיחה כדי להבין שאלות המשך כמו "כמה זה עולה", "אפשר כזה גם לאמזון", "ומה עם זה" או "שלח אותי לעמוד".
+אל תחזור על אותה תשובה. אל תפתח כל תשובה במשפט כללי על החברה.
+תשובה רגילה: 2 עד 5 שורות. אם צריך bullets, עד 3 נקודות בלבד.
+אם שואלים על מחיר: הסבר שצריך להבין צורך והצע וואטסאפ.
+אם זו תקלה דחופה: הפנה מיידית לוואטסאפ או טלפון.
+אם זה קורסים, Amazon, צ׳ט AI לאתרים, TalkToData או תמיכה טכנית, הפנה לעמוד המתאים.
+אל תבקש מידע רגיש. אל תבטיח תוצאות. אל תמציא מידע שלא מופיע בהקשר האתר.
+אם לא בטוח, אמור בקצרה שכדאי לדבר עם הצוות.
 ${siteContext}
 `;
 
+    const model = process.env.OPENAI_MODEL || "gpt-5-mini";
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -298,7 +317,7 @@ ${siteContext}
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-5-mini",
+        model,
         instructions: systemPrompt,
         input: buildConversationInput(question, history),
         max_output_tokens: 260,
@@ -306,6 +325,12 @@ ${siteContext}
     });
 
     if (!response.ok) {
+      const errorText = await response.text().catch(() => "");
+      console.warn("site-assistant OpenAI fallback", {
+        status: response.status,
+        model,
+        body: errorText.slice(0, 260),
+      });
       return NextResponse.json(fallback);
     }
 
@@ -315,12 +340,17 @@ ${siteContext}
     return NextResponse.json({
       answer: answer || fallback.answer,
       actions: buildActions(topic, question),
+      source: "openai",
     });
-  } catch {
+  } catch (error) {
+    console.warn("site-assistant fallback", {
+      message: error instanceof Error ? error.message.slice(0, 180) : "unknown error",
+    });
     return NextResponse.json({
       answer: "יש תקלה רגעית בצ׳ט. כדאי לדבר איתנו בוואטסאפ ונכוון אתכם.",
       actions: [whatsappAction],
       mode: "fallback",
+      source: "fallback",
     });
   }
 }
