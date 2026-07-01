@@ -105,7 +105,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
 function getBlogCtaLabel(post: BlogPost) {
   const labels: Record<string, string> = {
     "business-website-999-shekel": "להבין את מסלול 999 ₪",
-    "smart-website-lead-engine-quality-leads": "לשיפור איכות הפניות",
+    "smart-website-lead-engine-quality-leads": "לבניית כלי לגולשים",
     "ai-course-for-kids-from-idea-to-product": "למסלול הילדים",
     "ai-course-for-adults-build-products-with-ai": "למסלול הבוגרים",
     "email-to-chatgpt-talktodata": "לחיבור אימיילים חכם",
