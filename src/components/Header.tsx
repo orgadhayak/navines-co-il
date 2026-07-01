@@ -5,7 +5,8 @@ import { Fragment, useState } from "react";
 import { solutionPages } from "@/data/solutions";
 import { courseTracks, mainNav, services, site } from "@/data/site";
 
-const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/services/business-website-999", "/courses", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
+const featuredNavHrefs = new Set(["/services/business-website-999", "/services/smart-website-lead-engine"]);
+const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/services/business-website-999", "/services/smart-website-lead-engine", "/courses", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
 const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
 const courseNav = courseTracks.map((course) => ({ label: course.navLabel, href: `/courses/${course.slug}` }));
@@ -50,7 +51,7 @@ export function Header() {
         <nav className="mx-auto flex max-w-7xl items-center justify-center gap-1 px-4 py-2 sm:px-6 lg:px-8" aria-label="תפריט ראשי">
           {primaryDesktopNav.map((item) => (
             <Fragment key={item.href}>
-              <Link className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white" href={item.href}>
+              <Link className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-black transition hover:text-white ${featuredNavHrefs.has(item.href) ? "border border-purple-200/24 bg-purple-500/14 text-white shadow-[0_0_22px_rgba(168,85,247,0.2)] hover:bg-purple-500/24" : "text-zinc-300 hover:bg-white/8"}`} href={item.href}>
                 {item.label}
               </Link>
               {item.href === "/services" ? (
@@ -108,7 +109,7 @@ export function Header() {
         <nav className="mobile-menu-panel px-4 py-3 lg:hidden" aria-label="תפריט מובייל">
           <div className="mx-auto grid max-w-7xl gap-2 pb-6">
             {mobilePrimaryNav.map((item) => (
-              <Link className="mobile-menu-link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+              <Link className={`mobile-menu-link ${featuredNavHrefs.has(item.href) ? "mobile-menu-featured" : ""}`} href={item.href} key={item.href} onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             ))}

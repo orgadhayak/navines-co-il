@@ -71,6 +71,8 @@ export function ProductCard({ product }: { product: Product }) {
 }
 
 export function BlogCard({ post }: { post: BlogPost }) {
+  const ctaLabel = getBlogCtaLabel(post);
+
   return (
     <Link className="command-glass group block rounded-[1.25rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" data-category={post.category} data-tags={post.tags.join(" ")} href={`/blog/${post.slug}`}>
       <div>
@@ -93,9 +95,34 @@ export function BlogCard({ post }: { post: BlogPost }) {
           </span>
         ) : null}
         <span className="mt-4 inline-flex min-w-36 justify-center rounded-full border border-white/10 px-4 py-2 text-base font-black text-zinc-200 transition group-hover:bg-purple-500/18 group-hover:text-white">
-          קראו מאמר
+          {ctaLabel}
         </span>
       </div>
     </Link>
   );
+}
+
+function getBlogCtaLabel(post: BlogPost) {
+  const labels: Record<string, string> = {
+    "business-website-999-shekel": "להבין את מסלול 999 ₪",
+    "smart-website-lead-engine-quality-leads": "לשיפור איכות הפניות",
+    "ai-course-for-kids-from-idea-to-product": "למסלול הילדים",
+    "ai-course-for-adults-build-products-with-ai": "למסלול הבוגרים",
+    "email-to-chatgpt-talktodata": "לחיבור אימיילים חכם",
+    "talk-to-business-data-chatgpt": "לדבר עם הנתונים",
+    "accountants-ai-data-automation": "AI לרואי חשבון",
+    "amazon-sellers-ai-data-monitoring": "ניהול Amazon חכם",
+    "freelancers-ai-automation-systems": "אוטומציה לפרילנסרים",
+  };
+
+  if (labels[post.slug]) return labels[post.slug];
+
+  const topic = post.title
+    .replace(/[—:–].*$/, "")
+    .replace(/^איך\s+/, "")
+    .replace(/^למה\s+/, "")
+    .trim();
+
+  const shortTopic = topic.length > 28 ? `${topic.slice(0, 28).trim()}...` : topic;
+  return `לנושא: ${shortTopic || post.category}`;
 }

@@ -29,6 +29,7 @@ const ecosystemLinks: Record<string, string> = {
 
 const serviceTagLinks: Record<string, string> = {
   "אתר תדמית ב־999 ₪": "/services/business-website-999",
+  "כלי חכם לאתר קיים": "/services/smart-website-lead-engine",
 };
 
 const commandStats = [
@@ -38,6 +39,7 @@ const commandStats = [
 ];
 
 const improvementRows = [
+  { title: "יש לכם אתר אבל הפניות לא מספיק איכותיות", text: "נוסיף כלי חכם שמכוון את הגולש, שואל שאלות נכונות ומעביר לעסק פנייה ברורה יותר עם צורך, הקשר ודחיפות.", status: "כלי חכם לאתר", href: "/services/smart-website-lead-engine" },
   { title: "רוצים לדבר עם הנתונים, הדוחות והאימיילים של העסק", text: "נחבר את ChatGPT למכירות, הזמנות, מלאי, לקוחות, מוצרים, דוחות וגם תיבות מייל מאובטחות כדי לקבל תשובות בלי לחפש ידנית במערכות.", status: "TalkToData", href: "/services/chatgpt-business-data" },
   { title: "האתר איטי או לא מביא מספיק פניות", text: "נבדוק מה מעכב טעינה, מסר, מובייל ואמון, ונראה מה כדאי לתקן קודם.", status: "בדיקת אתר", href: "/services/website-speed-optimization" },
   { title: "העסק עובד ידנית מדי", text: "נאתר פעולות שחוזרות על עצמן ונחבר אוטומציה פשוטה לפניות, משימות ודוחות.", status: "אוטומציה", href: "/services/ai-automation" },
@@ -45,6 +47,7 @@ const improvementRows = [
 ];
 
 const systemRows = [
+  { title: "כלי חכם לאתר קיים", text: "עוזר אתר, שאלון התאמה או תהליך פנייה שמעלה את איכות הפניות והרושם.", href: "/services/smart-website-lead-engine" },
   { title: "ChatGPT לנתונים ולאימיילים", text: "שיחה פשוטה עם מכירות, הזמנות, מלאי, לקוחות, דוחות ופניות מתוך המייל.", href: "/services/chatgpt-business-data" },
   { title: "אתרי חברה ותדמית", text: "אתר ברור, מהיר ומשכנע שמוביל לפנייה.", href: "/services/web-development" },
   { title: "מערכות פנימיות", text: "כלי עבודה שמסדרים לקוחות, משימות, נתונים ותהליכים.", href: "/services/web-development" },
@@ -52,6 +55,7 @@ const systemRows = [
 ];
 
 const controlPanelServices = [
+  { title: "כלי חכם לאתר קיים", what: "שאלון חכם, עוזר אתר או תהליך פנייה שמלווה את הגולש.", solves: "פניות כלליות מדי, רושם לא מספיק מקצועי וחוסר הקשר לפני שיחה.", why: "העסק מקבל פנייה איכותית יותר והגולש מרגיש שמבינים אותו כבר באתר.", href: "/services/smart-website-lead-engine" },
   { title: "לדבר עם הנתונים והאימיילים של העסק באמצעות ChatGPT", what: "חיבור נתונים, דוחות ותיבות מייל לשכבת שיחה פשוטה ומאובטחת.", solves: "במקום לחפש בדוחות ובשרשורי מייל, שואלים על מכירות, הזמנות, פניות, לקוחות וביצועים.", why: "בעל העסק מקבל תשובה ברורה מהר יותר, מבין מי מחכה לטיפול ומה דורש פעולה.", href: "/services/chatgpt-business-data" },
   { title: "בינה מלאכותית ואוטומציה", what: "תהליכים חכמים שמטפלים בפניות, משימות ומידע.", solves: "פחות עבודה ידנית ופחות דברים שנופלים בין הכיסאות.", why: "הצוות מגיב מהר יותר והלקוח מקבל תשובה ברורה.", href: "/services/ai-automation" },
   { title: "אתרים ומערכות", what: "אתרי חברה, פורטלים, דשבורדים ומערכות מותאמות.", solves: "אתר שלא מביא תוצאות או תהליך עסקי שמנוהל בקבצים.", why: "העסק מקבל תשתית שאפשר למדוד, לשפר ולהרחיב.", href: "/services/web-development" },
@@ -65,7 +69,7 @@ const controlPanelServices = [
 ];
 
 const monitoringRows = [
-  { label: "ChatGPT לנתונים", text: "לשאול כמה מכרנו, מה ירד, איזה מוצר מוביל ואיפה צריך טיפול.", href: "/services/chatgpt-business-data" },
+  { label: "ChatGPT לנתונים", text: "לשאול כמה מכרנו, מה ירד, איזה מוצר נמכר יותר ואיפה צריך טיפול.", href: "/services/chatgpt-business-data" },
   { label: "ניטור", text: "לזהות האטות, נפילות ותקלות לפני שהלקוח מדווח.", href: "/products" },
   { label: "ביצועים", text: "להבין מה כבד, מה מעכב ומה כדאי לתקן ראשון.", href: "/optimization-hub" },
   { label: "אוטומציה", text: "להפוך פנייה, סיכום, משימה ודוח לתהליך מסודר.", href: "/services/ai-automation" },
@@ -94,12 +98,22 @@ export default function HomePage() {
           </Link>
           <Link className="command-glass mt-3 block max-w-3xl rounded-[1.35rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/business-website-999">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full border border-purple-200/24 bg-purple-500/14 px-4 py-1.5 text-sm font-black text-glowred">מוצר מוביל חדש</span>
+              <span className="rounded-full border border-purple-200/24 bg-purple-500/14 px-4 py-1.5 text-sm font-black text-glowred">מסלול אתר מהיר</span>
               <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-sm font-black text-zinc-300">999 ₪</span>
             </div>
             <h2 className="mt-3 text-2xl font-black leading-tight text-white">אתר תדמית מקצועי לעסק ב־999 ₪</h2>
             <p className="mt-2 text-base leading-7 text-zinc-300">
               לעסק שצריך אתר ראשון, נקי, מהיר ומותאם למובייל: מסר ברור, פרטי יצירת קשר, כפתורי וואטסאפ וטלפון ותשתית שאפשר להרחיב בהמשך.
+            </p>
+          </Link>
+          <Link className="command-glass mt-3 block max-w-3xl rounded-[1.35rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/smart-website-lead-engine">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-purple-200/24 bg-purple-500/14 px-4 py-1.5 text-sm font-black text-glowred">לאתר שכבר קיים</span>
+              <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-sm font-black text-zinc-300">פניות איכותיות יותר</span>
+            </div>
+            <h2 className="mt-3 text-2xl font-black leading-tight text-white">כלי חכם שמעלה את איכות הפניות והרושם באתר</h2>
+            <p className="mt-2 text-base leading-7 text-zinc-300">
+              עוזר לגולש להבין מה מתאים לו, שואל שאלות נכונות ומעביר אליכם פנייה מסודרת יותר במקום הודעה כללית שקשה לטפל בה.
             </p>
           </Link>
           <div className="mt-5 flex flex-wrap gap-3">

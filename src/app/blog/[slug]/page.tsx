@@ -181,6 +181,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
   const isBusinessWebsite999Post = post.slug === "business-website-999-shekel";
+  const isSmartWebsiteLeadPost = post.slug === "smart-website-lead-engine-quality-leads";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -237,11 +238,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק ב־999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isSmartWebsiteLeadPost ? "רוצים להוסיף כלי חכם לאתר הקיים?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק ב־999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר ומה סוג הפניות שאתם מקבלים היום. נבדוק איזה כלי יכול לשפר רושם, סינון ואיכות פנייה בלי לבנות הכל מחדש." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -252,6 +253,61 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </div>
       </section>
     </>
+  );
+}
+
+function SmartWebsiteLeadArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>הבעיה: האתר מקבל פניות, אבל לא תמיד פניות טובות</h2>
+      <p>
+        הרבה אתרים נראים תקינים, מקבלים תנועה ואפילו מייצרים פניות, אבל העסק עדיין מרגיש שמשהו לא עובד. חלק מהפניות לא רלוונטיות, חלק חסרות מידע, וחלק מגיעות מגולשים שלא הבינו מספיק מה מתאים להם.
+      </p>
+      <p>
+        כאן נכנס כלי חכם לאתר קיים. לא תמיד צריך לבנות אתר חדש. לפעמים צריך להוסיף שכבה חכמה שעוזרת לגולש להתקדם נכון יותר לפני שהוא שולח הודעה.
+      </p>
+      <h2>מה כלי חכם יכול לעשות באתר?</h2>
+      <ul>
+        <li>לשאול את הגולש כמה שאלות קצרות ולזהות איזה שירות מתאים לו.</li>
+        <li>להסביר תהליך מורכב בצורה פשוטה ואינטראקטיבית.</li>
+        <li>לסנן פניות שלא מתאימות לפני שהצוות מבזבז עליהן זמן.</li>
+        <li>להעביר לעסק פנייה מסודרת עם צורך, דחיפות, תקציב משוער והקשר.</li>
+        <li>לתת לגולש תחושה שהאתר מבין אותו ולא רק מציג טקסט כללי.</li>
+      </ul>
+      <h2>למה זה משפר רושם?</h2>
+      <p>
+        גולש שמגיע לאתר רוצה להבין מהר אם הוא במקום הנכון. כלי חכם שמוביל אותו בעדינות, שואל שאלות נכונות ומחזיר כיוון ראשוני מייצר תחושה של עסק מסודר, מתקדם וזמין. זה לא קישוט טכנולוגי; זו דרך להפוך את האתר לשיחה מקצועית יותר.
+      </p>
+      <h2>למה זה משפר איכות פניות?</h2>
+      <p>
+        טופס רגיל מבקש שם, טלפון והודעה. זה מעט מדי. כלי חכם יכול לשאול מה הבעיה, מה הדחיפות, איזה שירות מעניין את הלקוח, מה כבר קיים ומה התוצאה שהוא מחפש. כשהפנייה מגיעה עם הקשר, קל יותר לחזור ללקוח נכון, מהר ומדויק.
+      </p>
+      <h2>דוגמאות לכלים שאפשר לבנות</h2>
+      <ul>
+        <li>שאלון התאמה לשירותים מקצועיים.</li>
+        <li>עוזר אתר שמכוון את הגולש לשירות הנכון.</li>
+        <li>מחשבון ראשוני שנותן טווח, כיוון או המלצה.</li>
+        <li>תהליך פנייה חכם שמתחבר לוואטסאפ, מייל או מערכת ניהול לקוחות.</li>
+        <li>כלי שמסביר מוצר או שירות מורכב בשפה פשוטה.</li>
+      </ul>
+      <h2>מה בודקים לפני שמוסיפים כלי כזה?</h2>
+      <ul>
+        <li>איזה סוג פניות האתר מקבל היום?</li>
+        <li>איפה הגולשים מתלבטים או נוטשים?</li>
+        <li>איזה מידע חסר לצוות לפני שיחה?</li>
+        <li>האם האתר מספיק מהיר וברור כדי להחזיק שכבה חכמה?</li>
+        <li>איך מחברים את הפנייה לערוץ הנכון בלי להעמיס על הגולש?</li>
+      </ul>
+      <h2>סיכום</h2>
+      <p>
+        אתר קיים יכול להמריא לא רק בגלל עיצוב חדש, אלא בגלל חוויה חכמה יותר. כשגולש מקבל עזרה אמיתית באתר, והעסק מקבל פנייה מסודרת יותר, שני הצדדים מרוויחים: פחות בלבול, יותר אמון ויותר סיכוי לשיחה נכונה.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/smart-website-lead-engine">
+          לעמוד השירות: כלי חכם לאתר קיים לשיפור איכות הפניות
+        </Link>
+      </p>
+    </div>
   );
 }
 
