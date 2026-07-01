@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
+import { DataDefenderGame } from "@/components/DataDefenderGame";
 
 const quizQuestions = [
   {
@@ -142,6 +143,7 @@ export function GamesClient() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <DataDefenderGame />
       <div className="grid gap-5 lg:grid-cols-2">
         <GamePanel eyebrow="משחק 1" title="חידון החלטות חכמות" status={`ניקוד: ${quizScore} · ${quizProgress}`}>
           <p className="text-lg font-black leading-8 text-white">{currentQuestion.question}</p>
