@@ -31,7 +31,7 @@ const quizQuestions = [
   },
 ];
 
-const memoryCards = ["דאטה", "אתר", "לקוח", "מכירות", "AI", "מהירות"].flatMap((value, index) => [
+const memoryCards = ["דאטה", "אתר", "לקוח", "מכירות", "בינה", "מהירות"].flatMap((value, index) => [
   { id: `${value}-1-${index}`, value },
   { id: `${value}-2-${index}`, value },
 ]);
@@ -211,7 +211,7 @@ export function GamesClient() {
           </div>
         </GamePanel>
 
-        <GamePanel eyebrow="משחק 4" title="מחולל רעיונות חכם" status="רעיונות מקומיים ללא API">
+        <GamePanel eyebrow="משחק 4" title="מחולל רעיונות חכם" status="רעיונות מקומיים בלי חיבור חיצוני">
           <div className="rounded-[1.35rem] border border-purple-200/20 bg-gradient-to-br from-purple-500/16 via-white/[0.05] to-black/20 p-5 shadow-[0_0_50px_rgba(168,85,247,0.12)]">
             <p className="text-2xl font-black leading-tight text-white">{idea}</p>
             <p className="mt-4 leading-8 text-zinc-300">

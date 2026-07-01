@@ -6,6 +6,8 @@ export function Footer() {
   const serviceLinks = [
     ["אתר תדמית ב־999 ₪", "/services/business-website-999"],
     ["כלי חינמי לגולשים", "/services/smart-website-lead-engine"],
+    ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
+    ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
     ["נתונים ו־ChatGPT", "/services/chatgpt-business-data"],
     ["אתרים ומערכות", "/services/web-development"],
     ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
@@ -17,6 +19,7 @@ export function Footer() {
   ];
 
   const toolLinks = [
+    ["העוזר החכם", "/services/ai-chat-for-websites"],
     ["ביקון", "https://beacon.navines.com"],
     ["לדבר עם הנתונים", "https://talktodata.navines.com"],
     ["בודק אתרים", "https://analyze.navines.com"],

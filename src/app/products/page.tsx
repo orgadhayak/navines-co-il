@@ -13,6 +13,7 @@ export const metadata = createMetadata({
 
 export default function ProductsPage() {
   const talkToDataProduct = products.find((product) => product.slug === "talk-to-data");
+  const featuredProducts = products.filter((product) => ["navines-site-assistant", "talk-to-data", "navines-beacon"].includes(product.slug));
 
   return (
     <>
@@ -35,6 +36,14 @@ export default function ProductsPage() {
             </div>
           </div>
         ) : null}
+        <div className="mt-8">
+          <h2 className="text-3xl font-black text-white">כלים מובילים שכדאי להכיר</h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        </div>
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
             <ProductCard key={product.slug} product={product} />

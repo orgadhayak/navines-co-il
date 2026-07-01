@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 
 type GameStatus = "ready" | "playing" | "gameover";
 type FallingItem = {
@@ -25,15 +26,16 @@ type GameSnapshot = {
   message: string;
 };
 
-const goodItems = ["AI", "דאטה", "מהירות", "אמון", "מכירות"];
-const badItems = ["תקלה", "אתר איטי", "נטישה", "SEO חלש", "סיכון"];
+const gameTitle = "מגן האתר של נביא נס ישראל";
+const goodItems = ["בינה", "דאטה", "מהירות", "אמון", "מכירות"];
+const badItems = ["תקלה", "אתר איטי", "נטישה", "קידום חלש", "סיכון"];
 
 const initialHud = {
   score: 0,
   lives: 3,
   level: 1,
   status: "ready" as GameStatus,
-  message: "לחצו רווח או התחלה כדי להגן על האתר.",
+  message: "לחצו רווח או התחלה כדי להפעיל את מגן האתר.",
 };
 
 export function DataDefenderGame() {
@@ -55,7 +57,7 @@ export function DataDefenderGame() {
     playerX: 430,
     items: [] as FallingItem[],
     spawnIn: 0,
-    message: "לחצו רווח או התחלה כדי להגן על האתר.",
+    message: "לחצו רווח או התחלה כדי להפעיל את מגן האתר.",
   });
   const [hud, setHud] = useState(initialHud);
 
@@ -234,7 +236,7 @@ export function DataDefenderGame() {
           game.message = `נפגעתם מ${item.label}. נשארו ${game.lives} חיים.`;
           if (game.lives <= 0) {
             game.status = "gameover";
-            game.message = "המשחק נגמר. לחצו Restart כדי להגן שוב על האתר.";
+            game.message = "המשחק נגמר. לחצו התחלה מחדש כדי להגן שוב על האתר.";
             game.items = [];
             publishHud(true);
             return;
@@ -278,11 +280,11 @@ export function DataDefenderGame() {
   }
 
   return (
-    <article className="command-glass mb-6 overflow-hidden rounded-[1.85rem] p-4 sm:p-5">
-      <div className="grid gap-5 lg:grid-cols-[0.92fr_1.35fr] lg:items-center">
+    <article className="command-glass mb-6 overflow-hidden rounded-[1.85rem] p-3 sm:p-5">
+      <div className="grid gap-4 lg:grid-cols-[0.92fr_1.35fr] lg:items-center">
         <div className="order-2 lg:order-1">
           <p className="text-sm font-black text-glowred">משחק ארקייד מרכזי</p>
-          <h2 className="mt-2 text-3xl font-black leading-tight text-white md:text-5xl">NAVINES Data Defender</h2>
+          <h2 className="mt-2 text-3xl font-black leading-tight text-white md:text-5xl">{gameTitle}</h2>
           <p className="mt-4 text-lg leading-8 text-zinc-300">
             הגן על האתר, אסוף דאטה טובה, התחמק מתקלות ושמור על העסק חכם ומהיר.
           </p>
@@ -295,27 +297,28 @@ export function DataDefenderGame() {
             {hud.message}
           </p>
           <div className="mt-5 grid gap-2 text-sm leading-6 text-zinc-400">
-            <p>דסקטופ: חצים ימינה/שמאלה או A/D לתנועה, רווח להתחלה או להפעלת מגן.</p>
-            <p>מובייל: כפתורי שמאלה/ימינה וכפתור פעולה גדול.</p>
+            <p>מחשב: חצים ימינה ושמאלה לתנועה, רווח להתחלה או להפעלת מגן.</p>
+            <p>מובייל: החזיקו שמאלה או ימינה לתנועה, ולחצו פעולה להפעלת מגן.</p>
           </div>
         </div>
 
         <div className="order-1 lg:order-2">
-          <div className="relative rounded-[1.6rem] border border-purple-200/18 bg-black shadow-[0_0_80px_rgba(168,85,247,0.18)]">
+          <div className="relative max-w-full touch-none select-none rounded-[1.6rem] border border-purple-200/18 bg-black shadow-[0_0_80px_rgba(168,85,247,0.18)]" style={{ touchAction: "none" }}>
             <canvas
-              aria-label="NAVINES Data Defender, משחק ארקייד להגנה על אתר"
-              className="block h-[350px] w-full rounded-[1.6rem] sm:h-[430px] lg:h-[470px]"
+              aria-label="מגן האתר של נביא נס ישראל, משחק ארקייד להגנה על אתר"
+              className="block h-[320px] w-full max-w-full touch-none rounded-[1.6rem] sm:h-[430px] lg:h-[470px]"
               ref={canvasRef}
+              style={{ touchAction: "none" }}
             />
           </div>
-          <div className="mt-3 grid grid-cols-3 gap-2">
+          <div className="mt-3 grid touch-none grid-cols-3 gap-2 select-none" style={{ touchAction: "none" }}>
             <ControlButton
               label="ימינה"
               onDown={() => setDirection("right", true)}
               onUp={() => setDirection("right", false)}
             />
-            <button className="min-h-14 rounded-[1.05rem] border border-purple-200/30 bg-purple-500/18 px-3 text-base font-black text-white shadow-[0_0_28px_rgba(168,85,247,0.18)] transition hover:bg-purple-500/26" onClick={activateAction} type="button">
-              {hud.status === "gameover" ? "Restart" : hud.status === "ready" ? "התחלה" : "פעולה"}
+            <button className="min-h-16 touch-none rounded-[1.05rem] border border-purple-200/30 bg-purple-500/20 px-3 text-base font-black text-white shadow-[0_0_32px_rgba(168,85,247,0.22)] transition hover:bg-purple-500/28 active:scale-[0.98]" onClick={activateAction} style={{ touchAction: "manipulation" }} type="button">
+              {hud.status === "gameover" ? "התחלה מחדש" : hud.status === "ready" ? "התחלה" : "פעולה"}
             </button>
             <ControlButton
               label="שמאלה"
@@ -339,13 +342,25 @@ function StatusPill({ label, value }: { label: string; value: string }) {
 }
 
 function ControlButton({ label, onDown, onUp }: { label: string; onDown: () => void; onUp: () => void }) {
+  function handlePointerDown(event: ReactPointerEvent<HTMLButtonElement>) {
+    event.currentTarget.setPointerCapture(event.pointerId);
+    onDown();
+  }
+
+  function handlePointerUp(event: ReactPointerEvent<HTMLButtonElement>) {
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    onUp();
+  }
+
   return (
     <button
-      className="min-h-14 rounded-[1.05rem] border border-white/10 bg-white/[0.055] px-3 text-base font-black text-purple-100 transition hover:border-purple-200/40 hover:bg-purple-500/12"
-      onPointerCancel={onUp}
-      onPointerDown={onDown}
-      onPointerLeave={onUp}
-      onPointerUp={onUp}
+      className="min-h-16 touch-none rounded-[1.05rem] border border-white/10 bg-white/[0.06] px-3 text-lg font-black text-purple-100 transition hover:border-purple-200/40 hover:bg-purple-500/12 active:scale-[0.98]"
+      onPointerCancel={handlePointerUp}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      style={{ touchAction: "none" }}
       type="button"
     >
       {label}
@@ -420,25 +435,66 @@ function drawPlayer(context: CanvasRenderingContext2D, x: number, y: number, shi
     context.fill();
   }
 
-  context.shadowColor = "rgba(216,180,254,0.65)";
-  context.shadowBlur = 28;
-  roundedRect(context, x - 43, y - 18, 86, 36, 18);
-  const body = context.createLinearGradient(x - 43, y - 18, x + 43, y + 18);
-  body.addColorStop(0, "rgba(255,255,255,0.92)");
-  body.addColorStop(0.5, "rgba(192,132,252,0.94)");
-  body.addColorStop(1, "rgba(88,28,135,0.9)");
+  const shipGlow = context.createRadialGradient(x, y + 8, 12, x, y + 8, 78);
+  shipGlow.addColorStop(0, "rgba(216,180,254,0.46)");
+  shipGlow.addColorStop(1, "rgba(168,85,247,0)");
+  context.fillStyle = shipGlow;
+  context.beginPath();
+  context.arc(x, y + 4, 78, 0, Math.PI * 2);
+  context.fill();
+
+  context.shadowColor = "rgba(216,180,254,0.72)";
+  context.shadowBlur = 32;
+  const body = context.createLinearGradient(x - 58, y - 28, x + 58, y + 30);
+  body.addColorStop(0, "rgba(255,255,255,0.96)");
+  body.addColorStop(0.42, "rgba(216,180,254,0.92)");
+  body.addColorStop(1, "rgba(91,33,182,0.9)");
+
+  context.beginPath();
+  context.moveTo(x, y - 34);
+  context.bezierCurveTo(x + 34, y - 18, x + 52, y + 3, x + 62, y + 22);
+  context.lineTo(x + 24, y + 16);
+  context.lineTo(x + 10, y + 34);
+  context.lineTo(x, y + 21);
+  context.lineTo(x - 10, y + 34);
+  context.lineTo(x - 24, y + 16);
+  context.lineTo(x - 62, y + 22);
+  context.bezierCurveTo(x - 52, y + 3, x - 34, y - 18, x, y - 34);
+  context.closePath();
   context.fillStyle = body;
   context.fill();
-  context.strokeStyle = "rgba(255,255,255,0.72)";
-  context.lineWidth = 1.5;
+  context.strokeStyle = "rgba(255,255,255,0.78)";
+  context.lineWidth = 1.7;
   context.stroke();
+
+  const cockpit = context.createRadialGradient(x, y - 7, 3, x, y - 7, 18);
+  cockpit.addColorStop(0, "rgba(255,255,255,0.98)");
+  cockpit.addColorStop(1, "rgba(168,85,247,0.82)");
+  context.fillStyle = cockpit;
+  context.beginPath();
+  context.ellipse(x, y - 6, 14, 18, 0, 0, Math.PI * 2);
+  context.fill();
+  context.strokeStyle = "rgba(255,255,255,0.62)";
+  context.stroke();
+
+  context.shadowColor = "rgba(168,85,247,0.8)";
+  context.shadowBlur = 18;
+  context.fillStyle = "rgba(216,180,254,0.86)";
+  context.beginPath();
+  context.moveTo(x - 18, y + 26);
+  context.lineTo(x - 8, y + 48);
+  context.lineTo(x, y + 28);
+  context.lineTo(x + 8, y + 48);
+  context.lineTo(x + 18, y + 26);
+  context.closePath();
+  context.fill();
   context.shadowBlur = 0;
   context.direction = "rtl";
   context.textAlign = "center";
   context.textBaseline = "middle";
-  context.font = "900 13px Nachlieli, Arial";
-  context.fillStyle = "#050006";
-  context.fillText("מגן האתר", x, y + 1);
+  context.font = "900 12px Nachlieli, Arial";
+  context.fillStyle = "#ffffff";
+  context.fillText("נביא נס", x, y + 16);
   context.restore();
 }
 
@@ -452,10 +508,10 @@ function drawScreenOverlay(context: CanvasRenderingContext2D, game: GameSnapshot
   context.textBaseline = "middle";
   context.fillStyle = "#ffffff";
   context.font = "900 28px Nachlieli, Arial";
-  context.fillText(game.status === "ready" ? "NAVINES Data Defender" : "המשחק נגמר", width / 2, height / 2 - 34);
+  context.fillText(game.status === "ready" ? gameTitle : "המשחק נגמר", width / 2, height / 2 - 34);
   context.font = "700 16px Nachlieli, Arial";
   context.fillStyle = "rgba(233,213,255,0.92)";
-  context.fillText(game.status === "ready" ? "לחצו התחלה או רווח כדי להתחיל" : `ניקוד סופי: ${game.score}. לחצו Restart`, width / 2, height / 2 + 8);
+  context.fillText(game.status === "ready" ? "לחצו התחלה או רווח כדי להתחיל" : `ניקוד סופי: ${game.score}. לחצו התחלה מחדש`, width / 2, height / 2 + 8);
   context.restore();
 }
 

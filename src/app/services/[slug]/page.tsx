@@ -25,6 +25,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const isChatGptDataService = service.slug === "chatgpt-business-data";
+  const isAiChatService = service.slug === "ai-chat-for-websites";
+  const isTechnicalSupportService = service.slug === "technical-support-cyber-networks";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -55,6 +57,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </Section>
       <Section>
         <div className="grid gap-5">
+          {isTechnicalSupportService ? (
+            <article className="rounded-[1.5rem] border border-red-300/25 bg-red-950/28 p-5 shadow-[0_0_42px_rgba(239,68,68,0.14)]">
+              <span className="inline-flex rounded-full border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-black text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.18)]">
+                תקלה דחופה
+              </span>
+              <h2 className="mt-4 text-3xl font-black text-white">תקלה דחופה? אל תחכו</h2>
+              <p className="mt-3 text-lg leading-8 text-red-50/90">
+                אם האתר נפל, המיילים לא עובדים, יש חשד לפריצה, בעיית דומיין, בעיית רשת או תקלה שמפריעה לעסק לעבוד — שלחו לנו הודעה עכשיו בוואטסאפ ונבדוק איך אפשר לעזור.
+              </p>
+              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-black text-white transition hover:bg-red-500/30" href={site.whatsappHref}>
+                תמיכה דחופה בוואטסאפ
+              </a>
+            </article>
+          ) : null}
           <InfoBlock title="מה השירות?" items={[service.summary]} />
           <InfoBlock title="למי זה מתאים?" items={service.audience} />
           <InfoBlock title="מה עושים בפועל ודוגמה פשוטה" items={service.actions} />
@@ -85,8 +101,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
-        text={isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
   );

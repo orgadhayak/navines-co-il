@@ -59,6 +59,14 @@ export function ProductCard({ product }: { product: Product }) {
     </article>
   );
 
+  if (product.url?.startsWith("/")) {
+    return (
+      <Link className="block h-full" href={product.url}>
+        {content}
+      </Link>
+    );
+  }
+
   return product.url ? (
     <a className="block h-full" href={product.url} rel="noreferrer" target="_blank">
       {content}
@@ -113,6 +121,8 @@ function getBlogCtaLabel(post: BlogPost) {
     "accountants-ai-data-automation": "AI לרואי חשבון",
     "amazon-sellers-ai-data-monitoring": "ניהול Amazon חכם",
     "freelancers-ai-automation-systems": "אוטומציה לפרילנסרים",
+    "ai-chat-for-business-website": "לבניית צ׳ט AI לאתר",
+    "technical-support-cyber-networks-business": "לתמיכה טכנית מהירה",
   };
 
   if (labels[post.slug]) return labels[post.slug];

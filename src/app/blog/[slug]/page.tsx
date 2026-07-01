@@ -182,6 +182,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
   const isBusinessWebsite999Post = post.slug === "business-website-999-shekel";
   const isSmartWebsiteLeadPost = post.slug === "smart-website-lead-engine-quality-leads";
+  const isAiChatWebsitePost = post.slug === "ai-chat-for-business-website";
+  const isTechnicalSupportPost = post.slug === "technical-support-cyber-networks-business";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -238,11 +240,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק ב־999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק ב־999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -309,6 +311,64 @@ function SmartWebsiteLeadArticleBody() {
       <p>
         <Link className="font-black text-glowred hover:text-white" href="/services/smart-website-lead-engine">
           לעמוד השירות: בניית כלי חכם ושימושי לגולשים באתר שלכם
+        </Link>
+      </p>
+    </div>
+  );
+}
+
+function AiChatWebsiteArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה אתר עם הרבה תוכן צריך צ׳ט חכם?</h2>
+      <p>גולש שמגיע לאתר לא תמיד יודע איפה להתחיל. אם יש הרבה שירותים, מאמרים, מוצרים או עמודים, הוא עלול לעזוב לפני שמצא תשובה. צ׳ט AI קצר וברור עוזר לו להבין בשפה פשוטה מה העסק מציע ומה הצעד הבא.</p>
+      <h2>למה קצר ומדויק עדיף מבוט שחופר?</h2>
+      <p>בוט טוב לא צריך לכתוב מגילות. הוא צריך לענות ישירות, להציע עמוד מתאים, להסביר שירות במילים פשוטות, ובמקרה הנכון להעביר לוואטסאפ. המטרה היא לעזור, לא להעמיס.</p>
+      <h2>איך זה חוסך זמן?</h2>
+      <p>שאלות שחוזרות על עצמן כמו “מה אתם עושים?”, “איזה שירות מתאים לי?” או “איך מתחילים?” יכולות לקבל תשובה ראשונית באתר. בעל העסק מקבל גולש מוכן יותר, והגולש לא צריך לחפש לבד.</p>
+      <h2>למה לא לשים בוט כללי?</h2>
+      <p>בוט כללי שלא מכיר את העסק עלול לענות לא מדויק או להישמע לא קשור. נביא נס ישראל בע״מ בונה צ׳ט מותאם אישית: עם גבולות, מסרים, הפניות, זהירות ותשובות קצרות שמתאימות לאתר.</p>
+      <h2>מה חשוב להגדיר נכון?</h2>
+      <ul>
+        <li>אילו שירותים הצ׳ט צריך להסביר.</li>
+        <li>מתי להפנות לעמוד באתר ומתי לוואטסאפ.</li>
+        <li>אילו שאלות לא לענות עליהן בלי שיחה אנושית.</li>
+        <li>איך לשמור על שפה קצרה, ברורה ומקצועית.</li>
+      </ul>
+      <h2>סיכום</h2>
+      <p>צ׳ט AI לאתר עסקי הוא לא קסם ולא מחליף את העסק. הוא שכבה חכמה שעוזרת לגולשים להגיע לתשובה מהר יותר ולפנות כשהם מבינים טוב יותר מה הם צריכים.</p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/ai-chat-for-websites">
+          לעמוד השירות: בניית צ׳ט AI חכם לאתרים
+        </Link>
+      </p>
+    </div>
+  );
+}
+
+function TechnicalSupportArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה לא כדאי לחכות עם תקלה טכנית?</h2>
+      <p>תקלה קטנה יכולה להפוך מהר לבעיה גדולה: אתר שנופל, מיילים שלא נשלחים, דומיין שלא מוגדר נכון או רשת שמפריעה לעבודה. כשמטפלים מוקדם, קל יותר להבין מה קרה ולמנוע נזק רחב יותר.</p>
+      <h2>מה עושים כשאתר נופל?</h2>
+      <p>בודקים אם הבעיה באחסון, בדומיין, בהגדרות DNS, בתעודת אבטחה, בקוד או במערכת ניהול האתר. המטרה היא לא לנחש, אלא לבודד את התקלה ולהחזיר את האתר לעבודה בצורה מסודרת.</p>
+      <h2>מה עושים כשמיילים לא עובדים?</h2>
+      <p>מייל עסקי תלוי בדומיין, רשומות DNS, אימות שליחה, ספק מייל ותיבות מוגדרות נכון. טעות קטנה יכולה לגרום למיילים לא להגיע או להיכנס לספאם. לכן צריך לבדוק את כל השרשרת.</p>
+      <h2>תמיכה מרחוק או הגעה פיזית?</h2>
+      <p>הרבה תקלות אפשר להתחיל לבדוק מרחוק: אתר, דומיין, מיילים, ספקים והגדרות. כשיש בעיית ציוד, רשת מקומית או סביבת עבודה, לפעמים נכון לתאם הגעה לפי צורך.</p>
+      <h2>למה עסק צריך גורם טכני זמין?</h2>
+      <p>כשאין איש טכני קבוע, בעל העסק נתקע בין ספקים ולא יודע למי לפנות. גורם אחד שמבין את התמונה יכול לעזור לדבר עם הספקים, להבין מה דחוף, ולבחור פעולה נכונה.</p>
+      <h2>רשימת בדיקה קצרה</h2>
+      <ul>
+        <li>מה בדיוק הפסיק לעבוד ומתי?</li>
+        <li>האם הבעיה באתר, במייל, בדומיין, ברשת או במחשב?</li>
+        <li>האם יש הודעת שגיאה או צילום מסך?</li>
+        <li>מי הספקים הרלוונטיים: אחסון, דומיין, מייל או אינטרנט?</li>
+      </ul>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/technical-support-cyber-networks">
+          לעמוד השירות: תמיכה טכנית, סייבר, רשתות ופתרון תקלות
         </Link>
       </p>
     </div>

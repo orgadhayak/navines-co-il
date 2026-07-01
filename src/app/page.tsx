@@ -30,6 +30,10 @@ const ecosystemLinks: Record<string, string> = {
 const serviceTagLinks: Record<string, string> = {
   "אתר תדמית ב־999 ₪": "/services/business-website-999",
   "כלי חינמי ושימושי לגולשים": "/services/smart-website-lead-engine",
+  "צ׳ט AI חכם לאתרים": "/services/ai-chat-for-websites",
+  "העוזר החכם של נביא נס": "/services/ai-chat-for-websites",
+  "תמיכה טכנית, סייבר ורשתות": "/services/technical-support-cyber-networks",
+  "תמיכה מרחוק והגעה לפי צורך": "/services/technical-support-cyber-networks",
 };
 
 const commandStats = [
@@ -39,6 +43,8 @@ const commandStats = [
 ];
 
 const improvementRows = [
+  { title: "הגולשים לא מוצאים תשובה באתר", text: "נבנה צ׳ט AI קצר וברור שמבין את תוכן האתר, מסביר שירותים ומוביל לוואטסאפ כשצריך שיחה אנושית.", status: "צ׳ט AI", href: "/services/ai-chat-for-websites" },
+  { title: "תקלה באתר, במייל או ברשת עוצרת את העסק", text: "נטפל מרחוק או לפי צורך בשטח: דומיין, DNS, מיילים, אתר שנפל, רשתות, סייבר בסיסי וספקים חיצוניים.", status: "תמיכה דחופה", href: "/services/technical-support-cyber-networks" },
   { title: "יש לכם אתר אבל חסר בו משהו שאנשים באמת משתמשים בו", text: "נחשוב ונבנה כלי חינמי שמתאים לנישה שלכם: מחשבון, בדיקה, שאלון, אבחון או עוזר שמיטיב עם הגולש וגורם לאתר לעבוד חכם יותר.", status: "כלי לגולשים", href: "/services/smart-website-lead-engine" },
   { title: "רוצים לדבר עם הנתונים, הדוחות והאימיילים של העסק", text: "נחבר את ChatGPT למכירות, הזמנות, מלאי, לקוחות, מוצרים, דוחות וגם תיבות מייל מאובטחות כדי לקבל תשובות בלי לחפש ידנית במערכות.", status: "TalkToData", href: "/services/chatgpt-business-data" },
   { title: "האתר איטי או לא מביא מספיק פניות", text: "נבדוק מה מעכב טעינה, מסר, מובייל ואמון, ונראה מה כדאי לתקן קודם.", status: "בדיקת אתר", href: "/services/website-speed-optimization" },
@@ -47,6 +53,8 @@ const improvementRows = [
 ];
 
 const systemRows = [
+  { title: "צ׳ט AI חכם לאתר", text: "עוזר קצר וברור שמסביר שירותים ומוביל לוואטסאפ.", href: "/services/ai-chat-for-websites" },
+  { title: "תמיכה טכנית וסייבר", text: "פתרון תקלות אתר, מייל, דומיין, רשת וספקים.", href: "/services/technical-support-cyber-networks" },
   { title: "כלי חינמי לגולשים", text: "מחשבון, בדיקה, שאלון או עוזר שימושי שמעניק ערך אמיתי באתר.", href: "/services/smart-website-lead-engine" },
   { title: "ChatGPT לנתונים ולאימיילים", text: "שיחה פשוטה עם מכירות, הזמנות, מלאי, לקוחות, דוחות ופניות מתוך המייל.", href: "/services/chatgpt-business-data" },
   { title: "אתרי חברה ותדמית", text: "אתר ברור, מהיר ומשכנע שמוביל לפנייה.", href: "/services/web-development" },
@@ -55,6 +63,8 @@ const systemRows = [
 ];
 
 const controlPanelServices = [
+  { title: "צ׳ט AI חכם לאתרים", what: "עוזר אתר קצר, ברור ומותאם לתוכן העסק.", solves: "גולשים שלא מוצאים תשובה או לא מבינים איזה שירות מתאים להם.", why: "הצ׳ט מקצר דרך, מפחית שאלות חוזרות ומוביל לוואטסאפ עם הקשר טוב יותר.", href: "/services/ai-chat-for-websites" },
+  { title: "תמיכה טכנית, סייבר ורשתות", what: "תמיכה מרחוק, הגעה לפי צורך, אתרים, דומיינים, מיילים ורשתות.", solves: "תקלות שעוצרות עבודה או מפילות שירותים עסקיים.", why: "עסק צריך גורם טכני שאפשר לדבר איתו מהר כשמשהו נתקע.", href: "/services/technical-support-cyber-networks" },
   { title: "כלי חינמי ושימושי לגולשים", what: "מחשבון, בדיקה, שאלון, אבחון או עוזר דיגיטלי שנבנה לפי הנישה.", solves: "אתר שמסביר אבל לא נותן לגולש פעולה מועילה לזכור ולשתף.", why: "הגולש מקבל ערך אמיתי, והעסק מקבל אמון, שימוש חוזר ופניות עם הקשר טוב יותר.", href: "/services/smart-website-lead-engine" },
   { title: "לדבר עם הנתונים והאימיילים של העסק באמצעות ChatGPT", what: "חיבור נתונים, דוחות ותיבות מייל לשכבת שיחה פשוטה ומאובטחת.", solves: "במקום לחפש בדוחות ובשרשורי מייל, שואלים על מכירות, הזמנות, פניות, לקוחות וביצועים.", why: "בעל העסק מקבל תשובה ברורה מהר יותר, מבין מי מחכה לטיפול ומה דורש פעולה.", href: "/services/chatgpt-business-data" },
   { title: "בינה מלאכותית ואוטומציה", what: "תהליכים חכמים שמטפלים בפניות, משימות ומידע.", solves: "פחות עבודה ידנית ופחות דברים שנופלים בין הכיסאות.", why: "הצוות מגיב מהר יותר והלקוח מקבל תשובה ברורה.", href: "/services/ai-automation" },
@@ -73,6 +83,21 @@ const monitoringRows = [
   { label: "ניטור", text: "לזהות האטות, נפילות ותקלות לפני שהלקוח מדווח.", href: "/products" },
   { label: "ביצועים", text: "להבין מה כבד, מה מעכב ומה כדאי לתקן ראשון.", href: "/optimization-hub" },
   { label: "אוטומציה", text: "להפוך פנייה, סיכום, משימה ודוח לתהליך מסודר.", href: "/services/ai-automation" },
+];
+
+const featuredNewServices = [
+  {
+    title: "צ׳ט AI חכם לאתרים",
+    text: "עוזר קצר וברור שמבין את תוכן האתר, מסביר לגולשים מה העסק מציע ומוביל לשיחה בוואטסאפ כשצריך.",
+    href: "/services/ai-chat-for-websites",
+    cta: "לבניית צ׳ט AI",
+  },
+  {
+    title: "תמיכה טכנית, סייבר ורשתות",
+    text: "פתרון תקלות מרחוק או לפי צורך: אתר שנפל, מיילים, דומיין, DNS, רשתות, ספקים והקשחה בסיסית.",
+    href: "/services/technical-support-cyber-networks",
+    cta: "לתמיכה טכנית",
+  },
 ];
 
 export default function HomePage() {
@@ -154,6 +179,23 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <Section eyebrow="שירותים חדשים ומובילים" title="שני שירותים שנועדו לפתור בעיות אמיתיות באתר ובעסק" className="py-5 lg:py-8">
+        <div className="grid gap-4 md:grid-cols-2">
+          {featuredNewServices.map((service) => (
+            <Link className="command-glass group rounded-[1.45rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href={service.href} key={service.href}>
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-2xl font-black leading-tight text-white">{service.title}</h2>
+                <span className="status-pip bg-purple-200 text-purple-200" />
+              </div>
+              <p className="mt-3 text-base leading-7 text-zinc-300">{service.text}</p>
+              <span className="mt-5 inline-flex rounded-full border border-purple-200/20 bg-purple-500/12 px-4 py-2 text-sm font-black text-glowred transition group-hover:bg-purple-500/24 group-hover:text-white">
+                {service.cta}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
 
       <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="command-glass overflow-hidden rounded-[1.8rem] p-4 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-5">
