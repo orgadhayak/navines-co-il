@@ -29,6 +29,7 @@ export const mainNav = [
   { label: "אתרים ומערכות", href: "/services/web-development" },
   { label: "איקומרס", href: "/services/ecommerce" },
   { label: "כלים ומוצרים", href: "/products" },
+  { label: "משחקים", href: "/games" },
   { label: "בלוג", href: "/blog" },
   { label: "יצירת קשר", href: "/contact" },
 ];

@@ -3,7 +3,7 @@ import { solutionPages } from "@/data/solutions";
 import { blogPosts, courseTracks, services, site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/about", "/services", "/courses", "/solutions", "/optimization-hub", "/products", "/tools", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
+  const staticPages = ["", "/about", "/services", "/courses", "/solutions", "/optimization-hub", "/products", "/tools", "/games", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
   const servicePages = services.map((service) => `/services/${service.slug}`);
   const coursePages = courseTracks.map((course) => `/courses/${course.slug}`);
   const solutionPagePaths = solutionPages.map((solution) => `/solutions/${solution.slug}`);
