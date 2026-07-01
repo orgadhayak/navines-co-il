@@ -4,6 +4,7 @@ import { courseTracks, site } from "@/data/site";
 
 export function Footer() {
   const serviceLinks = [
+    ["אתר תדמית ב־999 ₪", "/services/business-website-999"],
     ["נתונים ו־ChatGPT", "/services/chatgpt-business-data"],
     ["אתרים ומערכות", "/services/web-development"],
     ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],

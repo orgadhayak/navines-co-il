@@ -5,7 +5,7 @@ import { Fragment, useState } from "react";
 import { solutionPages } from "@/data/solutions";
 import { courseTracks, mainNav, services, site } from "@/data/site";
 
-const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/courses", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
+const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", "/services/business-website-999", "/courses", "/optimization-hub", "/services/chatgpt-business-data", "/products", "/blog"].includes(item.href));
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
 const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
 const courseNav = courseTracks.map((course) => ({ label: course.navLabel, href: `/courses/${course.slug}` }));

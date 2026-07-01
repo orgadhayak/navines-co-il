@@ -180,6 +180,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
+  const isBusinessWebsite999Post = post.slug === "business-website-999-shekel";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -236,11 +237,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק ב־999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים ל־ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -251,6 +252,45 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </div>
       </section>
     </>
+  );
+}
+
+function BusinessWebsite999ArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה לא כל עסק צריך להתחיל מאתר גדול?</h2>
+      <p>
+        הרבה בעלי עסקים צריכים קודם כל מקום רשמי וברור באינטרנט: מי אתם, מה אתם מציעים, למה אפשר לסמוך עליכם ואיך פונים אליכם. לא תמיד צריך להתחיל מפרויקט מורכב, חנות, מערכת או עשרות עמודים.
+      </p>
+      <p>
+        מסלול אתר תדמית ב־999 ₪ נועד בדיוק לשלב הזה: אתר בסיסי, נקי ומותאם למובייל שנותן לעסק נוכחות מקצועית ודרך פשוטה לקבל פניות.
+      </p>
+      <h2>מה חשוב שיהיה באתר כזה?</h2>
+      <ul>
+        <li>כותרת שמסבירה מהר מה העסק עושה.</li>
+        <li>טקסט קצר וברור על השירותים המרכזיים.</li>
+        <li>כפתורי וואטסאפ, טלפון ומייל במקום בולט.</li>
+        <li>התאמה טובה למובייל, כי רוב הלקוחות נכנסים מהטלפון.</li>
+        <li>מבנה כותרות ותיאור ראשוני כדי שהאתר יהיה מוכן לסריקה בסיסית של גוגל.</li>
+      </ul>
+      <h2>למי זה מתאים?</h2>
+      <p>
+        המסלול מתאים לבעלי עסקים חדשים, נותני שירותים, יועצים, מטפלים, אנשי מקצוע, פרילנסרים ועסקים מקומיים שרוצים אתר ראשון ורשמי בלי להיכנס מיד לפרויקט יקר.
+      </p>
+      <h2>מה לא כלול במסלול בסיסי?</h2>
+      <p>
+        חשוב להיות ברורים: אתר ב־999 ₪ הוא מסלול בסיסי. חנות אונליין, מערכת הזמנות, אזור אישי, כתיבת תוכן רחבה, עיצוב מורכב, אוטומציות או פיתוח מותאם אישית הם דברים שאפשר להוסיף, אבל הם לא חלק מהמסלול הבסיסי.
+      </p>
+      <h2>איך מתחילים?</h2>
+      <p>
+        שולחים לנו בוואטסאפ כמה מילים על העסק, לוגו אם יש, צבעים אם יש, טקסט בסיסי ותמונות אם קיימות. אם המסלול מתאים, נתקדם בצורה מסודרת. אם צריך משהו רחב יותר, נגיד את זה מראש.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/business-website-999">
+          לעמוד השירות: אתר תדמית לעסק ב־999 ₪
+        </Link>
+      </p>
+    </div>
   );
 }
 

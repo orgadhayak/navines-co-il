@@ -27,6 +27,10 @@ const ecosystemLinks: Record<string, string> = {
   "כלים מבית נביא נס ישראל בע״מ": "/products",
 };
 
+const serviceTagLinks: Record<string, string> = {
+  "אתר תדמית ב־999 ₪": "/services/business-website-999",
+};
+
 const commandStats = [
   { label: "פניות ושירות", value: "פחות פספוסים", text: "וואטסאפ, אתר ומשימות במקום אחד", href: "/services/ai-automation" },
   { label: "מהירות ואמון", value: "טעינה ברורה", text: "אתר שמרגיש יציב גם במובייל", href: "/optimization-hub" },
@@ -86,6 +90,16 @@ export default function HomePage() {
             <h2 className="mt-1 text-2xl font-black leading-tight text-white">TalkToData מחבר נתונים, דוחות ואימיילים ל־ChatGPT</h2>
             <p className="mt-2 text-base leading-7 text-zinc-300">
               נוחות מקסימלית, חיבור מאובטח ותשובות בשפה פשוטה: אפשר לבדוק חיבור גם לתיבות מייל שאינן Gmail או Outlook/Hotmail, כל עוד יש גישה מסודרת כמו IMAP, API או ייצוא נתונים.
+            </p>
+          </Link>
+          <Link className="command-glass mt-3 block max-w-3xl rounded-[1.35rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/business-website-999">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-purple-200/24 bg-purple-500/14 px-4 py-1.5 text-sm font-black text-glowred">מוצר מוביל חדש</span>
+              <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-sm font-black text-zinc-300">999 ₪</span>
+            </div>
+            <h2 className="mt-3 text-2xl font-black leading-tight text-white">אתר תדמית מקצועי לעסק ב־999 ₪</h2>
+            <p className="mt-2 text-base leading-7 text-zinc-300">
+              לעסק שצריך אתר ראשון, נקי, מהיר ומותאם למובייל: מסר ברור, פרטי יצירת קשר, כפתורי וואטסאפ וטלפון ותשתית שאפשר להרחיב בהמשך.
             </p>
           </Link>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -386,7 +400,7 @@ export default function HomePage() {
               <p className="mt-2 text-base leading-7 text-zinc-400">{group.intro}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <Link className="tag hover:bg-purple-500/12 hover:shadow-[0_0_22px_rgba(168,85,247,0.12)]" href={ecosystemLinks[group.title] || "/services"} key={item}>
+                  <Link className="tag hover:bg-purple-500/12 hover:shadow-[0_0_22px_rgba(168,85,247,0.12)]" href={serviceTagLinks[item] || ecosystemLinks[group.title] || "/services"} key={item}>
                     {item}
                   </Link>
                 ))}
