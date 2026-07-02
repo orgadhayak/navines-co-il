@@ -17,9 +17,9 @@
   <circle cx="950" cy="150" r="180" fill="#8b5cf6" opacity="0.18"/>
   <circle cx="180" cy="500" r="210" fill="#d8b4fe" opacity="0.12"/>
   <rect x="70" y="74" width="262" height="84" rx="42" fill="#fff"/>
-  <text x="102" y="127" fill="#050506" font-family="ComixNo2, Arial, sans-serif" font-size="39" font-weight="900">NAVINES</text>
-  <text x="80" y="245" fill="#ffffff" font-family="ComixNo2, Arial, sans-serif" font-size="58" font-weight="900">נביא נס ישראל בע״מ</text>
-  <text x="80" y="315" fill="#d8dde6" font-family="ComixNo2, Arial, sans-serif" font-size="36" font-weight="700">בינה מלאכותית · אוטומציה · אתרים · איקומרס · תשתיות</text>
-  <text x="80" y="373" fill="#d8b4fe" font-family="ComixNo2, Arial, sans-serif" font-size="31" font-weight="800">קידום אורגני, אבטחה, ביצועים ומערכות חכמות לעסקים</text>
-  <text x="80" y="530" fill="#d8dde6" font-family="ComixNo2, Arial, sans-serif" font-size="28" font-weight="700">ח.פ. 516647161 · וינקלר אלתר 8, פתח תקווה</text>
+  <text x="102" y="127" fill="#050506" font-family="Heebo, Arial, sans-serif" font-size="39" font-weight="900">NAVINES</text>
+  <text x="80" y="245" fill="#ffffff" font-family="Heebo, Arial, sans-serif" font-size="58" font-weight="900">נביא נס ישראל בע״מ</text>
+  <text x="80" y="315" fill="#d8dde6" font-family="Heebo, Arial, sans-serif" font-size="36" font-weight="700">בינה מלאכותית · אוטומציה · אתרים · איקומרס · תשתיות</text>
+  <text x="80" y="373" fill="#d8b4fe" font-family="Heebo, Arial, sans-serif" font-size="31" font-weight="800">קידום אורגני, אבטחה, ביצועים ומערכות חכמות לעסקים</text>
+  <text x="80" y="530" fill="#d8dde6" font-family="Heebo, Arial, sans-serif" font-size="28" font-weight="700">ח.פ. 516647161 · וינקלר אלתר 8, פתח תקווה</text>
 </svg>

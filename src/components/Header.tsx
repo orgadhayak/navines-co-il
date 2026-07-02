@@ -56,7 +56,7 @@ export function Header() {
               </Link>
               {item.href === "/services" ? (
                 <details className="group relative">
-                  <summary className="list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
+                  <summary className="cursor-pointer list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
                     פתרונות
                   </summary>
                   <div className="absolute left-0 top-full z-50 mt-2 grid min-w-60 gap-1 rounded-[1.2rem] border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
@@ -73,7 +73,7 @@ export function Header() {
               ) : null}
               {item.href === "/courses" ? (
                 <details className="group relative">
-                  <summary className="list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
+                  <summary className="cursor-pointer list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
                     מסלולי קורס
                   </summary>
                   <div className="absolute left-0 top-full z-50 mt-2 grid min-w-60 gap-1 rounded-[1.2rem] border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
@@ -91,7 +91,7 @@ export function Header() {
             </Fragment>
           ))}
           <details className="group relative">
-            <summary className="list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
+            <summary className="cursor-pointer list-none whitespace-nowrap rounded-full px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
               עוד
             </summary>
             <div className="absolute left-0 top-full z-50 mt-2 grid min-w-56 gap-1 rounded-[1.2rem] border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">

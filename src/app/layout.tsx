@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Heebo } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
@@ -8,6 +9,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+
+const siteFont = Heebo({
+  subsets: ["hebrew", "latin"],
+  display: "swap",
+  variable: "--font-site",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.navines.co.il"),
@@ -51,7 +58,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html dir="rtl" lang="he">
-      <body>
+      <body className={siteFont.variable}>
         <JsonLd data={[organizationSchema, localBusinessSchema, websiteSchema]} />
         <a className="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-50 focus:rounded-premium focus:bg-white focus:px-4 focus:py-3 focus:text-ink" href="#main">
           דלגו לתוכן המרכזי
