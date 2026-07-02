@@ -114,7 +114,7 @@ const topics: Topic[] = [
   {
     keys: ["אמזון", "amazon", "איביי", "ebay", "הושעה", "account health"],
     answer:
-      "אנחנו עוזרים למוכרי Amazon ו־eBay בניהול חשבון, דוחות, Account Health, אוטומציה, ניטור וטיפול במצבים דחופים. לא מבטיחים תוצאה, כן עוזרים להבין את המצב ולבנות כיוון פעולה.",
+      "אנחנו עוזרים למוכרי Amazon וגם eBay בניהול חשבון, דוחות, Account Health, אוטומציה, ניטור וטיפול במצבים דחופים. לא מבטיחים תוצאה, כן עוזרים להבין את המצב ולבנות כיוון פעולה.",
     href: "/solutions/amazon-sellers",
     label: "לעמוד מוכרי Amazon",
   },
@@ -151,19 +151,19 @@ const topics: Topic[] = [
 const siteContext = `
 נביא נס ישראל בע״מ היא חברת טכנולוגיה לעסקים בישראל.
 תחומים מרכזיים:
-- בניית אתרים ומערכות: /services/web-development
-- AI ואוטומציה: /services/ai-automation
-- צ׳ט AI חכם לאתרים: /services/ai-chat-for-websites
-- TalkToData וחיבור נתונים ל־ChatGPT: /services/chatgpt-business-data
-- NAVINES Beacon וכלים: /products
-- קורסי AI לילדים ולבוגרים: /courses
-- פתרונות למוכרי Amazon: /solutions/amazon-sellers
-- פתרונות לרואי חשבון: /solutions/accountants
-- פתרונות לפרילנסרים: /solutions/freelancers
-- תמיכה טכנית, סייבר ורשתות: /services/technical-support-cyber-networks
-- משחקים באתר: /games
-- יצירת קשר: /contact
-וואטסאפ: 054-818-0200. טלפון: 054-818-0200.
+• בניית אתרים ומערכות: /services/web-development
+• AI ואוטומציה: /services/ai-automation
+• צ׳ט AI חכם לאתרים: /services/ai-chat-for-websites
+• TalkToData וחיבור נתונים אל ChatGPT: /services/chatgpt-business-data
+• NAVINES Beacon וכלים: /products
+• קורסי AI לילדים ולבוגרים: /courses
+• פתרונות למוכרי Amazon: /solutions/amazon-sellers
+• פתרונות לרואי חשבון: /solutions/accountants
+• פתרונות לפרילנסרים: /solutions/freelancers
+• תמיכה טכנית, סייבר ורשתות: /services/technical-support-cyber-networks
+• משחקים באתר: /games
+• יצירת קשר: /contact
+וואטסאפ: 0548180200. טלפון: 0548180200.
 `;
 
 function normalize(text: string) {
@@ -382,7 +382,7 @@ function fallbackPayload(question: string, history: HistoryMessage[]) {
 
   if (intent === "wordpress_issue") {
     answer =
-      "כן, אם זה אתר WordPress אפשר להתחיל לבדוק כיוון.\nבדרך כלל בודקים קודם תוספים, תבנית, אחסון, שגיאות PHP, DNS או עדכון ששבר משהו.\nמה בדיוק קורה עכשיו — האתר לא עולה, שגיאת 500, עמוד לבן, איטיות או בעיית כניסה לניהול?\nאם זה דחוף, שלחו צילום מסך בוואטסאפ ונכוון מהר.";
+      "כן, אם זה אתר WordPress אפשר להתחיל לבדוק כיוון.\nבדרך כלל בודקים קודם תוספים, תבנית, אחסון, שגיאות PHP, DNS או עדכון ששבר משהו.\nמה בדיוק קורה עכשיו, האתר לא עולה, שגיאת 500, עמוד לבן, איטיות או בעיית כניסה לניהול?\nאם זה דחוף, שלחו צילום מסך בוואטסאפ ונכוון מהר.";
   } else if (intent === "technical_issue") {
     answer =
       "זה נשמע כמו תקלה טכנית באתר, לא כמו בניית אתר חדש.\nכדאי לבדוק קודם מה בדיוק לא עובד: האתר לא עולה, יש שגיאה, בעיית אחסון, DNS, אבטחה או מיילים.\nאם העסק תקוע עכשיו, עדיף לשלוח לנו וואטסאפ או להתקשר.";

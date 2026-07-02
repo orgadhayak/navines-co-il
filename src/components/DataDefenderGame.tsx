@@ -416,7 +416,7 @@ function drawItems(context: CanvasRenderingContext2D, items: FallingItem[]) {
     context.direction = "rtl";
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.font = "800 15px Nachlieli, Arial";
+    context.font = "800 15px ComixNo2, Arial";
     context.fillStyle = "#ffffff";
     context.fillText(item.label, item.x, item.y + 1);
     context.restore();
@@ -492,7 +492,7 @@ function drawPlayer(context: CanvasRenderingContext2D, x: number, y: number, shi
   context.direction = "rtl";
   context.textAlign = "center";
   context.textBaseline = "middle";
-  context.font = "900 12px Nachlieli, Arial";
+  context.font = "900 12px ComixNo2, Arial";
   context.fillStyle = "#ffffff";
   context.fillText("נביא נס", x, y + 16);
   context.restore();
@@ -507,9 +507,9 @@ function drawScreenOverlay(context: CanvasRenderingContext2D, game: GameSnapshot
   context.textAlign = "center";
   context.textBaseline = "middle";
   context.fillStyle = "#ffffff";
-  context.font = "900 28px Nachlieli, Arial";
+  context.font = "900 28px ComixNo2, Arial";
   context.fillText(game.status === "ready" ? gameTitle : "המשחק נגמר", width / 2, height / 2 - 34);
-  context.font = "700 16px Nachlieli, Arial";
+  context.font = "700 16px ComixNo2, Arial";
   context.fillStyle = "rgba(233,213,255,0.92)";
   context.fillText(game.status === "ready" ? "לחצו התחלה או רווח כדי להתחיל" : `ניקוד סופי: ${game.score}. לחצו התחלה מחדש`, width / 2, height / 2 + 8);
   context.restore();

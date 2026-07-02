@@ -128,7 +128,7 @@ function getBlogCtaLabel(post: BlogPost) {
   if (labels[post.slug]) return labels[post.slug];
 
   const topic = post.title
-    .replace(/[—:–].*$/, "")
+    .replace(/[\u2014:\u2013].*$/, "")
     .replace(/^איך\s+/, "")
     .replace(/^למה\s+/, "")
     .trim();

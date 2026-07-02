@@ -63,9 +63,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 תקלה דחופה
               </span>
               <h2 className="mt-4 text-3xl font-black text-white">תקלה דחופה? אל תחכו</h2>
-              <p className="mt-3 text-lg leading-8 text-red-50/90">
-                אם האתר נפל, המיילים לא עובדים, יש חשד לפריצה, בעיית דומיין, בעיית רשת או תקלה שמפריעה לעסק לעבוד — שלחו לנו הודעה עכשיו בוואטסאפ ונבדוק איך אפשר לעזור.
-              </p>
+              <p className="mt-3 text-lg leading-8 text-red-50/90"> אם האתר נפל, המיילים לא עובדים, יש חשד לפריצה, בעיית דומיין, בעיית רשת או תקלה שמפריעה לעסק לעבוד, שלחו לנו הודעה עכשיו בוואטסאפ ונבדוק איך אפשר לעזור. </p>
               <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-black text-white transition hover:bg-red-500/30" href={site.whatsappHref}>
                 תמיכה דחופה בוואטסאפ
               </a>

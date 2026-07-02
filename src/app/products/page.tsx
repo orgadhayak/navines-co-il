@@ -27,12 +27,8 @@ export default function ProductsPage() {
               <p className="mt-4 text-lg leading-8 text-zinc-300">{talkToDataProduct.description}</p>
             </div>
             <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:grid">
-              <a className="btn-primary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank">
-                לצפייה ב־TalkToData
-              </a>
-              <Link className="btn-secondary" href="/services/chatgpt-business-data">
-                חיבור נתונים ל־ChatGPT
-              </Link>
+              <a className="btn-primary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank"> לצפייה ב TalkToData </a>
+              <Link className="btn-secondary" href="/services/chatgpt-business-data"> חיבור נתונים אל ChatGPT </Link>
             </div>
           </div>
         ) : null}

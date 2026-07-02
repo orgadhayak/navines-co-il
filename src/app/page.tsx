@@ -25,7 +25,7 @@ const topServices = [
     label: "TalkToData",
   },
   {
-    title: "אתר תדמית מקצועי ב־999 ₪",
+    title: "אתר תדמית מקצועי במחיר 999 ₪",
     text: "מסלול מהיר לעסק שצריך אתר נקי, ברור, מותאם למובייל ומוכן לפניות.",
     href: "/services/business-website-999",
     label: "מסלול מהיר",
@@ -50,7 +50,7 @@ const topServices = [
   },
   {
     title: "איקומרס ומרקטפלייסים",
-    text: "Shopify, WooCommerce, Amazon ו־eBay עם תשתית מכירה מסודרת.",
+    text: "Shopify, WooCommerce, Amazon וגם eBay עם תשתית מכירה מסודרת.",
     href: "/services/ecommerce",
     label: "איקומרס",
   },

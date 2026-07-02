@@ -13,7 +13,7 @@ export const metadata = createMetadata({
 });
 
 const groups: { title: string; items: string[] }[] = [
-  { title: "בינה מלאכותית ואוטומציה", items: ["צ׳ט AI חכם לאתרים", "העוזר החכם של נביא נס", "לדבר עם הנתונים באמצעות ChatGPT", "חיבור נתונים עסקיים ל־ChatGPT", "צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
+  { title: "בינה מלאכותית ואוטומציה", items: ["צ׳ט AI חכם לאתרים", "העוזר החכם של נביא נס", "לדבר עם הנתונים באמצעות ChatGPT", "חיבור נתונים עסקיים אל ChatGPT", "צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
   { title: "פיתוח וטכנולוגיה", items: ["פיתוח אתרים", "וורדפרס", "מערכות מותאמות", "קוד נקי", "פיתוח צד שרת", "בדיקות איכות"] },
   { title: "איקומרס", items: ["שופיפיי", "ווקומרס", "אמזון", "איביי", "ניהול מלאי", "איקומרס לעסקים"] },
   { title: "תשתיות", items: ["תמיכה טכנית, סייבר ורשתות", "תמיכה מרחוק והגעה לפי צורך", "קלאודפלייר", "דומיינים", "תעודת אבטחה", "אחסון", "ניטור אתרים", "מדידה ונתונים"] },
@@ -38,9 +38,7 @@ export default function ServicesPage() {
               <Link className="btn-primary" href="/services/chatgpt-business-data">
                 לעמוד השירות
               </Link>
-              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank">
-                לצפייה ב־TalkToData
-              </a>
+              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank"> לצפייה ב TalkToData </a>
               <a className="btn-secondary" href={site.whatsappHref}>
                 שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה
               </a>

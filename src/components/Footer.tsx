@@ -4,11 +4,11 @@ import { courseTracks, site } from "@/data/site";
 
 export function Footer() {
   const serviceLinks = [
-    ["אתר תדמית ב־999 ₪", "/services/business-website-999"],
+    ["אתר תדמית במחיר 999 ₪", "/services/business-website-999"],
     ["כלי חינמי לגולשים", "/services/smart-website-lead-engine"],
     ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
     ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
-    ["נתונים ו־ChatGPT", "/services/chatgpt-business-data"],
+    ["נתונים עם ChatGPT", "/services/chatgpt-business-data"],
     ["אתרים ומערכות", "/services/web-development"],
     ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
     ["איקומרס", "/services/ecommerce"],
@@ -29,7 +29,7 @@ export function Footer() {
   ];
 
   const courseLinks = [
-    ["כל קורסי ה־AI", "/courses"],
+    ["כל קורסי AI", "/courses"],
     ...courseTracks.map((course) => [course.navLabel, `/courses/${course.slug}`]),
   ];
 

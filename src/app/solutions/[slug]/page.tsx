@@ -127,9 +127,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
               <a className="btn-primary" href={site.whatsappHref}>
                 רוצים להבין מה אפשר לשאול? כתבו לנו
               </a>
-              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank">
-                לצפייה ב־TalkToData
-              </a>
+              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank"> לצפייה ב TalkToData </a>
             </div>
           </article>
           <article className="command-glass rounded-[1.6rem] p-5">

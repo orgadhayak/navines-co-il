@@ -6,14 +6,6 @@ export function HeroVisual() {
         <span className="hero-electric hero-electric-b" aria-hidden="true" />
         <span className="hero-electric hero-electric-c" aria-hidden="true" />
         <span className="hero-electric hero-electric-d" aria-hidden="true" />
-        <span className="hero-electric hero-electric-e" aria-hidden="true" />
-        <span className="hero-electric hero-electric-f" aria-hidden="true" />
-        <span className="hero-electric hero-electric-g" aria-hidden="true" />
-        <span className="hero-electric hero-electric-h" aria-hidden="true" />
-        <span className="hero-electric hero-electric-i" aria-hidden="true" />
-        <span className="hero-electric hero-electric-j" aria-hidden="true" />
-        <span className="hero-arc hero-arc-a" aria-hidden="true" />
-        <span className="hero-arc hero-arc-b" aria-hidden="true" />
         <span className="hero-spark hero-spark-a left-[9%] top-[29%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-b left-[20%] bottom-[19%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-c right-[12%] top-[17%]" aria-hidden="true" />
@@ -22,16 +14,6 @@ export function HeroVisual() {
         <span className="hero-spark hero-spark-f left-[5%] bottom-[43%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-g right-[5%] top-[50%]" aria-hidden="true" />
         <span className="hero-spark hero-spark-h left-[64%] bottom-[6%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-i right-[31%] top-[8%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-j left-[32%] top-[13%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-k right-[40%] bottom-[22%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-l left-[15%] top-[54%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-m right-[17%] top-[38%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-n left-[41%] bottom-[10%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-o right-[9%] bottom-[35%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-p left-[25%] top-[23%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-q right-[48%] top-[18%]" aria-hidden="true" />
-        <span className="hero-spark hero-spark-r left-[57%] bottom-[18%]" aria-hidden="true" />
         <img
           alt="מגן דוד טכנולוגי סגול וזוהר"
           className="glow-asset relative h-full w-full object-contain"

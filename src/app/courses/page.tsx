@@ -37,8 +37,7 @@ export default function CoursesPage() {
       <Section eyebrow="קורסי AI מעשיים" title="קורסי AI מעשיים מבית נביא נס ישראל בע״מ" titleAs="h1" className="py-8 lg:py-12">
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
-            <p className="max-w-4xl text-xl leading-9 text-zinc-300">
-              ב־<BrandInline text="NAVINES" /> לא לומדים רק להשתמש בכלי AI. לומדים איך לקחת רעיון, להבין אותו, לפרק אותו נכון, לבנות סביבו מוצר, אתר, כלי חכם או מערכת פשוטה, ולהתקדם איתו עד שהוא הופך למשהו אמיתי שאפשר להציג, לשפר ולהשתמש בו.
+            <p className="max-w-4xl text-xl leading-9 text-zinc-300"> ב <BrandInline text="NAVINES" /> לא לומדים רק להשתמש בכלי AI. לומדים איך לקחת רעיון, להבין אותו, לפרק אותו נכון, לבנות סביבו מוצר, אתר, כלי חכם או מערכת פשוטה, ולהתקדם איתו עד שהוא הופך למשהו אמיתי שאפשר להציג, לשפר ולהשתמש בו.
             </p>
             <p className="mt-4 max-w-4xl text-lg leading-8 text-zinc-400">
               אלה קורסים פרונטליים, ממוקדים ומעשיים. לא מבטיחים קסמים, הכנסה או הצלחה עסקית אוטומטית. כן נותנים מסגרת רצינית, חשיבה מוצרית, תרגול, ליווי ותמיכה לאורך שנה כדי לעזור למשתתפים להתקדם לתוצרים חזקים בהתאם למחויבות ולהתקדמות שלהם.
@@ -66,7 +65,7 @@ export default function CoursesPage() {
         </div>
       </Section>
 
-      <Section eyebrow="מסלולים" title="בחרו את מסלול ה־AI שמתאים לכם" id="course-tracks" className="py-6 lg:py-10">
+      <Section eyebrow="מסלולים" title="בחרו את מסלול AI שמתאים לכם" id="course-tracks" className="py-6 lg:py-10">
         <div className="grid gap-5 md:grid-cols-2">
           {courseTracks.map((course) => (
             <article className="command-glass group rounded-[1.7rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" key={course.slug}>
