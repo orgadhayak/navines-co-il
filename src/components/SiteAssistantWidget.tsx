@@ -20,6 +20,7 @@ type AssistantResponse = {
   answer?: string;
   actions?: AssistantAction[];
   source?: "openai" | "fallback";
+  intent?: string;
 };
 
 const openingMessage =
@@ -106,7 +107,7 @@ export function SiteAssistantWidget() {
         : [];
 
       if (data?.source) {
-        console.debug("site-assistant source:", data.source);
+        console.debug("site-assistant debug:", { source: data.source, intent: data.intent });
       }
 
       setMessages((current) => [
@@ -152,8 +153,8 @@ export function SiteAssistantWidget() {
                 <p className="mt-1 text-xs leading-5 text-purple-100/82">תשובות קצרות על שירותים, AI, אתרים, קורסים ותמיכה</p>
               </div>
             </div>
-            <button className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-sm font-black text-zinc-100 transition hover:bg-purple-500/18" onClick={() => setOpen(false)} type="button">
-              סגור
+            <button aria-label="סגירת צ׳ט" className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-lg font-black leading-none text-zinc-100 transition hover:bg-purple-500/18" onClick={() => setOpen(false)} type="button">
+              <span aria-hidden="true">×</span>
             </button>
           </div>
 

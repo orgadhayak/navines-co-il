@@ -24,7 +24,18 @@ type ResponseInputMessage = {
   content: string;
 };
 
+type Intent =
+  | "technical_issue"
+  | "wordpress_issue"
+  | "ai_chat_interest"
+  | "amazon_issue"
+  | "courses_interest"
+  | "website_build"
+  | "pricing"
+  | "general_question";
+
 const whatsappAction: AssistantAction = { label: "דברו בוואטסאפ", href: "https://wa.me/972548180200", tone: "primary" };
+const supportWhatsappAction: AssistantAction = { label: "תמיכה דחופה בוואטסאפ", href: "https://wa.me/972548180200", tone: "primary" };
 const phoneAction: AssistantAction = { label: "התקשרו עכשיו", href: "tel:0548180200", tone: "danger" };
 
 const leadKeys = [
@@ -48,6 +59,13 @@ const leadKeys = [
 const urgentKeys = ["דחוף", "נפל", "לא עובד", "פריצה", "תקלה", "הושעה", "חסימה", "מיילים לא עובדים"];
 const priceKeys = ["כמה עולה", "מחיר", "עלות", "כמה זה", "תמחור"];
 const pageRequestKeys = ["שלח אותי לעמוד", "תשלח לעמוד", "קישור", "עמוד", "איפה קוראים"];
+const wordpressKeys = ["וורדפרס", "wordpress", "wp", "תוסף", "תוספים", "תבנית", "php", "עמוד לבן", "שגיאת 500", "ניהול"];
+const technicalIssueKeys = ["בעיה באתר", "אתר לא עובד", "לא עובד", "נפל", "שגיאה", "תקלה", "אחסון", "dns", "מיילים", "פריצה", "איטי", "עמוד לבן", "כניסה לניהול", "לוגים"];
+const aiChatKeys = ["צ׳ט", "צ'ט", "בוט", "עוזר חכם", "chatbot", "chat"];
+const amazonKeys = ["אמזון", "amazon", "איביי", "ebay", "account health", "הושעה", "חשבון אמזון"];
+const courseKeys = ["קורס", "קורסים", "ילדים", "בוגרים", "לימודים"];
+const websiteBuildKeys = ["לבנות אתר", "בניית אתר", "אתר חדש", "אתר תדמית", "חנות", "מערכת באתר", "מערכת לעסק"];
+const followUpKeys = ["יש לי", "ומה עם זה", "איך מתקנים", "תדע מה הבעיה", "אפשר לעזור", "זה דחוף", "שלח אותי", "כמה זה עולה", "מה עושים", "מה עכשיו"];
 
 const topics: Topic[] = [
   {
@@ -162,6 +180,10 @@ function findTopicFromText(text: string) {
 }
 
 function findTopic(question: string, history: HistoryMessage[] = []) {
+  const intent = detectIntent(question, history);
+  const intentTopic = topicForIntent(intent, question, history);
+  if (intentTopic) return intentTopic;
+
   const directTopic = findTopicFromText(question);
   if (directTopic) return directTopic;
 
@@ -178,10 +200,132 @@ function hasAny(question: string, keys: string[]) {
   return keys.some((key) => normalized.includes(key.toLowerCase()));
 }
 
-function buildActions(topic: Topic | undefined, question: string): AssistantAction[] {
+function isFollowUp(question: string) {
+  const words = normalize(question).split(" ").filter(Boolean);
+  return words.length <= 5 || hasAny(question, followUpKeys);
+}
+
+function detectIntent(question: string, history: HistoryMessage[] = []): Intent {
+  const previousText = history.map((item) => item.text).join(" ");
+  const fullText = `${previousText} ${question}`;
+  const followUp = isFollowUp(question);
+
+  const currentWordPress = hasAny(question, wordpressKeys);
+  const contextWordPress = hasAny(fullText, wordpressKeys);
+  const currentTechnical = hasAny(question, technicalIssueKeys);
+  const contextTechnical = hasAny(fullText, technicalIssueKeys);
+
+  if (hasAny(question, priceKeys)) return "pricing";
+
+  if (currentWordPress && (currentTechnical || contextTechnical || followUp)) {
+    return "wordpress_issue";
+  }
+
+  if (contextWordPress && (currentTechnical || (followUp && contextTechnical))) {
+    return "wordpress_issue";
+  }
+
+  if (hasAny(question, amazonKeys) || (followUp && hasAny(previousText, amazonKeys))) {
+    return "amazon_issue";
+  }
+
+  if (hasAny(question, aiChatKeys) || (followUp && hasAny(previousText, aiChatKeys))) {
+    return "ai_chat_interest";
+  }
+
+  if (hasAny(question, courseKeys) || (followUp && hasAny(previousText, courseKeys))) {
+    return "courses_interest";
+  }
+
+  if (currentTechnical || (followUp && contextTechnical)) {
+    return "technical_issue";
+  }
+
+  if (hasAny(question, websiteBuildKeys)) {
+    return "website_build";
+  }
+
+  return "general_question";
+}
+
+function findTopicByHref(href: string) {
+  return topics.find((topic) => topic.href === href);
+}
+
+function topicFromHistory(history: HistoryMessage[]) {
+  for (const item of [...history].reverse()) {
+    const topic = findTopicFromText(item.text);
+    if (topic) return topic;
+  }
+  return undefined;
+}
+
+function intentFromHistory(history: HistoryMessage[]): Intent {
+  const text = history.map((item) => item.text).join(" ");
+  const hasWordPress = hasAny(text, wordpressKeys);
+  const hasTechnical = hasAny(text, technicalIssueKeys);
+
+  if (hasWordPress && hasTechnical) return "wordpress_issue";
+  if (hasAny(text, amazonKeys)) return "amazon_issue";
+  if (hasAny(text, aiChatKeys)) return "ai_chat_interest";
+  if (hasAny(text, courseKeys)) return "courses_interest";
+  if (hasTechnical) return "technical_issue";
+  if (hasAny(text, websiteBuildKeys)) return "website_build";
+
+  return "general_question";
+}
+
+function topicForIntent(intent: Intent, question: string, history: HistoryMessage[]): Topic | undefined {
+  if (intent === "technical_issue" || intent === "wordpress_issue") {
+    return findTopicByHref("/services/technical-support-cyber-networks");
+  }
+
+  if (intent === "ai_chat_interest") {
+    return findTopicByHref("/services/ai-chat-for-websites");
+  }
+
+  if (intent === "amazon_issue") {
+    return findTopicByHref("/solutions/amazon-sellers");
+  }
+
+  if (intent === "courses_interest") {
+    return findTopicByHref("/courses");
+  }
+
+  if (intent === "website_build") {
+    return findTopicByHref("/services/web-development");
+  }
+
+  if (intent === "pricing") {
+    const historyIntent = intentFromHistory(history);
+    const historyIntentTopic = historyIntent === "pricing" || historyIntent === "general_question" ? undefined : topicForIntent(historyIntent, "", []);
+    return findTopicFromText(question) || historyIntentTopic || topicFromHistory(history);
+  }
+
+  return undefined;
+}
+
+function buildActions(topic: Topic | undefined, question: string, intent: Intent): AssistantAction[] {
   const isLead = hasAny(question, leadKeys) || hasAny(question, priceKeys);
   const isUrgent = topic?.urgent || hasAny(question, urgentKeys);
   const actions: AssistantAction[] = [];
+
+  if (intent === "technical_issue" || intent === "wordpress_issue") {
+    actions.push(supportWhatsappAction, phoneAction);
+    if (topic?.href && topic.label) {
+      actions.push({ label: "לעמוד תמיכה טכנית", href: topic.href, tone: "neutral" });
+    }
+    return actions.slice(0, 3);
+  }
+
+  if (intent === "amazon_issue") {
+    actions.push(whatsappAction);
+    if (isUrgent) actions.push(phoneAction);
+    if (topic?.href && topic.label) {
+      actions.push({ label: topic.label, href: topic.href, tone: "neutral" });
+    }
+    return actions.slice(0, 3);
+  }
 
   if (isLead || isUrgent) {
     actions.push(whatsappAction);
@@ -227,6 +371,7 @@ function buildConversationInput(question: string, history: HistoryMessage[]): Re
 }
 
 function fallbackPayload(question: string, history: HistoryMessage[]) {
+  const intent = detectIntent(question, history);
   const topic = findTopic(question, history);
   const lead = hasAny(question, leadKeys) || hasAny(question, priceKeys);
   const urgent = topic?.urgent || hasAny(question, urgentKeys);
@@ -235,7 +380,16 @@ function fallbackPayload(question: string, history: HistoryMessage[]) {
     topic?.answer ||
     "אפשר לשאול אותי על אתרים, AI, אוטומציה, TalkToData, Beacon, Amazon, קורסים, תמיכה טכנית ומשחקים באתר. אם לא בטוחים מה מתאים, כתבו לנו ונכוון אתכם.";
 
-  if (hasAny(question, priceKeys)) {
+  if (intent === "wordpress_issue") {
+    answer =
+      "כן, אם זה אתר WordPress אפשר להתחיל לבדוק כיוון.\nבדרך כלל בודקים קודם תוספים, תבנית, אחסון, שגיאות PHP, DNS או עדכון ששבר משהו.\nמה בדיוק קורה עכשיו — האתר לא עולה, שגיאת 500, עמוד לבן, איטיות או בעיית כניסה לניהול?\nאם זה דחוף, שלחו צילום מסך בוואטסאפ ונכוון מהר.";
+  } else if (intent === "technical_issue") {
+    answer =
+      "זה נשמע כמו תקלה טכנית באתר, לא כמו בניית אתר חדש.\nכדאי לבדוק קודם מה בדיוק לא עובד: האתר לא עולה, יש שגיאה, בעיית אחסון, DNS, אבטחה או מיילים.\nאם העסק תקוע עכשיו, עדיף לשלוח לנו וואטסאפ או להתקשר.";
+  } else if (intent === "amazon_issue") {
+    answer =
+      "אם החשבון Amazon בבעיה, כדאי להבין קודם אם זו התראת Account Health, השעיה, בעיית Listing או הודעה מאמזון.\nאנחנו יכולים לעזור לנתח את המצב ולבנות כיוון פעולה מסודר.\nצירפתי את עמוד מוכרי Amazon ואפשר גם לפנות בוואטסאפ.";
+  } else if (hasAny(question, priceKeys)) {
     answer = "כדי לתת מחיר נכון צריך להבין מה בדיוק בונים ומה כבר קיים. הכי נכון לשלוח לנו הודעה קצרה בוואטסאפ, ונכוון אתכם מהר בלי התחייבות.";
   } else if (wantsPage && topic?.href) {
     answer = "צירפתי כאן את העמוד הרלוונטי. אם תרצו, אפשר גם לשלוח לנו הודעה בוואטסאפ ונכוון אתכם לפי המקרה שלכם.";
@@ -244,7 +398,7 @@ function fallbackPayload(question: string, history: HistoryMessage[]) {
       "נשמע שזה משהו שכדאי לבדוק יחד. אפשר לדבר איתנו בוואטסאפ או בטלפון ונכוון אותך מהר.\nאם יש עמוד מתאים באתר, צירפתי אותו כאן למטה.";
   }
 
-  return { answer, actions: buildActions(topic, question), mode: "fallback", source: "fallback" };
+  return { answer, actions: buildActions(topic, question, intent), mode: "fallback", source: "fallback", intent };
 }
 
 function extractResponseText(data: unknown) {
@@ -287,6 +441,7 @@ export async function POST(request: NextRequest) {
     }
 
     const apiKey = process.env.OPENAI_API_KEY;
+    const intent = detectIntent(question, history);
     const topic = findTopic(question, history);
     const fallback = fallbackPayload(question, history);
 
@@ -306,6 +461,9 @@ export async function POST(request: NextRequest) {
 אם זה קורסים, Amazon, צ׳ט AI לאתרים, TalkToData או תמיכה טכנית, הפנה לעמוד המתאים.
 אל תבקש מידע רגיש. אל תבטיח תוצאות. אל תמציא מידע שלא מופיע בהקשר האתר.
 אם לא בטוח, אמור בקצרה שכדאי לדבר עם הצוות.
+כוונה מזוהה כרגע: ${intent}.
+עמוד רלוונטי אם קיים: ${topic?.href || "אין עמוד ספציפי"}.
+אם הכוונה היא wordpress_issue או technical_issue, אל תענה על בניית אתרים כללית. ענה כמו תומך טכני: שאל שאלה אחת קצרה, תן עד 3 כיווני בדיקה, והפנה לתמיכה.
 ${siteContext}
 `;
 
@@ -339,8 +497,9 @@ ${siteContext}
 
     return NextResponse.json({
       answer: answer || fallback.answer,
-      actions: buildActions(topic, question),
+      actions: buildActions(topic, question, intent),
       source: "openai",
+      intent,
     });
   } catch (error) {
     console.warn("site-assistant fallback", {
