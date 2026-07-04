@@ -3,7 +3,6 @@ import { Heebo } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
-import { SiteAssistantWidget } from "@/components/SiteAssistantWidget";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -67,7 +66,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <Footer />
         <FloatingContact />
-        <SiteAssistantWidget />
         <AnalyticsEvents />
         <Analytics />
       </body>
