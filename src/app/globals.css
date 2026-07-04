@@ -102,6 +102,35 @@ span.rounded-full {
   text-align: center;
 }
 
+.btn-primary,
+.btn-secondary,
+.tag,
+.mobile-menu-link,
+.mobile-menu-group-title,
+.mobile-menu-sub-link,
+.mobile-menu-cta,
+.mobile-menu-featured,
+.command-glass,
+.dashboard-row,
+.sparkle-field,
+.rounded-premium,
+.rounded-2xl,
+.rounded-3xl,
+[class*="rounded-["] {
+  border-radius: 0.65rem;
+}
+
+:where(a, button, summary, input).rounded-full,
+span.rounded-full:not([aria-hidden="true"]):not(.status-pip),
+.command-glass.rounded-full,
+.dashboard-row.rounded-full {
+  border-radius: 0.55rem;
+}
+
+:where(.status-pip, .hero-spark, [aria-hidden="true"].rounded-full) {
+  border-radius: 9999px;
+}
+
 .text-glowred {
   text-shadow:
     0 0 12px rgba(216, 180, 254, 0.3),
@@ -259,7 +288,7 @@ span.rounded-full {
   align-items: center;
   justify-content: center;
   min-height: 3rem;
-  border-radius: 9999px;
+  border-radius: 0.65rem;
   text-align: center;
   font-weight: 900;
   color: #efe4ff;
@@ -293,7 +322,7 @@ span.rounded-full {
 .mobile-menu-group {
   display: grid;
   gap: 0.4rem;
-  border-radius: 1.35rem;
+  border-radius: 0.75rem;
   background: rgba(88, 28, 135, 0.12);
   padding: 0.5rem;
   box-shadow:
@@ -656,12 +685,12 @@ summary:focus-visible .accordion-plus {
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex min-h-12 min-w-44 items-center justify-center rounded-full border border-navred/80 bg-gradient-to-br from-navred to-purple-950 px-7 py-3 text-center text-lg font-black text-white shadow-glow transition hover:brightness-110;
+.btn-primary {
+    @apply inline-flex min-h-12 min-w-44 items-center justify-center rounded-lg border border-navred/80 bg-gradient-to-br from-navred to-purple-950 px-7 py-3 text-center text-lg font-black text-white shadow-glow transition hover:brightness-110;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 min-w-44 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] px-7 py-3 text-center text-lg font-black text-white transition hover:bg-white/[0.1];
+    @apply inline-flex min-h-12 min-w-44 items-center justify-center rounded-lg border border-white/10 bg-white/[0.06] px-7 py-3 text-center text-lg font-black text-white transition hover:bg-white/[0.1];
   }
 
   .form-label {
@@ -673,7 +702,7 @@ summary:focus-visible .accordion-plus {
   }
 
   .tag {
-    @apply inline-flex max-w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-center text-base font-bold leading-7 text-zinc-300 transition hover:border-navred/60 hover:text-white;
+    @apply inline-flex max-w-full items-center justify-center rounded-md border border-white/10 bg-white/[0.045] px-4 py-2 text-center text-base font-bold leading-7 text-zinc-300 transition hover:border-navred/60 hover:text-white;
     white-space: normal;
   }
 
