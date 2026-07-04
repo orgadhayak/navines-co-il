@@ -123,6 +123,8 @@ function getBlogCtaLabel(post: BlogPost) {
     "freelancers-ai-automation-systems": "אוטומציה לפרילנסרים",
     "ai-chat-for-business-website": "לבניית צ׳ט AI לאתר",
     "technical-support-cyber-networks-business": "לתמיכה טכנית מהירה",
+    "what-to-do-when-account-is-hacked": "לפעולה אחרי פריצה",
+    "business-due-diligence-before-buying": "לבדיקה לפני רכישה",
   };
 
   if (labels[post.slug]) return labels[post.slug];

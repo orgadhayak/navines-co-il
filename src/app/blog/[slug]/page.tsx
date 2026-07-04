@@ -184,6 +184,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isSmartWebsiteLeadPost = post.slug === "smart-website-lead-engine-quality-leads";
   const isAiChatWebsitePost = post.slug === "ai-chat-for-business-website";
   const isTechnicalSupportPost = post.slug === "technical-support-cyber-networks-business";
+  const isAccountHackPost = post.slug === "what-to-do-when-account-is-hacked";
+  const isBusinessDueDiligencePost = post.slug === "business-due-diligence-before-buying";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -240,11 +242,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -255,6 +257,110 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </div>
       </section>
     </>
+  );
+}
+
+function AccountHackArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>מה לעשות בדקות הראשונות?</h2>
+      <p>
+        כשמגלים שפרצו לחשבון, הדבר הכי חשוב הוא לא לפעול מתוך לחץ. לא למחוק הודעות, לא למסור עוד קודים, לא ללחוץ על קישורים שקיבלתם מהתוקף ולא לנסות "להחזיר" לבד בצורה שעלולה לסבך את המצב.
+      </p>
+      <p>
+        התחילו מתיעוד: צילומי מסך, הודעות, כתובות מייל, מספרי טלפון, זמני פעילות, שינויי סיסמה וכל פרט שמראה מה קרה. אחר כך בודקים האם עדיין יש גישה למייל, לטלפון, למכשירים מחוברים או לאפשרויות שחזור.
+      </p>
+      <h2>למה לא לפעול בפאניקה?</h2>
+      <p>
+        פעולה לא נכונה יכולה למחוק ראיות, למסור לתוקף עוד מידע או לסגור אפשרות שחזור. לפעמים עדיף לעצור רגע, להבין מה עדיין בשליטתכם, ואז לפעול לפי סדר: אבטחת מייל, בדיקת מכשירים, דיווח לפלטפורמה ושחזור גישה.
+      </p>
+      <h2>איך לשמור ראיות?</h2>
+      <ul>
+        <li>צלמו הודעות, דרישות כסף, איומים וקישורים שנשלחו.</li>
+        <li>שמרו מיילים על שינוי סיסמה, שינוי טלפון או כניסה ממכשיר חדש.</li>
+        <li>תעדו מתי גיליתם את הפריצה ומה כבר ניסיתם לעשות.</li>
+        <li>אל תמחקו שיחות גם אם הן מלחיצות או מביכות.</li>
+      </ul>
+      <h2>למה לבדוק מיילים ומכשירים מחוברים?</h2>
+      <p>
+        בהרבה פריצות החשבון שנראה שנפגע הוא רק הסימפטום. אם המייל, הטלפון או מכשיר מחובר עדיין חשופים, התוקף יכול לשחזר גישה שוב גם אחרי שינוי סיסמה. לכן צריך לבדוק Recovery Email, Recovery Phone, מכשירים מחוברים, אימות דו שלבי וחשבונות קשורים.
+      </p>
+      <h2>מה לא למסור בשום מצב?</h2>
+      <ul>
+        <li>קודי אימות חד פעמיים.</li>
+        <li>סיסמאות או צילומי מסך של הגדרות אבטחה.</li>
+        <li>גישה למחשב דרך תוכנה שמישהו לא מוכר שלח לכם.</li>
+        <li>פרטי תשלום מתוך לחץ, בלי להבין את הסיכון והאפשרויות.</li>
+      </ul>
+      <h2>מתי לפנות לעזרה מקצועית?</h2>
+      <p>
+        אם מדובר בחשבון עסקי, דף עם לקוחות, חשבון פרסום, מייל עסקי, דומיין, אתר או מצב שבו דורשים כסף ומאיימים בפרסום מידע, לא כדאי לחכות. עזרה מקצועית יכולה לעזור להבין מה דחוף, איך לתעד, איך לפעול מול הפלטפורמות ואיך לאבטח מחדש.
+      </p>
+      <h2>מה חשוב להבין על השירות?</h2>
+      <p>
+        אין הבטחה להחזרת חשבון ואין פעולה לא חוקית. המטרה היא לסייע בניהול מצב, תיעוד, דיווח, ניסיונות שחזור חוקיים, צמצום נזק ואבטחה מחדש של החשבונות והנכסים הדיגיטליים.
+      </p>
+      <h2>סיכום</h2>
+      <p>
+        פריצה לחשבון היא אירוע מלחיץ, אבל פעולה מסודרת יכולה לצמצם נזק. אם פרצו לכם לאינסטגרם, פייסבוק, טלגרם, וואטסאפ, Gmail, Outlook, מייל עסקי או נכס דיגיטלי, שלחו הודעה בוואטסאפ ונבדוק מה הצעד הנכון.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/account-hack-recovery">
+          לעמוד השירות: סיוע במקרה פריצה לחשבון
+        </Link>
+      </p>
+    </div>
+  );
+}
+
+function BusinessDueDiligenceArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה לא להסתמך רק על מצגת של מוכר?</h2>
+      <p>
+        מצגת מכירה נועדה להציג את הצד היפה של העסק: מחזור, גרפים, לקוחות, פוטנציאל ותמונות מסודרות. אבל לפני רכישה צריך להבין גם מה עומד מאחורי הנתונים: האם התנועה אמיתית, האם המכירות עקביות, האם הנכסים בשליטה מלאה והאם קיימים סיכונים שלא הופיעו בשיחה הראשונה.
+      </p>
+      <h2>מה בודקים באתר ובנכסים הדיגיטליים?</h2>
+      <ul>
+        <li>בעלות על דומיינים, אחסון, מיילים וחשבונות מרכזיים.</li>
+        <li>איכות האתר, מהירות, אבטחה, קוד, חוויית מובייל ותלות בספקים.</li>
+        <li>חשבונות סושיאל, ביקורות, מוניטין ונכסים חיצוניים.</li>
+        <li>חנויות Shopify, WooCommerce, Amazon או eBay אם הן חלק מהעסקה.</li>
+      </ul>
+      <h2>מה חשוב לבדוק בתנועה, SEO ופרסום?</h2>
+      <p>
+        תנועה לאתר יכולה להיראות מרשימה, אבל צריך להבין מאיפה היא מגיעה, האם היא יציבה, האם היא תלויה בקמפיין יקר, האם יש ירידה אורגנית, והאם הנתונים ב Google Analytics או Search Console תומכים בסיפור שהמוכר מציג.
+      </p>
+      <h2>איך מזהים פערים בין נתונים לסיפור?</h2>
+      <p>
+        מחפשים עקביות: האם נתוני מכירות, תנועה, פרסום, מיילים, מלאי, ביקורות ופעילות לקוחות מספרים את אותו סיפור. אם יש פערים, לא חייבים לפסול עסקה מיד, אבל צריך לשאול שאלות מדויקות ולבקש מסמכים נוספים.
+      </p>
+      <h2>אילו סיכונים נכסים דיגיטליים יכולים להסתיר?</h2>
+      <ul>
+        <li>דומיין שלא באמת בשליטת המוכר.</li>
+        <li>תלות במפתח, סוכנות או עובד שלא יישאר אחרי הרכישה.</li>
+        <li>קמפיינים שמייצרים תנועה יקרה ולא רווחית.</li>
+        <li>אתר איטי, לא מאובטח או קשה לתחזוקה.</li>
+        <li>ביקורות, תלונות או מוניטין שעלולים להשפיע אחרי הרכישה.</li>
+      </ul>
+      <h2>מה מקבלים מבדיקת נאותות דיגיטלית?</h2>
+      <p>
+        בדיקה טובה לא מחליפה עורך דין או רואה חשבון. היא מוסיפה שכבה טכנולוגית, דיגיטלית ועסקית: תמונת מצב, רשימת סיכונים, שאלות למוכר, נקודות לבקשת מסמכים נוספים והמלצות לפני התקדמות.
+      </p>
+      <h2>גבולות הבדיקה</h2>
+      <p>
+        הבדיקה מתבצעת בצורה חוקית בלבד: מידע גלוי, גישה מורשית, מסמכים שהמוכר סיפק, בדיקות טכניות מותרות וניתוח מקצועי. אין פריצה, חדירה או גישה לא מורשית, ואין הבטחה לגלות כל סיכון.
+      </p>
+      <h2>סיכום</h2>
+      <p>
+        לפני שקונים עסק, חברה, אתר, חנות אונליין או פעילות דיגיטלית, כדאי להבין מה באמת עומד מאחורי הנתונים. אם אתם לפני עסקה, שלחו לנו הודעה ונבדוק איזה שכבת בדיקה דיגיטלית יכולה לעזור לכם לקבל החלטה רגועה יותר.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/business-due-diligence-intelligence">
+          לעמוד השירות: בדיקת עסק לפני רכישה
+        </Link>
+      </p>
+    </div>
   );
 }
 

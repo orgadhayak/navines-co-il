@@ -8,6 +8,8 @@ export function Footer() {
     ["כלי חינמי לגולשים", "/services/smart-website-lead-engine"],
     ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
     ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
+    ["סיוע בפריצה לחשבון", "/services/account-hack-recovery"],
+    ["בדיקת עסק לפני רכישה", "/services/business-due-diligence-intelligence"],
     ["נתונים עם ChatGPT", "/services/chatgpt-business-data"],
     ["אתרים ומערכות", "/services/web-development"],
     ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],

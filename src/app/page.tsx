@@ -69,6 +69,18 @@ const featuredNewServices = [
     href: "/services/technical-support-cyber-networks",
     cta: "לתמיכה טכנית",
   },
+  {
+    title: "סיוע במקרה פריצה לחשבון",
+    text: "אינסטגרם, פייסבוק, טלגרם, מייל, דומיין או נכס דיגיטלי שנפגע. פועלים רגוע, חוקי ומהר.",
+    href: "/services/account-hack-recovery",
+    cta: "לסיוע חירום דיגיטלי",
+  },
+  {
+    title: "בדיקת עסק לפני רכישה",
+    text: "בדיקת נתונים, תנועה, SEO, נכסים דיגיטליים, מוניטין וסיכונים לפני שמכניסים כסף.",
+    href: "/services/business-due-diligence-intelligence",
+    cta: "לבדיקת עסק",
+  },
 ];
 
 const solutionSummaries: Record<string, string> = {
@@ -166,7 +178,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="שירותים חדשים ומובילים" title="שני שירותים קצרים להבנה ומהירים לפעולה" className="py-5 lg:py-7">
+      <Section eyebrow="שירותים חדשים ומובילים" title="שירותים קצרים להבנה ומהירים לפעולה" className="py-5 lg:py-7">
         <div className="grid gap-4 md:grid-cols-2">
           {featuredNewServices.map((service) => (
             <Link className="command-glass group rounded-[1.45rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href={service.href} key={service.href}>
