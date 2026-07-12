@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
   return createMetadata({
-    title: service.title,
-    description: service.summary,
+    title: service.metaTitle || service.title,
+    description: service.metaDescription || service.summary,
     path: `/services/${service.slug}`,
   });
 }
@@ -30,6 +30,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isTechnicalSupportService = service.slug === "technical-support-cyber-networks";
   const isAccountHackRecoveryService = service.slug === "account-hack-recovery";
   const isDueDiligenceService = service.slug === "business-due-diligence-intelligence";
+  const isAmazonSeoWebsiteService = service.slug === "amazon-seller-seo-website";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -57,6 +58,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "שירותים", href: "/services" }, { name: service.title, href: `/services/${service.slug}` }])} />
       <Section eyebrow={service.eyebrow} title={service.heroTitle || service.title} titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">{service.summary}</p>
+        {isAmazonSeoWebsiteService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={site.whatsappHref}>
+              יש לכם כבר לינקים למוצרים? אפשר להתחיל מהם
+            </a>
+            <a className="btn-secondary" href={site.whatsappHref}>
+              דברו איתנו בוואטסאפ
+            </a>
+          </div>
+        ) : null}
       </Section>
       <Section>
         <div className="grid gap-5">
@@ -91,6 +102,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <h2 className="text-2xl font-black text-white">בדיקה חוקית ומסודרת בלבד</h2>
               <p className="mt-3 text-lg leading-8 text-zinc-300">
                 השירות אינו מחליף ייעוץ משפטי או חשבונאי, ואינו מבטיח גילוי מלא של כל סיכון. הבדיקה מתבצעת רק על בסיס מידע גלוי, גישה מורשית, מסמכים שהמוכר סיפק, בדיקות טכניות מותרות וניתוח מקצועי. אין פריצה, חדירה או גישה לא מורשית.
+              </p>
+            </article>
+          ) : null}
+          {isAmazonSeoWebsiteService ? (
+            <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
+              <h2 className="text-2xl font-black text-white">חשוב לדעת על SEO מחוץ ל Amazon</h2>
+              <p className="mt-3 text-lg leading-8 text-zinc-300">
+                אנחנו לא מבטיחים מקום ראשון, אינדוקס יומי או מכירות מובטחות. העבודה מתמקדת בבניית אתר שימושי, תוכן מקורי, מבנה בינלאומי נכון, מדידה והפניות מסודרות לעמודי Amazon. לא מעתיקים תיאורי מוצר באופן עיוור ולא מבצעים scraping בניגוד לתנאי שימוש.
               </p>
             </article>
           ) : null}
@@ -139,8 +158,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
-        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
   );

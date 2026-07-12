@@ -129,6 +129,8 @@ function getBlogCtaLabel(post: BlogPost) {
     "technical-support-cyber-networks-business": "לתמיכה טכנית מהירה",
     "what-to-do-when-account-is-hacked": "לפעולה אחרי פריצה",
     "business-due-diligence-before-buying": "לבדיקה לפני רכישה",
+    "how-to-bring-external-traffic-to-amazon-products": "להביא תנועה ל Amazon",
+    "multilingual-seo-website-for-amazon-sellers": "לקידום לפי מדינה ושפה",
   };
 
   if (labels[post.slug]) return labels[post.slug];

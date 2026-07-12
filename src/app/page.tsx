@@ -58,6 +58,12 @@ const topServices = [
 
 const featuredNewServices = [
   {
+    title: "אתר צמיחה אורגנית למוכרי Amazon",
+    text: "אתר בינלאומי שמציג את המוצרים, מושך תנועה ממנועי חיפוש ומוביל לקוחות לעמודי Amazon.",
+    href: "/services/amazon-seller-seo-website",
+    cta: "רוצים להביא תנועה מחוץ ל Amazon?",
+  },
+  {
     title: "צ׳ט AI חכם לאתרים",
     text: "עוזר קצר וברור שמבין את תוכן האתר, מסביר לגולש מה מתאים לו ומוביל לוואטסאפ.",
     href: "/services/ai-chat-for-websites",

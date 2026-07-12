@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { solutionPages } from "@/data/solutions";
 import { courseTracks, mainNav, services, site } from "@/data/site";
 
@@ -10,14 +11,60 @@ const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", 
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
 const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
 const courseNav = courseTracks.map((course) => ({ label: course.navLabel, href: `/courses/${course.slug}` }));
-const mobilePrimaryNav = mainNav.filter((item) => !["/courses", "/services/ai-automation", "/services/web-development", "/services/ecommerce"].includes(item.href));
+const mobilePrimaryNav = mainNav.filter((item) => !["/courses", "/services/ai-automation", "/services/web-development", "/services/ecommerce", "/services/amazon-seller-seo-website"].includes(item.href));
 const mobileServiceNav = services.map((service) => ({ label: service.title, href: `/services/${service.slug}` }));
+
+type DesktopDropdownKey = "solutions" | "courses" | "more";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [desktopDropdown, setDesktopDropdown] = useState<DesktopDropdownKey | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setDesktopDropdown(null);
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      if (!headerRef.current?.contains(event.target as Node)) {
+        setDesktopDropdown(null);
+      }
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setDesktopDropdown(null);
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const closeDesktopDropdown = () => setDesktopDropdown(null);
+  const toggleDesktopDropdown = (key: DesktopDropdownKey) => {
+    setDesktopDropdown((current) => (current === key ? null : key));
+  };
+
+  const dropdownItems =
+    desktopDropdown === "solutions"
+      ? [{ label: "כל הפתרונות", href: "/solutions" }, ...solutionNav]
+      : desktopDropdown === "courses"
+        ? [{ label: "כל הקורסים", href: "/courses" }, ...courseNav]
+        : desktopDropdown === "more"
+          ? secondaryDesktopNav
+          : [];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-purple-500/18 bg-black/[0.94] backdrop-blur-xl">
+    <header ref={headerRef} className="sticky top-0 z-40 border-b border-purple-500/18 bg-black/[0.94] backdrop-blur-xl">
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
         <Link className="grid shrink-0 justify-items-center gap-1 transition hover:opacity-90" href="/" aria-label="חזרה לעמוד הבית" onClick={() => setOpen(false)}>
           <span className="bsd-royal inline-flex items-center justify-center">
@@ -51,58 +98,37 @@ export function Header() {
         <nav className="mx-auto flex max-w-7xl items-center justify-center gap-1 px-4 py-2 sm:px-6 lg:px-8" aria-label="תפריט ראשי">
           {primaryDesktopNav.map((item) => (
             <Fragment key={item.href}>
-              <Link className={`whitespace-nowrap rounded-md px-3 py-2 text-sm font-black transition hover:text-white ${featuredNavHrefs.has(item.href) ? "border border-purple-200/24 bg-purple-500/14 text-white shadow-[0_0_22px_rgba(168,85,247,0.2)] hover:bg-purple-500/24" : "text-zinc-300 hover:bg-white/8"}`} href={item.href}>
+              <Link className={`whitespace-nowrap rounded-md px-3 py-2 text-sm font-black transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300/55 ${featuredNavHrefs.has(item.href) ? "border border-purple-200/24 bg-purple-500/14 text-white shadow-[0_0_22px_rgba(168,85,247,0.2)] hover:bg-purple-500/24" : "text-zinc-300 hover:bg-white/8"}`} href={item.href} onClick={closeDesktopDropdown}>
                 {item.label}
               </Link>
               {item.href === "/services" ? (
-                <details className="group relative">
-                  <summary className="cursor-pointer list-none whitespace-nowrap rounded-md px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
-                    פתרונות
-                  </summary>
-                  <div className="absolute left-0 top-full z-50 mt-2 grid min-w-60 gap-1 rounded-lg border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
-                    <Link className="whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href="/solutions">
-                      כל הפתרונות
-                    </Link>
-                    {solutionNav.map((item) => (
-                      <Link className="whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href={item.href} key={item.href}>
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </details>
+                <DesktopDropdownButton isOpen={desktopDropdown === "solutions"} label="פתרונות" onClick={() => toggleDesktopDropdown("solutions")} />
               ) : null}
               {item.href === "/courses" ? (
-                <details className="group relative">
-                  <summary className="cursor-pointer list-none whitespace-nowrap rounded-md px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
-                    מסלולי קורס
-                  </summary>
-                  <div className="absolute left-0 top-full z-50 mt-2 grid min-w-60 gap-1 rounded-lg border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
-                    <Link className="whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href="/courses">
-                      כל הקורסים
-                    </Link>
-                    {courseNav.map((item) => (
-                      <Link className="whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href={item.href} key={item.href}>
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </details>
+                <DesktopDropdownButton isOpen={desktopDropdown === "courses"} label="מסלולי קורס" onClick={() => toggleDesktopDropdown("courses")} />
               ) : null}
             </Fragment>
           ))}
-          <details className="group relative">
-            <summary className="cursor-pointer list-none whitespace-nowrap rounded-md px-3 py-2 text-sm font-black text-zinc-300 transition hover:bg-white/8 hover:text-white">
-              עוד
-            </summary>
-            <div className="absolute left-0 top-full z-50 mt-2 grid min-w-56 gap-1 rounded-lg border border-white/10 bg-black/95 p-2 shadow-premium backdrop-blur-xl">
-              {secondaryDesktopNav.map((item) => (
-                <Link className="whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-black text-zinc-300 transition hover:bg-purple-500/12 hover:text-white" href={item.href} key={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </details>
+          <DesktopDropdownButton isOpen={desktopDropdown === "more"} label="עוד" onClick={() => toggleDesktopDropdown("more")} />
         </nav>
+        {desktopDropdown ? (
+          <div className="mx-auto max-w-7xl px-4 pb-2 sm:px-6 lg:px-8">
+            <div className="grid gap-1 rounded-lg border border-purple-200/16 bg-black/95 p-2.5 shadow-premium ring-1 ring-white/5 backdrop-blur-xl">
+              <div className="grid gap-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+                {dropdownItems.map((item) => (
+                  <Link
+                    className="min-h-9 rounded-md border border-transparent px-3 py-1.5 text-sm font-black leading-6 text-zinc-300 transition hover:border-purple-200/22 hover:bg-purple-500/12 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300/55"
+                    href={item.href}
+                    key={item.href}
+                    onClick={closeDesktopDropdown}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
 
       {open && (
@@ -156,5 +182,18 @@ export function Header() {
         </nav>
       )}
     </header>
+  );
+}
+
+function DesktopDropdownButton({ isOpen, label, onClick }: { isOpen: boolean; label: string; onClick: () => void }) {
+  return (
+    <button
+      aria-expanded={isOpen}
+      className={`whitespace-nowrap rounded-md px-3 py-2 text-sm font-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300/55 ${isOpen ? "border border-purple-200/18 bg-purple-500/14 text-white" : "text-zinc-300 hover:bg-white/8 hover:text-white"}`}
+      onClick={onClick}
+      type="button"
+    >
+      {label}
+    </button>
   );
 }

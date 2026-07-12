@@ -142,7 +142,7 @@ export const solutionPages: SolutionPage[] = [
     highlight: {
       title: "מאלף עד ת׳ למוכרי Amazon",
       text:
-        "אנחנו מסתכלים על חשבון Amazon כמערכת עסקית מלאה: Account Health, Listings, Inventory, Pricing, Reviews, Messages, Reports, Advertising, דאטה, אוטומציה, דשבורדים והתראות. המטרה היא לעזור למוכר להבין מה קורה, מה מסוכן, מה אפשר לשפר ומה צריך לעשות קודם.",
+        "אנחנו מסתכלים על חשבון Amazon כמערכת עסקית מלאה: Account Health, Listings, Inventory, Pricing, Reviews, Messages, Reports, Advertising, דאטה, אוטומציה, דשבורדים והתראות. מעבר לניהול החשבון עצמו, אפשר לבנות למותג אתר צמיחה אורגנית שמציג מוצרים, יוצר תוכן עשיר ומביא תנועה מחוץ ל Amazon לעמודי המכירה. המטרה היא לעזור למוכר להבין מה קורה, מה מסוכן, מה אפשר לשפר ומה יכול לפתוח עוד ערוץ צמיחה.",
     },
     talkToData: {
       title: "לדבר עם נתוני Amazon באמצעות AI",
@@ -176,6 +176,7 @@ export const solutionPages: SolutionPage[] = [
       "יותר שליטה על חשבון, מוצרים וביצועים",
     ],
     internalLinks: [
+      { label: "אתר SEO למוכרי Amazon", href: "/services/amazon-seller-seo-website" },
       { label: "TalkToData", href: "/services/chatgpt-business-data" },
       { label: "NAVINES Beacon", href: "/products" },
       { label: "ניהול Amazon", href: "/services/amazon-account-management" },

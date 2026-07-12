@@ -190,6 +190,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isTechnicalSupportPost = post.slug === "technical-support-cyber-networks-business";
   const isAccountHackPost = post.slug === "what-to-do-when-account-is-hacked";
   const isBusinessDueDiligencePost = post.slug === "business-due-diligence-before-buying";
+  const isExternalAmazonTrafficPost = post.slug === "how-to-bring-external-traffic-to-amazon-products";
+  const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -246,11 +248,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -498,6 +500,124 @@ function MobileAppDevelopmentArticleBody() {
         <li><Link href="/services/web-development">אתרים ומערכות עסקיות</Link></li>
         <li><Link href="/contact">יצירת קשר</Link></li>
       </ul>
+    </div>
+  );
+}
+
+function ExternalAmazonTrafficArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>התשובה הקצרה</h2>
+      <p>
+        מוכר Amazon יכול להביא תנועה מחוץ לפלטפורמה באמצעות אתר עצמאי שמציג את המוצרים בצורה עשירה, עונה על שאלות אמיתיות של לקוחות, נבנה לקידום אורגני ומפנה בצורה ברורה לעמודי הרכישה ב Amazon.
+      </p>
+      <p>
+        זה לא מחליף את Amazon ולא מבטיח דירוגים או מכירות. זה מוסיף שכבת צמיחה שנמצאת בשליטת המותג ויכולה להתחזק לאורך זמן.
+      </p>
+      <h2>למה לא להסתמך רק על התנועה הפנימית של Amazon?</h2>
+      <p>
+        תנועה פנימית ב Amazon חשובה מאוד, אבל היא לא תמיד מספיקה. מוכר שתלוי רק בחיפוש פנימי ובפרסום ממומן תלוי בערוץ אחד, בכללים שלו, בתחרות שלו ובעלויות הפרסום שלו. אתר חיצוני מאפשר למותג לבנות נכס משלו, להסביר את המוצרים לעומק ולפגוש לקוחות עוד לפני שהם נכנסים ל Amazon.
+      </p>
+      <h2>איך אתר חיצוני עוזר?</h2>
+      <p>
+        באתר עצמאי אפשר לבנות עמודי מוצר עשירים, עמודי קטגוריה, מדריכי קנייה, מאמרי שימוש, שאלות נפוצות והשוואות. במקום עמוד קצר שמפנה החוצה, הגולש מקבל תשובה אמיתית: למי המוצר מתאים, איזו בעיה הוא פותר, איך משתמשים בו ומה כדאי לבדוק לפני רכישה.
+      </p>
+      <h2>סוגי תוכן שיכולים להביא חיפושים</h2>
+      <ul>
+        <li>מדריכי קנייה לפי בעיה או צורך של הלקוח.</li>
+        <li>השוואות בין סוגי מוצרים או שימושים שונים.</li>
+        <li>עמודי מוצר עם הסבר עשיר ולא רק קישור.</li>
+        <li>שאלות נפוצות שנכתבות לפי שאלות אמיתיות של לקוחות.</li>
+        <li>עמודי פתרון לבעיות שהמוצר עוזר לפתור.</li>
+        <li>מאמרי שימוש, תחזוקה, התאמה וטיפים.</li>
+      </ul>
+      <h2>למה עמוד מוצר עשיר חשוב?</h2>
+      <p>
+        מנוע חיפוש לא צריך עוד עמוד ריק שמטרתו היחידה היא לשלוח תנועה החוצה. הוא צריך עמוד שימושי. עמוד טוב מסביר את המוצר, נותן הקשר, עונה על שאלות, מציג יתרונות ומגבלות ומציע קישור ברור לעמוד Amazon כשהגולש מוכן להתקדם.
+      </p>
+      <h2>מדידה: לדעת מה באמת עובד</h2>
+      <p>
+        בלי מדידה קשה לדעת אם האתר עוזר. לכן חשוב לחבר Google Search Console, Analytics ומעקב קליקים לעמודי Amazon. כך אפשר לראות אילו עמודים מביאים כניסות, אילו חיפושים מתחילים להופיע, מאילו מדינות מגיעים גולשים ואילו מוצרים מקבלים עניין.
+      </p>
+      <h2>טעויות נפוצות</h2>
+      <ul>
+        <li>להעתיק תיאורי מוצר באופן עיוור במקום לכתוב תוכן מקורי.</li>
+        <li>לבנות הרבה עמודים דקים שאין בהם ערך אמיתי.</li>
+        <li>להבטיח דירוגים או אינדוקס במקום לבנות תשתית נכונה.</li>
+        <li>לא למדוד קליקים לעמודי Amazon ולא להבין מה עובד.</li>
+        <li>לכתוב תוכן כללי מדי שלא עונה על שאלה אמיתית של לקוח.</li>
+      </ul>
+      <h2>איך נביא נס ישראל בע״מ יכולה לעזור?</h2>
+      <p>
+        אנחנו בונים אתר צמיחה אורגנית למוכרי Amazon: מבנה תוכן, עמודי מוצר, מדריכים, מדידה, קישורים מסודרים לעמודי Amazon ותשתית שיכולה להתרחב בעתיד לחנות עצמאית או לערוצים נוספים.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/amazon-seller-seo-website">
+          לעמוד השירות: אתר צמיחה אורגנית למוכרי Amazon
+        </Link>
+      </p>
+      <p>
+        לא בטוחים אם להתחיל? שלחו לנו כמה קישורי מוצרים בוואטסאפ, ספרו באיזו מדינה אתם מוכרים, ונכוון אתכם בצורה פשוטה.
+      </p>
+    </div>
+  );
+}
+
+function MultilingualAmazonSeoArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>התשובה הקצרה</h2>
+      <p>
+        אתר רב לשוני למוכרי Amazon הוא אתר שנבנה לפי השוק שבו הלקוחות נמצאים: שפה, מדינה, ביטויי חיפוש, תרבות קנייה, מידות, מונחים ותוכן מקומי. זה לא רק תרגום של עמודים, אלא התאמה אמיתית לקהל.
+      </p>
+      <h2>למה תוכן מקומי חשוב?</h2>
+      <p>
+        לקוח בארצות הברית לא תמיד מחפש כמו לקוח בבריטניה, גרמניה או צרפת. גם אם השפה דומה, הביטויים, צורת ההסבר, יחידות המידה והציפיות יכולים להיות שונים. אתר שנכתב לפי מדינה עוזר לגולש להרגיש שהוא הגיע למקום שמבין אותו.
+      </p>
+      <h2>תרגום מול לוקליזציה</h2>
+      <p>
+        תרגום מעביר מילים משפה לשפה. לוקליזציה מתאימה את המסר לשוק. במוצרים שמיועדים ל Amazon, ההבדל הזה חשוב: כותרת, מדריך קנייה, שאלות נפוצות ודוגמאות שימוש צריכים להישמע טבעיים ולא כמו טקסט שעבר דרך מכונה.
+      </p>
+      <h2>מבנה כתובות ו hreflang</h2>
+      <p>
+        כשבונים אתר לכמה מדינות או שפות, חשוב לסדר כתובות URL בצורה ברורה ולהגדיר hreflang. זה עוזר למנועי חיפוש להבין איזו גרסה מתאימה לאיזה קהל. ההגדרה לא מבטיחה דירוג, אבל היא חלק חשוב מתשתית SEO בינלאומית מסודרת.
+      </p>
+      <h2>מחקר מילים מקומי</h2>
+      <p>
+        לא מספיק לקחת מילת מפתח בעברית או באנגלית ולתרגם אותה. צריך לבדוק איך הלקוחות במדינה מחפשים את הבעיה, המוצר או הפתרון. לפעמים הביטוי הנכון הוא לא שם המוצר אלא השאלה שהלקוח שואל לפני שהוא יודע מה לקנות.
+      </p>
+      <h2>איזה עמודים כדאי לבנות?</h2>
+      <ul>
+        <li>עמודי מוצר עשירים לכל שוק חשוב.</li>
+        <li>עמודי קטגוריה שמסבירים את ההבדלים בין מוצרים.</li>
+        <li>מדריכי קנייה לפי מדינה ושפה.</li>
+        <li>השוואות ושאלות נפוצות לפי קהל יעד.</li>
+        <li>עמודי שימוש, תחזוקה ופתרון בעיות.</li>
+      </ul>
+      <h2>מדידה לפי מדינה</h2>
+      <p>
+        אתר בינלאומי חייב מדידה מסודרת: אילו מדינות מביאות כניסות, אילו עמודים מושכים חיפושים, איפה יש קליקים לעמודי Amazon ואיזה שוק מתחיל להראות עניין. בלי מדידה לפי מדינה, קשה לדעת איפה להשקיע.
+      </p>
+      <h2>טעויות נפוצות ב SEO בינלאומי</h2>
+      <ul>
+        <li>להעלות תרגום טכני בלי עריכה אנושית.</li>
+        <li>ליצור הרבה עמודים דומים מדי בין שפות.</li>
+        <li>לא להגדיר hreflang או להגדיר אותו לא נכון.</li>
+        <li>לא להתאים מידות, מונחים, מחירים או דוגמאות לשוק.</li>
+        <li>לא למדוד ביצועים בנפרד לכל מדינה.</li>
+      </ul>
+      <h2>איך מתחילים נכון?</h2>
+      <p>
+        מתחילים משוק אחד או כמה שווקים חשובים, בוחרים מוצרים מרכזיים, בונים תוכן איכותי ומודדים. אחרי שיש בסיס טוב, אפשר להרחיב לעוד מוצרים, שפות ומדינות. עדיף להתחיל מדויק מאשר להעלות הרבה עמודים דקים.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/amazon-seller-seo-website">
+          לעמוד השירות: אתר SEO למוכרי Amazon
+        </Link>
+      </p>
+      <p>
+        מוכרים בארצות הברית, אירופה או בכמה שווקים? שלחו לנו הודעה בוואטסאפ עם קישורי המוצרים והשפה הרצויה, ונבדוק איך נכון לבנות את האתר.
+      </p>
     </div>
   );
 }

@@ -28,6 +28,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const solution = solutionPages.find((item) => item.slug === slug);
   if (!solution) notFound();
+  const isAmazonSellerSolution = solution.slug === "amazon-sellers";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -106,6 +107,20 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           <p className="max-w-5xl text-lg leading-8 text-zinc-300">
             <BrandInline text={solution.highlight.text} />
           </p>
+        </Section>
+      ) : null}
+
+      {isAmazonSellerSolution ? (
+        <Section eyebrow="צמיחה מחוץ ל Amazon" title="אתר SEO עצמאי שמוביל לקוחות לעמודי המוצרים" className="py-5 lg:py-8">
+          <Link className="command-glass group block rounded-[1.35rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/amazon-seller-seo-website">
+            <h2 className="text-2xl font-black text-white">אתר צמיחה אורגנית למוכרי Amazon</h2>
+            <p className="mt-3 max-w-4xl text-lg leading-8 text-zinc-300">
+              בונים אתר בינלאומי שמציג את המוצרים, יוצר תוכן עשיר לפי מדינה ושפה, מושך תנועה ממנועי חיפוש ומפנה לקוחות לעמודי Amazon שלכם. זה לא מחליף את Amazon, אלא מוסיף שכבת צמיחה שנמצאת בשליטת המותג.
+            </p>
+            <span className="mt-4 inline-flex text-base font-black text-silver transition group-hover:text-white">
+              לעמוד השירות
+            </span>
+          </Link>
         </Section>
       ) : null}
 
@@ -218,4 +233,3 @@ function InfoColumn({ title, items }: { title: string; items: string[] }) {
     </article>
   );
 }
-
