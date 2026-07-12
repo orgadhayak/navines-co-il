@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/Section";
@@ -97,6 +98,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <InfoBlock title="למי זה מתאים?" items={service.audience} />
           <InfoBlock title="מה עושים בפועל ודוגמה פשוטה" items={service.actions} />
           <InfoBlock title="בעיות שאנחנו פותרים" items={service.problems} />
+          {service.relatedArticles?.length ? (
+            <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+              <h2 className="text-2xl font-black text-white">מדריכים קשורים</h2>
+              <div className="mt-4 grid gap-3 md:grid-cols-2">
+                {service.relatedArticles.map((article) => (
+                  <Link className="rounded-lg border border-purple-200/12 bg-black/18 p-4 transition hover:border-purple-200/35 hover:bg-purple-500/12" href={article.href} key={article.href}>
+                    <h3 className="text-xl font-black text-white">{article.title}</h3>
+                    <p className="mt-2 text-base leading-7 text-zinc-400">{article.text}</p>
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ) : null}
           {isAccountHackRecoveryService ? <AccountHackGuidance /> : null}
           {isDueDiligenceService ? <DueDiligenceGuidance /> : null}
           <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">

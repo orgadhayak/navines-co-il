@@ -177,9 +177,13 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const post = blogPosts.find((item) => item.slug === slug);
   if (!post) notFound();
 
-  const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const related = getRelatedPosts(post.slug);
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
+  const isBusinessAutomationPost = post.slug === "business-automation-start";
+  const isInvoiceScanningPost = post.slug === "ai-invoice-scanning-and-filtering";
+  const isEcommerceStorePost = post.slug === "ecommerce-service-guide";
+  const isMobileAppPost = post.slug === "mobile-app-service-guide";
   const isBusinessWebsite999Post = post.slug === "business-website-999-shekel";
   const isSmartWebsiteLeadPost = post.slug === "smart-website-lead-engine-quality-leads";
   const isAiChatWebsitePost = post.slug === "ai-chat-for-business-website";
@@ -242,11 +246,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -257,6 +261,244 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </div>
       </section>
     </>
+  );
+}
+
+function getRelatedPosts(slug: string) {
+  const relatedSlugs: Record<string, string[]> = {
+    "business-automation-start": ["ai-invoice-scanning-and-filtering", "talk-to-business-data-chatgpt", "ai-chat-for-business-website"],
+    "ai-invoice-scanning-and-filtering": ["business-automation-start", "accountants-ai-data-automation", "talk-to-business-data-chatgpt"],
+    "ecommerce-service-guide": ["shopify-israel", "amazon-ebay-mistakes", "optimization-service-guide"],
+    "mobile-app-service-guide": ["api-save-hours", "web-systems-service-guide", "consulting-qa-service-guide"],
+  };
+
+  const selected = (relatedSlugs[slug] || [])
+    .map((relatedSlug) => blogPosts.find((post) => post.slug === relatedSlug))
+    .filter((post): post is (typeof blogPosts)[number] => Boolean(post));
+  const fallback = blogPosts.filter((post) => post.slug !== slug && !selected.some((item) => item.slug === post.slug));
+  return [...selected, ...fallback].slice(0, 3);
+}
+
+function BusinessAutomationArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>תשובה קצרה: מהי אוטומציה עסקית?</h2>
+      <p>
+        אוטומציה עסקית היא חיבור של פעולות שחוזרות על עצמן לתהליך מסודר שעובד כמעט לבד: קבלת פנייה, שליחת הודעה, פתיחת משימה, סינון חשבונית, עדכון מערכת ניהול לקוחות או יצירת דוח. המטרה היא לא להחליף את העסק, אלא להפחית עבודה ידנית, טעויות וזמן תגובה.
+      </p>
+      <h2>איך אוטומציה עסקית עובדת?</h2>
+      <p>
+        מתחילים ממיפוי פשוט: מה נכנס לעסק, מי צריך לטפל בזה, איפה המידע נשמר ומה קורה אחרי הטיפול. רק אחר כך מחברים כלים כמו וואטסאפ, מייל, טפסים, CRM, דוחות, חשבוניות או ChatGPT לתהליך אחד ברור.
+      </p>
+      <h2>אילו משימות אפשר להפוך לאוטומטיות?</h2>
+      <ul>
+        <li>קליטת לידים מהאתר, וואטסאפ או קמפיין ופתיחת משימה לצוות.</li>
+        <li>סיכום מיילים ופניות חוזרות כדי לדעת מי מחכה לתשובה.</li>
+        <li>סריקת חשבוניות, חילוץ סכום, ספק ותאריך, וסינון לפי סוג הוצאה.</li>
+        <li>עדכון CRM, יצירת תזכורת, שליחת הודעת המשך או דוח יומי קצר.</li>
+        <li>דוחות שמראים מכירות, פניות, משימות פתוחות או ירידה בביצועים.</li>
+      </ul>
+      <h2>דוגמאות עסקיות פשוטות</h2>
+      <p>
+        עסק שירות יכול לקבל פנייה מהאתר, לשאול את הלקוח שתי שאלות בוואטסאפ, לסכם את הצורך ולפתוח משימה. משרד הנהלת חשבונות יכול לסנן חשבוניות לפי ספק או סכום. חנות אונליין יכולה לקבל דוח על מוצרים שנמכרים פחות השבוע.
+      </p>
+      <h2>למי זה מתאים?</h2>
+      <p>
+        אוטומציה עסקית מתאימה לעסק שיש בו פעולות חוזרות, עומס פניות, נתונים מפוזרים או צוות שמעתיק מידע ידנית. היא מתאימה גם לעסק קטן, כל עוד מתחילים מתהליך אחד ברור ולא מנסים לאוטומט את כל העסק ביום אחד.
+      </p>
+      <h2>מתי אוטומציה לא מתאימה?</h2>
+      <p>
+        אם התהליך עדיין לא ברור, אם כל פנייה שונה לגמרי, או אם אין מי שיבדוק את התוצאה, עדיף להתחיל בסידור התהליך לפני שמחברים כלים. אוטומציה לא מתקנת תהליך מבולגן, היא רק גורמת לו לרוץ מהר יותר.
+      </p>
+      <h2>איך מתחילים בלי להסתבך?</h2>
+      <ol>
+        <li>בוחרים פעולה אחת שחוזרת על עצמה הרבה.</li>
+        <li>כותבים מה קורה היום, שלב אחרי שלב.</li>
+        <li>מחליטים מה חייב להישאר לאישור אנושי.</li>
+        <li>בונים גרסה קטנה, בודקים, ואז מרחיבים.</li>
+      </ol>
+      <h2>טעויות נפוצות</h2>
+      <ul>
+        <li>להתחיל מכלי לפני שמבינים את התהליך.</li>
+        <li>לבנות אוטומציה בלי מדידה ובלי בדיקה אנושית.</li>
+        <li>לחבר יותר מדי מערכות כבר בשלב הראשון.</li>
+        <li>לשלוח הודעות אוטומטיות שנשמעות קרות או לא מדויקות.</li>
+      </ul>
+      <h2>שאלות נפוצות</h2>
+      <h3>האם אוטומציה עסקית מתאימה לעסק קטן?</h3>
+      <p>כן. דווקא עסק קטן יכול להרוויח מהר מאוטומציה קטנה שמסדרת פניות, תזכורות או דוחות.</p>
+      <h3>האם צריך לדעת לתכנת?</h3>
+      <p>לא. אתם צריכים להסביר איך העסק עובד. את התכנון, החיבורים והבנייה אנחנו יכולים לעשות עבורכם.</p>
+      <h3>האם אפשר לחבר את זה ל ChatGPT?</h3>
+      <p>כן, כשיש נתונים מסודרים וגישה בטוחה. אפשר לחבר נתונים, דוחות ומיילים לשכבת שיחה כמו TalkToData.</p>
+      <h2>קישורים שימושיים</h2>
+      <ul>
+        <li><Link href="/services/ai-automation">עמוד AI ואוטומציה לעסקים</Link></li>
+        <li><Link href="/services/chatgpt-business-data">TalkToData וחיבור נתונים אל ChatGPT</Link></li>
+        <li><Link href="/services/ai-chat-for-websites">שירות צ׳ט AI לאתרים</Link></li>
+        <li><Link href="/contact">יצירת קשר עם נביא נס ישראל בע״מ</Link></li>
+      </ul>
+    </div>
+  );
+}
+
+function InvoiceScanningArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>תשובה קצרה: מהי סריקת חשבוניות באמצעות AI?</h2>
+      <p>
+        סריקת חשבוניות עם AI היא תהליך שבו מערכת קוראת מסמך, מזהה שדות חשובים כמו שם ספק, תאריך, סכום, מע״מ ומספר חשבונית, ואז הופכת אותם לנתונים שאפשר לסנן, לבדוק, לנתב ולחבר למערכת עסקית. זה לא מבטיח דיוק של 100%, ולכן חשוב לשלב בקרת אנוש.
+      </p>
+      <h2>איך מחלצים נתונים מחשבוניות?</h2>
+      <p>
+        הפתרון מקבל קובץ או צילום, מזהה את מבנה המסמך, מחפש שדות מרכזיים ומחזיר נתונים מסודרים. למשל: ספק, מספר חשבונית, תאריך, סכום לפני מע״מ, מע״מ, סכום כולל, מטבע, קטגוריה והאם חסר מידע שצריך לבדוק.
+      </p>
+      <h2>איך מסננים וממיינים חשבוניות?</h2>
+      <ul>
+        <li>לפי ספק או לקוח.</li>
+        <li>לפי סכום, תאריך, חודש או סטטוס טיפול.</li>
+        <li>לפי קטגוריה כמו תוכנה, פרסום, שילוח, מלאי או שירותים.</li>
+        <li>לפי חשבוניות שחסר בהן שדה חשוב או דורשות אישור אנושי.</li>
+      </ul>
+      <h2>איך מנתבים מסמכים למערכת המתאימה?</h2>
+      <p>
+        אחרי חילוץ הנתונים אפשר להעביר מסמך או שורה מסודרת למערכת הנהלת חשבונות, תיקיית לקוח, CRM, דוח ניהולי או ממשק TalkToData. החיבור תלוי בהרשאות, בספק המערכת ובדרך הגישה החוקית לנתונים.
+      </p>
+      <h2>למי זה מתאים?</h2>
+      <p>
+        רואי חשבון, הנהלת חשבונות, עסקים קטנים, חברות עם הרבה ספקים, חנויות אונליין וצוותים שמקבלים הרבה חשבוניות במייל יכולים לחסוך זמן ולצמצם הקלדה ידנית. עדיין צריך אישור אנושי במקרים רגישים או כשהמסמך לא ברור.
+      </p>
+      <h2>אבטחת מידע והרשאות</h2>
+      <p>
+        חשבוניות כוללות מידע עסקי רגיש. לכן לא מחברים הכל בלי לחשוב. צריך להגדיר מי רשאי לראות מידע, איפה המסמכים נשמרים, מה נשמר ומה נמחק, ומה דורש אישור לפני מעבר למערכת אחרת.
+      </p>
+      <h2>חיבור ל ChatGPT ולכלים חכמים</h2>
+      <p>
+        אחרי שהחשבוניות הופכות לנתונים, אפשר לשאול שאלות כמו: אילו ספקים עלו הכי הרבה החודש, אילו חשבוניות חסרות מע״מ, מה עוד לא טופל, או איזה הוצאה חריגה לעומת החודש הקודם.
+      </p>
+      <h2>שאלות נפוצות</h2>
+      <h3>האם AI קורא חשבוניות תמיד בצורה מושלמת?</h3>
+      <p>לא. יש מסמכים לא ברורים, צילומים חלשים ופורמטים משתנים. לכן בונים תהליך עם סימון שדות לא בטוחים ובקרת אנוש.</p>
+      <h3>אפשר לחבר את זה למשרד רואה חשבון?</h3>
+      <p>כן, אם יש דרך עבודה מסודרת והרשאות מתאימות. המערכת יכולה לעזור לסדר מסמכים לפני טיפול מקצועי.</p>
+      <h3>האם נביא נס ישראל בע״מ יכולה לבנות פתרון כזה?</h3>
+      <p>כן. אפשר לבנות פתרון מותאם לצורת העבודה שלכם, בלי להבטיח מוצר מדף שמתאים לכל חשבונית בעולם.</p>
+      <h2>קישורים שימושיים</h2>
+      <ul>
+        <li><Link href="/services/chatgpt-business-data">TalkToData וחיבור נתונים ל ChatGPT</Link></li>
+        <li><Link href="/solutions/accountants">פתרונות AI לרואי חשבון</Link></li>
+        <li><Link href="/services/ai-automation">AI ואוטומציה לעסקים</Link></li>
+        <li><Link href="/contact">יצירת קשר</Link></li>
+      </ul>
+    </div>
+  );
+}
+
+function EcommerceStoreArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>תשובה קצרה: מהי חנות איקומרס?</h2>
+      <p>
+        חנות איקומרס היא אתר מכירות שמאפשר להציג מוצרים, לקבל תשלום, לנהל הזמנות, משלוחים, מלאי, לקוחות ומדידה. חנות טובה לא רק נראית יפה, היא עוזרת ללקוח להבין, לסמוך ולקנות, ולעסק לנהל את המכירות בצורה מסודרת.
+      </p>
+      <h2>למי חנות אונליין מתאימה?</h2>
+      <p>
+        חנות מתאימה לעסק שמוכר מוצרים פיזיים, מוצרים דיגיטליים, שירותים עם תשלום אונליין, מותג שרוצה למכור ישירות או עסק שרוצה להוסיף ערוץ מכירה נוסף מעבר לטלפון ולוואטסאפ.
+      </p>
+      <h2>מה ההבדל בין אתר רגיל לחנות?</h2>
+      <p>
+        אתר רגיל מסביר על העסק ומוביל לפנייה. חנות צריכה גם לנהל קטלוג, עמודי מוצר, סל קניות, סליקה, משלוחים, מלאי, מיילים ללקוח ודוחות. לכן היא דורשת יותר תכנון, אבטחה ובדיקות.
+      </p>
+      <h2>Shopify מול WooCommerce</h2>
+      <p>
+        Shopify מתאימה לעסקים שרוצים תשתית מסודרת, ניהול נוח ופחות התעסקות בשרת. WooCommerce מתאימה לעסקים שרוצים גמישות גבוהה בתוך WordPress ושליטה רחבה יותר. הבחירה תלויה בתקציב, תוכן, שילוח, סליקה, הרחבות והצוות שיתפעל את החנות.
+      </p>
+      <h2>מה חייבים לתכנן לפני שמתחילים?</h2>
+      <ul>
+        <li>מוצרים, וריאציות, תמונות, מחירים ומלאי.</li>
+        <li>סליקה, חשבוניות, משלוחים, החזרות ושירות לקוחות.</li>
+        <li>מבנה קטגוריות וחיפוש מוצר נוח.</li>
+        <li>חוויית מובייל מהירה וברורה.</li>
+        <li>SEO לעמודי מוצר וקטגוריה.</li>
+        <li>חיבור למערכות עסקיות, דוחות ואוטומציות.</li>
+      </ul>
+      <h2>טעויות נפוצות בהקמת חנות</h2>
+      <ul>
+        <li>להעלות מוצרים בלי טקסט ברור ותמונות טובות.</li>
+        <li>להעמיס אפליקציות ותוספים שמאטים את החנות.</li>
+        <li>לא לבדוק תהליך רכישה מלא במובייל.</li>
+        <li>להשאיר משלוחים, החזרות ואמינות בלי הסבר.</li>
+        <li>לא לחבר מדידה כדי להבין מאיפה מגיעות מכירות.</li>
+      </ul>
+      <h2>שאלות נפוצות</h2>
+      <h3>מה עדיף, Shopify או WooCommerce?</h3>
+      <p>אין תשובה אחת. Shopify נוחה ויציבה, WooCommerce גמישה מאוד. בוחרים לפי הצורך העסקי, התפעול והתקציב.</p>
+      <h3>האם חנות איקומרס צריכה SEO?</h3>
+      <p>כן. עמודי מוצר וקטגוריה צריכים כותרות, תיאורים, מבנה נכון, מהירות ותוכן שעוזר גם לגוגל וגם לקונה.</p>
+      <h3>האם אפשר לחבר חנות למלאי או CRM?</h3>
+      <p>כן. אפשר לחבר חנות למערכות מלאי, CRM, דוחות, מיילים, משלוחים וכלים כמו TalkToData לפי הצורך.</p>
+      <h2>קישורים שימושיים</h2>
+      <ul>
+        <li><Link href="/services/ecommerce">עמוד שירותי איקומרס</Link></li>
+        <li><Link href="/services/shopify">שירותי Shopify</Link></li>
+        <li><Link href="/services/woocommerce">שירותי WooCommerce</Link></li>
+        <li><Link href="/services/amazon-account-management">ניהול Amazon</Link></li>
+        <li><Link href="/services/website-speed-optimization">שיפור מהירות חנות</Link></li>
+      </ul>
+    </div>
+  );
+}
+
+function MobileAppDevelopmentArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>תשובה קצרה: מתי עסק באמת צריך אפליקציה?</h2>
+      <p>
+        עסק צריך אפליקציה סלולרית כשהיא פותרת פעולה שחוזרת על עצמה: הזמנות, אזור אישי, התראות, שירות לקוחות, עבודה של צוות, ניהול שטח או חיבור למערכת עסקית. אם המטרה היא רק “להיות באפליקציה”, לפעמים אתר מותאם למובייל מספיק וטוב יותר להתחלה.
+      </p>
+      <h2>איך הופכים רעיון לאפליקציה?</h2>
+      <p>
+        מתחילים מהמשתמש: מי ישתמש באפליקציה, מה הוא צריך לעשות, איפה הוא נתקע היום ואיזה מידע צריך לעבור למערכת העסק. רק אחרי זה בונים מסכים, הרשאות, חיבורים, התראות ותהליך בדיקות.
+      </p>
+      <h2>מתי אתר מובייל מספיק?</h2>
+      <p>
+        אם הלקוח רק צריך לקרוא מידע, להשאיר פרטים, להזמין שירות פשוט או לבצע רכישה רגילה, אתר מובייל מהיר יכול להספיק. אפליקציה מתאימה יותר כשיש שימוש חוזר, הרשאות, התראות, אזור אישי או פעולות שצריכות לעבוד בצורה עמוקה יותר.
+      </p>
+      <h2>iOS, Android, היברידי או Native?</h2>
+      <p>
+        Native מתאים כשצריך ביצועים גבוהים, שימוש עמוק ביכולות מכשיר או חוויה מורכבת. אפליקציה היברידית יכולה להתאים כשצריך לפתח מהר יותר לשתי מערכות ולשמור על תקציב סביר. הבחירה תלויה במוצר, במשתמשים ובתחזוקה העתידית.
+      </p>
+      <h2>מה חשוב לחבר לאפליקציה?</h2>
+      <ul>
+        <li>API שמחבר בין האפליקציה למערכת העסק.</li>
+        <li>הרשאות משתמשים ואבטחת מידע.</li>
+        <li>התראות Push רק כשיש להן ערך אמיתי.</li>
+        <li>מדידה של שימוש, נטישה ותקלות.</li>
+        <li>מערכת ניהול לעדכון תוכן, לקוחות, הזמנות או סטטוסים.</li>
+      </ul>
+      <h2>בדיקות, השקה ותחזוקה</h2>
+      <p>
+        אפליקציה טובה צריכה בדיקות במכשירים אמיתיים, בדיקת הרשאות, עומסים, חיבורי API, מסכי שגיאה ותהליך עדכון. אחרי ההשקה צריך לתחזק גרסאות, לתקן באגים, לשפר חוויית משתמש ולהתאים לשינויים במערכות ההפעלה.
+      </p>
+      <h2>מה משפיע על היקף ועלות?</h2>
+      <p>
+        מספר המסכים, סוג המשתמשים, הרשאות, חיבורי API, תשלומים, התראות, מערכת ניהול, עיצוב, בדיקות ותחזוקה משפיעים על ההיקף. לכן לא נכון לזרוק מחיר לפני אפיון קצר שמבין מה באמת צריך לבנות.
+      </p>
+      <h2>שאלות נפוצות</h2>
+      <h3>האם חייבים אפליקציה גם ל iOS וגם ל Android?</h3>
+      <p>לא תמיד. בודקים איפה המשתמשים נמצאים ומה חשוב להשיק ראשון. לפעמים נכון להתחיל בהיברידי או בגרסה מצומצמת.</p>
+      <h3>האם אפשר לחבר אפליקציה לאתר קיים?</h3>
+      <p>כן, אם יש API או דרך מסודרת להעביר נתונים. לפעמים צריך לבנות שכבת חיבור לפני האפליקציה עצמה.</p>
+      <h3>האם נביא נס ישראל בע״מ עושה גם אפיון?</h3>
+      <p>כן. אנחנו מתחילים מאפיון משתמשים, תהליך עסקי וחיבורי מערכות כדי לא לפתח משהו שלא צריך.</p>
+      <h2>קישורים שימושיים</h2>
+      <ul>
+        <li><Link href="/services/mobile-app-development">עמוד פיתוח אפליקציות</Link></li>
+        <li><Link href="/services/api-integrations">חיבורי API ואינטגרציות</Link></li>
+        <li><Link href="/services/web-development">אתרים ומערכות עסקיות</Link></li>
+        <li><Link href="/contact">יצירת קשר</Link></li>
+      </ul>
+    </div>
   );
 }
 

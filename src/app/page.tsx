@@ -118,7 +118,7 @@ export default function HomePage() {
             מערכות בינה מלאכותית, אתרים, אוטומציה ותשתיות דיגיטליות לעסקים
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">
-            נביא נס ישראל בע״מ עוזרת לעסקים לבנות תשתית דיגיטלית שעובדת באמת: אתר ברור, מערכת חכמה, אוטומציה, נתונים שאפשר להבין, ותמיכה כשמשהו נתקע.
+            נביא נס ישראל בע״מ מספקת פתרונות AI, אוטומציה ותשתיות דיגיטליות לעסקים שרוצים לעבוד ברור יותר: אתר חכם, מערכת מסודרת, נתונים שאפשר להבין, ותמיכה כשמשהו נתקע.
           </p>
 
           <Link className="command-glass mt-4 block max-w-3xl rounded-[1.3rem] p-4 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/chatgpt-business-data">
