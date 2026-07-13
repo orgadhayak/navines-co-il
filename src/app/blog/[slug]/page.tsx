@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find((item) => item.slug === slug);
   if (!post) return {};
   return createMetadata({
-    title: post.title,
-    description: post.excerpt,
+    title: post.metaTitle || post.title,
+    description: post.metaDescription || post.excerpt,
     path: `/blog/${post.slug}`,
     type: "article",
   });
@@ -192,6 +192,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isBusinessDueDiligencePost = post.slug === "business-due-diligence-before-buying";
   const isExternalAmazonTrafficPost = post.slug === "how-to-bring-external-traffic-to-amazon-products";
   const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
+  const isAccountantChoicePost = post.slug === "how-to-choose-accountant-for-digital-business";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -199,7 +200,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
-    description: post.excerpt,
+    description: post.metaDescription || post.excerpt,
     author: { "@type": "Organization", name: site.hebrewLegalName },
     publisher: { "@type": "Organization", name: site.hebrewLegalName },
     datePublished: post.publishedAt,
@@ -248,11 +249,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -268,6 +269,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
 function getRelatedPosts(slug: string) {
   const relatedSlugs: Record<string, string[]> = {
+    "how-to-choose-accountant-for-digital-business": ["accountants-ai-data-automation", "ai-invoice-scanning-and-filtering", "business-automation-start"],
     "business-automation-start": ["ai-invoice-scanning-and-filtering", "talk-to-business-data-chatgpt", "ai-chat-for-business-website"],
     "ai-invoice-scanning-and-filtering": ["business-automation-start", "accountants-ai-data-automation", "talk-to-business-data-chatgpt"],
     "ecommerce-service-guide": ["shopify-israel", "amazon-ebay-mistakes", "optimization-service-guide"],
@@ -279,6 +281,111 @@ function getRelatedPosts(slug: string) {
     .filter((post): post is (typeof blogPosts)[number] => Boolean(post));
   const fallback = blogPosts.filter((post) => post.slug !== slug && !selected.some((item) => item.slug === post.slug));
   return [...selected, ...fallback].slice(0, 3);
+}
+
+function AccountantChoiceArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה עסק דיגיטלי צריך איש מקצוע שמכיר אינטרנט</h2>
+      <p>
+        עסק דיגיטלי לא מתנהל כמו עסק מסורתי בלבד. יש בו אתר, חנות אונליין, תשלומים מחו״ל, סליקה, חשבוניות, מטבעות, מערכות משלוחים, דוחות, קמפיינים, Amazon, Shopify או WooCommerce. כשאיש המקצוע לא מכיר את המציאות הזו לעומק, בעל העסק עלול לבזבז זמן על הסברים, תיקונים וחוסר סדר.
+      </p>
+      <p>
+        המטרה היא לא למצוא רק שם ברשימה. המטרה היא להתחיל שיחה עם אדם שמבין את סוג הפעילות שלכם, יודע לשאול שאלות נכונות, ומסוגל להסביר מה הוא נותן ומה לא בצורה ברורה.
+      </p>
+
+      <h2>מה שונה בחנות אונליין או פעילות Amazon</h2>
+      <p>
+        חנות אונליין או פעילות Amazon כוללות שכבות שלא תמיד קיימות בעסק רגיל: עמלות מרקטפלייס, החזרות, מלאי, תשלומים במטבעות שונים, דוחות מכירה, ספקי סליקה, מסמכים מחו״ל ותנועה בין מערכות. לכן חשוב לבדוק מראש האם רואה החשבון או מנהל החשבונות מכירים את הפלטפורמות ואת אופי הנתונים.
+      </p>
+      <p>
+        זה לא אומר שכל עסק צריך משרד גדול או פתרון יקר. זה אומר שצריך התאמה טובה בין המורכבות שלכם לבין איש המקצוע שמלווה אתכם.
+      </p>
+
+      <h2>אילו שאלות לשאול לפני שסוגרים</h2>
+      <ul>
+        <li>האם עבדתם עם עסקים שמוכרים אונליין או בחו״ל?</li>
+        <li>האם אתם מכירים דוחות של Shopify, WooCommerce, Amazon או eBay?</li>
+        <li>איך מתנהלת קליטת חשבוניות ומסמכים לאורך החודש?</li>
+        <li>מה בדיוק כלול בשירות ומה דורש תשלום נוסף?</li>
+        <li>איך מתבצע קשר שוטף, באיזה קצב ומול מי?</li>
+        <li>האם יש ניסיון עם מטבעות, סליקה בינלאומית, מלאי וספקים?</li>
+      </ul>
+
+      <h2>סימני אזהרה לבחירה שאינה מתאימה</h2>
+      <p>
+        לא צריך לחשוד בכל אחד, ויש הרבה אנשי מקצוע טובים. אבל כדאי לשים לב לגורמים שאינם מתאימים לסוג הפעילות שלכם, נותני שירות ללא הבנה מספקת של פעילות דיגיטלית, או הבטחות שלא תמיד עומדות במבחן המציאות.
+      </p>
+      <ul>
+        <li>אין ניסיון ברור עם פעילות אינטרנטית או איקומרס.</li>
+        <li>השירות לא מוגדר בצורה מסודרת.</li>
+        <li>המחיר נשמע לא ברור או משתנה בלי הסבר.</li>
+        <li>אין רצון להבין את הנתונים לפני מתן תשובה.</li>
+        <li>התקשורת לא ברורה כבר בשלב ההיכרות.</li>
+      </ul>
+
+      <h2>איך לבדוק שהשירות והתמחור ברורים</h2>
+      <p>
+        לפני שמתקדמים, כדאי להבין מה כלול: הנהלת חשבונות שוטפת, דוחות, פתיחת תיק, טיפול במסמכים, עבודה מול רשויות, ייעוץ נקודתי, טיפול בפעילות מחו״ל או עבודה עם מערכות. אין צורך במחיר קבוע לכל אחד, אבל כן חשוב לקבל תיאום ציפיות ברור.
+      </p>
+      <p>
+        ניסוח טוב הוא מחירים תחרותיים והוגנים בהתאם לצורך ולהיקף הפעילות, עם פירוט של מה נכלל ומה לא.
+      </p>
+
+      <h2>ההבדל בין רואה חשבון, מנהל חשבונות ויועץ מס</h2>
+      <p>
+        רואה חשבון, מנהל חשבונות ויועץ מס אינם אותו דבר. לכל אחד יש תפקיד, הכשרה והיקף אחריות שונים. לכן חשוב לא רק לשאול “מי יכול לעזור לי”, אלא להבין איזה סוג שירות אתם צריכים בפועל: הנהלת חשבונות שוטפת, ייעוץ מס, דוחות, בקרה, פתיחת תיק או ליווי רחב יותר.
+      </p>
+      <p>
+        נביא נס ישראל בע״מ אינה מחליפה בדיקת רישיון, ייעוץ חשבונאי או ייעוץ משפטי. אנחנו מסייעים באפיון הצורך ובהכוונה לאיש מקצוע מתאים יותר לפי סוג הפעילות.
+      </p>
+
+      <h2>מה להכין לפני פגישת היכרות</h2>
+      <ul>
+        <li>סוג העסק: עוסק פטור, עוסק מורשה, חברה בע״מ או אדם פרטי.</li>
+        <li>היכן אתם מוכרים: ישראל, חו״ל, Amazon, eBay או חנות עצמאית.</li>
+        <li>אילו מערכות קיימות: חשבוניות, סליקה, ERP, Shopify או WooCommerce.</li>
+        <li>כמה מסמכים וחשבוניות יש בחודש בערך.</li>
+        <li>אילו בעיות חוזרות על עצמן היום.</li>
+        <li>האם אתם צריכים איש מקצוע קבוע או פתרון נקודתי.</li>
+      </ul>
+
+      <h2>איך נתונים, מערכות ואוטומציה משפיעים על הנהלת החשבונות</h2>
+      <p>
+        ככל שהעסק דיגיטלי יותר, כך יש יותר נתונים שצריך לסדר: הזמנות, תשלומים, חשבוניות, דוחות מכירה, מלאי, החזרות וספקים. כאן הטכנולוגיה יכולה לעזור. אפשר לבנות תהליכים שמסדרים נתונים, מחברים מערכות, סורקים חשבוניות ב AI ומאפשרים לשאול שאלות דרך כלים כמו TalkToData.
+      </p>
+      <ul>
+        <li><Link href="/services/chatgpt-business-data">TalkToData וחיבור נתונים אל ChatGPT</Link></li>
+        <li><Link href="/blog/ai-invoice-scanning-and-filtering">סריקת וסינון חשבוניות עם AI</Link></li>
+        <li><Link href="/services/ai-automation">AI ואוטומציה לעסקים</Link></li>
+        <li><Link href="/solutions/amazon-sellers">פתרונות למוכרי Amazon</Link></li>
+      </ul>
+
+      <h2>למי מתאים החיבור דרך נביא נס ישראל בע״מ</h2>
+      <p>
+        אנחנו מכירים לאורך שנים אנשי מקצוע מנוסים בתחומי ראיית החשבון והנהלת החשבונות, ומסייעים לחבר בין הפונה לבין איש מקצוע שמתאים לסוג הפעילות שלו. המטרה היא לחסוך ניסוי וטעייה ולהתחיל את השיחה עם אדם שמבין את העולם שבו העסק פועל.
+      </p>
+      <p>
+        זה מתאים לעסקים קטנים, חברות, עצמאיים, פרילנסרים, חנויות אונליין, מוכרי Amazon ו eBay, בעלי פעילות בינלאומית ואנשים פרטיים שצריכים הכוונה מסודרת לאיש מקצוע מתאים.
+      </p>
+
+      <h2>שאלות נפוצות</h2>
+      <h3>האם נביא נס ישראל בע״מ היא משרד רואי חשבון?</h3>
+      <p>לא. השירות הוא אפיון צורך וחיבור לאנשי מקצוע מתאימים מתוך מעגל קשרים מקצועי. ההתקשרות המקצועית נעשית ישירות מול איש המקצוע שנבחר.</p>
+      <h3>האם אתם מבטיחים התאמה מושלמת?</h3>
+      <p>לא. אין הבטחה לתוצאה מסוימת. אנחנו עוזרים להבין את הצורך ולכוון לשיחה עם איש מקצוע רלוונטי ככל האפשר.</p>
+      <h3>אפשר לקבל עזרה גם בצד הטכנולוגי?</h3>
+      <p>כן. לצד ההכוונה לאנשי מקצוע, נביא נס ישראל בע״מ יכולה לסייע בסידור נתונים, חיבור מערכות, דוחות, אוטומציות וסריקת חשבוניות עם AI.</p>
+
+      <h2>סיכום</h2>
+      <p>
+        רואה חשבון לעסק דיגיטלי צריך להבין את הפעילות שמאחורי המספרים: פלטפורמות, נתונים, סליקה, מסמכים ותהליכים. ככל שמבררים יותר לפני שסוגרים, כך קל יותר להתחיל נכון ולחסוך בלבול בהמשך.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/solutions/accountants">לעמוד פתרונות וחיבור לרואי חשבון</Link>
+      </p>
+    </div>
+  );
 }
 
 function BusinessAutomationArticleBody() {

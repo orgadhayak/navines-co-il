@@ -131,6 +131,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "business-due-diligence-before-buying": "לבדיקה לפני רכישה",
     "how-to-bring-external-traffic-to-amazon-products": "להביא תנועה ל Amazon",
     "multilingual-seo-website-for-amazon-sellers": "לקידום לפי מדינה ושפה",
+    "how-to-choose-accountant-for-digital-business": "לבחור רואה חשבון נכון",
   };
 
   if (labels[post.slug]) return labels[post.slug];

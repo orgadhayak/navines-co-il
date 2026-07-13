@@ -11,6 +11,7 @@ export function Footer() {
     ["סיוע בפריצה לחשבון", "/services/account-hack-recovery"],
     ["בדיקת עסק לפני רכישה", "/services/business-due-diligence-intelligence"],
     ["אתר SEO למוכרי Amazon", "/services/amazon-seller-seo-website"],
+    ["פתרונות לרואי חשבון", "/solutions/accountants"],
     ["נתונים עם ChatGPT", "/services/chatgpt-business-data"],
     ["אתרים ומערכות", "/services/web-development"],
     ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],

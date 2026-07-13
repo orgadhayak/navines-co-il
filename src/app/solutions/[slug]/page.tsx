@@ -8,6 +8,8 @@ import { solutionPages } from "@/data/solutions";
 import { site } from "@/data/site";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
+type AccountantConnection = NonNullable<(typeof solutionPages)[number]["accountantConnection"]>;
+
 export function generateStaticParams() {
   return solutionPages.map((solution) => ({ slug: solution.slug }));
 }
@@ -86,6 +88,10 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </Section>
+
+      {solution.accountantConnection ? (
+        <AccountantConnectionSection content={solution.accountantConnection} />
+      ) : null}
 
       {solution.urgent ? (
         <section className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
@@ -203,6 +209,93 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         title="רוצים לבדוק אם זה מתאים לעסק שלכם?"
         text="שלחו לנו הודעה קצרה בוואטסאפ: מה העסק עושה, איפה הנתונים נמצאים ומה הייתם רוצים להבין מהר יותר. נענה בצורה פשוטה, חברית ומעשית."
       />
+    </>
+  );
+}
+
+function AccountantConnectionSection({ content }: { content: AccountantConnection }) {
+  return (
+    <>
+      <Section eyebrow="חיבור לאיש מקצוע מתאים" title={content.title} className="py-5 lg:py-8">
+        <div className="grid gap-5 lg:grid-cols-[1.04fr_0.96fr]">
+          <article className="command-glass rounded-xl p-5">
+            <div className="grid gap-4 text-lg leading-8 text-zinc-300">
+              {content.paragraphs.map((paragraph) => (
+                <p key={paragraph}>
+                  <BrandInline text={paragraph} />
+                </p>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a className="btn-primary" href={site.whatsappHref}>
+                צריכים חיבור לרואה חשבון מתאים? דברו איתנו בוואטסאפ
+              </a>
+              <a className="btn-secondary" href={site.phoneHref}>
+                התקשרו עכשיו
+              </a>
+            </div>
+          </article>
+          <aside className="rounded-xl border border-purple-200/16 bg-black/40 p-5">
+            <h2 className="text-2xl font-black text-white">פרטי קשר מהירים</h2>
+            <div className="mt-4 grid gap-3 text-base text-zinc-300">
+              <a className="font-black text-silver hover:text-white" href={site.phoneHref}>{site.phone}</a>
+              <a className="font-black text-silver hover:text-white" href={site.emailHref}>{site.email}</a>
+              <p>שלחו לנו בקצרה מה סוג העסק, איפה אתם מוכרים ומה צריך לסדר, ונכוון אתכם לשלב הבא.</p>
+            </div>
+          </aside>
+        </div>
+      </Section>
+
+      <Section eyebrow="אפיון לפני חיבור" title={content.checklistTitle} className="py-5 lg:py-8">
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.72fr]">
+          <InfoColumn title="מה אנחנו בודקים לפני שמכוונים" items={content.checklist} />
+          <InfoColumn title="למי זה יכול להתאים" items={content.audiences} />
+        </div>
+      </Section>
+
+      <Section eyebrow="בחירה רגועה ומקצועית" title={content.trustTitle} className="py-5 lg:py-8">
+        <div className="grid gap-5 lg:grid-cols-[0.88fr_1.12fr]">
+          <article className="command-glass rounded-xl p-5">
+            <p className="text-lg leading-8 text-zinc-300">
+              <BrandInline text={content.trustText} />
+            </p>
+          </article>
+          <InfoColumn title="סימנים שכדאי לבדוק לפני שמתקדמים" items={content.trustChecks} />
+        </div>
+      </Section>
+
+      <Section eyebrow="תיאום ציפיות" title={content.pricingTitle} className="py-5 lg:py-8">
+        <div className="rounded-xl border border-purple-200/16 bg-purple-500/8 p-5">
+          <p className="max-w-5xl text-lg leading-8 text-zinc-300">
+            <BrandInline text={content.pricingText} />
+          </p>
+        </div>
+      </Section>
+
+      <Section eyebrow="טכנולוגיה וחשבונאות" title={content.techTitle} className="py-5 lg:py-8">
+        <div className="grid gap-5 lg:grid-cols-[0.86fr_1.14fr]">
+          <article className="command-glass rounded-xl p-5">
+            <p className="text-lg leading-8 text-zinc-300">
+              <BrandInline text={content.techText} />
+            </p>
+            <div className="mt-5 grid gap-2 text-base font-black">
+              <Link className="text-silver hover:text-white" href="/services/chatgpt-business-data">TalkToData וחיבור נתונים אל ChatGPT</Link>
+              <Link className="text-silver hover:text-white" href="/blog/ai-invoice-scanning-and-filtering">מדריך סריקת חשבוניות עם AI</Link>
+              <Link className="text-silver hover:text-white" href="/services/ai-automation">AI ואוטומציה לעסקים</Link>
+              <Link className="text-silver hover:text-white" href="/solutions/amazon-sellers">פתרונות למוכרי Amazon</Link>
+              <Link className="text-silver hover:text-white" href="/contact">יצירת קשר</Link>
+            </div>
+          </article>
+          <InfoColumn title="איפה נביא נס ישראל בע״מ יכולה לעזור בצד הטכנולוגי" items={content.techItems} />
+        </div>
+      </Section>
+
+      <section className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+        <div className="rounded-lg border border-purple-200/18 bg-black/55 p-4 text-base leading-7 text-zinc-300">
+          <strong className="text-white">הבהרה חשובה: </strong>
+          {content.disclaimer}
+        </div>
+      </section>
     </>
   );
 }

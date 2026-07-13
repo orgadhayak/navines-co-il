@@ -90,7 +90,7 @@ const featuredNewServices = [
 ];
 
 const solutionSummaries: Record<string, string> = {
-  accountants: "דוחות, מסמכים, לקוחות ושאלות חוזרות בממשק עבודה חכם.",
+  accountants: "צריכים רואה חשבון שמבין עסקים דיגיטליים? נוכל לעזור לכם למצוא את הכיוון הנכון.",
   "amazon-sellers": "Account Health, דוחות, Listings, מלאי, התראות וטיפול דחוף.",
   freelancers: "לידים, לקוחות, משימות, תשלומים ותזכורות במקום מסודר אחד.",
 };
