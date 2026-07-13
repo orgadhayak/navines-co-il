@@ -11,7 +11,7 @@ const primaryDesktopNav = mainNav.filter((item) => ["/", "/about", "/services", 
 const secondaryDesktopNav = mainNav.filter((item) => !primaryDesktopNav.some((primary) => primary.href === item.href));
 const solutionNav = solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` }));
 const courseNav = courseTracks.map((course) => ({ label: course.navLabel, href: `/courses/${course.slug}` }));
-const mobilePrimaryNav = mainNav.filter((item) => !["/courses", "/services/ai-automation", "/services/web-development", "/services/ecommerce", "/services/amazon-seller-seo-website"].includes(item.href));
+const mobilePrimaryNav = mainNav.filter((item) => !["/courses", "/services/ai-automation", "/services/web-development", "/services/ecommerce", "/services/amazon-seller-seo-website", "/services/browser-extension-development"].includes(item.href));
 const mobileServiceNav = services.map((service) => ({ label: service.title, href: `/services/${service.slug}` }));
 
 type DesktopDropdownKey = "solutions" | "courses" | "more";

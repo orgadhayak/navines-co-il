@@ -193,6 +193,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isExternalAmazonTrafficPost = post.slug === "how-to-bring-external-traffic-to-amazon-products";
   const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
   const isAccountantChoicePost = post.slug === "how-to-choose-accountant-for-digital-business";
+  const isBrowserExtensionPost = post.slug === "how-to-build-browser-extension-for-business";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -249,11 +250,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
       </article>
       <CTA
-        title={isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
@@ -269,6 +270,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
 function getRelatedPosts(slug: string) {
   const relatedSlugs: Record<string, string[]> = {
+    "how-to-build-browser-extension-for-business": ["web-systems-service-guide", "api-integrations-service-guide", "business-automation-start"],
     "how-to-choose-accountant-for-digital-business": ["accountants-ai-data-automation", "ai-invoice-scanning-and-filtering", "business-automation-start"],
     "business-automation-start": ["ai-invoice-scanning-and-filtering", "talk-to-business-data-chatgpt", "ai-chat-for-business-website"],
     "ai-invoice-scanning-and-filtering": ["business-automation-start", "accountants-ai-data-automation", "talk-to-business-data-chatgpt"],
@@ -281,6 +283,101 @@ function getRelatedPosts(slug: string) {
     .filter((post): post is (typeof blogPosts)[number] => Boolean(post));
   const fallback = blogPosts.filter((post) => post.slug !== slug && !selected.some((item) => item.slug === post.slug));
   return [...selected, ...fallback].slice(0, 3);
+}
+
+function BrowserExtensionArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>מהו תוסף לדפדפן</h2>
+      <p>
+        תוסף לדפדפן הוא כלי קטן שמותקן ב Chrome או בדפדפן תומך ומוסיף יכולת חדשה: קיצור דרך, מרכז כלים, בדיקה, עוזר חכם או חיבור מהיר לשירות קיים. המשתמש לא צריך להיכנס בכל פעם לאתר ולחפש פעולה, כי הכלי נמצא לידו בדפדפן.
+      </p>
+      <p>
+        תוסף טוב לא חייב להיות ענק. לפעמים הוא עושה פעולה אחת בצורה מצוינת: חוסך קליקים, מציג מידע בזמן הנכון, מחבר כמה כלים או עוזר לצוות לבצע פעולה שחוזרת על עצמה.
+      </p>
+
+      <h2>למה עסקים ויזמים בונים תוספים</h2>
+      <p>
+        תוסף יכול להפוך מוצר דיגיטלי לחלק משגרת העבודה של המשתמש. הוא מחזק נוכחות מותג, מחזיר משתמשים לכלים, יוצר נקודת מגע נוספת ומאפשר גישה מהירה לשירותים חשובים. זה לא קסם לקידום אורגני ולא מבטיח דירוגים, אבל הוא יכול לתמוך במותג, בשימוש חוזר ובמערכת שיווק רחבה יותר.
+      </p>
+
+      <h2>רעיונות שאפשר להפוך לתוסף</h2>
+      <ul>
+        <li>מרכז קיצורי דרך לכלים של החברה.</li>
+        <li>כלי בדיקה וניתוח לאתר, קישור, מוצר או תוכן.</li>
+        <li>עוזר לצוות מכירות, תמיכה או תפעול.</li>
+        <li>מילוי טפסים חכם או קיצור פעולה שחוזרת כל יום.</li>
+        <li>כלי SEO, איקומרס, קריפטו, מחקר או השוואה.</li>
+        <li>תוסף שמלווה מוצר SaaS ומפנה את המשתמש לפעולה הנכונה.</li>
+      </ul>
+
+      <h2>תוסף ציבורי מול תוסף פנימי</h2>
+      <p>
+        תוסף ציבורי מיועד למשתמשים רחבים יותר וצריך הסבר ברור, עמוד חנות, מדיניות פרטיות וחוויית שימוש מאוד פשוטה. תוסף פנימי מיועד לעובדי החברה או לצוות מסוים, ולכן הדגש הוא על הרשאות, אבטחה, פרטיות וקיצור תהליך עבודה.
+      </p>
+      <p>
+        בשני המקרים חשוב לא לאסוף מידע בלי צורך, לא לבצע מעקב נסתר ולא לבקש הרשאות רחבות מדי. תוסף אמין מתחיל בהרשאות מינימליות ובמטרה ברורה.
+      </p>
+
+      <h2>איך עוברים מרעיון לאפיון</h2>
+      <p>
+        לפני שמפתחים שואלים שאלות פשוטות: מי ישתמש בתוסף, מה הוא צריך לעשות, איזו פעולה הוא חוסך, מה חייב להיות בגרסה הראשונה ומה אפשר להשאיר להמשך. אפיון טוב מונע תוסף עמוס ומבלבל.
+      </p>
+      <ul>
+        <li>מגדירים פעולה מרכזית אחת או שתיים.</li>
+        <li>מתכננים ממשק קטן וברור.</li>
+        <li>בודקים אילו הרשאות באמת נדרשות.</li>
+        <li>מחליטים אם צריך API, שרת, AI או חיבור לאתר.</li>
+      </ul>
+
+      <h2>UX של תוסף קטן</h2>
+      <p>
+        בתוסף אין מקום לעודף מסכים. המשתמש פותח חלונית קטנה ורוצה להבין מיד מה עושים. לכן הכפתורים צריכים להיות ברורים, הטקסט קצר, והפעולה המרכזית צריכה להיות זמינה בלי חיפוש.
+      </p>
+
+      <h2>הרשאות, אבטחה ופרטיות</h2>
+      <p>
+        הרשאות הן אחד המקומות החשובים ביותר בתוסף. כל הרשאה צריכה להיות מוצדקת. אם משלבים שירותי AI או API, מפתחות ושירותים רגישים צריכים להישאר בצד שרת ולא בתוך קוד התוסף בצד המשתמש.
+      </p>
+      <p>
+        חשוב לעבוד לפי מדיניות חנויות הדפדפנים, להסביר למשתמש מה נאסף אם נאסף, ולא לבנות פעולה שמסתירה מעקב או שימוש לא ברור במידע.
+      </p>
+
+      <h2>חיבור לאתר, API או AI</h2>
+      <p>
+        תוסף יכול להתחבר לאתר, מערכת קיימת, API או שירות AI. לדוגמה, הוא יכול לפתוח כלי נכון, לשלוח נתון לבדיקה, לסכם מידע או להחזיר תוצאה מתוך מערכת עסקית. החיבור צריך להיות מאובטח, מדוד וברור למשתמש.
+      </p>
+
+      <h2>בדיקות ופרסום ב Chrome Web Store</h2>
+      <p>
+        לפני פרסום בודקים גרסאות דפדפן, הרשאות, מסכים, תקלות, טעינה והתנהגות במצבים שונים. לאחר מכן מכינים את עמוד החנות, תיאור, אייקון, מדיניות פרטיות וחומרים נדרשים. אין הבטחה לאישור אוטומטי, כי הפרסום כפוף למדיניות ולבדיקות של Chrome Web Store.
+      </p>
+
+      <h2>דוגמאות שבנינו</h2>
+      <p>
+        NAVINES Tools Hub הוא תוסף שמרכז את כלי NAVINES במקום אחד ומעניק גישה מהירה לכלים ולשירותים שלנו. PartnerCrypto Toolkit הוא תוסף שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות מתוך הדפדפן.
+      </p>
+      <p>
+        שתי הדוגמאות מראות רעיון פשוט: לקחת עולם כלים קיים ולהפוך אותו לנגיש יותר, קרוב יותר למשתמש ופחות תלוי בחיפוש ידני.
+      </p>
+
+      <h2>שאלות נפוצות</h2>
+      <h3>האם אפשר להתחיל מגרסה פשוטה?</h3>
+      <p>כן. ברוב המקרים נכון להתחיל מגרסה ראשונה קטנה, לבדוק שימוש אמיתי ואז להרחיב.</p>
+      <h3>האם תוסף יכול לעבוד גם ב Edge?</h3>
+      <p>במקרים רבים תוספי Chrome מבוססי Chromium יכולים להתאים גם ל Microsoft Edge, אבל בודקים התאמה לפי הפרויקט.</p>
+      <h3>האם תוסף יכול לעזור לקידום העסק?</h3>
+      <p>הוא יכול לתרום לנוכחות מותג, שימוש חוזר ונקודת מגע נוספת עם המשתמש. לא נכון להבטיח שהתוסף לבדו ישפר דירוגים בגוגל.</p>
+
+      <h2>סיכום</h2>
+      <p>
+        תוסף לדפדפן הוא דרך חכמה להפוך רעיון קטן לכלי שימושי. אם יש לכם רעיון שיכול לחסוך פעולה, לרכז כלים או לחבר משתמשים לשירות שלכם, כדאי להתחיל באפיון קצר ולבדוק מה הגרסה הראשונה הנכונה.
+      </p>
+      <p>
+        <Link className="font-black text-glowred hover:text-white" href="/services/browser-extension-development">לעמוד השירות: בניית תוספים לדפדפנים</Link>
+      </p>
+    </div>
+  );
 }
 
 function AccountantChoiceArticleBody() {

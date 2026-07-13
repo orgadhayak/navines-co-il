@@ -64,6 +64,12 @@ const featuredNewServices = [
     cta: "רוצים להביא תנועה מחוץ ל Amazon?",
   },
   {
+    title: "פיתוח תוספים לדפדפן",
+    text: "הופכים רעיון לכלי חכם שנמצא ישירות ב Chrome ומחבר משתמשים לעסק, למוצר או למערכת.",
+    href: "/services/browser-extension-development",
+    cta: "יש לכם רעיון לתוסף?",
+  },
+  {
     title: "צ׳ט AI חכם לאתרים",
     text: "עוזר קצר וברור שמבין את תוכן האתר, מסביר לגולש מה מתאים לו ומוביל לוואטסאפ.",
     href: "/services/ai-chat-for-websites",

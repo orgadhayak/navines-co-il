@@ -13,7 +13,7 @@ export const metadata = createMetadata({
 
 export default function ProductsPage() {
   const talkToDataProduct = products.find((product) => product.slug === "talk-to-data");
-  const featuredProducts = products.filter((product) => ["navines-site-assistant", "talk-to-data", "navines-beacon"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["navines-site-assistant", "talk-to-data", "navines-beacon", "navines-tools-hub-extension", "partnercrypto-toolkit-extension"].includes(product.slug));
 
   return (
     <>
