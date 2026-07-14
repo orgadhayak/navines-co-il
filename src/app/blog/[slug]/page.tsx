@@ -189,6 +189,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isAiChatWebsitePost = post.slug === "ai-chat-for-business-website";
   const isTechnicalSupportPost = post.slug === "technical-support-cyber-networks-business";
   const isAccountHackPost = post.slug === "what-to-do-when-account-is-hacked";
+  const isSecureAccountsPost = post.slug === "how-to-secure-accounts-after-hack";
   const isBusinessDueDiligencePost = post.slug === "business-due-diligence-before-buying";
   const isExternalAmazonTrafficPost = post.slug === "how-to-bring-external-traffic-to-amazon-products";
   const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
@@ -207,10 +208,22 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     datePublished: post.publishedAt,
     inLanguage: "he-IL",
   };
+  const faqSchema = post.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
 
   return (
     <>
       <JsonLd data={articleSchema} />
+      {faqSchema ? <JsonLd data={faqSchema} /> : null}
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "בלוג", href: "/blog" }, { name: post.title, href: `/blog/${post.slug}` }])} />
       <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <p className="text-sm font-semibold text-glowred">
@@ -250,11 +263,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       <CTA
-        title={isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-semibold text-white">מאמרים קשורים</h2>
@@ -269,20 +283,46 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 }
 
 function getRelatedPosts(slug: string) {
-  const relatedSlugs: Record<string, string[]> = {
-    "how-to-build-browser-extension-for-business": ["web-systems-service-guide", "api-integrations-service-guide", "business-automation-start"],
-    "how-to-choose-accountant-for-digital-business": ["accountants-ai-data-automation", "ai-invoice-scanning-and-filtering", "business-automation-start"],
-    "business-automation-start": ["ai-invoice-scanning-and-filtering", "talk-to-business-data-chatgpt", "ai-chat-for-business-website"],
-    "ai-invoice-scanning-and-filtering": ["business-automation-start", "accountants-ai-data-automation", "talk-to-business-data-chatgpt"],
-    "ecommerce-service-guide": ["shopify-israel", "amazon-ebay-mistakes", "optimization-service-guide"],
-    "mobile-app-service-guide": ["api-save-hours", "web-systems-service-guide", "consulting-qa-service-guide"],
+  const current = blogPosts.find((post) => post.slug === slug);
+  if (!current) return blogPosts.slice(0, 3);
+
+  const bySlug = new Map(blogPosts.map((post) => [post.slug, post]));
+  const selected: typeof blogPosts = [];
+  const selectedSlugs = new Set<string>([slug]);
+
+  const add = (post: (typeof blogPosts)[number] | undefined) => {
+    if (!post || selectedSlugs.has(post.slug) || selected.length >= 3) return;
+    selected.push(post);
+    selectedSlugs.add(post.slug);
   };
 
-  const selected = (relatedSlugs[slug] || [])
-    .map((relatedSlug) => blogPosts.find((post) => post.slug === relatedSlug))
-    .filter((post): post is (typeof blogPosts)[number] => Boolean(post));
-  const fallback = blogPosts.filter((post) => post.slug !== slug && !selected.some((item) => item.slug === post.slug));
-  return [...selected, ...fallback].slice(0, 3);
+  current.relatedSlugs?.forEach((relatedSlug) => add(bySlug.get(relatedSlug)));
+
+  blogPosts
+    .filter((post) => post.category === current.category)
+    .forEach(add);
+
+  blogPosts
+    .filter((post) => post.tags.some((tag) => current.tags.includes(tag)))
+    .forEach(add);
+
+  blogPosts.forEach(add);
+
+  return selected.slice(0, 3);
+}
+
+function PostFaqList({ faqs }: { faqs: NonNullable<(typeof blogPosts)[number]["faqs"]> }) {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300">
+      <h2>שאלות נפוצות</h2>
+      {faqs.map((faq) => (
+        <div key={faq.question}>
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function BrowserExtensionArticleBody() {
@@ -525,6 +565,40 @@ function BusinessAutomationArticleBody() {
         <li>מחליטים מה חייב להישאר לאישור אנושי.</li>
         <li>בונים גרסה קטנה, בודקים, ואז מרחיבים.</li>
       </ol>
+      <h2>מה משפיע על עלות אוטומציה עסקית?</h2>
+      <p>
+        העלות לא נקבעת לפי שם הכלי אלא לפי היקף התהליך: כמה מערכות צריך לחבר, האם יש API מסודר, כמה תנאים ולוגיקה יש, האם צריך AI, כמה בדיקות נדרשות, ומה רמת ההרשאות והאבטחה. לכן נכון להתחיל מאפיון קצר ולא ממספר שמנותק מהמציאות.
+      </p>
+      <h2>כמה זמן לוקח להקים אוטומציה?</h2>
+      <p>
+        תהליך קטן יכול להתחיל מהר יותר מתהליך שמחבר כמה מערכות רגישות. מה שמשפיע הוא איכות המידע הקיים, גישה למערכות, אישור אנושי, בדיקות מול משתמשים והאם צריך לשנות תהליך עבודה בצוות.
+      </p>
+      <h2>איך מודדים הצלחה?</h2>
+      <ul>
+        <li>כמה זמן נחסך בפעולה שחוזרת על עצמה.</li>
+        <li>כמה פניות או משימות לא נופלות בין הכיסאות.</li>
+        <li>האם זמן התגובה ללקוח השתפר.</li>
+        <li>האם יש פחות טעויות בהעתקת מידע.</li>
+        <li>האם הצוות באמת משתמש בתהליך החדש.</li>
+      </ul>
+      <h2>כלי מדף, No-code או פיתוח מותאם?</h2>
+      <p>
+        כלי מדף מתאים כשיש צורך פשוט ומוכר. No-code יכול להיות התחלה טובה כשצריך לחבר כמה פעולות בלי פיתוח כבד. פיתוח מותאם מתאים כשיש לוגיקה עסקית מיוחדת, הרשאות, נתונים רגישים או צורך בממשק שמותאם בדיוק לצוות.
+      </p>
+      <h2>שלושה תרחישים נפוצים</h2>
+      <ul>
+        <li>פנייה באתר נכנסת למערכת, נפתחת משימה לצוות ונשלחת הודעת וואטסאפ קצרה ללקוח.</li>
+        <li>חשבונית שמגיעה למייל עוברת סריקה, סימון שדות לא בטוחים ובדיקה אנושית לפני תיוק או העברה למערכת.</li>
+        <li>דוח יומי אוסף נתונים ממכירות, מלאי ופניות ומציג לבעל העסק מה דורש טיפול היום.</li>
+      </ul>
+      <h2>רשימת בדיקה לפני שמתחילים</h2>
+      <ul>
+        <li>איזו פעולה חוזרת על עצמה הכי הרבה?</li>
+        <li>איפה המידע נמצא היום?</li>
+        <li>מי צריך לאשר פעולה לפני שהיא מתבצעת?</li>
+        <li>מה ייחשב הצלחה אחרי חודש שימוש?</li>
+        <li>איזה מידע רגיש ולא צריך להיכנס לתהליך?</li>
+      </ul>
       <h2>טעויות נפוצות</h2>
       <ul>
         <li>להתחיל מכלי לפני שמבינים את התהליך.</li>
@@ -593,8 +667,10 @@ function InvoiceScanningArticleBody() {
       <p>כן. אפשר לבנות פתרון מותאם לצורת העבודה שלכם, בלי להבטיח מוצר מדף שמתאים לכל חשבונית בעולם.</p>
       <h2>קישורים שימושיים</h2>
       <ul>
+        <li><Link href="/blog/business-automation-start">מהי אוטומציה עסקית ואיך מתחילים</Link></li>
         <li><Link href="/services/chatgpt-business-data">TalkToData וחיבור נתונים ל ChatGPT</Link></li>
         <li><Link href="/solutions/accountants">פתרונות AI לרואי חשבון</Link></li>
+        <li><Link href="/blog/accountants-ai-data-automation">AI ודאטה למשרדי רואי חשבון</Link></li>
         <li><Link href="/services/ai-automation">AI ואוטומציה לעסקים</Link></li>
         <li><Link href="/contact">יצירת קשר</Link></li>
       </ul>
@@ -828,6 +904,83 @@ function MultilingualAmazonSeoArticleBody() {
   );
 }
 
+function SecureAccountsAfterHackArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>אבטחה אחרי פריצה מתחילה מהמייל הראשי</h2>
+      <p>
+        אחרי פריצה או ניסיון השתלטות, הרבה אנשים רצים להחליף סיסמה בחשבון שנפגע ושוכחים את השורש: המייל הראשי. אם לתוקף יש עדיין גישה למייל, הוא יכול לקבל קודי שחזור, לשנות סיסמאות שוב, לראות התראות אבטחה ולהמשיך לשלוט בחשבונות נוספים. לכן הצעד הראשון הוא לבדוק שהמייל עצמו בשליטה מלאה, עם סיסמה חדשה, אימות דו שלבי ופרטי שחזור עדכניים.
+      </p>
+      <p>
+        חשוב לבדוק גם אם קיימות הפניות מייל, כללי סינון, כתובות שחזור לא מוכרות או מכשירים שמחוברים לתיבה. לפעמים התוקף לא נשאר בתוך החשבון החברתי, אלא משאיר לעצמו דרך שקטה לחזור דרך המייל.
+      </p>
+
+      <h2>סיסמאות ייחודיות ולא ממוחזרות</h2>
+      <p>
+        אחת הטעויות הנפוצות אחרי פריצה היא להחליף סיסמה רק במקום אחד, בזמן שאותה סיסמה שימשה גם בפייסבוק, אינסטגרם, טלגרם, מייל, חנות אונליין או מערכת ניהול. סיסמה שנחשפה במקום אחד עלולה לסכן מקומות נוספים. לכל חשבון חשוב צריכה להיות סיסמה ייחודית, ארוכה וקשה לניחוש.
+      </p>
+      <p>
+        אם משתמשים במנהל סיסמאות, חשוב לבדוק שגם אליו יש אימות דו שלבי ושאין מכשירים ישנים שמחוברים ללא צורך. אם לא משתמשים במנהל סיסמאות, זה זמן טוב לשקול מעבר מסודר, כי קשה לנהל הרבה סיסמאות חזקות בצורה ידנית.
+      </p>
+
+      <h2>ניתוק מכשירים וסשנים קיימים</h2>
+      <p>
+        שינוי סיסמה לא תמיד מנתק מיד כל מכשיר או סשן פעיל. לכן צריך לבדוק את רשימת המכשירים המחוברים, הדפדפנים הפעילים, האפליקציות שקיבלו הרשאה והכניסות האחרונות. אם מופיע מכשיר שלא מזהים, עיר לא מוכרת, דפדפן לא שלכם או כניסה בשעה חריגה, מנתקים אותו וממשיכים לבדוק.
+      </p>
+      <p>
+        בעסק, כדאי לבדוק גם מחשבים של עובדים, טלפונים ישנים, טאבלטים, מכשירי משרד וחשבונות שנשארו פתוחים אצל ספקים או עובדים שכבר לא משתמשים בהם.
+      </p>
+
+      <h2>אימות דו שלבי וקודי גיבוי</h2>
+      <p>
+        אימות דו שלבי הוא שכבה חשובה, אבל צריך להגדיר אותו נכון. עדיף להשתמש באפליקציית אימות או מנגנון חזק יותר כאשר זה אפשרי, ולא להסתמך רק על SMS אם קיימת חלופה טובה. בנוסף, כדאי לשמור קודי גיבוי במקום מאובטח, לא בתוך אותה תיבת מייל שעלולה להיפגע.
+      </p>
+      <p>
+        אם לתוקף הייתה גישה לחשבון, חשוב לבדוק שלא הוגדר אמצעי אימות חדש שאינו שלכם, ושמספר הטלפון או כתובת השחזור באמת שייכים לכם.
+      </p>
+
+      <h2>אפליקציות חיצוניות והרשאות מנהלים</h2>
+      <p>
+        חשבונות רבים מחוברים לשירותים חיצוניים: כלי פרסום, תוספים, אפליקציות ניהול סושיאל, CRM, חנויות, מערכות שליחת מייל וכלים שמקבלים הרשאה לגשת למידע. אחרי אירוע פריצה צריך לבדוק אילו אפליקציות עדיין מחוברות, להסיר מה שלא מוכר ולצמצם הרשאות רחבות מדי.
+      </p>
+      <p>
+        בדפים עסקיים, חשבונות פרסום ונכסים דיגיטליים, יש לבדוק גם מי מנהל, מי עורך, מי מחזיק הרשאות תשלום ומי יכול להוסיף אנשים חדשים. לפעמים הפריצה לא נראית בחשבון האישי, אלא בהרשאות של נכס עסקי.
+      </p>
+
+      <h2>חשבונות פרסום, דומיינים ונכסים עסקיים</h2>
+      <p>
+        עסק שנפרץ צריך לחשוב רחב יותר מחשבון סושיאל אחד. צריך לבדוק דומיינים, DNS, אתר, חשבון פרסום, Google Business Profile, חנות Shopify או WooCommerce, מערכת דיוור, תיבת מייל עסקית וגישה לחברת אחסון. כל אחד מהנכסים האלה יכול להשפיע על אמון, מכירות ותפעול.
+      </p>
+      <p>
+        אם יש חשד שמישהו השתמש בחשבון פרסום, ביצע חיובים, שלח הודעות בשם העסק או שינה פרטי קשר, חשוב לתעד, לעצור פעילות לא מוכרת ולפנות לפלטפורמה דרך הערוצים החוקיים.
+      </p>
+
+      <h2>מעקב אחרי סימנים חריגים</h2>
+      <p>
+        גם אחרי שהכול נראה יציב, כדאי לעקוב במשך תקופה אחרי הודעות שחוזרות, ניסיונות כניסה, שינויי סיסמה, הודעות שלא אתם שלחתם, קמפיינים לא מוכרים, כללי מייל חדשים או שינויים בפרטי שחזור. אירוע פריצה הוא לא רק רגע אחד, לפעמים הוא תהליך.
+      </p>
+      <p>
+        אם לקוחות או חברים קיבלו הודעות מזויפות בשמכם, כדאי להכין הודעה קצרה וברורה שמסבירה שהייתה השתלטות ושלא לפתוח קישורים חשודים. עושים זאת בזהירות, בלי לפרסם מידע רגיש ובלי להיכנס לפאניקה.
+      </p>
+
+      <h2>מתי לערב גורם מקצועי?</h2>
+      <p>
+        אם מדובר בחשבון עסקי, מייל מרכזי, חשבון פרסום, דומיין, אתר, ניסיון סחיטה, איום בפרסום מידע או פגיעה בכמה חשבונות במקביל, כדאי לקבל ליווי. לא בגלל שאי אפשר לעשות שום דבר לבד, אלא כי סדר הפעולות חשוב. פעולה לא נכונה יכולה למחוק ראיות, לנעול גישה או להקשות על דיווח לפלטפורמה.
+      </p>
+      <p>
+        נביא נס ישראל בע״מ לא מבטיחה החזרת חשבון ולא מבצעת פעולה לא חוקית. העבודה היא תיעוד, הבנת מצב, ניסיונות שחזור בערוצים חוקיים, אבטחה מחדש, בדיקת נכסים קשורים והכוונה רגועה לצעדים הבאים.
+      </p>
+
+      <h2>קישורים שימושיים</h2>
+      <ul>
+        <li><Link href="/blog/what-to-do-when-account-is-hacked">מה עושים ברגע הראשון אחרי פריצה לחשבון</Link></li>
+        <li><Link href="/services/account-hack-recovery">סיוע במקרה פריצה לחשבון ונכסים דיגיטליים</Link></li>
+        <li><Link href="/services/technical-support-cyber-networks">תמיכה טכנית, סייבר, רשתות ופתרון תקלות</Link></li>
+      </ul>
+    </div>
+  );
+}
+
 function AccountHackArticleBody() {
   return (
     <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
@@ -867,6 +1020,15 @@ function AccountHackArticleBody() {
       <h2>מה חשוב להבין על השירות?</h2>
       <p>
         אין הבטחה להחזרת חשבון ואין פעולה לא חוקית. המטרה היא לסייע בניהול מצב, תיעוד, דיווח, ניסיונות שחזור חוקיים, צמצום נזק ואבטחה מחדש של החשבונות והנכסים הדיגיטליים.
+      </p>
+      <h2>אחרי שחוזרים לשליטה, צריך לאבטח מחדש</h2>
+      <p>
+        גם אם הצלחתם לשנות סיסמה או להחזיר גישה, חשוב לא להניח שהאירוע נגמר. צריך לבדוק מייל ראשי, מכשירים מחוברים, אפשרויות שחזור, אפליקציות חיצוניות, הרשאות מנהלים וכללים במייל.
+      </p>
+      <p>
+        <Link className="font-semibold text-glowred hover:text-white" href="/blog/how-to-secure-accounts-after-hack">
+          מדריך המשך: איך לאבטח חשבונות אחרי פריצה או שחזור גישה
+        </Link>
       </p>
       <h2>סיכום</h2>
       <p>
@@ -1141,6 +1303,19 @@ function SolutionArticleBody({ content }: { content: (typeof solutionArticleCont
       <p>
         <BrandInline text={content.why} />
       </p>
+      {content.solutionHref === "/solutions/accountants" ? (
+        <>
+          <h2>איפה סריקת חשבוניות משתלבת במשרד רואי חשבון?</h2>
+          <p>
+            סריקת חשבוניות היא לא תחליף לשיקול דעת מקצועי. היא יכולה להשתלב בשלב קליטת המסמכים: קבלת קבצים, חילוץ ספק, תאריך, סכום ומע״מ, סימון שדות לא בטוחים, בדיקה אנושית, ואז העברה מסודרת לתיק לקוח, מערכת או דוח. כך הצוות מקבל חומר מסודר יותר, בלי לוותר על בדיקה מקצועית והרשאות.
+          </p>
+          <p>
+            <Link className="font-semibold text-glowred hover:text-white" href="/blog/ai-invoice-scanning-and-filtering">
+              לקריאה נוספת: סריקת וסינון חשבוניות עם AI
+            </Link>
+          </p>
+        </>
+      ) : null}
       <h2>דוגמאות לשאלות שאפשר לשאול</h2>
       <ul>
         {content.examples.map((item) => (

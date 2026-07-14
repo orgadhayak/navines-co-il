@@ -115,10 +115,35 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </article>
           ) : null}
           {isBrowserExtensionService ? <BrowserExtensionExamples /> : null}
-          <InfoBlock title="מה השירות?" items={[service.summary]} />
+          <InfoBlock title="מה השירות?" items={[service.overview || service.summary]} />
           <InfoBlock title="למי זה מתאים?" items={service.audience} />
           <InfoBlock title="מה עושים בפועל ודוגמה פשוטה" items={service.actions} />
           <InfoBlock title="בעיות שאנחנו פותרים" items={service.problems} />
+          {service.serviceHighlights?.length ? (
+            <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+              <h2 className="text-2xl font-semibold text-white">נקודות שחשוב להבין</h2>
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                {service.serviceHighlights.map((highlight) => {
+                  const content = (
+                    <>
+                      <h3 className="text-xl font-semibold text-white">{highlight.title}</h3>
+                      <p className="mt-2 text-base leading-7 text-zinc-400">{highlight.text}</p>
+                    </>
+                  );
+
+                  return highlight.href ? (
+                    <Link className="rounded-lg border border-purple-200/12 bg-black/18 p-4 transition hover:border-purple-200/35 hover:bg-purple-500/12" href={highlight.href} key={highlight.title}>
+                      {content}
+                    </Link>
+                  ) : (
+                    <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4" key={highlight.title}>
+                      {content}
+                    </div>
+                  );
+                })}
+              </div>
+            </article>
+          ) : null}
           {service.relatedArticles?.length ? (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
               <h2 className="text-2xl font-semibold text-white">מדריכים קשורים</h2>
@@ -138,11 +163,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
             <h2 className="text-2xl font-semibold text-white">תהליך עבודה</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
-              {["שיחת אפיון", "מיפוי מצב קיים", "תכנון פתרון", "פיתוח וביצוע", "בדיקות ושיפור", "השקה וליווי"].map((step, index) => (
-                <div className="rounded-premium border border-white/10 bg-black/20 p-4" key={step}>
+              {(service.processSteps || [
+                { title: "שיחת אפיון", text: "מבינים את העסק, הבעיה, המערכות הקיימות והמטרה העסקית." },
+                { title: "מיפוי מצב קיים", text: "בודקים מה עובד היום, איפה יש חיכוך ומה צריך להשתנות." },
+                { title: "תכנון פתרון", text: "מגדירים פתרון מדורג שאפשר לבנות, לבדוק ולשפר בלי עומס מיותר." },
+                { title: "פיתוח וביצוע", text: "בונים את האתר, המערכת, האוטומציה או החיבור לפי הצורך." },
+                { title: "בדיקות ושיפור", text: "בודקים מובייל, ביצועים, טפסים, הרשאות, נתונים וחוויית משתמש." },
+                { title: "השקה וליווי", text: "מעלים לאוויר, עוקבים אחרי שימוש וממשיכים לשפר לפי נתונים." },
+              ]).map((step, index) => (
+                <div className="rounded-premium border border-white/10 bg-black/20 p-4" key={step.title}>
                   <span className="grid h-9 w-9 place-items-center rounded-premium bg-navred font-semibold text-white">{index + 1}</span>
-                  <h3 className="mt-3 font-semibold text-white">{step}</h3>
-                  <p className="mt-2 text-sm leading-6 text-zinc-400">עובדים מסודר, מודדים ומתקדמים לפי ערך עסקי.</p>
+                  <h3 className="mt-3 font-semibold text-white">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-zinc-400">{step.text}</p>
                 </div>
               ))}
             </div>

@@ -31,6 +31,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   const solution = solutionPages.find((item) => item.slug === slug);
   if (!solution) notFound();
   const isAmazonSellerSolution = solution.slug === "amazon-sellers";
+  const showStandaloneTalkToData = solution.slug !== "freelancers";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -138,31 +139,33 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         <CompactList items={solution.problems} />
       </Section>
 
-      <Section eyebrow="לדבר עם הנתונים" title={solution.talkToData.title} className="py-5 lg:py-8">
-        <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <article className="command-glass rounded-[1.6rem] p-5">
-            <p className="text-lg leading-8 text-zinc-300">
-              <BrandInline text={solution.talkToData.text} />
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a className="btn-primary" href={site.whatsappHref}>
-                רוצים להבין מה אפשר לשאול? כתבו לנו
-              </a>
-              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank"> לצפייה ב TalkToData </a>
-            </div>
-          </article>
-          <article className="command-glass rounded-[1.6rem] p-5">
-            <h2 className="text-2xl font-semibold text-white">דוגמאות לשאלות שאפשר לשאול</h2>
-            <div className="mt-4 grid gap-2">
-              {solution.talkToData.examples.map((example) => (
-                <div className="dashboard-row rounded-full px-4 py-3 text-base font-semibold text-zinc-200" key={example}>
-                  {example}
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-      </Section>
+      {showStandaloneTalkToData ? (
+        <Section eyebrow="לדבר עם הנתונים" title={solution.talkToData.title} className="py-5 lg:py-8">
+          <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+            <article className="command-glass rounded-[1.6rem] p-5">
+              <p className="text-lg leading-8 text-zinc-300">
+                <BrandInline text={solution.talkToData.text} />
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a className="btn-primary" href={site.whatsappHref}>
+                  רוצים להבין מה אפשר לשאול? כתבו לנו
+                </a>
+                <a className="btn-secondary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank"> לצפייה ב TalkToData </a>
+              </div>
+            </article>
+            <article className="command-glass rounded-[1.6rem] p-5">
+              <h2 className="text-2xl font-semibold text-white">דוגמאות לשאלות שאפשר לשאול</h2>
+              <div className="mt-4 grid gap-2">
+                {solution.talkToData.examples.map((example) => (
+                  <div className="dashboard-row rounded-full px-4 py-3 text-base font-semibold text-zinc-200" key={example}>
+                    {example}
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </Section>
+      ) : null}
 
       <Section eyebrow="מה נביא נס ישראל בע״מ בונה" title="פתרון קטן או מערכת מלאה, לפי מה שהעסק באמת צריך" className="py-5 lg:py-8">
         <div className="grid gap-4 lg:grid-cols-3">
