@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/data/site";
+import { landingAlternates } from "@/i18n/locales";
 
 export function createMetadata({
   title,
@@ -29,11 +30,7 @@ export function createMetadata({
       canonical: url,
       languages:
         path === ""
-          ? {
-              "he-IL": site.url,
-              en: site.internationalUrl,
-              "x-default": site.internationalUrl,
-            }
+          ? landingAlternates
           : {
               "he-IL": url,
             },

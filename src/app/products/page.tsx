@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ProductCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { Section } from "@/components/Section";
@@ -22,8 +22,8 @@ export default function ProductsPage() {
         {talkToDataProduct ? (
           <div className="command-glass mt-7 rounded-[1.8rem] p-5 lg:flex lg:items-center lg:justify-between lg:gap-6">
             <div className="max-w-3xl">
-              <p className="text-sm font-black text-glowred">הכלי הראשון שכדאי לראות</p>
-              <h2 className="mt-2 text-3xl font-black leading-tight text-white md:text-5xl">{talkToDataProduct.hebrewName}</h2>
+              <p className="text-sm font-semibold text-glowred">הכלי הראשון שכדאי לראות</p>
+              <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-5xl">{talkToDataProduct.hebrewName}</h2>
               <p className="mt-4 text-lg leading-8 text-zinc-300">{talkToDataProduct.description}</p>
             </div>
             <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:grid">
@@ -33,7 +33,7 @@ export default function ProductsPage() {
           </div>
         ) : null}
         <div className="mt-8">
-          <h2 className="text-3xl font-black text-white">כלים מובילים שכדאי להכיר</h2>
+          <h2 className="text-3xl font-semibold text-white">כלים מובילים שכדאי להכיר</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {featuredProducts.map((product) => (
               <ProductCard key={product.slug} product={product} />

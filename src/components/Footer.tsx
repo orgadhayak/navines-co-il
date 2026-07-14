@@ -1,118 +1,214 @@
 import Link from "next/link";
-import { BrandInline } from "@/components/BrandInline";
-import { courseTracks, site } from "@/data/site";
+import { languageLinks, type LocaleSlug } from "@/i18n/locales";
+import { site } from "@/data/site";
 
-export function Footer() {
-  const serviceLinks = [
-    ["אתר תדמית במחיר 999 ₪", "/services/business-website-999"],
-    ["כלי חינמי לגולשים", "/services/smart-website-lead-engine"],
-    ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
-    ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
-    ["סיוע בפריצה לחשבון", "/services/account-hack-recovery"],
-    ["בדיקת עסק לפני רכישה", "/services/business-due-diligence-intelligence"],
-    ["אתר SEO למוכרי Amazon", "/services/amazon-seller-seo-website"],
-    ["פיתוח תוספים לדפדפן", "/services/browser-extension-development"],
-    ["פתרונות לרואי חשבון", "/solutions/accountants"],
-    ["נתונים עם ChatGPT", "/services/chatgpt-business-data"],
-    ["אתרים ומערכות", "/services/web-development"],
-    ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
-    ["איקומרס", "/services/ecommerce"],
-    ["שיפור מהירות", "/services/website-speed-optimization"],
-    ["אבטחה", "/services/security-recovery"],
-    ["קידום אורגני", "/services/seo-digital-marketing"],
-    ["ייעוץ טכנולוגי", "/services/consulting"],
-  ];
+const footerCopy: Record<LocaleSlug, {
+  description: string;
+  services: string;
+  products: string;
+  contact: string;
+  languages: string;
+  legal: string;
+  ctaTitle: string;
+  ctaText: string;
+  whatsapp: string;
+  email: string;
+  phone: string;
+}> = {
+  he: {
+    description: "חברת תוכנה ו-AI ישראלית שבונה אתרים, מערכות, אוטומציות וכלים דיגיטליים לעסקים שרוצים לעבוד ברור, מהיר ומסודר יותר.",
+    services: "שירותים מרכזיים",
+    products: "מוצרים ותובנות",
+    contact: "יצירת קשר",
+    languages: "שפות",
+    legal: "משפטי",
+    ctaTitle: "רוצים להבין מה נכון לעסק שלכם?",
+    ctaText: "שלחו הודעה קצרה ונכוון אתכם לשירות, מוצר או שיחה שמתאימים לצורך האמיתי.",
+    whatsapp: "דברו איתנו ב-WhatsApp",
+    email: "שליחת email",
+    phone: "טלפון",
+  },
+  de: {
+    description: "Israelisches Software- und KI-Unternehmen für praktische digitale Systeme, Automatisierung und Datenwerkzeuge für Unternehmen.",
+    services: "Leistungen",
+    products: "Produkte und Einblicke",
+    contact: "Kontakt",
+    languages: "Sprachen",
+    legal: "Rechtliches",
+    ctaTitle: "Möchten Sie ein konkretes digitales Projekt besprechen?",
+    ctaText: "Senden Sie eine kurze Nachricht. Wir helfen, den richtigen nächsten Schritt zu klären.",
+    whatsapp: "Über WhatsApp schreiben",
+    email: "E-Mail senden",
+    phone: "Telefon",
+  },
+  jp: {
+    description: "イスラエル発のソフトウェアとAIの会社として、実用的なシステム、自動化、データ活用を支援します。",
+    services: "サービス",
+    products: "製品とインサイト",
+    contact: "お問い合わせ",
+    languages: "言語",
+    legal: "法務情報",
+    ctaTitle: "デジタルプロジェクトについて相談しますか。",
+    ctaText: "短いメッセージをお送りください。次に何を確認すべきか整理します。",
+    whatsapp: "WhatsAppで相談",
+    email: "メールを送る",
+    phone: "電話",
+  },
+  ar: {
+    description: "شركة إسرائيلية للبرمجيات والذكاء الاصطناعي تبني أنظمة عملية وأتمتة وأدوات بيانات للشركات.",
+    services: "الخدمات",
+    products: "المنتجات والمقالات",
+    contact: "تواصل",
+    languages: "اللغات",
+    legal: "روابط قانونية",
+    ctaTitle: "هل تريدون مناقشة مشروع رقمي عملي؟",
+    ctaText: "أرسلوا رسالة قصيرة وسنساعدكم في فهم الخطوة المناسبة.",
+    whatsapp: "تواصل عبر WhatsApp",
+    email: "إرسال بريد إلكتروني",
+    phone: "هاتف",
+  },
+  hi: {
+    description: "इज़राइल की software और AI कंपनी, जो व्यवसायों के लिए व्यावहारिक systems, automation और data tools बनाती है।",
+    services: "सेवाएँ",
+    products: "उत्पाद और लेख",
+    contact: "संपर्क",
+    languages: "भाषाएँ",
+    legal: "कानूनी",
+    ctaTitle: "किसी डिजिटल प्रोजेक्ट पर बात करनी है?",
+    ctaText: "एक छोटा संदेश भेजें। हम सही अगला कदम समझने में मदद करेंगे।",
+    whatsapp: "WhatsApp पर बात करें",
+    email: "ईमेल भेजें",
+    phone: "फोन",
+  },
+  fr: {
+    description: "Entreprise israélienne de logiciel et d’IA qui conçoit des systèmes numériques, automatisations et outils de données utiles aux entreprises.",
+    services: "Services",
+    products: "Produits et articles",
+    contact: "Contact",
+    languages: "Langues",
+    legal: "Mentions légales",
+    ctaTitle: "Vous voulez discuter d’un projet numérique concret ?",
+    ctaText: "Envoyez un court message. Nous vous aiderons à clarifier la bonne prochaine étape.",
+    whatsapp: "Écrire sur WhatsApp",
+    email: "Envoyer un email",
+    phone: "Téléphone",
+  },
+  zh: {
+    description: "来自以色列的软件与 AI 公司，为企业构建实用的数字系统、自动化流程和数据工具。",
+    services: "服务",
+    products: "产品与洞察",
+    contact: "联系",
+    languages: "语言",
+    legal: "法律信息",
+    ctaTitle: "想讨论一个实际的数字项目？",
+    ctaText: "发送一条简短消息，我们会帮助您判断合适的下一步。",
+    whatsapp: "通过 WhatsApp 联系",
+    email: "发送邮件",
+    phone: "电话",
+  },
+};
 
-  const toolLinks = [
-    ["העוזר החכם", "/services/ai-chat-for-websites"],
-    ["ביקון", "https://beacon.navines.com"],
-    ["לדבר עם הנתונים", "https://talktodata.navines.com"],
-    ["בודק אתרים", "https://analyze.navines.com"],
-    ["בדיקת קישורים", "https://checklink.ai"],
-    ["מודיעין נדל״ן", "/products"],
-    ["מאור ישראל", "https://maorisrael.com"],
-  ];
+const serviceLinks = [
+  ["AI ואוטומציה", "/services/ai-automation"],
+  ["אתרים ומערכות", "/services/web-development"],
+  ["TalkToData", "/services/chatgpt-business-data"],
+  ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
+  ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
+  ["כל השירותים", "/services"],
+];
 
-  const courseLinks = [
-    ["כל קורסי AI", "/courses"],
-    ...courseTracks.map((course) => [course.navLabel, `/courses/${course.slug}`]),
-  ];
+const productLinks = [
+  ["TalkToData", "https://talktodata.navines.com"],
+  ["NAVINES Beacon", "https://beacon.navines.com"],
+  ["Products", "/products"],
+  ["Blog", "/blog"],
+];
+
+const legalLinks = [
+  ["Privacy", "/privacy"],
+  ["Terms", "/terms"],
+  ["Accessibility", "/accessibility"],
+];
+
+const localizedFooterLinks: Record<Exclude<LocaleSlug, "he">, { services: string[][]; products: string[][] }> = {
+  de: {
+    services: [["Leistungen", "/de#services"], ["Lösungen", "/de#solutions"], ["Kontakt", "/de#contact"]],
+    products: [["Einblicke", "/de#insights"], ["NAVINES.com", site.internationalUrl]],
+  },
+  jp: {
+    services: [["サービス", "/jp#services"], ["ソリューション", "/jp#solutions"], ["お問い合わせ", "/jp#contact"]],
+    products: [["インサイト", "/jp#insights"], ["NAVINES.com", site.internationalUrl]],
+  },
+  ar: {
+    services: [["الخدمات", "/ar#services"], ["الحلول", "/ar#solutions"], ["تواصل", "/ar#contact"]],
+    products: [["المقالات", "/ar#insights"], ["NAVINES.com", site.internationalUrl]],
+  },
+  hi: {
+    services: [["सेवाएँ", "/hi#services"], ["समाधान", "/hi#solutions"], ["संपर्क", "/hi#contact"]],
+    products: [["लेख", "/hi#insights"], ["NAVINES.com", site.internationalUrl]],
+  },
+  fr: {
+    services: [["Services", "/fr#services"], ["Solutions", "/fr#solutions"], ["Contact", "/fr#contact"]],
+    products: [["Articles", "/fr#insights"], ["NAVINES.com", site.internationalUrl]],
+  },
+  zh: {
+    services: [["服务", "/zh#services"], ["解决方案", "/zh#solutions"], ["联系", "/zh#contact"]],
+    products: [["洞察", "/zh#insights"], ["NAVINES.com", site.internationalUrl]],
+  },
+};
+
+export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
+  const copy = footerCopy[locale] || footerCopy.he;
+  const isHebrew = locale === "he";
+  const localizedLinks = isHebrew ? null : localizedFooterLinks[locale as Exclude<LocaleSlug, "he">];
 
   return (
-    <footer className="border-t border-white/10 bg-[#050506]">
+    <footer className="border-t" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="command-glass mb-10 rounded-[1.8rem] p-6 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div className="max-w-3xl">
-            <p className="mb-2 text-sm font-black text-glowred">תשתיות דיגיטליות</p>
-            <h2 className="text-3xl font-black leading-tight text-white md:text-5xl">רוצים להבין מה כדאי לשפר קודם?</h2>
-            <p className="mt-3 text-lg leading-8 text-zinc-300">שיחת היכרות חינם וחברית בוואטסאפ. אנחנו מפתח תקווה, גאים במערכות ובכלים שבנינו, ומחכים לשמוע מה תרצו לבנות או לשפר.</p>
+        <div className="mb-10 grid gap-5 rounded-lg border p-6 lg:grid-cols-[1fr_auto]" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+          <div>
+            <h2 className="text-2xl font-semibold">{copy.ctaTitle}</h2>
+            <p className="mt-3 max-w-2xl text-base" style={{ color: "var(--text-muted)" }}>{copy.ctaText}</p>
           </div>
-          <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:justify-end">
-            <a className="btn-primary" href={site.whatsappHref}>
-              דברו איתנו בוואטסאפ בחינם
-            </a>
-            <a className="btn-secondary" href={site.whatsappHref}>
-              שלחו הודעה זריזה
-            </a>
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a>
+            <a className="btn-secondary" href={site.emailHref}>{copy.email}</a>
           </div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr_0.95fr_1fr_1fr_1.1fr]">
-          <div className="max-w-sm">
-            <div className="mb-4 flex items-center gap-3">
-              <a className="inline-flex items-center transition hover:opacity-90" href={site.internationalUrl} rel="noreferrer" target="_blank" aria-label="האתר הרשמי הבינלאומי">
-                <img alt="NAVINES" className="h-5 w-auto object-contain drop-shadow-[0_0_14px_rgba(216,180,254,0.34)]" src="/brand/navines-wordmark-slim.png" />
-              </a>
-            </div>
-            <strong className="block text-xl font-black text-white">נביא נס ישראל בע״מ</strong>
-            <p className="mt-3 text-base leading-8 text-zinc-400">בונים אתרים, מערכות, אוטומציות, כלי בינה מלאכותית ותשתיות דיגיטליות לעסקים שרוצים לעבוד ברור, מהר ומסודר יותר.</p>
-            <p className="mt-3 text-base font-black text-silver">{site.companyNumberLabel}</p>
+        <div className="grid grid-cols-2 gap-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
+          <div className="col-span-2 lg:col-span-1">
+            <Link className="inline-flex items-center" href={isHebrew ? "/" : `/${locale}`}>
+              <img alt="NAVINES" className="brand-logo h-5 w-auto object-contain" src="/brand/navines-wordmark-slim.png" />
+            </Link>
+            <strong className="mt-4 block text-lg font-semibold">{isHebrew ? site.hebrewLegalName : "NAVINES"}</strong>
+            <p className="mt-3 text-base" style={{ color: "var(--text-muted)" }}>{copy.description}</p>
+            {isHebrew ? <p className="mt-3 text-sm font-medium" style={{ color: "var(--text-muted)" }}>{site.companyNumberLabel}</p> : null}
           </div>
 
-          <FooterColumn title="שירותים" items={serviceLinks} />
-          <FooterColumn title="קורסים" items={courseLinks} />
+          <FooterColumn title={copy.services} items={isHebrew ? serviceLinks : localizedLinks?.services || []} />
+          <FooterColumn title={copy.products} items={isHebrew ? productLinks : localizedLinks?.products || []} />
+          <FooterColumn title={copy.languages} items={languageLinks.map((language) => [language.nativeName, language.href])} />
+
           <div>
-            <h3 className="mb-4 font-black text-white">כלים</h3>
-            <div className="grid gap-2">
-              {toolLinks.map(([label, href]) => (
-                href.startsWith("http") ? (
-                  <a className="text-base text-zinc-400 hover:text-white" href={href} key={label} rel="noreferrer" target="_blank">
-                    <BrandInline text={label} />
-                  </a>
-                ) : (
-                  <Link className="text-base text-zinc-400 hover:text-white" href={href} key={label}>
-                    <BrandInline text={label} />
-                  </Link>
-                )
-              ))}
-            </div>
-          </div>
-          <FooterColumn
-            title="חברה"
-            items={[
-              ["אודות", "/about"],
-              ["בלוג", "/blog"],
-              ["יצירת קשר", "/contact"],
-              ["הצהרת נגישות", "/accessibility"],
-              ["מדיניות פרטיות", "/privacy"],
-              ["תנאי שימוש", "/terms"],
-            ]}
-          />
-          <div>
-            <h3 className="mb-4 font-black text-white">יצירת קשר</h3>
-            <div className="grid gap-2 text-base text-zinc-400">
-              <span>{site.hebrewLegalName}</span>
-              <span>{site.companyNumberLabel}</span>
-              <span>{site.hebrewAddress}</span>
+            <h3 className="mb-4 text-base font-semibold">{copy.contact}</h3>
+            <div className="grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
+              <span>NAVINES</span>
               <a href={site.phoneHref}>{site.phone}</a>
-              <a className="english-tech" href={site.emailHref}>{site.email}</a>
+              <a href={site.emailHref}>{site.email}</a>
+              <a href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a>
+            </div>
+            <div className="mt-5 grid gap-2">
+              {isHebrew ? legalLinks.map(([label, href]) => (
+                <Link className="text-sm transition hover:text-sky-700" href={href} key={href} style={{ color: "var(--text-muted)" }}>{label}</Link>
+              )) : null}
             </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500">
-          <span>© 2026 נביא נס ישראל בע״מ, ח.פ. {site.companyNumber}. כל הזכויות שמורות.</span>
-          <a className="english-tech text-glowred hover:text-white" href={site.internationalUrl} rel="noreferrer" target="_blank">{site.internationalDisplay}</a>
+        <div className="mt-10 flex flex-wrap justify-between gap-3 border-t pt-6 text-sm" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>
+          <span>© 2026 NAVINES. All rights reserved.</span>
+          <a href={site.internationalUrl} rel="noopener noreferrer" target="_blank">NAVINES.com</a>
         </div>
       </div>
     </footer>
@@ -122,12 +218,18 @@ export function Footer() {
 function FooterColumn({ title, items }: { title: string; items: string[][] }) {
   return (
     <div>
-      <h3 className="mb-4 font-black text-white">{title}</h3>
+      <h3 className="mb-4 text-base font-semibold">{title}</h3>
       <div className="grid gap-2">
         {items.map(([label, href]) => (
-          <Link className="text-base text-zinc-400 hover:text-white" href={href} key={href}>
-            {label}
-          </Link>
+          href.startsWith("http") ? (
+            <a className="text-sm transition hover:text-sky-700" href={href} key={`${href}-${label}`} rel="noopener noreferrer" target="_blank" style={{ color: "var(--text-muted)" }}>
+              {label}
+            </a>
+          ) : (
+            <Link className="text-sm transition hover:text-sky-700" href={href} key={`${href}-${label}`} style={{ color: "var(--text-muted)" }}>
+              {label}
+            </Link>
+          )
         ))}
       </div>
     </div>

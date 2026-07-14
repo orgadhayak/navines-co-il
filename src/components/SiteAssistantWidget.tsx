@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
@@ -149,11 +149,11 @@ export function SiteAssistantWidget() {
                 <AssistantIcon className="h-8 w-8 drop-shadow-[0_0_12px_rgba(216,180,254,0.64)] sm:h-9 sm:w-9" />
               </span>
               <div className="min-w-0">
-                <h2 className="text-base font-black leading-tight text-white sm:text-lg">העוזר החכם של נביא נס</h2>
+                <h2 className="text-base font-semibold leading-tight text-white sm:text-lg">העוזר החכם של נביא נס</h2>
                 <p className="mt-1 text-xs leading-5 text-purple-100/82">תשובות קצרות על שירותים, AI, אתרים, קורסים ותמיכה</p>
               </div>
             </div>
-            <button aria-label="סגירת צ׳ט" className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-lg font-black leading-none text-zinc-100 transition hover:bg-purple-500/18" onClick={() => setOpen(false)} type="button">
+            <button aria-label="סגירת צ׳ט" className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-lg font-semibold leading-none text-zinc-100 transition hover:bg-purple-500/18" onClick={() => setOpen(false)} type="button">
               <span aria-hidden="true">×</span>
             </button>
           </div>
@@ -173,7 +173,7 @@ export function SiteAssistantWidget() {
                 {message.actions?.length ? (
                   <div className="flex max-w-[95%] flex-wrap gap-2">
                     {message.actions.map((action) => (
-                      <a className={`rounded-full border px-3.5 py-2 text-xs font-black shadow-sm transition hover:-translate-y-0.5 ${actionClass(action.tone)}`} href={action.href} key={`${action.label}-${action.href}`}>
+                      <a className={`rounded-full border px-3.5 py-2 text-xs font-semibold shadow-sm transition hover:-translate-y-0.5 ${actionClass(action.tone)}`} href={action.href} key={`${action.label}-${action.href}`}>
                         {action.label}
                       </a>
                     ))}
@@ -201,10 +201,10 @@ export function SiteAssistantWidget() {
               value={input}
             />
             <div className="grid grid-cols-[1fr_auto] gap-2">
-              <button className="rounded-full border border-purple-100/38 bg-purple-500/30 px-4 py-2.5 text-sm font-black text-white shadow-[0_0_22px_rgba(168,85,247,0.26)] transition hover:bg-purple-500/42 disabled:opacity-55" disabled={loading} type="submit">
+              <button className="rounded-full border border-purple-100/38 bg-purple-500/30 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_0_22px_rgba(168,85,247,0.26)] transition hover:bg-purple-500/42 disabled:opacity-55" disabled={loading} type="submit">
                 שליחה
               </button>
-              <a className="rounded-full border border-white/12 bg-white/[0.07] px-4 py-2.5 text-sm font-black text-zinc-100 transition hover:bg-purple-500/18" href={site.whatsappHref}>
+              <a className="rounded-full border border-white/12 bg-white/[0.07] px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-purple-500/18" href={site.whatsappHref}>
                 וואטסאפ
               </a>
             </div>
@@ -223,8 +223,8 @@ export function SiteAssistantWidget() {
           <AssistantIcon className="h-8 w-8 drop-shadow-[0_0_10px_rgba(255,255,255,0.65)]" />
         </span>
         <span className="relative grid leading-tight">
-          <span className="text-[0.72rem] font-black text-purple-100/85">צ׳ט AI</span>
-          <span className="text-sm font-black text-white">העוזר החכם</span>
+          <span className="text-[0.72rem] font-semibold text-purple-100/85">צ׳ט AI</span>
+          <span className="text-sm font-semibold text-white">העוזר החכם</span>
         </span>
       </button>
     </div>

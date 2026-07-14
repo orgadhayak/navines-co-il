@@ -1,4 +1,4 @@
-import { Section } from "@/components/Section";
+﻿import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
@@ -30,9 +30,8 @@ export default function ContactPage() {
   return (
     <Section eyebrow="יצירת קשר" title="שלחו הודעה קצרה ונכוון אתכם" titleAs="h1" className="lg:py-14">
       <div className="mx-auto max-w-4xl">
-        <div className="sparkle-field relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 shadow-premium sm:p-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(216,180,254,0.22),transparent_18rem)]" aria-hidden="true" />
-          <div className="relative">
+        <div className="command-glass p-6 sm:p-8">
+          <div>
             <p className="max-w-2xl text-xl leading-9 text-zinc-200">
               לא צריך להכין מסמך ארוך. כתבו לנו בוואטסאפ מה יש לכם היום ומה הייתם רוצים לשפר: אתר, חנות, מערכת, אוטומציה, מהירות או אבטחה. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.
             </p>
@@ -55,14 +54,14 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-5">
-                <a className="block font-black text-white transition hover:text-glowred" href={site.phoneHref}>
+                <a className="block font-semibold text-white transition hover:text-glowred" href={site.phoneHref}>
                   {site.phone}
                 </a>
-                <a className="english-tech mt-2 block font-black text-white transition hover:text-glowred" href={site.emailHref}>
+                <a className="english-tech mt-2 block font-semibold text-white transition hover:text-glowred" href={site.emailHref}>
                   {site.email}
                 </a>
                 <a
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-black text-glowred transition hover:text-white"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-glowred transition hover:text-white"
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.hebrewAddress)}`}
                   rel="noreferrer"
                   target="_blank"

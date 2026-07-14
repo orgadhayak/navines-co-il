@@ -5,19 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#070708",
-        graphite: "#101114",
-        steel: "#171a1f",
-        navred: "#8b5cf6",
-        glowred: "#d8b4fe",
-        silver: "#d8dde6",
+        ink: "#0F172A",
+        graphite: "#475569",
+        steel: "#E2E8F0",
+        navred: "#0284C7",
+        glowred: "#0369A1",
+        silver: "#64748B",
       },
       boxShadow: {
-        premium: "0 24px 90px rgba(0,0,0,0.36)",
-        glow: "0 0 60px rgba(139,92,246,0.28)",
+        premium: "0 18px 45px rgba(15,23,42,0.08)",
+        glow: "0 12px 30px rgba(2,132,199,0.12)",
       },
       borderRadius: {
-        premium: "22px",
+        premium: "12px",
       },
     },
   },

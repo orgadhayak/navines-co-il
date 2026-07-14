@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
@@ -71,12 +71,12 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
             </div>
           </div>
           <div className="command-glass rounded-[1.8rem] p-5">
-            <p className="text-base font-black text-glowred">מבנה הקורס</p>
+            <p className="text-base font-semibold text-glowred">מבנה הקורס</p>
             <div className="mt-4 grid gap-2">
               {course.structure.map((item) => (
                 <div className="flex items-center gap-3 rounded-[1.15rem] border border-white/10 bg-black/25 px-4 py-3" key={item}>
                   <span className="status-pip bg-purple-200 text-purple-200" />
-                  <span className="text-base font-black text-zinc-200">{item}</span>
+                  <span className="text-base font-semibold text-zinc-200">{item}</span>
                 </div>
               ))}
             </div>
@@ -100,8 +100,8 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
         <div className="grid gap-3 md:grid-cols-2">
           {course.learn.map((item, index) => (
             <article className="dashboard-row rounded-[1.25rem] p-4" key={item}>
-              <span className="text-sm font-black text-glowred">{String(index + 1).padStart(2, "0")}</span>
-              <h2 className="mt-2 text-xl font-black leading-tight text-white">{item}</h2>
+              <span className="text-sm font-semibold text-glowred">{String(index + 1).padStart(2, "0")}</span>
+              <h2 className="mt-2 text-xl font-semibold leading-tight text-white">{item}</h2>
             </article>
           ))}
         </div>
@@ -110,7 +110,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
       <Section eyebrow="פרויקטים ותוצרים" title="המטרה היא לצאת עם דברים שאפשר להראות, לשפר ולהשתמש בהם" className="py-6 lg:py-9">
         <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
           <article className="command-glass rounded-[1.6rem] p-5">
-            <h2 className="text-2xl font-black text-white">דוגמאות לפרויקטים</h2>
+            <h2 className="text-2xl font-semibold text-white">דוגמאות לפרויקטים</h2>
             <div className="mt-4 grid gap-2">
               {course.projects.map((item) => (
                 <p className="rounded-[1rem] border border-white/10 bg-white/[0.035] px-4 py-3 text-base leading-7 text-zinc-300" key={item}>{item}</p>
@@ -118,7 +118,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
             </div>
           </article>
           <article className="command-glass rounded-[1.6rem] p-5">
-            <h2 className="text-2xl font-black text-white">מה המשתתפים אמורים לקבל</h2>
+            <h2 className="text-2xl font-semibold text-white">מה המשתתפים אמורים לקבל</h2>
             <div className="mt-4 grid gap-2">
               {course.outcomes.map((item) => (
                 <p className="rounded-[1rem] border border-purple-200/12 bg-purple-500/[0.08] px-4 py-3 text-base leading-7 text-zinc-300" key={item}>{item}</p>
@@ -133,7 +133,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
         <div className="grid gap-3">
           {course.faqs.map((faq) => (
             <details className="command-glass rounded-[1.25rem] p-4" key={faq.question}>
-              <summary className="cursor-pointer text-xl font-black text-white">{faq.question}</summary>
+              <summary className="cursor-pointer text-xl font-semibold text-white">{faq.question}</summary>
               <p className="mt-3 text-lg leading-8 text-zinc-300">{faq.answer}</p>
             </details>
           ))}

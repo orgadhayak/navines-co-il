@@ -1,4 +1,4 @@
-import { CTA } from "@/components/CTA";
+﻿import { CTA } from "@/components/CTA";
 import { Section } from "@/components/Section";
 import { createMetadata } from "@/lib/seo";
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <Section eyebrow="ערכים" title="איך אנחנו עובדים איתכם">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value) => (
-            <div className="rounded-premium border border-white/10 bg-white/[0.045] p-5 font-black text-silver" key={value}>
+            <div className="rounded-premium border border-white/10 bg-white/[0.045] p-5 font-semibold text-silver" key={value}>
               {value}
             </div>
           ))}

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
@@ -27,14 +27,14 @@ export default function SolutionsPage() {
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {solutionPages.map((solution) => (
             <Link className="command-glass group rounded-[1.45rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href={`/solutions/${solution.slug}`} key={solution.slug}>
-              <p className="text-sm font-black text-glowred">{solution.eyebrow}</p>
-              <h2 className="mt-3 text-2xl font-black leading-tight text-white">
+              <p className="text-sm font-semibold text-glowred">{solution.eyebrow}</p>
+              <h2 className="mt-3 text-2xl font-semibold leading-tight text-white">
                 <BrandInline text={solution.navLabel} />
               </h2>
               <p className="mt-3 text-base leading-7 text-zinc-400">
                 <BrandInline text={solution.summary} />
               </p>
-              <span className="mt-5 inline-flex rounded-full border border-purple-200/20 bg-purple-500/12 px-5 py-2 text-base font-black text-white transition group-hover:bg-purple-500/24">
+              <span className="mt-5 inline-flex rounded-full border border-purple-200/20 bg-purple-500/12 px-5 py-2 text-base font-semibold text-white transition group-hover:bg-purple-500/24">
                 לעמוד הפתרון
               </span>
             </Link>

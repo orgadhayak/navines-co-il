@@ -1,4 +1,4 @@
-import { GamesClient } from "@/components/GamesClient";
+﻿import { GamesClient } from "@/components/GamesClient";
 import { Section } from "@/components/Section";
 import { createMetadata } from "@/lib/seo";
 
@@ -17,7 +17,7 @@ export default function GamesPage() {
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {["מגן האתר", "חידון החלטות", "זיכרון נתונים", "מחולל רעיונות"].map((item) => (
-            <span className="rounded-full border border-purple-200/18 bg-purple-500/12 px-4 py-2 text-sm font-black text-glowred" key={item}>
+            <span className="rounded-full border border-purple-200/18 bg-purple-500/12 px-4 py-2 text-sm font-semibold text-glowred" key={item}>
               {item}
             </span>
           ))}

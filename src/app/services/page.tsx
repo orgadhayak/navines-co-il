@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ServiceCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
 import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
@@ -30,8 +30,8 @@ export default function ServicesPage() {
         {talkToDataService ? (
           <div className="command-glass mt-7 rounded-[1.8rem] p-5 lg:grid lg:grid-cols-[1fr_0.7fr] lg:items-center lg:gap-6">
             <div>
-              <p className="text-sm font-black text-glowred">השירות הראשון שכדאי להכיר</p>
-              <h2 className="mt-2 text-3xl font-black leading-tight text-white md:text-5xl">{talkToDataService.title}</h2>
+              <p className="text-sm font-semibold text-glowred">השירות הראשון שכדאי להכיר</p>
+              <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-5xl">{talkToDataService.title}</h2>
               <p className="mt-4 text-lg leading-8 text-zinc-300">{talkToDataService.summary}</p>
             </div>
             <div className="mt-5 grid gap-3 lg:mt-0">
@@ -55,7 +55,7 @@ export default function ServicesPage() {
         <div className="grid gap-5 lg:grid-cols-2">
           {groups.map(({ title, items }) => (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" key={title}>
-              <h2 className="text-2xl font-black text-white">{title}</h2>
+              <h2 className="text-2xl font-semibold text-white">{title}</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {items.map((item) => (
                   <span className="tag" key={item}>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
         <div className="grid gap-5 lg:grid-cols-2">
           {serviceEcosystem.map(({ title, intro, items }) => (
             <article className="rounded-[1.6rem] border border-purple-300/15 bg-black/28 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.24)]" key={title}>
-              <h2 className="text-2xl font-black text-white">{title}</h2>
+              <h2 className="text-2xl font-semibold text-white">{title}</h2>
               <p className="mt-3 text-base leading-7 text-zinc-300">{intro}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {items.map((item) => (

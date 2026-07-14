@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Heebo } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { JsonLd } from "@/components/JsonLd";
+import { localeFromPath } from "@/i18n/locales";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -49,25 +51,60 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070708",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export const dynamic = "force-dynamic";
+
+const themeScript = `
+(function() {
+  try {
+    var stored = window.localStorage.getItem('navines-theme');
+    var theme = stored === 'dark' ? 'dark' : 'light';
+    document.documentElement.classList.remove('theme-light', 'theme-dark');
+    document.documentElement.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
+  } catch (error) {
+    document.documentElement.classList.add('theme-light');
+  }
+})();
+`;
+
+const skipLabels = {
+  he: "דלגו לתוכן המרכזי",
+  de: "Zum Hauptinhalt springen",
+  jp: "本文へスキップ",
+  ar: "تخطي إلى المحتوى الرئيسي",
+  hi: "मुख्य सामग्री पर जाएँ",
+  fr: "Aller au contenu principal",
+  zh: "跳到主要内容",
+};
+
+const enableVercelAnalytics = process.env.VERCEL === "1";
+
+export default async function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  const requestHeaders = await headers();
+  const locale = localeFromPath(requestHeaders.get("x-navines-pathname"));
+
   return (
-    <html dir="rtl" lang="he">
+    <html className="theme-light" dir={locale.dir} lang={locale.lang} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={siteFont.variable}>
         <JsonLd data={[organizationSchema, localBusinessSchema, websiteSchema]} />
         <a className="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-50 focus:rounded-premium focus:bg-white focus:px-4 focus:py-3 focus:text-ink" href="#main">
-          דלגו לתוכן המרכזי
+          {skipLabels[locale.slug] || skipLabels.he}
         </a>
-        <Header />
+        <Header initialLocale={locale.slug} />
         <main id="main">{children}</main>
-        <Footer />
-        <FloatingContact />
+        <Footer locale={locale.slug} />
+        <FloatingContact locale={locale.slug} />
         <AnalyticsEvents />
-        <Analytics />
+        {enableVercelAnalytics ? <Analytics /> : null}
       </body>
     </html>
   );

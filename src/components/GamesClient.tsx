@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
@@ -146,14 +146,14 @@ export function GamesClient() {
       <DataDefenderGame />
       <div className="grid gap-5 lg:grid-cols-2">
         <GamePanel eyebrow="משחק 1" title="חידון החלטות חכמות" status={`ניקוד: ${quizScore} · ${quizProgress}`}>
-          <p className="text-lg font-black leading-8 text-white">{currentQuestion.question}</p>
+          <p className="text-lg font-semibold leading-8 text-white">{currentQuestion.question}</p>
           <div className="mt-5 grid gap-3">
             {currentQuestion.answers.map((answer, index) => {
               const isSelected = selectedAnswer === index;
               const isCorrect = currentQuestion.correct === index;
               const stateClass = selectedAnswer === null ? "hover:border-purple-200/45 hover:bg-purple-500/12" : isCorrect ? "border-purple-200/60 bg-purple-500/20 text-white" : isSelected ? "border-white/15 bg-white/[0.04] text-zinc-500" : "border-white/10 bg-black/20 text-zinc-400";
               return (
-                <button className={`rounded-[1.15rem] border px-4 py-3 text-right text-base font-black transition ${stateClass}`} disabled={selectedAnswer !== null} key={answer} onClick={() => answerQuiz(index)} type="button">
+                <button className={`rounded-[1.15rem] border px-4 py-3 text-right text-base font-semibold transition ${stateClass}`} disabled={selectedAnswer !== null} key={answer} onClick={() => answerQuiz(index)} type="button">
                   {answer}
                 </button>
               );
@@ -161,7 +161,7 @@ export function GamesClient() {
           </div>
           {selectedAnswer !== null ? (
             <div className="mt-5 rounded-[1.15rem] border border-purple-200/18 bg-purple-500/10 p-4 text-zinc-200" aria-live="polite">
-              <p className="font-black text-white">{selectedAnswer === currentQuestion.correct ? "נכון" : "לא נכון"}</p>
+              <p className="font-semibold text-white">{selectedAnswer === currentQuestion.correct ? "נכון" : "לא נכון"}</p>
               <p className="mt-2 leading-7">{currentQuestion.explain}</p>
             </div>
           ) : null}
@@ -175,7 +175,7 @@ export function GamesClient() {
             {memoryCards.map((card) => {
               const visible = flipped.includes(card.id) || matched.includes(card.value);
               return (
-                <button className={`min-h-20 rounded-[1.05rem] border px-2 text-center text-base font-black transition hover:-translate-y-0.5 ${visible ? "border-purple-200/55 bg-purple-500/18 text-white shadow-[0_0_26px_rgba(168,85,247,0.22)]" : "border-white/10 bg-white/[0.045] text-purple-200 hover:border-purple-200/35"}`} key={card.id} onClick={() => handleMemoryClick(card)} type="button">
+                <button className={`min-h-20 rounded-[1.05rem] border px-2 text-center text-base font-semibold transition hover:-translate-y-0.5 ${visible ? "border-purple-200/55 bg-purple-500/18 text-white shadow-[0_0_26px_rgba(168,85,247,0.22)]" : "border-white/10 bg-white/[0.045] text-purple-200 hover:border-purple-200/35"}`} key={card.id} onClick={() => handleMemoryClick(card)} type="button">
                   {visible ? card.value : "נתון"}
                 </button>
               );
@@ -185,15 +185,15 @@ export function GamesClient() {
             <button className="btn-secondary" onClick={resetMemory} type="button">
               איפוס משחק
             </button>
-            {memoryComplete ? <span className="rounded-full border border-purple-200/35 bg-purple-500/14 px-4 py-2 text-sm font-black text-glowred">כל ההתאמות הושלמו</span> : null}
+            {memoryComplete ? <span className="rounded-full border border-purple-200/35 bg-purple-500/14 px-4 py-2 text-sm font-semibold text-glowred">כל ההתאמות הושלמו</span> : null}
           </div>
         </GamePanel>
 
         <GamePanel eyebrow="משחק 3" title="מהירות תגובה" status={`ניקוד: ${reactionScore}`}>
-          <p className="text-lg font-black leading-8 text-white">{currentReaction.prompt}</p>
+          <p className="text-lg font-semibold leading-8 text-white">{currentReaction.prompt}</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             {currentReaction.options.map((option) => (
-              <button className="rounded-[1.05rem] border border-white/10 bg-white/[0.045] px-4 py-3 text-center text-base font-black text-zinc-100 transition hover:-translate-y-0.5 hover:border-purple-200/45 hover:bg-purple-500/12" key={option} onClick={() => answerReaction(option)} type="button">
+              <button className="rounded-[1.05rem] border border-white/10 bg-white/[0.045] px-4 py-3 text-center text-base font-semibold text-zinc-100 transition hover:-translate-y-0.5 hover:border-purple-200/45 hover:bg-purple-500/12" key={option} onClick={() => answerReaction(option)} type="button">
                 {option}
               </button>
             ))}
@@ -213,7 +213,7 @@ export function GamesClient() {
 
         <GamePanel eyebrow="משחק 4" title="מחולל רעיונות חכם" status="רעיונות מקומיים בלי חיבור חיצוני">
           <div className="rounded-[1.35rem] border border-purple-200/20 bg-gradient-to-br from-purple-500/16 via-white/[0.05] to-black/20 p-5 shadow-[0_0_50px_rgba(168,85,247,0.12)]">
-            <p className="text-2xl font-black leading-tight text-white">{idea}</p>
+            <p className="text-2xl font-semibold leading-tight text-white">{idea}</p>
             <p className="mt-4 leading-8 text-zinc-300">
               הרעיון כאן הוא לחשוב מה באמת יעזור לגולש באתר: כלי קטן, ברור ושימושי שיכול לתת ערך, לחזק אמון ולעזור לעסק להתפתח קדימה.
             </p>
@@ -232,10 +232,10 @@ function GamePanel({ eyebrow, title, status, children }: { eyebrow: string; titl
     <article className="command-glass rounded-[1.6rem] p-5">
       <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-black text-glowred">{eyebrow}</p>
-          <h2 className="mt-1 text-2xl font-black leading-tight text-white sm:text-3xl">{title}</h2>
+          <p className="text-sm font-semibold text-glowred">{eyebrow}</p>
+          <h2 className="mt-1 text-2xl font-semibold leading-tight text-white sm:text-3xl">{title}</h2>
         </div>
-        <span className="rounded-full border border-purple-200/20 bg-purple-500/12 px-3 py-1.5 text-sm font-black text-zinc-200">
+        <span className="rounded-full border border-purple-200/20 bg-purple-500/12 px-3 py-1.5 text-sm font-semibold text-zinc-200">
           {status}
         </span>
       </div>

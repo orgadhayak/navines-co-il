@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
 import { BlogCard } from "@/components/Cards";
@@ -213,10 +213,10 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "בלוג", href: "/blog" }, { name: post.title, href: `/blog/${post.slug}` }])} />
       <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <p className="text-sm font-black text-glowred">
+        <p className="text-sm font-semibold text-glowred">
           <BrandInline text={post.category} />
         </p>
-        <h1 className="mt-3 text-4xl font-black leading-tight text-white md:text-6xl">
+        <h1 className="mt-3 text-4xl font-semibold leading-tight text-white md:text-6xl">
           <BrandInline text={post.title} />
         </h1>
         <p className="mt-5 text-xl leading-9 text-zinc-300">
@@ -224,8 +224,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </p>
         {post.englishTitle && post.englishExcerpt ? (
           <div className="mt-5 rounded-[1.4rem] border border-purple-300/16 bg-purple-500/[0.07] p-5">
-            <p className="text-sm font-black text-glowred">תקציר באנגלית</p>
-            <h2 className="mt-2 text-2xl font-black text-white">
+            <p className="text-sm font-semibold text-glowred">תקציר באנגלית</p>
+            <h2 className="mt-2 text-2xl font-semibold text-white">
               <BrandInline text={post.englishTitle} />
             </h2>
             <p className="mt-3 text-lg leading-8 text-zinc-300">
@@ -257,7 +257,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         text={isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="mb-8 text-3xl font-black text-white">מאמרים קשורים</h2>
+        <h2 className="mb-8 text-3xl font-semibold text-white">מאמרים קשורים</h2>
         <div className="grid gap-5 md:grid-cols-3">
           {related.map((item) => (
             <BlogCard key={item.slug} post={item} />
@@ -287,7 +287,7 @@ function getRelatedPosts(slug: string) {
 
 function BrowserExtensionArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>מהו תוסף לדפדפן</h2>
       <p>
         תוסף לדפדפן הוא כלי קטן שמותקן ב Chrome או בדפדפן תומך ומוסיף יכולת חדשה: קיצור דרך, מרכז כלים, בדיקה, עוזר חכם או חיבור מהיר לשירות קיים. המשתמש לא צריך להיכנס בכל פעם לאתר ולחפש פעולה, כי הכלי נמצא לידו בדפדפן.
@@ -374,7 +374,7 @@ function BrowserExtensionArticleBody() {
         תוסף לדפדפן הוא דרך חכמה להפוך רעיון קטן לכלי שימושי. אם יש לכם רעיון שיכול לחסוך פעולה, לרכז כלים או לחבר משתמשים לשירות שלכם, כדאי להתחיל באפיון קצר ולבדוק מה הגרסה הראשונה הנכונה.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/browser-extension-development">לעמוד השירות: בניית תוספים לדפדפנים</Link>
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/browser-extension-development">לעמוד השירות: בניית תוספים לדפדפנים</Link>
       </p>
     </div>
   );
@@ -382,7 +382,7 @@ function BrowserExtensionArticleBody() {
 
 function AccountantChoiceArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה עסק דיגיטלי צריך איש מקצוע שמכיר אינטרנט</h2>
       <p>
         עסק דיגיטלי לא מתנהל כמו עסק מסורתי בלבד. יש בו אתר, חנות אונליין, תשלומים מחו״ל, סליקה, חשבוניות, מטבעות, מערכות משלוחים, דוחות, קמפיינים, Amazon, Shopify או WooCommerce. כשאיש המקצוע לא מכיר את המציאות הזו לעומק, בעל העסק עלול לבזבז זמן על הסברים, תיקונים וחוסר סדר.
@@ -479,7 +479,7 @@ function AccountantChoiceArticleBody() {
         רואה חשבון לעסק דיגיטלי צריך להבין את הפעילות שמאחורי המספרים: פלטפורמות, נתונים, סליקה, מסמכים ותהליכים. ככל שמבררים יותר לפני שסוגרים, כך קל יותר להתחיל נכון ולחסוך בלבול בהמשך.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/solutions/accountants">לעמוד פתרונות וחיבור לרואי חשבון</Link>
+        <Link className="font-semibold text-glowred hover:text-white" href="/solutions/accountants">לעמוד פתרונות וחיבור לרואי חשבון</Link>
       </p>
     </div>
   );
@@ -487,7 +487,7 @@ function AccountantChoiceArticleBody() {
 
 function BusinessAutomationArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>תשובה קצרה: מהי אוטומציה עסקית?</h2>
       <p>
         אוטומציה עסקית היא חיבור של פעולות שחוזרות על עצמן לתהליך מסודר שעובד כמעט לבד: קבלת פנייה, שליחת הודעה, פתיחת משימה, סינון חשבונית, עדכון מערכת ניהול לקוחות או יצירת דוח. המטרה היא לא להחליף את העסק, אלא להפחית עבודה ידנית, טעויות וזמן תגובה.
@@ -550,7 +550,7 @@ function BusinessAutomationArticleBody() {
 
 function InvoiceScanningArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>תשובה קצרה: מהי סריקת חשבוניות באמצעות AI?</h2>
       <p>
         סריקת חשבוניות עם AI היא תהליך שבו מערכת קוראת מסמך, מזהה שדות חשובים כמו שם ספק, תאריך, סכום, מע״מ ומספר חשבונית, ואז הופכת אותם לנתונים שאפשר לסנן, לבדוק, לנתב ולחבר למערכת עסקית. זה לא מבטיח דיוק של 100%, ולכן חשוב לשלב בקרת אנוש.
@@ -602,7 +602,7 @@ function InvoiceScanningArticleBody() {
 
 function EcommerceStoreArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>תשובה קצרה: מהי חנות איקומרס?</h2>
       <p>
         חנות איקומרס היא אתר מכירות שמאפשר להציג מוצרים, לקבל תשלום, לנהל הזמנות, משלוחים, מלאי, לקוחות ומדידה. חנות טובה לא רק נראית יפה, היא עוזרת ללקוח להבין, לסמוך ולקנות, ולעסק לנהל את המכירות בצורה מסודרת.
@@ -657,7 +657,7 @@ function EcommerceStoreArticleBody() {
 
 function MobileAppDevelopmentArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>תשובה קצרה: מתי עסק באמת צריך אפליקציה?</h2>
       <p>
         עסק צריך אפליקציה סלולרית כשהיא פותרת פעולה שחוזרת על עצמה: הזמנות, אזור אישי, התראות, שירות לקוחות, עבודה של צוות, ניהול שטח או חיבור למערכת עסקית. אם המטרה היא רק “להיות באפליקציה”, לפעמים אתר מותאם למובייל מספיק וטוב יותר להתחלה.
@@ -710,7 +710,7 @@ function MobileAppDevelopmentArticleBody() {
 
 function ExternalAmazonTrafficArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>התשובה הקצרה</h2>
       <p>
         מוכר Amazon יכול להביא תנועה מחוץ לפלטפורמה באמצעות אתר עצמאי שמציג את המוצרים בצורה עשירה, עונה על שאלות אמיתיות של לקוחות, נבנה לקידום אורגני ומפנה בצורה ברורה לעמודי הרכישה ב Amazon.
@@ -756,7 +756,7 @@ function ExternalAmazonTrafficArticleBody() {
         אנחנו בונים אתר צמיחה אורגנית למוכרי Amazon: מבנה תוכן, עמודי מוצר, מדריכים, מדידה, קישורים מסודרים לעמודי Amazon ותשתית שיכולה להתרחב בעתיד לחנות עצמאית או לערוצים נוספים.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/amazon-seller-seo-website">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/amazon-seller-seo-website">
           לעמוד השירות: אתר צמיחה אורגנית למוכרי Amazon
         </Link>
       </p>
@@ -769,7 +769,7 @@ function ExternalAmazonTrafficArticleBody() {
 
 function MultilingualAmazonSeoArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>התשובה הקצרה</h2>
       <p>
         אתר רב לשוני למוכרי Amazon הוא אתר שנבנה לפי השוק שבו הלקוחות נמצאים: שפה, מדינה, ביטויי חיפוש, תרבות קנייה, מידות, מונחים ותוכן מקומי. זה לא רק תרגום של עמודים, אלא התאמה אמיתית לקהל.
@@ -815,7 +815,7 @@ function MultilingualAmazonSeoArticleBody() {
         מתחילים משוק אחד או כמה שווקים חשובים, בוחרים מוצרים מרכזיים, בונים תוכן איכותי ומודדים. אחרי שיש בסיס טוב, אפשר להרחיב לעוד מוצרים, שפות ומדינות. עדיף להתחיל מדויק מאשר להעלות הרבה עמודים דקים.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/amazon-seller-seo-website">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/amazon-seller-seo-website">
           לעמוד השירות: אתר SEO למוכרי Amazon
         </Link>
       </p>
@@ -828,7 +828,7 @@ function MultilingualAmazonSeoArticleBody() {
 
 function AccountHackArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>מה לעשות בדקות הראשונות?</h2>
       <p>
         כשמגלים שפרצו לחשבון, הדבר הכי חשוב הוא לא לפעול מתוך לחץ. לא למחוק הודעות, לא למסור עוד קודים, לא ללחוץ על קישורים שקיבלתם מהתוקף ולא לנסות "להחזיר" לבד בצורה שעלולה לסבך את המצב.
@@ -871,7 +871,7 @@ function AccountHackArticleBody() {
         פריצה לחשבון היא אירוע מלחיץ, אבל פעולה מסודרת יכולה לצמצם נזק. אם פרצו לכם לאינסטגרם, פייסבוק, טלגרם, וואטסאפ, Gmail, Outlook, מייל עסקי או נכס דיגיטלי, שלחו הודעה בוואטסאפ ונבדוק מה הצעד הנכון.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/account-hack-recovery">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/account-hack-recovery">
           לעמוד השירות: סיוע במקרה פריצה לחשבון
         </Link>
       </p>
@@ -881,7 +881,7 @@ function AccountHackArticleBody() {
 
 function BusinessDueDiligenceArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה לא להסתמך רק על מצגת של מוכר?</h2>
       <p>
         מצגת מכירה נועדה להציג את הצד היפה של העסק: מחזור, גרפים, לקוחות, פוטנציאל ותמונות מסודרות. אבל לפני רכישה צריך להבין גם מה עומד מאחורי הנתונים: האם התנועה אמיתית, האם המכירות עקביות, האם הנכסים בשליטה מלאה והאם קיימים סיכונים שלא הופיעו בשיחה הראשונה.
@@ -922,7 +922,7 @@ function BusinessDueDiligenceArticleBody() {
         לפני שקונים עסק, חברה, אתר, חנות אונליין או פעילות דיגיטלית, כדאי להבין מה באמת עומד מאחורי הנתונים. אם אתם לפני עסקה, שלחו לנו הודעה ונבדוק איזה שכבת בדיקה דיגיטלית יכולה לעזור לכם לקבל החלטה רגועה יותר.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/business-due-diligence-intelligence">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/business-due-diligence-intelligence">
           לעמוד השירות: בדיקת עסק לפני רכישה
         </Link>
       </p>
@@ -932,7 +932,7 @@ function BusinessDueDiligenceArticleBody() {
 
 function SmartWebsiteLeadArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>הרעיון: לתת לגולש משהו שימושי, לא רק לבקש ממנו להשאיר פרטים</h2>
       <p>
         אתר טוב לא חייב להסתפק בטקסט, תמונות וכפתור יצירת קשר. לפעמים הדבר שהכי מקפיץ אתר קדימה הוא כלי קטן וחכם שהגולש יכול להשתמש בו בחינם: לחשב, לבדוק, להבין, להשוות, לבחור או לקבל כיוון ראשוני.
@@ -981,7 +981,7 @@ function SmartWebsiteLeadArticleBody() {
         אפשר לקחת כמעט כל אתר ולשאול: איזה כלי קטן יכול להפוך אותו לשימושי יותר לגולש? שם מתחילה קפיצה קדימה. במקום אתר שרק מציג מידע, בונים נכס דיגיטלי שעוזר, מלמד, מכוון ומייצר אמון.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/smart-website-lead-engine">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/smart-website-lead-engine">
           לעמוד השירות: בניית כלי חכם ושימושי לגולשים באתר שלכם
         </Link>
       </p>
@@ -991,7 +991,7 @@ function SmartWebsiteLeadArticleBody() {
 
 function AiChatWebsiteArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה אתר עם הרבה תוכן צריך צ׳ט חכם?</h2>
       <p>גולש שמגיע לאתר לא תמיד יודע איפה להתחיל. אם יש הרבה שירותים, מאמרים, מוצרים או עמודים, הוא עלול לעזוב לפני שמצא תשובה. צ׳ט AI קצר וברור עוזר לו להבין בשפה פשוטה מה העסק מציע ומה הצעד הבא.</p>
       <h2>למה קצר ומדויק עדיף מבוט שחופר?</h2>
@@ -1010,7 +1010,7 @@ function AiChatWebsiteArticleBody() {
       <h2>סיכום</h2>
       <p>צ׳ט AI לאתר עסקי הוא לא קסם ולא מחליף את העסק. הוא שכבה חכמה שעוזרת לגולשים להגיע לתשובה מהר יותר ולפנות כשהם מבינים טוב יותר מה הם צריכים.</p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/ai-chat-for-websites">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/ai-chat-for-websites">
           לעמוד השירות: בניית צ׳ט AI חכם לאתרים
         </Link>
       </p>
@@ -1020,7 +1020,7 @@ function AiChatWebsiteArticleBody() {
 
 function TechnicalSupportArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה לא כדאי לחכות עם תקלה טכנית?</h2>
       <p>תקלה קטנה יכולה להפוך מהר לבעיה גדולה: אתר שנופל, מיילים שלא נשלחים, דומיין שלא מוגדר נכון או רשת שמפריעה לעבודה. כשמטפלים מוקדם, קל יותר להבין מה קרה ולמנוע נזק רחב יותר.</p>
       <h2>מה עושים כשאתר נופל?</h2>
@@ -1039,7 +1039,7 @@ function TechnicalSupportArticleBody() {
         <li>מי הספקים הרלוונטיים: אחסון, דומיין, מייל או אינטרנט?</li>
       </ul>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/technical-support-cyber-networks">
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/technical-support-cyber-networks">
           לעמוד השירות: תמיכה טכנית, סייבר, רשתות ופתרון תקלות
         </Link>
       </p>
@@ -1049,7 +1049,7 @@ function TechnicalSupportArticleBody() {
 
 function BusinessWebsite999ArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה לא כל עסק צריך להתחיל מאתר גדול?</h2>
       <p>
         הרבה בעלי עסקים צריכים קודם כל מקום רשמי וברור באינטרנט: מי אתם, מה אתם מציעים, למה אפשר לסמוך עליכם ואיך פונים אליכם. לא תמיד צריך להתחיל מפרויקט מורכב, חנות, מערכת או עשרות עמודים.
@@ -1074,7 +1074,7 @@ function BusinessWebsite999ArticleBody() {
         שולחים לנו בוואטסאפ כמה מילים על העסק, לוגו אם יש, צבעים אם יש, טקסט בסיסי ותמונות אם קיימות. אם המסלול מתאים, נתקדם בצורה מסודרת. אם צריך משהו רחב יותר, נגיד את זה מראש.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/business-website-999"> לעמוד השירות: אתר תדמית לעסק במחיר 999 ₪ </Link>
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/business-website-999"> לעמוד השירות: אתר תדמית לעסק במחיר 999 ₪ </Link>
       </p>
     </div>
   );
@@ -1082,7 +1082,7 @@ function BusinessWebsite999ArticleBody() {
 
 function CourseArticleBody({ content }: { content: (typeof courseArticleContent)[string] }) {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה ללמוד AI בצורה מעשית?</h2>
       <p>
         <BrandInline text={content.intro} />
@@ -1113,7 +1113,7 @@ function CourseArticleBody({ content }: { content: (typeof courseArticleContent)
       </ul>
       <h2>המסלול המתאים</h2>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href={content.courseHref}>
+        <Link className="font-semibold text-glowred hover:text-white" href={content.courseHref}>
           {content.courseLabel}
         </Link>
       </p>
@@ -1130,7 +1130,7 @@ function CourseArticleBody({ content }: { content: (typeof courseArticleContent)
 
 function SolutionArticleBody({ content }: { content: (typeof solutionArticleContent)[string] }) {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>מה זה אומר בפועל?</h2>
       <p>
         <BrandInline text={content.intro} />
@@ -1157,7 +1157,7 @@ function SolutionArticleBody({ content }: { content: (typeof solutionArticleCont
         משיחה פשוטה, מבינים איפה המידע נמצא ומה באמת כואב, ואז בודקים מה אפשר לחבר, לאוטומט ולמדוד.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href={content.solutionHref}>
+        <Link className="font-semibold text-glowred hover:text-white" href={content.solutionHref}>
           {content.solutionLabel}
         </Link>
       </p>
@@ -1175,7 +1175,7 @@ function SolutionArticleBody({ content }: { content: (typeof solutionArticleCont
 
 function EmailToChatGptArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה אימייל הוא מקור נתונים חשוב כל כך?</h2>
       <p>
         תיבת המייל של העסק מחזיקה הרבה יותר מהודעות. יש בה פניות חדשות, שאלות לקוחות, הצעות מחיר, בקשות שירות,
@@ -1227,7 +1227,7 @@ function EmailToChatGptArticleBody() {
         כואב בתהליך היום. אנחנו בודקים אם יש דרך חיבור מאובטחת ומסודרת, ומציעים כיוון מעשי.
       </p>
       <p>
-        <Link className="font-black text-glowred hover:text-white" href="/services/chatgpt-business-data"> לעמוד השירות: חיבור נתונים עסקיים אל ChatGPT בהתאמה אישית </Link>
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/chatgpt-business-data"> לעמוד השירות: חיבור נתונים עסקיים אל ChatGPT בהתאמה אישית </Link>
       </p>
     </div>
   );
@@ -1235,7 +1235,7 @@ function EmailToChatGptArticleBody() {
 
 function DefaultArticleBody({ post }: { post: (typeof blogPosts)[number] }) {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>למה זה חשוב לעסק?</h2>
       <p>
         <BrandInline text={post.excerpt} /> עסקים שמטפלים בנושא הזה בצורה מסודרת מקבלים יותר שליטה, פחות עבודה ידנית ויכולת למדוד מה באמת מתקדם.
@@ -1277,7 +1277,7 @@ function DefaultArticleBody({ post }: { post: (typeof blogPosts)[number] }) {
 
 function TalkToDataArticleBody() {
   return (
-    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-black prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>מה זה אומר לדבר עם הנתונים?</h2>
       <p>במקום לפתוח כמה מערכות, להוריד קבצים, לחפש בטבלאות ולנסות להבין מה קרה, אפשר לחבר את הנתונים העסקיים לשכבת שיחה. בעל העסק שואל שאלה רגילה, והמערכת מחזירה תשובה שמבוססת על הנתונים הקיימים.</p>
       <p>הרעיון פשוט: אתם לא צריכים ללמוד מערכת מורכבת. אתם צריכים לשאול את השאלה הנכונה ולקבל תשובה ברורה מספיק כדי לקבל החלטה.</p>

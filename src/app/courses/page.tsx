@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { BrandInline } from "@/components/BrandInline";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
@@ -52,12 +52,12 @@ export default function CoursesPage() {
             </div>
           </div>
           <div className="command-glass rounded-[1.8rem] p-5">
-            <p className="text-base font-black text-glowred">מה הופך את המסלול לשונה?</p>
+            <p className="text-base font-semibold text-glowred">מה הופך את המסלול לשונה?</p>
             <div className="mt-4 grid gap-3">
               {["מרעיון לתוצר שאפשר להציג", "10 מפגשים פרונטליים", "שנה שלמה של תמיכה וליווי", "לא נדרש ידע מוקדם", "מבחן התאמה וראיון לפני קבלה"].map((item) => (
                 <div className="dashboard-row rounded-[1.15rem] p-4" key={item}>
                   <span className="status-pip bg-purple-200 text-purple-200" />
-                  <p className="mt-2 text-lg font-black text-white">{item}</p>
+                  <p className="mt-2 text-lg font-semibold text-white">{item}</p>
                 </div>
               ))}
             </div>
@@ -70,10 +70,10 @@ export default function CoursesPage() {
           {courseTracks.map((course) => (
             <article className="command-glass group rounded-[1.7rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" key={course.slug}>
               <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-glowred">{course.eyebrow}</p>
-                <span className="live-status-chip rounded-full px-3 py-1 text-sm font-black text-purple-100">פרונטלי</span>
+                <p className="text-sm font-semibold text-glowred">{course.eyebrow}</p>
+                <span className="live-status-chip rounded-full px-3 py-1 text-sm font-semibold text-purple-100">פרונטלי</span>
               </div>
-              <Link className="mt-4 block text-3xl font-black leading-tight text-white transition hover:text-glowred" href={`/courses/${course.slug}`}>
+              <Link className="mt-4 block text-3xl font-semibold leading-tight text-white transition hover:text-glowred" href={`/courses/${course.slug}`}>
                 {course.navLabel}
               </Link>
               <p className="mt-3 text-lg leading-8 text-zinc-300">{course.summary}</p>
@@ -103,7 +103,7 @@ export default function CoursesPage() {
             { title: "הקשר דיגיטלי", text: "לומדים איפה התוצר צריך לחיות: אתר, כלי, דף הצגה, תהליך עבודה או מערכת קטנה." },
           ].map((item) => (
             <article className="dashboard-row rounded-[1.35rem] p-5" key={item.title}>
-              <h2 className="text-2xl font-black text-white">{item.title}</h2>
+              <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
               <p className="mt-3 text-lg leading-8 text-zinc-300">{item.text}</p>
             </article>
           ))}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
@@ -283,8 +283,8 @@ export function DataDefenderGame() {
     <article className="command-glass mb-6 overflow-hidden rounded-[1.85rem] p-3 sm:p-5">
       <div className="grid gap-4 lg:grid-cols-[0.92fr_1.35fr] lg:items-center">
         <div className="order-2 lg:order-1">
-          <p className="text-sm font-black text-glowred">משחק ארקייד מרכזי</p>
-          <h2 className="mt-2 text-3xl font-black leading-tight text-white md:text-5xl">{gameTitle}</h2>
+          <p className="text-sm font-semibold text-glowred">משחק ארקייד מרכזי</p>
+          <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-5xl">{gameTitle}</h2>
           <p className="mt-4 text-lg leading-8 text-zinc-300">
             הגן על האתר, אסוף דאטה טובה, התחמק מתקלות ושמור על העסק חכם ומהיר.
           </p>
@@ -293,7 +293,7 @@ export function DataDefenderGame() {
             <StatusPill label="חיים" value={String(hud.lives)} />
             <StatusPill label="שלב" value={String(hud.level)} />
           </div>
-          <p className="mt-4 rounded-[1.15rem] border border-purple-200/18 bg-black/35 p-4 text-base font-black leading-7 text-zinc-200" aria-live="polite">
+          <p className="mt-4 rounded-[1.15rem] border border-purple-200/18 bg-black/35 p-4 text-base font-semibold leading-7 text-zinc-200" aria-live="polite">
             {hud.message}
           </p>
           <div className="mt-5 grid gap-2 text-sm leading-6 text-zinc-400">
@@ -317,7 +317,7 @@ export function DataDefenderGame() {
               onDown={() => setDirection("right", true)}
               onUp={() => setDirection("right", false)}
             />
-            <button className="min-h-16 touch-none rounded-[1.05rem] border border-purple-200/30 bg-purple-500/20 px-3 text-base font-black text-white shadow-[0_0_32px_rgba(168,85,247,0.22)] transition hover:bg-purple-500/28 active:scale-[0.98]" onClick={activateAction} style={{ touchAction: "manipulation" }} type="button">
+            <button className="min-h-16 touch-none rounded-[1.05rem] border border-purple-200/30 bg-purple-500/20 px-3 text-base font-semibold text-white shadow-[0_0_32px_rgba(168,85,247,0.22)] transition hover:bg-purple-500/28 active:scale-[0.98]" onClick={activateAction} style={{ touchAction: "manipulation" }} type="button">
               {hud.status === "gameover" ? "התחלה מחדש" : hud.status === "ready" ? "התחלה" : "פעולה"}
             </button>
             <ControlButton
@@ -335,8 +335,8 @@ export function DataDefenderGame() {
 function StatusPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[1rem] border border-white/10 bg-white/[0.045] px-3 py-2">
-      <p className="text-xs font-black text-zinc-400">{label}</p>
-      <p className="text-2xl font-black text-white">{value}</p>
+      <p className="text-xs font-semibold text-zinc-400">{label}</p>
+      <p className="text-2xl font-semibold text-white">{value}</p>
     </div>
   );
 }
@@ -356,7 +356,7 @@ function ControlButton({ label, onDown, onUp }: { label: string; onDown: () => v
 
   return (
     <button
-      className="min-h-16 touch-none rounded-[1.05rem] border border-white/10 bg-white/[0.06] px-3 text-lg font-black text-purple-100 transition hover:border-purple-200/40 hover:bg-purple-500/12 active:scale-[0.98]"
+      className="min-h-16 touch-none rounded-[1.05rem] border border-white/10 bg-white/[0.06] px-3 text-lg font-semibold text-purple-100 transition hover:border-purple-200/40 hover:bg-purple-500/12 active:scale-[0.98]"
       onPointerCancel={handlePointerUp}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BrandInline } from "@/components/BrandInline";
 import { CTA } from "@/components/CTA";
@@ -80,8 +80,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             </div>
           </div>
           <div className="command-glass rounded-[1.55rem] p-5">
-            <p className="text-sm font-black text-glowred">ממשק חכם לעסק</p>
-            <h2 className="mt-2 text-2xl font-black leading-tight text-white">{solution.talkToData.title}</h2>
+            <p className="text-sm font-semibold text-glowred">ממשק חכם לעסק</p>
+            <h2 className="mt-2 text-2xl font-semibold leading-tight text-white">{solution.talkToData.title}</h2>
             <p className="mt-3 text-base leading-7 text-zinc-300">
               <BrandInline text={solution.talkToData.text} />
             </p>
@@ -96,12 +96,12 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       {solution.urgent ? (
         <section className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <div className="rounded-[1.6rem] border border-red-400/35 bg-gradient-to-br from-red-950/60 via-red-500/10 to-black p-5 shadow-[0_0_48px_rgba(239,68,68,0.18)]">
-            <p className="text-sm font-black text-red-200">טיפול דחוף ומסודר</p>
-            <h2 className="mt-2 text-3xl font-black leading-tight text-white">{solution.urgent.title}</h2>
+            <p className="text-sm font-semibold text-red-200">טיפול דחוף ומסודר</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white">{solution.urgent.title}</h2>
             <p className="mt-3 max-w-5xl text-lg leading-8 text-red-50/90">
               <BrandInline text={solution.urgent.text} />
             </p>
-            <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full border border-red-200/35 bg-red-500/22 px-6 py-3 text-base font-black text-white shadow-[0_0_28px_rgba(239,68,68,0.24)] transition hover:-translate-y-0.5 hover:bg-red-500/30" href={site.whatsappHref}>
+            <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full border border-red-200/35 bg-red-500/22 px-6 py-3 text-base font-semibold text-white shadow-[0_0_28px_rgba(239,68,68,0.24)] transition hover:-translate-y-0.5 hover:bg-red-500/30" href={site.whatsappHref}>
               {solution.urgent.cta}
             </a>
           </div>
@@ -119,11 +119,11 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       {isAmazonSellerSolution ? (
         <Section eyebrow="צמיחה מחוץ ל Amazon" title="אתר SEO עצמאי שמוביל לקוחות לעמודי המוצרים" className="py-5 lg:py-8">
           <Link className="command-glass group block rounded-[1.35rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/amazon-seller-seo-website">
-            <h2 className="text-2xl font-black text-white">אתר צמיחה אורגנית למוכרי Amazon</h2>
+            <h2 className="text-2xl font-semibold text-white">אתר צמיחה אורגנית למוכרי Amazon</h2>
             <p className="mt-3 max-w-4xl text-lg leading-8 text-zinc-300">
               בונים אתר בינלאומי שמציג את המוצרים, יוצר תוכן עשיר לפי מדינה ושפה, מושך תנועה ממנועי חיפוש ומפנה לקוחות לעמודי Amazon שלכם. זה לא מחליף את Amazon, אלא מוסיף שכבת צמיחה שנמצאת בשליטת המותג.
             </p>
-            <span className="mt-4 inline-flex text-base font-black text-silver transition group-hover:text-white">
+            <span className="mt-4 inline-flex text-base font-semibold text-silver transition group-hover:text-white">
               לעמוד השירות
             </span>
           </Link>
@@ -152,10 +152,10 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             </div>
           </article>
           <article className="command-glass rounded-[1.6rem] p-5">
-            <h2 className="text-2xl font-black text-white">דוגמאות לשאלות שאפשר לשאול</h2>
+            <h2 className="text-2xl font-semibold text-white">דוגמאות לשאלות שאפשר לשאול</h2>
             <div className="mt-4 grid gap-2">
               {solution.talkToData.examples.map((example) => (
-                <div className="dashboard-row rounded-full px-4 py-3 text-base font-black text-zinc-200" key={example}>
+                <div className="dashboard-row rounded-full px-4 py-3 text-base font-semibold text-zinc-200" key={example}>
                   {example}
                 </div>
               ))}
@@ -198,7 +198,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         <div className="grid gap-3">
           {solution.faq.map((faq) => (
             <details className="command-glass rounded-[1.25rem] p-4" key={faq.question}>
-              <summary className="cursor-pointer text-xl font-black text-white">{faq.question}</summary>
+              <summary className="cursor-pointer text-xl font-semibold text-white">{faq.question}</summary>
               <p className="mt-3 text-base leading-7 text-zinc-300">{faq.answer}</p>
             </details>
           ))}
@@ -236,10 +236,10 @@ function AccountantConnectionSection({ content }: { content: AccountantConnectio
             </div>
           </article>
           <aside className="rounded-xl border border-purple-200/16 bg-black/40 p-5">
-            <h2 className="text-2xl font-black text-white">פרטי קשר מהירים</h2>
+            <h2 className="text-2xl font-semibold text-white">פרטי קשר מהירים</h2>
             <div className="mt-4 grid gap-3 text-base text-zinc-300">
-              <a className="font-black text-silver hover:text-white" href={site.phoneHref}>{site.phone}</a>
-              <a className="font-black text-silver hover:text-white" href={site.emailHref}>{site.email}</a>
+              <a className="font-semibold text-silver hover:text-white" href={site.phoneHref}>{site.phone}</a>
+              <a className="font-semibold text-silver hover:text-white" href={site.emailHref}>{site.email}</a>
               <p>שלחו לנו בקצרה מה סוג העסק, איפה אתם מוכרים ומה צריך לסדר, ונכוון אתכם לשלב הבא.</p>
             </div>
           </aside>
@@ -278,7 +278,7 @@ function AccountantConnectionSection({ content }: { content: AccountantConnectio
             <p className="text-lg leading-8 text-zinc-300">
               <BrandInline text={content.techText} />
             </p>
-            <div className="mt-5 grid gap-2 text-base font-black">
+            <div className="mt-5 grid gap-2 text-base font-semibold">
               <Link className="text-silver hover:text-white" href="/services/chatgpt-business-data">TalkToData וחיבור נתונים אל ChatGPT</Link>
               <Link className="text-silver hover:text-white" href="/blog/ai-invoice-scanning-and-filtering">מדריך סריקת חשבוניות עם AI</Link>
               <Link className="text-silver hover:text-white" href="/services/ai-automation">AI ואוטומציה לעסקים</Link>
@@ -315,7 +315,7 @@ function CompactList({ items }: { items: string[] }) {
 function InfoColumn({ title, items }: { title: string; items: string[] }) {
   return (
     <article className="command-glass rounded-[1.45rem] p-5">
-      <h2 className="text-2xl font-black text-white">{title}</h2>
+      <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <ul className="mt-4 grid gap-3">
         {items.map((item) => (
           <li className="rounded-[1rem] border border-white/10 bg-black/25 px-4 py-3 text-base leading-7 text-zinc-300" key={item}>

@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
@@ -74,33 +74,33 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="grid gap-5">
           {isTechnicalSupportService ? (
             <article className="rounded-[1.5rem] border border-red-300/25 bg-red-950/28 p-5 shadow-[0_0_42px_rgba(239,68,68,0.14)]">
-              <span className="inline-flex rounded-full border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-black text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.18)]">
+              <span className="inline-flex rounded-full border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-semibold text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.18)]">
                 תקלה דחופה
               </span>
-              <h2 className="mt-4 text-3xl font-black text-white">תקלה דחופה? אל תחכו</h2>
+              <h2 className="mt-4 text-3xl font-semibold text-white">תקלה דחופה? אל תחכו</h2>
               <p className="mt-3 text-lg leading-8 text-red-50/90"> אם האתר נפל, המיילים לא עובדים, יש חשד לפריצה, בעיית דומיין, בעיית רשת או תקלה שמפריעה לעסק לעבוד, שלחו לנו הודעה עכשיו בוואטסאפ ונבדוק איך אפשר לעזור. </p>
-              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-black text-white transition hover:bg-red-500/30" href={site.whatsappHref}>
+              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-semibold text-white transition hover:bg-red-500/30" href={site.whatsappHref}>
                 תמיכה דחופה בוואטסאפ
               </a>
             </article>
           ) : null}
           {isAccountHackRecoveryService ? (
             <article className="rounded-[1.5rem] border border-red-300/25 bg-red-950/28 p-5 shadow-[0_0_42px_rgba(239,68,68,0.14)]">
-              <span className="inline-flex rounded-lg border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-black text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.18)]">
+              <span className="inline-flex rounded-lg border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-semibold text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.18)]">
                 חירום דיגיטלי
               </span>
-              <h2 className="mt-4 text-3xl font-black text-white">זה קורה עכשיו? אל תחכו</h2>
+              <h2 className="mt-4 text-3xl font-semibold text-white">זה קורה עכשיו? אל תחכו</h2>
               <p className="mt-3 text-lg leading-8 text-red-50/90">
                 אם מישהו מחזיק לכם בחשבון, שולח הודעות בשמכם, מאיים, דורש כסף או נועל אתכם מחוץ לחשבון, שלחו לנו הודעה עכשיו. נבדוק מה אפשר לעשות ומה הצעד הנכון.
               </p>
-              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-black text-white transition hover:bg-red-500/30" href={site.whatsappHref}>
+              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-semibold text-white transition hover:bg-red-500/30" href={site.whatsappHref}>
                 סיוע דחוף בוואטסאפ
               </a>
             </article>
           ) : null}
           {isDueDiligenceService ? (
             <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
-              <h2 className="text-2xl font-black text-white">בדיקה חוקית ומסודרת בלבד</h2>
+              <h2 className="text-2xl font-semibold text-white">בדיקה חוקית ומסודרת בלבד</h2>
               <p className="mt-3 text-lg leading-8 text-zinc-300">
                 השירות אינו מחליף ייעוץ משפטי או חשבונאי, ואינו מבטיח גילוי מלא של כל סיכון. הבדיקה מתבצעת רק על בסיס מידע גלוי, גישה מורשית, מסמכים שהמוכר סיפק, בדיקות טכניות מותרות וניתוח מקצועי. אין פריצה, חדירה או גישה לא מורשית.
               </p>
@@ -108,7 +108,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           ) : null}
           {isAmazonSeoWebsiteService ? (
             <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
-              <h2 className="text-2xl font-black text-white">חשוב לדעת על SEO מחוץ ל Amazon</h2>
+              <h2 className="text-2xl font-semibold text-white">חשוב לדעת על SEO מחוץ ל Amazon</h2>
               <p className="mt-3 text-lg leading-8 text-zinc-300">
                 אנחנו לא מבטיחים מקום ראשון, אינדוקס יומי או מכירות מובטחות. העבודה מתמקדת בבניית אתר שימושי, תוכן מקורי, מבנה בינלאומי נכון, מדידה והפניות מסודרות לעמודי Amazon. לא מעתיקים תיאורי מוצר באופן עיוור ולא מבצעים scraping בניגוד לתנאי שימוש.
               </p>
@@ -121,11 +121,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <InfoBlock title="בעיות שאנחנו פותרים" items={service.problems} />
           {service.relatedArticles?.length ? (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-              <h2 className="text-2xl font-black text-white">מדריכים קשורים</h2>
+              <h2 className="text-2xl font-semibold text-white">מדריכים קשורים</h2>
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 {service.relatedArticles.map((article) => (
                   <Link className="rounded-lg border border-purple-200/12 bg-black/18 p-4 transition hover:border-purple-200/35 hover:bg-purple-500/12" href={article.href} key={article.href}>
-                    <h3 className="text-xl font-black text-white">{article.title}</h3>
+                    <h3 className="text-xl font-semibold text-white">{article.title}</h3>
                     <p className="mt-2 text-base leading-7 text-zinc-400">{article.text}</p>
                   </Link>
                 ))}
@@ -136,23 +136,23 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {isDueDiligenceService ? <DueDiligenceGuidance /> : null}
           {isBrowserExtensionService ? <BrowserExtensionGuidance /> : null}
           <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-            <h2 className="text-2xl font-black text-white">תהליך עבודה</h2>
+            <h2 className="text-2xl font-semibold text-white">תהליך עבודה</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {["שיחת אפיון", "מיפוי מצב קיים", "תכנון פתרון", "פיתוח וביצוע", "בדיקות ושיפור", "השקה וליווי"].map((step, index) => (
                 <div className="rounded-premium border border-white/10 bg-black/20 p-4" key={step}>
-                  <span className="grid h-9 w-9 place-items-center rounded-premium bg-navred font-black text-white">{index + 1}</span>
-                  <h3 className="mt-3 font-black text-white">{step}</h3>
+                  <span className="grid h-9 w-9 place-items-center rounded-premium bg-navred font-semibold text-white">{index + 1}</span>
+                  <h3 className="mt-3 font-semibold text-white">{step}</h3>
                   <p className="mt-2 text-sm leading-6 text-zinc-400">עובדים מסודר, מודדים ומתקדמים לפי ערך עסקי.</p>
                 </div>
               ))}
             </div>
           </article>
           <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-            <h2 className="text-2xl font-black text-white">שאלות נפוצות</h2>
+            <h2 className="text-2xl font-semibold text-white">שאלות נפוצות</h2>
             <div className="mt-5 grid gap-3">
               {service.faqs.map((faq) => (
                 <details className="rounded-premium border border-white/10 bg-black/20 p-4" key={faq.question}>
-                  <summary className="cursor-pointer font-black text-silver">{faq.question}</summary>
+                  <summary className="cursor-pointer font-semibold text-silver">{faq.question}</summary>
                   <p className="mt-3 leading-7 text-zinc-400">{faq.answer}</p>
                 </details>
               ))}
@@ -190,27 +190,27 @@ function BrowserExtensionExamples() {
     <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-black text-glowred">תוספים שכבר בנינו</p>
-          <h2 className="mt-2 text-2xl font-black text-white">דוגמאות אמיתיות מ Chrome Web Store</h2>
+          <p className="text-sm font-semibold text-glowred">תוספים שכבר בנינו</p>
+          <h2 className="mt-2 text-2xl font-semibold text-white">דוגמאות אמיתיות מ Chrome Web Store</h2>
         </div>
         <Link className="btn-secondary" href="/products">כלים ומוצרים</Link>
       </div>
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         {extensions.map((extension) => (
           <a className="rounded-lg border border-purple-200/14 bg-black/24 p-5 transition hover:-translate-y-0.5 hover:border-purple-200/35 hover:bg-purple-500/10" href={extension.href} key={extension.href} rel="noopener noreferrer" target="_blank">
-            <h3 className="text-2xl font-black text-white">{extension.name}</h3>
+            <h3 className="text-2xl font-semibold text-white">{extension.name}</h3>
             <p className="mt-3 text-base leading-7 text-zinc-300">{extension.text}</p>
             <dl className="mt-4 grid gap-3 text-base">
               <div>
-                <dt className="font-black text-silver">למה בנינו אותו</dt>
+                <dt className="font-semibold text-silver">למה בנינו אותו</dt>
                 <dd className="mt-1 text-zinc-400">{extension.why}</dd>
               </div>
               <div>
-                <dt className="font-black text-silver">מה המשתמש מקבל</dt>
+                <dt className="font-semibold text-silver">מה המשתמש מקבל</dt>
                 <dd className="mt-1 text-zinc-400">{extension.value}</dd>
               </div>
             </dl>
-            <span className="mt-5 inline-flex rounded-lg border border-purple-200/20 bg-purple-500/12 px-5 py-2 text-base font-black text-white">
+            <span className="mt-5 inline-flex rounded-lg border border-purple-200/20 bg-purple-500/12 px-5 py-2 text-base font-semibold text-white">
               התקינו מ Chrome Web Store
             </span>
           </a>
@@ -229,19 +229,19 @@ function BrowserExtensionGuidance() {
 
   return (
     <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-      <h2 className="text-2xl font-black text-white">תוספים פנימיים, AI ואבטחה</h2>
+      <h2 className="text-2xl font-semibold text-white">תוספים פנימיים, AI ואבטחה</h2>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         תוסף לא חייב להיות מוצר ציבורי. לפעמים הערך הגדול ביותר הוא כלי פנימי קטן שמקצר פעולה שחוזרת כל יום. אפשר לשלב בו גם AI, סיכום מידע, חילוץ פרטים, המלצות או חיבור למערכת של העסק, אבל עושים את זה בזהירות.
       </p>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
-          <h3 className="text-xl font-black text-white">שימושים פנימיים</h3>
+          <h3 className="text-xl font-semibold text-white">שימושים פנימיים</h3>
           <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
             {internalUses.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
           </ul>
         </div>
         <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
-          <h3 className="text-xl font-black text-white">כללי זהירות</h3>
+          <h3 className="text-xl font-semibold text-white">כללי זהירות</h3>
           <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
             {safeguards.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
           </ul>
@@ -256,14 +256,14 @@ function AccountHackGuidance() {
 
   return (
     <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-      <h2 className="text-2xl font-black text-white">תקשורת מול התוקף או מי שמחזיק בגישה</h2>
+      <h2 className="text-2xl font-semibold text-white">תקשורת מול התוקף או מי שמחזיק בגישה</h2>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         במקרים מסוימים יש צורך לנהל תקשורת זהירה ומחושבת מול מי שמחזיק בגישה לחשבון או מאיים בפרסום מידע. אנחנו לא ממליצים לפעול בפאניקה, לשלם מיד, לאיים או לעשות פעולה לא חוקית. המטרה היא לקנות זמן, להבין את מצב הסיכון, לשמור ראיות, לצמצם נזק ולפעול בצורה חכמה וחוקית.
       </p>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         יש לנו ניסיון בהתנהלות רגועה מול מצבי לחץ דיגיטליים, כולל בניית מסרים, תיעוד נכון, הפחתת נזק, הפעלת לחץ חוקי דרך הפלטפורמות והכנת צעדים שיכולים לגרום לצד השני להבין שלא מדובר במטרה קלה.
       </p>
-      <h3 className="mt-6 text-xl font-black text-white">מה לא לעשות כשפורצים לכם</h3>
+      <h3 className="mt-6 text-xl font-semibold text-white">מה לא לעשות כשפורצים לכם</h3>
       <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300 md:grid-cols-2">
         {donts.map((item) => (
           <li className="border-r border-red-300/35 pr-3" key={item}>{item}</li>
@@ -278,7 +278,7 @@ function DueDiligenceGuidance() {
 
   return (
     <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-      <h2 className="text-2xl font-black text-white">מה מקבלים ולמה זה חשוב</h2>
+      <h2 className="text-2xl font-semibold text-white">מה מקבלים ולמה זה חשוב</h2>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         עסקה טובה לא נמדדת רק במחזור שהמוכר מציג. צריך להבין מה איכות הנכס, האם הנתונים עקביים, האם יש תלות נסתרת, האם התנועה יציבה, האם יש סיכוני אבטחה, והאם אחרי הרכישה העסק באמת יכול להמשיך לעבוד.
       </p>
@@ -294,7 +294,7 @@ function DueDiligenceGuidance() {
 function InfoBlock({ title, items }: { title: string; items: string[] }) {
   return (
     <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-      <h2 className="text-2xl font-black text-white">{title}</h2>
+      <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <div className="mt-4 flex flex-wrap gap-2">
         {items.map((item) => (
           <span className="tag" key={item}>
