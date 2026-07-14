@@ -12,13 +12,13 @@ export const metadata = createMetadata({
   path: "/services",
 });
 
-const groups: { title: string; items: string[] }[] = [
+const groups: { title: string; description?: string; items: string[] }[] = [
   { title: "בינה מלאכותית ואוטומציה", items: ["צ׳ט AI חכם לאתרים", "העוזר החכם של נביא נס", "לדבר עם הנתונים באמצעות ChatGPT", "חיבור נתונים עסקיים אל ChatGPT", "צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
   { title: "פיתוח וטכנולוגיה", items: ["פיתוח אתרים", "פיתוח תוספים לדפדפנים", "Chrome, Edge, Brave ו Opera לפי התאמה", "וורדפרס", "מערכות מותאמות", "קוד נקי", "פיתוח צד שרת", "בדיקות איכות"] },
   { title: "איקומרס", items: ["שופיפיי", "ווקומרס", "אמזון", "איביי", "ניהול מלאי", "איקומרס לעסקים"] },
   { title: "תשתיות וחירום דיגיטלי", items: ["תמיכה טכנית, סייבר ורשתות", "סיוע במקרה פריצה לחשבון", "תמיכה מרחוק והגעה לפי צורך", "קלאודפלייר", "דומיינים", "תעודת אבטחה", "אחסון", "ניטור אתרים", "מדידה ונתונים"] },
   { title: "שיווק, נתונים ובדיקות עסק", items: ["בדיקת עסק לפני רכישה", "קידום אורגני", "פרסום ממומן", "שיווק במייל", "יצירת פניות", "מוניטין", "ניתוח נתונים עסקיים"] },
-  { title: "משפט, ציות וטכנולוגיה", items: ["ארגון מסמכים ותהליכים", "מיפוי מערכות מידע", "ניטור מותגים ונכסים דיגיטליים", "הרשאות ובקרה", "הטמעת הנחיות שאושרו", "טכנולוגיה לתיקי תעבורה", "המחשה חזותית", "תזכורות ומועדים"] },
+  { title: "משפט וטכנולוגיה", description: "מידע והכוונה כללית לבחירת משרדי עורכי דין המשתמשים בכלים טכנולוגיים, לצד פתרונות תוכנה של NAVINES לארגון מידע ותהליכים.", items: ["בחירת משרד עם יתרון טכנולוגי", "תעבורה וטכנולוגיה", "ארגון מסמכים", "ניהול מועדים", "הרשאות ובקרה", "הימנעות מהבטחות לתוצאה"] },
 ];
 
 export default function ServicesPage() {
@@ -54,9 +54,10 @@ export default function ServicesPage() {
       </Section>
       <Section eyebrow="יכולות" title="תחומי מומחיות שמתחברים לצרכים אמיתיים בעסק">
         <div className="grid gap-5 lg:grid-cols-2">
-          {groups.map(({ title, items }) => (
+          {groups.map(({ title, description, items }) => (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" key={title}>
               <h2 className="text-2xl font-semibold text-white">{title}</h2>
+              {description ? <p className="mt-3 text-base leading-7 text-zinc-300">{description}</p> : null}
               <div className="mt-4 flex flex-wrap gap-2">
                 {items.map((item) => (
                   <span className="tag" key={item}>

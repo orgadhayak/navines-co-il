@@ -14,24 +14,42 @@ const labels = {
   zh: { light: "浅色", dark: "深色", aria: "切换显示模式" },
 };
 
-export function ThemeToggle({ locale = "he" }: { locale?: keyof typeof labels }) {
-  const [theme, setTheme] = useState<Theme>("light");
+function applyTheme(nextTheme: Theme) {
+  document.documentElement.classList.toggle("theme-dark", nextTheme === "dark");
+  document.documentElement.classList.toggle("theme-light", nextTheme === "light");
+}
+
+function persistTheme(nextTheme: Theme) {
+  try {
+    window.localStorage.setItem("navines-theme", nextTheme);
+  } catch {
+    // localStorage may be unavailable in private or restricted browsing modes.
+  }
+  document.cookie = `navines-theme=${nextTheme}; path=/; max-age=31536000; samesite=lax`;
+}
+
+export function ThemeToggle({ locale = "he", initialTheme = "light" }: { locale?: keyof typeof labels; initialTheme?: Theme }) {
+  const [theme, setTheme] = useState<Theme>(initialTheme);
   const copy = labels[locale] || labels.he;
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("navines-theme");
-    const nextTheme: Theme = stored === "dark" ? "dark" : "light";
+    let stored: string | null = null;
+    try {
+      stored = window.localStorage.getItem("navines-theme");
+    } catch {
+      stored = null;
+    }
+    const nextTheme: Theme = stored === "dark" || stored === "light" ? stored : initialTheme;
     setTheme(nextTheme);
-    document.documentElement.classList.toggle("theme-dark", nextTheme === "dark");
-    document.documentElement.classList.toggle("theme-light", nextTheme === "light");
-  }, []);
+    applyTheme(nextTheme);
+    persistTheme(nextTheme);
+  }, [initialTheme]);
 
   function toggleTheme() {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
-    window.localStorage.setItem("navines-theme", nextTheme);
-    document.documentElement.classList.toggle("theme-dark", nextTheme === "dark");
-    document.documentElement.classList.toggle("theme-light", nextTheme === "light");
+    applyTheme(nextTheme);
+    persistTheme(nextTheme);
   }
 
   return (

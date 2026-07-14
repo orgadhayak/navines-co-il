@@ -34,8 +34,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isBrowserExtensionService = service.slug === "browser-extension-development";
   const isLegalTechnologyService = service.slug === "legal-operations-technology";
   const isTrafficLawService = service.slug === "traffic-case-technology";
-  const legalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אני פונה בנושא פתרון טכנולוגי לתהליכי משפט, ציות או ניהול מסמכים.")}`;
-  const trafficWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אני פונה ממשרד עורכי דין בנושא פתרון טכנולוגי לארגון וניהול חומר בתיקי תעבורה.")}`;
+  const generalLegalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל הכוונה כללית לגבי סוג המשרד או תחום ההתמחות שכדאי לחפש. נושא הפנייה הכללי הוא:")}`;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -54,9 +53,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     description: service.summary,
     provider: { "@type": "Organization", name: site.hebrewLegalName, url: site.url },
     ...(isLegalTechnologyService
-      ? { serviceType: "Legal operations technology and compliance implementation" }
+      ? { serviceType: "General legal technology information and software systems" }
       : isTrafficLawService
-        ? { serviceType: "Traffic case technology for law firms" }
+        ? { serviceType: "General traffic law technology information and software systems" }
         : { areaServed: "IL" }),
   };
 
@@ -115,33 +114,30 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </article>
           ) : null}
           {isLegalTechnologyService ? (
-            <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
-              <h2 className="text-2xl font-semibold text-white">שירות טכנולוגי ותפעולי בלבד</h2>
-              <p className="mt-3 text-lg leading-8 text-zinc-300">
-                NAVINES היא חברת תוכנה וטכנולוגיה ואינה משרד עורכי דין. החברה אינה מספקת ייעוץ או ייצוג משפטי, אינה מפנה לקוחות לעורכי דין ואינה צד בהתקשרות שבין לקוח לעורך דין. השירותים המתוארים בעמוד זה הם שירותים טכנולוגיים ותפעוליים בלבד.
+            <article className="border-r-4 border-sky-500 bg-sky-50/70 p-5 text-right dark:bg-sky-950/20">
+              <h2 className="text-2xl font-semibold text-slate-950 dark:text-white">מידע כללי בלבד, בלי קשר מסחרי למשרד מסוים</h2>
+              <p className="mt-3 text-lg leading-8 text-slate-700 dark:text-zinc-300">
+                NAVINES היא חברת תוכנה וטכנולוגיה ואינה משרד עורכי דין. המידע וההכוונה באתר הם כלליים בלבד, ללא קשר מסחרי למשרד מסוים, ואינם ייעוץ, ייצוג או המלצה אישית על עורך דין.
               </p>
-              <p className="mt-3 text-base leading-7 text-zinc-400">
-                בפנייה ראשונה מספיק לתאר את הצורך הטכנולוגי: איזה מידע, מסמכים, מערכות או תהליך צריך לארגן. אין לשלוח סיסמאות, קודי אימות או מסמכים חסויים דרך הודעה פתוחה.
+              <p className="mt-3 text-base leading-7 text-slate-600 dark:text-zinc-400">
+                אין לשלוח מסמכים, מספרי זיהוי או מידע רגיש. הבחירה במשרד, ההתקשרות, הייעוץ, הייצוג והתשלום נעשים באופן עצמאי וישיר מול עורך הדין שנבחר.
               </p>
-              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-purple-100/35 bg-purple-500/20 px-6 py-2.5 text-base font-semibold text-white transition hover:bg-purple-500/30" href={legalWhatsappHref} rel="noopener noreferrer" target="_blank">
-                דברו איתנו על פתרון טכנולוגי
+              <a className="btn-secondary mt-5" href={generalLegalWhatsappHref} rel="noopener noreferrer" target="_blank">
+                קבלו הכוונה כללית לבחירת משרד
               </a>
             </article>
           ) : null}
           {isTrafficLawService ? (
-            <article className="rounded-premium border border-red-300/25 bg-red-950/24 p-5 shadow-[0_0_34px_rgba(239,68,68,0.10)]">
-              <span className="inline-flex rounded-lg border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-semibold text-red-100">
-                למשרדי עורכי דין וצוותים מקצועיים
-              </span>
-              <h2 className="mt-4 text-2xl font-semibold text-white">משרד המטפל בחומר תעבורה? בונים סביבת עבודה מסודרת</h2>
-              <p className="mt-3 text-lg leading-8 text-red-50/90">
-                NAVINES היא חברת תוכנה וטכנולוגיה ואינה משרד עורכי דין. החברה אינה מספקת ייעוץ או ייצוג משפטי, אינה מפנה לקוחות לעורכי דין ואינה צד בהתקשרות שבין לקוח לעורך דין. השירותים המתוארים בעמוד זה הם שירותים טכנולוגיים ותפעוליים בלבד.
+            <article className="border-r-4 border-sky-500 bg-sky-50/70 p-5 text-right dark:bg-sky-950/20">
+              <h2 className="text-2xl font-semibold text-slate-950 dark:text-white">הכוונה כללית בלבד לפני בחירת עורך דין</h2>
+              <p className="mt-3 text-lg leading-8 text-slate-700 dark:text-zinc-300">
+                NAVINES אינה משרד עורכי דין, אינה בודקת תיקים ואינה קשורה מסחרית למשרד מסוים. המידע בעמוד עוזר להבין אילו דברים כדאי לבדוק לפני בחירה עצמאית של עורך דין לתעבורה.
               </p>
-              <p className="mt-3 text-base leading-7 text-red-50/75">
-                הפנייה מיועדת למשרדים וצוותים מקצועיים המעוניינים בכלי לארגון חומר, צירי זמן, תזכורות והמחשה. אין לשלוח פרטי דוח, מספר רישיון, תעודת זהות או חומרי חקירה בפנייה הראשונה.
+              <p className="mt-3 text-base leading-7 text-slate-600 dark:text-zinc-400">
+                אין לשלוח ל-NAVINES דוח, מספר רישיון, תעודת זהות, צילום רישיון או חומרי חקירה. את החומר מעבירים רק לעורך הדין שנבחר ובערוץ שהוא מאשר.
               </p>
-              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-semibold text-white transition hover:bg-red-500/30" href={trafficWhatsappHref} rel="noopener noreferrer" target="_blank">
-                פתרון טכנולוגי לתיקי תעבורה
+              <a className="btn-secondary mt-5" href={generalLegalWhatsappHref} rel="noopener noreferrer" target="_blank">
+                קבלו הכוונה כללית לבחירת עורך דין
               </a>
             </article>
           ) : null}
@@ -154,10 +150,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </article>
           ) : null}
           {isBrowserExtensionService ? <BrowserExtensionExamples /> : null}
-          <InfoBlock title="מה השירות?" items={[service.overview || service.summary]} />
-          <InfoBlock title="למי זה מתאים?" items={service.audience} />
-          <InfoBlock title="מה עושים בפועל ודוגמה פשוטה" items={service.actions} />
-          <InfoBlock title="בעיות שאנחנו פותרים" items={service.problems} />
+          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title="מה השירות?" items={[service.overview || service.summary]} />
+          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title="למי זה מתאים?" items={service.audience} />
+          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title={isLegalTechnologyService || isTrafficLawService ? "מה אפשר לעשות בפועל" : "מה עושים בפועל ודוגמה פשוטה"} items={service.actions} />
+          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title={isLegalTechnologyService ? "מה כדאי להבין לפני בחירה" : isTrafficLawService ? "מה כדאי להבין לפני פנייה" : "בעיות שאנחנו פותרים"} items={service.problems} />
           {service.serviceHighlights?.length ? (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
               <h2 className="text-2xl font-semibold text-white">נקודות שחשוב להבין</h2>
@@ -234,8 +230,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isLegalTechnologyService ? "צריכים מערכת מסודרת לתהליכי משפט וציות?" : isTrafficLawService ? "משרד עורכי דין המטפל בתיקי תעבורה?" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
-        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isLegalTechnologyService ? "ספרו בקצרה איזה תהליך, מערכת, מסמכים או נכסים דיגיטליים צריך לארגן. NAVINES מספקת פתרון טכנולוגי ותפעולי בלבד, ואינה מספקת ייעוץ או הפניה משפטית." : isTrafficLawService ? "דברו איתנו על פתרון טכנולוגי לתהליך העבודה שלכם: ארגון חומר, תזכורות, צירי זמן, הרשאות והמחשה. הפנייה מיועדת למשרדים וצוותים מקצועיים בלבד." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. NAVINES אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
   );
@@ -365,68 +361,96 @@ function DueDiligenceGuidance() {
 }
 
 function LegalTechnologyGuidance() {
-  const technologyLayer = ["מיפוי נכסי מותג ודומיינים", "איסוף URLs וצילומי מסך", "בניית ציר זמן של אירועים", "סידור גרסאות מסמכים", "מיפוי טפסים והרשאות מידע", "יישום הנחיות מקצועיות שכבר אושרו"];
-  const safeBoundaries = ["לא מספקים ייעוץ משפטי", "לא מייצגים לקוחות", "לא מפנים לקוחות לעורכי דין", "לא מחליפים עורך דין, ראיה, עד או מומחה", "לא מבקשים סיסמאות או קודי אימות"];
+  const choosingChecks = ["ניסיון מקצועי בתחום הרלוונטי", "זהות עורך הדין או הצוות שמטפל בפועל", "דרך קבלת עדכונים ומעקב אחר מועדים", "הסכם שכר טרחה ברור ומסודר", "אבטחת מידע והרשאות למסמכים", "הימנעות מהבטחות לתוצאה, למחיר או להתאמה אישית"];
+  const techBenefits = ["ארגון מסמכים לפי נושא ותאריך", "בניית ציר זמן של אירועים", "ניהול מועדים ומשימות", "שיתוף מידע מאובטח עם הלקוח", "תיעוד גרסאות ושינויים", "מעקב אחר פעולות פתוחות", "מיפוי נכסים דיגיטליים", "הפחתת חיפוש ידני במסמכים"];
+  const expertiseAreas = ["עסקים דיגיטליים ואיקומרס", "סימני מסחר ומותגים", "פרטיות ומידע אישי", "תקנונים ותנאי שימוש", "SaaS ומערכות אונליין", "פרסום דיגיטלי", "התחזות ופגיעה בנכסים דיגיטליים", "הסכמים עם ספקים", "תעבורה ונקודות", "אבטחת מידע וציות פנימי"];
 
   return (
-    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-      <h2 className="text-2xl font-semibold text-white">איך הטכנולוגיה מסדרת תהליכי משפט וציות</h2>
-      <p className="mt-3 text-lg leading-8 text-zinc-300">
-        בעולם דיגיטלי, הרבה מהמידע הרלוונטי נמצא בתוך אתרים, פלטפורמות, דומיינים, טפסים, דוחות, מיילים וצילומי מסך. שכבת תוכנה טובה עוזרת למשרד, למחלקה המשפטית או לעסק לארגן את החומר, לשמור גרסאות, לנהל הרשאות וליישם הנחיות קיימות בצורה עקבית.
-      </p>
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
-        <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
-          <h3 className="text-xl font-semibold text-white">מה NAVINES מסדרת</h3>
-          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
-            {technologyLayer.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
-          </ul>
-        </div>
-        <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
-          <h3 className="text-xl font-semibold text-white">גבולות ברורים</h3>
-          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
-            {safeBoundaries.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
-          </ul>
-        </div>
+    <article className="space-y-8 border-y py-6" style={{ borderColor: "var(--border)" }}>
+      <div>
+        <h2 className="text-2xl font-semibold">מה כדאי לבדוק לפני שבוחרים משרד?</h2>
+        <ul className="mt-4 grid gap-2 text-base leading-7 md:grid-cols-2">
+          {choosingChecks.map((item) => <li className="border-r pr-3" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>{item}</li>)}
+        </ul>
       </div>
-      <p className="mt-4 text-base leading-7 text-zinc-400">
-        אם הנושא כולל פרטיות, סימן מסחר, הסכם, תנאי שימוש או פנייה לפלטפורמה, העסק או המשרד פועלים מול יועציהם המקצועיים באופן עצמאי. NAVINES מסייעת בבניית התמונה הטכנולוגית, לא בקבלת החלטות משפטיות.
-      </p>
+      <div>
+        <h2 className="text-2xl font-semibold">כיצד טכנולוגיה יכולה לשפר את תהליך העבודה?</h2>
+        <p className="mt-3 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+          כלים טכנולוגיים אינם מחליפים ידע משפטי, אבל הם יכולים להפוך תהליך מפוזר למסודר יותר: פחות חיפוש ידני, יותר שליטה במועדים, תיעוד ברור ושיתוף מידע מדויק יותר.
+        </p>
+        <ul className="mt-4 grid gap-2 text-base leading-7 md:grid-cols-2">
+          {techBenefits.map((item) => <li className="border-r pr-3" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>{item}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 className="text-2xl font-semibold">האם שימוש בטכנולוגיה יכול לחסוך זמן ועלויות?</h2>
+        <p className="mt-3 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+          שימוש נכון במערכות יכול לצמצם עבודה ידנית, למנוע כפילויות ולעזור להגיע לפגישות מוכנים יותר. עם זאת, אין התחייבות למחיר נמוך יותר או לתוצאה מסוימת. עלויות ושכר טרחה נקבעים רק מול המשרד הנבחר.
+        </p>
+      </div>
+      <div>
+        <h2 className="text-2xl font-semibold">באילו תחומים חשוב לבחור התמחות מתאימה?</h2>
+        <ul className="mt-4 grid gap-2 text-base leading-7 md:grid-cols-2">
+          {expertiseAreas.map((item) => <li className="border-r pr-3" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>{item}</li>)}
+        </ul>
+        <p className="mt-4 text-base leading-7" style={{ color: "var(--text-soft)" }}>
+          NAVINES אינה ממליצה על משרד מסוים ואינה מדרגת עורכי דין. המטרה היא לעזור להבין אילו שאלות כלליות כדאי לשאול לפני בחירה עצמאית.
+        </p>
+      </div>
     </article>
   );
 }
 
 function TrafficLawGuidance() {
-  const checkItems = ["תיק מסודר לפי תאריך ומקור", "שדות אחידים לדוחות, תמונות ומסמכים", "ציר זמן של פעולות ומועדים", "הרשאות לצוות המשרד ולמומחים", "תיעוד גרסאות ושינויים", "דוחות עבודה פנימיים"];
-  const dontAssume = ["לא קובעים מסקנות משפטיות", "לא בודקים סיכויי תיק", "לא מבטיחים תוצאה", "לא אוספים פרטי נהגים מהציבור דרך האתר", "לא משנים חומר מקורי או ראיות"];
+  const trafficAreas = ["דוחות מהירות", "שימוש בטלפון בזמן נהיגה", "נקודות חובה", "הזמנה לדין", "רמזור ותמרור", "מצלמות אכיפה", "פסילת רישיון", "נהיגה ללא רישיון תקף", "תאונות דרכים", "חומר חקירה", "קורסי נהיגה נכונה", "מועדי פעולה וערעור"];
+  const preparationItems = ["הדוח או ההזמנה כפי שהתקבלו", "תאריך קבלה ומועד אחרון לפעולה", "תדפיס נקודות רשמי אם קיים", "מסמכים או תמונות שמוחזקים כחוק", "תיאור קצר של האירוע", "שאלות שאתם רוצים לשאול", "מכתבים רשמיים שקיבלתם", "לא לשלוח מסמכים או פרטים רגישים ל-NAVINES"];
 
   return (
-    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
-      <h2 className="text-2xl font-semibold text-white">איך כלי טכנולוגי מסייע לצוות המטפל בחומר תעבורה</h2>
-      <p className="mt-3 text-lg leading-8 text-zinc-300">
-        בתיקי תעבורה יש לעיתים הרבה קבצים, תמונות, מועדים, מסמכים וגרסאות. כלי עבודה מסודר אינו מחליף את שיקול הדעת המקצועי של המשרד, אבל הוא יכול לעזור לצוות לראות מה קיים, מה חסר, אילו מועדים מתקרבים ואיך להציג חומר בצורה ברורה.
-      </p>
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
-        <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
-          <h3 className="text-xl font-semibold text-white">מה המערכת מארגנת</h3>
-          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
-            {checkItems.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
-          </ul>
-        </div>
-        <div className="rounded-lg border border-red-300/15 bg-red-950/18 p-4">
-          <h3 className="text-xl font-semibold text-white">גבולות ברורים</h3>
-          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
-            {dontAssume.map((item) => <li className="border-r border-red-300/35 pr-3" key={item}>{item}</li>)}
-          </ul>
-        </div>
+    <article className="space-y-8 border-y py-6" style={{ borderColor: "var(--border)" }}>
+      <div>
+        <h2 className="text-2xl font-semibold">באילו ענייני תעבורה כדאי לחפש ניסיון מתאים?</h2>
+        <ul className="mt-4 grid gap-2 text-base leading-7 md:grid-cols-2">
+          {trafficAreas.map((item) => <li className="border-r pr-3" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>{item}</li>)}
+        </ul>
       </div>
-      <p className="mt-4 text-base leading-7 text-zinc-400">
-        הפתרון מיועד למשרדי עורכי דין, צוותים משפטיים ומומחים העובדים מטעמם. NAVINES אינה מקבלת דוחות מנהגים, אינה בודקת אם כדאי להישפט ואינה מספקת ייעוץ או ייצוג משפטי.
-      </p>
+      <div>
+        <h2 className="text-2xl font-semibold">האם אפשר לבטל דוח או נקודות?</h2>
+        <p className="mt-3 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+          אין דרך אחראית להבטיח ביטול דוח או נקודות. התוצאה תלויה בנסיבות, בחומר, במועדים ובהליך. עורך דין לתעבורה שבחרתם יכול לבדוק את המקרה לפי הדין והמסמכים שבידיו.
+        </p>
+        <p className="mt-3 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+          חשוב גם להבדיל בין קורס נהיגה נכונה רשמי לבין שיעור פרטי. שיעור פרטי יכול לרענן ידע, אבל הוא אינו מוחק נקודות ואינו מחליף דרישה רשמית.
+        </p>
+      </div>
+      <div>
+        <h2 className="text-2xl font-semibold">מה כדאי לארגן לפני שפונים לעורך דין?</h2>
+        <ul className="mt-4 grid gap-2 text-base leading-7 md:grid-cols-2">
+          {preparationItems.map((item) => <li className="border-r pr-3" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>{item}</li>)}
+        </ul>
+        <p className="mt-4 text-base leading-7" style={{ color: "var(--text-soft)" }}>
+          NAVINES אינה בודקת תיקים, אינה מקבלת דוחות מנהגים ואינה מספקת ייעוץ או ייצוג משפטי. ההתקשרות נעשית ישירות מול עורך הדין שנבחר.
+        </p>
+      </div>
     </article>
   );
 }
 
-function InfoBlock({ title, items }: { title: string; items: string[] }) {
+function InfoBlock({ title, items, plain = false }: { title: string; items: string[]; plain?: boolean }) {
+  if (plain) {
+    return (
+      <article className="border-y py-5" style={{ borderColor: "var(--border)" }}>
+        <h2 className="text-2xl font-semibold">{title}</h2>
+        <div className="mt-4 grid gap-3">
+          {items.map((item) => (
+            <p className="border-r pr-4 text-base leading-8" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>
+              {item}
+            </p>
+          ))}
+        </div>
+      </article>
+    );
+  }
+
   return (
     <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
       <h2 className="text-2xl font-semibold text-white">{title}</h2>

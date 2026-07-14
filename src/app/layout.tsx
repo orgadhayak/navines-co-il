@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { headers } from "next/headers";
 import { Heebo } from "next/font/google";
 import { Header } from "@/components/Header";
@@ -58,19 +59,6 @@ export const viewport: Viewport = {
 
 export const dynamic = "force-dynamic";
 
-const themeScript = `
-(function() {
-  try {
-    var stored = window.localStorage.getItem('navines-theme');
-    var theme = stored === 'dark' ? 'dark' : 'light';
-    document.documentElement.classList.remove('theme-light', 'theme-dark');
-    document.documentElement.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
-  } catch (error) {
-    document.documentElement.classList.add('theme-light');
-  }
-})();
-`;
-
 const skipLabels = {
   he: "דלגו לתוכן המרכזי",
   de: "Zum Hauptinhalt springen",
@@ -87,19 +75,19 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const requestHeaders = await headers();
+  const cookieStore = await cookies();
   const locale = localeFromPath(requestHeaders.get("x-navines-pathname"));
+  const initialTheme = cookieStore.get("navines-theme")?.value === "dark" ? "dark" : "light";
 
   return (
-    <html className="theme-light" dir={locale.dir} lang={locale.lang} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html className={initialTheme === "dark" ? "theme-dark" : "theme-light"} dir={locale.dir} lang={locale.lang}>
+      <head />
       <body className={siteFont.variable}>
         <JsonLd data={[organizationSchema, localBusinessSchema, websiteSchema]} />
         <a className="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-50 focus:rounded-premium focus:bg-white focus:px-4 focus:py-3 focus:text-ink" href="#main">
           {skipLabels[locale.slug] || skipLabels.he}
         </a>
-        <Header initialLocale={locale.slug} />
+        <Header initialLocale={locale.slug} initialTheme={initialTheme} />
         <main id="main">{children}</main>
         <Footer locale={locale.slug} />
         <FloatingContact locale={locale.slug} />

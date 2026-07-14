@@ -35,10 +35,10 @@ const serviceGroups = [
     ],
   },
   {
-    title: "טכנולוגיה למשפט וציות",
+    title: "משפט וטכנולוגיה",
     links: [
-      ["תהליכים משפטיים וציות", "/services/legal-operations-technology"],
-      ["טכנולוגיה לתיקי תעבורה", "/services/traffic-case-technology"],
+      ["בחירת משרד עם יתרון טכנולוגי", "/services/legal-operations-technology"],
+      ["תעבורה וטכנולוגיה", "/services/traffic-case-technology"],
     ],
   },
   {
@@ -72,7 +72,7 @@ const localizedTagline: Record<LocaleSlug, string> = {
   zh: "软件、AI 与数字基础设施",
 };
 
-export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug }) {
+export function Header({ initialLocale = "he", initialTheme = "light" }: { initialLocale?: LocaleSlug; initialTheme?: "light" | "dark" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdown, setDropdown] = useState<DropdownKey>(null);
   const [mobileGroup, setMobileGroup] = useState<MobileGroup>(null);
@@ -169,7 +169,7 @@ export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug })
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle locale={activeLocale} />
+          <ThemeToggle initialTheme={initialTheme} locale={activeLocale} />
           <button
             aria-expanded={dropdown === "language"}
             aria-label={isHebrew ? "בחירת שפה" : localized?.language || "Language selector"}
