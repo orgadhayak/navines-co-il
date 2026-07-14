@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
+import { LanguageStrip } from "@/components/LanguageStrip";
 import { Section } from "@/components/Section";
 import { solutionPages } from "@/data/solutions";
 import { blogPosts, products, site } from "@/data/site";
@@ -84,34 +85,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      <LanguageStrip current="he" title="NAVINES בעולם" />
+
       <Section eyebrow="מה אנחנו עושים" title="שישה תחומים מרכזיים, בלי לפזר אתכם בין עשרות מונחים">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-10 gap-y-7 md:grid-cols-2 lg:grid-cols-3">
           {serviceGroups.map((service) => (
-            <Link className="dashboard-row p-5" href={service.href} key={service.href}>
+            <Link className="group border-t pt-5 transition" href={service.href} key={service.href} style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold">{service.title}</h2>
               <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{service.text}</p>
-              <span className="mt-4 inline-flex text-sm font-semibold text-glowred">למידע נוסף</span>
+              <span className="mt-4 inline-flex text-sm font-semibold text-glowred transition group-hover:translate-x-[-2px]">למידע נוסף</span>
             </Link>
           ))}
         </div>
       </Section>
 
       <Section eyebrow="מוצרים וכלים" title="מוצרים שמדגימים את דרך החשיבה של NAVINES">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           {featuredProducts.map((product) => {
             const href = product.url || "/products";
             const content = (
               <>
                 <p className="text-sm font-semibold text-glowred">{product.status}</p>
                 <h2 className="mt-2 text-2xl font-semibold">{product.hebrewName || product.name}</h2>
-                <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{trimText(product.description, 140)}</p>
+                <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{trimText(product.description, 170)}</p>
               </>
             );
 
             return href.startsWith("http") ? (
-              <a className="command-glass block p-5" href={href} key={product.slug} rel="noopener noreferrer" target="_blank">{content}</a>
+              <a className="block border-t pt-5 transition hover:border-sky-400" href={href} key={product.slug} rel="noopener noreferrer" target="_blank" style={{ borderColor: "var(--border)" }}>{content}</a>
             ) : (
-              <Link className="command-glass block p-5" href={href} key={product.slug}>{content}</Link>
+              <Link className="block border-t pt-5 transition hover:border-sky-400" href={href} key={product.slug} style={{ borderColor: "var(--border)" }}>{content}</Link>
             );
           })}
         </div>

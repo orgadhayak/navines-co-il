@@ -191,7 +191,7 @@ function BrowserExtensionExamples() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-glowred">תוספים שכבר בנינו</p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">דוגמאות אמיתיות מ Chrome Web Store</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-white">דוגמאות אמיתיות לתוספים לדפדפנים</h2>
         </div>
         <Link className="btn-secondary" href="/products">כלים ומוצרים</Link>
       </div>
@@ -211,13 +211,13 @@ function BrowserExtensionExamples() {
               </div>
             </dl>
             <span className="mt-5 inline-flex rounded-lg border border-purple-200/20 bg-purple-500/12 px-5 py-2 text-base font-semibold text-white">
-              התקינו מ Chrome Web Store
+              פתחו ב Chrome Web Store
             </span>
           </a>
         ))}
       </div>
       <p className="mt-4 text-sm leading-6 text-zinc-500">
-        אין כאן הבטחה למספר משתמשים, דירוגים או אישור אוטומטי בחנות. כל תוסף נבדק לפי מדיניות Chrome Web Store ולפי ההרשאות שהוא מבקש.
+        אין כאן הבטחה למספר משתמשים, דירוגים או אישור אוטומטי בחנות. כל תוסף נבדק לפי מדיניות החנות הרלוונטית, לפי ההרשאות שהוא מבקש, ולפי התאמה לדפדפנים כמו Chrome, Microsoft Edge, Brave, Opera ודפדפנים נוספים בהתאם ליכולות ה API ולדרישות הפרויקט.
       </p>
     </article>
   );

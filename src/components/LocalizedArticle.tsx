@@ -26,8 +26,18 @@ const faqLabels: Record<LocalizedArticleContent["locale"], string> = {
   zh: "常见问题",
 };
 
+const metaLabels: Record<LocalizedArticleContent["locale"], { published: string; updated: string; author: string }> = {
+  de: { published: "Veröffentlicht", updated: "Aktualisiert", author: "Autor" },
+  jp: { published: "公開日", updated: "更新日", author: "著者" },
+  ar: { published: "تاريخ النشر", updated: "آخر تحديث", author: "الكاتب" },
+  hi: { published: "प्रकाशित", updated: "अपडेट", author: "लेखक" },
+  fr: { published: "Publié", updated: "Mis à jour", author: "Auteur" },
+  zh: { published: "发布日期", updated: "更新日期", author: "作者" },
+};
+
 export function LocalizedArticle({ article }: { article: LocalizedArticleContent }) {
   const locale = siteLocales[article.locale];
+  const metaCopy = metaLabels[article.locale];
   const path = localizedArticlePaths[article.locale];
   const url = `${site.url}${path}`;
   const landingHref = `/${article.locale}`;
@@ -68,9 +78,9 @@ export function LocalizedArticle({ article }: { article: LocalizedArticleContent
         <Link className="text-sm font-semibold text-glowred" href={landingHref}>NAVINES</Link>
         <h1 className="mt-4 hyphens-auto break-words text-4xl font-semibold leading-tight text-white [overflow-wrap:anywhere] md:text-6xl">{article.title}</h1>
         <div className="mt-5 flex flex-wrap gap-3 text-sm" style={{ color: "var(--text-soft)" }}>
-          <span>{article.author}</span>
-          <span>{article.publishedAt}</span>
-          <span>{article.updatedAt}</span>
+          <span>{metaCopy.author}: {article.author}</span>
+          <span>{metaCopy.published}: {article.publishedAt}</span>
+          <span>{metaCopy.updated}: {article.updatedAt}</span>
         </div>
         <p className="mt-6 hyphens-auto break-words text-xl leading-9 [overflow-wrap:anywhere]" style={{ color: "var(--text-muted)" }}>{article.excerpt}</p>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/JsonLd";
+import { LanguageStrip } from "@/components/LanguageStrip";
 import { siteLocales } from "@/i18n/locales";
 import { site } from "@/data/site";
 import type { LocalizedLandingContent } from "@/content/localized/types";
@@ -87,12 +88,12 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
         </LocalizedSection>
 
         <LocalizedSection id="process" title={content.process.title}>
-          <ol className="grid gap-5 md:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {content.process.steps.map((step, index) => (
-              <li className="border-t pt-5" key={step.title} style={{ borderColor: "var(--border)" }}>
+              <li className="min-w-0 border-t pt-5" key={step.title} style={{ borderColor: "var(--border)" }}>
                 <span className="text-sm font-semibold text-glowred">{String(index + 1).padStart(2, "0")}</span>
-                <h2 className="mt-2 text-xl font-semibold">{step.title}</h2>
-                <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{step.text}</p>
+                <h2 className="mt-2 break-words text-xl font-semibold">{step.title}</h2>
+                <p className="mt-3 break-words text-base leading-7" style={{ color: "var(--text-muted)" }}>{step.text}</p>
               </li>
             ))}
           </ol>
@@ -124,6 +125,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
             </div>
           </div>
         </LocalizedSection>
+        <LanguageStrip compact current={content.locale} title="NAVINES" />
       </main>
     </>
   );

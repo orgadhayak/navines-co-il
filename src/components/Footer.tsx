@@ -20,7 +20,7 @@ const footerCopy: Record<LocaleSlug, {
     services: "שירותים מרכזיים",
     products: "מוצרים ותובנות",
     contact: "יצירת קשר",
-    languages: "שפות",
+    languages: "NAVINES בעולם",
     legal: "משפטי",
     ctaTitle: "רוצים להבין מה נכון לעסק שלכם?",
     ctaText: "שלחו הודעה קצרה ונכוון אתכם לשירות, מוצר או שיחה שמתאימים לצורך האמיתי.",
@@ -176,8 +176,8 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
-          <div className="col-span-2 lg:col-span-1">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
+          <div className="lg:col-span-1">
             <Link className="inline-flex items-center" href={isHebrew ? "/" : `/${locale}`}>
               <img alt="NAVINES" className="brand-logo h-5 w-auto object-contain" src="/brand/navines-wordmark-slim.png" />
             </Link>
@@ -188,7 +188,7 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
 
           <FooterColumn title={copy.services} items={isHebrew ? serviceLinks : localizedLinks?.services || []} />
           <FooterColumn title={copy.products} items={isHebrew ? productLinks : localizedLinks?.products || []} />
-          <FooterColumn title={copy.languages} items={languageLinks.map((language) => [language.nativeName, language.href])} />
+          <FooterLanguageColumn title={copy.languages} />
 
           <div>
             <h3 className="mb-4 text-base font-semibold">{copy.contact}</h3>
@@ -231,6 +231,33 @@ function FooterColumn({ title, items }: { title: string; items: string[][] }) {
             </Link>
           )
         ))}
+      </div>
+    </div>
+  );
+}
+
+function FooterLanguageColumn({ title }: { title: string }) {
+  return (
+    <div>
+      <h3 className="mb-4 text-base font-semibold">{title}</h3>
+      <div className="grid gap-2">
+        {languageLinks.map((language) => {
+          const content = (
+            <span className="inline-flex items-center gap-2">
+              <span className="english-tech text-xs font-semibold">{language.shortLabel}</span>
+              <span>{language.nativeName}</span>
+            </span>
+          );
+          return language.href.startsWith("http") ? (
+            <a className="text-sm transition hover:text-sky-700" href={language.href} key={language.nativeName} rel="noopener noreferrer" target="_blank" style={{ color: "var(--text-muted)" }}>
+              {content}
+            </a>
+          ) : (
+            <Link className="text-sm transition hover:text-sky-700" href={language.href} key={language.nativeName} style={{ color: "var(--text-muted)" }}>
+              {content}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

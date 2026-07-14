@@ -14,8 +14,10 @@ export function OptimizationHubShowcase({ compact = false }: { compact?: boolean
               <span className="block text-[1.55rem] font-semibold leading-tight text-white">{group.title}</span>
               <span className="mt-1 block text-base leading-7 text-zinc-400">{group.intro}</span>
             </span>
-            <span className="accordion-plus grid h-9 w-9 shrink-0 place-items-center rounded-full border border-purple-300/25 bg-purple-500/10 text-lg font-semibold text-glowred transition group-open:rotate-45">
-              +
+            <span className="accordion-toggle grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-purple-300/20 bg-transparent text-glowred transition-transform duration-200 group-open:rotate-180">
+              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 20 20">
+                <path d="M5 7.5 10 12l5-4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+              </svg>
             </span>
           </summary>
           <div className="grid gap-2 border-t border-white/10 p-4">

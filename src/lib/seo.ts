@@ -17,7 +17,7 @@ export function createMetadata({
   image?: string;
   imageAlt?: string;
 }): Metadata {
-  const url = `${site.url}${path}`;
+  const url = path === "" ? `${site.url}/` : `${site.url}${path}`;
   const pageTitle = `${title} | ${site.name}`;
 
   return {

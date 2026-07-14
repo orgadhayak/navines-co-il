@@ -9,17 +9,18 @@ export type LocaleMeta = {
   dir: "rtl" | "ltr";
   nativeName: string;
   englishName: string;
+  shortLabel: string;
   ogLocale: string;
 };
 
 export const siteLocales: Record<LocaleSlug, LocaleMeta> = {
-  he: { slug: "he", href: "/", lang: "he-IL", dir: "rtl", nativeName: "עברית", englishName: "Hebrew", ogLocale: "he_IL" },
-  de: { slug: "de", href: "/de", lang: "de-DE", dir: "ltr", nativeName: "Deutsch", englishName: "German", ogLocale: "de_DE" },
-  jp: { slug: "jp", href: "/jp", lang: "ja-JP", dir: "ltr", nativeName: "日本語", englishName: "Japanese", ogLocale: "ja_JP" },
-  ar: { slug: "ar", href: "/ar", lang: "ar", dir: "rtl", nativeName: "العربية", englishName: "Arabic", ogLocale: "ar" },
-  hi: { slug: "hi", href: "/hi", lang: "hi-IN", dir: "ltr", nativeName: "हिन्दी", englishName: "Hindi", ogLocale: "hi_IN" },
-  fr: { slug: "fr", href: "/fr", lang: "fr-FR", dir: "ltr", nativeName: "Français", englishName: "French", ogLocale: "fr_FR" },
-  zh: { slug: "zh", href: "/zh", lang: "zh-CN", dir: "ltr", nativeName: "简体中文", englishName: "Simplified Chinese", ogLocale: "zh_CN" },
+  he: { slug: "he", href: "/", lang: "he-IL", dir: "rtl", nativeName: "עברית", englishName: "Hebrew", shortLabel: "HE", ogLocale: "he_IL" },
+  de: { slug: "de", href: "/de", lang: "de-DE", dir: "ltr", nativeName: "Deutsch", englishName: "German", shortLabel: "DE", ogLocale: "de_DE" },
+  jp: { slug: "jp", href: "/jp", lang: "ja-JP", dir: "ltr", nativeName: "日本語", englishName: "Japanese", shortLabel: "JP", ogLocale: "ja_JP" },
+  ar: { slug: "ar", href: "/ar", lang: "ar", dir: "rtl", nativeName: "العربية", englishName: "Arabic", shortLabel: "AR", ogLocale: "ar" },
+  hi: { slug: "hi", href: "/hi", lang: "hi-IN", dir: "ltr", nativeName: "हिन्दी", englishName: "Hindi", shortLabel: "HI", ogLocale: "hi_IN" },
+  fr: { slug: "fr", href: "/fr", lang: "fr-FR", dir: "ltr", nativeName: "Français", englishName: "French", shortLabel: "FR", ogLocale: "fr_FR" },
+  zh: { slug: "zh", href: "/zh", lang: "zh-CN", dir: "ltr", nativeName: "简体中文", englishName: "Simplified Chinese", shortLabel: "ZH", ogLocale: "zh_CN" },
 };
 
 export const publicLocales: PublicLocale[] = ["de", "jp", "ar", "hi", "fr", "zh"];
@@ -27,7 +28,7 @@ export const publicLocales: PublicLocale[] = ["de", "jp", "ar", "hi", "fr", "zh"
 export const languageLinks = [
   siteLocales.he,
   { ...siteLocales.de, href: "/de" },
-  { slug: "en" as const, href: "https://www.navines.com/", lang: "en", dir: "ltr" as const, nativeName: "English", englishName: "English", ogLocale: "en_US" },
+  { slug: "en" as const, href: "https://www.navines.com/", lang: "en", dir: "ltr" as const, nativeName: "English", englishName: "English", shortLabel: "EN", ogLocale: "en_US" },
   { ...siteLocales.jp, href: "/jp" },
   { ...siteLocales.ar, href: "/ar" },
   { ...siteLocales.hi, href: "/hi" },

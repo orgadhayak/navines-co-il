@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { languageLinks, localeFromPath, type LocaleSlug } from "@/i18n/locales";
@@ -9,7 +9,7 @@ import { solutionPages } from "@/data/solutions";
 import { courseTracks, services, site } from "@/data/site";
 
 type DropdownKey = "services" | "solutions" | "language" | null;
-type MobileGroup = "services" | "solutions" | "language" | null;
+type MobileGroup = "services" | "solutions" | null;
 
 const serviceGroups = [
   {
@@ -70,52 +70,68 @@ export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug })
   const [dropdown, setDropdown] = useState<DropdownKey>(null);
   const [mobileGroup, setMobileGroup] = useState<MobileGroup>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const activeLocale = localeFromPath(pathname || "/").slug || initialLocale;
   const isHebrew = activeLocale === "he";
   const localized = isHebrew ? null : localizedNav[activeLocale as Exclude<LocaleSlug, "he">];
   const homeHref = isHebrew ? "/" : `/${activeLocale}`;
+  const activeLanguage = languageLinks.find((locale) => locale.slug === activeLocale) || languageLinks[0];
 
-  useEffect(() => {
-    setDropdown(null);
+  const closeMobile = useCallback((restoreFocus = false) => {
     setMobileOpen(false);
     setMobileGroup(null);
-  }, [pathname]);
+    if (restoreFocus) {
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    }
+  }, []);
+
+  const closeAll = useCallback((restoreFocus = false) => {
+    setDropdown(null);
+    closeMobile(restoreFocus);
+  }, [closeMobile]);
 
   useEffect(() => {
     function handleOutsideInteraction(event: PointerEvent | MouseEvent) {
-      if (!headerRef.current?.contains(event.target as Node)) setDropdown(null);
+      if (!headerRef.current?.contains(event.target as Node)) {
+        setDropdown(null);
+        if (mobileOpen) closeMobile(false);
+      }
     }
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setDropdown(null);
-        setMobileOpen(false);
-        setMobileGroup(null);
+        if (mobileOpen) closeMobile(true);
       }
     }
 
     document.addEventListener("pointerdown", handleOutsideInteraction);
-    document.addEventListener("click", handleOutsideInteraction);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("pointerdown", handleOutsideInteraction);
-      document.removeEventListener("click", handleOutsideInteraction);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [closeMobile, mobileOpen]);
 
-  const closeAll = () => {
-    setDropdown(null);
-    setMobileOpen(false);
-    setMobileGroup(null);
-  };
+  useEffect(() => {
+    closeAll(false);
+  }, [closeAll, pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileOpen]);
 
   return (
     <header ref={headerRef} className="sticky top-0 z-40 border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link className="flex min-w-0 items-center gap-3" href={homeHref} aria-label={isHebrew ? "חזרה לעמוד הבית" : localized?.home || "Home"} onClick={closeAll}>
+      <div className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <Link className="flex min-w-0 items-center gap-3" href={homeHref} aria-label={isHebrew ? "חזרה לעמוד הבית" : localized?.home || "Home"} onClick={() => closeAll()}>
           <img alt="NAVINES" className="brand-logo h-5 w-auto shrink-0 object-contain" src="/brand/navines-wordmark-slim.png" />
           <span className="hidden min-w-0 leading-tight sm:block">
             <strong className="block truncate text-base font-semibold" style={{ color: "var(--text)" }}>{isHebrew ? site.hebrewLegalName : "NAVINES"}</strong>
@@ -149,17 +165,21 @@ export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug })
           <ThemeToggle locale={activeLocale} />
           <button
             aria-expanded={dropdown === "language"}
-            className="hidden min-h-10 rounded-lg border px-3 py-2 text-sm font-medium transition lg:inline-flex"
+            aria-label={isHebrew ? "בחירת שפה" : localized?.language || "Language selector"}
+            className="hidden min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition hover:border-sky-400 lg:inline-flex"
             onClick={() => setDropdown((current) => (current === "language" ? null : "language"))}
             style={{ borderColor: "var(--border)", background: "var(--surface)", color: "var(--text)" }}
             type="button"
           >
-            {isHebrew ? "שפה" : localized?.language || "Language"}
+            <span className="english-tech text-xs font-semibold">{activeLanguage.shortLabel}</span>
+            <span className="hidden text-sm sm:inline">{activeLanguage.nativeName}</span>
+            <ChevronIcon open={dropdown === "language"} />
           </button>
           <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold text-white lg:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)" }}>
             {isHebrew ? "דברו איתנו" : localized?.cta || "WhatsApp"}
           </a>
           <button
+            ref={menuButtonRef}
             aria-expanded={mobileOpen}
             aria-label={isHebrew ? "פתיחת תפריט" : localized?.menu || "Open menu"}
             className="mobile-menu-button inline-flex min-h-10 items-center justify-center px-3 py-2 text-sm font-semibold lg:hidden"
@@ -176,13 +196,22 @@ export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug })
           <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
             {dropdown === "services" ? <ServicesDropdown onClick={closeAll} /> : null}
             {dropdown === "solutions" ? <SolutionsDropdown onClick={closeAll} /> : null}
-            {dropdown === "language" ? <LanguageDropdown onClick={closeAll} /> : null}
+            {dropdown === "language" ? <LanguageDropdown activeLocale={activeLocale} onClick={closeAll} /> : null}
           </div>
         </div>
       )}
 
       {mobileOpen ? (
-        <nav className="mobile-menu-panel px-4 py-4 lg:hidden" aria-label={isHebrew ? "תפריט מובייל" : "Mobile navigation"}>
+        <button
+          aria-label={isHebrew ? "סגירת תפריט" : "Close menu"}
+          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[1px] lg:hidden"
+          onClick={() => closeMobile(true)}
+          type="button"
+        />
+      ) : null}
+
+      {mobileOpen ? (
+        <nav className="mobile-menu-panel relative z-50 max-h-[calc(100svh-4.5rem)] overflow-y-auto px-4 py-4 lg:hidden" aria-label={isHebrew ? "תפריט מובייל" : "Mobile navigation"}>
           <div className="mx-auto grid max-w-7xl gap-2 pb-6">
             {isHebrew ? (
               <>
@@ -205,9 +234,10 @@ export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug })
                 onClick={closeAll}
               />
             )}
-            <MobileGroupButton label={isHebrew ? "שפות" : localized?.language || "Languages"} open={mobileGroup === "language"} onClick={() => setMobileGroup((current) => (current === "language" ? null : "language"))} />
-            {mobileGroup === "language" ? <MobileLanguageLinks onClick={closeAll} /> : null}
-            <a className="mobile-menu-cta" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" onClick={closeAll}>
+            <div className="mt-3 border-t pt-3" style={{ borderColor: "var(--border)" }}>
+              <LanguageOptions activeLocale={activeLocale} mobile onClick={closeAll} />
+            </div>
+            <a className="mobile-menu-cta" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" onClick={() => closeAll()}>
               {isHebrew ? "דברו איתנו בוואטסאפ" : localized?.cta || "WhatsApp"}
             </a>
           </div>
@@ -219,7 +249,7 @@ export function Header({ initialLocale = "he" }: { initialLocale?: LocaleSlug })
 
 function NavLink({ href, label, onClick }: { href: string; label: string; onClick: () => void }) {
   return (
-    <Link className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-sky-50 hover:text-sky-700" href={href} onClick={onClick} style={{ color: "var(--text)" }}>
+    <Link className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-sky-50 hover:text-sky-700" href={href} onClick={() => onClick()} style={{ color: "var(--text)" }}>
       {label}
     </Link>
   );
@@ -229,12 +259,13 @@ function DropdownButton({ isOpen, label, onClick }: { isOpen: boolean; label: st
   return (
     <button
       aria-expanded={isOpen}
-      className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-sky-50 hover:text-sky-700"
+      className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-sky-50 hover:text-sky-700"
       onClick={onClick}
       style={{ color: isOpen ? "var(--primary)" : "var(--text)", background: isOpen ? "var(--surface-soft)" : "transparent" }}
       type="button"
     >
-      {label}
+      <span>{label}</span>
+      <ChevronIcon open={isOpen} />
     </button>
   );
 }
@@ -247,7 +278,7 @@ function ServicesDropdown({ onClick }: { onClick: () => void }) {
           <h2 className="mb-3 text-base font-semibold">{group.title}</h2>
           <div className="grid gap-2">
             {group.links.map(([label, href]) => (
-              <Link className="rounded-md px-2 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={href} key={href} onClick={onClick} style={{ color: "var(--text-muted)" }}>
+              <Link className="rounded-md px-2 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={href} key={href} onClick={() => onClick()} style={{ color: "var(--text-muted)" }}>
                 {label}
               </Link>
             ))}
@@ -261,16 +292,16 @@ function ServicesDropdown({ onClick }: { onClick: () => void }) {
 function SolutionsDropdown({ onClick }: { onClick: () => void }) {
   return (
     <div className="grid gap-3 rounded-lg border p-5 md:grid-cols-2 lg:grid-cols-4" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
-      <Link className="rounded-md px-3 py-2 text-sm font-medium transition hover:bg-white hover:text-sky-700" href="/solutions" onClick={onClick}>
+      <Link className="rounded-md px-3 py-2 text-sm font-medium transition hover:bg-white hover:text-sky-700" href="/solutions" onClick={() => onClick()}>
         כל הפתרונות
       </Link>
       {solutionPages.map((solution) => (
-        <Link className="rounded-md px-3 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={`/solutions/${solution.slug}`} key={solution.slug} onClick={onClick} style={{ color: "var(--text-muted)" }}>
+        <Link className="rounded-md px-3 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={`/solutions/${solution.slug}`} key={solution.slug} onClick={() => onClick()} style={{ color: "var(--text-muted)" }}>
           {solution.navLabel}
         </Link>
       ))}
       {courseTracks.map((course) => (
-        <Link className="rounded-md px-3 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={`/courses/${course.slug}`} key={course.slug} onClick={onClick} style={{ color: "var(--text-muted)" }}>
+        <Link className="rounded-md px-3 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={`/courses/${course.slug}`} key={course.slug} onClick={() => onClick()} style={{ color: "var(--text-muted)" }}>
           {course.navLabel}
         </Link>
       ))}
@@ -278,22 +309,10 @@ function SolutionsDropdown({ onClick }: { onClick: () => void }) {
   );
 }
 
-function LanguageDropdown({ onClick }: { onClick: () => void }) {
+function LanguageDropdown({ activeLocale, onClick }: { activeLocale: LocaleSlug; onClick: () => void }) {
   return (
-    <div className="grid gap-2 rounded-lg border p-4 sm:grid-cols-2 lg:grid-cols-4" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
-      {languageLinks.map((locale) => {
-        const isExternal = locale.href.startsWith("http");
-        const className = "rounded-md px-3 py-2 text-sm font-medium transition hover:bg-white hover:text-sky-700";
-        return isExternal ? (
-          <a className={className} href={locale.href} key={locale.nativeName} rel="noopener noreferrer" target="_blank" onClick={onClick}>
-            {locale.nativeName}
-          </a>
-        ) : (
-          <Link className={className} href={locale.href} key={locale.nativeName} onClick={onClick}>
-            {locale.nativeName}
-          </Link>
-        );
-      })}
+    <div className="rounded-lg border p-3" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
+      <LanguageOptions activeLocale={activeLocale} onClick={onClick} />
     </div>
   );
 }
@@ -302,7 +321,7 @@ function MobileGroupButton({ label, open, onClick }: { label: string; open: bool
   return (
     <button aria-expanded={open} className="mobile-menu-group-title justify-between px-4" onClick={onClick} type="button">
       <span>{label}</span>
-      <span aria-hidden="true">{open ? "−" : "+"}</span>
+      <ChevronIcon open={open} />
     </button>
   );
 }
@@ -311,7 +330,7 @@ function MobileLinks({ links, onClick }: { links: [string, string][]; onClick: (
   return (
     <div className="grid gap-1.5">
       {links.map(([label, href]) => (
-        <Link className="mobile-menu-sub-link" href={href} key={`${href}-${label}`} onClick={onClick}>
+        <Link className="mobile-menu-sub-link" href={href} key={`${href}-${label}`} onClick={() => onClick()}>
           {label}
         </Link>
       ))}
@@ -319,21 +338,42 @@ function MobileLinks({ links, onClick }: { links: [string, string][]; onClick: (
   );
 }
 
-function MobileLanguageLinks({ onClick }: { onClick: () => void }) {
+function LanguageOptions({ activeLocale, mobile = false, onClick }: { activeLocale: LocaleSlug; mobile?: boolean; onClick: () => void }) {
   return (
-    <div className="grid gap-1.5">
+    <div className={mobile ? "grid grid-cols-2 gap-1.5 sm:grid-cols-4" : "grid gap-1.5 sm:grid-cols-2 lg:grid-cols-4"}>
       {languageLinks.map((locale) => {
         const isExternal = locale.href.startsWith("http");
+        const isCurrent = locale.slug === activeLocale;
+        const className = `${mobile ? "mobile-menu-sub-link" : "rounded-md px-3 py-2 text-sm font-medium transition hover:bg-white hover:text-sky-700"} inline-flex items-center gap-2 ${isCurrent ? "text-sky-700" : ""}`;
+        const content = (
+          <>
+            <span className="english-tech text-xs font-semibold">{locale.shortLabel}</span>
+            <span>{locale.nativeName}</span>
+          </>
+        );
         return isExternal ? (
-          <a className="mobile-menu-sub-link" href={locale.href} key={locale.nativeName} rel="noopener noreferrer" target="_blank" onClick={onClick}>
-            {locale.nativeName}
+          <a aria-current={isCurrent ? "page" : undefined} aria-label={`${locale.nativeName} language`} className={className} href={locale.href} key={locale.nativeName} rel="noopener noreferrer" target="_blank" onClick={() => onClick()}>
+            {content}
           </a>
         ) : (
-          <Link className="mobile-menu-sub-link" href={locale.href} key={locale.nativeName} onClick={onClick}>
-            {locale.nativeName}
+          <Link aria-current={isCurrent ? "page" : undefined} aria-label={`${locale.nativeName} language`} className={className} href={locale.href} key={locale.nativeName} onClick={() => onClick()}>
+            {content}
           </Link>
         );
       })}
     </div>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      fill="none"
+      viewBox="0 0 20 20"
+    >
+      <path d="M5 7.5 10 12l5-4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+    </svg>
   );
 }

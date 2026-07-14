@@ -106,7 +106,7 @@ select,
 .mobile-menu-group-title,
 .mobile-menu-sub-link,
 .mobile-menu-cta,
-.accordion-plus {
+.accordion-toggle {
   cursor: pointer;
 }
 
@@ -199,13 +199,13 @@ dd {
 .command-glass,
 .dashboard-row,
 .rounded-premium {
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .command-glass {
   position: relative;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
   box-shadow: none;
   backdrop-filter: none;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
@@ -217,15 +217,16 @@ dd {
 }
 
 .dashboard-row {
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
   box-shadow: none;
   transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
 .dashboard-row:hover {
   border-color: var(--border-strong);
-  background: var(--surface-soft);
+  background: transparent;
   transform: translateY(-1px);
 }
 
@@ -298,7 +299,7 @@ dd {
 [class*="rounded-[2"],
 [class*="rounded-[3"],
 .rounded-premium {
-  border-radius: 12px !important;
+  border-radius: 10px !important;
 }
 
 main section .rounded-full:not(.status-pip) {
@@ -328,7 +329,7 @@ main section .rounded-full:not(.status-pip) {
   touch-action: pan-y;
   border-top: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.12);
   scrollbar-color: var(--primary) var(--bg-alt);
   scrollbar-width: thin;
 }
@@ -340,12 +341,13 @@ main section .rounded-full:not(.status-pip) {
   display: flex;
   min-height: 3rem;
   align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  justify-content: space-between;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
   color: var(--text);
-  text-align: center;
+  text-align: start;
   font-weight: 600;
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
@@ -364,7 +366,7 @@ main section .rounded-full:not(.status-pip) {
 .mobile-menu-sub-link:focus-visible {
   border-color: var(--border-strong);
   color: var(--primary);
-  background: var(--surface-soft);
+  background: transparent;
   transform: none;
 }
 
@@ -391,6 +393,8 @@ main section .rounded-full:not(.status-pip) {
   color: #ffffff !important;
   background: var(--primary);
   border-color: var(--primary);
+  border-radius: 10px;
+  justify-content: center;
   box-shadow: none;
 }
 
