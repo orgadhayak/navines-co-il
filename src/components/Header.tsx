@@ -35,6 +35,13 @@ const serviceGroups = [
     ],
   },
   {
+    title: "טכנולוגיה למשפט וציות",
+    links: [
+      ["תהליכים משפטיים וציות", "/services/legal-operations-technology"],
+      ["טכנולוגיה לתיקי תעבורה", "/services/traffic-case-technology"],
+    ],
+  },
+  {
     title: "מסלולים וכלים",
     links: [
       ["אתר תדמית 999 ₪", "/services/business-website-999"],
@@ -272,7 +279,7 @@ function DropdownButton({ isOpen, label, onClick }: { isOpen: boolean; label: st
 
 function ServicesDropdown({ onClick }: { onClick: () => void }) {
   return (
-    <div className="grid gap-6 rounded-lg border p-5 lg:grid-cols-3" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
+    <div className="grid gap-6 rounded-lg border p-5 lg:grid-cols-4" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
       {serviceGroups.map((group) => (
         <div key={group.title}>
           <h2 className="mb-3 text-base font-semibold">{group.title}</h2>

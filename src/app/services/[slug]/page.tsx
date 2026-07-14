@@ -32,6 +32,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isDueDiligenceService = service.slug === "business-due-diligence-intelligence";
   const isAmazonSeoWebsiteService = service.slug === "amazon-seller-seo-website";
   const isBrowserExtensionService = service.slug === "browser-extension-development";
+  const isLegalTechnologyService = service.slug === "legal-operations-technology";
+  const isTrafficLawService = service.slug === "traffic-case-technology";
+  const legalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אני פונה בנושא פתרון טכנולוגי לתהליכי משפט, ציות או ניהול מסמכים.")}`;
+  const trafficWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אני פונה ממשרד עורכי דין בנושא פתרון טכנולוגי לארגון וניהול חומר בתיקי תעבורה.")}`;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -49,7 +53,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     name: service.title,
     description: service.summary,
     provider: { "@type": "Organization", name: site.hebrewLegalName, url: site.url },
-    areaServed: "IL",
+    ...(isLegalTechnologyService
+      ? { serviceType: "Legal operations technology and compliance implementation" }
+      : isTrafficLawService
+        ? { serviceType: "Traffic case technology for law firms" }
+        : { areaServed: "IL" }),
   };
 
   return (
@@ -106,6 +114,37 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </p>
             </article>
           ) : null}
+          {isLegalTechnologyService ? (
+            <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
+              <h2 className="text-2xl font-semibold text-white">שירות טכנולוגי ותפעולי בלבד</h2>
+              <p className="mt-3 text-lg leading-8 text-zinc-300">
+                NAVINES היא חברת תוכנה וטכנולוגיה ואינה משרד עורכי דין. החברה אינה מספקת ייעוץ או ייצוג משפטי, אינה מפנה לקוחות לעורכי דין ואינה צד בהתקשרות שבין לקוח לעורך דין. השירותים המתוארים בעמוד זה הם שירותים טכנולוגיים ותפעוליים בלבד.
+              </p>
+              <p className="mt-3 text-base leading-7 text-zinc-400">
+                בפנייה ראשונה מספיק לתאר את הצורך הטכנולוגי: איזה מידע, מסמכים, מערכות או תהליך צריך לארגן. אין לשלוח סיסמאות, קודי אימות או מסמכים חסויים דרך הודעה פתוחה.
+              </p>
+              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-purple-100/35 bg-purple-500/20 px-6 py-2.5 text-base font-semibold text-white transition hover:bg-purple-500/30" href={legalWhatsappHref} rel="noopener noreferrer" target="_blank">
+                דברו איתנו על פתרון טכנולוגי
+              </a>
+            </article>
+          ) : null}
+          {isTrafficLawService ? (
+            <article className="rounded-premium border border-red-300/25 bg-red-950/24 p-5 shadow-[0_0_34px_rgba(239,68,68,0.10)]">
+              <span className="inline-flex rounded-lg border border-red-200/30 bg-red-500/16 px-4 py-1 text-sm font-semibold text-red-100">
+                למשרדי עורכי דין וצוותים מקצועיים
+              </span>
+              <h2 className="mt-4 text-2xl font-semibold text-white">משרד המטפל בחומר תעבורה? בונים סביבת עבודה מסודרת</h2>
+              <p className="mt-3 text-lg leading-8 text-red-50/90">
+                NAVINES היא חברת תוכנה וטכנולוגיה ואינה משרד עורכי דין. החברה אינה מספקת ייעוץ או ייצוג משפטי, אינה מפנה לקוחות לעורכי דין ואינה צד בהתקשרות שבין לקוח לעורך דין. השירותים המתוארים בעמוד זה הם שירותים טכנולוגיים ותפעוליים בלבד.
+              </p>
+              <p className="mt-3 text-base leading-7 text-red-50/75">
+                הפנייה מיועדת למשרדים וצוותים מקצועיים המעוניינים בכלי לארגון חומר, צירי זמן, תזכורות והמחשה. אין לשלוח פרטי דוח, מספר רישיון, תעודת זהות או חומרי חקירה בפנייה הראשונה.
+              </p>
+              <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-red-100/35 bg-red-500/20 px-6 py-2.5 text-base font-semibold text-white transition hover:bg-red-500/30" href={trafficWhatsappHref} rel="noopener noreferrer" target="_blank">
+                פתרון טכנולוגי לתיקי תעבורה
+              </a>
+            </article>
+          ) : null}
           {isAmazonSeoWebsiteService ? (
             <article className="rounded-premium border border-purple-200/15 bg-purple-500/[0.06] p-5">
               <h2 className="text-2xl font-semibold text-white">חשוב לדעת על SEO מחוץ ל Amazon</h2>
@@ -160,6 +199,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {isAccountHackRecoveryService ? <AccountHackGuidance /> : null}
           {isDueDiligenceService ? <DueDiligenceGuidance /> : null}
           {isBrowserExtensionService ? <BrowserExtensionGuidance /> : null}
+          {isLegalTechnologyService ? <LegalTechnologyGuidance /> : null}
+          {isTrafficLawService ? <TrafficLawGuidance /> : null}
           <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
             <h2 className="text-2xl font-semibold text-white">תהליך עבודה</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
@@ -193,8 +234,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
-        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isLegalTechnologyService ? "צריכים מערכת מסודרת לתהליכי משפט וציות?" : isTrafficLawService ? "משרד עורכי דין המטפל בתיקי תעבורה?" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isLegalTechnologyService ? "ספרו בקצרה איזה תהליך, מערכת, מסמכים או נכסים דיגיטליים צריך לארגן. NAVINES מספקת פתרון טכנולוגי ותפעולי בלבד, ואינה מספקת ייעוץ או הפניה משפטית." : isTrafficLawService ? "דברו איתנו על פתרון טכנולוגי לתהליך העבודה שלכם: ארגון חומר, תזכורות, צירי זמן, הרשאות והמחשה. הפנייה מיועדת למשרדים וצוותים מקצועיים בלבד." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
   );
@@ -319,6 +360,68 @@ function DueDiligenceGuidance() {
           <div className="rounded-lg border border-purple-200/12 bg-black/18 px-4 py-3 text-base font-bold text-zinc-200" key={item}>{item}</div>
         ))}
       </div>
+    </article>
+  );
+}
+
+function LegalTechnologyGuidance() {
+  const technologyLayer = ["מיפוי נכסי מותג ודומיינים", "איסוף URLs וצילומי מסך", "בניית ציר זמן של אירועים", "סידור גרסאות מסמכים", "מיפוי טפסים והרשאות מידע", "יישום הנחיות מקצועיות שכבר אושרו"];
+  const safeBoundaries = ["לא מספקים ייעוץ משפטי", "לא מייצגים לקוחות", "לא מפנים לקוחות לעורכי דין", "לא מחליפים עורך דין, ראיה, עד או מומחה", "לא מבקשים סיסמאות או קודי אימות"];
+
+  return (
+    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+      <h2 className="text-2xl font-semibold text-white">איך הטכנולוגיה מסדרת תהליכי משפט וציות</h2>
+      <p className="mt-3 text-lg leading-8 text-zinc-300">
+        בעולם דיגיטלי, הרבה מהמידע הרלוונטי נמצא בתוך אתרים, פלטפורמות, דומיינים, טפסים, דוחות, מיילים וצילומי מסך. שכבת תוכנה טובה עוזרת למשרד, למחלקה המשפטית או לעסק לארגן את החומר, לשמור גרסאות, לנהל הרשאות וליישם הנחיות קיימות בצורה עקבית.
+      </p>
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
+        <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
+          <h3 className="text-xl font-semibold text-white">מה NAVINES מסדרת</h3>
+          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
+            {technologyLayer.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
+          <h3 className="text-xl font-semibold text-white">גבולות ברורים</h3>
+          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
+            {safeBoundaries.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+      <p className="mt-4 text-base leading-7 text-zinc-400">
+        אם הנושא כולל פרטיות, סימן מסחר, הסכם, תנאי שימוש או פנייה לפלטפורמה, העסק או המשרד פועלים מול יועציהם המקצועיים באופן עצמאי. NAVINES מסייעת בבניית התמונה הטכנולוגית, לא בקבלת החלטות משפטיות.
+      </p>
+    </article>
+  );
+}
+
+function TrafficLawGuidance() {
+  const checkItems = ["תיק מסודר לפי תאריך ומקור", "שדות אחידים לדוחות, תמונות ומסמכים", "ציר זמן של פעולות ומועדים", "הרשאות לצוות המשרד ולמומחים", "תיעוד גרסאות ושינויים", "דוחות עבודה פנימיים"];
+  const dontAssume = ["לא קובעים מסקנות משפטיות", "לא בודקים סיכויי תיק", "לא מבטיחים תוצאה", "לא אוספים פרטי נהגים מהציבור דרך האתר", "לא משנים חומר מקורי או ראיות"];
+
+  return (
+    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+      <h2 className="text-2xl font-semibold text-white">איך כלי טכנולוגי מסייע לצוות המטפל בחומר תעבורה</h2>
+      <p className="mt-3 text-lg leading-8 text-zinc-300">
+        בתיקי תעבורה יש לעיתים הרבה קבצים, תמונות, מועדים, מסמכים וגרסאות. כלי עבודה מסודר אינו מחליף את שיקול הדעת המקצועי של המשרד, אבל הוא יכול לעזור לצוות לראות מה קיים, מה חסר, אילו מועדים מתקרבים ואיך להציג חומר בצורה ברורה.
+      </p>
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
+        <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">
+          <h3 className="text-xl font-semibold text-white">מה המערכת מארגנת</h3>
+          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
+            {checkItems.map((item) => <li className="border-r border-purple-300/35 pr-3" key={item}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="rounded-lg border border-red-300/15 bg-red-950/18 p-4">
+          <h3 className="text-xl font-semibold text-white">גבולות ברורים</h3>
+          <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300">
+            {dontAssume.map((item) => <li className="border-r border-red-300/35 pr-3" key={item}>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+      <p className="mt-4 text-base leading-7 text-zinc-400">
+        הפתרון מיועד למשרדי עורכי דין, צוותים משפטיים ומומחים העובדים מטעמם. NAVINES אינה מקבלת דוחות מנהגים, אינה בודקת אם כדאי להישפט ואינה מספקת ייעוץ או ייצוג משפטי.
+      </p>
     </article>
   );
 }

@@ -18,6 +18,7 @@ const serviceGroups = [
   { title: "TalkToData", text: "חיבור נתונים, דוחות ואימיילים לשיחה פשוטה שמאפשרת להבין מה קורה בעסק.", href: "/services/chatgpt-business-data" },
   { title: "איקומרס ומרקטפלייסים", text: "Shopify, WooCommerce, Amazon ו-eBay עם תשתית מכירה, מדידה ותפעול מסודרת.", href: "/services/ecommerce" },
   { title: "תמיכה, סייבר ושחזור", text: "תקלות אתר, מיילים, DNS, פריצות לחשבונות ונכסים דיגיטליים שדורשים תגובה אחראית.", href: "/services/technical-support-cyber-networks" },
+  { title: "טכנולוגיה למשפט וציות", text: "פתרונות לארגון מידע, מיפוי מערכות, ניטור מותגים וניהול תהליכים עבור משרדי עורכי דין, מחלקות משפטיות ועסקים.", href: "/services/legal-operations-technology" },
   { title: "בדיקות ואופטימיזציה", text: "מהירות, SEO, תשתית, אבטחה, נתונים וחוויית משתמש, כדי שהאתר יעבוד טוב יותר.", href: "/optimization-hub" },
 ];
 
@@ -25,6 +26,8 @@ const highlighted = [
   { title: "צ׳ט AI חכם לאתרים", href: "/services/ai-chat-for-websites" },
   { title: "פיתוח תוספים לדפדפן", href: "/services/browser-extension-development" },
   { title: "אתר SEO למוכרי Amazon", href: "/services/amazon-seller-seo-website" },
+  { title: "תהליכים משפטיים וציות", href: "/services/legal-operations-technology" },
+  { title: "טכנולוגיה לתיקי תעבורה", href: "/services/traffic-case-technology" },
   { title: "בדיקת עסק לפני רכישה", href: "/services/business-due-diligence-intelligence" },
 ];
 
@@ -87,7 +90,7 @@ export default function HomePage() {
 
       <LanguageStrip current="he" title="NAVINES בעולם" />
 
-      <Section eyebrow="מה אנחנו עושים" title="שישה תחומים מרכזיים, בלי לפזר אתכם בין עשרות מונחים">
+      <Section eyebrow="מה אנחנו עושים" title="תחומים מרכזיים, בלי לפזר אתכם בין עשרות מונחים">
         <div className="grid gap-x-10 gap-y-7 md:grid-cols-2 lg:grid-cols-3">
           {serviceGroups.map((service) => (
             <Link className="group border-t pt-5 transition" href={service.href} key={service.href} style={{ borderColor: "var(--border)" }}>

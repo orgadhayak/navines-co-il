@@ -195,6 +195,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
   const isAccountantChoicePost = post.slug === "how-to-choose-accountant-for-digital-business";
   const isBrowserExtensionPost = post.slug === "how-to-build-browser-extension-for-business";
+  const isLegalOnlinePost = post.slug === "legal-technology-for-online-businesses";
+  const isTrafficPointsPost = post.slug === "traffic-points-speed-and-mobile-phone";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
 
@@ -206,6 +208,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     author: { "@type": "Organization", name: site.hebrewLegalName },
     publisher: { "@type": "Organization", name: site.hebrewLegalName },
     datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     inLanguage: "he-IL",
   };
   const faqSchema = post.faqs?.length
@@ -263,12 +266,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       <CTA
-        title={isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isLegalOnlinePost ? "צריכים למפות את המערכות והנכסים הדיגיטליים של העסק?" : isTrafficPointsPost ? "משרד מקצועי שרוצה כלי לארגון חומר תעבורה?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isLegalOnlinePost ? "דברו עם NAVINES על הצד הטכנולוגי: מיפוי מערכות, מסמכים, טפסים, הרשאות, נכסים דיגיטליים וניטור מותג. ייעוץ משפטי מתקבל רק מעורך דין שתבחרו באופן עצמאי." : isTrafficPointsPost ? "אם אתם משרד עורכי דין או צוות מקצועי שמטפל בחומר תעבורה, אפשר לדבר איתנו על מערכת לארגון מסמכים, צירי זמן, תזכורות והמחשות. NAVINES אינה מספקת טיפול משפטי לציבור." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-semibold text-white">מאמרים קשורים</h2>
@@ -321,6 +324,208 @@ function PostFaqList({ faqs }: { faqs: NonNullable<(typeof blogPosts)[number]["f
           <p>{faq.answer}</p>
         </div>
       ))}
+    </div>
+  );
+}
+
+function LegalOnlineArticleBody() {
+  const sources = [
+    { label: "רישום סימן מסחר בישראל", href: "https://www.gov.il/he/service/trademark_registration" },
+    { label: "רישום סימן בינלאומי", href: "https://www.gov.il/he/service/international_mark_registration" },
+    { label: "חיפוש סימני מסחר", href: "https://trademarksonline.justice.gov.il/" },
+    { label: "מדריך תיקון 13 להגנת הפרטיות", href: "https://www.gov.il/he/pages/guide_tikon13_professional" },
+  ];
+
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <p>
+        המידע במאמר הוא מידע כללי בלבד ואינו ייעוץ משפטי. הדין, הנהלים והמועדים עשויים להשתנות. לקבלת ייעוץ המתאים למקרה שלכם יש לפנות באופן עצמאי לעורך דין מורשה.
+      </p>
+      <h2>עסק אונליין צריך הפרדה ברורה בין החלטות משפטיות לבין עבודה טכנולוגית</h2>
+      <p>
+        עסק שמוכר באינטרנט, מקבל פניות מטפסים, מנהל חנות, מפעיל דיוור, מפרסם ברשתות או משתמש בכלי AI לא מתנהל רק בעולם של עיצוב ושיווק. מאחורי האתר יש שם מותג, לוגו, דומיינים, תנאי שימוש, מדיניות פרטיות, מסלולי החזרות, ספקים, הרשאות, מידע אישי, תיעוד פניות ולעיתים גם סיכונים של התחזות או העתקה.
+      </p>
+      <p>
+        ההחלטות המשפטיות, כמו האם להגיש בקשה לרישום סימן מסחר, כיצד לנסח תקנון, אילו סעיפים נדרשים במדיניות פרטיות או כיצד לפעול מול פלטפורמה, שייכות לעסק ולעורך הדין שהעסק בוחר באופן עצמאי. לצד זה יש שכבה טכנולוגית חשובה: להבין איפה המידע נמצא, מי ניגש אליו, אילו מערכות מחוברות ומה צריך לתעד.
+      </p>
+      <p>
+        נביא נס ישראל בע״מ היא חברת תוכנה וטכנולוגיה. אנחנו לא משרד עורכי דין, לא מספקים ייעוץ או ייצוג משפטי, לא מפנים לקוחות לעורכי דין ולא צד להתקשרות שבין לקוח לעורך דין. אנחנו מסייעים בצד הטכנולוגי: מיפוי נכסים, סידור מסמכים, בניית צירי זמן, ניטור מותגים, הרשאות, תיעוד והטמעת הנחיות שכבר אושרו על ידי הגורמים המקצועיים של העסק.
+      </p>
+
+      <h2>סימן מסחר: מה שייך לעורך הדין ומה שייך לטכנולוגיה</h2>
+      <p>
+        הרבה עסקים מתחילים בשם, לוגו ודומיין, ורק אחרי שהמותג כבר מופיע בפרסומים הם מגלים שצריך לבדוק אם אפשר להגן עליו. סימן מסחר יכול להיות שם, לוגו או סימן אחר שמבדיל את העסק. אבל לפני שמגישים בקשה, צריך לבדוק חיפוש ראשוני, סיווגים רלוונטיים, פעילות קיימת, שימושים דומים והאם יש סיכון להתנגדות.
+      </p>
+      <p>
+        בחירת הסיווגים, הגשת בקשה, ניסוח מסמכים, טיפול בהתנגדויות וקבלת החלטות משפטיות הם עניינים לעורך דין שהעסק בוחר באופן עצמאי. אין דרך אחראית להבטיח שסימן יאושר. מהצד הטכנולוגי אפשר לארגן את המידע: דומיינים, פרופילים, שימושים קיימים, צילומי מסך, URLs, תאריכי פרסום, קבצי לוגו, עמודי מוצר ותוכן שיווקי.
+      </p>
+      <p>
+        כשהחומר מסודר, העסק והיועצים שלו יכולים להבין טוב יותר מה קיים ומה חסר. NAVINES מתמקדת בארגון המידע, לא בהכרעה אם סימן ניתן לרישום ולא בניהול הליך משפטי.
+      </p>
+
+      <h2>פרטיות וציות מתחילים ממיפוי טכנולוגי נכון</h2>
+      <p>
+        אתר שמוכר מוצרים, אתר שמציע שירותים, מערכת SaaS, אתר עם טפסים, חנות Shopify, אתר WooCommerce או כלי AI אוספים ומעבדים מידע בצורה שונה. לפני שמנסחים או מעדכנים מסמכים, צריך להבין איך העסק עובד בפועל: איזה מידע נאסף, דרך אילו טפסים, האם יש הרשמה, האם יש דיוור, האם יש Analytics, האם יש CRM, מי הספקים ומי רשאי לראות את המידע.
+      </p>
+      <p>
+        NAVINES יכולה לבנות מפת מערכות, טבלת ספקים, רשימת טפסים, מיפוי Cookies, תיעוד הרשאות, לוגים ותהליך יישום טכני. את הדרישות המשפטיות, הנוסחים וההחלטות המקצועיות העסק קובע עם עורך הדין שבחר.
+      </p>
+      <p>
+        אם משתמשים בכלי AI או אוטומציות, חשוב להבין איזה מידע נכנס לתהליך ומה לא צריך להיכנס אליו. זו עבודה טכנולוגית של מיפוי, הרשאות ובקרה, והיא יכולה לעזור לעסק להתנהל בצורה אחראית יותר בלי להחליף ייעוץ משפטי.
+      </p>
+
+      <h2>הגנת מותג, התחזות וראיות דיגיטליות</h2>
+      <p>
+        עסקים אונליין עלולים להתמודד עם פרופילים מזויפים, עמודי התחזות, העתקת תמונות, שימוש בשם מסחרי, דומיינים דומים, תוכן מועתק או פרסום שמבלבל לקוחות. במצבים כאלה חשוב לא לפעול בפאניקה ולא להסתפק בצילום מסך בודד.
+      </p>
+      <p>
+        בדרך כלל כדאי לשמור URLs מלאים, תאריכים, צילומי מסך, תיעוד של הודעות, פרטי חשבון או עמוד, רצף אירועים וכל מידע שמראה איך הלקוח או הציבור נחשף להפרה. אין הבטחה שפלטפורמה תקבל כל דיווח או תסיר כל תוכן, אבל חומר מסודר יכול לעזור לבחון פנייה נכונה.
+      </p>
+      <p>
+        אם יש חשד לפריצה לחשבון, מומלץ לקרוא גם את המדריך שלנו על{" "}
+        <Link href="/blog/what-to-do-when-account-is-hacked">מה עושים כשפורצים לחשבון</Link>. אם מדובר בבדיקת עסק לפני רכישה, כדאי לקרוא גם על{" "}
+        <Link href="/blog/business-due-diligence-before-buying">בדיקת נאותות דיגיטלית לפני קנייה</Link>.
+      </p>
+
+      <h2>מה כדאי לארגן לפני שפונים לגורם מקצועי</h2>
+      <p>
+        במקום להתחיל מפיזור של קבצים, צילומי מסך וקישורים, כדאי להכין רשימה מסודרת: דומיינים, פרופילים רשמיים, מערכות שמחזיקות מידע, טפסים, ספקים, תאריכים, URLs, צילומי מסך וקבצי מקור. ככל שהתמונה מסודרת יותר, קל יותר לעסק וליועציו לקבל החלטות.
+      </p>
+      <p>
+        לא כדאי לשלוח סיסמאות, קודי אימות, פרטי אשראי או חומר רגיש בערוץ פתוח. אם נדרש שיתוף חומר, עושים זאת בסביבה שהעסק הגדיר ואישר, עם הרשאות מתאימות ותיעוד.
+      </p>
+
+      <h2>מקורות רשמיים שכדאי להכיר</h2>
+      <p>
+        לפני שמקבלים החלטות, כדאי להכיר את המקורות הרשמיים. הם לא מחליפים ייעוץ משפטי, אבל נותנים נקודת התחלה להבנת התהליך:
+      </p>
+      <ul>
+        {sources.map((source) => (
+          <li key={source.href}>
+            <a href={source.href} rel="noopener noreferrer" target="_blank">{source.label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <h2>רשימת בדיקה טכנולוגית לעסק אונליין</h2>
+      <ul>
+        <li>האם ברור מי מחזיק בשם המותג, בלוגו ובדומיינים?</li>
+        <li>האם יש רשימה מסודרת של נכסים דיגיטליים, פרופילים וספקים?</li>
+        <li>האם יש מיפוי של טפסים, Cookies, Analytics, CRM ודיוור?</li>
+        <li>האם ידוע איזה מידע אישי נאסף, איפה הוא נשמר ומי מקבל גישה?</li>
+        <li>האם יש תיעוד מסודר של הפרות, התחזויות או העתקות?</li>
+        <li>האם קיימת סביבת מסמכים עם הרשאות וגרסאות?</li>
+      </ul>
+
+      <h2>איך NAVINES משתלבת בצד הטכנולוגי</h2>
+      <p>
+        אנחנו עוזרים להפוך מצב מפוזר לתמונה מסודרת: מסמכים, דומיינים, חנויות, טפסים, מערכות, פניות, צילומי מסך, קבצים, גרסאות ותאריכים. המטרה היא לא להחליף עורך דין ולא לקבל החלטה משפטית, אלא לתת לעסק תשתית טכנולוגית מסודרת יותר.
+      </p>
+      <p>
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/legal-operations-technology">
+          לעמוד השירות: פתרונות טכנולוגיים לתהליכים משפטיים וציות
+        </Link>
+      </p>
+    </div>
+  );
+}
+
+function TrafficPointsArticleBody() {
+  const sources = [
+    { label: "שיטת הניקוד בעבירות תעבורה", href: "https://www.gov.il/he/pages/scoring_system_traffic_offens" },
+    { label: "בדיקת תדפיס נקודות חובה לנהג", href: "https://www.gov.il/he/service/driver_penalty_point_check" },
+    { label: "קורסי נהיגה נכונה ורענון רשמיים", href: "https://www.gov.il/he/pages/prevention_driving_courses_2" },
+    { label: "שאלות ותשובות בנושא דוחות תנועה", href: "https://www.gov.il/he/pages/police_traffic_department_reports_faq" },
+    { label: "מידע לנאשם בבית משפט לתעבורה", href: "https://www.gov.il/he/pages/traffic_courts_information_for_the_traffic_defendant" },
+    { label: "בקשה לעיון בחומר חקירה בדוח תנועה", href: "https://www.gov.il/he/service/request_to_review_traffic_report_investigation_material" },
+  ];
+
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <p>
+        המידע במאמר הוא מידע כללי בלבד ואינו ייעוץ משפטי. הדין, הנהלים והמועדים עשויים להשתנות. לקבלת ייעוץ המתאים למקרה שלכם יש לפנות באופן עצמאי לעורך דין מורשה.
+      </p>
+      <h2>דוח תעבורה הוא לא תמיד רק קנס</h2>
+      <p>
+        נהגים רבים מקבלים דוח, מסתכלים על סכום הקנס ומחליטים מהר אם לשלם. אבל במקרים רבים השאלה החשובה היא לא רק כמה משלמים, אלא האם יש נקודות, האם יש השפעה על רישיון הנהיגה, האם קיימות נקודות קודמות, האם יש מועד אחרון לפעולה, והאם תשלום הדוח ייחשב כהודאה או יסיים את האפשרות לבדוק את העניין.
+      </p>
+      <p>
+        לכן לפני שמקבלים החלטה, במיוחד בדוחות מהירות, שימוש בטלפון, מצלמות, רמזור, תמרור, סטייה מנתיב, זכות קדימה או הזמנה לדין, כדאי להבין מה בדיוק כתוב בדוח ומה כדאי לארגן. המאמר אינו בודק סיכויי תיק ואינו מציע טיפול משפטי דרך NAVINES.
+      </p>
+
+      <h2>מה כדאי לארגן לפני שפונים לעורך דין שבחרתם</h2>
+      <p>
+        אם החלטתם לפנות לעורך דין תעבורה, כדאי להגיע מסודרים: הדוח המקורי, תאריך קבלה, מועד אחרון לפעולה, תדפיס נקודות רשמי אם יש, תמונות או חומר שקיבלתם כחוק, הודעות רשמיות, פרטי האירוע כפי שהם מופיעים במסמך וכל מסמך נוסף שנשלח אליכם.
+      </p>
+      <p>
+        עורך הדין שבחרתם יכול לבחון את החומר בהתאם לדין ולנסיבות. NAVINES אינה מבצעת בדיקת דוח לציבור, אינה קובעת אם נעברה עבירה, אינה מבטיחה תוצאה ואינה מחליפה עורך דין.
+      </p>
+
+      <h2>מה חשוב להבין בדוחות מהירות או שימוש בטלפון</h2>
+      <p>
+        בדוח מהירות בודקים את מועד האירוע, מקום האירוע, סוג האכיפה, תיאור העובדות, האם קיימות תמונות או חומר נוסף ומה המועד האחרון לפעולה. בדוחות שימוש בטלפון יכולות לעלות שאלות של תיאור מעשה, נסיבות, זיהוי וחומר תומך. כל אלה הם נושאים שגורם מקצועי שבחרתם יכול לבחון לפי המקרה.
+      </p>
+      <p>
+        אם יש מועד קרוב, הזמנה לדין או חשש להשפעה על רישיון הנהיגה, לא כדאי לדחות פנייה עצמאית לגורם מתאים. NAVINES אינה מבקשת שתשלחו אליה את הדוח ואינה אוספת פרטי נהגים דרך האתר.
+      </p>
+
+      <h2>נקודות תעבורה: למה לא להשתמש במילה “מחיקה” בקלות</h2>
+      <p>
+        נקודות חובה נרשמות לפי שיטת הניקוד ובהתאם לעבירות ולתוצאות ההליך. לכן ניסוחים שמבטיחים שינוי אוטומטי במצב הנקודות אינם אחראיים. מידע רשמי ותדפיס נקודות יכולים לעזור להבין את התמונה לפני שפונים לעורך דין שבחרתם.
+      </p>
+      <p>
+        מי שרוצה להבין את מצב הנקודות שלו יכול לבדוק תדפיס נקודות רשמי. אם יש נקודות קודמות, מועד קורס, דרישה רשמית או חשש לפסילה, כדאי לבדוק את התמונה המלאה לפני שמחליטים על פעולה.
+      </p>
+
+      <h2>קורס נהיגה נכונה מול שיעור רענון פרטי</h2>
+      <p>
+        חשוב להבדיל בין קורס נהיגה נכונה או אמצעי תיקון רשמי שנקבע לפי שיטת הניקוד, לבין שיעור פרטי אצל מורה נהיגה. שיעור פרטי יכול לעזור לנהג לרענן ידע, להתכונן טוב יותר או להבין נושא מסוים, אבל הוא אינו מוחק נקודות ואינו מחליף קורס רשמי.
+      </p>
+      <p>
+        אם התקבלה דרישה רשמית לקורס או אמצעי תיקון, צריך להתייחס למידע הרשמי ולמצב הנהג האישי. לא כדאי להסתמך על עצות כלליות בלי להבין מה כתוב במכתב או בתדפיס.
+      </p>
+
+      <h2>חומר רשמי ומסמכים</h2>
+      <p>
+        במקרים מסוימים אפשר לבקש לעיין בחומר חקירה או במסמכים הקשורים לדוח. זה לא אומר שכל בקשה תוביל לתוצאה מסוימת, אבל חומר מסודר יכול לעזור להבין את התמונה. חשוב לשמור את הדוח המקורי, תאריך קבלה, הודעות, תמונות, מסמכים וכל מועד שנקבע.
+      </p>
+      <p>
+        כאשר החומר נאסף בצורה מסודרת, עורך הדין שבחרתם יכול לבדוק טוב יותר אם יש פערים, שאלות או כיוונים שדורשים בירור. חשוב לשמור על חומר מקורי, לא לערוך מסמכים ולא להסתמך על הבטחות לתוצאה.
+      </p>
+
+      <h2>כיצד כלי טכנולוגי יכול לסייע לעורך הדין</h2>
+      <p>
+        במשרדי עורכי דין המטפלים בתיקי תעבורה, כלי טכנולוגי יכול לסייע בארגון חומרי תיק, יצירת ציר זמן, מיון מסמכים ותמונות, תזכורות למועדים, הרשאות לצוות והמחשה חזותית של מידע. הכלי אינו קובע מסקנות משפטיות ואינו מחליף את עבודת המשרד, אבל הוא יכול להפוך חומר מפוזר לתהליך עבודה ברור.
+      </p>
+
+      <h2>מקורות רשמיים שכדאי לבדוק</h2>
+      <ul>
+        {sources.map((source) => (
+          <li key={source.href}>
+            <a href={source.href} rel="noopener noreferrer" target="_blank">{source.label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <h2>רשימת בדיקה לפני שפונים לעורך דין שבחרתם</h2>
+      <ul>
+        <li>מה סוג הדוח ומה המועד האחרון לפעולה?</li>
+        <li>האם יש נקודות לפי הדוח או לפי מצב הנהג?</li>
+        <li>האם מדובר בדוח קנס או בהזמנה לדין?</li>
+        <li>האם קיימות נקודות קודמות או דרישה לקורס רשמי?</li>
+        <li>האם יש תמונות, חומר חקירה או מסמכים שצריך לבקש?</li>
+        <li>האם יש מסמכים רשמיים נוספים שחשוב להביא לפגישה?</li>
+      </ul>
+
+      <h2>סיכום</h2>
+      <p>
+        בדוחות תעבורה עם נקודות, מהירות או שימוש בטלפון, הדבר החשוב הוא לא לפעול מתוך לחץ. מארגנים את המידע, בודקים מקורות רשמיים ופונים באופן עצמאי לעורך דין מורשה כאשר צריך ייעוץ למקרה הספציפי.
+      </p>
+      <p>
+        <Link className="font-semibold text-glowred hover:text-white" href="/services/traffic-case-technology">
+          לעמוד השירות למשרדים: כלים טכנולוגיים לארגון והמחשת חומר בתיקי תעבורה
+        </Link>
+      </p>
     </div>
   );
 }

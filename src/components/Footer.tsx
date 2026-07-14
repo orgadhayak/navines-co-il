@@ -114,6 +114,8 @@ const serviceLinks = [
   ["TalkToData", "/services/chatgpt-business-data"],
   ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
   ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
+  ["תהליכים משפטיים וציות", "/services/legal-operations-technology"],
+  ["טכנולוגיה לתיקי תעבורה", "/services/traffic-case-technology"],
   ["כל השירותים", "/services"],
 ];
 
