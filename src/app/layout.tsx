@@ -77,7 +77,7 @@ export default async function RootLayout({
   const requestHeaders = await headers();
   const cookieStore = await cookies();
   const locale = localeFromPath(requestHeaders.get("x-Navines-pathname"));
-  const initialTheme = cookieStore.get("Navines-theme")?.value === "dark" ? "dark" : "light";
+  const initialTheme = cookieStore.get("navines-theme")?.value === "dark" ? "dark" : "light";
 
   return (
     <html className={initialTheme === "dark" ? "theme-dark" : "theme-light"} dir={locale.dir} lang={locale.lang}>
