@@ -241,8 +241,8 @@ function AccountantConnectionSection({ content }: { content: AccountantConnectio
           <aside className="rounded-xl border border-purple-200/16 bg-black/40 p-5">
             <h2 className="text-2xl font-semibold text-white">פרטי קשר מהירים</h2>
             <div className="mt-4 grid gap-3 text-base text-zinc-300">
-              <a className="font-semibold text-silver hover:text-white" href={site.phoneHref}>{site.phone}</a>
-              <a className="font-semibold text-silver hover:text-white" href={site.emailHref}>{site.email}</a>
+              <a className="english-tech font-semibold text-silver hover:text-white" dir="ltr" href={site.phoneHref}>{site.phone}</a>
+              <a className="english-tech font-semibold text-silver hover:text-white" dir="ltr" href={site.emailHref}>{site.email}</a>
               <p>שלחו לנו בקצרה מה סוג העסק, איפה אתם מוכרים ומה צריך לסדר, ונכוון אתכם לשלב הבא.</p>
             </div>
           </aside>

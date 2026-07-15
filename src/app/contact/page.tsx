@@ -54,10 +54,10 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-5">
-                <a className="block font-semibold text-white transition hover:text-glowred" href={site.phoneHref}>
+                <a className="english-tech block font-semibold text-white transition hover:text-glowred" dir="ltr" href={site.phoneHref}>
                   {site.phone}
                 </a>
-                <a className="english-tech mt-2 block font-semibold text-white transition hover:text-glowred" href={site.emailHref}>
+                <a className="english-tech mt-2 block font-semibold text-white transition hover:text-glowred" dir="ltr" href={site.emailHref}>
                   {site.email}
                 </a>
                 <a

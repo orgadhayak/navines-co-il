@@ -56,12 +56,11 @@ export function ThemeToggle({ locale = "he", initialTheme = "light" }: { locale?
     <button
       aria-label={copy.aria}
       aria-pressed={theme === "dark"}
-      className="inline-flex min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition"
+      className="theme-toggle inline-flex min-h-10 items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition"
       onClick={toggleTheme}
-      style={{ borderColor: "var(--border)", background: "var(--surface)", color: "var(--text)" }}
       type="button"
     >
-      <span className="h-2.5 w-2.5 rounded-full" style={{ background: theme === "dark" ? "#38BDF8" : "#0284C7" }} aria-hidden="true" />
+      <span className="theme-toggle-indicator h-2.5 w-2.5 rounded-full" style={{ background: theme === "dark" ? "#38BDF8" : "#0284C7" }} aria-hidden="true" />
       <span>{theme === "dark" ? copy.dark : copy.light}</span>
     </button>
   );

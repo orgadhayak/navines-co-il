@@ -197,8 +197,8 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
             <h3 className="mb-4 text-base font-semibold">{copy.contact}</h3>
             <div className="grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
               <span>{isHebrew ? site.legalName : "Navines"}</span>
-              <a href={site.phoneHref}>{site.phone}</a>
-              <a href={site.emailHref}>{site.email}</a>
+              <a className="english-tech inline-block w-fit" dir="ltr" href={site.phoneHref}>{site.phone}</a>
+              <a className="english-tech inline-block w-fit" dir="ltr" href={site.emailHref}>{site.email}</a>
               <a href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a>
             </div>
             <div className="mt-5 grid gap-2">
@@ -210,8 +210,8 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t pt-6 text-sm" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>
-          <span>© 2026 {site.legalName} (Navines). All rights reserved.</span>
-          <a href={site.internationalUrl} rel="noopener noreferrer" target="_blank">navines.com</a>
+          <span>© 2026 {site.legalName} (Navines). כל הזכויות שמורות.</span>
+          <a className="english-tech" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank">navines.com</a>
         </div>
       </div>
     </footer>

@@ -332,9 +332,9 @@ function LanguageDropdown({ activeLocale, onClick }: { activeLocale: LocaleSlug;
 
 function MobileGroupButton({ label, open, onClick }: { label: string; open: boolean; onClick: () => void }) {
   return (
-    <button aria-expanded={open} className="mobile-menu-group-title justify-between px-4" onClick={onClick} type="button">
-      <span>{label}</span>
+    <button aria-expanded={open} className="mobile-menu-group-title px-4" onClick={onClick} type="button">
       <ChevronIcon open={open} />
+      <span>{label}</span>
     </button>
   );
 }
