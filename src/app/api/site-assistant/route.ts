@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 
 type AssistantAction = {
   label: string;
@@ -71,7 +71,7 @@ const topics: Topic[] = [
   {
     keys: ["צ׳ט", "צ'ט", "chat", "בוט", "עוזר", "עוזר חכם"],
     answer:
-      "נביא נס ישראל בע״מ בונה צ׳ט AI חכם לאתרים: קצר, ברור ומותאם לתוכן האתר. הוא עוזר לגולשים להבין מה העסק מציע, מפנה לעמוד הנכון ומוביל לוואטסאפ כשצריך שיחה אנושית.",
+      "נביא נס ישראל בע\"מ בונה צ׳ט AI חכם לאתרים: קצר, ברור ומותאם לתוכן האתר. הוא עוזר לגולשים להבין מה העסק מציע, מפנה לעמוד הנכון ומוביל לוואטסאפ כשצריך שיחה אנושית.",
     href: "/services/ai-chat-for-websites",
     label: "לעמוד צ׳ט AI לאתרים",
   },
@@ -92,7 +92,7 @@ const topics: Topic[] = [
   {
     keys: ["beacon", "ביקון", "ניטור"],
     answer:
-      "NAVINES Beacon נועד לניטור נכסים דיגיטליים, אתרים וחנויות כדי לזהות סימני תקלה, סיכון או ירידה בביצועים מוקדם יותר. זה מתאים לעסק שרוצה לדעת לפני שהבעיה גדלה.",
+      "Navines Beacon נועד לניטור נכסים דיגיטליים, אתרים וחנויות כדי לזהות סימני תקלה, סיכון או ירידה בביצועים מוקדם יותר. זה מתאים לעסק שרוצה לדעת לפני שהבעיה גדלה.",
     href: "/products",
     label: "לעמוד כלים ומוצרים",
   },
@@ -149,13 +149,13 @@ const topics: Topic[] = [
 ];
 
 const siteContext = `
-נביא נס ישראל בע״מ היא חברת טכנולוגיה לעסקים בישראל.
+נביא נס ישראל בע"מ היא חברת טכנולוגיה לעסקים בישראל.
 תחומים מרכזיים:
 • בניית אתרים ומערכות: /services/web-development
 • AI ואוטומציה: /services/ai-automation
 • צ׳ט AI חכם לאתרים: /services/ai-chat-for-websites
 • TalkToData וחיבור נתונים אל ChatGPT: /services/chatgpt-business-data
-• NAVINES Beacon וכלים: /products
+• Navines Beacon וכלים: /products
 • קורסי AI לילדים ולבוגרים: /courses
 • פתרונות למוכרי Amazon: /solutions/amazon-sellers
 • פתרונות לרואי חשבון: /solutions/accountants
@@ -442,7 +442,7 @@ export async function POST(request: NextRequest) {
 
     if (!question) {
       return NextResponse.json({
-        answer: "אפשר לכתוב שאלה קצרה על שירותי נביא נס ישראל בע״מ, ואענה בקצרה.",
+        answer: "אפשר לכתוב שאלה קצרה על שירותי נביא נס, ואענה בקצרה.",
         actions: [whatsappAction],
         source: "fallback",
       });
@@ -458,7 +458,7 @@ export async function POST(request: NextRequest) {
     }
 
     const systemPrompt = `
-אתה העוזר החכם של נביא נס ישראל בע״מ.
+אתה העוזר החכם של נביא נס ישראל בע"מ.
 תענה בעברית טבעית, קצרה, מדויקת וידידותית.
 המטרה: להבין את כוונת הגולש, לענות ישירות, להפנות לעמוד הנכון, ולהציע וואטסאפ או טלפון כשזה מתאים.
 תעדף תמיד את הודעת המשתמש האחרונה.

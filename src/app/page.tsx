@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { Section } from "@/components/Section";
@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "פתרונות בינה מלאכותית, תוכנה ואוטומציה לעסקים בישראל",
-  description: "נביא נס ישראל בע״מ בונה אתרים, מערכות, אוטומציות, כלי AI, TalkToData ותשתיות דיגיטליות לעסקים בישראל.",
+  description: "נביא נס בונה אתרים, מערכות, אוטומציות, כלי AI, TalkToData ותשתיות דיגיטליות לעסקים בישראל.",
 });
 
 const serviceGroups = [
@@ -18,6 +18,7 @@ const serviceGroups = [
   { title: "TalkToData", text: "חיבור נתונים, דוחות ואימיילים לשיחה פשוטה שמאפשרת להבין מה קורה בעסק.", href: "/services/chatgpt-business-data" },
   { title: "איקומרס ומרקטפלייסים", text: "Shopify, WooCommerce, Amazon ו-eBay עם תשתית מכירה, מדידה ותפעול מסודרת.", href: "/services/ecommerce" },
   { title: "תמיכה, סייבר ושחזור", text: "תקלות אתר, מיילים, DNS, פריצות לחשבונות ונכסים דיגיטליים שדורשים תגובה אחראית.", href: "/services/technical-support-cyber-networks" },
+  { title: "שמאות והערכת נזקים", text: "שמאות רכב, רכוש וחקלאות בגישה טכנולוגית, עם תיעוד מפורט, בקרת נתונים וחוות דעת שמאית ברורה.", href: "/services/vehicle-property-agricultural-appraisal" },
   { title: "משפט וטכנולוגיה", text: "מידע כללי לבחירת משרד עם עבודה טכנולוגית מסודרת, לצד פתרונות תוכנה לארגון מידע ותהליכים.", href: "/services/legal-operations-technology" },
   { title: "בדיקות ואופטימיזציה", text: "מהירות, SEO, תשתית, אבטחה, נתונים וחוויית משתמש, כדי שהאתר יעבוד טוב יותר.", href: "/optimization-hub" },
 ];
@@ -28,6 +29,7 @@ const highlighted = [
   { title: "אתר SEO למוכרי Amazon", href: "/services/amazon-seller-seo-website" },
   { title: "בחירת משרד עם יתרון טכנולוגי", href: "/services/legal-operations-technology" },
   { title: "תעבורה וטכנולוגיה", href: "/services/traffic-case-technology" },
+  { title: "שמאות רכב, רכוש וחקלאות", href: "/services/vehicle-property-agricultural-appraisal" },
   { title: "בדיקת עסק לפני רכישה", href: "/services/business-due-diligence-intelligence" },
 ];
 
@@ -42,7 +44,7 @@ const homeBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "נביא נס ישראל בע״מ", item: site.url },
+    { "@type": "ListItem", position: 1, name: site.name, item: site.url },
   ],
 };
 
@@ -52,7 +54,7 @@ function trimText(text: string, length = 118) {
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
-  const featuredProducts = products.filter((product) => ["talk-to-data", "navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["talk-to-data", "Navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
 
   return (
     <>
@@ -64,7 +66,7 @@ export default function HomePage() {
             מערכות AI, אתרים, אוטומציה ותשתיות דיגיטליות שמשרתות את העסק
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
-            נביא נס ישראל בע״מ עוזרת לעסקים להפוך רעיון, בעיה או תהליך שחוזר על עצמו לפתרון דיגיטלי ברור: אתר, מערכת, כלי AI, אוטומציה, תוסף לדפדפן או תשתית נתונים שעובדת ביום-יום.
+            נביא נס עוזרת לעסקים להפוך רעיון, בעיה או תהליך שחוזר על עצמו לפתרון דיגיטלי ברור: אתר, מערכת, כלי AI, אוטומציה, תוסף לדפדפן או תשתית נתונים שעובדת ביום-יום.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו ב-WhatsApp</a>
@@ -88,7 +90,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <LanguageStrip current="he" title="NAVINES בעולם" />
+      <LanguageStrip current="he" title="Navines בעולם" />
 
       <Section eyebrow="מה אנחנו עושים" title="תחומים מרכזיים, בלי לפזר אתכם בין עשרות מונחים">
         <div className="grid gap-x-10 gap-y-7 md:grid-cols-2 lg:grid-cols-3">
@@ -102,7 +104,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="מוצרים וכלים" title="מוצרים שמדגימים את דרך החשיבה של NAVINES">
+      <Section eyebrow="מוצרים וכלים" title="מוצרים שמדגימים את דרך החשיבה של Navines">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           {featuredProducts.map((product) => {
             const href = product.url || "/products";
@@ -149,7 +151,7 @@ export default function HomePage() {
         <Link className="btn-secondary mt-6" href="/solutions">לכל הפתרונות</Link>
       </Section>
 
-      <Section eyebrow="למה NAVINES" title="טכנולוגיה עם חשיבה עסקית">
+      <Section eyebrow="למה Navines" title="טכנולוגיה עם חשיבה עסקית">
         <div className="max-w-4xl space-y-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
           <p>אנחנו לא מתחילים מכלי או מטרנד. מתחילים מהצורך: איפה העסק מאבד זמן, פניות, כסף או שליטה, ומה אפשר לבנות כדי להפוך את העבודה לברורה יותר.</p>
           <p>העבודה משלבת אפיון, פיתוח, אוטומציה, נתונים, SEO, תשתית ותמיכה טכנית. כשצריך, אנחנו בונים פתרון קטן וממוקד. כשנכון יותר, מחברים מערכות קיימות במקום להחליף הכול.</p>

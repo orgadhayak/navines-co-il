@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
 import { headers } from "next/headers";
 import { Heebo } from "next/font/google";
@@ -20,32 +20,32 @@ const siteFont = Heebo({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.navines.co.il"),
-  applicationName: "נביא נס ישראל בע״מ",
+  applicationName: "נביא נס",
   title: {
-    default: "נביא נס ישראל בע״מ | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
-    template: "%s | נביא נס ישראל בע״מ",
+    default: "נביא נס | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
+    template: "%s | נביא נס",
   },
-  description: "נביא נס ישראל בע״מ בונה מערכות בינה מלאכותית, אתרים, אוטומציות, חנויות ותשתיות דיגיטליות לעסקים בישראל.",
-  keywords: ["נביא נס ישראל בע״מ", "NAVINES", "בינה מלאכותית לעסקים", "אוטומציה", "בניית אתרים", "איקומרס", "תשתיות דיגיטליות", "קידום אורגני"],
-  authors: [{ name: "נביא נס ישראל בע״מ" }],
-  creator: "נביא נס ישראל בע״מ",
-  publisher: "נביא נס ישראל בע״מ",
+  description: "נביא נס בונה מערכות בינה מלאכותית, אתרים, אוטומציות, חנויות ותשתיות דיגיטליות לעסקים בישראל.",
+  keywords: ["נביא נס ישראל בע\"מ", "Navines", "בינה מלאכותית לעסקים", "אוטומציה", "בניית אתרים", "איקומרס", "תשתיות דיגיטליות", "קידום אורגני"],
+  authors: [{ name: "נביא נס ישראל בע\"מ" }],
+  creator: "נביא נס ישראל בע\"מ",
+  publisher: "נביא נס ישראל בע\"מ",
   icons: {
-    icon: [{ url: "/brand/navines-symbol.jpg", type: "image/jpeg" }],
-    apple: [{ url: "/brand/navines-symbol.jpg", type: "image/jpeg" }],
+    icon: [{ url: "/brand/Navines-symbol.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/brand/Navines-symbol.jpg", type: "image/jpeg" }],
   },
   openGraph: {
-    title: "נביא נס ישראל בע״מ | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
-    description: "אתר נביא נס ישראל בע״מ הרשמי: מערכות בינה מלאכותית, אתרים, אוטומציה, איקומרס ותשתיות דיגיטליות לעסקים.",
+    title: "נביא נס | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
+    description: "אתר נביא נס הרשמי: מערכות בינה מלאכותית, אתרים, אוטומציה, איקומרס ותשתיות דיגיטליות לעסקים.",
     url: "https://www.navines.co.il",
-    siteName: "נביא נס ישראל בע״מ",
+    siteName: "נביא נס",
     locale: "he_IL",
     type: "website",
-    images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "נביא נס ישראל בע״מ, תשתיות דיגיטליות חכמות" }],
+    images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "נביא נס, תשתיות דיגיטליות חכמות" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "נביא נס ישראל בע״מ | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
+    title: "נביא נס | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
     description: "מערכות בינה מלאכותית, אתרים, אוטומציה, איקומרס ותשתיות דיגיטליות לעסקים בישראל.",
     images: ["/og-navines-israel.jpg"],
   },
@@ -76,8 +76,8 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const requestHeaders = await headers();
   const cookieStore = await cookies();
-  const locale = localeFromPath(requestHeaders.get("x-navines-pathname"));
-  const initialTheme = cookieStore.get("navines-theme")?.value === "dark" ? "dark" : "light";
+  const locale = localeFromPath(requestHeaders.get("x-Navines-pathname"));
+  const initialTheme = cookieStore.get("Navines-theme")?.value === "dark" ? "dark" : "light";
 
   return (
     <html className={initialTheme === "dark" ? "theme-dark" : "theme-light"} dir={locale.dir} lang={locale.lang}>

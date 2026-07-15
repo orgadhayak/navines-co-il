@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "יצירת קשר",
-  description: "דברו עם נביא נס ישראל בע״מ בוואטסאפ, מייל או טלפון לגבי אתר, חנות, מערכת, אוטומציה או שיפור תשתית דיגיטלית.",
+  description: "דברו עם נביא נס ישראל בע\"מ בוואטסאפ, מייל או טלפון לגבי אתר, חנות, מערכת, אוטומציה או שיפור תשתית דיגיטלית.",
   path: "/contact",
 });
 

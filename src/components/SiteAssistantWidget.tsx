@@ -24,7 +24,7 @@ type AssistantResponse = {
 };
 
 const openingMessage =
-  "שלום, אני העוזר החכם של נביא נס ישראל בע״מ. אפשר לשאול אותי על אתרים, AI, אוטומציה, קורסים, Amazon, תמיכה טכנית, Beacon, TalkToData או כל שירות באתר.";
+  "שלום, אני העוזר החכם של נביא נס ישראל בע\"מ. אפשר לשאול אותי על אתרים, AI, אוטומציה, קורסים, Amazon, תמיכה טכנית, Beacon, TalkToData או כל שירות באתר.";
 
 const fallbackActions: AssistantAction[] = [
   { label: "דברו בוואטסאפ", href: site.whatsappHref, tone: "primary" },

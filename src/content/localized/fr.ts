@@ -4,18 +4,18 @@ import type { LocalizedPageContent } from "./types";
 export const frContent: LocalizedPageContent = {
   landing: {
     locale: "fr",
-    metaTitle: "NAVINES France | IA, automatisation et développement logiciel",
-    metaDescription: "NAVINES est une entreprise israélienne de logiciel et d’IA qui conçoit des sites, systèmes, automatisations, outils de données et infrastructures numériques pour les entreprises.",
+    metaTitle: "Navines France | IA, automatisation et développement logiciel",
+    metaDescription: "Navines est une entreprise israélienne de logiciel et d’IA qui conçoit des sites, systèmes, automatisations, outils de données et infrastructures numériques pour les entreprises.",
     hero: {
       eyebrow: "Logiciel, IA et infrastructure numérique depuis Israël",
       title: "Automatisation par l’IA et logiciels sur mesure pour des besoins métiers réels",
-      text: "NAVINES aide les entreprises à transformer une idée, un problème opérationnel ou un processus répétitif en solution numérique utilisable : site, système interne, outil de données, automatisation, extension de navigateur ou support technique structuré.",
+      text: "Navines aide les entreprises à transformer une idée, un problème opérationnel ou un processus répétitif en solution numérique utilisable : site, système interne, outil de données, automatisation, extension de navigateur ou support technique structuré.",
       primaryCta: "Écrire sur WhatsApp",
       secondaryCta: "Voir les services",
     },
-    trust: "NAVINES travaille avec des entreprises, indépendants, équipes e-commerce et dirigeants qui veulent des solutions claires, maintenables et utiles, pas une démonstration artificielle autour de l’IA.",
+    trust: "Navines travaille avec des entreprises, indépendants, équipes e-commerce et dirigeants qui veulent des solutions claires, maintenables et utiles, pas une démonstration artificielle autour de l’IA.",
     services: {
-      title: "Ce que NAVINES construit",
+      title: "Ce que Navines construit",
       intro: "Nous relions stratégie, conception, développement, données et IA pour créer des outils qui répondent à un besoin concret.",
       items: [
         { title: "IA, automatisation et assistants", text: "Workflows intelligents, chatbots, tri des demandes, résumés, tâches automatiques et aide à la décision." },
@@ -45,11 +45,11 @@ export const frContent: LocalizedPageContent = {
       ],
     },
     why: {
-      title: "Pourquoi NAVINES",
+      title: "Pourquoi Navines",
       paragraphs: [
         "Un projet numérique efficace ne se limite ni à l’interface ni au code. Il doit comprendre la logique métier, le parcours utilisateur, les données et les contraintes opérationnelles.",
-        "NAVINES privilégie les solutions utiles, compactes et maintenables. Lorsque des outils existants suffisent, nous les connectons. Lorsqu’un outil sur mesure est nécessaire, nous construisons d’abord le noyau le plus utile.",
-        "En tant qu’entreprise israélienne de logiciel et d’IA, NAVINES travaille avec une approche directe et internationale. Nous ne promettons pas de résultats garantis ; nous privilégions l’analyse, l’exécution sérieuse et l’amélioration continue.",
+        "Navines privilégie les solutions utiles, compactes et maintenables. Lorsque des outils existants suffisent, nous les connectons. Lorsqu’un outil sur mesure est nécessaire, nous construisons d’abord le noyau le plus utile.",
+        "En tant qu’entreprise israélienne de logiciel et d’IA, Navines travaille avec une approche directe et internationale. Nous ne promettons pas de résultats garantis ; nous privilégions l’analyse, l’exécution sérieuse et l’amélioration continue.",
       ],
     },
     contact: {
@@ -57,8 +57,8 @@ export const frContent: LocalizedPageContent = {
       text: "Décrivez brièvement le site, le système, les données ou le processus à améliorer. Nous vous aiderons à clarifier la prochaine étape.",
       whatsappLabel: "Ouvrir WhatsApp",
       emailLabel: "Envoyer un email",
-      whatsappText: "Bonjour NAVINES, je souhaite discuter d’un projet d’IA, d’automatisation ou de logiciel sur mesure.",
-      emailSubject: "Demande de projet pour NAVINES",
+      whatsappText: "Bonjour Navines, je souhaite discuter d’un projet d’IA, d’automatisation ou de logiciel sur mesure.",
+      emailSubject: "Demande de projet pour Navines",
     },
     insight: {
       title: "Lire l’article",
@@ -76,15 +76,15 @@ export const frContent: LocalizedPageContent = {
     excerpt: "L’IA devient utile lorsqu’elle améliore un processus métier réel, avec des données fiables, des limites claires et une utilisation simple.",
     publishedAt: "2026-07-14",
     updatedAt: "2026-07-14",
-    author: "NAVINES Team",
+    author: "Navines Team",
     sections: [
       { title: "Ce que signifie vraiment l’automatisation par l’IA", paragraphs: ["L’automatisation par l’IA ne consiste pas seulement à ajouter un chatbot. Elle consiste à relier des données, des règles métiers, du langage naturel et des actions concrètes. Elle peut classer des demandes, résumer des emails, préparer des tâches, comparer des informations ou aider une équipe à comprendre plus vite une situation.", "La valeur vient de la réduction du travail manuel, de la clarté des informations et de la rapidité de réaction. Le point de départ doit donc être le processus, pas la technologie."] },
       { title: "Quand le logiciel sur mesure devient nécessaire", paragraphs: ["Les outils standards sont utiles, mais ils imposent souvent leur propre manière de travailler. Lorsque les équipes multiplient les exports, les copier-coller et les contournements, il peut être plus efficace de construire une petite solution adaptée.", "Cette solution peut être un tableau de bord, une intégration API, une extension de navigateur, un portail client ou un outil de reporting. Le format dépend du besoin réel."] },
-      { title: "Outil standard ou solution personnalisée", paragraphs: ["Un outil standard est pertinent lorsque le processus est commun. Une solution personnalisée devient pertinente lorsque les données sont dispersées, le flux est critique ou l’expérience de l’équipe doit être fortement simplifiée.", "NAVINES ne recommande pas automatiquement un développement complet. Nous cherchons le chemin le plus simple et le plus durable, parfois avec des outils existants bien connectés."] },
+      { title: "Outil standard ou solution personnalisée", paragraphs: ["Un outil standard est pertinent lorsque le processus est commun. Une solution personnalisée devient pertinente lorsque les données sont dispersées, le flux est critique ou l’expérience de l’équipe doit être fortement simplifiée.", "Navines ne recommande pas automatiquement un développement complet. Nous cherchons le chemin le plus simple et le plus durable, parfois avec des outils existants bien connectés."] },
       { title: "Exemples de scénarios", paragraphs: ["Une équipe e-commerce doit comprendre les commandes, les stocks et les messages clients. Une société de services veut mieux transformer ses demandes en tâches. Un dirigeant veut lire un rapport clair sans ouvrir cinq tableaux différents.", "Dans ces cas, l’IA peut structurer l’information et accélérer la compréhension, mais elle doit rester contrôlée par une logique métier claire."] },
       { title: "Risques et erreurs fréquentes", paragraphs: ["La première erreur est de commencer par l’outil. La deuxième est de connecter des données sensibles sans réflexion sur les accès, la sécurité et les limites. Une réponse trop longue ou trop générale peut aussi rendre le système inutile au quotidien.", "Un bon projet définit les sources de données, les droits d’accès, les points de contrôle humain et les scénarios d’erreur."] },
-      { title: "Comment démarrer correctement", paragraphs: ["Commencez par un processus limité : tri de demandes, résumé d’emails, rapport hebdomadaire, suivi de commandes ou analyse de données. Mesurez si cela fait gagner du temps ou améliore la qualité de décision.", "NAVINES aide à transformer ce besoin en plan technique, puis en solution testable avant d’étendre le périmètre."] },
-      { title: "Travailler avec une entreprise israélienne de logiciel et d’IA", paragraphs: ["Les entreprises internationales recherchent des partenaires capables de comprendre rapidement le contexte, de construire proprement et de rester réalistes. L’exécution compte autant que l’idée.", "NAVINES combine développement logiciel, données, automatisation, e-commerce et support technique. Notre objectif est de construire des systèmes utilisables, pas de vendre une promesse abstraite."] },
+      { title: "Comment démarrer correctement", paragraphs: ["Commencez par un processus limité : tri de demandes, résumé d’emails, rapport hebdomadaire, suivi de commandes ou analyse de données. Mesurez si cela fait gagner du temps ou améliore la qualité de décision.", "Navines aide à transformer ce besoin en plan technique, puis en solution testable avant d’étendre le périmètre."] },
+      { title: "Travailler avec une entreprise israélienne de logiciel et d’IA", paragraphs: ["Les entreprises internationales recherchent des partenaires capables de comprendre rapidement le contexte, de construire proprement et de rester réalistes. L’exécution compte autant que l’idée.", "Navines combine développement logiciel, données, automatisation, e-commerce et support technique. Notre objectif est de construire des systèmes utilisables, pas de vendre une promesse abstraite."] },
     ],
     faqs: [
       { question: "L’IA est-elle utile pour toutes les entreprises ?", answer: "Non. Elle est utile lorsqu’un processus précis peut devenir plus rapide, plus clair ou mieux contrôlé." },
@@ -94,7 +94,7 @@ export const frContent: LocalizedPageContent = {
     ],
     cta: {
       title: "Vous voulez savoir quoi automatiser en premier ?",
-      text: "Envoyez une courte description de votre processus. NAVINES vous aidera à clarifier la bonne approche.",
+      text: "Envoyez une courte description de votre processus. Navines vous aidera à clarifier la bonne approche.",
       whatsappLabel: "Écrire sur WhatsApp",
       emailLabel: "Envoyer un email",
     },

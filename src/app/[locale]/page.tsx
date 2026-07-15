@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: content.landing.metaTitle,
       description: content.landing.metaDescription,
       url,
-      siteName: "NAVINES",
+      siteName: "Navines",
       locale: meta.ogLocale,
       type: "website",
     },

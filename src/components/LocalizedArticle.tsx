@@ -6,12 +6,12 @@ import type { LocalizedArticleContent } from "@/content/localized/types";
 
 function whatsappHref(locale: LocalizedArticleContent["locale"]) {
   const messages = {
-    de: "Hallo NAVINES, ich habe den Artikel gelesen und möchte über KI-Automatisierung sprechen.",
-    jp: "NAVINESの記事を読みました。AI自動化について相談したいです。",
-    ar: "مرحباً NAVINES، قرأت المقال وأريد مناقشة أتمتة الذكاء الاصطناعي.",
-    hi: "नमस्ते NAVINES, मैंने लेख पढ़ा है और AI ऑटोमेशन पर बात करना चाहता हूँ।",
-    fr: "Bonjour NAVINES, j’ai lu l’article et je souhaite parler d’automatisation par l’IA.",
-    zh: "您好 NAVINES，我阅读了文章，想咨询 AI 自动化。",
+    de: "Hallo Navines, ich habe den Artikel gelesen und möchte über KI-Automatisierung sprechen.",
+    jp: "Navinesの記事を読みました。AI自動化について相談したいです。",
+    ar: "مرحباً Navines، قرأت المقال وأريد مناقشة أتمتة الذكاء الاصطناعي.",
+    hi: "नमस्ते Navines, मैंने लेख पढ़ा है और AI ऑटोमेशन पर बात करना चाहता हूँ।",
+    fr: "Bonjour Navines, j’ai lu l’article et je souhaite parler d’automatisation par l’IA.",
+    zh: "您好 Navines，我阅读了文章，想咨询 AI 自动化。",
   };
 
   return `${site.whatsappHref}?text=${encodeURIComponent(messages[locale])}`;
@@ -47,7 +47,7 @@ export function LocalizedArticle({ article }: { article: LocalizedArticleContent
     headline: article.title,
     description: article.excerpt,
     author: { "@type": "Organization", name: article.author },
-    publisher: { "@type": "Organization", name: "NAVINES", url: site.url },
+    publisher: { "@type": "Organization", name: "Navines", url: site.url },
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     mainEntityOfPage: url,
@@ -57,7 +57,7 @@ export function LocalizedArticle({ article }: { article: LocalizedArticleContent
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "NAVINES", item: `${site.url}${landingHref}` },
+      { "@type": "ListItem", position: 1, name: "Navines", item: `${site.url}${landingHref}` },
       { "@type": "ListItem", position: 2, name: article.title, item: url },
     ],
   };
@@ -75,7 +75,7 @@ export function LocalizedArticle({ article }: { article: LocalizedArticleContent
     <>
       <JsonLd data={[articleSchema, breadcrumbSchema, faqSchema]} />
       <article className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
-        <Link className="text-sm font-semibold text-glowred" href={landingHref}>NAVINES</Link>
+        <Link className="text-sm font-semibold text-glowred" href={landingHref}>Navines</Link>
         <h1 className="mt-4 hyphens-auto break-words text-4xl font-semibold leading-tight text-white [overflow-wrap:anywhere] md:text-6xl">{article.title}</h1>
         <div className="mt-5 flex flex-wrap gap-3 text-sm" style={{ color: "var(--text-soft)" }}>
           <span>{metaCopy.author}: {article.author}</span>
@@ -101,7 +101,7 @@ export function LocalizedArticle({ article }: { article: LocalizedArticleContent
           <div className="mt-6 flex flex-wrap gap-3">
             <a className="btn-primary" href={whatsappHref(article.locale)} rel="noopener noreferrer" target="_blank">{article.cta.whatsappLabel}</a>
             <a className="btn-secondary" href={`mailto:hello@navines.com?subject=${encodeURIComponent(article.title)}`}>{article.cta.emailLabel}</a>
-            <Link className="btn-secondary" href={landingHref}>NAVINES</Link>
+            <Link className="btn-secondary" href={landingHref}>Navines</Link>
           </div>
         </section>
 

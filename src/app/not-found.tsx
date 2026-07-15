@@ -3,7 +3,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "העמוד שחיפשתם לא נמצא",
-  description: "הקישור השתנה או שהעמוד כבר לא קיים. אפשר לחזור לעמוד הבית או ליצור קשר עם נביא נס ישראל בע״מ.",
+  description: "הקישור השתנה או שהעמוד כבר לא קיים. אפשר לחזור לעמוד הבית או ליצור קשר עם נביא נס ישראל בע\"מ.",
   path: "/404",
 });
 

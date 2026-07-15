@@ -1,10 +1,10 @@
-import { Section } from "@/components/Section";
+﻿import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "מדיניות פרטיות",
-  description: "מדיניות פרטיות בסיסית עבור אתר נביא נס ישראל בע״מ.",
+  description: "מדיניות פרטיות בסיסית עבור אתר נביא נס ישראל בע\"מ.",
   path: "/privacy",
 });
 

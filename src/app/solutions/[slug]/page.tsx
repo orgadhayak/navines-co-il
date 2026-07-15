@@ -167,7 +167,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         </Section>
       ) : null}
 
-      <Section eyebrow="מה נביא נס ישראל בע״מ בונה" title="פתרון קטן או מערכת מלאה, לפי מה שהעסק באמת צריך" className="py-5 lg:py-8">
+      <Section eyebrow="מה נביא נס בונה" title="פתרון קטן או מערכת מלאה, לפי מה שהעסק באמת צריך" className="py-5 lg:py-8">
         <div className="grid gap-4 lg:grid-cols-3">
           <InfoColumn title="שימושים מעשיים" items={solution.useCases} />
           <InfoColumn title="מה בונים בפועל" items={solution.builds} />
@@ -289,7 +289,7 @@ function AccountantConnectionSection({ content }: { content: AccountantConnectio
               <Link className="text-silver hover:text-white" href="/contact">יצירת קשר</Link>
             </div>
           </article>
-          <InfoColumn title="איפה נביא נס ישראל בע״מ יכולה לעזור בצד הטכנולוגי" items={content.techItems} />
+          <InfoColumn title="איפה נביא נס יכולה לעזור בצד הטכנולוגי" items={content.techItems} />
         </div>
       </Section>
 

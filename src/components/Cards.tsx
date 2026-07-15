@@ -133,6 +133,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "multilingual-seo-website-for-amazon-sellers": "לקידום לפי מדינה ושפה",
     "how-to-choose-accountant-for-digital-business": "לבחור רואה חשבון נכון",
     "how-to-build-browser-extension-for-business": "לבניית תוסף לדפדפן",
+    "vehicle-property-agricultural-appraisal-guide": "למדריך השמאות",
   };
 
   if (labels[post.slug]) return labels[post.slug];

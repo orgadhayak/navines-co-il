@@ -42,6 +42,12 @@ const serviceGroups = [
     ],
   },
   {
+    title: "שמאות והערכת נזקים",
+    links: [
+      ["שמאות רכב, רכוש וחקלאות", "/services/vehicle-property-agricultural-appraisal"],
+    ],
+  },
+  {
     title: "מסלולים וכלים",
     links: [
       ["אתר תדמית 999 ₪", "/services/business-website-999"],
@@ -54,12 +60,12 @@ const serviceGroups = [
 ];
 
 const localizedNav: Record<Exclude<LocaleSlug, "he">, { services: string; solutions: string; process: string; why: string; insights: string; contact: string; cta: string; home: string; menu: string; language: string }> = {
-  de: { services: "Leistungen", solutions: "Lösungen", process: "Arbeitsweise", why: "Warum NAVINES", insights: "Insights", contact: "Kontakt", cta: "WhatsApp", home: "Startseite", menu: "Menü", language: "Sprache" },
-  jp: { services: "サービス", solutions: "ソリューション", process: "進め方", why: "NAVINESについて", insights: "インサイト", contact: "お問い合わせ", cta: "WhatsApp", home: "ホーム", menu: "メニュー", language: "言語" },
-  ar: { services: "الخدمات", solutions: "الحلول", process: "طريقة العمل", why: "لماذا NAVINES", insights: "المقالات", contact: "تواصل", cta: "واتساب", home: "الرئيسية", menu: "القائمة", language: "اللغة" },
-  hi: { services: "सेवाएँ", solutions: "समाधान", process: "काम करने का तरीका", why: "NAVINES क्यों", insights: "लेख", contact: "संपर्क", cta: "WhatsApp", home: "होम", menu: "मेन्यू", language: "भाषा" },
-  fr: { services: "Services", solutions: "Solutions", process: "Méthode", why: "Pourquoi NAVINES", insights: "Articles", contact: "Contact", cta: "WhatsApp", home: "Accueil", menu: "Menu", language: "Langue" },
-  zh: { services: "服务", solutions: "解决方案", process: "合作方式", why: "为什么选择 NAVINES", insights: "洞察", contact: "联系", cta: "WhatsApp", home: "首页", menu: "菜单", language: "语言" },
+  de: { services: "Leistungen", solutions: "Lösungen", process: "Arbeitsweise", why: "Warum Navines", insights: "Insights", contact: "Kontakt", cta: "WhatsApp", home: "Startseite", menu: "Menü", language: "Sprache" },
+  jp: { services: "サービス", solutions: "ソリューション", process: "進め方", why: "Navinesについて", insights: "インサイト", contact: "お問い合わせ", cta: "WhatsApp", home: "ホーム", menu: "メニュー", language: "言語" },
+  ar: { services: "الخدمات", solutions: "الحلول", process: "طريقة العمل", why: "لماذا Navines", insights: "المقالات", contact: "تواصل", cta: "واتساب", home: "الرئيسية", menu: "القائمة", language: "اللغة" },
+  hi: { services: "सेवाएँ", solutions: "समाधान", process: "काम करने का तरीका", why: "Navines क्यों", insights: "लेख", contact: "संपर्क", cta: "WhatsApp", home: "होम", menu: "मेन्यू", language: "भाषा" },
+  fr: { services: "Services", solutions: "Solutions", process: "Méthode", why: "Pourquoi Navines", insights: "Articles", contact: "Contact", cta: "WhatsApp", home: "Accueil", menu: "Menu", language: "Langue" },
+  zh: { services: "服务", solutions: "解决方案", process: "合作方式", why: "为什么选择 Navines", insights: "洞察", contact: "联系", cta: "WhatsApp", home: "首页", menu: "菜单", language: "语言" },
 };
 
 const localizedTagline: Record<LocaleSlug, string> = {
@@ -139,9 +145,9 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
     <header ref={headerRef} className="sticky top-0 z-40 border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
       <div className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link className="flex min-w-0 items-center gap-3" href={homeHref} aria-label={isHebrew ? "חזרה לעמוד הבית" : localized?.home || "Home"} onClick={() => closeAll()}>
-          <img alt="NAVINES" className="brand-logo h-5 w-auto shrink-0 object-contain" src="/brand/navines-wordmark-slim.png" />
+          <img alt="Navines" className="brand-logo h-5 w-auto shrink-0 object-contain" src="/brand/navines-wordmark-slim.png" />
           <span className="hidden min-w-0 leading-tight sm:block">
-            <strong className="block truncate text-base font-semibold" style={{ color: "var(--text)" }}>{isHebrew ? site.hebrewLegalName : "NAVINES"}</strong>
+            <strong className="block truncate text-base font-semibold" style={{ color: "var(--text)" }}>{isHebrew ? site.name : "Navines"}</strong>
             <span className="block truncate text-sm" style={{ color: "var(--text-muted)" }}>{localizedTagline[activeLocale]}</span>
           </span>
         </Link>
@@ -161,7 +167,7 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
               <NavLink href={`/${activeLocale}#services`} label={localized?.services || "Services"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#solutions`} label={localized?.solutions || "Solutions"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#process`} label={localized?.process || "Process"} onClick={closeAll} />
-              <NavLink href={`/${activeLocale}#why`} label={localized?.why || "Why NAVINES"} onClick={closeAll} />
+              <NavLink href={`/${activeLocale}#why`} label={localized?.why || "Why Navines"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#insights`} label={localized?.insights || "Insights"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#contact`} label={localized?.contact || "Contact"} onClick={closeAll} />
             </>
@@ -234,7 +240,7 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
                   [localized?.services || "Services", `/${activeLocale}#services`],
                   [localized?.solutions || "Solutions", `/${activeLocale}#solutions`],
                   [localized?.process || "Process", `/${activeLocale}#process`],
-                  [localized?.why || "Why NAVINES", `/${activeLocale}#why`],
+                  [localized?.why || "Why Navines", `/${activeLocale}#why`],
                   [localized?.insights || "Insights", `/${activeLocale}#insights`],
                   [localized?.contact || "Contact", `/${activeLocale}#contact`],
                 ]}
@@ -279,7 +285,7 @@ function DropdownButton({ isOpen, label, onClick }: { isOpen: boolean; label: st
 
 function ServicesDropdown({ onClick }: { onClick: () => void }) {
   return (
-    <div className="grid gap-6 rounded-lg border p-5 lg:grid-cols-4" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
+    <div className="grid gap-6 rounded-lg border p-5 lg:grid-cols-5" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
       {serviceGroups.map((group) => (
         <div key={group.title}>
           <h2 className="mb-3 text-base font-semibold">{group.title}</h2>

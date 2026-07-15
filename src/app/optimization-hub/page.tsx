@@ -1,4 +1,4 @@
-import { CTA } from "@/components/CTA";
+﻿import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
 import { Section } from "@/components/Section";
@@ -7,7 +7,7 @@ import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "מרכז אופטימיזציה לאתרים, חנויות ותשתיות",
-  description: "מרכז האופטימיזציה של נביא נס ישראל בע״מ: מהירות, מובייל, קוד, שרתים, קלאודפלייר, אבטחה, ניטור, מיילים ותמונות, בשפה עסקית וברורה.",
+  description: "מרכז האופטימיזציה של נביא נס ישראל בע\"מ: מהירות, מובייל, קוד, שרתים, קלאודפלייר, אבטחה, ניטור, מיילים ותמונות, בשפה עסקית וברורה.",
   path: "/optimization-hub",
 });
 

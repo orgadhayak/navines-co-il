@@ -20,7 +20,7 @@ const footerCopy: Record<LocaleSlug, {
     services: "שירותים מרכזיים",
     products: "מוצרים ותובנות",
     contact: "יצירת קשר",
-    languages: "NAVINES בעולם",
+    languages: "Navines בעולם",
     legal: "משפטי",
     ctaTitle: "רוצים להבין מה נכון לעסק שלכם?",
     ctaText: "שלחו הודעה קצרה ונכוון אתכם לשירות, מוצר או שיחה שמתאימים לצורך האמיתי.",
@@ -114,6 +114,7 @@ const serviceLinks = [
   ["TalkToData", "/services/chatgpt-business-data"],
   ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
   ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
+  ["שמאות רכב, רכוש וחקלאות", "/services/vehicle-property-agricultural-appraisal"],
   ["בחירת משרד עם יתרון טכנולוגי", "/services/legal-operations-technology"],
   ["תעבורה וטכנולוגיה", "/services/traffic-case-technology"],
   ["כל השירותים", "/services"],
@@ -121,7 +122,7 @@ const serviceLinks = [
 
 const productLinks = [
   ["TalkToData", "https://talktodata.navines.com"],
-  ["NAVINES Beacon", "https://beacon.navines.com"],
+  ["Navines Beacon", "https://beacon.navines.com"],
   ["Products", "/products"],
   ["Blog", "/blog"],
 ];
@@ -135,27 +136,27 @@ const legalLinks = [
 const localizedFooterLinks: Record<Exclude<LocaleSlug, "he">, { services: string[][]; products: string[][] }> = {
   de: {
     services: [["Leistungen", "/de#services"], ["Lösungen", "/de#solutions"], ["Kontakt", "/de#contact"]],
-    products: [["Einblicke", "/de#insights"], ["NAVINES.com", site.internationalUrl]],
+    products: [["Einblicke", "/de#insights"], ["navines.com", site.internationalUrl]],
   },
   jp: {
     services: [["サービス", "/jp#services"], ["ソリューション", "/jp#solutions"], ["お問い合わせ", "/jp#contact"]],
-    products: [["インサイト", "/jp#insights"], ["NAVINES.com", site.internationalUrl]],
+    products: [["インサイト", "/jp#insights"], ["navines.com", site.internationalUrl]],
   },
   ar: {
     services: [["الخدمات", "/ar#services"], ["الحلول", "/ar#solutions"], ["تواصل", "/ar#contact"]],
-    products: [["المقالات", "/ar#insights"], ["NAVINES.com", site.internationalUrl]],
+    products: [["المقالات", "/ar#insights"], ["navines.com", site.internationalUrl]],
   },
   hi: {
     services: [["सेवाएँ", "/hi#services"], ["समाधान", "/hi#solutions"], ["संपर्क", "/hi#contact"]],
-    products: [["लेख", "/hi#insights"], ["NAVINES.com", site.internationalUrl]],
+    products: [["लेख", "/hi#insights"], ["navines.com", site.internationalUrl]],
   },
   fr: {
     services: [["Services", "/fr#services"], ["Solutions", "/fr#solutions"], ["Contact", "/fr#contact"]],
-    products: [["Articles", "/fr#insights"], ["NAVINES.com", site.internationalUrl]],
+    products: [["Articles", "/fr#insights"], ["navines.com", site.internationalUrl]],
   },
   zh: {
     services: [["服务", "/zh#services"], ["解决方案", "/zh#solutions"], ["联系", "/zh#contact"]],
-    products: [["洞察", "/zh#insights"], ["NAVINES.com", site.internationalUrl]],
+    products: [["洞察", "/zh#insights"], ["navines.com", site.internationalUrl]],
   },
 };
 
@@ -181,9 +182,9 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
           <div className="lg:col-span-1">
             <Link className="inline-flex items-center" href={isHebrew ? "/" : `/${locale}`}>
-              <img alt="NAVINES" className="brand-logo h-5 w-auto object-contain" src="/brand/navines-wordmark-slim.png" />
+              <img alt="Navines" className="brand-logo h-5 w-auto object-contain" src="/brand/navines-wordmark-slim.png" />
             </Link>
-            <strong className="mt-4 block text-lg font-semibold">{isHebrew ? site.hebrewLegalName : "NAVINES"}</strong>
+            <strong className="mt-4 block text-lg font-semibold">{isHebrew ? site.hebrewLegalName : "Navines"}</strong>
             <p className="mt-3 text-base" style={{ color: "var(--text-muted)" }}>{copy.description}</p>
             {isHebrew ? <p className="mt-3 text-sm font-medium" style={{ color: "var(--text-muted)" }}>{site.companyNumberLabel}</p> : null}
           </div>
@@ -195,7 +196,7 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
           <div>
             <h3 className="mb-4 text-base font-semibold">{copy.contact}</h3>
             <div className="grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
-              <span>NAVINES</span>
+              <span>{isHebrew ? site.legalName : "Navines"}</span>
               <a href={site.phoneHref}>{site.phone}</a>
               <a href={site.emailHref}>{site.email}</a>
               <a href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a>
@@ -209,8 +210,8 @@ export function Footer({ locale = "he" }: { locale?: LocaleSlug }) {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t pt-6 text-sm" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>
-          <span>© 2026 NAVINES. All rights reserved.</span>
-          <a href={site.internationalUrl} rel="noopener noreferrer" target="_blank">NAVINES.com</a>
+          <span>© 2026 {site.legalName} (Navines). All rights reserved.</span>
+          <a href={site.internationalUrl} rel="noopener noreferrer" target="_blank">navines.com</a>
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@ type LanguageStripProps = {
   compact?: boolean;
 };
 
-export function LanguageStrip({ current = "he", title = "NAVINES בעולם", compact = false }: LanguageStripProps) {
+export function LanguageStrip({ current = "he", title = "Navines בעולם", compact = false }: LanguageStripProps) {
   return (
     <section className={compact ? "mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8" : "mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8"}>
       <div className="flex flex-col gap-4 border-y py-5 md:flex-row md:items-center md:justify-between" style={{ borderColor: "var(--border)" }}>

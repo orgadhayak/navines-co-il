@@ -7,13 +7,13 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "כלים ומוצרים",
-  description: "כלים ומוצרים מבית נביא נס ישראל בע״מ שעוזרים לעסקים לבדוק אתרים, להבין נתונים, לזהות סיכונים ולקבל החלטות מהר יותר.",
+  description: "כלים ומוצרים מבית נביא נס ישראל בע\"מ שעוזרים לעסקים לבדוק אתרים, להבין נתונים, לזהות סיכונים ולקבל החלטות מהר יותר.",
   path: "/products",
 });
 
 export default function ProductsPage() {
   const talkToDataProduct = products.find((product) => product.slug === "talk-to-data");
-  const featuredProducts = products.filter((product) => ["navines-site-assistant", "talk-to-data", "navines-beacon", "navines-tools-hub-extension", "partnercrypto-toolkit-extension"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["Navines-site-assistant", "talk-to-data", "Navines-beacon", "Navines-tools-hub-extension", "partnercrypto-toolkit-extension"].includes(product.slug));
 
   return (
     <>

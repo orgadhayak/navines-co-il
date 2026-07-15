@@ -20,7 +20,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "NAVINES",
+    name: "Navines",
     url: pageUrl,
     email: "hello@navines.com",
     telephone: "+972-54-818-0200",
@@ -32,7 +32,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "NAVINES", item: pageUrl },
+      { "@type": "ListItem", position: 1, name: "Navines", item: pageUrl },
     ],
   };
 
@@ -64,7 +64,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
           </aside>
         </section>
 
-        <LocalizedSection id="services" eyebrow="NAVINES" title={content.services.title}>
+        <LocalizedSection id="services" eyebrow="Navines" title={content.services.title}>
           <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>{content.services.intro}</p>
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {content.services.items.map((item) => (
@@ -125,7 +125,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
             </div>
           </div>
         </LocalizedSection>
-        <LanguageStrip compact current={content.locale} title="NAVINES" />
+        <LanguageStrip compact current={content.locale} title="Navines" />
       </main>
     </>
   );

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { site } from "@/data/site";
 import { landingAlternates } from "@/i18n/locales";
 
@@ -8,7 +8,7 @@ export function createMetadata({
   path = "",
   type = "website",
   image = "/og-navines-israel.jpg",
-  imageAlt = 'נביא נס ישראל בע״מ, תשתיות דיגיטליות חכמות',
+  imageAlt = 'נביא נס ישראל בע"מ, תשתיות דיגיטליות חכמות',
 }: {
   title: string;
   description: string;
@@ -66,8 +66,10 @@ export function jsonLd(data: unknown) {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: site.hebrewLegalName,
-  alternateName: site.name,
+  "@id": `${site.url}/#organization`,
+  name: site.name,
+  legalName: site.legalName,
+  alternateName: site.englishLegalName,
   url: site.url,
   email: site.email,
   telephone: site.phone,
@@ -77,7 +79,9 @@ export const organizationSchema = {
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: site.hebrewLegalName,
+  "@id": `${site.url}/#localbusiness`,
+  name: site.name,
+  legalName: site.legalName,
   url: site.url,
   email: site.email,
   telephone: site.phone,
@@ -92,6 +96,7 @@ export const localBusinessSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${site.url}/#website`,
   name: site.name,
   url: site.url,
   inLanguage: "he-IL",

@@ -7,8 +7,8 @@ import { courseTracks, site } from "@/data/site";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "קורסי AI מעשיים מבית נביא נס ישראל בע״מ",
-  description: "קורסי AI פרונטליים לילדים ולבוגרים מבית נביא נס ישראל בע״מ. לומדים לעבור מרעיון לתוצר אמיתי: מוצר, אתר, כלי חכם או מערכת פשוטה, עם 10 מפגשים ושנה של ליווי.",
+  title: "קורסי AI מעשיים מבית נביא נס",
+  description: "קורסי AI פרונטליים לילדים ולבוגרים מבית נביא נס. לומדים לעבור מרעיון לתוצר אמיתי: מוצר, אתר, כלי חכם או מערכת פשוטה, עם 10 מפגשים ושנה של ליווי.",
   path: "/courses",
 });
 
@@ -34,10 +34,10 @@ export default function CoursesPage() {
     <>
       <JsonLd data={courseListSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "קורסים", href: "/courses" }])} />
-      <Section eyebrow="קורסי AI מעשיים" title="קורסי AI מעשיים מבית נביא נס ישראל בע״מ" titleAs="h1" className="py-8 lg:py-12">
+      <Section eyebrow="קורסי AI מעשיים" title="קורסי AI מעשיים מבית נביא נס" titleAs="h1" className="py-8 lg:py-12">
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
-            <p className="max-w-4xl text-xl leading-9 text-zinc-300"> ב <BrandInline text="NAVINES" /> לא לומדים רק להשתמש בכלי AI. לומדים איך לקחת רעיון, להבין אותו, לפרק אותו נכון, לבנות סביבו מוצר, אתר, כלי חכם או מערכת פשוטה, ולהתקדם איתו עד שהוא הופך למשהו אמיתי שאפשר להציג, לשפר ולהשתמש בו.
+            <p className="max-w-4xl text-xl leading-9 text-zinc-300"> ב <BrandInline text="Navines" /> לא לומדים רק להשתמש בכלי AI. לומדים איך לקחת רעיון, להבין אותו, לפרק אותו נכון, לבנות סביבו מוצר, אתר, כלי חכם או מערכת פשוטה, ולהתקדם איתו עד שהוא הופך למשהו אמיתי שאפשר להציג, לשפר ולהשתמש בו.
             </p>
             <p className="mt-4 max-w-4xl text-lg leading-8 text-zinc-400">
               אלה קורסים פרונטליים, ממוקדים ומעשיים. לא מבטיחים קסמים, הכנסה או הצלחה עסקית אוטומטית. כן נותנים מסגרת רצינית, חשיבה מוצרית, תרגול, ליווי ותמיכה לאורך שנה כדי לעזור למשתתפים להתקדם לתוצרים חזקים בהתאם למחויבות ולהתקדמות שלהם.
