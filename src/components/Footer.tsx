@@ -122,6 +122,7 @@ const serviceLinks = [
 
 const productLinks = [
   ["TalkToData", "https://talktodata.navines.com"],
+  ["AmazonIQ", "/products/amazoniq"],
   ["Navines Beacon", "https://beacon.navines.com"],
   ["Products", "/products"],
   ["Blog", "/blog"],

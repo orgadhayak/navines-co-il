@@ -4,7 +4,7 @@ import { blogPosts, courseTracks, services, site } from "@/data/site";
 import { localizedArticlePaths, publicLocales } from "@/i18n/locales";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/about", "/services", "/courses", "/solutions", "/optimization-hub", "/products", "/tools", "/games", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
+  const staticPages = ["", "/about", "/services", "/courses", "/solutions", "/optimization-hub", "/products", "/products/amazoniq", "/tools", "/games", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
   const localizedLandingPages = publicLocales.map((locale) => `/${locale}`);
   const localizedArticlePages = publicLocales.map((locale) => localizedArticlePaths[locale]);
   const servicePages = services.map((service) => `/services/${service.slug}`);

@@ -192,9 +192,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   );
 
                   return highlight.href ? (
-                    <Link className="rounded-lg border border-purple-200/12 bg-black/18 p-4 transition hover:border-purple-200/35 hover:bg-purple-500/12" href={highlight.href} key={highlight.title}>
-                      {content}
-                    </Link>
+                    <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4" key={highlight.title}>
+                      <Link className="block transition hover:text-sky-200" href={highlight.href}>
+                        {content}
+                      </Link>
+                      {highlight.externalHref ? (
+                        <a aria-label={`לפתוח את ${highlight.title} באתר החיצוני`} className="mt-4 inline-flex text-sm font-semibold text-sky-300 underline-offset-4 transition hover:underline" href={highlight.externalHref} rel="noopener noreferrer" target="_blank">
+                          לפתוח את AmazonIQ
+                        </a>
+                      ) : null}
+                    </div>
                   ) : (
                     <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4" key={highlight.title}>
                       {content}

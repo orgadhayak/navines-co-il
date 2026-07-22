@@ -31,7 +31,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   const solution = solutionPages.find((item) => item.slug === slug);
   if (!solution) notFound();
   const isAmazonSellerSolution = solution.slug === "amazon-sellers";
-  const showStandaloneTalkToData = solution.slug !== "freelancers";
+  const showStandaloneTalkToData = solution.slug !== "freelancers" && !isAmazonSellerSolution;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -116,6 +116,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           </p>
         </Section>
       ) : null}
+
+      {isAmazonSellerSolution ? <AmazonIQSolutionSection /> : null}
 
       {isAmazonSellerSolution ? (
         <Section eyebrow="צמיחה מחוץ ל Amazon" title="אתר SEO עצמאי שמוביל לקוחות לעמודי המוצרים" className="py-5 lg:py-8">
@@ -213,6 +215,42 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         text="שלחו לנו הודעה קצרה בוואטסאפ: מה העסק עושה, איפה הנתונים נמצאים ומה הייתם רוצים להבין מהר יותר. נענה בצורה פשוטה, חברית ומעשית."
       />
     </>
+  );
+}
+
+function AmazonIQSolutionSection() {
+  return (
+    <Section eyebrow="AmazonIQ" title="AmazonIQ: שכבת המודיעין של פעילות Amazon" className="py-5 lg:py-8">
+      <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+        <article className="command-glass rounded-xl p-5">
+          <p className="max-w-4xl text-lg leading-8 text-zinc-300">
+            AmazonIQ נבנה במיוחד למוכרי Amazon. הוא מחבר את החשבון בהרשאה לקריאה בלבד ומספק דשבורד מובנה לצד GPT ייעודי לחקירת הזמנות, ליסטינגים, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה. הוא אינו שולח הודעות לקונים, אינו מנהל השעיות ואינו מבצע פעולות בחשבון.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link className="btn-primary" href="/products/amazoniq">לפרטי AmazonIQ בעברית</Link>
+            <a aria-label="לפתוח את AmazonIQ באתר החיצוני" className="btn-secondary" href="https://amazoniq.navines.com/" rel="noopener noreferrer" target="_blank">לפתוח את AmazonIQ</a>
+          </div>
+        </article>
+        <aside className="border-r-2 border-sky-400 bg-sky-50/60 p-5 dark:bg-sky-950/15">
+          <p className="text-sm font-semibold text-sky-700 dark:text-sky-200">מוצר מודיעין, לא שירות ניהול</p>
+          <p className="mt-3 text-lg leading-8 text-slate-700 dark:text-zinc-300">
+            AmazonIQ מיועד לקריאה, חקירה והצגת מידע. שירותי הניהול והליווי של נביא נס הם שירות אנושי נפרד לתוכן, תפעול, תיעדוף וטיפול במצבים שדורשים עבודה מקצועית.
+          </p>
+        </aside>
+      </div>
+      <div className="mt-5 grid gap-4 md:grid-cols-3">
+        {[
+          ["Dashboard", "תמונה מובנית של מכירות, הזמנות, ליסטינגים, עמלות, מלאי ודוחות זמינים."],
+          ["GPT", "שאלות בשפה טבעית, השוואת תקופות, בדיקת ASIN ו SKU וחקירת שינוי לפי הנתונים שהוחזרו."],
+          ["What If", "בחינת תרחישי מלאי, עמלות ותרומה על בסיס הנחות מפורשות, המסומנים כהערכות בלבד."],
+        ].map(([title, text]) => (
+          <article className="border-t pt-4" key={title} style={{ borderColor: "var(--border)" }}>
+            <h3 className="text-xl font-semibold" style={{ color: "var(--text)" }}>{title}</h3>
+            <p className="mt-2 text-base leading-7" style={{ color: "var(--text-muted)" }}>{text}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
   );
 }
 

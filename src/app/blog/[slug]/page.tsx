@@ -193,6 +193,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isBusinessDueDiligencePost = post.slug === "business-due-diligence-before-buying";
   const isExternalAmazonTrafficPost = post.slug === "how-to-bring-external-traffic-to-amazon-products";
   const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
+  const isAmazonIQPost = post.slug === "amazoniq-amazon-seller-intelligence-dashboard-gpt";
   const isAccountantChoicePost = post.slug === "how-to-choose-accountant-for-digital-business";
   const isBrowserExtensionPost = post.slug === "how-to-build-browser-extension-for-business";
   const isAppraisalGuidePost = post.slug === "vehicle-property-agricultural-appraisal-guide";
@@ -268,12 +269,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       <CTA
-        title={isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isAmazonIQPost ? "רוצים לראות את נתוני Amazon בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
         whatsappHref={isAppraisalGuidePost ? appraisalWhatsappHref : undefined}
         whatsappLabel={isAppraisalGuidePost ? "סיוע ראשוני בוואטסאפ" : undefined}
       />
@@ -1767,6 +1768,96 @@ function EmailToChatGptArticleBody() {
       <p>
         <Link className="font-semibold text-glowred hover:text-white" href="/services/chatgpt-business-data"> לעמוד השירות: חיבור נתונים עסקיים אל ChatGPT בהתאמה אישית </Link>
       </p>
+    </div>
+  );
+}
+
+function AmazonIQArticleBody() {
+  const startQuestions = [
+    "איזה ליסטינגים אינם buyable או כוללים שגיאה?",
+    "מה השתנה במכירות, בהזמנות או בעמלות לעומת התקופה הקודמת?",
+    "איזה מלאי נמצא ב reserved, inbound, unsellable או במלאי מיושן?",
+    "כמה Amazon גבתה בעמלות, החזרים והתאמות בתקופה שבחרתי?",
+    "איזו תרומה משוערת יש למוצר אחרי שמעלים קובץ עלויות מסודר?",
+  ];
+
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:text-white prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>למה Seller Central מרגיש מפוזר</h2>
+      <p>Seller Central נותן למוכר גישה למידע חשוב, אבל המידע מגיע דרך מסכים, דוחות, אזורים והרשאות שונות. הזמנה נמצאת במקום אחד, מלאי במקום אחר, מידע פיננסי בדוח נפרד וליסטינג בעמוד אחר. כשצריך להבין מה השתנה או למה מוצר מסוים דורש בדיקה, המעבר הידני בין מקורות הופך את השאלה העסקית לפעולת חיפוש ארוכה.</p>
+      <p>AmazonIQ נבנה כדי לתת שכבת מודיעין על המידע שהחשבון המורשה מחזיר. הוא לא מחליף את Seller Central ולא מנהל את החשבון. הוא מסדר את נקודת המבט: מה נכון עכשיו, מה השתנה, ואיזה תרחיש כדאי לבחון לפני החלטה.</p>
+
+      <h2>מהו AmazonIQ</h2>
+      <p>AmazonIQ הוא מוצר עצמאי של Navines למוכרי Amazon. המוכר מחבר את Seller Central בהרשאה מאושרת ובמצב קריאה בלבד. לאחר החיבור אפשר לעבוד בשתי חוויות עצמאיות על אותו workspace מורשה: Dashboard לתמונה מובנית, ו GPT לחקירה בשפה טבעית. לצד שתיהן פועל What If Lab לבחינת תרחישים מסומנים.</p>
+      <p>ההפרדה הזו חשובה. דשבורד הוא מקום לראות תמונת מצב מסודרת. GPT הוא מקום לשאול, להשוות ולבקש חקירה. What If הוא מקום לבנות הנחות מפורשות. המוצר לא מציג תרחיש כהיסטוריה אמיתית, ולא מציג נתון חסר כאפס או כעובדה.</p>
+
+      <h2>Dashboard, GPT ו What If: שלושה שימושים שונים</h2>
+      <h3>דשבורד: לראות מה נכון עכשיו</h3>
+      <p>הדשבורד מיועד לסקירה: מכירות, הזמנות, יחידות, ליסטינגים, עמלות, מלאי FBA, דוחות זמינים וסימנים שדורשים בדיקה. הוא נשען על נתונים שהוחזרו בפועל לחשבון, ל Marketplace ולתקופה שנבחרו.</p>
+      <h3>GPT: לחקור מה השתנה ולמה</h3>
+      <p>AmazonIQ GPT מאפשר לשאול שאלה רגילה במקום לדעת מראש איזה דוח לפתוח. אפשר לחקור ASIN או SKU, להשוות תקופות, לבדוק ליסטינג, מלאי או עמלות, ולשלב נתוני Amazon עם קובץ עלויות שהמוכר העלה.</p>
+      <h3>What If: לבחון מה יכול לקרות</h3>
+      <p>תרחישים הם כלי חשיבה, לא דוח אמת. אם המוכר מזין הנחות לגבי מלאי, עמלות או עלויות, אפשר לבחון contribution או runway משוער. התוצאה נשארת מסומנת כהיפותטית ותלויה באיכות ההנחות.</p>
+
+      <h2>איך החיבור עובד בלי למסור שליטה</h2>
+      <p>החיבור עובר דרך הרשאת Seller Central של המוכר. AmazonIQ אינו מבקש את סיסמת Seller Central, ואינו מקבל יכולת לשנות מחיר, ליסטינג, מלאי, הזמנה, החזר, משלוח או הודעה לקונה. הפעולות וההחלטות נשארות אצל המוכר.</p>
+      <p>הזמינות אינה זהה בכל חשבון. היא יכולה להשתנות לפי אזור, Marketplace, role, זכאות לדוחות, מגבלות קצב והנתונים שאמזון בוחרת להחזיר. חלק מהדוחות נוצרים אסינכרונית, ולכן דוח ממתין אינו בהכרח סימן לניתוק החשבון.</p>
+
+      <h2>הזמנות ופריטי הזמנה</h2>
+      <p>חקירת הזמנות יכולה לכלול, כאשר השדות זמינים, ASIN, seller SKU, כותרת מוצר, כמות, מחיר פריט, רכיבי מס, סטטוס הזמנה ומסלול fulfillment של FBA או MFN. כך אפשר לחבר מכירה לפריט, לכמות ולמסלול שמאחוריה במקום להסתפק במספר כולל.</p>
+      <p>יש כאן גבול ברור: AmazonIQ אינו מציג buyer PII. שמות, כתובות, מספרי טלפון, כתובות מייל ופרטי תשלום של קונים אינם חלק מהתצוגה.</p>
+
+      <h2>ליסטינגים ושגיאות שדורשות תשומת לב</h2>
+      <p>למוכר לא תמיד יש זמן לעבור ידנית על כל קטלוג. AmazonIQ יכול לעזור לגלות ליסטינגים בלי להזין SKU מראש, ולבחון מצב buyable או non buyable, שגיאות, אזהרות ומאפיינים חסרים. מידע קטלוגי כמו תמונות, מידות, וריאציות, מחיר או offer fields תלוי במה שאמזון מחזירה ובזכאות של החשבון.</p>
+      <p>המטרה אינה להציע עריכה אוטומטית של ליסטינג, אלא לסמן מה ראוי לחקירה. המוכר או הצוות האנושי הם שמחליטים מה לבדוק ומה לשנות.</p>
+
+      <h2>כספים, עמלות ו Amazon net proceeds</h2>
+      <p>נתונים פיננסיים יכולים לכלול אירועים כספיים, עמלות Amazon, refunds, reimbursements, adjustments, withheld amounts ו Amazon net proceeds. זה מאפשר לשאול מה נגבה, מה הוחזר ואיזה תנועה דורשת התאמה או בדיקה נוספת.</p>
+      <p>חשוב לא לבלבל בין Amazon net proceeds לרווח נקי. הסכום שאמזון מחזירה אחרי עמלות והתאמות אינו כולל בהכרח עלות מוצר, פרסום, הובלה, מיסוי או הוצאות חיצוניות. אירועים פיננסיים יכולים גם להגיע בעיכוב, לפי לוח הזמנים של אמזון.</p>
+
+      <h2>מלאי FBA, inbound ותנועות בין מרכזים</h2>
+      <p>במלאי FBA אפשר לבחון fulfillable, reserved, inbound, unsellable, researching, future supply ותוכניות inbound קיימות, כאשר הנתונים זמינים לחשבון. המטרה היא להבדיל בין מלאי שזמין למכירה, מלאי שמחויב או בדרך, ומלאי שלא זמין כרגע.</p>
+      <p>דוחות תנועה עשויים להציג receipts, shipments, returns, removals, adjustments, losses, findings, damage והעברות בין fulfillment centers. תנועות אלה יכולות לעזור למוכר להבין איפה יחידות השתנו או איזה אירוע ראוי לבדיקת reconciliation.</p>
+
+      <h2>מלאי מיושן, אחסון והחזרות</h2>
+      <p>כאשר דוחות מתאימים זמינים, אפשר לבחון age buckets, excess units, חשיפת אחסון, surcharges, overage והמלצות לבדיקה. הערכות של אחסון או עמלות נשארות הערכות, ולא מוצגות כחיוב ודאי.</p>
+      <p>באותה גישה אפשר לחקור FBA returns, replacements, reimbursements, reversals, removals ו inbound noncompliance כאשר אמזון מחזירה נתונים. AmazonIQ אינו יוזם refund, removal או פעולה תפעולית אחרת.</p>
+
+      <h2>Product 360, Sales Pulse, Money Snapshot ו Risk Radar</h2>
+      <p>אלו שמות עבודה לתצוגות שעוזרות לסרוק נושא מסוים: תמונת מוצר, קצב מכירות, תנועת כסף, תדרוך למוכר וסימנים שדורשים חקירה. הם לא מבטיחים ציון, לא ממציאים רמת סיכון ולא מחליפים שיקול דעת. הם עוזרים לעבור מהצפה של מידע לשאלה הבאה הנכונה.</p>
+
+      <h2>איך להפוך סימן בדשבורד לבדיקה מסודרת</h2>
+      <p>דשבורד טוב אינו מחליף פעולה אנושית, והוא גם לא צריך לנסות לעשות זאת. הערך שלו הוא לקצר את הדרך בין סימן לבין בדיקה: לבחור תקופה, לזהות מוצר או תנועה חריגה, לפתוח שאלה ב GPT, ולחזור ל Seller Central או לצוות עם רשימת נקודות מדויקת יותר. כך לא מתחילים מ״נראה לי שיש בעיה״, אלא משאלה שאפשר לבדוק.</p>
+      <p>לדוגמה, אם מוצר מסוים נראה חלש יותר לעומת תקופה קודמת, אפשר לבדוק קודם אם מספר היחידות, מצב ה buyable, המלאי, העמלות או אירועי ההחזר השתנו. אם התשובה עדיין אינה מספקת, אפשר להרחיב את החקירה לשינוי בליסטינג או לתהליך תפעולי מחוץ ל Amazon. המערכת עוזרת לארגן את המסלול, אך אינה קובעת לבדה מה הסיבה או מה צריך לשנות.</p>
+
+      <h2>שאלות שמנהלים וצוותים יכולים להכין מראש</h2>
+      <p>כדי להפיק ערך מהיר, כדאי להתחיל מקבוצת שאלות חוזרות ולא מחיפוש אקראי. מנהל פעילות יכול לבקש סיכום של השינויים השבועיים; תפעול יכול לבדוק מלאי שנמצא במצב שמגביל מכירה; צוות כספים יכול להתמקד בעמלות, החזרים והתאמות; וצוות מוצר יכול לאתר ליסטינגים שדורשים מעבר ידני. לכל תפקיד יכולה להיות נקודת פתיחה אחרת על אותו מידע מורשה.</p>
+      <p>גם השוואה בין תקופות דורשת הקשר. חודש חלש יותר אינו בהכרח בעיה, ועלייה בעמלות אינה בהכרח טעות. לפני שמסיקים מסקנה, צריך לבדוק את חלון הזמן, ה Marketplace, הנתונים שהתקבלו והאירועים שמסביב. AmazonIQ נועד לעזור למוכר לנסח את בדיקת ההמשך בצורה ברורה יותר, לא להפוך תצפית בודדת להמלצה מוחלטת.</p>
+
+      <h2>מתי כדאי לעבור משאלה למעורבות אנושית</h2>
+      <p>יש מצבים שבהם חקירת נתונים היא רק השלב הראשון: בעיית ליסטינג מורכבת, שאלת מדיניות, השעיה, החלטת תמחור, תפעול מלאי או התאמה חשבונאית. במקרים כאלה AmazonIQ יכול לעזור לתעד את מה שנצפה, אך הבדיקה והפעולה צריכות להיעשות על ידי המוכר או על ידי גורם מקצועי מתאים. אם נדרש ליווי אנושי סביב החשבון, אפשר לעבור גם אל <Link href="/services/amazon-account-management">שירות הניהול והליווי למוכרי Amazon</Link>.</p>
+      <p>ההפרדה בין מודיעין לבין ניהול שומרת על ציפיות נכונות: AmazonIQ קורא נתונים מורשים ומסייע לחקור אותם; הוא אינו מקבל החלטות במקום המוכר ואינו מבצע פעולות בחשבון. זה מאפשר להשתמש בו ככלי עבודה שקט וממוקד, גם כאשר ההחלטה הסופית דורשת ניסיון אנושי, מסמך נוסף או בדיקה מחוץ למערכת.</p>
+
+      <h2>שילוב קובץ עלויות</h2>
+      <p>המוכר יכול להעלות ל GPT קובץ Excel או CSV עם עלויות כגון SKU או ASIN, עלות יחידה, מטבע, הובלה, מכס, הכנה, אריזה ועלויות נוספות. AmazonIQ יכול לחבר את הקובץ לנתוני מכירות, עמלות, החזרים ו net proceeds כדי להעריך contribution למוצר.</p>
+      <p>איכות ההערכה תלויה ישירות בשלמות ובדיוק של העלויות שהמוכר מספק. לכן התוצר הוא בסיס לחקירה ולהחלטה, לא הבטחת רווח ולא תחליף לבדיקה חשבונאית.</p>
+
+      <h2>מה AmazonIQ אינו עושה</h2>
+      <ul>
+        <li>אינו מציג Account Health מלא, Message Center מלא או פרטי קונים.</li>
+        <li>אינו מחבר Amazon Ads או PPC דרך הרשאת Seller Central הקיימת.</li>
+        <li>אינו שולח התראות יזומות אוטומטיות, אינו מנהל השעיות ואינו מכין או שולח POA.</li>
+        <li>אינו מבצע פעולות כתיבה, ואינו מבטיח שכל dataset זמין לכל חשבון או Marketplace.</li>
+      </ul>
+
+      <h2>AmazonIQ מול TalkToData</h2>
+      <p><a aria-label="לפתוח את TalkToData באתר החיצוני" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">TalkToData</a> נבנה לשיחה עם מגוון מערכות עסקיות, חנויות, דוחות ומקורות מידע. AmazonIQ נבנה במיוחד לעולם Amazon Seller Central, ולכן הוא עמוק יותר בתחום Amazon עם מודל נתונים, Dashboard, GPT ומסלולי חקירה שמתאימים לפעילות מוכר.</p>
+      <p>אלו מוצרים משלימים. עסק יכול להשתמש ב TalkToData לשיחה רחבה עם מערכות שונות, וב AmazonIQ לחקירה ייעודית של מידע מורשה מתוך Seller Central.</p>
+
+      <h2>למי המוצר מתאים ואיך מתחילים</h2>
+      <p>AmazonIQ מתאים למוכרי Amazon, מותגים, צוותי איקומרס ומנהלי פעילות שרוצים להבין תמונת מצב לפני החלטה. הוא לא דורש להפוך את כל העסק למערכת חדשה, אלא להתחיל מהחיבור האזורי המורשה ומהשאלה העסקית שמעסיקה את המוכר עכשיו.</p>
+      <ul>{startQuestions.map((question) => <li key={question}>{question}</li>)}</ul>
+      <p>אפשר לקרוא את <Link href="/products/amazoniq">עמוד AmazonIQ בעברית</Link>, לעבור ל<a aria-label="לפתוח את AmazonIQ באתר החיצוני" href="https://amazoniq.navines.com/" rel="noopener noreferrer" target="_blank">אתר AmazonIQ</a>, או להעמיק ב<a href="/solutions/amazon-sellers">פתרונות למוכרי Amazon</a> וב<a href="/services/amazon-account-management">שירות הניהול והליווי האנושי</a>.</p>
     </div>
   );
 }

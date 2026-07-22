@@ -54,7 +54,7 @@ function trimText(text: string, length = 118) {
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
-  const featuredProducts = products.filter((product) => ["talk-to-data", "Navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "Navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
 
   return (
     <>

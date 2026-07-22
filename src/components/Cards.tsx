@@ -28,33 +28,53 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
 export function ProductCard({ product }: { product: Product }) {
   const ctaLabel = product.cta || "מעבר לכלי";
   const ctaClass = "mt-5 inline-flex min-w-36 justify-center rounded-lg border px-4 py-2 text-sm font-semibold transition hover:border-sky-300 hover:text-sky-700";
-  const content = (
-    <article className="command-glass h-full p-5 transition hover:-translate-y-0.5">
+  const details = (
+    <>
       <span className="tag inline-flex items-center gap-2">
         <span className="status-pip" />
         {product.status}
       </span>
       <h3 className="mt-4 text-2xl font-semibold text-white">
-        <BrandInline text={product.name} />
+        {product.name}
       </h3>
       <p className="mt-1 text-base font-semibold text-glowred">{product.hebrewName}</p>
       <p className="mt-3 text-base leading-7 text-zinc-400">
-        <BrandInline text={product.description} />
+        {product.description}
       </p>
       <dl className="mt-5 grid gap-3 text-base">
         <div>
           <dt className="font-semibold text-silver">למי זה מתאים</dt>
           <dd className="mt-1 text-zinc-400">
-            <BrandInline text={product.audience} />
+            {product.audience}
           </dd>
         </div>
         <div>
           <dt className="font-semibold text-silver">מה זה פותר</dt>
           <dd className="mt-1 text-zinc-400">
-            <BrandInline text={product.solves} />
+            {product.solves}
           </dd>
         </div>
       </dl>
+    </>
+  );
+
+  if (product.url?.startsWith("/") && product.externalUrl) {
+    return (
+      <article className="command-glass h-full p-5 transition hover:-translate-y-0.5">
+        {details}
+        <div className="mt-5 flex flex-wrap gap-2">
+          <Link className={ctaClass.replace("mt-5 ", "")} href={product.url}>{ctaLabel}</Link>
+          <a aria-label={`${product.externalCta || product.name} באתר החיצוני`} className={ctaClass.replace("mt-5 ", "")} href={product.externalUrl} rel="noopener noreferrer" target="_blank">
+            {product.externalCta || `לפתוח את ${product.name}`}
+          </a>
+        </div>
+      </article>
+    );
+  }
+
+  const content = (
+    <article className="command-glass h-full p-5 transition hover:-translate-y-0.5">
+      {details}
       <span className={ctaClass}>{ctaLabel}</span>
     </article>
   );
@@ -124,6 +144,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "mobile-app-service-guide": "לבניית אפליקציה לעסק",
     "accountants-ai-data-automation": "AI לרואי חשבון",
     "amazon-sellers-ai-data-monitoring": "ניהול Amazon חכם",
+    "amazoniq-amazon-seller-intelligence-dashboard-gpt": "להבין את AmazonIQ",
     "freelancers-ai-automation-systems": "אוטומציה לפרילנסרים",
     "ai-chat-for-business-website": "לבניית צ׳ט AI לאתר",
     "technical-support-cyber-networks-business": "לתמיכה טכנית מהירה",

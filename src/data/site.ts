@@ -332,7 +332,7 @@ export type Service = {
   audience: string[];
   actions: string[];
   problems: string[];
-  serviceHighlights?: { title: string; text: string; href?: string }[];
+  serviceHighlights?: { title: string; text: string; href?: string; externalHref?: string }[];
   processSteps?: { title: string; text: string }[];
   faqs: { question: string; answer: string }[];
   relatedArticles?: { title: string; href: string; text: string }[];
@@ -923,12 +923,25 @@ export const services: Service[] = [
     audience: ["מוכרי אמזון שרוצים לשפר ביצועים ויציבות", "מותגים עם חשבון פעיל שצריכים סדר וניטור", "עסקים שרוצים להיכנס לאמזון בצורה אחראית"],
     actions: ["בודקים בריאות חשבון, סיכונים והתראות", "משפרים עמודי מוצר, תוכן, תמונות ומסרים", "בונים תוכנית פעולה לפי דחיפות וערך עסקי", "דוגמה פשוטה: חשבון עם התראות מקבל מיפוי סיכונים, ניסוח פעולה מסודר ושיפור עמודי מוצר שמפחית בעיות חוזרות"],
     problems: ["סיכון להשעיה או מגבלות בחשבון", "תוכן מוצר חלש שלא ממיר", "חוסר שליטה בביצועים, מלאי ופעולות דחופות"],
+    serviceHighlights: [
+      {
+        title: "AmazonIQ כחלק מתמונת המצב",
+        text: "לצד שירותי הניהול והליווי, אפשר להשתמש ב AmazonIQ כדי לקבל תמונת מצב מבוססת נתונים על הזמנות, ליסטינגים, עמלות, מלאי FBA ודוחות זמינים. המוצר אינו מחליף מנהל חשבון ואינו מבצע פעולות בחשבון.",
+        href: "/products/amazoniq",
+        externalHref: "https://amazoniq.navines.com/",
+      },
+      {
+        title: "שני מסלולים משלימים",
+        text: "AmazonIQ מיועד לקריאה, חקירה והצגת מידע. שירות הניהול של נביא נס הוא ליווי אנושי נפרד: תפעול, תוכן, תיעדוף וטיפול במקרים שדורשים עבודה מקצועית.",
+      },
+    ],
     faqs: [
       { question: "מה זו תוכנית פעולה לאמזון?", answer: "תוכנית פעולה מסודרת שמסבירה את שורש הבעיה, תיקון שבוצע וצעדי מניעה להמשך." },
       { question: "האם אתם מטפלים בבריאות חשבון?", answer: "כן. אנחנו ממפים סיכונים, התראות ופעולות נדרשות לשיפור יציבות החשבון." },
       { question: "האם השירות כולל תוכן מוצר?", answer: "כן. אפשר לשפר כותרות, נקודות מכירה, תיאור, אמון ומבנה עמוד מוצר." },
     ],
     relatedArticles: [
+      { title: "AmazonIQ למוכרי Amazon", href: "/products/amazoniq", text: "דשבורד, GPT ו What If לקריאה בלבד על חיבור Seller Central מורשה." },
       { title: "אתר צמיחה אורגנית למוכרי Amazon", href: "/services/amazon-seller-seo-website", text: "שירות דגל לבניית אתר תוכן ו SEO שמפנה תנועה חיצונית לעמודי Amazon." },
       { title: "איך להביא לקוחות מחוץ ל Amazon", href: "/blog/how-to-bring-external-traffic-to-amazon-products", text: "מדריך על תנועה חיצונית, תוכן עשיר ומדידה למוצרי Amazon." },
     ],
@@ -1051,11 +1064,14 @@ export type Product = {
   solves: string;
   url?: string;
   cta?: string;
+  externalUrl?: string;
+  externalCta?: string;
 };
 
 export const products: Product[] = [
   { slug: "Navines-site-assistant", name: "Navines Site Assistant", hebrewName: "העוזר החכם של נביא נס", status: "פעיל", description: "צ׳ט AI קטן וברור לאתרים, שעונה בעברית על שאלות, מסביר שירותים, מכוון לעמודים רלוונטיים ומציע וואטסאפ כשצריך שיחה אנושית.", audience: "בעלי אתרים שרוצים לעזור לגולשים להבין מהר מה העסק מציע בלי לקרוא עשרות עמודים", solves: "מפחית שאלות חוזרות, מקצר חיפוש באתר ומוביל את הגולש לפנייה ברורה יותר", url: "/services/ai-chat-for-websites", cta: "לבניית צ׳ט AI לאתר" },
   { slug: "talk-to-data", name: "TalkToData", hebrewName: "לדבר עם הנתונים, הדוחות והאימיילים של העסק באמצעות ChatGPT", status: "פעיל", description: "Your data. Your ChatGPT. One conversation. כלי שמדגים איך עסק יכול לשאול שאלות רגילות על מכירות, הזמנות, מלאי, לקוחות, מוצרים, ביצועים, דוחות ואימיילים. לא רק Gmail או Outlook/Hotmail: אפשר לבדוק חיבור גם לתיבות מייל אחרות כשיש גישה מאובטחת ומסודרת.", audience: "בעלי עסקים, מנהלים, צוותי מכירות, שירות, איקומרס ותפעול שרוצים להבין נתונים ומיילים מהר בשפה פשוטה", solves: "הופך נתונים, דוחות ותיבות מייל לשיחה אחת ברורה שמובילה להחלטות מהירות יותר ולפחות חיפוש ידני", url: "https://talktodata.navines.com", cta: "לצפייה ב TalkToData" },
+  { slug: "amazoniq", name: "AmazonIQ", hebrewName: "מודיעין ייעודי למוכרי Amazon", status: "פעיל", description: "דשבורד ו GPT ייעודי שמחברים נתוני Seller Central בהרשאת מוכר לקריאה בלבד, כדי לבדוק מכירות, הזמנות, ליסטינגים, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה.", audience: "מוכרי Amazon, מותגים, צוותי איקומרס ומנהלי פעילות שרוצים להבין את מצב החשבון בלי לעבור ידנית בין עשרות דוחות", solves: "מרכז תמונת מצב, מאפשר לחקור שינויים ומבדיל בבירור בין נתונים שהוחזרו, מגבלות ותרחישים משוערים", url: "/products/amazoniq", cta: "לפרטי AmazonIQ בעברית", externalUrl: "https://amazoniq.navines.com/", externalCta: "לפתוח את AmazonIQ" },
   { slug: "Navines-beacon", name: "Navines Beacon", hebrewName: "ביקון, מערכת ניטור דיגיטלית", status: "בטא", description: "מערכת שמסתכלת על אתרים, חנויות ונכסים דיגיטליים ומזהה סימנים מוקדמים לבעיות ביצועים, אמון, זמינות או סיכון.", audience: "עסקים שיש להם אתר או חנות פעילים ורוצים לדעת מהר כשמשהו משתבש", solves: "זיהוי מוקדם של בעיות לפני שהן פוגעות בפניות, מכירות או אמון", url: "https://beacon.navines.com", cta: "לצפייה בביקון" },
   { slug: "navines-tools-hub-extension", name: "Navines Tools Hub", hebrewName: "מרכז כלי Navines בדפדפן", status: "פעיל", description: "תוסף דפדפן שמרכז את כלי Navines במקום אחד ומעניק גישה מהירה בלחיצה אחת לכלים ולשירותים שלנו. הגרסה הציבורית זמינה ב Chrome Web Store ומתאימה לדפדפנים נתמכים לפי מדיניות החנות והדפדפן.", audience: "לקוחות, יוצרים, מוכרים וצוותים שמשתמשים בכלי Navines ורוצים גישה מהירה מהדפדפן", solves: "מחליף סימניות מפוזרות במרכז כלים נקי שנמצא ליד המשתמש בכל יום", url: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd", cta: "פתחו ב Chrome Web Store" },
   { slug: "partnercrypto-toolkit-extension", name: "PartnerCrypto Toolkit", hebrewName: "ערכת כלי PartnerCrypto בדפדפן", status: "פעיל", description: "תוסף דפדפן שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות ישירות בדפדפן. הגרסה הציבורית זמינה ב Chrome Web Store.", audience: "משתמשים וצוותים שרוצים גישה מהירה לכלי מחקר, ניתוח ושימושים פרקטיים בתחום הקריפטו", solves: "מרכז כלים ופעולות שימושיות במקום אחד, בלי לחפש בכל פעם את המחשבון או הכלי הנכון", url: "https://chromewebstore.google.com/detail/partnercrypto-toolkit/kopifhlgbdmlanjgdckdjhmhanodifoo", cta: "פתחו ב Chrome Web Store" },
@@ -1094,6 +1110,26 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "amazoniq-amazon-seller-intelligence-dashboard-gpt",
+    title: "AmazonIQ: דשבורד ו־GPT ייעודי שמאפשרים למוכרי Amazon להבין מה באמת קורה",
+    metaTitle: "AmazonIQ למוכרי Amazon, דשבורד, GPT וניתוח Seller Central",
+    metaDescription: "איך AmazonIQ מחבר Seller Central לקריאה בלבד ומרכז הזמנות, ליסטינגים, עמלות, מלאי FBA ודוחות בדשבורד וב GPT ייעודי.",
+    category: "Amazon ואיקומרס",
+    tags: ["AmazonIQ", "Seller Central", "דשבורד למוכרי Amazon", "ניתוח מלאי FBA", "ניתוח עמלות Amazon", "GPT למוכרי Amazon"],
+    date: "22 ביולי 2026",
+    publishedAt: "2026-07-22",
+    readingTime: "12 דקות",
+    excerpt: "AmazonIQ הוא מוצר מודיעין לקריאה בלבד למוכרי Amazon: דשבורד למצב הנוכחי, GPT לחקירת שינויים וכלי What If לבדיקת תרחישים מסומנים לפני החלטה.",
+    serviceIntro: "המדריך מסביר איך מוצר ייעודי ל Seller Central יכול לארגן נתוני מכירות, הזמנות, ליסטינגים, עמלות, מלאי ודוחות, בלי לבצע פעולה בחשבון ובלי להציג נתוני קונים.",
+    relatedSlugs: ["amazon-sellers-ai-data-monitoring", "how-to-bring-external-traffic-to-amazon-products", "multilingual-seo-website-for-amazon-sellers"],
+    faqs: [
+      { question: "האם AmazonIQ משנה משהו בחשבון Amazon?", answer: "לא. החיבור הוא לקריאה בלבד. המוצר אינו משנה מחירים, ליסטינגים, מלאי, הזמנות, החזרים, משלוחים או הודעות לקונים." },
+      { question: "מה ההבדל בין הדשבורד ל GPT?", answer: "הדשבורד מציג תמונת מצב מובנית. GPT מאפשר לשאול שאלות ולחקור נתונים מורשים בשפה טבעית. אלו חוויות נפרדות שיכולות להשתמש באותו חיבור מורשה." },
+      { question: "האם AmazonIQ מציג רווח נקי?", answer: "לא כרווח מובטח. אפשר לשלב קובץ עלויות שהמוכר מעלה כדי להעריך תרומה ורווחיות, אך Amazon net proceeds אינם כוללים בהכרח עלות מוצר, פרסום או הוצאות חיצוניות." },
+      { question: "האם כל דוח זמין לכל חשבון?", answer: "לא. הזמינות תלויה בחשבון, Marketplace, אזור, תפקידים, זכאות לדוחות, מגבלות קצב והמידע שאמזון מחזירה." },
+    ],
+  },
   {
     slug: "vehicle-property-agricultural-appraisal-guide",
     title: "שמאות רכב, רכוש וחקלאות: איך טכנולוגיה מסייעת להערכת נזק מדויקת",

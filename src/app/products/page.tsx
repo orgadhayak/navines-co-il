@@ -13,7 +13,8 @@ export const metadata = createMetadata({
 
 export default function ProductsPage() {
   const talkToDataProduct = products.find((product) => product.slug === "talk-to-data");
-  const featuredProducts = products.filter((product) => ["Navines-site-assistant", "talk-to-data", "Navines-beacon", "Navines-tools-hub-extension", "partnercrypto-toolkit-extension"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "Navines-beacon", "Navines-tools-hub-extension", "partnercrypto-toolkit-extension"].includes(product.slug));
+  const otherProducts = products.filter((product) => !featuredProducts.some((featured) => featured.slug === product.slug));
 
   return (
     <>
@@ -41,7 +42,7 @@ export default function ProductsPage() {
           </div>
         </div>
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {products.map((product) => (
+          {otherProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>
