@@ -31,8 +31,9 @@ export const metadata: Metadata = {
   creator: "נביא נס ישראל בע\"מ",
   publisher: "נביא נס ישראל בע\"מ",
   icons: {
-    icon: [{ url: "/brand/Navines-symbol.jpg", type: "image/jpeg" }],
-    apple: [{ url: "/brand/Navines-symbol.jpg", type: "image/jpeg" }],
+    icon: [{ url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" }],
+    shortcut: [{ url: "/icon.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" }],
   },
   openGraph: {
     title: "נביא נס | בינה מלאכותית, אוטומציה ותשתיות דיגיטליות",
@@ -77,6 +78,7 @@ export default async function RootLayout({
   const requestHeaders = await headers();
   const cookieStore = await cookies();
   const locale = localeFromPath(requestHeaders.get("x-Navines-pathname"));
+  const pathname = requestHeaders.get("x-Navines-pathname") || "/";
   const initialTheme = cookieStore.get("navines-theme")?.value === "dark" ? "dark" : "light";
 
   return (
@@ -89,7 +91,7 @@ export default async function RootLayout({
         </a>
         <Header initialLocale={locale.slug} initialTheme={initialTheme} />
         <main id="main">{children}</main>
-        <Footer locale={locale.slug} />
+        <Footer locale={locale.slug} showCta={pathname !== "/"} />
         <FloatingContact locale={locale.slug} />
         <AnalyticsEvents />
         {enableVercelAnalytics ? <Analytics /> : null}

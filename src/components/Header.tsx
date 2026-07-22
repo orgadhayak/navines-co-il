@@ -155,12 +155,12 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
         <nav className="hidden items-center gap-1 lg:flex" aria-label={isHebrew ? "תפריט ראשי" : "Primary navigation"}>
           {isHebrew ? (
             <>
-              <DropdownButton isOpen={dropdown === "services"} label="שירותים" onClick={() => setDropdown((current) => (current === "services" ? null : "services"))} />
-              <DropdownButton isOpen={dropdown === "solutions"} label="פתרונות" onClick={() => setDropdown((current) => (current === "solutions" ? null : "solutions"))} />
-              <NavLink href="/products" label="מוצרים" onClick={closeAll} />
-              <NavLink href="/blog" label="מאמרים" onClick={closeAll} />
-              <NavLink href="/about" label="אודות" onClick={closeAll} />
-              <NavLink href="/contact" label="יצירת קשר" onClick={closeAll} />
+              <DropdownButton active={pathname?.startsWith("/services") || pathname === "/optimization-hub"} isOpen={dropdown === "services"} label="שירותים" onClick={() => setDropdown((current) => (current === "services" ? null : "services"))} />
+              <DropdownButton active={pathname?.startsWith("/solutions") || pathname?.startsWith("/courses")} isOpen={dropdown === "solutions"} label="פתרונות" onClick={() => setDropdown((current) => (current === "solutions" ? null : "solutions"))} />
+              <NavLink active={pathname === "/products" || pathname?.startsWith("/products/")} href="/products" label="מוצרים" onClick={closeAll} />
+              <NavLink active={pathname === "/blog" || pathname?.startsWith("/blog/")} href="/blog" label="מאמרים" onClick={closeAll} />
+              <NavLink active={pathname === "/about"} href="/about" label="אודות" onClick={closeAll} />
+              <NavLink active={pathname === "/contact"} href="/contact" label="יצירת קשר" onClick={closeAll} />
             </>
           ) : (
             <>
@@ -179,9 +179,8 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
           <button
             aria-expanded={dropdown === "language"}
             aria-label={isHebrew ? "בחירת שפה" : localized?.language || "Language selector"}
-            className="hidden min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition hover:border-sky-400 lg:inline-flex"
+            className="header-language-trigger hidden min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition lg:inline-flex"
             onClick={() => setDropdown((current) => (current === "language" ? null : "language"))}
-            style={{ borderColor: "var(--border)", background: "var(--surface)", color: "var(--text)" }}
             type="button"
           >
             <span className="english-tech text-xs font-semibold">{activeLanguage.shortLabel}</span>
@@ -260,21 +259,22 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
   );
 }
 
-function NavLink({ href, label, onClick }: { href: string; label: string; onClick: () => void }) {
+function NavLink({ active = false, href, label, onClick }: { active?: boolean; href: string; label: string; onClick: () => void }) {
   return (
-    <Link className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-sky-50 hover:text-sky-700" href={href} onClick={() => onClick()} style={{ color: "var(--text)" }}>
+    <Link aria-current={active ? "page" : undefined} className="header-nav-link rounded-lg px-3 py-2 text-sm font-medium transition" data-active={active || undefined} href={href} onClick={() => onClick()}>
       {label}
     </Link>
   );
 }
 
-function DropdownButton({ isOpen, label, onClick }: { isOpen: boolean; label: string; onClick: () => void }) {
+function DropdownButton({ active = false, isOpen, label, onClick }: { active?: boolean; isOpen: boolean; label: string; onClick: () => void }) {
   return (
     <button
       aria-expanded={isOpen}
-      className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-sky-50 hover:text-sky-700"
+      className="header-nav-trigger inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition"
+      data-active={active || undefined}
+      data-open={isOpen || undefined}
       onClick={onClick}
-      style={{ color: isOpen ? "var(--primary)" : "var(--text)", background: isOpen ? "var(--surface-soft)" : "transparent" }}
       type="button"
     >
       <span>{label}</span>
@@ -291,7 +291,7 @@ function ServicesDropdown({ onClick }: { onClick: () => void }) {
           <h2 className="mb-3 text-base font-semibold">{group.title}</h2>
           <div className="grid gap-2">
             {group.links.map(([label, href]) => (
-              <Link className="rounded-md px-2 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={href} key={href} onClick={() => onClick()} style={{ color: "var(--text-muted)" }}>
+              <Link className="header-dropdown-link rounded-md px-2 py-2 text-sm transition" href={href} key={href} onClick={() => onClick()}>
                 {label}
               </Link>
             ))}
@@ -305,16 +305,16 @@ function ServicesDropdown({ onClick }: { onClick: () => void }) {
 function SolutionsDropdown({ onClick }: { onClick: () => void }) {
   return (
     <div className="grid gap-3 rounded-lg border p-5 md:grid-cols-2 lg:grid-cols-4" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
-      <Link className="rounded-md px-3 py-2 text-sm font-medium transition hover:bg-white hover:text-sky-700" href="/solutions" onClick={() => onClick()}>
+      <Link className="header-dropdown-link rounded-md px-3 py-2 text-sm font-medium transition" href="/solutions" onClick={() => onClick()}>
         כל הפתרונות
       </Link>
       {solutionPages.map((solution) => (
-        <Link className="rounded-md px-3 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={`/solutions/${solution.slug}`} key={solution.slug} onClick={() => onClick()} style={{ color: "var(--text-muted)" }}>
+        <Link className="header-dropdown-link rounded-md px-3 py-2 text-sm transition" href={`/solutions/${solution.slug}`} key={solution.slug} onClick={() => onClick()}>
           {solution.navLabel}
         </Link>
       ))}
       {courseTracks.map((course) => (
-        <Link className="rounded-md px-3 py-2 text-sm transition hover:bg-white hover:text-sky-700" href={`/courses/${course.slug}`} key={course.slug} onClick={() => onClick()} style={{ color: "var(--text-muted)" }}>
+        <Link className="header-dropdown-link rounded-md px-3 py-2 text-sm transition" href={`/courses/${course.slug}`} key={course.slug} onClick={() => onClick()}>
           {course.navLabel}
         </Link>
       ))}
@@ -357,7 +357,7 @@ function LanguageOptions({ activeLocale, mobile = false, onClick }: { activeLoca
       {languageLinks.map((locale) => {
         const isExternal = locale.href.startsWith("http");
         const isCurrent = locale.slug === activeLocale;
-        const className = `${mobile ? "mobile-menu-sub-link" : "rounded-md px-3 py-2 text-sm font-medium transition hover:bg-white hover:text-sky-700"} inline-flex items-center gap-2 ${isCurrent ? "text-sky-700" : ""}`;
+        const className = `${mobile ? "mobile-menu-sub-link" : "header-dropdown-link rounded-md px-3 py-2 text-sm font-medium transition"} inline-flex items-center gap-2 ${isCurrent ? "is-current" : ""}`;
         const content = (
           <>
             <span className="english-tech text-xs font-semibold">{locale.shortLabel}</span>

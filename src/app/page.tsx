@@ -40,6 +40,13 @@ const process = [
   ["שיפור ותמיכה", "בודקים ביצועים, מתקנים תקלות וממשיכים לפתח לפי צורך."],
 ];
 
+const ecosystemGroups = [
+  { title: "AI, נתונים ואוטומציה", text: "מערכות שמחברות מידע, משימות ותהליכים לעבודה ברורה יותר.", links: [["AI ואוטומציה", "/services/ai-automation"], ["TalkToData", "/services/chatgpt-business-data"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"]] },
+  { title: "אתרים, מערכות ואיקומרס", text: "פיתוח, שיפור וחיבור של נכסים דיגיטליים סביב מה שהעסק באמת צריך.", links: [["בניית אתרים ומערכות", "/services/web-development"], ["איקומרס", "/services/ecommerce"], ["פיתוח אפליקציות", "/services/mobile-app-development"]] },
+  { title: "מוצרים וכלים של נביא נס", text: "כלים שעוזרים להבין נתונים, לזהות בעיות ולפעול מהר יותר.", links: [["AmazonIQ", "/products/amazoniq"], ["כל המוצרים", "/products"], ["ביקון", "https://beacon.navines.com"]] },
+  { title: "תמיכה ושירותים מקצועיים", text: "תגובה אחראית לתקלות, סיכונים ותהליכים שדורשים בדיקה מסודרת.", links: [["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"], ["שחזור חשבונות", "/services/account-hack-recovery"], ["בדיקת עסק", "/services/business-due-diligence-intelligence"]] },
+];
+
 const homeBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -174,14 +181,30 @@ export default function HomePage() {
         <Link className="btn-secondary mt-6" href="/blog">לכל המאמרים</Link>
       </Section>
 
+      <Section eyebrow="כל מה שנביא נס בונה ומפעילה" title="שירותים, מוצרים וכלים במקום אחד">
+        <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>מפתרונות AI, מערכות ואוטומציה ועד AmazonIQ, TalkToData, ניטור דיגיטלי, שמאות ושירותים מקצועיים. אפשר להתחיל מהצורך ולבחור את המסלול המתאים.</p>
+        <div className="mt-8 grid gap-x-10 gap-y-7 md:grid-cols-2">
+          {ecosystemGroups.map((group) => (
+            <section className="border-t pt-5" key={group.title} style={{ borderColor: "var(--border)" }}>
+              <h2 className="text-2xl font-semibold">{group.title}</h2>
+              <p className="mt-2 text-base leading-7" style={{ color: "var(--text-muted)" }}>{group.text}</p>
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+                {group.links.map(([label, href]) => href.startsWith("http") ? <a className="text-sm font-semibold text-glowred" href={href} key={href} rel="noopener noreferrer" target="_blank">{label}</a> : <Link className="text-sm font-semibold text-glowred" href={href} key={href}>{label}</Link>)}
+              </div>
+            </section>
+          ))}
+        </div>
+        <div className="mt-7 flex flex-wrap gap-3"><Link className="btn-secondary" href="/services">לכל השירותים</Link><Link className="btn-secondary" href="/products">לכל המוצרים</Link><Link className="btn-secondary" href="/contact">דברו איתנו</Link></div>
+      </Section>
+
       <Section eyebrow="יצירת קשר" title="רוצים להבין מה נכון לעסק שלכם?">
         <div className="rounded-lg border p-6 md:flex md:items-center md:justify-between md:gap-8" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }}>
           <p className="max-w-2xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
-            שלחו הודעה קצרה: איזה אתר, מערכת, חנות, תוסף או תהליך יש לכם היום, ומה הייתם רוצים לשפר. נחזור עם כיוון ברור לשיחה הבאה.
+            ספרו לנו מה אתם רוצים לבנות, לחבר או לשפר, ונעזור לבחור את הצעד הראשון.
           </p>
           <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
-            <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">WhatsApp</a>
-            <a className="btn-secondary" href={site.emailHref}>Email</a>
+            <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו בוואטסאפ</a>
+            <a className="btn-secondary" href={site.emailHref}>שליחת אימייל</a>
           </div>
         </div>
       </Section>
