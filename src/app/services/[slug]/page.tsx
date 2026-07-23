@@ -35,6 +35,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isBrowserExtensionService = service.slug === "browser-extension-development";
   const isLegalTechnologyService = service.slug === "legal-operations-technology";
   const isTrafficLawService = service.slug === "traffic-case-technology";
+  const isGlobalBrandService = service.slug === "global-brand-b2b-platform";
   const generalLegalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל הכוונה כללית לגבי סוג המשרד או תחום ההתמחות שכדאי לחפש. נושא הפנייה הכללי הוא:")}`;
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
 
@@ -53,15 +54,48 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     "@type": "Service",
     name: service.title,
     description: service.summary,
-    provider: { "@id": `${site.url}/#organization` },
+    provider: isGlobalBrandService
+      ? {
+          "@id": `${site.url}/#organization`,
+          name: site.name,
+          legalName: site.legalName,
+          alternateName: site.englishLegalName,
+        }
+      : { "@id": `${site.url}/#organization` },
     ...(isAppraisalService
       ? { serviceType: "Vehicle, property and agricultural damage appraisal", areaServed: "IL" }
+      : isGlobalBrandService
+        ? { serviceType: "Global corporate brand and B2B platform development", areaServed: "Worldwide" }
       : isLegalTechnologyService
       ? { serviceType: "General legal technology information and software systems" }
       : isTrafficLawService
         ? { serviceType: "General traffic law technology information and software systems" }
         : { areaServed: "IL" }),
   };
+
+  if (isGlobalBrandService) {
+    const webPageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${site.url}/services/${service.slug}#webpage`,
+      url: `${site.url}/services/${service.slug}`,
+      name: service.heroTitle,
+      description: service.metaDescription,
+      inLanguage: "he-IL",
+      isPartOf: { "@id": `${site.url}/#website` },
+      about: { "@id": `${site.url}/services/${service.slug}#service` },
+    };
+
+    return (
+      <>
+        <JsonLd data={faqSchema} />
+        <JsonLd data={{ ...serviceSchema, "@id": `${site.url}/services/${service.slug}#service` }} />
+        <JsonLd data={webPageSchema} />
+        <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "שירותים", href: "/services" }, { name: service.title, href: `/services/${service.slug}` }])} />
+        <GlobalBrandServiceContent service={service} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -265,6 +299,290 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <CTA
         title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
         text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+      />
+    </>
+  );
+}
+
+function GlobalBrandServiceContent({ service }: { service: (typeof services)[number] }) {
+  const audiences = [
+    {
+      title: "חברה מקומית שרוצה להתחיל לעבוד בעולם",
+      text: "יצרן, מותג צרכני, חברת תוכנה או שירותים שמבקשים לפנות למפיצים, יבואנים, רשתות ושותפים במדינות חדשות.",
+    },
+    {
+      title: "חברה קיימת שצריכה חידוש וסדר",
+      text: "כאשר האתר מיושן, המידע מפוזר בין מסמכים ופלטפורמות, או שאין מקור רשמי אחד שמייצג את היקף הפעילות.",
+    },
+    {
+      title: "מותג שמוכר דרך Amazon, חנויות או מפיצים",
+      text: "כאשר המכירה מתבצעת מחוץ לאתר, אבל צריך להסביר מי עומד מאחורי המותג ולחבר בין מוצרים לערוצים הרשמיים.",
+    },
+    {
+      title: "חברה שפועלת מול גופים ופלטפורמות",
+      text: "מרקטפלייסים, חברות שילוח, בנקים, ספקי תשלום, קמעונאים וגורמי ציות שצריכים לבדוק מידע עקבי ומתועד.",
+    },
+  ];
+
+  const platformLayers = [
+    {
+      title: "זהות תאגידית רשמית",
+      text: "שם החברה והמותג, מספר חברה, הנהלה, אנשי קשר, חזון, פעילות, מבנה מותגים, מדינות וקישורים לנכסים הרשמיים.",
+    },
+    {
+      title: "מרכז מותג ומוצרים",
+      text: "קטגוריות, מוצרים, גלריות רשמיות, נתוני מוצר, חומרים, אריזה, הוראות, גרסאות וגבולות ברורים לטענות שיווקיות.",
+    },
+    {
+      title: "מסלולי שותפות B2B",
+      text: "סיטונאות, הפצה, רשתות, קמעונאים, איקומרס, מרקטפלייסים, Hospitality, חברות, מדיה ושותפויות אסטרטגיות.",
+    },
+    {
+      title: "שווקים גלובליים",
+      text: "עמודי יבשות ומדינות, שפות, נקודות מכירה, מפיצים, שותפים, ערוצים רשמיים והזדמנויות שעדיין פתוחות.",
+    },
+    {
+      title: "מערכת פניות עסקית",
+      text: "טופס מובנה למדינה, סוג עסק, תפקיד, שוק יעד, ערוץ מכירה, תחום עניין, היקף משוער ותקופת השקה.",
+    },
+    {
+      title: "מרכז ידע",
+      text: "מאמרים, מדריכים, שאלות נפוצות, משאבים, checklists, templates, מחקר, Academy, Support ו-Partner Success.",
+    },
+    {
+      title: "כלים אינטראקטיביים",
+      text: "מחשבונים, בדיקות התאמה, שאלוני מוכנות, כלי תכנון, בדיקות GTIN, תכנון וריאציות ומוכנות למרקטפלייס.",
+    },
+  ];
+
+  const trafficPoints = [
+    "כלי חינמי נותן לקהל מקצועי סיבה שימושית להגיע לאתר.",
+    "מדריך מקצועי עונה על שאלה שמחפשים במנועי חיפוש ובמערכות AI.",
+    "דף שוק מתאים לחיפוש לפי מדינה ומעניק הקשר מקומי.",
+    "משאב להורדה או להדפסה עוזר לשותף להתכונן לשיחה.",
+    "שאלון התאמה מסנן פניות ומוסיף הקשר לפני שהצוות חוזר.",
+    "Academy, Support ו-Research מחזקים אמון לפני ואחרי התקשרות.",
+  ];
+
+  const trustPoints = [
+    "שם חברה, מספר חברה, כתובת ופרטי קשר עקביים",
+    "אנשי קשר ותפקידים לצד ערוצים רשמיים",
+    "מידע עדכני על מוצרים, שווקים ונקודות מכירה",
+    "מדיניות, תנאי שימוש, פרטיות ונגישות",
+    "תיעוד מקורות, גבולות לטענות ותאריכי עדכון",
+    "הפרדה בין עובדות, הערכות ותוכניות עתידיות",
+  ];
+
+  const deliverables = [
+    "אתר תאגידי בינלאומי",
+    "מרכז מותג וקטלוג שאינו חנות",
+    "עמודי מוצרים, שירותים ושווקים",
+    "עמודי שותפים ו-Where to Buy",
+    "Official Channels וטופסי B2B",
+    "כלי תכנון ומרכז משאבים",
+    "Academy, מרכז תמיכה ו-Insights",
+    "Research וספריית מסמכים ציבורית",
+    "מספר שפות, hreflang ו-structured data",
+    "sitemap, SEO טכני ו-analytics",
+    "חיבורי CRM ואוטומציות כאשר נדרש",
+    "תהליך תחזוקה ועדכון",
+  ];
+
+  return (
+    <>
+      <Section eyebrow={service.eyebrow} title={service.heroTitle || service.title} titleAs="h1" className="pb-8">
+        <p className="max-w-4xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>{service.summary}</p>
+        <p className="mt-4 max-w-4xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+          השירות מתאים גם לחברה קיימת שהנוכחות שלה מפוזרת או מיושנת, וגם למותג ישראלי שרוצה להתחיל לפנות למפיצים, רשתות, מרקטפלייסים ושותפים מחוץ לישראל.
+        </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">
+            דברו איתנו על הפיכת המותג לגלובלי
+          </a>
+          <a aria-label="צפייה בפרויקט Bumpers Comfort Ltd החי, נפתח בחלון חדש" className="btn-secondary" href="https://www.bumperscomfortltd.com/" rel="noopener noreferrer" target="_blank">
+            לצפייה בפרויקט Bumpers החי
+          </a>
+        </div>
+        <p className="mt-5 border-r-2 pr-4 text-sm font-medium" style={{ borderColor: "var(--primary)", color: "var(--text-soft)" }}>
+          מתכנון זהות ומבנה המידע ועד פיתוח, תוכן, כלים, שפות, SEO והשקה.
+        </p>
+      </Section>
+
+      <Section eyebrow="התאמה" title="למי מתאימה פלטפורמת מותג גלובלית?" className="py-8 lg:py-12">
+        <div className="grid gap-x-10 gap-y-7 md:grid-cols-2">
+          {audiences.map((audience) => (
+            <article className="border-t pt-5" key={audience.title} style={{ borderColor: "var(--border)" }}>
+              <h2 className="text-2xl font-semibold">{audience.title}</h2>
+              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{audience.text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-8 max-w-4xl border-r-2 pr-4 text-base leading-7" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }}>
+          האתר אינו מבטיח קבלה או אישור על ידי גוף כלשהו. הוא מסייע להציג זהות, בעלות, ערוצים, מידע ומסמכים בצורה רשמית ועקבית יותר.
+        </p>
+      </Section>
+
+      <Section eyebrow="שכבות הפלטפורמה" title="הרבה מעבר לעמוד בית וכמה תמונות" className="py-8 lg:py-12">
+        <div className="divide-y" style={{ borderColor: "var(--border)" }}>
+          {platformLayers.map((layer, index) => (
+            <article className="grid gap-3 py-5 md:grid-cols-[4rem_0.7fr_1.3fr] md:items-start" key={layer.title} style={{ borderColor: "var(--border)" }}>
+              <span className="english-tech text-sm font-semibold text-glowred">{String(index + 1).padStart(2, "0")}</span>
+              <h2 className="text-2xl font-semibold">{layer.title}</h2>
+              <p className="text-base leading-7" style={{ color: "var(--text-muted)" }}>{layer.text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-6 text-base leading-7" style={{ color: "var(--text-soft)" }}>
+          כל כלי נבנה סביב החלטה עסקית אמיתית, ולא רק כדי להציג אנימציה באתר. חיבור CRM או אוטומציה מוגדר רק כאשר הוא נדרש ונכלל בהיקף העבודה.
+        </p>
+      </Section>
+
+      <Section eyebrow="תנועה ופניות" title="לא מחכים שהגולש יקרא עמוד אודות ויעזוב" className="py-8 lg:py-12">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <div>
+            <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+              תוכן וכלים יוצרים נקודות כניסה שימושיות לאתר. המטרה היא לא להעמיס עמודים, אלא לענות על שאלות אמיתיות של מפיץ, קניין, מנהל מרקטפלייס או שותף לפני שהוא פונה.
+            </p>
+            <ul className="mt-6 grid gap-3">
+              {trafficPoints.map((item) => <li className="border-r pr-4 text-base leading-7" key={item} style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }}>{item}</li>)}
+            </ul>
+          </div>
+          <aside className="border-y py-6" style={{ borderColor: "var(--border)" }}>
+            <h2 className="text-2xl font-semibold">מה אפשר לצפות ממנו?</h2>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
+              השכבות האלה יוצרות יותר נקודות כניסה שימושיות לאתר ומגדילות את הסיכוי שמבקר רלוונטי יבין את החברה וימשיך לפנייה.
+            </p>
+            <p className="mt-4 text-sm leading-6" style={{ color: "var(--text-soft)" }}>
+              אין הבטחה לכמות תנועה, למספר לידים, לדירוג בגוגל, לקישורים חיצוניים או למכירות.
+            </p>
+          </aside>
+        </div>
+      </Section>
+
+      <Section eyebrow="רשמיות ואמון" title="כשהמידע מסודר, קל יותר לבדוק מי עומד מאחורי המותג" className="py-8 lg:py-12">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <div>
+            <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+              כאשר פלטפורמה, מפיץ או שותף בודקים את החברה, הם מקבלים מקור ציבורי מסודר שאפשר להשוות מול מסמכים, ערוצי מכירה ופרטי קשר.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {trustPoints.map((item) => <li className="border-t pt-3 text-base leading-7" key={item} style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>{item}</li>)}
+            </ul>
+          </div>
+          <aside className="border-r-2 pr-5" style={{ borderColor: "var(--primary)" }}>
+            <h2 className="text-2xl font-semibold">גבול חשוב</h2>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
+              הפלטפורמה אינה תחליף למסמכי חברה, ייעוץ משפטי, רישוי, בדיקות רגולטוריות או מסמכים שהגוף המבקש דורש. היא מספקת מקור רשמי שניתן להפנות אליו ומחזקת את היכולת להציג מידע עקבי.
+            </p>
+          </aside>
+        </div>
+      </Section>
+
+      <Section eyebrow="שני מסלולים" title="אפשר להתחיל משני מקומות שונים" className="py-8 lg:py-12">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <article className="border-t pt-5" style={{ borderColor: "var(--border)" }}>
+            <h2 className="text-3xl font-semibold">חידוש חברה קיימת</h2>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
+              מתאים כשכבר קיימים אתר, מסמכים וערוצי מכירה, אבל המידע מפוזר, העיצוב מיושן או שאין שפה תאגידית ומקור רשמי אחד.
+            </p>
+            <p className="mt-4 text-sm font-semibold text-glowred">Audit ← מיפוי נכסים ← איחוד מידע ← תיקון סתירות ← ארכיטקטורה ← מעבר הדרגתי</p>
+          </article>
+          <article className="border-t pt-5" style={{ borderColor: "var(--border)" }}>
+            <h2 className="text-3xl font-semibold">בניית נוכחות גלובלית מאפס</h2>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
+              מתאים לחברה שפועלת בעיקר בישראל, יש לה מוצר או שירות שאפשר להציע בעולם, אך עדיין אין תשתית לשותפים, מפיצים, שפות או פנייה עסקית.
+            </p>
+            <p className="mt-4 text-sm font-semibold text-glowred">שווקים ← קהלים ← מסלולי שותפות ← מקור נתונים ← תוכן ← כלים ← שפות ← השקה</p>
+          </article>
+        </div>
+      </Section>
+
+      <Section eyebrow="פרויקט חי של נביא נס" title="Bumpers Comfort Ltd, ממותג ישראלי לפלטפורמת שותפים גלובלית" className="py-8 lg:py-12">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+              נביא נס בנתה עבור Bumpers Comfort Ltd פלטפורמה תאגידית ו-B2B בינלאומית שמציגה את החברה, המותג, המוצרים, השווקים, ערוצי המכירה והזדמנויות השותפות במקום רשמי אחד.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {[
+                "אתר תאגידי שאינו מעבד הזמנות צרכניות",
+                "הפניה לערוצי קנייה רשמיים ונפרדים",
+                "מסלולי wholesale, distribution, retail, marketplaces, hospitality, corporate ו-media",
+                "טופס פנייה עסקי שמסווג שוק, ערוץ והזדמנות",
+                "עמודי שווקים, משאבים, Academy, Support, Research, Partner Success ו-Insights",
+                "עשרה כלי תכנון עסקיים וגרסאות ב-14 שפות",
+              ].map((item) => <li className="border-t pt-3 text-base leading-7" key={item} style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>{item}</li>)}
+            </ul>
+            <p className="mt-5 text-sm leading-6" style={{ color: "var(--text-soft)" }}>
+              הנתונים מתארים את מבנה הפלטפורמה החיה במועד הבדיקה ביולי 2026 ואינם טענה לתוצאה מסחרית.
+            </p>
+            <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>
+              האתר והמותג שייכים ל-Bumpers Comfort Ltd. הפרויקט מוצג כדוגמה לעבודת הדיגיטל והפיתוח של נביא נס.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a aria-label="צפייה באתר Bumpers Comfort Ltd החי, נפתח בחלון חדש" className="btn-secondary" href="https://www.bumperscomfortltd.com/" rel="noopener noreferrer" target="_blank">לצפייה בפרויקט החי</a>
+              <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו על פלטפורמה דומה</a>
+            </div>
+          </div>
+          <div aria-label="תצוגת פרויקט Bumpers Comfort Ltd" className="overflow-hidden rounded-lg border shadow-sm" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+            <div className="flex items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }}>
+              <span className="english-tech text-xs font-semibold" style={{ color: "var(--text-soft)" }}>BUMPERSCOMFORTLTD.COM</span>
+              <span className="h-2 w-2 rounded-full" style={{ background: "var(--primary)" }} />
+            </div>
+            <div className="p-6 sm:p-8">
+              <p className="english-tech text-xs font-semibold text-glowred">GLOBAL CORPORATE & B2B PLATFORM</p>
+              <h2 className="mt-3 text-3xl font-semibold">Bumpers Comfort Ltd</h2>
+              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
+                תצוגת פרויקט, לצפייה באתר החי.
+              </p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {["Company", "Partners", "Markets", "Tools", "Insights", "Official Stores"].map((label) => (
+                  <span className="border-t pt-3 text-sm font-semibold" key={label} style={{ borderColor: "var(--border)" }}>{label}</span>
+                ))}
+              </div>
+              <a aria-label="פתיחת אתר Bumpers Comfort Ltd, נפתח בחלון חדש" className="mt-8 inline-flex text-sm font-semibold text-glowred" href="https://www.bumperscomfortltd.com/" rel="noopener noreferrer" target="_blank">
+                פתיחת האתר החי ←
+              </a>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section eyebrow="תהליך עבודה" title="בונים לפי מצב החברה, לא לפי חבילת מדף" className="py-8 lg:py-12">
+        <ol className="divide-y" style={{ borderColor: "var(--border)" }}>
+          {(service.processSteps || []).map((step, index) => (
+            <li className="grid gap-3 py-5 md:grid-cols-[4rem_0.7fr_1.3fr]" key={step.title} style={{ borderColor: "var(--border)" }}>
+              <span className="english-tech text-sm font-semibold text-glowred">{String(index + 1).padStart(2, "0")}</span>
+              <h2 className="text-xl font-semibold">{step.title}</h2>
+              <p className="text-base leading-7" style={{ color: "var(--text-muted)" }}>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section eyebrow="תוצרים" title="התוצרים נקבעים לפי מה שהחברה באמת צריכה" className="py-8 lg:py-12">
+        <ul className="grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+          {deliverables.map((item) => <li className="border-t pt-3 text-base leading-7" key={item} style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>{item}</li>)}
+        </ul>
+        <p className="mt-7 max-w-4xl text-base leading-7" style={{ color: "var(--text-soft)" }}>
+          לא כל חברה צריכה את כל השכבות ביום הראשון. ניתן להתחיל מליבה רשמית ולהרחיב את הפלטפורמה בהדרגה.
+        </p>
+      </Section>
+
+      <Section eyebrow="שאלות נפוצות" title="מה חשוב להבין לפני שמתחילים" className="py-8 lg:py-12">
+        <div className="divide-y border-y" style={{ borderColor: "var(--border)" }}>
+          {service.faqs.map((faq) => (
+            <details className="py-4" key={faq.question} style={{ borderColor: "var(--border)" }}>
+              <summary className="cursor-pointer text-lg font-semibold">{faq.question}</summary>
+              <p className="mt-3 max-w-4xl text-base leading-7" style={{ color: "var(--text-muted)" }}>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      <CTA
+        title="רוצים לבנות מקור רשמי למותג, לשווקים ולשותפים שלכם?"
+        text="שלחו לנו בוואטסאפ כמה מילים על החברה, היכן אתם פועלים ולאילו שווקים או שותפים אתם רוצים להגיע. נבדוק מה כבר קיים ומה נכון לבנות בשלב הראשון."
       />
     </>
   );

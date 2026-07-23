@@ -145,6 +145,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "accountants-ai-data-automation": "AI לרואי חשבון",
     "amazon-sellers-ai-data-monitoring": "ניהול Amazon חכם",
     "amazoniq-amazon-seller-intelligence-dashboard-gpt": "להבין את AmazonIQ",
+    "global-brand-b2b-platform-bumpers-case-study": "למדריך ולמקרה הבוחן",
     "freelancers-ai-automation-systems": "אוטומציה לפרילנסרים",
     "ai-chat-for-business-website": "לבניית צ׳ט AI לאתר",
     "technical-support-cyber-networks-business": "לתמיכה טכנית מהירה",

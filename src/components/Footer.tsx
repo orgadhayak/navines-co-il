@@ -16,6 +16,7 @@ const serviceGroupMap: Record<string, string> = {
   "api-integrations": "ai",
   "business-intelligence": "ai",
   "web-development": "build",
+  "global-brand-b2b-platform": "build",
   "mobile-app-development": "build",
   "browser-extension-development": "build",
   "business-website-999": "build",

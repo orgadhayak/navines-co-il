@@ -263,6 +263,7 @@ export const solutionPages: SolutionPage[] = [
     internalLinks: [
       { label: "AmazonIQ, דשבורד ו GPT למוכרים", href: "/products/amazoniq" },
       { label: "אתר SEO למוכרי Amazon", href: "/services/amazon-seller-seo-website" },
+      { label: "פלטפורמת מותג גלובלית ו-B2B", href: "/services/global-brand-b2b-platform" },
       { label: "TalkToData", href: "/services/chatgpt-business-data" },
       { label: "Navines Beacon", href: "/products" },
       { label: "ניהול Amazon", href: "/services/amazon-account-management" },

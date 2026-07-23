@@ -1,4 +1,5 @@
 ﻿import { CTA } from "@/components/CTA";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { createMetadata } from "@/lib/seo";
 
@@ -27,6 +28,17 @@ export default function AboutPage() {
               {value}
             </div>
           ))}
+        </div>
+      </Section>
+      <Section eyebrow="פעילות בינלאומית" title="בונים לחברות מקור רשמי שאפשר לצמוח איתו">
+        <div className="grid gap-8 border-y py-7 lg:grid-cols-[1.15fr_0.85fr]" style={{ borderColor: "var(--border)" }}>
+          <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+            לצד מערכות ואוטומציות, אנחנו בונים פלטפורמות תאגידיות שמחברות מותג, מוצרים, שווקים, שותפים, תוכן וכלים במקום אחד. השירות מתאים לחברה שרוצה להציג פעילות בינלאומית בצורה עקבית, או למותג מקומי שמתחיל להכין תשתית לעבודה מול מפיצים ושותפים בעולם.
+          </p>
+          <div className="flex flex-col items-start justify-center gap-3">
+            <Link className="btn-secondary" href="/services/global-brand-b2b-platform">לפלטפורמת מותג גלובלית ו-B2B</Link>
+            <Link className="text-sm font-semibold text-glowred" href="/blog/global-brand-b2b-platform-bumpers-case-study">למקרה הבוחן של Bumpers Comfort Ltd</Link>
+          </div>
         </div>
       </Section>
       <CTA title="רוצים להבין מה נכון לעסק שלכם?" text="שלחו לנו הודעה בוואטסאפ עם כמה מילים על האתר, החנות או המערכת שלכם. נעזור לכם להבין מה כדאי לבדוק קודם ומה יכול לתת ערך מהר." />

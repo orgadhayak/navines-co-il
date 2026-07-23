@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticPages, ...localizedLandingPages, ...localizedArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
     url: `${site.url}${path}`,
-    lastModified: new Date("2026-07-14"),
+    lastModified: new Date("2026-07-23"),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : 0.7,
   }));

@@ -15,6 +15,7 @@ export const metadata = createMetadata({
 const serviceGroups = [
   { title: "AI ואוטומציה", text: "תהליכים שחוסכים עבודה ידנית, מחברים פניות, נתונים ומשימות, ומחזירים לצוות זמן.", href: "/services/ai-automation" },
   { title: "אתרים ומערכות", text: "אתרים, פורטלים, דשבורדים ומערכות פנימיות שנבנים סביב צורך עסקי ברור.", href: "/services/web-development" },
+  { title: "פלטפורמת מותג גלובלית ו-B2B", text: "אתר בינלאומי רשמי שמחבר חברה, מותג, מוצרים, שווקים, שותפים, תוכן וכלים למקור אחד שמייצר אמון ופניות עסקיות.", href: "/services/global-brand-b2b-platform", cta: "לשירות הגלובלי", label: "כולל דוגמה חיה" },
   { title: "TalkToData", text: "חיבור נתונים, דוחות ואימיילים לשיחה פשוטה שמאפשרת להבין מה קורה בעסק.", href: "/services/chatgpt-business-data" },
   { title: "איקומרס ומרקטפלייסים", text: "Shopify, WooCommerce, Amazon ו-eBay עם תשתית מכירה, מדידה ותפעול מסודרת.", href: "/services/ecommerce" },
   { title: "תמיכה, סייבר ושחזור", text: "תקלות אתר, מיילים, DNS, פריצות לחשבונות ונכסים דיגיטליים שדורשים תגובה אחראית.", href: "/services/technical-support-cyber-networks" },
@@ -42,7 +43,7 @@ const process = [
 
 const ecosystemGroups = [
   { title: "AI, נתונים ואוטומציה", text: "מערכות שמחברות מידע, משימות ותהליכים לעבודה ברורה יותר.", links: [["AI ואוטומציה", "/services/ai-automation"], ["TalkToData", "/services/chatgpt-business-data"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"]] },
-  { title: "אתרים, מערכות ואיקומרס", text: "פיתוח, שיפור וחיבור של נכסים דיגיטליים סביב מה שהעסק באמת צריך.", links: [["בניית אתרים ומערכות", "/services/web-development"], ["איקומרס", "/services/ecommerce"], ["פיתוח אפליקציות", "/services/mobile-app-development"]] },
+  { title: "אתרים, מערכות ואיקומרס", text: "פיתוח, שיפור וחיבור של נכסים דיגיטליים סביב מה שהעסק באמת צריך.", links: [["בניית אתרים ומערכות", "/services/web-development"], ["פלטפורמת מותג גלובלית", "/services/global-brand-b2b-platform"], ["איקומרס", "/services/ecommerce"], ["פיתוח אפליקציות", "/services/mobile-app-development"]] },
   { title: "מוצרים וכלים של נביא נס", text: "כלים שעוזרים להבין נתונים, לזהות בעיות ולפעול מהר יותר.", links: [["AmazonIQ", "/products/amazoniq"], ["כל המוצרים", "/products"], ["ביקון", "https://beacon.navines.com"]] },
   { title: "תמיכה ושירותים מקצועיים", text: "תגובה אחראית לתקלות, סיכונים ותהליכים שדורשים בדיקה מסודרת.", links: [["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"], ["שחזור חשבונות", "/services/account-hack-recovery"], ["בדיקת עסק", "/services/business-due-diligence-intelligence"]] },
 ];
@@ -103,9 +104,10 @@ export default function HomePage() {
         <div className="grid gap-x-10 gap-y-7 md:grid-cols-2 lg:grid-cols-3">
           {serviceGroups.map((service) => (
             <Link className="group border-t pt-5 transition" href={service.href} key={service.href} style={{ borderColor: "var(--border)" }}>
+              {service.label ? <span className="mb-2 block text-xs font-semibold text-glowred">{service.label}</span> : null}
               <h2 className="text-2xl font-semibold">{service.title}</h2>
               <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{service.text}</p>
-              <span className="mt-4 inline-flex text-sm font-semibold text-glowred transition group-hover:translate-x-[-2px]">למידע נוסף</span>
+              <span className="mt-4 inline-flex text-sm font-semibold text-glowred transition group-hover:translate-x-[-2px]">{service.cta || "למידע נוסף"}</span>
             </Link>
           ))}
         </div>
