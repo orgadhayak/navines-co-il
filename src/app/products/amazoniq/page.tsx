@@ -7,11 +7,11 @@ import { site } from "@/data/site";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 const externalLinks = {
-  home: "https://amazoniq.navines.com/",
-  signup: "https://amazoniq.navines.com/signup",
-  pricing: "https://amazoniq.navines.com/pricing",
+  home: "https://iq.navines.com/",
+  signup: "https://iq.navines.com/signup",
+  pricing: "https://iq.navines.com/pricing",
   gpt: "https://chatgpt.com/g/g-6a30aa44dcbc8191806063bb3c23a5f5-navines-amazoniq",
-  faq: "https://amazoniq.navines.com/faq",
+  faq: "https://iq.navines.com/faq",
 };
 
 export const metadata = createMetadata({

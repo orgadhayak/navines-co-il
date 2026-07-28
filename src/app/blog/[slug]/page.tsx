@@ -2093,7 +2093,7 @@ function AmazonIQArticleBody() {
       <h2>למי המוצר מתאים ואיך מתחילים</h2>
       <p>AmazonIQ מתאים למוכרי Amazon, מותגים, צוותי איקומרס ומנהלי פעילות שרוצים להבין תמונת מצב לפני החלטה. הוא לא דורש להפוך את כל העסק למערכת חדשה, אלא להתחיל מהחיבור האזורי המורשה ומהשאלה העסקית שמעסיקה את המוכר עכשיו.</p>
       <ul>{startQuestions.map((question) => <li key={question}>{question}</li>)}</ul>
-      <p>אפשר לקרוא את <Link href="/products/amazoniq">עמוד AmazonIQ בעברית</Link>, לעבור ל<a aria-label="לפתוח את AmazonIQ באתר החיצוני" href="https://amazoniq.navines.com/" rel="noopener noreferrer" target="_blank">אתר AmazonIQ</a>, או להעמיק ב<a href="/solutions/amazon-sellers">פתרונות למוכרי Amazon</a> וב<a href="/services/amazon-account-management">שירות הניהול והליווי האנושי</a>.</p>
+      <p>אפשר לקרוא את <Link href="/products/amazoniq">עמוד AmazonIQ בעברית</Link>, לעבור ל<a aria-label="לפתוח את AmazonIQ באתר החיצוני" href="https://iq.navines.com/" rel="noopener noreferrer" target="_blank">אתר AmazonIQ</a>, או להעמיק ב<a href="/solutions/amazon-sellers">פתרונות למוכרי Amazon</a> וב<a href="/services/amazon-account-management">שירות הניהול והליווי האנושי</a>.</p>
     </div>
   );
 }

@@ -266,7 +266,7 @@ function AmazonIQSolutionSection() {
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link className="btn-primary" href="/products/amazoniq">לפרטי AmazonIQ בעברית</Link>
-            <a aria-label="לפתוח את AmazonIQ באתר החיצוני" className="btn-secondary" href="https://amazoniq.navines.com/" rel="noopener noreferrer" target="_blank">לפתוח את AmazonIQ</a>
+            <a aria-label="לפתוח את AmazonIQ באתר החיצוני" className="btn-secondary" href="https://iq.navines.com/" rel="noopener noreferrer" target="_blank">לפתוח את AmazonIQ</a>
           </div>
         </article>
         <aside className="border-r-2 border-sky-400 bg-sky-50/60 p-5 dark:bg-sky-950/15">
