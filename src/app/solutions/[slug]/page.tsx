@@ -31,6 +31,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   const solution = solutionPages.find((item) => item.slug === slug);
   if (!solution) notFound();
   const isAmazonSellerSolution = solution.slug === "amazon-sellers";
+  const isFreelancerSolution = solution.slug === "freelancers";
   const showStandaloneTalkToData = solution.slug !== "freelancers" && !isAmazonSellerSolution;
 
   const faqSchema = {
@@ -89,6 +90,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </Section>
+
+      {isFreelancerSolution ? <FreelancerCrmSection /> : null}
 
       {solution.accountantConnection ? (
         <AccountantConnectionSection content={solution.accountantConnection} />
@@ -215,6 +218,41 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         text="שלחו לנו הודעה קצרה בוואטסאפ: מה העסק עושה, איפה הנתונים נמצאים ומה הייתם רוצים להבין מהר יותר. נענה בצורה פשוטה, חברית ומעשית."
       />
     </>
+  );
+}
+
+function FreelancerCrmSection() {
+  const items = [
+    "לידים שמגיעים ממקורות שונים",
+    "לקוחות ופרטי קשר",
+    "הצעות מחיר והסטטוס שלהן",
+    "משימות ומועדי ביצוע",
+    "חשבוניות ותשלומים שמחכים לטיפול",
+    "תזכורות למעקב",
+    "פניות מוואטסאפ, מייל וטופס האתר",
+    "דוח מצב שבועי על מה פתוח ומה דחוף",
+  ];
+
+  return (
+    <Section eyebrow="סדר בעבודה העצמאית" title="CRM לפרילנסרים בלי מערכת מסובכת" className="py-5 lg:py-8">
+      <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="max-w-3xl text-lg leading-8 text-zinc-300">
+            CRM לפרילנסרים לא חייב להיות מערכת כבדה. אפשר לבנות סביבת ניהול לקוחות לפרילנסרים שמרכזת את המידע שכבר מגיע מהאתר, מהמייל ומוואטסאפ, ומוסיפה אוטומציה לפרילנסרים רק במקומות שבהם היא באמת חוסכת עבודה.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-400">
+            כשהמידע מסודר, אפשר להוסיף ניתוח מידע לפרילנסרים: להבין מי מחכה לתשובה, אילו הצעות פתוחות ומה דורש טיפול השבוע.
+          </p>
+        </div>
+        <ul className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+          {items.map((item) => (
+            <li className="border-r pr-4 text-base leading-7 text-zinc-300" style={{ borderColor: "var(--border-strong)" }} key={item}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
   );
 }
 

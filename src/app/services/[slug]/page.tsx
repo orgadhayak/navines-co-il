@@ -209,10 +209,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </article>
           ) : null}
           {isBrowserExtensionService ? <BrowserExtensionExamples /> : null}
-          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title="מה השירות?" items={[service.overview || service.summary]} />
-          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title="למי זה מתאים?" items={service.audience} />
-          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title={isLegalTechnologyService || isTrafficLawService ? "מה אפשר לעשות בפועל" : "מה עושים בפועל ודוגמה פשוטה"} items={service.actions} />
-          <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title={isLegalTechnologyService ? "מה כדאי להבין לפני בחירה" : isTrafficLawService ? "מה כדאי להבין לפני פנייה" : "בעיות שאנחנו פותרים"} items={service.problems} />
+          {isAiChatService ? (
+            <AiChatServiceDetails service={service} />
+          ) : (
+            <>
+              <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title="מה השירות?" items={[service.overview || service.summary]} />
+              <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title="למי זה מתאים?" items={service.audience} />
+              <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title={isLegalTechnologyService || isTrafficLawService ? "מה אפשר לעשות בפועל" : "מה עושים בפועל ודוגמה פשוטה"} items={service.actions} />
+              <InfoBlock plain={isLegalTechnologyService || isTrafficLawService} title={isLegalTechnologyService ? "מה כדאי להבין לפני בחירה" : isTrafficLawService ? "מה כדאי להבין לפני פנייה" : "בעיות שאנחנו פותרים"} items={service.problems} />
+            </>
+          )}
           {service.serviceHighlights?.length ? (
             <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
               <h2 className="text-2xl font-semibold text-white">נקודות שחשוב להבין</h2>
@@ -774,7 +780,7 @@ function AccountHackGuidance() {
         במקרים מסוימים יש צורך לנהל תקשורת זהירה ומחושבת מול מי שמחזיק בגישה לחשבון או מאיים בפרסום מידע. אנחנו לא ממליצים לפעול בפאניקה, לשלם מיד, לאיים או לעשות פעולה לא חוקית. המטרה היא לקנות זמן, להבין את מצב הסיכון, לשמור ראיות, לצמצם נזק ולפעול בצורה חכמה וחוקית.
       </p>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
-        יש לנו ניסיון בהתנהלות רגועה מול מצבי לחץ דיגיטליים, כולל בניית מסרים, תיעוד נכון, הפחתת נזק, הפעלת לחץ חוקי דרך הפלטפורמות והכנת צעדים שיכולים לגרום לצד השני להבין שלא מדובר במטרה קלה.
+        במצב כזה מרכזים תיעוד, בונים מסרים זהירים ומפעילים את מנגנוני הדיווח והאכיפה החוקיים של הפלטפורמה. אין פריצה חזרה, איום או הבטחה להחזרת החשבון.
       </p>
       <h3 className="mt-6 text-xl font-semibold text-white">מה לא לעשות כשפורצים לכם</h3>
       <ul className="mt-3 grid gap-2 text-base leading-7 text-zinc-300 md:grid-cols-2">
@@ -783,6 +789,50 @@ function AccountHackGuidance() {
         ))}
       </ul>
     </article>
+  );
+}
+
+function AiChatServiceDetails({ service }: { service: (typeof services)[number] }) {
+  const groups = [
+    { title: "למי זה מתאים?", items: service.audience },
+    { title: "מה עושים בפועל?", items: service.actions },
+    { title: "אילו בעיות זה פותר?", items: service.problems },
+  ];
+
+  return (
+    <>
+      <div className="grid gap-6 border-y py-6 lg:grid-cols-3" style={{ borderColor: "var(--border)" }}>
+        {groups.map((group) => (
+          <section className="min-w-0 lg:border-l lg:pl-6 last:lg:border-l-0" style={{ borderColor: "var(--border)" }} key={group.title}>
+            <h2 className="text-2xl font-semibold">{group.title}</h2>
+            <ul className="mt-4 space-y-3">
+              {group.items.map((item) => (
+                <li className="border-r pr-4 text-base leading-7" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      <article className="border-y py-6" style={{ borderColor: "var(--border)" }}>
+        <p className="text-sm font-semibold" style={{ color: "var(--accent)" }}>דוגמה להמחשה בלבד</p>
+        <h2 className="mt-2 text-2xl font-semibold">כך שיחה קצרה יכולה לכוון לעמוד הנכון</h2>
+        <dl className="mt-5 grid gap-4">
+          <div>
+            <dt className="font-semibold">גולש</dt>
+            <dd className="mt-1 text-lg leading-8" style={{ color: "var(--text-muted)" }}>אני לא יודע איזה שירות מתאים לי.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold">הצ׳ט</dt>
+            <dd className="mt-1 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
+              ספר לי אם אתה צריך אתר, אוטומציה, חיבור נתונים או פתרון לתקלה קיימת. לפי התשובה אכוון אותך לעמוד המתאים או לשיחת WhatsApp.
+            </dd>
+          </div>
+        </dl>
+      </article>
+    </>
   );
 }
 

@@ -102,7 +102,7 @@ export const solutionPages: SolutionPage[] = [
     ],
     internalLinks: [
       { label: "TalkToData", href: "/services/chatgpt-business-data" },
-      { label: "מדריך סריקת חשבוניות עם AI", href: "/blog/ai-invoice-scanning-and-filtering" },
+      { label: "חילוץ ואימות נתונים מחשבוניות", href: "/blog/ai-invoice-scanning-and-filtering" },
       { label: "איך לבחור רואה חשבון לעסק דיגיטלי", href: "/blog/how-to-choose-accountant-for-digital-business" },
       { label: "AI ואוטומציה לעסקים", href: "/services/ai-automation" },
       { label: "פתרונות למוכרי Amazon", href: "/solutions/amazon-sellers" },
@@ -297,12 +297,12 @@ export const solutionPages: SolutionPage[] = [
   {
     slug: "freelancers",
     navLabel: "פרילנסרים",
-    title: "פתרונות AI, אוטומציה ותשתיות דיגיטליות לפרילנסרים",
+    title: "CRM, אוטומציה ופתרונות AI לפרילנסרים",
     eyebrow: "מערכת קטנה וחכמה לעבודה עצמאית",
     summary:
       "פרילנסרים לא צריכים לעבוד ידנית על כל דבר. גם נותני שירותים וסוכנויות קטנות יכולים לעבוד מסודר יותר. נביא נס ישראל בע\"מ בונה מערכות קטנות וחכמות שמרכזות לידים, לקוחות, משימות, הצעות מחיר, תשלומים, דוחות ותזכורות, כדי להבין מהר מה דורש טיפול, מה תקוע ואיפה אפשר לחסוך זמן.",
     seoDescription:
-      "פתרונות AI ואוטומציה לפרילנסרים: לידים, CRM, הצעות מחיר, משימות, תשלומים, דוחות, TalkToData וגם Navines Beacon לניהול לקוחות.",
+      "CRM לפרילנסרים, ניהול לקוחות, אוטומציה ופתרונות AI שמרכזים לידים, הצעות מחיר, משימות, חשבוניות, תשלומים ודוחות בלי מערכת מסובכת.",
     whoFor: [
       "פרילנסרים ונותני שירותים שרוצים סדר בלי מערכת מסובכת",
       "יועצים, אנשי שיווק, מעצבים, מפתחים ומנהלי פרויקטים",
@@ -350,6 +350,7 @@ export const solutionPages: SolutionPage[] = [
       { label: "TalkToData", href: "/services/chatgpt-business-data" },
       { label: "Navines Beacon", href: "/products" },
       { label: "AI ואוטומציה", href: "/services/ai-automation" },
+      { label: "סינון וסריקת חשבוניות עם AI", href: "/blog/ai-invoice-scanning-and-filtering" },
       { label: "יצירת קשר", href: "/contact" },
     ],
     faq: [
