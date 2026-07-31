@@ -1148,6 +1148,7 @@ export type Product = {
   slug: string;
   name: string;
   hebrewName: string;
+  hidden?: boolean;
   status: "פעיל" | "בטא" | "פנימי" | "בקרוב";
   description: string;
   audience: string;
@@ -1168,7 +1169,7 @@ export const products: Product[] = [
   { slug: "website-analyzer", name: "Navines Website Analyzer", hebrewName: "בודק אתרים", status: "פעיל", description: "כלי בדיקת אתר שמראה בצורה ברורה מה מצב המהירות, הקידום האורגני, הנגישות והאיכות הטכנית של האתר.", audience: "בעלי עסקים שרוצים להבין למה האתר איטי, לא מתקדם או לא מייצר מספיק פניות", solves: "איתור צווארי בקבוק טכניים לפני שהם פוגעים בהמרות", url: "https://analyze.navines.com", cta: "בדקו את האתר שלכם" },
   { slug: "checklink", name: "CheckLink.ai", hebrewName: "בדיקת קישורים חכמה", status: "פעיל", description: "כלי לבדיקה מהירה של קישורים ונכסים דיגיטליים לפני שלוחצים, משתפים או סומכים על מקור לא מוכר.", audience: "צוותים, עסקים ומשתמשים שרוצים להפחית סיכוני קישורים והתחזות", solves: "בדיקה פשוטה שמחזירה יותר ביטחון לפני פעולה דיגיטלית", url: "https://checklink.ai", cta: "לבדיקת קישור" },
   { slug: "real-estate-intelligence", name: "Navines Real Estate Intelligence", hebrewName: "מודיעין נדל״ן", status: "בטא", description: "מערכת לניתוח נכסים, סביבת החלטה והזדמנויות נדל״ן בצורה שמרכזת נתונים במקום אחד.", audience: "חברות נדל״ן, משקיעים וצוותים שרוצים לקבל החלטות עם יותר הקשר", solves: "פחות עבודה ידנית באיסוף נתונים ויותר בהירות לפני החלטה" },
-  { slug: "katlot-intelligence", name: "Katlot Intelligence", hebrewName: "קטלוט מודיעין", status: "פנימי", description: "מערכת מודיעין וקטלוג שמרכזת מידע, נכסים, פריטים ונתונים תפעוליים כדי להפוך חיפוש, סינון והשוואה לפעולה מהירה וברורה יותר.", audience: "צוותים שמנהלים הרבה מידע, מוצרים, נכסים או רשומות ורוצים פחות עבודה ידנית", solves: "סידור מידע מפוזר למאגר שימושי שאפשר להבין, לחפש ולנתח" },
+  { slug: "katlot-intelligence", name: "Katlot Intelligence", hebrewName: "קטלוט מודיעין", hidden: true, status: "פנימי", description: "מערכת מודיעין וקטלוג שמרכזת מידע, נכסים, פריטים ונתונים תפעוליים כדי להפוך חיפוש, סינון והשוואה לפעולה מהירה וברורה יותר.", audience: "צוותים שמנהלים הרבה מידע, מוצרים, נכסים או רשומות ורוצים פחות עבודה ידנית", solves: "סידור מידע מפוזר למאגר שימושי שאפשר להבין, לחפש ולנתח" },
   { slug: "maor-israel", name: "Maor Israel", hebrewName: "מאור ישראל", status: "פנימי", description: "מערכת ניטור מאובטחת לסביבות רגישות, בלי חיבור ישיר למערכות פנימיות ובלי צורך בהרשאות מסוכנות.", audience: "ארגונים וסביבות רגישות שצריכים ניטור בלי לחשוף מערכות", solves: "מעקב חזותי ובטוח יותר בלי לפתוח גישה למידע רגיש", url: "https://maorisrael.com", cta: "לצפייה במאור ישראל" },
   { slug: "ai-tools-portfolio", name: "AI Tools Portfolio", hebrewName: "אוסף כלי בינה מלאכותית", status: "פעיל", description: "אוסף כלים שנבנו כדי לעזור לעסקים לבדוק, לנתח, לנטר, לכתוב, למדוד ולקבל החלטות מהר יותר.", audience: "עסקים וצוותים דיגיטליים שרוצים כלים קטנים שעושים עבודה ברורה", solves: "גישה מרוכזת לכלים שימושיים בלי לפתח מערכת גדולה לכל צורך" },
   { slug: "amazon-listing-analyzer", name: "Amazon Listing Analyzer", hebrewName: "מנתח עמוד מוצר באמזון", status: "בטא", description: "כלי שמנתח עמודי מוצר באמזון ומדגיש בעיות בתוכן, אמון, מבנה והזדמנויות לשיפור מכירות.", audience: "מוכרי אמזון שרוצים לדעת מה לשפר בעמוד מוצר לפני שמגדילים פרסום", solves: "שיפור הצגת מוצר והמרה בעזרת בדיקה ממוקדת" },

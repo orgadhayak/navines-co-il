@@ -12,9 +12,10 @@ export const metadata = createMetadata({
 });
 
 export default function ProductsPage() {
-  const talkToDataProduct = products.find((product) => product.slug === "talk-to-data");
-  const featuredProducts = products.filter((product) => ["amazoniq", "Navines-beacon", "checklink"].includes(product.slug));
-  const otherProducts = products.filter((product) => product.slug !== talkToDataProduct?.slug && !featuredProducts.some((featured) => featured.slug === product.slug));
+  const visibleProducts = products.filter((product) => !product.hidden);
+  const talkToDataProduct = visibleProducts.find((product) => product.slug === "talk-to-data");
+  const featuredProducts = visibleProducts.filter((product) => ["amazoniq", "Navines-beacon", "checklink"].includes(product.slug));
+  const otherProducts = visibleProducts.filter((product) => product.slug !== talkToDataProduct?.slug && !featuredProducts.some((featured) => featured.slug === product.slug));
 
   return (
     <>
