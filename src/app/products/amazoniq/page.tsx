@@ -47,7 +47,7 @@ const faqs = [
   ["האם AmazonIQ מציג רווח נקי?", "לא כרווח מובטח. Amazon net proceeds אינם כוללים בהכרח עלות מוצר, פרסום והוצאות חיצוניות. אפשר לשלב קובץ עלויות של המוכר כדי לקבל הערכת תרומה ורווחיות."],
   ["האם Amazon Ads מחובר?", "לא דרך חיבור Seller Central הנוכחי. Amazon Ads דורש הרשאה נפרדת ואינו מוצג כיכולת פעילה של AmazonIQ כיום."],
   ["האם כל Marketplace וכל דוח זמינים?", "לא. הזמינות תלויה בחשבון, אזור, Marketplace, תפקידים, זכאות לדוחות, מגבלות קצב ושירותי אמזון."],
-  ["האם AmazonIQ הוא מוצר של Amazon?", "לא. AmazonIQ הוא מוצר עצמאי של Navines ואינו מאושר, מופעל, משויך או נתמך על ידי Amazon."],
+  ["האם AmazonIQ הוא מוצר של Amazon?", "לא. AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ ואינו מאושר, מופעל, משויך או נתמך על ידי Amazon."],
 ];
 
 export default function AmazonIQProductPage() {
@@ -154,7 +154,7 @@ export default function AmazonIQProductPage() {
               <li>אין בקשת סיסמת Seller Central, אין פעולות כתיבה ואין פרטי קונים.</li>
               <li>אין שינוי מחיר, ליסטינג, מלאי, הזמנה, החזר, משלוח או הודעה לקונה.</li>
               <li>אין Account Health מלא, Message Center מלא, Ads פעיל, התראות יזומות או זמינות מובטחת לכל dataset.</li>
-              <li>AmazonIQ הוא מוצר עצמאי של Navines ואינו מאושר, מופעל או משויך ל Amazon.</li>
+              <li>AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ ואינו מאושר, מופעל או משויך ל Amazon.</li>
             </ul>
           </div>
         </div>

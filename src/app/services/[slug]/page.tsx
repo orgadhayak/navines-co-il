@@ -598,7 +598,7 @@ function BrowserExtensionExamples() {
   const extensions = [
     {
       name: "Navines Tools Hub",
-      text: "תוסף שמרכז את כלי Navines במקום אחד ומעניק גישה מהירה בלחיצה אחת לכלים ולשירותים שלנו.",
+      text: "תוסף שמרכז את כלי נביא נס ישראל בע״מ במקום אחד ומעניק גישה מהירה בלחיצה אחת לכלים ולשירותים שלנו.",
       why: "בנינו אותו כדוגמה לתוסף שמחבר מותג שלם לדפדפן דרך מרכז כלים נקי, מהיר וקל להבנה.",
       value: "המשתמש מקבל גישה מהירה, ממשק נקי, בלי פרסומות ובלי צורך לשמור סימניות מפוזרות.",
       href: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd",

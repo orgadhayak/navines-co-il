@@ -62,7 +62,7 @@ function trimText(text: string, length = 118) {
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
-  const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "Navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["checklink", "talk-to-data", "amazoniq", "Navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
 
   return (
     <>
@@ -74,7 +74,7 @@ export default function HomePage() {
             מערכות AI, אתרים, אוטומציה ותשתיות דיגיטליות שמשרתות את העסק
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
-            נביא נס עוזרת לעסקים להפוך רעיון, בעיה או תהליך שחוזר על עצמו לפתרון דיגיטלי ברור: אתר, מערכת, כלי AI, אוטומציה, תוסף לדפדפן או תשתית נתונים שעובדת ביום-יום.
+            נביא נס ישראל בע״מ עוזרת לעסקים להפוך רעיון, בעיה או תהליך שחוזר על עצמו לפתרון דיגיטלי ברור: אתר, מערכת, כלי AI, אוטומציה, תוסף לדפדפן או תשתית נתונים שעובדת ביום-יום.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו ב-WhatsApp</a>
@@ -98,7 +98,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <LanguageStrip current="he" title="Navines בעולם" />
+      <LanguageStrip current="he" title="נביא נס ישראל בע״מ בעולם" />
 
       <Section eyebrow="מה אנחנו עושים" title="תחומים מרכזיים, בלי לפזר אתכם בין עשרות מונחים">
         <div className="grid gap-x-10 gap-y-7 md:grid-cols-2 lg:grid-cols-3">
@@ -113,7 +113,19 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="מוצרים וכלים" title="מוצרים שמדגימים את דרך החשיבה של Navines">
+      <Section eyebrow="מוצרים וכלים" title="מוצרים שמדגימים את דרך החשיבה של נביא נס ישראל בע״מ">
+        <Link
+          className="group mb-8 grid gap-3 border-y py-5 transition md:grid-cols-[1fr_auto] md:items-center"
+          href="/blog/business-tools-built-by-navines-israel"
+          style={{ borderColor: "var(--border)" }}
+        >
+          <span>
+            <span className="block text-sm font-semibold text-glowred">מאמר חדש</span>
+            <span className="mt-1 block text-2xl font-semibold">הכלים שבנינו: CheckLink.ai, TalkToData, AmazonIQ, תוספים ועוד</span>
+            <span className="mt-2 block text-base leading-7" style={{ color: "var(--text-muted)" }}>היכרות מרוכזת עם הכלים הפעילים, הפתרונות שבפיתוח והחשיבה שמחברת ביניהם.</span>
+          </span>
+          <span className="text-sm font-semibold text-glowred transition group-hover:translate-x-[-2px]">לקריאת המאמר ←</span>
+        </Link>
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           {featuredProducts.map((product) => {
             const href = product.url || "/products";
@@ -160,7 +172,7 @@ export default function HomePage() {
         <Link className="btn-secondary mt-6" href="/solutions">לכל הפתרונות</Link>
       </Section>
 
-      <Section eyebrow="למה Navines" title="טכנולוגיה עם חשיבה עסקית">
+      <Section eyebrow="למה נביא נס ישראל בע״מ" title="טכנולוגיה עם חשיבה עסקית">
         <div className="max-w-4xl space-y-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
           <p>אנחנו לא מתחילים מכלי או מטרנד. מתחילים מהצורך: איפה העסק מאבד זמן, פניות, כסף או שליטה, ומה אפשר לבנות כדי להפוך את העבודה לברורה יותר.</p>
           <p>העבודה משלבת אפיון, פיתוח, אוטומציה, נתונים, SEO, תשתית ותמיכה טכנית. כשצריך, אנחנו בונים פתרון קטן וממוקד. כשנכון יותר, מחברים מערכות קיימות במקום להחליף הכול.</p>

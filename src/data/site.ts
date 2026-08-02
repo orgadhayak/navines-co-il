@@ -1,5 +1,5 @@
 ﻿export const site = {
-  name: "נביא נס",
+  name: "נביא נס ישראל בע\"מ",
   legalName: "נביא נס ישראל בע\"מ",
   englishLegalName: "Navines",
   hebrewLegalName: "נביא נס ישראל בע\"מ",
@@ -1164,7 +1164,7 @@ export const products: Product[] = [
   { slug: "talk-to-data", name: "TalkToData", hebrewName: "לדבר עם הנתונים, הדוחות והאימיילים של העסק באמצעות ChatGPT", status: "פעיל", description: "Your data. Your ChatGPT. One conversation. כלי שמדגים איך עסק יכול לשאול שאלות רגילות על מכירות, הזמנות, מלאי, לקוחות, מוצרים, ביצועים, דוחות ואימיילים. לא רק Gmail או Outlook/Hotmail: אפשר לבדוק חיבור גם לתיבות מייל אחרות כשיש גישה מאובטחת ומסודרת.", audience: "בעלי עסקים, מנהלים, צוותי מכירות, שירות, איקומרס ותפעול שרוצים להבין נתונים ומיילים מהר בשפה פשוטה", solves: "הופך נתונים, דוחות ותיבות מייל לשיחה אחת ברורה שמובילה להחלטות מהירות יותר ולפחות חיפוש ידני", url: "https://talktodata.navines.com", cta: "לצפייה ב TalkToData" },
   { slug: "amazoniq", name: "AmazonIQ", hebrewName: "מודיעין ייעודי למוכרי Amazon", status: "פעיל", description: "דשבורד ו GPT ייעודי שמחברים נתוני Seller Central בהרשאת מוכר לקריאה בלבד, כדי לבדוק מכירות, הזמנות, ליסטינגים, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה.", audience: "מוכרי Amazon, מותגים, צוותי איקומרס ומנהלי פעילות שרוצים להבין את מצב החשבון בלי לעבור ידנית בין עשרות דוחות", solves: "מרכז תמונת מצב, מאפשר לחקור שינויים ומבדיל בבירור בין נתונים שהוחזרו, מגבלות ותרחישים משוערים", url: "/products/amazoniq", cta: "לפרטי AmazonIQ בעברית", externalUrl: "https://iq.navines.com/", externalCta: "לפתוח את AmazonIQ" },
   { slug: "Navines-beacon", name: "Navines Beacon", hebrewName: "ביקון, מערכת ניטור דיגיטלית", status: "בטא", description: "מערכת שמסתכלת על אתרים, חנויות ונכסים דיגיטליים ומזהה סימנים מוקדמים לבעיות ביצועים, אמון, זמינות או סיכון.", audience: "עסקים שיש להם אתר או חנות פעילים ורוצים לדעת מהר כשמשהו משתבש", solves: "זיהוי מוקדם של בעיות לפני שהן פוגעות בפניות, מכירות או אמון", url: "https://beacon.navines.com", cta: "לצפייה בביקון" },
-  { slug: "navines-tools-hub-extension", name: "Navines Tools Hub", hebrewName: "מרכז כלי Navines בדפדפן", status: "פעיל", description: "תוסף דפדפן שמרכז את כלי Navines במקום אחד ומעניק גישה מהירה בלחיצה אחת לכלים ולשירותים שלנו. הגרסה הציבורית זמינה ב Chrome Web Store ומתאימה לדפדפנים נתמכים לפי מדיניות החנות והדפדפן.", audience: "לקוחות, יוצרים, מוכרים וצוותים שמשתמשים בכלי Navines ורוצים גישה מהירה מהדפדפן", solves: "מחליף סימניות מפוזרות במרכז כלים נקי שנמצא ליד המשתמש בכל יום", url: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd", cta: "פתחו ב Chrome Web Store" },
+  { slug: "navines-tools-hub-extension", name: "Navines Tools Hub", hebrewName: "מרכז כלי נביא נס ישראל בע\"מ בדפדפן", status: "פעיל", description: "תוסף דפדפן שמרכז את כלי נביא נס ישראל בע\"מ במקום אחד ומעניק גישה מהירה בלחיצה אחת לכלים ולשירותים שלנו. הגרסה הציבורית זמינה ב Chrome Web Store ומתאימה לדפדפנים נתמכים לפי מדיניות החנות והדפדפן.", audience: "לקוחות, יוצרים, מוכרים וצוותים שמשתמשים בכלים שלנו ורוצים גישה מהירה מהדפדפן", solves: "מחליף סימניות מפוזרות במרכז כלים נקי שנמצא ליד המשתמש בכל יום", url: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd", cta: "פתחו ב Chrome Web Store" },
   { slug: "partnercrypto-toolkit-extension", name: "PartnerCrypto Toolkit", hebrewName: "ערכת כלי PartnerCrypto בדפדפן", status: "פעיל", description: "תוסף דפדפן שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות ישירות בדפדפן. הגרסה הציבורית זמינה ב Chrome Web Store.", audience: "משתמשים וצוותים שרוצים גישה מהירה לכלי מחקר, ניתוח ושימושים פרקטיים בתחום הקריפטו", solves: "מרכז כלים ופעולות שימושיות במקום אחד, בלי לחפש בכל פעם את המחשבון או הכלי הנכון", url: "https://chromewebstore.google.com/detail/partnercrypto-toolkit/kopifhlgbdmlanjgdckdjhmhanodifoo", cta: "פתחו ב Chrome Web Store" },
   { slug: "website-analyzer", name: "Navines Website Analyzer", hebrewName: "בודק אתרים", status: "פעיל", description: "כלי בדיקת אתר שמראה בצורה ברורה מה מצב המהירות, הקידום האורגני, הנגישות והאיכות הטכנית של האתר.", audience: "בעלי עסקים שרוצים להבין למה האתר איטי, לא מתקדם או לא מייצר מספיק פניות", solves: "איתור צווארי בקבוק טכניים לפני שהם פוגעים בהמרות", url: "https://analyze.navines.com", cta: "בדקו את האתר שלכם" },
   { slug: "checklink", name: "CheckLink.ai", hebrewName: "בדיקת קישורים חכמה", status: "פעיל", description: "כלי לבדיקה מהירה של קישורים ונכסים דיגיטליים לפני שלוחצים, משתפים או סומכים על מקור לא מוכר.", audience: "צוותים, עסקים ומשתמשים שרוצים להפחית סיכוני קישורים והתחזות", solves: "בדיקה פשוטה שמחזירה יותר ביטחון לפני פעולה דיגיטלית", url: "https://checklink.ai", cta: "לבדיקת קישור" },
@@ -1201,6 +1201,25 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "business-tools-built-by-navines-israel",
+    title: "הכלים שבנינו בנביא נס ישראל בע\"מ: מ־CheckLink.ai ועד מערכות AI לעסקים",
+    metaTitle: "הכלים שבנינו: CheckLink.ai, TalkToData, AmazonIQ ותוספים לדפדפן",
+    metaDescription: "הכירו את הכלים שבנינו בנביא נס ישראל בע\"מ: CheckLink.ai, TalkToData, AmazonIQ, Beacon, בודק אתרים ותוספים שימושיים לדפדפן.",
+    category: "מוצרים וכלים",
+    tags: ["CheckLink.ai", "TalkToData", "AmazonIQ", "כלי AI לעסקים", "תוספים לדפדפן", "ניטור אתרים"],
+    date: "2 באוגוסט 2026",
+    publishedAt: "2026-08-02",
+    readingTime: "10 דקות",
+    excerpt: "מאחורי נביא נס ישראל בע\"מ נמצאת משפחה של כלים אמיתיים: בדיקת קישורים, שיחה עם נתונים, מודיעין למוכרי Amazon, ניטור דיגיטלי, בדיקת אתרים ותוספים לדפדפן. הנה מה בנינו, למי כל כלי מתאים ואיך החשיבה הזו יכולה להפוך לפתרון מותאם גם לעסק שלכם.",
+    serviceIntro: "המאמר מרכז את הכלים הציבוריים והפתרונות שפיתחנו, מסביר את הערך המעשי של כל אחד ומציג גם משפחות נוספות של כלים שנבנו או נמצאות בפיתוח. CheckLink.ai כבר משמש משתמשים רבים שרוצים לבדוק קישור לפני שהם סומכים עליו, ללא הבטחות מוחלטות וללא תחליף לשיקול דעת.",
+    relatedSlugs: ["how-to-build-browser-extension-for-business", "business-intelligence-service-guide", "amazoniq-amazon-seller-intelligence-dashboard-gpt"],
+    faqs: [
+      { question: "האם כל הכלים פתוחים לשימוש ציבורי?", answer: "לא. חלק מהכלים פעילים וזמינים לציבור, חלקם בגרסת בטא וחלקם נבנו לצורך פנימי או לפרויקט מותאם. במאמר מצוין מה אפשר לפתוח ישירות ומה דורש שיחה קצרה." },
+      { question: "האם אפשר לבנות כלי דומה לעסק אחר?", answer: "כן, כאשר יש בעיה עסקית ברורה, מקור מידע מתאים ודרך חוקית ובטוחה לעבוד איתו. מתחילים באפיון קטן ובודקים מהו הכלי הפשוט ביותר שיכול לתת ערך אמיתי." },
+      { question: "האם CheckLink.ai מבטיח שקישור בטוח לחלוטין?", answer: "לא. הכלי מסייע לבדיקה ולהערכת סימנים, אך אינו מחליף זהירות, אימות נוסף או ייעוץ אבטחה מקצועי במקרים רגישים." },
+    ],
+  },
   {
     slug: "amazoniq-amazon-seller-intelligence-dashboard-gpt",
     title: "AmazonIQ: דשבורד ו־GPT ייעודי שמאפשרים למוכרי Amazon להבין מה באמת קורה",

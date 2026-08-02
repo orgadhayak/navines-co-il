@@ -200,6 +200,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isLegalOnlinePost = post.slug === "legal-technology-for-online-businesses";
   const isTrafficPointsPost = post.slug === "traffic-points-speed-and-mobile-phone";
   const isGlobalBrandCaseStudyPost = post.slug === "global-brand-b2b-platform-bumpers-case-study";
+  const isToolsPortfolioPost = post.slug === "business-tools-built-by-navines-israel";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
@@ -282,12 +283,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       <CTA
-        title={isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני Amazon בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isToolsPortfolioPost ? "רוצים כלי חכם שמותאם לעסק שלכם?" : isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני Amazon בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל Amazon?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isToolsPortfolioPost ? "שלחו לנו בוואטסאפ מה העסק עושה, איזו פעולה חוזרת על עצמה ומה הייתם רוצים שהלקוח או הצוות יוכלו לבצע בקלות. נבדוק אם נכון לבנות כלי קטן, תוסף, מערכת נתונים או פתרון רחב יותר." : isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, Amazon, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי Amazon בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
         whatsappHref={isAppraisalGuidePost ? appraisalWhatsappHref : undefined}
         whatsappLabel={isAppraisalGuidePost ? "סיוע ראשוני בוואטסאפ" : undefined}
       />
@@ -701,7 +702,7 @@ function LegalOnlineArticleBody() {
         בחירת הסיווגים, הגשת בקשה, ניסוח מסמכים, טיפול בהתנגדויות וקבלת החלטות משפטיות הם עניינים לעורך דין שהעסק בוחר באופן עצמאי. אין דרך אחראית להבטיח שסימן יאושר. מהצד הטכנולוגי אפשר לארגן את המידע: דומיינים, פרופילים, שימושים קיימים, צילומי מסך, URLs, תאריכי פרסום, קבצי לוגו, עמודי מוצר ותוכן שיווקי.
       </p>
       <p>
-        כשהחומר מסודר, העסק והיועצים שלו יכולים להבין טוב יותר מה קיים ומה חסר. Navines מתמקדת בארגון המידע, לא בהכרעה אם סימן ניתן לרישום ולא בניהול הליך משפטי.
+        כשהחומר מסודר, העסק והיועצים שלו יכולים להבין טוב יותר מה קיים ומה חסר. נביא נס ישראל בע״מ מתמקדת בארגון המידע, לא בהכרעה אם סימן ניתן לרישום ולא בניהול הליך משפטי.
       </p>
 
       <h2>פרטיות וציות מתחילים ממיפוי טכנולוגי נכון</h2>
@@ -758,7 +759,7 @@ function LegalOnlineArticleBody() {
         <li>האם קיימת סביבת מסמכים עם הרשאות וגרסאות?</li>
       </ul>
 
-      <h2>איך Navines משתלבת בצד הטכנולוגי</h2>
+      <h2>איך נביא נס ישראל בע״מ משתלבת בצד הטכנולוגי</h2>
       <p>
         אנחנו עוזרים להפוך מצב מפוזר לתמונה מסודרת: מסמכים, דומיינים, חנויות, טפסים, מערכות, פניות, צילומי מסך, קבצים, גרסאות ותאריכים. המטרה היא לא להחליף עורך דין ולא לקבל החלטה משפטית, אלא לתת לעסק תשתית טכנולוגית מסודרת יותר.
       </p>
@@ -946,7 +947,7 @@ function BrowserExtensionArticleBody() {
 
       <h2>דוגמאות שבנינו</h2>
       <p>
-        Navines Tools Hub הוא תוסף שמרכז את כלי Navines במקום אחד ומעניק גישה מהירה לכלים ולשירותים שלנו. PartnerCrypto Toolkit הוא תוסף שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות מתוך הדפדפן.
+        Navines Tools Hub הוא תוסף שמרכז את כלי נביא נס ישראל בע״מ במקום אחד ומעניק גישה מהירה לכלים ולשירותים שלנו. PartnerCrypto Toolkit הוא תוסף שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות מתוך הדפדפן.
       </p>
       <p>
         שתי הדוגמאות מראות רעיון פשוט: לקחת עולם כלים קיים ולהפוך אותו לנגיש יותר, קרוב יותר למשתמש ופחות תלוי בחיפוש ידני.
@@ -2008,6 +2009,135 @@ function EmailToChatGptArticleBody() {
   );
 }
 
+function ToolsPortfolioArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>לא רק שירותי פיתוח, גם מוצרים שעובדים בעולם האמיתי</h2>
+      <p>
+        נביא נס ישראל בע״מ בונה אתרים ומערכות ללקוחות, אבל במקביל מפתחת גם מוצרים עצמאיים. כל כלי מתחיל מבעיה ברורה:
+        קישור שלא בטוחים אם נכון לפתוח, נתונים שקשה להבין, חשבון Amazon שמפזר מידע בין דוחות, אתר שצריך בדיקה או פעולה
+        שחוזרת על עצמה בכל יום.
+      </p>
+      <p>
+        לא כל מוצר צריך להיות מערכת ענקית. לפעמים כלי קטן, מהיר וממוקד נותן למשתמש ערך מיידי. במקרים אחרים צריך שכבת נתונים,
+        הרשאות, דשבורד ותהליך עבודה שלם. תיק המוצרים שלנו כולל את שני הסוגים, וכל אחד מהם מלמד אותנו איך להפוך צורך אמיתי
+        לחוויית שימוש פשוטה יותר.
+      </p>
+
+      <h2>CheckLink.ai: לבדוק קישור לפני שסומכים עליו</h2>
+      <p>
+        <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">CheckLink.ai</bdi></a> הוא כלי שבנינו כדי
+        לתת למשתמש נקודת בדיקה מהירה לפני לחיצה, שיתוף או הסתמכות על קישור ממקור לא מוכר. הוא מתאים למשתמשים פרטיים,
+        לצוותים ולעסקים שרוצים לעצור לרגע ולבדוק סימנים במקום לפעול אוטומטית.
+      </p>
+      <p>
+        הכלי כבר משמש משתמשים רבים, וההצלחה שלו מחזקת אצלנו עיקרון חשוב: מוצר טוב לא חייב להעמיס הסברים. הוא צריך להבין
+        מה המשתמש רוצה לעשות, להציג מידע בצורה ברורה ולתת כיוון שימושי. הבדיקה אינה הבטחה שקישור בטוח לחלוטין ואינה מחליפה
+        זהירות או בדיקת אבטחה מקצועית במקרה רגיש.
+      </p>
+
+      <h2>TalkToData: לדבר עם הנתונים במקום לחפש בדוחות</h2>
+      <p>
+        <a href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">TalkToData</bdi></a> מדגים
+        איך אפשר לחבר נתונים עסקיים, דוחות ואימיילים לשכבת שיחה. במקום לעבור בין טבלאות ומסכים, אפשר לשאול שאלות רגילות על
+        מכירות, הזמנות, מלאי, לקוחות, מוצרים, ביצועים או משימות שמחכות לטיפול.
+      </p>
+      <p>
+        הפתרון אינו מוגבל למערכת אחת. כאשר קיימת דרך גישה מאובטחת ומורשית, אפשר לבדוק חיבור לחנויות, מערכות ניהול לקוחות,
+        בסיסי נתונים, כלי אנליטיקה, מערכות מלאי וגם תיבות מייל שונות. אפשר לקרוא גם על
+        <Link href="/services/chatgpt-business-data"> חיבור נתונים עסקיים אל ChatGPT בהתאמה אישית</Link>.
+      </p>
+
+      <h2>AmazonIQ: שכבת מודיעין למוכרי Amazon</h2>
+      <p>
+        <Link href="/products/amazoniq"><bdi dir="ltr">AmazonIQ</bdi></Link> נבנה למוכרי Amazon שרוצים להבין טוב יותר מידע מורשה
+        מתוך Seller Central. המוצר מרכז תמונת מצב, מאפשר לחקור מכירות, הזמנות, ליסטינגים, עמלות, מלאי FBA ודוחות, ומבדיל
+        בין נתונים שהתקבלו בפועל לבין מגבלות או תרחישים משוערים.
+      </p>
+      <p>
+        החיבור הוא לקריאה בלבד ואינו מבצע פעולות בחשבון. אפשר לפתוח את
+        <a href="https://iq.navines.com/" rel="noopener noreferrer" target="_blank"> אתר AmazonIQ</a>, או לקרוא את
+        <Link href="/blog/amazoniq-amazon-seller-intelligence-dashboard-gpt"> המדריך המלא למוצר</Link>.
+      </p>
+
+      <h2>Navines Beacon ובודק האתרים: לזהות בעיות מוקדם</h2>
+      <p>
+        <a href="https://beacon.navines.com" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">Navines Beacon</bdi></a> הוא
+        מוצר ניטור שנועד לעזור לעסקים לזהות סימנים מוקדמים לבעיות באתר, בחנות או בנכס דיגיטלי. המטרה היא לא לחכות עד שלקוח
+        ידווח שמשהו לא עובד, אלא ליצור תמונת מצב שמאפשרת לבדוק זמינות, ביצועים, אמון וסיכון בזמן.
+      </p>
+      <p>
+        לצד הניטור בנינו גם את
+        <a href="https://analyze.navines.com" rel="noopener noreferrer" target="_blank"> בודק האתרים</a>, שמרכז בדיקות של מהירות,
+        קידום אורגני, נגישות ואיכות טכנית. שני הכלים ניגשים לאותה בעיה מזוויות שונות: האחד עוזר לעקוב, והשני עוזר לבצע בדיקה
+        ממוקדת ולהבין מה כדאי לשפר.
+      </p>
+
+      <h2>תוספים לדפדפן: הכלים ליד המשתמש בכל יום</h2>
+      <p>
+        לא כל כלי צריך להיפתח בלשונית נפרדת. לכן בנינו את
+        <a href="https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd" rel="noopener noreferrer" target="_blank"> <bdi dir="ltr">Navines Tools Hub</bdi></a>,
+        תוסף שמרכז גישה מהירה לכלים ולשירותים שלנו ישירות מהדפדפן. הגרסה הציבורית זמינה בחנות התוספים של Chrome, והתאמה
+        לדפדפנים נוספים תלויה ביכולות ה API, בגרסת Manifest ובבדיקות הנדרשות.
+      </p>
+      <p>
+        מוצר נוסף הוא
+        <a href="https://chromewebstore.google.com/detail/partnercrypto-toolkit/kopifhlgbdmlanjgdckdjhmhanodifoo" rel="noopener noreferrer" target="_blank"> <bdi dir="ltr">PartnerCrypto Toolkit</bdi></a>,
+        תוסף שמרכז כלי קריפטו ובדיקות שימושיות כגון גודל פוזיציה והשפעת עמלות. שני התוספים מדגימים איך אפשר לקחת אוסף פעולות
+        מפוזרות ולהפוך אותו לכלי קטן שנמצא בדיוק במקום שבו המשתמש עובד.
+      </p>
+
+      <h2>העוזר החכם לאתרים וכלים מותאמים לעסק</h2>
+      <p>
+        בנינו גם עוזר חכם לאתרים שמכיר תוכן, מסביר שירותים, מכוון לעמוד הנכון ומציע מעבר לשיחה אנושית כשצריך. זה אינו בוט
+        כללי שמדבר בלי סוף, אלא מוצר שמותאם לאתר ולמסלול שהעסק רוצה ליצור עבור הגולש. אפשר לקרוא על
+        <Link href="/services/ai-chat-for-websites"> בניית צ׳ט AI חכם לאתרים</Link>.
+      </p>
+      <p>
+        מאותה חשיבה נולדו גם כלים לניתוח עמודי מוצר ב Amazon וב Shopify, בדיקת הודעות, סידור משובים, לוחות הכנסות, ספירת
+        מילים, מודיעין נדל״ן וסביבות ניטור מאובטחות. חלקם ציבוריים, חלקם בגרסת בטא וחלקם נבנו ככלים פנימיים או כבסיס לפרויקט
+        מותאם. אנחנו לא מציגים מוצר פנימי כזמין לציבור לפני שהוא מוכן, אבל הידע שנצבר בכל אחד מהם נכנס לפתרונות הבאים שאנחנו בונים.
+      </p>
+      <h3>כלים נוספים בתיק הפיתוח</h3>
+      <ul>
+        <li><strong>Navines Real Estate Intelligence:</strong> סביבת ניתוח שמרכזת מידע והקשר לקבלת החלטות בתחום הנדל״ן.</li>
+        <li><strong>Maor Israel:</strong> מערכת ניטור מאובטחת לסביבות רגישות, בלי לפתוח גישה ישירה למערכות פנימיות.</li>
+        <li><strong>Amazon Listing Analyzer:</strong> בדיקה ממוקדת של תוכן, מבנה ואמון בעמודי מוצר.</li>
+        <li><strong>Shopify Product Analyzer:</strong> ניתוח דפי מוצר וכיוונים לשיפור מסרים וחוויית קנייה.</li>
+        <li><strong>Fake Screenshot Detector:</strong> בדיקת סימנים מחשידים בצילומי מסך ובנכסים חזותיים.</li>
+        <li><strong>Amazon Email Checker:</strong> עזרה בזיהוי הודעות חשודות או ניסוחים שדורשים בדיקה לפני תגובה.</li>
+        <li><strong>Revenue Calendars:</strong> לוחות לתכנון מועדים, פעולות והכנסות במקום אחד.</li>
+        <li><strong>Word Counter Tool:</strong> ספירת מילים, תווים ואורך תוכן לפני פרסום.</li>
+        <li><strong>Feedback Removal Engine:</strong> תהליך מסודר ומתועד לטיפול במשובים ובמוניטין בזירות מסחר.</li>
+      </ul>
+      <p>
+        הזמינות משתנה בין המוצרים. חלקם פעילים, חלקם בגרסת בטא וחלקם כלים פנימיים שאינם מוצעים כרגע כמוצר ציבורי. הרשימה
+        נועדה להציג את רוחב יכולת הפיתוח, לא להבטיח שכל כלי מתאים לכל עסק או זמין ללא אפיון.
+      </p>
+
+      <h2>מה מחבר בין כל הכלים</h2>
+      <ul>
+        <li>בעיה אחת ברורה לפני רשימת תכונות ארוכה.</li>
+        <li>מסך פשוט שמסביר למשתמש מה קורה ומה הצעד הבא.</li>
+        <li>שימוש זהיר בנתונים, בהרשאות ובחיבורים חיצוניים.</li>
+        <li>הפרדה ברורה בין עובדה, הערכה, מגבלה והמלצה לבדיקה.</li>
+        <li>אפשרות להתחיל קטן ולהרחיב רק אחרי שרואים שימוש אמיתי.</li>
+      </ul>
+
+      <h2>איך הופכים צורך של עסק לכלי שימושי</h2>
+      <p>
+        מתחילים בשאלה אחת: איזו פעולה המשתמש או הצוות מבצעים שוב ושוב, ואיפה הם נתקעים. אחר כך בודקים איזה מידע נדרש,
+        האם קיימת הרשאה חוקית ובטוחה לגשת אליו, ומהו התוצר הקטן ביותר שיכול לחסוך זמן או לשפר החלטה. רק אחרי זה בוחרים אם
+        נכון לבנות אתר, תוסף, דשבורד, אוטומציה, צ׳ט או מערכת רחבה יותר.
+      </p>
+      <p>
+        אפשר לראות את הרשימה המעודכנת ב<Link href="/products">עמוד המוצרים והכלים</Link>. אם יש לכם רעיון לכלי או פעולה
+        ידנית שהייתם רוצים להפוך למוצר, שלחו לנו הודעה קצרה. נבדוק יחד מה יכול לתת ערך אמיתי לפני שמתחילים לפתח.
+      </p>
+    </div>
+  );
+}
+
 function AmazonIQArticleBody() {
   const startQuestions = [
     "איזה ליסטינגים אינם buyable או כוללים שגיאה?",
@@ -2024,7 +2154,7 @@ function AmazonIQArticleBody() {
       <p>AmazonIQ נבנה כדי לתת שכבת מודיעין על המידע שהחשבון המורשה מחזיר. הוא לא מחליף את Seller Central ולא מנהל את החשבון. הוא מסדר את נקודת המבט: מה נכון עכשיו, מה השתנה, ואיזה תרחיש כדאי לבחון לפני החלטה.</p>
 
       <h2>מהו AmazonIQ</h2>
-      <p>AmazonIQ הוא מוצר עצמאי של Navines למוכרי Amazon. המוכר מחבר את Seller Central בהרשאה מאושרת ובמצב קריאה בלבד. לאחר החיבור אפשר לעבוד בשתי חוויות עצמאיות על אותו workspace מורשה: Dashboard לתמונה מובנית, ו GPT לחקירה בשפה טבעית. לצד שתיהן פועל What If Lab לבחינת תרחישים מסומנים.</p>
+      <p>AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ למוכרי Amazon. המוכר מחבר את Seller Central בהרשאה מאושרת ובמצב קריאה בלבד. לאחר החיבור אפשר לעבוד בשתי חוויות עצמאיות על אותו workspace מורשה: Dashboard לתמונה מובנית, ו GPT לחקירה בשפה טבעית. לצד שתיהן פועל What If Lab לבחינת תרחישים מסומנים.</p>
       <p>ההפרדה הזו חשובה. דשבורד הוא מקום לראות תמונת מצב מסודרת. GPT הוא מקום לשאול, להשוות ולבקש חקירה. What If הוא מקום לבנות הנחות מפורשות. המוצר לא מציג תרחיש כהיסטוריה אמיתית, ולא מציג נתון חסר כאפס או כעובדה.</p>
 
       <h2>Dashboard, GPT ו What If: שלושה שימושים שונים</h2>
