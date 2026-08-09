@@ -138,6 +138,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "ai-course-for-adults-build-products-with-ai": "למסלול הבוגרים",
     "email-to-chatgpt-talktodata": "לחיבור אימיילים חכם",
     "talk-to-business-data-chatgpt": "לדבר עם הנתונים",
+    "connect-business-systems-to-chatgpt-israel": "לחיבור המערכות ל־ChatGPT",
     "business-automation-start": "להבין אוטומציה עסקית",
     "ai-invoice-scanning-and-filtering": "לסריקת חשבוניות עם AI",
     "ecommerce-service-guide": "לבניית חנות איקומרס",

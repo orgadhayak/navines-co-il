@@ -26,6 +26,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const isChatGptDataService = service.slug === "chatgpt-business-data";
+  const isBusinessSystemsChatGptService = service.slug === "business-systems-chatgpt-integration";
   const isAiChatService = service.slug === "ai-chat-for-websites";
   const isTechnicalSupportService = service.slug === "technical-support-cyber-networks";
   const isAccountHackRecoveryService = service.slug === "account-hack-recovery";
@@ -122,6 +123,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <a className="btn-secondary" href={site.whatsappHref}>
               דברו איתנו בוואטסאפ
             </a>
+          </div>
+        ) : null}
+        {isBusinessSystemsChatGptService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">
+              שלחו לנו אילו מערכות יש לכם
+            </a>
+            <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">
+              לצפייה ב־TalkToData
+            </a>
+            <Link className="btn-secondary" href="/products/amazoniq">
+              לדוגמת AmazonIQ
+            </Link>
           </div>
         ) : null}
       </Section>
@@ -231,14 +245,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     </>
                   );
 
-                  return highlight.href ? (
+                  const primaryHref = highlight.href || highlight.externalHref;
+                  const isExternalPrimary = !highlight.href && Boolean(highlight.externalHref);
+
+                  return primaryHref ? (
                     <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4" key={highlight.title}>
-                      <Link className="block transition hover:text-sky-200" href={highlight.href}>
-                        {content}
-                      </Link>
+                      {isExternalPrimary ? (
+                        <a className="block transition hover:text-sky-200" href={primaryHref} rel="noopener noreferrer" target="_blank">{content}</a>
+                      ) : (
+                        <Link className="block transition hover:text-sky-200" href={primaryHref}>{content}</Link>
+                      )}
                       {highlight.externalHref ? (
                         <a aria-label={`לפתוח את ${highlight.title} באתר החיצוני`} className="mt-4 inline-flex text-sm font-semibold text-sky-300 underline-offset-4 transition hover:underline" href={highlight.externalHref} rel="noopener noreferrer" target="_blank">
-                          לפתוח את AmazonIQ
+                          לפתוח את {highlight.title}
                         </a>
                       ) : null}
                     </div>
@@ -303,8 +322,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
-        text={isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+        title={isBusinessSystemsChatGptService ? "רוצים לשאול את המערכות שלכם שאלה רגילה ולקבל תשובה ברורה?" : isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב Amazon?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isBusinessSystemsChatGptService ? "שלחו לנו את שמות המערכות ואת שלוש השאלות שהכי קשה לענות עליהן היום. נבדוק API, הרשאות ואיכות נתונים ונציע חיבור ראשון קטן, שימושי ובטוח." : isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל Amazon." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
   );

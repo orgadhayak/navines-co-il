@@ -11,6 +11,7 @@ type FooterGroup = { id: string; title: string; items: FooterItem[] };
 
 const serviceGroupMap: Record<string, string> = {
   "ai-automation": "ai",
+  "business-systems-chatgpt-integration": "ai",
   "chatgpt-business-data": "ai",
   "ai-chat-for-websites": "ai",
   "api-integrations": "ai",

@@ -13,10 +13,10 @@ export const metadata = createMetadata({
 });
 
 const serviceGroups = [
+  { title: "NAVINES IQ וחיבור מערכות ל־ChatGPT", text: "מחברים חשבוניות, ERP, CRM, חנויות ודוחות לשיחה אחת שמאפשרת להבין מה דורש טיפול.", href: "/services/business-systems-chatgpt-integration", cta: "לשירות החדש", label: "חיבור למערכות קיימות" },
   { title: "AI ואוטומציה", text: "תהליכים שחוסכים עבודה ידנית, מחברים פניות, נתונים ומשימות, ומחזירים לצוות זמן.", href: "/services/ai-automation" },
   { title: "אתרים ומערכות", text: "אתרים, פורטלים, דשבורדים ומערכות פנימיות שנבנים סביב צורך עסקי ברור.", href: "/services/web-development" },
   { title: "פלטפורמת מותג גלובלית ו-B2B", text: "אתר בינלאומי רשמי שמחבר חברה, מותג, מוצרים, שווקים, שותפים, תוכן וכלים למקור אחד שמייצר אמון ופניות עסקיות.", href: "/services/global-brand-b2b-platform", cta: "לשירות הגלובלי", label: "כולל דוגמה חיה" },
-  { title: "TalkToData", text: "חיבור נתונים, דוחות ואימיילים לשיחה פשוטה שמאפשרת להבין מה קורה בעסק.", href: "/services/chatgpt-business-data" },
   { title: "איקומרס ומרקטפלייסים", text: "Shopify, WooCommerce, Amazon ו-eBay עם תשתית מכירה, מדידה ותפעול מסודרת.", href: "/services/ecommerce" },
   { title: "תמיכה, סייבר ושחזור", text: "תקלות אתר, מיילים, DNS, פריצות לחשבונות ונכסים דיגיטליים שדורשים תגובה אחראית.", href: "/services/technical-support-cyber-networks" },
   { title: "שמאות והערכת נזקים", text: "שמאות רכב, רכוש וחקלאות בגישה טכנולוגית, עם תיעוד מפורט, בקרת נתונים וחוות דעת שמאית ברורה.", href: "/services/vehicle-property-agricultural-appraisal" },
@@ -25,6 +25,7 @@ const serviceGroups = [
 ];
 
 const highlighted = [
+  { title: "חיבור מערכות עסקיות ל־ChatGPT ול־NAVINES IQ", href: "/services/business-systems-chatgpt-integration" },
   { title: "צ׳ט AI חכם לאתרים", href: "/services/ai-chat-for-websites" },
   { title: "פיתוח תוספים לדפדפן", href: "/services/browser-extension-development" },
   { title: "אתר SEO למוכרי Amazon", href: "/services/amazon-seller-seo-website" },
@@ -42,7 +43,7 @@ const process = [
 ];
 
 const ecosystemGroups = [
-  { title: "AI, נתונים ואוטומציה", text: "מערכות שמחברות מידע, משימות ותהליכים לעבודה ברורה יותר.", links: [["AI ואוטומציה", "/services/ai-automation"], ["TalkToData", "/services/chatgpt-business-data"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"]] },
+  { title: "AI, נתונים ואוטומציה", text: "מערכות שמחברות מידע, משימות ותהליכים לעבודה ברורה יותר.", links: [["חיבור מערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["AI ואוטומציה", "/services/ai-automation"], ["TalkToData", "/services/chatgpt-business-data"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"]] },
   { title: "אתרים, מערכות ואיקומרס", text: "פיתוח, שיפור וחיבור של נכסים דיגיטליים סביב מה שהעסק באמת צריך.", links: [["בניית אתרים ומערכות", "/services/web-development"], ["פלטפורמת מותג גלובלית", "/services/global-brand-b2b-platform"], ["איקומרס", "/services/ecommerce"], ["פיתוח אפליקציות", "/services/mobile-app-development"]] },
   { title: "מוצרים וכלים של נביא נס", text: "כלים שעוזרים להבין נתונים, לזהות בעיות ולפעול מהר יותר.", links: [["AmazonIQ", "/products/amazoniq"], ["כל המוצרים", "/products"], ["ביקון", "https://beacon.navines.com"]] },
   { title: "תמיכה ושירותים מקצועיים", text: "תגובה אחראית לתקלות, סיכונים ותהליכים שדורשים בדיקה מסודרת.", links: [["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"], ["שחזור חשבונות", "/services/account-hack-recovery"], ["בדיקת עסק", "/services/business-due-diligence-intelligence"]] },

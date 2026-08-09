@@ -16,6 +16,7 @@ const serviceGroups = [
     title: "AI, תוכנה ואתרים",
     links: [
       ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
+      ["חיבור מערכות עסקיות ל־ChatGPT", "/services/business-systems-chatgpt-integration"],
       ["חיבור נתונים ל-ChatGPT", "/services/chatgpt-business-data"],
       ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
       ["בניית אתרים ומערכות", "/services/web-development"],
