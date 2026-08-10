@@ -5,8 +5,8 @@ import { Section } from "@/components/Section";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "כלים שימושיים בעברית לבדיקת קישורים והודעות",
-  description: "כלים מקומיים וחינמיים בעברית מבית נביא נס ישראל בע״מ: בדיקת קישור, ניתוח הודעה חשודה והשוואת דומיינים, בלי לשלוח טקסט רגיש לשרת.",
+  title: "15 כלים שימושיים בעברית לבדיקות דיגיטליות",
+  description: "15 כלים מקומיים וחינמיים בעברית מבית נביא נס ישראל בע״מ: קישורים, הודעות, דומיינים, אימיילים, קמפיינים, חשבונות ואתרים.",
   path: "/tools",
 });
 
@@ -15,7 +15,7 @@ export default function ToolsPage() {
     <>
       <Section eyebrow="כלים שימושיים בעברית" title="בדיקה קטנה לפני פעולה גדולה" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">
-          בנינו חמישה כלים קצרים שעוזרים לעצור לרגע לפני שלוחצים, מגיבים, משתפים או מודדים קמפיין. הם פועלים בדפדפן, בעברית, בלי הרשמה ובלי לשלוח את הטקסט שהזנתם לשרת. התוצאות הן סימנים לבדיקה, לא הבטחה שהקישור או ההודעה בטוחים.
+          בנינו 15 כלים קצרים שעוזרים לעצור לרגע לפני שלוחצים, מגיבים, משתפים, עולים עם קמפיין או מטפלים באירוע דיגיטלי. הם פועלים בדפדפן, בעברית, בלי הרשמה ובלי לשלוח את הטקסט שהזנתם לשרת. התוצאות הן סימנים לבדיקה, לא הבטחה שהקישור או ההודעה בטוחים.
         </p>
         <HebrewToolsClient />
       </Section>
@@ -24,14 +24,14 @@ export default function ToolsPage() {
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
           <div><span>01</span><h2>פרטיות מקומית</h2><p>הכלים החדשים מנתחים את הקלט בדפדפן. אל תכניסו סיסמאות, קודים או מידע שלא הייתם מפרסמים.</p></div>
           <div><span>02</span><h2>סימנים, לא פסק דין</h2><p>HTTPS, דמיון בכתיב או הודעה דחופה הם רק חלק מהתמונה. במקרה רגיש מאמתים מול מקור רשמי.</p></div>
-          <div><span>03</span><h2>כלים שנבנים סביב בעיה</h2><p>כך גם בנינו את CheckLink.ai, TalkToData ו־AmazonIQ: מתחילים מצורך ברור ובונים שימוש שאפשר להבין.</p></div>
+          <div><span>03</span><h2>כלים שנבנים סביב בעיה</h2><p>כך גם בנינו את <a className="tools-inline-link" href="https://checklink.ai" rel="noopener noreferrer" target="_blank">CheckLink.ai</a>, את <a className="tools-inline-link" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">TalkToData</a> ואת <a className="tools-inline-link" href="https://iq.navines.com" rel="noopener noreferrer" target="_blank">AmazonIQ</a>: מתחילים מצורך ברור ובונים שימוש שאפשר להבין.</p></div>
         </div>
       </section>
 
       <Section eyebrow="עוד כלים מבית נביא נס" title="רוצים בדיקה עמוקה יותר?">
         <div className="tools-related-links">
           <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><strong>CheckLink.ai</strong><span>סריקה רחבה יותר של קישורים וסימני אמון</span></a>
-          <Link href="/products"><strong>כל המוצרים</strong><span>TalkToData, AmazonIQ, Beacon וכלי עבודה נוספים</span></Link>
+          <Link href="/products"><strong>כל המוצרים</strong><span>ל־TalkToData, AmazonIQ, Beacon וכלי עבודה נוספים יש עמודים וקישורים מסודרים.</span></Link>
           <Link href="/blog/business-tools-built-by-navines-israel"><strong>איך נבנו הכלים</strong><span>הסיפור, השימושים והדרך להפוך צורך לכלי</span></Link>
         </div>
       </Section>

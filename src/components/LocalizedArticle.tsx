@@ -4,7 +4,7 @@ import { localizedArticlePaths, siteLocales } from "@/i18n/locales";
 import { site } from "@/data/site";
 import type { LocalizedArticleContent } from "@/content/localized/types";
 
-function whatsappHref(locale: LocalizedArticleContent["locale"]) {
+function whatsappHref(locale: LocalizedArticleContent["locale"], customMessage?: string) {
   const messages = {
     de: "Hallo Navines, ich habe den Artikel gelesen und möchte über KI-Automatisierung sprechen.",
     jp: "Navinesの記事を読みました。AI自動化について相談したいです。",
@@ -14,7 +14,7 @@ function whatsappHref(locale: LocalizedArticleContent["locale"]) {
     zh: "您好 Navines，我阅读了文章，想咨询 AI 自动化。",
   };
 
-  return `${site.whatsappHref}?text=${encodeURIComponent(messages[locale])}`;
+  return `${site.whatsappHref}?text=${encodeURIComponent(customMessage || messages[locale])}`;
 }
 
 const faqLabels: Record<LocalizedArticleContent["locale"], string> = {
@@ -35,10 +35,10 @@ const metaLabels: Record<LocalizedArticleContent["locale"], { published: string;
   zh: { published: "发布日期", updated: "更新日期", author: "作者" },
 };
 
-export function LocalizedArticle({ article }: { article: LocalizedArticleContent }) {
+export function LocalizedArticle({ article, path: explicitPath, relatedService, whatsappText }: { article: LocalizedArticleContent; path?: string; relatedService?: { label: string; href: string }; whatsappText?: string }) {
   const locale = siteLocales[article.locale];
   const metaCopy = metaLabels[article.locale];
-  const path = localizedArticlePaths[article.locale];
+  const path = explicitPath || localizedArticlePaths[article.locale];
   const url = `${site.url}${path}`;
   const landingHref = `/${article.locale}`;
   const articleSchema = {
@@ -99,9 +99,9 @@ export function LocalizedArticle({ article }: { article: LocalizedArticleContent
           <h2 className="text-3xl font-semibold">{article.cta.title}</h2>
           <p className="mt-3 text-lg leading-8" style={{ color: "var(--text-muted)" }}>{article.cta.text}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a className="btn-primary" href={whatsappHref(article.locale)} rel="noopener noreferrer" target="_blank">{article.cta.whatsappLabel}</a>
+            <a className="btn-primary" href={whatsappHref(article.locale, whatsappText)} rel="noopener noreferrer" target="_blank">{article.cta.whatsappLabel}</a>
             <a className="btn-secondary" href={`mailto:hello@navines.com?subject=${encodeURIComponent(article.title)}`}>{article.cta.emailLabel}</a>
-            <Link className="btn-secondary" href={landingHref}>Navines</Link>
+            <Link className="btn-secondary" href={relatedService?.href || landingHref}>{relatedService?.label || "Navines"}</Link>
           </div>
         </section>
 

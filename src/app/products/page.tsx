@@ -50,7 +50,7 @@ export default function ProductsPage() {
         <div className="mt-10 border-y py-8" style={{ borderColor: "var(--border)" }}>
           <p className="text-sm font-semibold text-glowred">חדש באתר הישראלי</p>
           <h2 className="mt-2 text-3xl font-semibold text-white">כלים שימושיים בעברית לגולשים</h2>
-          <p className="mt-3 max-w-3xl text-lg leading-8 text-zinc-300">בדיקת קישור, ניתוח הודעה חשודה והשוואת דומיינים. כלים קצרים שפועלים בדפדפן ועוזרים להבין מה לבדוק לפני פעולה.</p>
+          <p className="mt-3 max-w-3xl text-lg leading-8 text-zinc-300">15 כלים מקומיים לבדיקת קישורים, הודעות, דומיינים, רשימות, קמפיינים, חשבונות וטקסט. הם פועלים בדפדפן ועוזרים להבין מה כדאי לבדוק לפני פעולה.</p>
           <Link className="btn-secondary mt-5 inline-flex" href="/tools">לפתיחת עמוד הכלים</Link>
         </div>
       </Section>

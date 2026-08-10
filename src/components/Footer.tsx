@@ -19,6 +19,8 @@ const footerGroups: FooterGroup[] = [
       { label: "פיתוח אתרים ומערכות", href: "/services/web-development" },
       { label: "פיתוח אפליקציות", href: "/services/mobile-app-development" },
       { label: "איקומרס ומרקטפלייסים", href: "/services/ecommerce" },
+      { label: "מערכת תוכנית שותפים לאתר קיים", href: "/services/affiliate-program-platform" },
+      { label: "בדיקת חיובים והחזרים אפשריים", href: "/services/payment-discrepancy-review" },
       { label: "תמיכה טכנית, סייבר ורשתות", href: "/services/technical-support-cyber-networks" },
     ],
   },
@@ -122,9 +124,10 @@ function FooterBrand() {
       <p className="mt-3 max-w-sm text-base leading-7" style={{ color: "var(--text-muted)" }}>חברת תוכנה ו־AI שמפתחת מערכות, אוטומציות, אתרים וכלים דיגיטליים לעסקים.</p>
       <p className="mt-3 text-sm font-medium" style={{ color: "var(--text-soft)" }}>{site.companyNumberLabel}</p>
       <p className="mt-1 text-sm" style={{ color: "var(--text-soft)" }}>{site.hebrewAddress}</p>
-      <div className="mt-5 grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
-        <a className="footer-contact-link" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a>
-        <a className="footer-contact-link" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a>
+      <div className="footer-contact-stack mt-5 text-sm" style={{ color: "var(--text-muted)" }}>
+        <a className="footer-contact-link footer-contact-ltr" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a>
+        <a className="footer-contact-link footer-contact-ltr" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a>
+        <a className="english-tech footer-contact-link footer-contact-ltr footer-site-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>NAVINES.COM</bdi></a>
         <a className="footer-contact-link" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו בוואטסאפ</a>
       </div>
     </section>
@@ -187,7 +190,6 @@ function FooterCopyright() {
       </div>
       <div>
         <span><bdi>© 2026</bdi> כל הזכויות שמורות</span>
-        <a className="english-tech footer-contact-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>NAVINES.COM</bdi></a>
       </div>
     </div>
   );
@@ -209,7 +211,7 @@ function LocalizedFooter({ locale, copy, showCta }: { locale: Exclude<LocaleSlug
           <section><Link href={homeHref}><Image alt="Navines" className="brand-logo h-6 w-auto" height={33} src="/brand/navines-wordmark-slim.png" width={176} /></Link><p className="mt-4 text-base leading-7" style={{ color: "var(--text-muted)" }}>{copy.description}</p></section>
           <FooterColumn group={{ id: "services", title: copy.services, items: serviceItems }} />
           <FooterColumn group={{ id: "languages", title: copy.languages, items: languageItems() }} />
-          <section><h3 className="mb-3 text-base font-semibold">{copy.contact}</h3><div className="grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}><a className="footer-contact-link" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a><a className="footer-contact-link" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a><a className="footer-contact-link" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a></div></section>
+          <section><h3 className="mb-3 text-base font-semibold">{copy.contact}</h3><div className="footer-contact-stack text-sm" style={{ color: "var(--text-muted)" }}><a className="footer-contact-link footer-contact-ltr" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a><a className="footer-contact-link footer-contact-ltr" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a><a className="english-tech footer-contact-link footer-contact-ltr footer-site-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>NAVINES.COM</bdi></a><a className="footer-contact-link" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a></div></section>
         </div>
         <div className="mt-10 border-t pt-6 text-sm" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>{copy.copyright}</div>
       </div>

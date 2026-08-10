@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { Section } from "@/components/Section";
 import { solutionPages } from "@/data/solutions";
-import { blogPosts, hebrewTools, products, site } from "@/data/site";
+import { blogPosts, hebrewTools, products, services, site } from "@/data/site";
 import { formatBlogDate } from "@/lib/dates";
 import { createMetadata } from "@/lib/seo";
 
@@ -27,7 +27,7 @@ const capabilityGroups = [
   {
     title: "מסחר ותשתיות דיגיטליות",
     text: "חנויות, מרקטפלייסים, ביצועים, אבטחה ותמיכה טכנית שמחזיקים את הפעילות הדיגיטלית יציבה ומדידה.",
-    links: [["איקומרס", "/services/ecommerce"], ["מרכז אופטימיזציה", "/optimization-hub"], ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"]],
+    links: [["איקומרס", "/services/ecommerce"], ["מערכת תוכנית שותפים לאתר קיים", "/services/affiliate-program-platform"], ["בדיקת חיובים והחזרים אפשריים", "/services/payment-discrepancy-review"], ["מרכז אופטימיזציה", "/optimization-hub"], ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"]],
   },
 ];
 
@@ -52,6 +52,8 @@ export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
   const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "checklink"].includes(product.slug));
   const featuredSolutions = solutionPages.slice(0, 3);
+  const affiliateProgramService = services.find((service) => service.slug === "affiliate-program-platform");
+  const financialReviewService = services.find((service) => service.slug === "payment-discrepancy-review");
 
   return (
     <>
@@ -101,6 +103,37 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {affiliateProgramService ? (
+        <section className="feature-band border-y" style={{ borderColor: "var(--border)" }}>
+          <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:flex lg:items-end lg:justify-between lg:gap-12 lg:px-8 lg:py-16">
+            <div className="max-w-4xl">
+              <p className="section-eyebrow">צמיחה דרך שותפים ויוצרים</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl">{affiliateProgramService.title}</h2>
+              <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>הופכים המלצות של יוצרי תוכן, לקוחות ושותפים עסקיים לתהליך מסודר: קישורים אישיים, אזור שותפים, חומרים מעודכנים, סטטוסים ובקרה שמתחברים לאתר שכבר קיים.</p>
+            </div>
+            <div className="mt-7 flex shrink-0 flex-wrap gap-3 lg:mt-0">
+              <Link className="btn-primary" href={`/services/${affiliateProgramService.slug}`}>לפרטי השירות</Link>
+              <Link className="btn-on-dark" href="/blog/affiliate-program-for-existing-website">למדריך המלא</Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+      {financialReviewService ? (
+        <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8" aria-labelledby="financial-review-title">
+          <div className="border-y py-7 lg:flex lg:items-end lg:justify-between lg:gap-10" style={{ borderColor: "var(--border)" }}>
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold text-glowred">סדר מול חיובים, זיכויים ותשלומים</p>
+              <h2 className="mt-2 text-3xl font-semibold leading-tight text-white" id="financial-review-title">{financialReviewService.title}</h2>
+              <p className="mt-3 text-lg leading-8 text-zinc-300">{financialReviewService.summary}</p>
+            </div>
+            <div className="mt-5 flex shrink-0 flex-wrap gap-3 lg:mt-0">
+              <Link className="btn-secondary" href={`/services/${financialReviewService.slug}`}>לבדיקה מסודרת</Link>
+              <Link className="editorial-link inline-flex items-center" href="/blog/how-to-review-payments-and-refunds">למדריך המעשי</Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="feature-band">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8 lg:py-20">
           <div>
@@ -132,7 +165,7 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="כלים שימושיים בעברית" title="בדיקה קטנה לפני פעולה גדולה">
-        <p className="section-lead">שלושה כלים קצרים שפועלים בדפדפן ועוזרים לבדוק קישור, הודעה או דומיין לפני שמתקדמים. בלי הרשמה ובלי להעלות טקסט רגיש לשרת.</p>
+        <p className="section-lead">15 כלים קצרים שפועלים בדפדפן ועוזרים לבדוק קישורים, הודעות, דומיינים, רשימות, קמפיינים, חשבונות וטקסט לפני שמתקדמים. בלי הרשמה ובלי להעלות מידע רגיש לשרת.</p>
         <div className="home-tools-list">
           {hebrewTools.map((tool, index) => (
             <Link href={`/tools#${tool.id}`} key={tool.id}>

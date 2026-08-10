@@ -1,10 +1,14 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/JsonLd";
+import { BrandInline } from "@/components/BrandInline";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { siteLocales } from "@/i18n/locales";
 import { site } from "@/data/site";
 import { getLocalizedToolsCopy } from "@/content/localized/tools";
+import { localizedAffiliateProgramContent } from "@/content/localized/affiliate-program";
+import { localizedFinancialReviewContent } from "@/content/localized/payment-discrepancy-review";
+import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths } from "@/i18n/locales";
 import type { LocalizedLandingContent } from "@/content/localized/types";
 
 function whatsappHref(text: string) {
@@ -18,6 +22,8 @@ function emailHref(subject: string) {
 export function LocalizedLanding({ content }: { content: LocalizedLandingContent }) {
   const locale = siteLocales[content.locale];
   const toolsCopy = getLocalizedToolsCopy(content.locale);
+  const affiliateProgram = localizedAffiliateProgramContent[content.locale];
+  const financialReview = localizedFinancialReviewContent[content.locale];
   const pageUrl = `${site.url}/${content.locale}`;
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -70,7 +76,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
           <LocalizedSection id="tools" eyebrow={toolsCopy.eyebrow} title={toolsCopy.previewTitle}>
             <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>{toolsCopy.previewText}</p>
             <div className="home-tools-list mt-8">
-              {(Object.entries(toolsCopy.tools) as [string, (typeof toolsCopy.tools)[keyof typeof toolsCopy.tools]][]).map(([id, tool], index) => (
+              {(Object.entries(toolsCopy.tools) as [string, (typeof toolsCopy.tools)[keyof typeof toolsCopy.tools]][]).slice(0, 6).map(([id, tool], index) => (
                 <Link href={`/${content.locale}/tools#${id}`} key={id}>
                   <span className="editorial-index">0{index + 1}</span>
                   <span><strong>{tool.title}</strong><small>{tool.summary}</small></span>
@@ -78,6 +84,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
                 </Link>
               ))}
             </div>
+            <Link className="editorial-link mt-6 inline-flex" href={`/${content.locale}/tools`}>{toolsCopy.pageTitle}</Link>
           </LocalizedSection>
         ) : null}
 
@@ -86,10 +93,34 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {content.services.items.map((item) => (
               <div className="border-t pt-5" key={item.title} style={{ borderColor: "var(--border)" }}>
-                <h2 className="text-2xl font-semibold">{item.title}</h2>
-                <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{item.text}</p>
+                <h2 className="text-2xl font-semibold"><BrandInline text={item.title} /></h2>
+                <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}><BrandInline text={item.text} /></p>
               </div>
             ))}
+          </div>
+        </LocalizedSection>
+
+        <LocalizedSection id="affiliate-program" title={affiliateProgram.service.previewTitle}>
+          <div className="border-y py-7 md:flex md:items-end md:justify-between md:gap-8" style={{ borderColor: "var(--border)" }}>
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>{affiliateProgram.service.previewText}</p>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
+              <Link className="btn-primary" href={localizedAffiliateServicePaths[content.locale]}>{affiliateProgram.service.ctaLabel}</Link>
+              <Link className="btn-secondary" href={localizedAffiliateArticlePaths[content.locale]}>{affiliateProgram.service.articleLabel}</Link>
+            </div>
+          </div>
+        </LocalizedSection>
+
+        <LocalizedSection id="payment-discrepancy-review" title={financialReview.service.previewTitle}>
+          <div className="border-y py-7 md:flex md:items-end md:justify-between md:gap-8" style={{ borderColor: "var(--border)" }}>
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>{financialReview.service.previewText}</p>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
+              <Link className="btn-primary" href={localizedFinancialReviewServicePaths[content.locale]}>{financialReview.service.ctaLabel}</Link>
+              <Link className="btn-secondary" href={localizedFinancialReviewArticlePaths[content.locale]}>{financialReview.service.articleLabel}</Link>
+            </div>
           </div>
         </LocalizedSection>
 

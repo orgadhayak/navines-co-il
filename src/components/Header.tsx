@@ -30,6 +30,8 @@ const serviceGroups = [
     title: "מסחר, תמיכה וסיכון",
     links: [
       ["איקומרס", "/services/ecommerce"],
+      ["מערכת תוכנית שותפים לאתר קיים", "/services/affiliate-program-platform"],
+      ["בדיקת חיובים והחזרים אפשריים", "/services/payment-discrepancy-review"],
       ["אתר SEO למוכרי אמזון", "/services/amazon-seller-seo-website"],
       ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"],
       ["סיוע בפריצה לחשבון", "/services/account-hack-recovery"],

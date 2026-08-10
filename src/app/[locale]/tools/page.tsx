@@ -61,7 +61,8 @@ export default async function LocalizedToolsPage({ params }: { params: Promise<{
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="tools-related-links">
           <Link href={`/${locale}`}><strong>{copy.homeLabel}</strong><span>{copy.pageDescription}</span></Link>
-          <Link href="/tools"><strong>{copy.hebrewToolsLabel}</strong><span>נביא נס ישראל בע״מ · CheckLink.ai</span></Link>
+          <Link href="/tools"><strong>{copy.hebrewToolsLabel}</strong><span>נביא נס ישראל בע״מ</span></Link>
+          <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><strong>CheckLink.ai</strong><span>{copy.externalToolsLabel}</span></a>
         </div>
       </section>
     </main>

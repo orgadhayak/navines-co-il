@@ -157,6 +157,8 @@ function getBlogCtaLabel(post: BlogPost) {
     "how-to-choose-accountant-for-digital-business": "לבחור רואה חשבון נכון",
     "how-to-build-browser-extension-for-business": "לבניית תוסף לדפדפן",
     "vehicle-property-agricultural-appraisal-guide": "למדריך השמאות",
+    "affiliate-program-for-existing-website": "לבניית תוכנית שותפים",
+    "how-to-review-payments-and-refunds": "לבדיקת חיובים והחזרים",
   };
 
   if (labels[post.slug]) return labels[post.slug];

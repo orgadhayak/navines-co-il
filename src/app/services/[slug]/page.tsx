@@ -4,6 +4,7 @@ import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/Section";
 import { services, site } from "@/data/site";
+import { affiliateServiceAlternates, financialReviewServiceAlternates } from "@/i18n/locales";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -14,11 +15,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
-  return createMetadata({
+  const metadata = createMetadata({
     title: service.metaTitle || service.title,
     description: service.metaDescription || service.summary,
     path: `/services/${service.slug}`,
   });
+  if (service.slug === "affiliate-program-platform") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: affiliateServiceAlternates } };
+  }
+  if (service.slug === "payment-discrepancy-review") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: financialReviewServiceAlternates } };
+  }
+  return metadata;
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -37,6 +45,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isLegalTechnologyService = service.slug === "legal-operations-technology";
   const isTrafficLawService = service.slug === "traffic-case-technology";
   const isGlobalBrandService = service.slug === "global-brand-b2b-platform";
+  const isPaymentDiscrepancyReviewService = service.slug === "payment-discrepancy-review";
   const generalLegalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל הכוונה כללית לגבי סוג המשרד או תחום ההתמחות שכדאי לחפש. נושא הפנייה הכללי הוא:")}`;
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
 
@@ -172,6 +181,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <h2 className="text-2xl font-semibold text-white">בדיקה חוקית ומסודרת בלבד</h2>
               <p className="mt-3 text-lg leading-8 text-zinc-300">
                 השירות אינו מחליף ייעוץ משפטי או חשבונאי, ואינו מבטיח גילוי מלא של כל סיכון. הבדיקה מתבצעת רק על בסיס מידע גלוי, גישה מורשית, מסמכים שהמוכר סיפק, בדיקות טכניות מותרות וניתוח מקצועי. אין פריצה, חדירה או גישה לא מורשית.
+              </p>
+            </article>
+          ) : null}
+          {isPaymentDiscrepancyReviewService ? (
+            <article className="border-r-4 border-sky-500 bg-sky-50/70 p-5 text-right dark:bg-sky-950/20">
+              <h2 className="text-2xl font-semibold text-slate-950 dark:text-white">בדיקה מבוססת הרשאה ומסמכים, בלי הבטחת החזר</h2>
+              <p className="mt-3 text-lg leading-8 text-slate-700 dark:text-zinc-300">
+                השירות עוזר לארגן ולבדוק נתונים ומסמכים שהלקוח מורשה לספק בלבד. איננו מבקשים סיסמאות, קודי אימות או פרטי כרטיס מלאים, איננו נכנסים לחשבונות ללא הרשאה, ואיננו מבטיחים החזר, תיקון חיוב או תוצאה מול גוף כלשהו.
+              </p>
+              <p className="mt-3 text-base leading-7 text-slate-600 dark:text-zinc-400">
+                השירות אינו ייעוץ משפטי, חשבונאי, מיסויי או פיננסי ואינו מחליף רואה חשבון, עורך דין, יועץ מוסמך, בנק או גוף מקצועי אחר. במידת הצורך נכין חומר מסודר שאפשר להעביר לגורם המתאים.
               </p>
             </article>
           ) : null}

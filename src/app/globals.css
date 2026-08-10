@@ -729,6 +729,29 @@ html.theme-light [class*="bg-sky-50"] {
   }
 }
 
+.footer-contact-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.footer-contact-ltr {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  direction: ltr;
+  unicode-bidi: plaintext;
+  text-align: left;
+}
+
+.footer-site-link {
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+}
+
 /* 2026 enterprise design system */
 .site-header {
   border-color: var(--border) !important;
@@ -1698,7 +1721,7 @@ main:not(.games-page) .dashboard-row {
 }
 
 .footer-legal-signature > div:last-child {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 @media (max-width: 639px) {
@@ -1710,10 +1733,8 @@ main:not(.games-page) .dashboard-row {
     gap: 0.35rem;
   }
 
-  .footer-legal-signature .english-tech {
-    margin-top: 0.2rem;
-    align-self: flex-start;
-    font-weight: 650;
+  .footer-contact-stack {
+    align-items: flex-start;
   }
 }
 
@@ -1746,7 +1767,7 @@ main:not(.games-page) .dashboard-row {
 
 .hebrew-tools-tabs {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-bottom: 1px solid var(--border);
 }
 
@@ -1832,6 +1853,51 @@ main:not(.games-page) .dashboard-row {
   padding: 0.8rem 0.9rem;
   outline: 0;
   transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.hebrew-tool-select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.8rem 2.4rem 0.8rem 0.9rem;
+  outline: 0;
+}
+
+.hebrew-tool-select:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+.hebrew-tool-checklist {
+  display: grid;
+  gap: 0;
+  border-block: 1px solid var(--border);
+  padding: 0;
+}
+
+.hebrew-tool-checklist legend {
+  padding-block: 0.65rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.hebrew-tool-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border);
+  padding: 0.85rem 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.hebrew-tool-check input {
+  margin-top: 0.3rem;
+  accent-color: var(--primary);
 }
 
 .hebrew-tool-input::placeholder {
@@ -1930,6 +1996,13 @@ main:not(.games-page) .dashboard-row {
   line-height: 1.7;
 }
 
+.tools-inline-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .tools-related-links,
 .home-tools-list {
   border-top: 1px solid var(--border);
@@ -2022,7 +2095,7 @@ main:not(.games-page) .dashboard-row {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1080px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .hebrew-tools-tabs {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
