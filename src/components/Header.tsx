@@ -108,7 +108,7 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
   }, [closeMobile]);
 
   useEffect(() => {
-    function handleOutsideInteraction(event: PointerEvent | MouseEvent) {
+    function handleOutsideInteraction(event: MouseEvent) {
       if (!headerRef.current?.contains(event.target as Node)) {
         setDropdown(null);
         if (mobileOpen) closeMobile(false);
@@ -122,11 +122,11 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
       }
     }
 
-    document.addEventListener("pointerdown", handleOutsideInteraction);
+    document.addEventListener("click", handleOutsideInteraction);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener("pointerdown", handleOutsideInteraction);
+      document.removeEventListener("click", handleOutsideInteraction);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [closeMobile, mobileOpen]);
@@ -188,7 +188,6 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
           >
             <span className="english-tech text-xs font-semibold">{activeLanguage.shortLabel}</span>
             <span className="hidden text-sm sm:inline">{activeLanguage.nativeName}</span>
-            <ChevronIcon open={dropdown === "language"} />
           </button>
           <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold text-white xl:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)" }}>
             {isHebrew ? "דברו איתנו" : localized?.cta || "WhatsApp"}
@@ -281,16 +280,15 @@ function DropdownButton({ active = false, isOpen, label, onClick }: { active?: b
       type="button"
     >
       <span>{label}</span>
-      <ChevronIcon open={isOpen} />
     </button>
   );
 }
 
 function ServicesDropdown({ onClick }: { onClick: () => void }) {
   return (
-    <div className="grid gap-6 rounded-lg border p-5 lg:grid-cols-5" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
+    <div className="header-mega-menu grid gap-0 lg:grid-cols-5">
       {serviceGroups.map((group) => (
-        <div key={group.title}>
+        <div className="header-mega-column" key={group.title}>
           <h2 className="mb-3 text-base font-semibold">{group.title}</h2>
           <div className="grid gap-2">
             {group.links.map(([label, href]) => (
@@ -307,7 +305,7 @@ function ServicesDropdown({ onClick }: { onClick: () => void }) {
 
 function SolutionsDropdown({ onClick }: { onClick: () => void }) {
   return (
-    <div className="grid gap-3 rounded-lg border p-5 md:grid-cols-2 lg:grid-cols-4" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
+    <div className="header-mega-menu header-mega-menu-solutions grid gap-1 md:grid-cols-2 lg:grid-cols-4">
       <Link className="header-dropdown-link rounded-md px-3 py-2 text-sm font-medium transition" href="/solutions" onClick={() => onClick()}>
         כל הפתרונות
       </Link>
@@ -327,7 +325,7 @@ function SolutionsDropdown({ onClick }: { onClick: () => void }) {
 
 function LanguageDropdown({ activeLocale, onClick }: { activeLocale: LocaleSlug; onClick: () => void }) {
   return (
-    <div className="rounded-lg border p-3" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
+    <div className="header-language-menu">
       <LanguageOptions activeLocale={activeLocale} onClick={onClick} />
     </div>
   );
@@ -336,8 +334,8 @@ function LanguageDropdown({ activeLocale, onClick }: { activeLocale: LocaleSlug;
 function MobileGroupButton({ label, open, onClick }: { label: string; open: boolean; onClick: () => void }) {
   return (
     <button aria-expanded={open} className="mobile-menu-group-title px-4" onClick={onClick} type="button">
-      <ChevronIcon open={open} />
       <span>{label}</span>
+      <span aria-hidden="true" className="menu-disclosure-state">{open ? "הסתר" : "הצג"}</span>
     </button>
   );
 }
@@ -378,18 +376,5 @@ function LanguageOptions({ activeLocale, mobile = false, onClick }: { activeLoca
         );
       })}
     </div>
-  );
-}
-
-function ChevronIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-      fill="none"
-      viewBox="0 0 20 20"
-    >
-      <path d="M5 7.5 10 12l5-4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
-    </svg>
   );
 }

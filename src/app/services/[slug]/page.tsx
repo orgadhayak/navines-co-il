@@ -510,14 +510,14 @@ function GlobalBrandServiceContent({ service }: { service: (typeof services)[num
             <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               מתאים כשכבר קיימים אתר, מסמכים וערוצי מכירה, אבל המידע מפוזר, העיצוב מיושן או שאין שפה תאגידית ומקור רשמי אחד.
             </p>
-            <p className="mt-4 text-sm font-semibold text-glowred">Audit ← מיפוי נכסים ← איחוד מידע ← תיקון סתירות ← ארכיטקטורה ← מעבר הדרגתי</p>
+            <p className="mt-4 text-sm font-semibold text-glowred">Audit · מיפוי נכסים · איחוד מידע · תיקון סתירות · ארכיטקטורה · מעבר הדרגתי</p>
           </article>
           <article className="border-t pt-5" style={{ borderColor: "var(--border)" }}>
             <h2 className="text-3xl font-semibold">בניית נוכחות גלובלית מאפס</h2>
             <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               מתאים לחברה שפועלת בעיקר בישראל, יש לה מוצר או שירות שאפשר להציע בעולם, אך עדיין אין תשתית לשותפים, מפיצים, שפות או פנייה עסקית.
             </p>
-            <p className="mt-4 text-sm font-semibold text-glowred">שווקים ← קהלים ← מסלולי שותפות ← מקור נתונים ← תוכן ← כלים ← שפות ← השקה</p>
+            <p className="mt-4 text-sm font-semibold text-glowred">שווקים · קהלים · מסלולי שותפות · מקור נתונים · תוכן · כלים · שפות · השקה</p>
           </article>
         </div>
       </Section>
@@ -566,7 +566,7 @@ function GlobalBrandServiceContent({ service }: { service: (typeof services)[num
                 ))}
               </div>
               <a aria-label="פתיחת אתר Bumpers Comfort Ltd, נפתח בחלון חדש" className="mt-8 inline-flex text-sm font-semibold text-glowred" href="https://www.bumperscomfortltd.com/" rel="noopener noreferrer" target="_blank">
-                פתיחת האתר החי ←
+                פתיחת האתר החי
               </a>
             </div>
           </div>

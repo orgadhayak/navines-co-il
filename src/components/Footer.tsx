@@ -4,67 +4,61 @@ import Link from "next/link";
 import Image from "next/image";
 import { useId, useState } from "react";
 import { languageLinks, type LocaleSlug } from "@/i18n/locales";
-import { products, services, site, type Product, type Service } from "@/data/site";
-import { solutionPages } from "@/data/solutions";
+import { site } from "@/data/site";
 
-type FooterItem = { label: string; href: string; status?: Product["status"] };
+type FooterItem = { label: string; href: string; status?: string };
 type FooterGroup = { id: string; title: string; items: FooterItem[] };
 
-const serviceGroupMap: Record<string, string> = {
-  "ai-automation": "ai",
-  "business-systems-chatgpt-integration": "ai",
-  "chatgpt-business-data": "ai",
-  "ai-chat-for-websites": "ai",
-  "api-integrations": "ai",
-  "business-intelligence": "ai",
-  "web-development": "build",
-  "global-brand-b2b-platform": "build",
-  "mobile-app-development": "build",
-  "browser-extension-development": "build",
-  "business-website-999": "build",
-  "smart-website-lead-engine": "build",
-  "website-speed-optimization": "build",
-  "seo-digital-marketing": "build",
-  consulting: "build",
-  ecommerce: "commerce",
-  shopify: "commerce",
-  woocommerce: "commerce",
-  "amazon-account-management": "commerce",
-  "amazon-seller-seo-website": "commerce",
-  "ebay-account-management": "commerce",
-  "technical-support-cyber-networks": "support",
-  "account-hack-recovery": "support",
-  "security-recovery": "support",
-  "business-due-diligence-intelligence": "support",
-  "vehicle-property-agricultural-appraisal": "support",
-  "legal-operations-technology": "support",
-  "traffic-case-technology": "support",
-};
-
-const serviceGroupLabels: Record<string, string> = {
-  ai: "AI, נתונים ואוטומציה",
-  build: "פיתוח, אתרים ומערכות",
-  commerce: "איקומרס ומרקטפלייסים",
-  support: "תמיכה ושירותים מקצועיים",
-};
-
-const productGroupMap: Record<string, string> = {
-  "talk-to-data": "data",
-  amazoniq: "data",
-  "Navines-beacon": "data",
-  "Navines-site-assistant": "web",
-  "website-analyzer": "web",
-  checklink: "web",
-  "navines-tools-hub-extension": "browser",
-  "partnercrypto-toolkit-extension": "browser",
-};
-
-const productGroupLabels: Record<string, string> = {
-  data: "נתונים ומודיעין",
-  web: "אתרים ואמון דיגיטלי",
-  browser: "תוספי דפדפן וכלים",
-  other: "מוצרים נוספים",
-};
+const footerGroups: FooterGroup[] = [
+  {
+    id: "services",
+    title: "שירותים מרכזיים",
+    items: [
+      { label: "בינה מלאכותית ואוטומציה", href: "/services/ai-automation" },
+      { label: "חיבור מערכות עסקיות ל־ChatGPT", href: "/services/business-systems-chatgpt-integration" },
+      { label: "פיתוח אתרים ומערכות", href: "/services/web-development" },
+      { label: "פיתוח אפליקציות", href: "/services/mobile-app-development" },
+      { label: "איקומרס ומרקטפלייסים", href: "/services/ecommerce" },
+      { label: "תמיכה טכנית, סייבר ורשתות", href: "/services/technical-support-cyber-networks" },
+    ],
+  },
+  {
+    id: "products",
+    title: "מוצרים וכלים",
+    items: [
+      { label: "TalkToData", href: "https://talktodata.navines.com" },
+      { label: "AmazonIQ", href: "/products/amazoniq" },
+      { label: "CheckLink.ai", href: "https://checklink.ai" },
+      { label: "בודק האתרים של נביא נס", href: "https://analyze.navines.com" },
+      { label: "מרכז כלי נביא נס לדפדפן", href: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd" },
+    ],
+  },
+  {
+    id: "solutions",
+    title: "פתרונות וידע",
+    items: [
+      { label: "פתרונות לרואי חשבון", href: "/solutions/accountants" },
+      { label: "פתרונות למוכרי אמזון", href: "/solutions/amazon-sellers" },
+      { label: "פתרונות לפרילנסרים", href: "/solutions/freelancers" },
+      { label: "קורסי AI מעשיים", href: "/courses" },
+      { label: "מרכז האופטימיזציה", href: "/optimization-hub" },
+      { label: "מאמרים ותובנות", href: "/blog" },
+    ],
+  },
+  {
+    id: "company",
+    title: "החברה",
+    items: [
+      { label: "כל השירותים", href: "/services" },
+      { label: "כל המוצרים", href: "/products" },
+      { label: "אודות נביא נס ישראל בע״מ", href: "/about" },
+      { label: "יצירת קשר", href: "/contact" },
+      { label: "מדיניות פרטיות", href: "/privacy" },
+      { label: "תנאי שימוש", href: "/terms" },
+      { label: "הצהרת נגישות", href: "/accessibility" },
+    ],
+  },
+];
 
 const localizedFooterCopy: Record<Exclude<LocaleSlug, "he">, { description: string; services: string; products: string; contact: string; languages: string; legal: string; ctaTitle: string; ctaText: string; whatsapp: string; email: string; phone: string }> = {
   de: { description: "Israelisches Software- und KI-Unternehmen für praktische digitale Systeme, Automatisierung und Datenwerkzeuge für Unternehmen.", services: "Leistungen", products: "Produkte und Einblicke", contact: "Kontakt", languages: "Sprachen", legal: "Rechtliches", ctaTitle: "Möchten Sie ein konkretes digitales Projekt besprechen?", ctaText: "Senden Sie eine kurze Nachricht. Wir helfen, den richtigen nächsten Schritt zu klären.", whatsapp: "Über WhatsApp schreiben", email: "E-Mail senden", phone: "Telefon" },
@@ -74,49 +68,6 @@ const localizedFooterCopy: Record<Exclude<LocaleSlug, "he">, { description: stri
   fr: { description: "Entreprise israélienne de logiciel et d’IA qui conçoit des systèmes numériques, automatisations et outils de données utiles aux entreprises.", services: "Services", products: "Produits et articles", contact: "Contact", languages: "Langues", legal: "Mentions légales", ctaTitle: "Vous voulez discuter d’un projet numérique concret ?", ctaText: "Envoyez un court message. Nous vous aiderons à clarifier la bonne prochaine étape.", whatsapp: "Écrire sur WhatsApp", email: "Envoyer un email", phone: "Téléphone" },
   zh: { description: "来自以色列的软件与 AI 公司，为企业构建实用的数字系统、自动化流程和数据工具。", services: "服务", products: "产品与洞察", contact: "联系", languages: "语言", legal: "法律信息", ctaTitle: "想讨论一个实际的数字项目？", ctaText: "发送一条简短消息，我们会帮助您判断合适的下一步。", whatsapp: "通过 WhatsApp 联系", email: "发送邮件", phone: "电话" },
 };
-
-function toServiceItem(service: Service): FooterItem {
-  return { label: service.title, href: `/services/${service.slug}` };
-}
-
-function createServiceGroups(): FooterGroup[] {
-  const buckets = new Map(Object.keys(serviceGroupLabels).map((id) => [id, [] as FooterItem[]]));
-  services.forEach((service) => {
-    const group = serviceGroupMap[service.slug] || "support";
-    buckets.get(group)?.push(toServiceItem(service));
-  });
-  return Object.entries(serviceGroupLabels).map(([id, title]) => ({ id, title, items: buckets.get(id) || [] }));
-}
-
-function createProductGroups(): FooterGroup[] {
-  const buckets = new Map(Object.keys(productGroupLabels).map((id) => [id, [] as FooterItem[]]));
-  products.filter((product) => product.url).forEach((product) => {
-    const group = productGroupMap[product.slug] || "other";
-    buckets.get(group)?.push({ label: product.name, href: product.url as string, status: product.status });
-  });
-  return Object.entries(productGroupLabels)
-    .map(([id, title]) => ({ id, title, items: buckets.get(id) || [] }))
-    .filter((group) => group.items.length > 0);
-}
-
-const serviceGroups = createServiceGroups();
-const productGroups = createProductGroups();
-const solutionItems: FooterItem[] = [
-  ...solutionPages.map((solution) => ({ label: solution.navLabel, href: `/solutions/${solution.slug}` })),
-  { label: "כל הפתרונות", href: "/solutions" },
-];
-const companyItems: FooterItem[] = [
-  { label: "מאמרים", href: "/blog" },
-  { label: "אודות", href: "/about" },
-  { label: "יצירת קשר", href: "/contact" },
-  { label: "כל השירותים", href: "/services" },
-  { label: "כל המוצרים", href: "/products" },
-];
-const legalItems: FooterItem[] = [
-  { label: "מדיניות פרטיות", href: "/privacy" },
-  { label: "תנאי שימוש", href: "/terms" },
-  { label: "הצהרת נגישות", href: "/accessibility" },
-];
 
 export function Footer({ locale = "he", showCta = true }: { locale?: LocaleSlug; showCta?: boolean }) {
   const isHebrew = locale === "he";
@@ -128,29 +79,21 @@ export function Footer({ locale = "he", showCta = true }: { locale?: LocaleSlug;
     <footer className="site-footer border-t" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
       <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         {showCta ? <FooterCta /> : null}
-        <div className="footer-desktop-directory hidden gap-x-8 gap-y-10 xl:grid">
+        <div className="footer-desktop-directory hidden xl:grid">
           <FooterBrand />
-          {serviceGroups.map((group) => <FooterColumn group={group} key={group.id} />)}
-          {productGroups.map((group) => <FooterColumn group={group} key={group.id} />)}
-          <FooterColumn group={{ id: "solutions", title: "פתרונות לפי סוג עסק", items: solutionItems }} />
-          <FooterColumn group={{ id: "company", title: "תוכן וחברה", items: companyItems }} />
-          <FooterLanguageColumn />
-          <FooterColumn group={{ id: "legal", title: "משפטי", items: legalItems }} />
+          {footerGroups.map((group) => <FooterColumn group={group} key={group.id} />)}
         </div>
+        <FooterLanguageRow />
         <div className="grid gap-7 xl:hidden">
           <FooterBrand />
-          <FooterMobileGroup group={{ id: "services", title: "שירותים", items: serviceGroups.flatMap((group) => group.items) }} />
-          <FooterMobileGroup group={{ id: "products", title: "מוצרים", items: productGroups.flatMap((group) => group.items) }} />
-          <FooterMobileGroup group={{ id: "solutions", title: "פתרונות", items: solutionItems }} />
+          {footerGroups.map((group) => <FooterMobileGroup group={group} key={group.id} />)}
           <FooterMobileGroup group={{ id: "languages", title: "שפות", items: languageItems() }} />
-          <FooterMobileGroup group={{ id: "company", title: "תוכן וחברה", items: [...companyItems, ...legalItems] }} />
         </div>
         <FooterCopyright />
       </div>
     </footer>
   );
 }
-
 function FooterCta() {
   return (
     <section className="mb-10 border-b pb-8" style={{ borderColor: "var(--border)" }}>
@@ -177,6 +120,7 @@ function FooterBrand() {
       <strong className="mt-4 block text-lg font-semibold">{site.hebrewLegalName}</strong>
       <p className="mt-3 max-w-sm text-base leading-7" style={{ color: "var(--text-muted)" }}>חברת תוכנה ו־AI שמפתחת מערכות, אוטומציות, אתרים וכלים דיגיטליים לעסקים.</p>
       <p className="mt-3 text-sm font-medium" style={{ color: "var(--text-soft)" }}>{site.companyNumberLabel}</p>
+      <p className="mt-1 text-sm" style={{ color: "var(--text-soft)" }}>{site.hebrewAddress}</p>
       <div className="mt-5 grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
         <a className="footer-contact-link" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a>
         <a className="footer-contact-link" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a>
@@ -204,7 +148,7 @@ function FooterMobileGroup({ group }: { group: FooterGroup }) {
     <section className="footer-mobile-group w-full border-b" style={{ borderColor: "var(--border)" }}>
       <button aria-controls={panelId} aria-expanded={open} className="footer-accordion-trigger" onClick={() => setOpen((value) => !value)} type="button">
         <span>{group.title}</span>
-        <ChevronIcon open={open} />
+        <span aria-hidden="true" className="footer-disclosure-state">{open ? "הסתר" : "הצג"}</span>
       </button>
       {open ? <div className="grid gap-1 pb-4" id={panelId}>{group.items.map((item) => <FooterLink item={item} key={`${group.id}-${item.href}`} mobile />)}</div> : null}
     </section>
@@ -219,8 +163,13 @@ function FooterLink({ item, mobile = false }: { item: FooterItem; mobile?: boole
   ) : <Link className={className} href={item.href}>{label}</Link>;
 }
 
-function FooterLanguageColumn() {
-  return <FooterColumn group={{ id: "languages", title: "שפות", items: languageItems() }} />;
+function FooterLanguageRow() {
+  return (
+    <nav aria-label="בחירת שפה" className="footer-language-row hidden xl:flex">
+      <strong>נביא נס בעולם</strong>
+      {languageItems().map((item) => <FooterLink item={item} key={item.href} />)}
+    </nav>
+  );
 }
 
 function languageItems(): FooterItem[] {
@@ -229,9 +178,16 @@ function languageItems(): FooterItem[] {
 
 function FooterCopyright() {
   return (
-    <div className="mt-10 flex flex-col gap-3 border-t pt-6 text-sm sm:flex-row sm:items-center sm:justify-between" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>
-      <span><bdi>© 2026</bdi> נביא נס ישראל בע״מ <bdi>(Navines)</bdi>. כל הזכויות שמורות.</span>
-      <a className="english-tech footer-contact-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>navines.com</bdi></a>
+    <div className="footer-legal-signature mt-10 border-t pt-6" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>
+      <div>
+        <strong>{site.hebrewLegalName}</strong>
+        <span>{site.companyNumberLabel}</span>
+        <span>{site.hebrewAddress}</span>
+      </div>
+      <div>
+        <span><bdi>© 2026</bdi> כל הזכויות שמורות</span>
+        <a className="english-tech footer-contact-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>navines.com</bdi></a>
+      </div>
     </div>
   );
 }
@@ -257,8 +213,4 @@ function LocalizedFooter({ locale, copy, showCta }: { locale: Exclude<LocaleSlug
       </div>
     </footer>
   );
-}
-
-function ChevronIcon({ open }: { open: boolean }) {
-  return <svg aria-hidden="true" className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 20 20"><path d="M5 7.5 10 12l5-4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" /></svg>;
 }

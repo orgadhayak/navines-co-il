@@ -19,7 +19,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         <BrandInline text={service.summary} />
       </p>
       <span className="editorial-link mt-6 inline-flex items-center gap-2 text-sm font-semibold">
-        לעמוד השירות <span aria-hidden="true">←</span>
+        לעמוד השירות
       </span>
     </Link>
   );
@@ -63,7 +63,7 @@ export function ProductCard({ product }: { product: Product }) {
       <article className="editorial-card h-full">
         {details}
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link className={ctaClass.replace("mt-5 ", "")} href={product.url}>{ctaLabel} <span aria-hidden="true">←</span></Link>
+          <Link className={ctaClass.replace("mt-5 ", "")} href={product.url}>{ctaLabel}</Link>
           <a aria-label={`${product.externalCta || product.name} באתר החיצוני`} className={ctaClass.replace("mt-5 ", "")} href={product.externalUrl} rel="noopener noreferrer" target="_blank">
             {product.externalCta || `לפתוח את ${product.name}`}
           </a>
@@ -75,7 +75,7 @@ export function ProductCard({ product }: { product: Product }) {
   const content = (
     <article className="editorial-card h-full">
       {details}
-      <span className={ctaClass}>{ctaLabel} <span aria-hidden="true">←</span></span>
+      <span className={ctaClass}>{ctaLabel}</span>
     </article>
   );
 
@@ -123,7 +123,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
           </span>
         ) : null}
         <span className="editorial-link mt-5 inline-flex items-center gap-2 text-sm font-semibold">
-          {ctaLabel} <span aria-hidden="true">←</span>
+          {ctaLabel}
         </span>
       </div>
     </Link>

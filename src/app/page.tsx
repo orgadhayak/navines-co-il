@@ -94,7 +94,7 @@ export default function HomePage() {
               <h2>{group.title}</h2>
               <p>{group.text}</p>
               <nav aria-label={group.title}>
-                {group.links.map(([label, href]) => <Link href={href} key={href}>{label}<span aria-hidden="true">←</span></Link>)}
+                {group.links.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
               </nav>
             </article>
           ))}
@@ -124,11 +124,11 @@ export default function HomePage() {
         <div className="product-editorial-list">
           {featuredProducts.map((product, index) => {
             const href = product.url || "/products";
-            const content = <><span className="editorial-index">0{index + 1}</span><span className="product-editorial-copy"><small>{product.status}</small><strong>{product.hebrewName || product.name}</strong><span>{trimText(product.description, 180)}</span></span><span className="product-editorial-arrow" aria-hidden="true">←</span></>;
+            const content = <><span className="editorial-index">0{index + 1}</span><span className="product-editorial-copy"><small>{product.status}</small><strong>{product.hebrewName || product.name}</strong><span>{trimText(product.description, 180)}</span></span></>;
             return href.startsWith("http") ? <a href={href} key={product.slug} rel="noopener noreferrer" target="_blank">{content}</a> : <Link href={href} key={product.slug}>{content}</Link>;
           })}
         </div>
-        <div className="mt-7 flex flex-wrap gap-3"><Link className="btn-secondary" href="/products">לכל המוצרים</Link><Link className="editorial-link inline-flex items-center gap-2" href="/blog/business-tools-built-by-navines-israel">הסיפור מאחורי הכלים <span aria-hidden="true">←</span></Link></div>
+        <div className="mt-7 flex flex-wrap gap-3"><Link className="btn-secondary" href="/products">לכל המוצרים</Link><Link className="editorial-link inline-flex items-center gap-2" href="/blog/business-tools-built-by-navines-israel">הסיפור מאחורי הכלים</Link></div>
       </Section>
 
       <Section eyebrow="איך עובדים איתנו" title="תהליך שקוף מהרעיון ועד למערכת פעילה">
@@ -143,7 +143,6 @@ export default function HomePage() {
             <Link href={`/solutions/${solution.slug}`} key={solution.slug}>
               <span><small>{solution.eyebrow}</small><strong>{solution.navLabel}</strong></span>
               <p>{trimText(solution.seoDescription, 155)}</p>
-              <span className="solution-directory-arrow" aria-hidden="true">←</span>
             </Link>
           ))}
         </div>
@@ -152,8 +151,8 @@ export default function HomePage() {
 
       <Section eyebrow="קורסי AI מעשיים" title="לומדים לבנות, לא רק להשתמש בכלים">
         <div className="course-preview">
-          <Link href="/courses/ai-for-kids"><small>מסלול לילדים</small><h2>מרעיון למוצר אמיתי</h2><p>חשיבה יצירתית, בניית פרויקטים וליווי שמאפשר להתקדם בקצב הנכון.</p><span>לפרטי המסלול ←</span></Link>
-          <Link href="/courses/ai-for-adults"><small>מסלול לבוגרים</small><h2>מוצרים, תהליכים וכלים חכמים</h2><p>מסלול מעשי לבעלי עסקים, מנהלים, פרילנסרים ויזמים שרוצים לעבוד נכון עם AI.</p><span>לפרטי המסלול ←</span></Link>
+          <Link href="/courses/ai-for-kids"><small>מסלול לילדים</small><h2>מרעיון למוצר אמיתי</h2><p>חשיבה יצירתית, בניית פרויקטים וליווי שמאפשר להתקדם בקצב הנכון.</p><span>לפרטי המסלול</span></Link>
+          <Link href="/courses/ai-for-adults"><small>מסלול לבוגרים</small><h2>מוצרים, תהליכים וכלים חכמים</h2><p>מסלול מעשי לבעלי עסקים, מנהלים, פרילנסרים ויזמים שרוצים לעבוד נכון עם AI.</p><span>לפרטי המסלול</span></Link>
         </div>
       </Section>
 
@@ -164,7 +163,7 @@ export default function HomePage() {
               <div><span>{post.category}</span><span>{formatBlogDate(post.publishedAt)}</span></div>
               <h2>{post.title}</h2>
               <p>{trimText(post.excerpt, index === 0 ? 210 : 130)}</p>
-              <strong>לקריאת המאמר ←</strong>
+              <strong>לקריאת המאמר</strong>
             </Link>
           ))}
         </div>
