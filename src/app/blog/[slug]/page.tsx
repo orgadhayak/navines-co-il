@@ -2101,14 +2101,16 @@ function ToolsPortfolioArticleBody() {
       </p>
       <h3>כלים נוספים בתיק הפיתוח</h3>
       <ul>
-        <li><strong>Navines Real Estate Intelligence:</strong> סביבת ניתוח שמרכזת מידע והקשר לקבלת החלטות בתחום הנדל״ן.</li>
-        <li><strong>Maor Israel:</strong> מערכת ניטור מאובטחת לסביבות רגישות, בלי לפתוח גישה ישירה למערכות פנימיות.</li>
-        <li><strong>מנתח עמודי מוצר באמזון:</strong> בדיקה ממוקדת של תוכן, מבנה ואמון בעמודי מוצר.</li>
-        <li><strong>Shopify Product Analyzer:</strong> ניתוח דפי מוצר וכיוונים לשיפור מסרים וחוויית קנייה.</li>
+        <li><a href="https://realestateintel.navines.com/" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">Navines Real Estate Intelligence</bdi></a>: סביבת ניתוח שמרכזת מידע והקשר לקבלת החלטות בתחום הנדל״ן.</li>
+        <li><a href="https://maorisrael.com" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">Maor Israel</bdi></a>: מערכת ניטור מאובטחת לסביבות רגישות, בלי לפתוח גישה ישירה למערכות פנימיות.</li>
+        <li><a href="https://www.navines.com/amazon-listing-score/" rel="noopener noreferrer" target="_blank">מנתח עמודי מוצר באמזון</a>: בדיקה ממוקדת של תוכן, מבנה ואמון בעמודי מוצר.</li>
+        <li><a href="https://www.navines.com/shopify-product-health-check/" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">Shopify Product Analyzer</bdi></a>: ניתוח דפי מוצר וכיוונים לשיפור מסרים וחוויית קנייה.</li>
         <li><strong>Fake Screenshot Detector:</strong> בדיקת סימנים מחשידים בצילומי מסך ובנכסים חזותיים.</li>
-        <li><strong>בודק מיילים לאמזון:</strong> עזרה בזיהוי הודעות חשודות או ניסוחים שדורשים בדיקה לפני תגובה.</li>
+        <li><a href="https://www.navines.com/amazon-email-spoof-checker/" rel="noopener noreferrer" target="_blank">בודק מיילים לאמזון</a>: עזרה בזיהוי הודעות חשודות או ניסוחים שדורשים בדיקה לפני תגובה.</li>
         <li><strong>Revenue Calendars:</strong> לוחות לתכנון מועדים, פעולות והכנסות במקום אחד.</li>
-        <li><strong>Word Counter Tool:</strong> ספירת מילים, תווים ואורך תוכן לפני פרסום.</li>
+        <li><a href="https://www.navines.com/word-counter/" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">Word Counter Tool</bdi></a>: ספירת מילים, תווים ואורך תוכן לפני פרסום.</li>
+        <li><a href="https://www.navines.com/ai-tools-portfolio/" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">AI Tools Portfolio</bdi></a>: אוסף כלים לבדיקות, ניתוח, ניטור ופעולות עבודה דיגיטליות.</li>
+        <li><a href="https://www.navines.com/product-hunter/" rel="noopener noreferrer" target="_blank">מחקר ואימות מוצרים</a>: בדיקה של רעיון או מוצר לפני השקעה גדולה יותר.</li>
         <li><strong>Feedback Removal Engine:</strong> תהליך מסודר ומתועד לטיפול במשובים ובמוניטין בזירות מסחר.</li>
       </ul>
       <p>

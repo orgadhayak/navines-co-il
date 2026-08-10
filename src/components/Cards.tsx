@@ -88,7 +88,7 @@ export function ProductCard({ product }: { product: Product }) {
   }
 
   return product.url ? (
-    <a className="block h-full" href={product.url} rel="noreferrer" target="_blank">
+    <a className="block h-full" href={product.url} rel="noopener noreferrer" target="_blank">
       {content}
     </a>
   ) : (
