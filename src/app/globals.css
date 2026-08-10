@@ -762,6 +762,31 @@ html.theme-light [class*="bg-sky-50"] {
   image-rendering: auto;
 }
 
+.header-brand-link,
+.header-brand-copy {
+  min-width: max-content;
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .site-header-inner {
+    gap: 0.65rem;
+  }
+
+  .site-header-inner nav {
+    gap: 0;
+  }
+
+  .header-nav-link,
+  .header-nav-trigger {
+    padding-inline: 0.55rem !important;
+    font-size: 0.82rem;
+  }
+
+  .header-language-trigger {
+    padding-inline: 0.6rem !important;
+  }
+}
+
 .site-section {
   position: relative;
 }

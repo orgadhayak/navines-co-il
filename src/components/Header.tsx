@@ -146,12 +146,12 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
 
   return (
     <header ref={headerRef} className="site-header sticky top-0 z-40 border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
-      <div className="site-header-inner relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link className="flex min-w-0 items-center gap-3" href={homeHref} aria-label={isHebrew ? "חזרה לעמוד הבית" : localized?.home || "Home"} onClick={() => closeAll()}>
+      <div className="site-header-inner relative z-50 mx-auto flex max-w-[96rem] items-center justify-between gap-4 px-4 py-3 sm:px-6 xl:px-5">
+        <Link className="header-brand-link flex shrink-0 items-center gap-3" href={homeHref} aria-label={isHebrew ? "חזרה לעמוד הבית" : localized?.home || "Home"} onClick={() => closeAll()}>
           <Image alt="Navines" className="brand-logo h-6 w-auto shrink-0 object-contain" height={33} priority src="/brand/navines-wordmark-slim.png" width={176} />
-          <span className="hidden min-w-0 leading-tight sm:block">
-            <strong className="block truncate text-base font-semibold" style={{ color: "var(--text)" }}>{isHebrew ? site.name : "Navines"}</strong>
-            <span className="block truncate text-sm" style={{ color: "var(--text-muted)" }}>{localizedTagline[activeLocale]}</span>
+          <span className="header-brand-copy hidden whitespace-nowrap leading-tight sm:block">
+            <strong className="block text-base font-semibold" style={{ color: "var(--text)" }}>{isHebrew ? site.name : "Navines"}</strong>
+            <span className="block text-sm" style={{ color: "var(--text-muted)" }}>{localizedTagline[activeLocale]}</span>
           </span>
         </Link>
 
