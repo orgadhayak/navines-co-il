@@ -123,11 +123,11 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       {isAmazonSellerSolution ? <AmazonIQSolutionSection /> : null}
 
       {isAmazonSellerSolution ? (
-        <Section eyebrow="צמיחה מחוץ ל Amazon" title="אתר SEO עצמאי שמוביל לקוחות לעמודי המוצרים" className="py-5 lg:py-8">
+        <Section eyebrow="צמיחה מחוץ ל אמזון" title="אתר SEO עצמאי שמוביל לקוחות לעמודי המוצרים" className="py-5 lg:py-8">
           <Link className="command-glass group block rounded-[1.35rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href="/services/amazon-seller-seo-website">
-            <h2 className="text-2xl font-semibold text-white">אתר צמיחה אורגנית למוכרי Amazon</h2>
+            <h2 className="text-2xl font-semibold text-white">אתר צמיחה אורגנית למוכרי אמזון</h2>
             <p className="mt-3 max-w-4xl text-lg leading-8 text-zinc-300">
-              בונים אתר בינלאומי שמציג את המוצרים, יוצר תוכן עשיר לפי מדינה ושפה, מושך תנועה ממנועי חיפוש ומפנה לקוחות לעמודי Amazon שלכם. זה לא מחליף את Amazon, אלא מוסיף שכבת צמיחה שנמצאת בשליטת המותג.
+              בונים אתר בינלאומי שמציג את המוצרים, יוצר תוכן עשיר לפי מדינה ושפה, מושך תנועה ממנועי חיפוש ומפנה לקוחות לעמודי אמזון שלכם. זה לא מחליף את אמזון, אלא מוסיף שכבת צמיחה שנמצאת בשליטת המותג.
             </p>
             <span className="mt-4 inline-flex text-base font-semibold text-silver transition group-hover:text-white">
               לעמוד השירות
@@ -258,11 +258,11 @@ function FreelancerCrmSection() {
 
 function AmazonIQSolutionSection() {
   return (
-    <Section eyebrow="AmazonIQ" title="AmazonIQ: שכבת המודיעין של פעילות Amazon" className="py-5 lg:py-8">
+    <Section eyebrow="AmazonIQ" title="AmazonIQ: שכבת המודיעין של פעילות אמזון" className="py-5 lg:py-8">
       <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
         <article className="command-glass rounded-xl p-5">
           <p className="max-w-4xl text-lg leading-8 text-zinc-300">
-            AmazonIQ נבנה במיוחד למוכרי Amazon. הוא מחבר את החשבון בהרשאה לקריאה בלבד ומספק דשבורד מובנה לצד GPT ייעודי לחקירת הזמנות, ליסטינגים, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה. הוא אינו שולח הודעות לקונים, אינו מנהל השעיות ואינו מבצע פעולות בחשבון.
+            AmazonIQ נבנה במיוחד למוכרי אמזון. הוא מחבר את החשבון בהרשאה לקריאה בלבד ומספק דשבורד מובנה לצד GPT ייעודי לחקירת הזמנות, ליסטינגים, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה. הוא אינו שולח הודעות לקונים, אינו מנהל השעיות ואינו מבצע פעולות בחשבון.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link className="btn-primary" href="/products/amazoniq">לפרטי AmazonIQ בעברית</Link>
@@ -361,7 +361,7 @@ function AccountantConnectionSection({ content }: { content: AccountantConnectio
               <Link className="text-silver hover:text-white" href="/services/chatgpt-business-data">TalkToData וחיבור נתונים אל ChatGPT</Link>
               <Link className="text-silver hover:text-white" href="/blog/ai-invoice-scanning-and-filtering">מדריך סריקת חשבוניות עם AI</Link>
               <Link className="text-silver hover:text-white" href="/services/ai-automation">AI ואוטומציה לעסקים</Link>
-              <Link className="text-silver hover:text-white" href="/solutions/amazon-sellers">פתרונות למוכרי Amazon</Link>
+              <Link className="text-silver hover:text-white" href="/solutions/amazon-sellers">פתרונות למוכרי אמזון</Link>
               <Link className="text-silver hover:text-white" href="/contact">יצירת קשר</Link>
             </div>
           </article>

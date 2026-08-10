@@ -15,7 +15,7 @@ const externalLinks = {
 };
 
 export const metadata = createMetadata({
-  title: "AmazonIQ למוכרי Amazon: דשבורד, GPT ומודיעין Seller Central",
+  title: "AmazonIQ למוכרי אמזון: דשבורד, GPT ומודיעין Seller Central",
   description: "חברו Seller Central בהרשאה לקריאה בלבד וקבלו דשבורד למכירות, הזמנות, ליסטינגים, עמלות, מלאי FBA וסיכונים, לצד GPT ייעודי לחקירה בשפה טבעית.",
   path: "/products/amazoniq",
 });
@@ -23,7 +23,7 @@ export const metadata = createMetadata({
 const coverage = [
   ["הזמנות ומכירות", "הזמנות, פריטי הזמנה, ASIN, SKU, יחידות, מצב הזמנה, FBA או MFN ומדדי מכירה כאשר אמזון מחזירה אותם. פרטי קונים אינם מוצגים."],
   ["מוצרים וליסטינגים", "גילוי ליסטינגים, מצב buyable, שגיאות, אזהרות, מאפיינים חסרים ומידע קטלוגי זמין לפי החשבון וה Marketplace."],
-  ["כספים ועמלות", "אירועים פיננסיים, עמלות Amazon, החזרים, reimbursements, התאמות, סכומים מעוכבים ו Amazon net proceeds."],
+  ["כספים ועמלות", "אירועים פיננסיים, עמלות אמזון, החזרים, reimbursements, התאמות, סכומים מעוכבים ו אמזון net proceeds."],
   ["מלאי FBA", "מלאי fulfillable, reserved, inbound, unsellable, researching, future supply ותוכניות inbound כאשר הנתונים זמינים."],
   ["תנועות ואחסון", "קבלות, משלוחים, החזרות, removals, התאמות, אובדן, נזק והעברות בין מרכזי FBA, לצד מלאי מיושן וחשיפת אחסון כאשר הדוחות זמינים."],
   ["ביצועים והקשר", "אינדיקטורים נבחרים ולחשבונות זכאים נתוני Sales and Traffic כגון sessions, page views, conversion ו Buy Box percentage."],
@@ -33,7 +33,7 @@ const questions = [
   "מה השתנה לעומת התקופה הקודמת?",
   "איזה ASIN ו SKU נמכרו בהזמנה האחרונה שאינה Pending?",
   "אילו ליסטינגים אינם buyable או כוללים שגיאות ואזהרות?",
-  "כמה Amazon גבתה בעמלות בתקופה שבחרתי?",
+  "כמה אמזון גבתה בעמלות בתקופה שבחרתי?",
   "איזה מלאי נמצא ב reserved, inbound או אינו זמין?",
   "איפה יש מלאי מיושן, עודף או תנועה שדורשת בדיקה?",
   "מהי תרומת המוצר המשוערת לאחר העלאת קובץ העלויות שלי?",
@@ -44,10 +44,10 @@ const faqs = [
   ["האם AmazonIQ יכול לשנות מחירים או ליסטינגים?", "לא. AmazonIQ הוא מוצר לקריאה בלבד ואינו משנה מחירים, ליסטינגים, מלאי, הזמנות, החזרים, משלוחים או הודעות לקונים."],
   ["האם אפשר לראות ASIN ו SKU של הזמנה?", "כאשר אמזון מחזירה את השדות המתאימים, אפשר לחקור ASIN, seller SKU, כותרת, כמות, מחיר ורכיבי מס. פרטי קונים מוחרגים."],
   ["האם אפשר לנתח עמלות והחזרות?", "כן, לפי נתונים פיננסיים שאמזון מחזירה: עמלות, החזרים, reimbursements, התאמות, סכומים מעוכבים ו net proceeds. אירועים כספיים עשויים להתעכב."],
-  ["האם AmazonIQ מציג רווח נקי?", "לא כרווח מובטח. Amazon net proceeds אינם כוללים בהכרח עלות מוצר, פרסום והוצאות חיצוניות. אפשר לשלב קובץ עלויות של המוכר כדי לקבל הערכת תרומה ורווחיות."],
-  ["האם Amazon Ads מחובר?", "לא דרך חיבור Seller Central הנוכחי. Amazon Ads דורש הרשאה נפרדת ואינו מוצג כיכולת פעילה של AmazonIQ כיום."],
+  ["האם AmazonIQ מציג רווח נקי?", "לא כרווח מובטח. אמזון net proceeds אינם כוללים בהכרח עלות מוצר, פרסום והוצאות חיצוניות. אפשר לשלב קובץ עלויות של המוכר כדי לקבל הערכת תרומה ורווחיות."],
+  ["האם מערכת הפרסום של אמזון מחוברת?", "לא דרך חיבור מרכז המוכרים (Seller Central) הנוכחי. Amazon Ads דורש הרשאה נפרדת ואינו מוצג כיכולת פעילה של AmazonIQ כיום."],
   ["האם כל Marketplace וכל דוח זמינים?", "לא. הזמינות תלויה בחשבון, אזור, Marketplace, תפקידים, זכאות לדוחות, מגבלות קצב ושירותי אמזון."],
-  ["האם AmazonIQ הוא מוצר של Amazon?", "לא. AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ ואינו מאושר, מופעל, משויך או נתמך על ידי Amazon."],
+  ["האם AmazonIQ הוא מוצר של אמזון?", "לא. AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ ואינו מאושר, מופעל, משויך או נתמך על ידי אמזון."],
 ];
 
 export default function AmazonIQProductPage() {
@@ -60,12 +60,12 @@ export default function AmazonIQProductPage() {
     url: externalLinks.home,
     brand: { "@type": "Brand", name: "Navines", legalName: site.legalName },
     sameAs: [externalLinks.home, externalLinks.gpt],
-    description: "מוצר מודיעין לקריאה בלבד למוכרי Amazon, עם דשבורד, GPT וכלי What If על בסיס חיבור Seller Central מורשה.",
+    description: "מוצר מודיעין לקריאה בלבד למוכרי אמזון, עם דשבורד, GPT וכלי What If על בסיס חיבור Seller Central מורשה.",
   };
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "AmazonIQ — דשבורד ו־GPT ייעודי למוכרי Amazon",
+    name: "AmazonIQ — דשבורד ו־GPT ייעודי למוכרי אמזון",
     url: `${site.url}/products/amazoniq`,
     inLanguage: "he-IL",
     isPartOf: { "@type": "WebSite", name: "NAVINES", url: site.url },
@@ -83,7 +83,7 @@ export default function AmazonIQProductPage() {
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "מוצרים", href: "/products" }, { name: "AmazonIQ", href: "/products/amazoniq" }])} />
 
-      <Section eyebrow="מודיעין למוכרי Amazon" title="AmazonIQ — דשבורד ו־GPT ייעודי למוכרי Amazon" titleAs="h1" className="py-8 lg:py-12">
+      <Section eyebrow="מודיעין למוכרי אמזון" title="AmazonIQ — דשבורד ו־GPT ייעודי למוכרי אמזון" titleAs="h1" className="py-8 lg:py-12">
         <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div>
             <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
@@ -107,7 +107,7 @@ export default function AmazonIQProductPage() {
           {[
             ["AmazonIQ Dashboard", "לראות מה נכון עכשיו", "מכירות, הזמנות, יחידות, ליסטינגים, מצב buyable, שגיאות, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה."],
             ["AmazonIQ GPT", "לחקור מה השתנה ולמה", "שאלה רגילה במקום חיפוש בתפריטי דוחות: השוואת תקופות, בדיקת ASIN ו SKU, ליסטינגים, עמלות, מלאי וקובץ עלויות."],
-            ["What If Lab", "לבחון מה יכול לקרות", "תרחישי מלאי, עמלות ותרומה על בסיס הנחות מפורשות. התוצאות מסומנות כהערכות ולא מוצגות כנתוני אמת של Amazon."],
+            ["What If Lab", "לבחון מה יכול לקרות", "תרחישי מלאי, עמלות ותרומה על בסיס הנחות מפורשות. התוצאות מסומנות כהערכות ולא מוצגות כנתוני אמת של אמזון."],
           ].map(([name, title, text]) => (
             <article className="border-t pt-5" key={name} style={{ borderColor: "var(--border)" }}>
               <p className="english-tech text-sm font-semibold text-sky-700 dark:text-sky-300">{name}</p>
@@ -154,7 +154,7 @@ export default function AmazonIQProductPage() {
               <li>אין בקשת סיסמת Seller Central, אין פעולות כתיבה ואין פרטי קונים.</li>
               <li>אין שינוי מחיר, ליסטינג, מלאי, הזמנה, החזר, משלוח או הודעה לקונה.</li>
               <li>אין Account Health מלא, Message Center מלא, Ads פעיל, התראות יזומות או זמינות מובטחת לכל dataset.</li>
-              <li>AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ ואינו מאושר, מופעל או משויך ל Amazon.</li>
+              <li>AmazonIQ הוא מוצר עצמאי של נביא נס ישראל בע״מ ואינו מאושר, מופעל או משויך ל אמזון.</li>
             </ul>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function AmazonIQProductPage() {
 
       <Section eyebrow="זמינות ותמחור" title="מתחילים להכיר, וממשיכים לפי מה שמתאים" className="py-6 lg:py-10">
         <div className="grid gap-6 lg:grid-cols-[1fr_0.7fr]">
-          <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>אפשר להכיר את AmazonIQ באמצעות Free Limited Access. המשך השימוש דורש תוכנית פעילה. למחיר ההשקה המעודכן ולתנאים המלאים, עברו לעמוד התמחור של AmazonIQ. זמינות נתונים תלויה בחשבון, Marketplace, Region, הרשאות, זכאות לדוחות, rate limits ושירותי Amazon. דוחות מסוימים נוצרים באופן אסינכרוני ועלולים לקחת זמן.</p>
+          <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>אפשר להכיר את AmazonIQ באמצעות Free Limited Access. המשך השימוש דורש תוכנית פעילה. למחיר ההשקה המעודכן ולתנאים המלאים, עברו לעמוד התמחור של AmazonIQ. זמינות נתונים תלויה בחשבון, Marketplace, Region, הרשאות, זכאות לדוחות, rate limits ושירותי אמזון. דוחות מסוימים נוצרים באופן אסינכרוני ועלולים לקחת זמן.</p>
           <div className="flex flex-wrap content-start gap-3"><ExternalLink className="btn-primary" href={externalLinks.pricing} label="לתמחור AmazonIQ">לתמחור AmazonIQ</ExternalLink><ExternalLink className="btn-secondary" href={externalLinks.faq} label="לשאלות נפוצות של AmazonIQ">לשאלות נפוצות</ExternalLink></div>
         </div>
       </Section>
@@ -170,7 +170,7 @@ export default function AmazonIQProductPage() {
       <Section eyebrow="TalkToData ו AmazonIQ" title="שני מוצרים משלימים, שני שימושים שונים" className="py-6 lg:py-10">
         <div className="grid gap-6 md:grid-cols-2">
           <article className="border-t pt-5" style={{ borderColor: "var(--border)" }}><h2 className="text-2xl font-semibold" style={{ color: "var(--text)" }}>TalkToData</h2><p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>נבנה לחיבור מגוון מערכות עסקיות, חנויות, דוחות ומקורות מידע. הוא מתאים לשיחה עסקית רחבה יותר סביב מערכות שהעסק כבר מפעיל.</p><a aria-label="לפתוח את TalkToData באתר החיצוני" className="mt-4 inline-flex font-semibold text-sky-700 dark:text-sky-300" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לפתוח את TalkToData</a></article>
-          <article className="border-t pt-5" style={{ borderColor: "var(--border)" }}><h2 className="text-2xl font-semibold" style={{ color: "var(--text)" }}>AmazonIQ</h2><p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>נבנה במיוחד לעולם Amazon Seller Central, ולכן כולל מודל נתונים, דשבורד, שאלות, דוחות ומסלולי חקירה המותאמים למוכרי Amazon.</p><Link className="mt-4 inline-flex font-semibold text-sky-700 dark:text-sky-300" href="/solutions/amazon-sellers">לפתרונות למוכרי Amazon</Link></article>
+          <article className="border-t pt-5" style={{ borderColor: "var(--border)" }}><h2 className="text-2xl font-semibold" style={{ color: "var(--text)" }}>AmazonIQ</h2><p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>נבנה במיוחד לנתוני מרכז המוכרים של אמזון (Seller Central), ולכן כולל מודל נתונים, לוח בקרה, שאלות, דוחות ומסלולי חקירה המותאמים למוכרי אמזון.</p><Link className="mt-4 inline-flex font-semibold text-sky-700 dark:text-sky-300" href="/solutions/amazon-sellers">לפתרונות למוכרי אמזון</Link></article>
         </div>
       </Section>
 
@@ -180,7 +180,7 @@ export default function AmazonIQProductPage() {
         </div>
       </Section>
 
-      <CTA title="רוצים להבין מה אפשר לראות בחשבון Amazon שלכם?" text="אפשר לפתוח את AmazonIQ ולבחון את המוצר, או לשלוח לנו הודעה קצרה בוואטסאפ על סוג הפעילות וה Marketplace שבו אתם מוכרים." />
+      <CTA title="רוצים להבין מה אפשר לראות בחשבון אמזון שלכם?" text="אפשר לפתוח את AmazonIQ ולבחון את המוצר, או לשלוח לנו הודעה קצרה בוואטסאפ על סוג הפעילות וה Marketplace שבו אתם מוכרים." />
     </>
   );
 }

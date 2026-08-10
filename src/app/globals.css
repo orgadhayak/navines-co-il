@@ -796,8 +796,9 @@ html.theme-light [class*="bg-sky-50"] {
   position: relative;
   min-height: min(44rem, calc(100svh - 4.25rem));
   overflow: hidden;
-  border-bottom: 1px solid #20334c;
-  background: #121011;
+  isolation: isolate;
+  border-bottom: 1px solid #1d2b3d;
+  background: #0d0d0f;
   color: #ffffff;
 }
 
@@ -849,16 +850,22 @@ html.theme-light [class*="bg-sky-50"] {
 
 .home-hero-visual {
   position: absolute;
-  left: -6vw;
+  z-index: 0;
+  left: clamp(1rem, 4vw, 5rem);
   top: 50%;
-  width: min(46rem, 51vw);
+  width: min(38rem, 42vw);
   aspect-ratio: 1;
   transform: translateY(-50%);
-  opacity: 0.78;
+  opacity: 0.86;
+  pointer-events: none;
 }
 
 .home-hero-mark {
   object-fit: contain;
+  object-position: center;
+  filter: saturate(0.94) contrast(1.04);
+  -webkit-mask-image: radial-gradient(ellipse 76% 76% at 50% 50%, #000 52%, rgba(0, 0, 0, 0.94) 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 76% 76% at 50% 50%, #000 52%, rgba(0, 0, 0, 0.94) 70%, transparent 100%);
   mix-blend-mode: normal;
 }
 
@@ -1441,13 +1448,13 @@ main:not(.games-page) .dashboard-row {
   }
 
   .home-hero-visual {
-    left: -20vw;
+    left: 50%;
     right: auto;
     top: auto;
-    bottom: -12vw;
-    width: 90vw;
-    transform: none;
-    opacity: 0.42;
+    bottom: -10rem;
+    width: min(31rem, 108vw);
+    transform: translateX(-50%);
+    opacity: 0.34;
   }
 
   .home-hero-proof {

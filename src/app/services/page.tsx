@@ -54,7 +54,7 @@ export default function ServicesPage() {
           ))}
         </div>
       </Section>
-      <Section eyebrow="מוצר למוכרי Amazon" title="AmazonIQ, שכבת מודיעין לקריאה בלבד" className="py-5 lg:py-8">
+      <Section eyebrow="מוצר למוכרי אמזון" title="AmazonIQ, שכבת מודיעין לקריאה בלבד" className="py-5 lg:py-8">
         <div className="grid gap-5 border-t pt-5 lg:grid-cols-[1fr_auto] lg:items-center" style={{ borderColor: "var(--border)" }}>
           <p className="max-w-4xl text-lg leading-8 text-zinc-300">
             לצד שירותי ניהול, תוכן ותפעול אנושיים, AmazonIQ מציג דשבורד ו GPT ייעודי לחקירת הזמנות, ליסטינגים, עמלות, מלאי FBA ודוחות זמינים על בסיס חיבור Seller Central מורשה לקריאה בלבד. המוצר אינו מבצע פעולות בחשבון.
