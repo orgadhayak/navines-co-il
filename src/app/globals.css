@@ -1737,3 +1737,293 @@ main:not(.games-page) .dashboard-row {
     padding-inline-start: 1rem;
   }
 }
+
+/* Local Hebrew tools: compact, client-side and editorial rather than card-heavy. */
+.hebrew-tools-shell {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.hebrew-tools-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-bottom: 1px solid var(--border);
+}
+
+.hebrew-tools-tab {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+  padding: 1.2rem 1rem 1.35rem;
+  border-inline-start: 1px solid var(--border);
+  color: var(--text);
+  text-align: start;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.hebrew-tools-tab:first-child {
+  border-inline-start: 0;
+}
+
+.hebrew-tools-tab:hover,
+.hebrew-tools-tab:focus-visible,
+.hebrew-tools-tab.is-active {
+  background: var(--surface-soft);
+  color: var(--primary);
+}
+
+.hebrew-tools-tab span {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.hebrew-tools-tab small {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.hebrew-tools-panel {
+  padding: 2rem 0 0;
+}
+
+.hebrew-tool-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+}
+
+.hebrew-tool-form h2 {
+  color: var(--text);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+.hebrew-tool-label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.hebrew-tool-input-row,
+.hebrew-tool-two-column {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hebrew-tool-input-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+.hebrew-tool-two-column {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hebrew-tool-input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.8rem 0.9rem;
+  outline: 0;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.hebrew-tool-input::placeholder {
+  color: var(--text-soft);
+}
+
+.hebrew-tool-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+.hebrew-tool-textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.hebrew-tool-note {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.hebrew-tool-result {
+  display: grid;
+  gap: 0.7rem;
+  border-inline-start: 3px solid var(--primary);
+  padding: 0.9rem 1rem;
+  background: var(--surface-soft);
+}
+
+.hebrew-tool-result.is-warning {
+  border-color: #d47575;
+}
+
+.hebrew-tool-result.is-caution {
+  border-color: var(--primary);
+}
+
+.hebrew-tool-result.is-positive {
+  border-color: #2d9e88;
+}
+
+.hebrew-tool-result strong {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.hebrew-tool-result p,
+.hebrew-tool-result li {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.hebrew-tool-result ul {
+  display: grid;
+  gap: 0.35rem;
+  padding-inline-start: 1.1rem;
+}
+
+.tools-trust-band {
+  border-block: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.tools-trust-band > div {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tools-trust-band > div > div {
+  min-width: 0;
+  padding-inline: 1.5rem;
+  border-inline-start: 1px solid var(--border);
+}
+
+.tools-trust-band > div > div:first-child {
+  padding-inline-start: 0;
+  border-inline-start: 0;
+}
+
+.tools-trust-band span {
+  color: var(--primary);
+  font-family: var(--font-latin), "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.tools-trust-band h2 {
+  margin-top: 0.55rem;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.tools-trust-band p {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.tools-related-links,
+.home-tools-list {
+  border-top: 1px solid var(--border);
+}
+
+.tools-related-links > a,
+.home-tools-list > a {
+  display: grid;
+  min-width: 0;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  transition: background-color 160ms ease, padding-inline 160ms ease;
+}
+
+.tools-related-links > a {
+  grid-template-columns: minmax(10rem, 0.6fr) minmax(0, 1.4fr);
+  padding: 1.25rem 0;
+}
+
+.tools-related-links > a:hover,
+.home-tools-list > a:hover {
+  padding-inline: 0.65rem;
+  background: var(--surface-soft);
+}
+
+.tools-related-links strong,
+.home-tools-list strong {
+  display: block;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.tools-related-links span,
+.home-tools-list small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.home-tools-list > a {
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+  padding: 1.1rem 0;
+}
+
+@media (max-width: 767px) {
+  .hebrew-tools-tabs,
+  .hebrew-tool-two-column,
+  .tools-trust-band > div {
+    grid-template-columns: 1fr;
+  }
+
+  .hebrew-tools-tab {
+    border-inline-start: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .hebrew-tools-tab:first-child {
+    border-top: 0;
+  }
+
+  .hebrew-tool-input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-trust-band > div > div,
+  .tools-trust-band > div > div:first-child {
+    padding: 1.2rem 0;
+    border-inline-start: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .tools-trust-band > div > div:first-child {
+    border-top: 0;
+  }
+
+  .tools-related-links > a {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .home-tools-list > a {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .home-tools-list > a > .editorial-link {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+  .hebrew-tools-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

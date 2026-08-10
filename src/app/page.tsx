@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { Section } from "@/components/Section";
 import { solutionPages } from "@/data/solutions";
-import { blogPosts, products, site } from "@/data/site";
+import { blogPosts, hebrewTools, products, site } from "@/data/site";
 import { formatBlogDate } from "@/lib/dates";
 import { createMetadata } from "@/lib/seo";
 
@@ -129,6 +129,23 @@ export default function HomePage() {
           })}
         </div>
         <div className="mt-7 flex flex-wrap gap-3"><Link className="btn-secondary" href="/products">לכל המוצרים</Link><Link className="editorial-link inline-flex items-center gap-2" href="/blog/business-tools-built-by-navines-israel">הסיפור מאחורי הכלים</Link></div>
+      </Section>
+
+      <Section eyebrow="כלים שימושיים בעברית" title="בדיקה קטנה לפני פעולה גדולה">
+        <p className="section-lead">שלושה כלים קצרים שפועלים בדפדפן ועוזרים לבדוק קישור, הודעה או דומיין לפני שמתקדמים. בלי הרשמה ובלי להעלות טקסט רגיש לשרת.</p>
+        <div className="home-tools-list">
+          {hebrewTools.map((tool, index) => (
+            <Link href={`/tools#${tool.id}`} key={tool.id}>
+              <span className="editorial-index">0{index + 1}</span>
+              <span><strong>{tool.title}</strong><small>{tool.summary}</small></span>
+              <span className="editorial-link">לבדיקה</span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link className="btn-primary" href="/tools">לכל הכלים בעברית</Link>
+          <a className="btn-secondary" href="https://checklink.ai" rel="noopener noreferrer" target="_blank">ל־CheckLink.ai המלא</a>
+        </div>
       </Section>
 
       <Section eyebrow="איך עובדים איתנו" title="תהליך שקוף מהרעיון ועד למערכת פעילה">

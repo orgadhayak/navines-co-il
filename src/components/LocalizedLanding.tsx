@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { siteLocales } from "@/i18n/locales";
 import { site } from "@/data/site";
+import { getLocalizedToolsCopy } from "@/content/localized/tools";
 import type { LocalizedLandingContent } from "@/content/localized/types";
 
 function whatsappHref(text: string) {
@@ -16,6 +17,7 @@ function emailHref(subject: string) {
 
 export function LocalizedLanding({ content }: { content: LocalizedLandingContent }) {
   const locale = siteLocales[content.locale];
+  const toolsCopy = getLocalizedToolsCopy(content.locale);
   const pageUrl = `${site.url}/${content.locale}`;
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -63,6 +65,21 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
             </div>
           </aside>
         </section>
+
+        {toolsCopy ? (
+          <LocalizedSection id="tools" eyebrow={toolsCopy.eyebrow} title={toolsCopy.previewTitle}>
+            <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>{toolsCopy.previewText}</p>
+            <div className="home-tools-list mt-8">
+              {(Object.entries(toolsCopy.tools) as [string, (typeof toolsCopy.tools)[keyof typeof toolsCopy.tools]][]).map(([id, tool], index) => (
+                <Link href={`/${content.locale}/tools#${id}`} key={id}>
+                  <span className="editorial-index">0{index + 1}</span>
+                  <span><strong>{tool.title}</strong><small>{tool.summary}</small></span>
+                  <span className="editorial-link">{content.hero.secondaryCta}</span>
+                </Link>
+              ))}
+            </div>
+          </LocalizedSection>
+        ) : null}
 
         <LocalizedSection id="services" eyebrow="Navines" title={content.services.title}>
           <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>{content.services.intro}</p>

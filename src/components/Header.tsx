@@ -62,13 +62,13 @@ const serviceGroups = [
   },
 ];
 
-const localizedNav: Record<Exclude<LocaleSlug, "he">, { services: string; solutions: string; process: string; why: string; insights: string; contact: string; cta: string; home: string; menu: string; language: string }> = {
-  de: { services: "Leistungen", solutions: "Lösungen", process: "Arbeitsweise", why: "Warum Navines", insights: "Insights", contact: "Kontakt", cta: "WhatsApp", home: "Startseite", menu: "Menü", language: "Sprache" },
-  jp: { services: "サービス", solutions: "ソリューション", process: "進め方", why: "Navinesについて", insights: "インサイト", contact: "お問い合わせ", cta: "WhatsApp", home: "ホーム", menu: "メニュー", language: "言語" },
-  ar: { services: "الخدمات", solutions: "الحلول", process: "طريقة العمل", why: "لماذا Navines", insights: "المقالات", contact: "تواصل", cta: "واتساب", home: "الرئيسية", menu: "القائمة", language: "اللغة" },
-  hi: { services: "सेवाएँ", solutions: "समाधान", process: "काम करने का तरीका", why: "Navines क्यों", insights: "लेख", contact: "संपर्क", cta: "WhatsApp", home: "होम", menu: "मेन्यू", language: "भाषा" },
-  fr: { services: "Services", solutions: "Solutions", process: "Méthode", why: "Pourquoi Navines", insights: "Articles", contact: "Contact", cta: "WhatsApp", home: "Accueil", menu: "Menu", language: "Langue" },
-  zh: { services: "服务", solutions: "解决方案", process: "合作方式", why: "为什么选择 Navines", insights: "洞察", contact: "联系", cta: "WhatsApp", home: "首页", menu: "菜单", language: "语言" },
+const localizedNav: Record<Exclude<LocaleSlug, "he">, { services: string; solutions: string; process: string; why: string; insights: string; tools: string; contact: string; cta: string; home: string; menu: string; language: string }> = {
+  de: { services: "Leistungen", solutions: "Lösungen", process: "Arbeitsweise", why: "Warum Navines", insights: "Insights", tools: "Werkzeuge", contact: "Kontakt", cta: "WhatsApp", home: "Startseite", menu: "Menü", language: "Sprache" },
+  jp: { services: "サービス", solutions: "ソリューション", process: "進め方", why: "Navinesについて", insights: "インサイト", tools: "ツール", contact: "お問い合わせ", cta: "WhatsApp", home: "ホーム", menu: "メニュー", language: "言語" },
+  ar: { services: "الخدمات", solutions: "الحلول", process: "طريقة العمل", why: "لماذا Navines", insights: "المقالات", tools: "أدوات", contact: "تواصل", cta: "واتساب", home: "الرئيسية", menu: "القائمة", language: "اللغة" },
+  hi: { services: "सेवाएँ", solutions: "समाधान", process: "काम करने का तरीका", why: "Navines क्यों", insights: "लेख", tools: "टूल्स", contact: "संपर्क", cta: "WhatsApp", home: "होम", menu: "मेन्यू", language: "भाषा" },
+  fr: { services: "Services", solutions: "Solutions", process: "Méthode", why: "Pourquoi Navines", insights: "Articles", tools: "Outils", contact: "Contact", cta: "WhatsApp", home: "Accueil", menu: "Menu", language: "Langue" },
+  zh: { services: "服务", solutions: "解决方案", process: "合作方式", why: "为什么选择 Navines", insights: "洞察", tools: "工具", contact: "联系", cta: "WhatsApp", home: "首页", menu: "菜单", language: "语言" },
 };
 
 const localizedTagline: Record<LocaleSlug, string> = {
@@ -161,6 +161,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
               <DropdownButton active={pathname?.startsWith("/services") || pathname === "/optimization-hub"} isOpen={dropdown === "services"} label="שירותים" onClick={() => setDropdown((current) => (current === "services" ? null : "services"))} />
               <DropdownButton active={pathname?.startsWith("/solutions") || pathname?.startsWith("/courses")} isOpen={dropdown === "solutions"} label="פתרונות" onClick={() => setDropdown((current) => (current === "solutions" ? null : "solutions"))} />
               <NavLink active={pathname === "/products" || pathname?.startsWith("/products/")} href="/products" label="מוצרים" onClick={closeAll} />
+              <NavLink active={pathname === "/tools"} href="/tools" label="כלים" onClick={closeAll} />
               <NavLink active={pathname === "/blog" || pathname?.startsWith("/blog/")} href="/blog" label="מאמרים" onClick={closeAll} />
               <NavLink active={pathname === "/about"} href="/about" label="אודות" onClick={closeAll} />
               <NavLink active={pathname === "/contact"} href="/contact" label="יצירת קשר" onClick={closeAll} />
@@ -172,6 +173,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
               <NavLink href={`/${activeLocale}#process`} label={localized?.process || "Process"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#why`} label={localized?.why || "Why Navines"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#insights`} label={localized?.insights || "Insights"} onClick={closeAll} />
+              <NavLink href={`/${activeLocale}/tools`} label={localized?.tools || "Tools"} onClick={closeAll} />
               <NavLink href={`/${activeLocale}#contact`} label={localized?.contact || "Contact"} onClick={closeAll} />
             </>
           )}
@@ -233,7 +235,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
                 {mobileGroup === "services" ? <MobileLinks links={[["כל השירותים", "/services"], ...services.slice(0, 18).map((service) => [service.title, `/services/${service.slug}`] as [string, string])]} onClick={closeAll} /> : null}
                 <MobileGroupButton label="פתרונות" open={mobileGroup === "solutions"} onClick={() => setMobileGroup((current) => (current === "solutions" ? null : "solutions"))} />
                 {mobileGroup === "solutions" ? <MobileLinks links={[["כל הפתרונות", "/solutions"], ...solutionPages.map((solution) => [solution.navLabel, `/solutions/${solution.slug}`] as [string, string])]} onClick={closeAll} /> : null}
-                <MobileLinks links={[["מוצרים", "/products"], ["מאמרים", "/blog"], ["קורסים", "/courses"], ["אודות", "/about"], ["יצירת קשר", "/contact"]]} onClick={closeAll} />
+                <MobileLinks links={[["מוצרים", "/products"], ["כלים שימושיים בעברית", "/tools"], ["מאמרים", "/blog"], ["קורסים", "/courses"], ["אודות", "/about"], ["יצירת קשר", "/contact"]]} onClick={closeAll} />
               </>
             ) : (
               <MobileLinks
@@ -243,6 +245,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
                   [localized?.process || "Process", `/${activeLocale}#process`],
                   [localized?.why || "Why Navines", `/${activeLocale}#why`],
                   [localized?.insights || "Insights", `/${activeLocale}#insights`],
+                  [localized?.tools || "Tools", `/${activeLocale}/tools`],
                   [localized?.contact || "Contact", `/${activeLocale}#contact`],
                 ]}
                 onClick={closeAll}

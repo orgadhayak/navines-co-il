@@ -30,6 +30,7 @@ const footerGroups: FooterGroup[] = [
       { label: "AmazonIQ", href: "/products/amazoniq" },
       { label: "CheckLink.ai", href: "https://checklink.ai" },
       { label: "בודק האתרים של נביא נס", href: "https://analyze.navines.com" },
+      { label: "כלים שימושיים בעברית", href: "/tools" },
       { label: "מרכז כלי נביא נס לדפדפן", href: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd" },
     ],
   },
@@ -60,13 +61,13 @@ const footerGroups: FooterGroup[] = [
   },
 ];
 
-const localizedFooterCopy: Record<Exclude<LocaleSlug, "he">, { description: string; services: string; products: string; contact: string; languages: string; legal: string; ctaTitle: string; ctaText: string; whatsapp: string; email: string; phone: string }> = {
-  de: { description: "Israelisches Software- und KI-Unternehmen für praktische digitale Systeme, Automatisierung und Datenwerkzeuge für Unternehmen.", services: "Leistungen", products: "Produkte und Einblicke", contact: "Kontakt", languages: "Sprachen", legal: "Rechtliches", ctaTitle: "Möchten Sie ein konkretes digitales Projekt besprechen?", ctaText: "Senden Sie eine kurze Nachricht. Wir helfen, den richtigen nächsten Schritt zu klären.", whatsapp: "Über WhatsApp schreiben", email: "E-Mail senden", phone: "Telefon" },
-  jp: { description: "イスラエル発のソフトウェアとAIの会社として、実用的なシステム、自動化、データ活用を支援します。", services: "サービス", products: "製品とインサイト", contact: "お問い合わせ", languages: "言語", legal: "法務情報", ctaTitle: "デジタルプロジェクトについて相談しますか。", ctaText: "短いメッセージをお送りください。次に何を確認すべきか整理します。", whatsapp: "WhatsAppで相談", email: "メールを送る", phone: "電話" },
-  ar: { description: "شركة إسرائيلية للبرمجيات والذكاء الاصطناعي تبني أنظمة عملية وأتمتة وأدوات بيانات للشركات.", services: "الخدمات", products: "المنتجات والمقالات", contact: "تواصل", languages: "اللغات", legal: "روابط قانونية", ctaTitle: "هل تريدون مناقشة مشروع رقمي عملي؟", ctaText: "أرسلوا رسالة قصيرة وسنساعدكم في فهم الخطوة المناسبة.", whatsapp: "تواصل عبر WhatsApp", email: "إرسال بريد إلكتروني", phone: "هاتف" },
-  hi: { description: "इज़राइल की software और AI कंपनी, जो व्यवसायों के लिए व्यावहारिक systems, automation और data tools बनाती है।", services: "सेवाएँ", products: "उत्पाद और लेख", contact: "संपर्क", languages: "भाषाएँ", legal: "कानूनी", ctaTitle: "किसी डिजिटल प्रोजेक्ट पर बात करनी है?", ctaText: "एक छोटा संदेश भेजें। हम सही अगला कदम समझने में मदद करेंगे।", whatsapp: "WhatsApp पर बात करें", email: "ईमेल भेजें", phone: "फोन" },
-  fr: { description: "Entreprise israélienne de logiciel et d’IA qui conçoit des systèmes numériques, automatisations et outils de données utiles aux entreprises.", services: "Services", products: "Produits et articles", contact: "Contact", languages: "Langues", legal: "Mentions légales", ctaTitle: "Vous voulez discuter d’un projet numérique concret ?", ctaText: "Envoyez un court message. Nous vous aiderons à clarifier la bonne prochaine étape.", whatsapp: "Écrire sur WhatsApp", email: "Envoyer un email", phone: "Téléphone" },
-  zh: { description: "来自以色列的软件与 AI 公司，为企业构建实用的数字系统、自动化流程和数据工具。", services: "服务", products: "产品与洞察", contact: "联系", languages: "语言", legal: "法律信息", ctaTitle: "想讨论一个实际的数字项目？", ctaText: "发送一条简短消息，我们会帮助您判断合适的下一步。", whatsapp: "通过 WhatsApp 联系", email: "发送邮件", phone: "电话" },
+const localizedFooterCopy: Record<Exclude<LocaleSlug, "he">, { description: string; services: string; solutions: string; products: string; tools: string; contact: string; languages: string; legal: string; ctaTitle: string; ctaText: string; whatsapp: string; email: string; phone: string; copyright: string }> = {
+  de: { description: "Israelisches Software- und KI-Unternehmen für praktische digitale Systeme, Automatisierung und Datenwerkzeuge für Unternehmen.", services: "Leistungen", solutions: "Lösungen", products: "Produkte und Einblicke", tools: "Werkzeuge", contact: "Kontakt", languages: "Sprachen", legal: "Rechtliches", ctaTitle: "Möchten Sie ein konkretes digitales Projekt besprechen?", ctaText: "Senden Sie eine kurze Nachricht. Wir helfen, den richtigen nächsten Schritt zu klären.", whatsapp: "Über WhatsApp schreiben", email: "E-Mail senden", phone: "Telefon", copyright: "© 2026 Navines. Alle Rechte vorbehalten." },
+  jp: { description: "イスラエル発のソフトウェアとAIの会社として、実用的なシステム、自動化、データ活用を支援します。", services: "サービス", solutions: "ソリューション", products: "製品とインサイト", tools: "ツール", contact: "お問い合わせ", languages: "言語", legal: "法務情報", ctaTitle: "デジタルプロジェクトについて相談しますか。", ctaText: "短いメッセージをお送りください。次に何を確認すべきか整理します。", whatsapp: "WhatsAppで相談", email: "メールを送る", phone: "電話", copyright: "© 2026 Navines。すべての権利を保有しています。" },
+  ar: { description: "شركة إسرائيلية للبرمجيات والذكاء الاصطناعي تبني أنظمة عملية وأتمتة وأدوات بيانات للشركات.", services: "الخدمات", solutions: "الحلول", products: "المنتجات والمقالات", tools: "الأدوات", contact: "تواصل", languages: "اللغات", legal: "روابط قانونية", ctaTitle: "هل تريدون مناقشة مشروع رقمي عملي؟", ctaText: "أرسلوا رسالة قصيرة وسنساعدكم في فهم الخطوة المناسبة.", whatsapp: "تواصل عبر WhatsApp", email: "إرسال بريد إلكتروني", phone: "هاتف", copyright: "© 2026 Navines. جميع الحقوق محفوظة." },
+  hi: { description: "इज़राइल की software और AI कंपनी, जो व्यवसायों के लिए व्यावहारिक systems, automation और data tools बनाती है।", services: "सेवाएँ", solutions: "समाधान", products: "उत्पाद और लेख", tools: "टूल्स", contact: "संपर्क", languages: "भाषाएँ", legal: "कानूनी", ctaTitle: "किसी डिजिटल प्रोजेक्ट पर बात करनी है?", ctaText: "एक छोटा संदेश भेजें। हम सही अगला कदम समझने में मदद करेंगे।", whatsapp: "WhatsApp पर बात करें", email: "ईमेल भेजें", phone: "फोन", copyright: "© 2026 Navines. सर्वाधिकार सुरक्षित।" },
+  fr: { description: "Entreprise israélienne de logiciel et d’IA qui conçoit des systèmes numériques, automatisations et outils de données utiles aux entreprises.", services: "Services", solutions: "Solutions", products: "Produits et articles", tools: "Outils", contact: "Contact", languages: "Langues", legal: "Mentions légales", ctaTitle: "Vous voulez discuter d’un projet numérique concret ?", ctaText: "Envoyez un court message. Nous vous aiderons à clarifier la bonne prochaine étape.", whatsapp: "Écrire sur WhatsApp", email: "Envoyer un email", phone: "Téléphone", copyright: "© 2026 Navines. Tous droits réservés." },
+  zh: { description: "来自以色列的软件与 AI 公司，为企业构建实用的数字系统、自动化流程和数据工具。", services: "服务", solutions: "解决方案", products: "产品与洞察", tools: "工具", contact: "联系", languages: "语言", legal: "法律信息", ctaTitle: "想讨论一个实际的数字项目？", ctaText: "发送一条简短消息，我们会帮助您判断合适的下一步。", whatsapp: "通过 WhatsApp 联系", email: "发送邮件", phone: "电话", copyright: "© 2026 Navines。保留所有权利。" },
 };
 
 export function Footer({ locale = "he", showCta = true }: { locale?: LocaleSlug; showCta?: boolean }) {
@@ -196,7 +197,8 @@ function LocalizedFooter({ locale, copy, showCta }: { locale: Exclude<LocaleSlug
   const homeHref = `/${locale}`;
   const serviceItems = [
     { label: copy.services, href: `${homeHref}#services` },
-    { label: "Solutions", href: `${homeHref}#solutions` },
+    { label: copy.solutions, href: `${homeHref}#solutions` },
+    { label: copy.tools, href: `${homeHref}/tools` },
     { label: copy.contact, href: `${homeHref}#contact` },
   ];
   return (
@@ -209,7 +211,7 @@ function LocalizedFooter({ locale, copy, showCta }: { locale: Exclude<LocaleSlug
           <FooterColumn group={{ id: "languages", title: copy.languages, items: languageItems() }} />
           <section><h3 className="mb-3 text-base font-semibold">{copy.contact}</h3><div className="grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}><a className="footer-contact-link" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a><a className="footer-contact-link" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a><a className="footer-contact-link" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a></div></section>
         </div>
-        <div className="mt-10 border-t pt-6 text-sm" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>© 2026 Navines. All rights reserved.</div>
+        <div className="mt-10 border-t pt-6 text-sm" style={{ borderColor: "var(--border)", color: "var(--text-soft)" }}>{copy.copyright}</div>
       </div>
     </footer>
   );
