@@ -65,7 +65,7 @@ export default function AmazonIQProductPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "AmazonIQ — דשבורד ו־GPT ייעודי למוכרי אמזון",
+    name: "AmazonIQ: דשבורד ו־GPT ייעודי למוכרי אמזון",
     url: `${site.url}/products/amazoniq`,
     inLanguage: "he-IL",
     isPartOf: { "@type": "WebSite", name: "NAVINES", url: site.url },
@@ -83,7 +83,7 @@ export default function AmazonIQProductPage() {
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "מוצרים", href: "/products" }, { name: "AmazonIQ", href: "/products/amazoniq" }])} />
 
-      <Section eyebrow="מודיעין למוכרי אמזון" title="AmazonIQ — דשבורד ו־GPT ייעודי למוכרי אמזון" titleAs="h1" className="py-8 lg:py-12">
+      <Section eyebrow="מודיעין למוכרי אמזון" title="AmazonIQ: דשבורד ו־GPT ייעודי למוכרי אמזון" titleAs="h1" className="py-8 lg:py-12">
         <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div>
             <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>

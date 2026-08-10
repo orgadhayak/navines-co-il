@@ -314,7 +314,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         />
       ) : isRobloxExperiencePost ? (
         <CTA
-          title="יש לכם רעיון לעולם מותג או משחק ב־Roblox?"
+          title="יש לכם רעיון לעולם מותג או משחק ברובלוקס?"
           text="שלחו לנו מי המותג, למי המשחק מיועד ומה תרצו שהשחקן יעשה או ירגיש. נבדוק כיוון ראשוני ונחליט אם להתחיל בעולם קטן, אירוע או משחק רחב יותר."
         />
       ) : (
@@ -599,7 +599,7 @@ function AppraisalGuideArticleBody() {
         נביא נס מסייעת במעטפת הטכנולוגית והתפעולית: ארגון החומר, תיעוד דיגיטלי, בקרת מסמכים, בניית ציר זמן והנגשת המידע. כל בדיקה וחוות דעת נערכת ונחתמת על ידי איש המקצוע המתאים לתחום השמאות הרלוונטי.
       </p>
 
-      <h2>שמאות רכב — מדוע חשוב לתעד לפני תיקון</h2>
+      <h2>שמאות רכב: מדוע חשוב לתעד לפני תיקון</h2>
       <p>
         ברכב, חלק גדול מהמידע נמצא במצב הנזק לפני שהרכב נכנס לתיקון: מוקדי פגיעה, חלקים שניזוקו, התאמה בין הנזק לתיאור האירוע, אפשרות לנזק קודם, ירידת ערך, עלויות חלקים ועבודה ומסמכי מוסך. כאשר התיקון מתחיל לפני תיעוד, חלק מהמידע עלול להיעלם או להפוך לקשה יותר לבדיקה.
       </p>
@@ -607,7 +607,7 @@ function AppraisalGuideArticleBody() {
         בשמאות רכב קיימת חשיבות לפנייה לפני תחילת התיקון, ככל שהדבר אפשרי ובטוח, כדי שניתן יהיה לבדוק ולתעד את הנזק במצבו המקורי. המטרה אינה להבטיח תוצאה מול מבטח, אלא להציג הערכה מקצועית, עצמאית ומבוססת, הכוללת את רכיבי הנזק הרלוונטיים ואת דרך החישוב.
       </p>
 
-      <h2>שמאות רכוש — מבנה, תכולה, ציוד ומלאי</h2>
+      <h2>שמאות רכוש: מבנה, תכולה, ציוד ומלאי</h2>
       <p>
         נזק לרכוש יכול להתרחש בדירה, בעסק, במחסן, במשרד או במפעל. הוא יכול לכלול מים, הצפה, אש, עשן, פיח, סערה, פריצה, גניבה, ונדליזם או פגיעה מצד שלישי. לעיתים הנזק הוא במבנה, ולעיתים בתכולה, בציוד, במלאי, בריהוט או במערכות.
       </p>
@@ -615,7 +615,7 @@ function AppraisalGuideArticleBody() {
         כאן חשוב לחבר בין תמונות, רשימות פריטים, הצעות מחיר, חשבוניות, מסמכי רכישה, עלויות תיקון, שיקום או החלפה, ובלאי או פחת כאשר הם רלוונטיים. ככל שהחומר מסודר יותר, כך קל יותר להבין מה נבדק ומה עדיין חסר.
       </p>
 
-      <h2>שמאות חקלאות — גידולים, תשתיות והשלכות מתמשכות</h2>
+      <h2>שמאות חקלאות: גידולים, תשתיות והשלכות מתמשכות</h2>
       <p>
         בנזק חקלאי, התמונה לא תמיד מסתיימת ביום האירוע. פגיעה בגידולים, מטעים, פרדסים, חממות, השקיה, ציוד או תשתיות יכולה להשפיע גם על המשך הגידול, על איכות וכמות יבול, על עלויות שיקום ועל צורך בטיפול או נטיעה מחדש. לכן תיעוד שטח, מדידות, תמונות, מפות, מסמכי גידול ורישומי טיפול יכולים להיות חשובים.
       </p>
@@ -1586,7 +1586,7 @@ function SecureAccountsAfterHackArticleBody() {
 function AccountHackArticleBody() {
   return (
     <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
-      <h2>פרצו לי לאינסטגרם ושינו מייל — מה עושים עכשיו?</h2>
+      <h2>פרצו לי לאינסטגרם ושינו מייל. מה עושים עכשיו?</h2>
       <p>
         קודם מאבטחים את תיבת המייל המקושרת ושומרים כל הודעת אבטחה שקיבלתם. אם אינסטגרם שלחה למייל הקודם הודעה רשמית על שינוי כתובת, בדקו אם מופיעה בה אפשרות לבטל את השינוי. אם אין אפשרות כזו, עברו למסלול השחזור הרשמי של אינסטגרם.
       </p>
@@ -1645,7 +1645,7 @@ function AccountHackArticleBody() {
         קראו את <a href="https://support.google.com/accounts/answer/6294825" rel="noopener noreferrer" target="_blank">הנחיות Google לאבטחת חשבון שנפרץ</a> או עברו ל<a href="https://accounts.google.com/signin/recovery" rel="noopener noreferrer" target="_blank">שחזור חשבון Google</a>. אם המייל שולט גם באתר, בדומיין או במערכות עסקיות, כדאי למפות מיד את כל נקודות הגישה. נביא נס אינה שותפה של Google.
       </p>
 
-      <h2>אחרי שחזרתם לחשבון — איך מונעים השתלטות חוזרת?</h2>
+      <h2>אחרי שחזרתם לחשבון: איך מונעים השתלטות חוזרת?</h2>
       <ul>
         <li>מחליפים סיסמה ייחודית במייל הראשי ובחשבונות שנפגעו.</li>
         <li>מנתקים מכשירים ואפליקציות שאינכם מזהים.</li>
@@ -2073,7 +2073,7 @@ function SmartLocalToolsArticleBody() {
 
       <h2>15 בדיקות קטנות, לפי המשימה של הגולש</h2>
       <ol>
-        {tools.map(([title, text, hash]) => <li key={hash}><Link href={`/tools#${hash}`}>{title}</Link> — {text}</li>)}
+        {tools.map(([title, text, hash]) => <li key={hash}><Link href={`/tools#${hash}`}>{title}</Link>: {text}</li>)}
       </ol>
 
       <h2>מה אפשר ללמוד מהגישה של CheckLink.ai</h2>
@@ -2369,9 +2369,9 @@ function MusicDistributionArticleBody() {
       <section>
         <h2 className="text-3xl font-semibold text-white">הפצה היא תהליך, לא רק העלאת קובץ</h2>
         <p className="mt-4">
-          שירותי סטרימינג אינם מקבלים בדרך כלל העלאה ישירה מכל אמן. מפיץ דיגיטלי מעביר את קובץ השמע, העטיפה והמטא־דאטה אל Spotify, Apple Music,
-          YouTube Music, Amazon Music ויעדים נוספים שהוא תומך בהם. לפני שבוחרים מפיץ צריך להבין מחיר, עמלה, בעלות על הקטלוג, זמני טיפול,
-          תשלומים, שינוי מפיץ, תמיכה ויכולות כמו Content ID.
+          שירותי סטרימינג אינם מקבלים בדרך כלל העלאה ישירה מכל אמן. מפיץ דיגיטלי מעביר את קובץ השמע, העטיפה והמטא־דאטה אל ספוטיפיי (Spotify), אפל מיוזיק (Apple Music),
+          יוטיוב מיוזיק (YouTube Music), אמזון מיוזיק (Amazon Music) ויעדים נוספים שהוא תומך בהם. לפני שבוחרים מפיץ צריך להבין מחיר, עמלה, בעלות על הקטלוג, זמני טיפול,
+          תשלומים, שינוי מפיץ, תמיכה ויכולות כמו זיהוי תוכן (Content ID).
         </p>
         <p className="mt-4">
           מפיץ טוב לא מתקן לבדו שם אמן שגוי, עטיפה לא מתאימה, חלוקת זכויות לא ברורה או השקה בלי תוכן. האחריות על הכנה נכונה נשארת אצל האמן והצוות שלו.
@@ -2381,7 +2381,7 @@ function MusicDistributionArticleBody() {
       <section>
         <h2 className="text-3xl font-semibold text-white">מה מכינים לפני ההגשה</h2>
         <div className="mt-5 grid gap-x-8 md:grid-cols-2">
-          {["קובץ Master בפורמט ובאיכות שהמפיץ דורש", "עטיפה מקורית שעומדת במידות ובכללי הפלטפורמות", "שם אמן, שם יצירה, גרסה, שפה, ז׳אנר ותאריך יציאה", "קרדיטים לכותבים, מלחינים, מבצעים, מפיקים ובעלי זכויות", "חלוקת זכויות והסכמות כתובות בין המשתתפים", "קישורי פרופילים קיימים כדי לצמצם יצירת עמודי אמן כפולים", "תוכנית תוכן לפני ואחרי ההשקה", "בדיקת רישיונות לחומרים, לופים, סימפולים ויצירות צד שלישי"].map((item) => (
+          {["קובץ מאסטר בפורמט ובאיכות שהמפיץ דורש", "עטיפה מקורית שעומדת במידות ובכללי הפלטפורמות", "שם אמן, שם יצירה, גרסה, שפה, ז׳אנר ותאריך יציאה", "קרדיטים לכותבים, מלחינים, מבצעים, מפיקים ובעלי זכויות", "חלוקת זכויות והסכמות כתובות בין המשתתפים", "קישורי פרופילים קיימים כדי לצמצם יצירת עמודי אמן כפולים", "תוכנית תוכן לפני ואחרי ההשקה", "בדיקת רישיונות לחומרים, לופים, סימפולים ויצירות צד שלישי"].map((item) => (
             <p className="border-t py-4" key={item} style={{ borderColor: "var(--border)" }}>{item}</p>
           ))}
         </div>
@@ -2394,11 +2394,11 @@ function MusicDistributionArticleBody() {
           הפרויקט מוצג כדוגמה לעבודה מסודרת עם הפצה, קטלוג, קישורים ותוכן; הוא אינו מוצג כהבטחה למספר האזנות, הכנסה או הצלחה לפרויקט אחר.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <a className="btn-secondary" href="https://www.youtube.com/@raneno.official" rel="noopener noreferrer" target="_blank">YouTube</a>
-          <a className="btn-secondary" href="https://music.youtube.com/channel/UCG_ksW1JAPOzBl3wXgfK8xw" rel="noopener noreferrer" target="_blank">YouTube Music</a>
-          <a className="btn-secondary" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">Spotify</a>
-          <a className="btn-secondary" href="https://music.apple.com/il/artist/%D7%94%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98-%D7%A9%D7%9C-%D7%A8%D7%A0%D7%A0%D7%95/1861554140" rel="noopener noreferrer" target="_blank">Apple Music</a>
-          <a className="btn-secondary" href="https://www.shazam.com/artist/%D7%94%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98-%D7%A9%D7%9C-%D7%A8%D7%A0%D7%A0%D7%95/1861554140" rel="noopener noreferrer" target="_blank">Shazam</a>
+          <a className="btn-secondary" href="https://www.youtube.com/@raneno.official" rel="noopener noreferrer" target="_blank">יוטיוב (YouTube)</a>
+          <a className="btn-secondary" href="https://music.youtube.com/channel/UCG_ksW1JAPOzBl3wXgfK8xw" rel="noopener noreferrer" target="_blank">יוטיוב מיוזיק (YouTube Music)</a>
+          <a className="btn-secondary" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">ספוטיפיי (Spotify)</a>
+          <a className="btn-secondary" href="https://music.apple.com/il/artist/%D7%94%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98-%D7%A9%D7%9C-%D7%A8%D7%A0%D7%A0%D7%95/1861554140" rel="noopener noreferrer" target="_blank">אפל מיוזיק (Apple Music)</a>
+          <a className="btn-secondary" href="https://www.shazam.com/artist/%D7%94%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98-%D7%A9%D7%9C-%D7%A8%D7%A0%D7%A0%D7%95/1861554140" rel="noopener noreferrer" target="_blank">שאזאם (Shazam)</a>
         </div>
       </section>
 
@@ -2406,10 +2406,10 @@ function MusicDistributionArticleBody() {
         <h2 className="text-3xl font-semibold text-white">אחרי שהשיר באוויר</h2>
         <p className="mt-4">
           בודקים שהיצירה הופיעה תחת האמן הנכון, שהקרדיטים והעטיפה תקינים ושהקישורים מובילים למקומות הרשמיים. בהתאם לזמינות ולזכאות אפשר לתבוע גישה
-          לכלי אמן, לעדכן תמונות ותיאור, לחבר ערוצי תוכן, ליצור Smart Link ולעקוב אחר נתונים שהפלטפורמות מספקות.
+          לכלי אמן, לעדכן תמונות ותיאור, לחבר ערוצי תוכן, ליצור קישור חכם ולעקוב אחר נתונים שהפלטפורמות מספקות.
         </p>
         <p className="mt-4">
-          קידום אורגני למוזיקאים נשען על עקביות: תוכן מאחורי הקלעים, חיפוש נכון ב־YouTube ובאתר, קליפים קצרים, קהילה, שיתופי פעולה והפניה ברורה מכל ערוץ
+          קידום אורגני למוזיקאים נשען על עקביות: תוכן מאחורי הקלעים, חיפוש נכון ביוטיוב ובאתר, קליפים קצרים, קהילה, שיתופי פעולה והפניה ברורה מכל ערוץ
           אל עמודי ההאזנה. הפצה מאפשרת למוזיקה להיות זמינה; הקידום עוזר לקהל לגלות אותה.
         </p>
       </section>
@@ -2418,7 +2418,7 @@ function MusicDistributionArticleBody() {
         <h2 className="text-3xl font-semibold text-white">זכויות, תמלוגים ונתונים</h2>
         <p className="mt-4">
           צריך להפריד בין תמלוגים מהקלטה, זכויות ביצירה, הכנסות פלטפורמה, זכויות מבצעים ומערכות גבייה נוספות. לא כל מפיץ מטפל בכל שכבה, ולא כל שימוש
-          מתאים ל־Content ID. מומלץ לתעד הסכמות, לשמור מזהים וקבצי מקור ולהיעזר באנשי מקצוע מתאימים כשיש שאלה משפטית, חשבונאית או חוזית.
+          מתאים לזיהוי תוכן. מומלץ לתעד הסכמות, לשמור מזהים וקבצי מקור ולהיעזר באנשי מקצוע מתאימים כשיש שאלה משפטית, חשבונאית או חוזית.
         </p>
         <p className="mt-4">
           השירות של נביא נס מתמקד בסדר הדיגיטלי והתפעולי: הכנת נכסים, תהליך הפצה, פרופילים, קישורים, תוכן ומדידה. הוא אינו מחליף ייעוץ משפטי,
@@ -2439,7 +2439,7 @@ function RobloxBrandExperienceArticleBody() {
       <section>
         <h2 className="text-3xl font-semibold text-white">מפרסומת שרואים לעולם שנכנסים אליו</h2>
         <p className="mt-4">
-          מודעה מבקשת מהקהל לעצור ולהסתכל. עולם Roblox מזמין אותו להיכנס, לבחור, לחקור ולפעול. עבור מותג עם קהל רלוונטי,
+          מודעה מבקשת מהקהל לעצור ולהסתכל. עולם רובלוקס (Roblox) מזמין אותו להיכנס, לבחור, לחקור ולפעול. עבור מותג עם קהל רלוונטי,
           ההבדל הזה יכול להפוך מסר מופשט לחוויה שזוכרים: משימה שממחישה ערך, אירוע שמחבר קהילה או עולם שמספר את סיפור המותג בלי מצגת ארוכה.
         </p>
         <p className="mt-4">
@@ -2456,7 +2456,7 @@ function RobloxBrandExperienceArticleBody() {
         <ul className="mt-5 list-disc space-y-3 pr-6">
           <li>כניסה קצרה שמסבירה מה עושים בלי מדריך ארוך.</li>
           <li>משימות ותגמולים שמתאימים לקהל ולמטרה.</li>
-          <li>UI ברור במובייל ובמחשב.</li>
+          <li>ממשק משתמש ברור במובייל ובמחשב.</li>
           <li>נוכחות מותג טבעית שאינה מסתירה את המשחקיות.</li>
         </ul>
       </section>
@@ -2464,20 +2464,20 @@ function RobloxBrandExperienceArticleBody() {
       <section>
         <h2 className="text-3xl font-semibold text-white">מה אפשר לבנות סביב מותג</h2>
         <div className="mt-5 grid gap-x-8 md:grid-cols-2">
-          {["עולם שמציג סיפור, קטגוריה או ערכי מותג", "אירוע דיגיטלי, השקה או פעילות עונתית", "משחק משימות עם התקדמות ותוכן שנפתח", "מרחב קהילתי ליוצרים, לקוחות או מעריצים", "שיפור משחק קיים: onboarding, UI וביצועים", "תוכנית עדכונים ותוכן שחוזר לאורך זמן"].map((item) => (
+          {["עולם שמציג סיפור, קטגוריה או ערכי מותג", "אירוע דיגיטלי, השקה או פעילות עונתית", "משחק משימות עם התקדמות ותוכן שנפתח", "מרחב קהילתי ליוצרים, לקוחות או מעריצים", "שיפור משחק קיים: קליטת שחקנים, ממשק משתמש וביצועים", "תוכנית עדכונים ותוכן שחוזר לאורך זמן"].map((item) => (
             <p className="border-t py-4" key={item} style={{ borderColor: "var(--border)" }}>{item}</p>
           ))}
         </div>
       </section>
 
       <section>
-        <h2 className="text-3xl font-semibold text-white">NAVINES WORLD: ללמוד את Roblox מבפנים</h2>
+        <h2 className="text-3xl font-semibold text-white">עולם נביא נס (NAVINES WORLD): ללמוד את רובלוקס מבפנים</h2>
         <p className="mt-4">
-          בנינו את NAVINES WORLD כסביבת התנסות קטנה שבה אפשר לבחון רעיונות, להרגיש את זרימת השחקן ולהכיר את הפלטפורמה מתוך המשחק עצמו.
+          בנינו את עולם נביא נס כסביבת התנסות קטנה שבה אפשר לבחון רעיונות, להרגיש את זרימת השחקן ולהכיר את הפלטפורמה מתוך המשחק עצמו.
           אנחנו מציגים אותו כדוגמת עבודה ולמידה, לא כטענה למשחק ויראלי ולא כהבטחה שפרויקט אחר יקבל תנועה דומה.
         </p>
         <a className="btn-secondary mt-6" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">
-          לשחק ב־NAVINES WORLD
+          לשחק בעולם נביא נס
         </a>
       </section>
 
@@ -2488,7 +2488,7 @@ function RobloxBrandExperienceArticleBody() {
           משימות ותוכן חדש לפי נתונים זמינים ומשוב אמיתי. אין דרך אחראית להבטיח ויראליות, מספר שחקנים או מכירות; אפשר לבנות בסיס טוב, למדוד ולשפר.
         </p>
         <p className="mt-4">
-          <Link className="editorial-link" href="/services/roblox-brand-experiences">לשירות פיתוח משחקי Roblox ועולמות מותג</Link>
+          <Link className="editorial-link" href="/services/roblox-brand-experiences">לשירות פיתוח משחקי רובלוקס ועולמות מותג</Link>
           {" · "}
           <Link className="editorial-link" href="/services/global-brand-b2b-platform">לבניית פלטפורמת מותג רחבה</Link>
         </p>

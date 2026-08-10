@@ -111,12 +111,12 @@ export default function HomePage() {
             <div className="max-w-4xl">
               <p className="section-eyebrow">מוזיקה, הפצה וניהול אמן</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="music-distribution-title">{musicDistributionService.title}</h2>
-              <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>מהכנת Master, עטיפה ומטא־דאטה ועד בחירת מפיץ, פרופילי אמן, Spotify, Apple Music, YouTube, תוכן וקידום אורגני. נביא נס מנהלת את הנוכחות הדיגיטלית של הפרויקט של רננו ומציגה אותו כמקרה בוחן ציבורי.</p>
+              <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>מהכנת מאסטר, עטיפה ומטא־דאטה ועד בחירת מפיץ, פרופילי אמן, ספוטיפיי (Spotify), אפל מיוזיק (Apple Music), יוטיוב (YouTube), תוכן וקידום אורגני. נביא נס מנהלת את הנוכחות הדיגיטלית של הפרויקט של רננו ומציגה אותו כמקרה בוחן ציבורי.</p>
               <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>הפצה מקצועית מסדרת את הדרך אל הפלטפורמות; היא אינה מבטיחה השמעות, הכנסה, חשיפה או קבלה לפלייליסטים.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link className="btn-primary" href={`/services/${musicDistributionService.slug}`}>לפרטי השירות</Link>
-              <a className="btn-on-dark" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">רננו ב־Spotify</a>
+              <a className="btn-on-dark" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">רננו בספוטיפיי</a>
               <Link className="editorial-link inline-flex items-center" href="/blog/how-to-distribute-music-spotify-apple-youtube">למדריך ההפצה</Link>
             </div>
           </div>
@@ -130,11 +130,11 @@ export default function HomePage() {
               <p className="section-eyebrow">משחקים וחוויות מותג</p>
               <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="roblox-brand-title">{robloxExperienceService.title}</h2>
               <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>הופכים סיפור, מוצר או קהילה לעולם שאפשר להיכנס אליו: קונספט, משחקיות, עיצוב, פיתוח, ביצועים והשקה. אפשר להתחיל במשחק חדש או לשפר חוויה קיימת.</p>
-              <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>NAVINES WORLD הוא עולם התנסות שבנינו כדי ללמוד ולבדוק רעיונות בתוך Roblox; הוא אינו מוצג כמשחק ויראלי או כהבטחה לתוצאה.</p>
+              <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>עולם נביא נס (NAVINES WORLD) הוא עולם התנסות שבנינו כדי ללמוד ולבדוק רעיונות בתוך רובלוקס (Roblox). הוא אינו מוצג כמשחק ויראלי או כהבטחה לתוצאה.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link className="btn-primary" href={`/services/${robloxExperienceService.slug}`}>לפרטי השירות</Link>
-              <a className="btn-on-dark" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">לשחק ב־NAVINES WORLD</a>
+              <a className="btn-on-dark" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">לשחק בעולם נביא נס</a>
               <Link className="editorial-link inline-flex items-center" href="/blog/roblox-brand-experience-for-business">למדריך למותגים</Link>
             </div>
           </div>

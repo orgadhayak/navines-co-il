@@ -19,7 +19,7 @@ const footerGroups: FooterGroup[] = [
       { label: "פיתוח אתרים ומערכות", href: "/services/web-development" },
       { label: "פיתוח אפליקציות", href: "/services/mobile-app-development" },
       { label: "הפצת מוזיקה וניהול אמן", href: "/services/music-distribution-artist-digital-presence" },
-      { label: "משחקי Roblox ועולמות מותג", href: "/services/roblox-brand-experiences" },
+      { label: "משחקי רובלוקס ועולמות מותג", href: "/services/roblox-brand-experiences" },
       { label: "איקומרס ומרקטפלייסים", href: "/services/ecommerce" },
       { label: "מערכת תוכנית שותפים לאתר קיים", href: "/services/affiliate-program-platform" },
       { label: "בדיקת חיובים והחזרים אפשריים", href: "/services/payment-discrepancy-review" },

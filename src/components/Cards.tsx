@@ -159,7 +159,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "vehicle-property-agricultural-appraisal-guide": "למדריך השמאות",
     "affiliate-program-for-existing-website": "לבניית תוכנית שותפים",
     "how-to-review-payments-and-refunds": "לבדיקת חיובים והחזרים",
-    "roblox-brand-experience-for-business": "למדריך Roblox למותגים",
+    "roblox-brand-experience-for-business": "למדריך רובלוקס למותגים",
     "how-to-distribute-music-spotify-apple-youtube": "למדריך ההפצה למוזיקאים",
   };
 

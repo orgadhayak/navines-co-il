@@ -161,11 +161,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         ) : null}
         {isRobloxExperienceService ? (
           <div className="mt-6 flex flex-wrap gap-3">
-            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, יש לנו רעיון למשחק או עולם מותג ב־Roblox ונרצה לבדוק התאמה.")}`} rel="noopener noreferrer" target="_blank">
-              ספרו לנו על רעיון ה־Roblox
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, יש לנו רעיון למשחק או עולם מותג ברובלוקס ונרצה לבדוק התאמה.")}`} rel="noopener noreferrer" target="_blank">
+              ספרו לנו על רעיון הרובלוקס
             </a>
             <a className="btn-secondary" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">
-              לשחק ב־NAVINES WORLD
+              לשחק בעולם נביא נס
             </a>
           </div>
         ) : null}
@@ -175,10 +175,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               ספרו לנו על המוזיקה שלכם
             </a>
             <a className="btn-secondary" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">
-              הפרויקט של רננו ב־Spotify
+              הפרויקט של רננו בספוטיפיי
             </a>
             <a className="btn-secondary" href="https://www.youtube.com/@raneno.official" rel="noopener noreferrer" target="_blank">
-              ערוץ YouTube הרשמי
+              ערוץ היוטיוב הרשמי
             </a>
           </div>
         ) : null}
@@ -377,7 +377,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isMusicDistributionService ? "יש לכם שיר מוכן או קטלוג שצריך לעשות בו סדר?" : isRobloxExperienceService ? "יש לכם רעיון למשחק או לעולם מותג ב־Roblox?" : isBusinessSystemsChatGptService ? "רוצים לשאול את המערכות שלכם שאלה רגילה ולקבל תשובה ברורה?" : isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב אמזון?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        title={isMusicDistributionService ? "יש לכם שיר מוכן או קטלוג שצריך לעשות בו סדר?" : isRobloxExperienceService ? "יש לכם רעיון למשחק או לעולם מותג ברובלוקס?" : isBusinessSystemsChatGptService ? "רוצים לשאול את המערכות שלכם שאלה רגילה ולקבל תשובה ברורה?" : isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב אמזון?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
         text={isMusicDistributionService ? "שלחו לנו מה כבר מוכן: שיר, עטיפה, שם אמן, תאריך רצוי וקישורים קיימים. נבדוק מה חסר לפני הפצה, אילו פרופילים צריך לסדר ואיך לבנות השקה מקצועית בלי להבטיח השמעות או הכנסה." : isRobloxExperienceService ? "ספרו לנו מי המותג, למי המשחק מיועד ומה הייתם רוצים שהשחקן ירגיש או יעשה. נבדוק אם נכון להתחיל בעולם קטן, אירוע או משחק רחב יותר, בלי להבטיח תנועה או ויראליות." : isBusinessSystemsChatGptService ? "שלחו לנו את שמות המערכות ואת שלוש השאלות שהכי קשה לענות עליהן היום. נבדוק API, הרשאות ואיכות נתונים ונציע חיבור ראשון קטן, שימושי ובטוח." : isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל אמזון." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
@@ -799,7 +799,7 @@ function AppraisalGuidance() {
 
       <div>
         <p className="text-sm font-semibold text-glowred">היתרון הטכנולוגי</p>
-        <h2 className="mt-2 text-2xl font-semibold">לא רק לראות את הנזק — לבנות ממנו תמונה מלאה</h2>
+        <h2 className="mt-2 text-2xl font-semibold">לא רק לראות את הנזק, אלא לבנות ממנו תמונה מלאה</h2>
         <p className="mt-3 text-lg leading-8 text-zinc-300">
           הפרטים הקטנים הם לעיתים ההבדל בין אומדן כללי לבין חוות דעת שקל להבין, לבדוק ולהגן עליה מקצועית. נביא נס משלבת עבודת שטח עם תיעוד דיגיטלי ובקרת נתונים, כדי שכל רכיב רלוונטי יקבל התייחסות ולא ילך לאיבוד בתוך ערימת מסמכים ותמונות.
         </p>

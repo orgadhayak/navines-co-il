@@ -25,7 +25,7 @@ const serviceGroups = [
       ["פיתוח תוספים לדפדפן", "/services/browser-extension-development"],
       ["פיתוח אפליקציות", "/services/mobile-app-development"],
       ["הפצת מוזיקה וניהול אמן", "/services/music-distribution-artist-digital-presence"],
-      ["משחקי Roblox ועולמות מותג", "/services/roblox-brand-experiences"],
+      ["משחקי רובלוקס ועולמות מותג", "/services/roblox-brand-experiences"],
     ],
   },
   {
