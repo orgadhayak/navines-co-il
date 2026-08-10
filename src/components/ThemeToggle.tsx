@@ -28,7 +28,7 @@ function persistTheme(nextTheme: Theme) {
   document.cookie = `navines-theme=${nextTheme}; path=/; max-age=31536000; samesite=lax`;
 }
 
-export function ThemeToggle({ locale = "he", initialTheme = "light" }: { locale?: keyof typeof labels; initialTheme?: Theme }) {
+export function ThemeToggle({ locale = "he", initialTheme = "dark" }: { locale?: keyof typeof labels; initialTheme?: Theme }) {
   const [theme, setTheme] = useState<Theme>(initialTheme);
   const copy = labels[locale] || labels.he;
 
@@ -60,7 +60,7 @@ export function ThemeToggle({ locale = "he", initialTheme = "light" }: { locale?
       onClick={toggleTheme}
       type="button"
     >
-      <span className="theme-toggle-indicator h-2.5 w-2.5 rounded-full" style={{ background: theme === "dark" ? "#38BDF8" : "#0284C7" }} aria-hidden="true" />
+      <span className="theme-toggle-indicator h-2.5 w-2.5 rounded-full" style={{ background: "var(--primary)" }} aria-hidden="true" />
       <span>{theme === "dark" ? copy.dark : copy.light}</span>
     </button>
   );

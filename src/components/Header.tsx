@@ -81,7 +81,7 @@ const localizedTagline: Record<LocaleSlug, string> = {
   zh: "软件、AI 与数字基础设施",
 };
 
-export function Header({ initialLocale = "he", initialTheme = "light" }: { initialLocale?: LocaleSlug; initialTheme?: "light" | "dark" }) {
+export function Header({ initialLocale = "he", initialTheme = "dark" }: { initialLocale?: LocaleSlug; initialTheme?: "light" | "dark" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdown, setDropdown] = useState<DropdownKey>(null);
   const [mobileGroup, setMobileGroup] = useState<MobileGroup>(null);
@@ -189,7 +189,7 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
             <span className="english-tech text-xs font-semibold">{activeLanguage.shortLabel}</span>
             <span className="hidden text-sm sm:inline">{activeLanguage.nativeName}</span>
           </button>
-          <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold text-white xl:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)" }}>
+          <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold xl:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)", color: "var(--primary-contrast)" }}>
             {isHebrew ? "דברו איתנו" : localized?.cta || "WhatsApp"}
           </a>
           <button
