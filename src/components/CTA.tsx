@@ -13,12 +13,14 @@ export function CTA({
   whatsappLabel?: string;
 }) {
   return (
-    <section className="mx-auto my-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="rounded-premium border p-8 md:p-12" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }}>
+    <section className="cta-band mx-auto my-12 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="border-y py-10 md:flex md:items-end md:justify-between md:gap-12 md:py-14" style={{ borderColor: "var(--border)" }}>
+        <div>
         <p className="mb-3 text-sm font-semibold text-glowred">השלב הבא</p>
-        <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-white md:text-5xl">{title}</h2>
+        <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-white md:text-4xl">{title}</h2>
         <p className="mt-4 max-w-2xl text-lg text-zinc-300">{text}</p>
-        <div className="mt-7 flex flex-wrap gap-3">
+        </div>
+        <div className="mt-7 flex shrink-0 flex-wrap gap-3 md:mt-0">
           <a className="btn-primary" href={whatsappHref}>
             {whatsappLabel}
           </a>

@@ -33,7 +33,7 @@ export function BlogFilter({ categories, posts }: { categories: string[]; posts:
           ))}
         </div>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-x-8 md:grid-cols-2">
         {filtered.map((post) => (
           <BlogCard key={post.slug} post={post} />
         ))}

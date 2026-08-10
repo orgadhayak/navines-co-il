@@ -5,21 +5,21 @@ import { formatBlogDate } from "@/lib/dates";
 
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
-    <Link className="command-glass group block p-5 transition hover:-translate-y-0.5" href={`/services/${service.slug}`}>
+    <Link className="editorial-card group block" href={`/services/${service.slug}`}>
       <div className="flex items-center justify-between gap-3">
-        <p className="text-sm font-semibold text-glowred">
+        <p className="text-xs font-semibold text-glowred">
           <BrandInline text={service.eyebrow} />
         </p>
-        <span className="text-sm font-medium" style={{ color: "var(--text-soft)" }}>{String(index + 1).padStart(2, "0")}</span>
+        <span className="editorial-index text-sm font-medium">{String(index + 1).padStart(2, "0")}</span>
       </div>
-      <h3 className="mt-3 text-2xl font-semibold text-white">
+      <h3 className="mt-4 text-2xl font-semibold text-white">
         <BrandInline text={service.title} />
       </h3>
       <p className="mt-3 text-base leading-7 text-zinc-400">
         <BrandInline text={service.summary} />
       </p>
-      <span className="mt-5 inline-flex rounded-lg border px-4 py-2 text-sm font-semibold transition group-hover:border-sky-300 group-hover:text-sky-700" style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>
-        לעמוד השירות
+      <span className="editorial-link mt-6 inline-flex items-center gap-2 text-sm font-semibold">
+        לעמוד השירות <span aria-hidden="true">←</span>
       </span>
     </Link>
   );
@@ -27,21 +27,21 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
 
 export function ProductCard({ product }: { product: Product }) {
   const ctaLabel = product.cta || "מעבר לכלי";
-  const ctaClass = "mt-5 inline-flex min-w-36 justify-center rounded-lg border px-4 py-2 text-sm font-semibold transition hover:border-sky-300 hover:text-sky-700";
+  const ctaClass = "editorial-link mt-5 inline-flex items-center gap-2 text-sm font-semibold";
   const details = (
     <>
-      <span className="tag inline-flex items-center gap-2">
+      <span className="product-status inline-flex items-center gap-2">
         <span className="status-pip" />
         {product.status}
       </span>
-      <h3 className="mt-4 text-2xl font-semibold text-white">
+      <h3 className="mt-5 text-2xl font-semibold text-white">
         {product.name}
       </h3>
       <p className="mt-1 text-base font-semibold text-glowred">{product.hebrewName}</p>
       <p className="mt-3 text-base leading-7 text-zinc-400">
         {product.description}
       </p>
-      <dl className="mt-5 grid gap-3 text-base">
+      <dl className="mt-6 grid gap-4 border-t pt-5 text-base" style={{ borderColor: "var(--border)" }}>
         <div>
           <dt className="font-semibold text-silver">למי זה מתאים</dt>
           <dd className="mt-1 text-zinc-400">
@@ -60,10 +60,10 @@ export function ProductCard({ product }: { product: Product }) {
 
   if (product.url?.startsWith("/") && product.externalUrl) {
     return (
-      <article className="command-glass h-full p-5 transition hover:-translate-y-0.5">
+      <article className="editorial-card h-full">
         {details}
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link className={ctaClass.replace("mt-5 ", "")} href={product.url}>{ctaLabel}</Link>
+          <Link className={ctaClass.replace("mt-5 ", "")} href={product.url}>{ctaLabel} <span aria-hidden="true">←</span></Link>
           <a aria-label={`${product.externalCta || product.name} באתר החיצוני`} className={ctaClass.replace("mt-5 ", "")} href={product.externalUrl} rel="noopener noreferrer" target="_blank">
             {product.externalCta || `לפתוח את ${product.name}`}
           </a>
@@ -73,9 +73,9 @@ export function ProductCard({ product }: { product: Product }) {
   }
 
   const content = (
-    <article className="command-glass h-full p-5 transition hover:-translate-y-0.5">
+    <article className="editorial-card h-full">
       {details}
-      <span className={ctaClass}>{ctaLabel}</span>
+      <span className={ctaClass}>{ctaLabel} <span aria-hidden="true">←</span></span>
     </article>
   );
 
@@ -102,7 +102,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
   const ctaLabel = getBlogCtaLabel(post);
 
   return (
-    <Link className="command-glass group block p-4 transition hover:-translate-y-0.5" data-category={post.category} data-tags={post.tags.join(" ")} href={`/blog/${post.slug}`}>
+    <Link className="article-list-item group block" data-category={post.category} data-tags={post.tags.join(" ")} href={`/blog/${post.slug}`}>
       <div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-zinc-500">
           <span className="text-glowred">
@@ -118,12 +118,12 @@ export function BlogCard({ post }: { post: BlogPost }) {
           <BrandInline text={post.excerpt} />
         </p>
         {post.englishTitle ? (
-          <span className="tag mt-3">
+          <span className="article-note mt-3 inline-flex">
             כולל תקציר באנגלית
           </span>
         ) : null}
-        <span className="mt-4 inline-flex min-w-36 justify-center rounded-lg border px-4 py-2 text-sm font-semibold transition group-hover:border-sky-300 group-hover:text-sky-700" style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>
-          {ctaLabel}
+        <span className="editorial-link mt-5 inline-flex items-center gap-2 text-sm font-semibold">
+          {ctaLabel} <span aria-hidden="true">←</span>
         </span>
       </div>
     </Link>

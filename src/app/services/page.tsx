@@ -30,7 +30,7 @@ export default function ServicesPage() {
       <Section eyebrow="שירותים" title="שירותים שמסדרים את העסק הדיגיטלי מקצה לקצה" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">אם האתר לא מביא פניות, החנות קשה לניהול, הצוות עובד ידנית או המערכות לא מדברות אחת עם השנייה, אנחנו עוזרים לעשות סדר. בונים את מה שצריך, מחברים את מה שקיים ומשפרים את מה שכבר עובד כדי שהעסק יהיה מהיר, ברור ומדיד יותר.</p>
         {systemsIntegrationService ? (
-          <div className="command-glass mt-7 rounded-[1.8rem] p-5 lg:grid lg:grid-cols-[1fr_0.7fr] lg:items-center lg:gap-6">
+          <div className="mt-8 border-y py-8 lg:grid lg:grid-cols-[1fr_0.7fr] lg:items-center lg:gap-10" style={{ borderColor: "var(--border)" }}>
             <div>
               <p className="text-sm font-semibold text-glowred">השירות הראשון שכדאי להכיר</p>
               <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-5xl">{systemsIntegrationService.title}</h2>
@@ -48,7 +48,7 @@ export default function ServicesPage() {
             </div>
           </div>
         ) : null}
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="service-directory-grid mt-10 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard index={index} key={service.slug} service={service} />
           ))}
@@ -65,7 +65,7 @@ export default function ServicesPage() {
       <Section eyebrow="יכולות" title="תחומי מומחיות שמתחברים לצרכים אמיתיים בעסק">
         <div className="grid gap-5 lg:grid-cols-2">
           {groups.map(({ title, description, items }) => (
-            <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" key={title}>
+            <article className="border-t py-6" key={title} style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold text-white">{title}</h2>
               {description ? <p className="mt-3 text-base leading-7 text-zinc-300">{description}</p> : null}
               <div className="mt-4 flex flex-wrap gap-2">
@@ -99,7 +99,7 @@ export default function ServicesPage() {
         </p>
         <div className="grid gap-5 lg:grid-cols-2">
           {serviceEcosystem.map(({ title, intro, items }) => (
-            <article className="rounded-[1.6rem] border border-purple-300/15 bg-black/28 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.24)]" key={title}>
+            <article className="border-t py-6" key={title} style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold text-white">{title}</h2>
               <p className="mt-3 text-base leading-7 text-zinc-300">{intro}</p>
               <div className="mt-5 flex flex-wrap gap-2">

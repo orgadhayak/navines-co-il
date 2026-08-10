@@ -22,9 +22,10 @@ export default function AboutPage() {
         </div>
       </Section>
       <Section eyebrow="ערכים" title="איך אנחנו עובדים איתכם">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value) => (
-            <div className="rounded-premium border border-white/10 bg-white/[0.045] p-5 font-semibold text-silver" key={value}>
+        <div className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+          {values.map((value, index) => (
+            <div className="border-t py-5 font-semibold text-silver" key={value} style={{ borderColor: "var(--border)" }}>
+              <span className="mb-2 block text-xs text-glowred">{String(index + 1).padStart(2, "0")}</span>
               {value}
             </div>
           ))}

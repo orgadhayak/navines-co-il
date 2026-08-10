@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -144,17 +145,17 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
   }, [mobileOpen]);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-40 border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
-      <div className="relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <header ref={headerRef} className="site-header sticky top-0 z-40 border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
+      <div className="site-header-inner relative z-50 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link className="flex min-w-0 items-center gap-3" href={homeHref} aria-label={isHebrew ? "חזרה לעמוד הבית" : localized?.home || "Home"} onClick={() => closeAll()}>
-          <img alt="Navines" className="brand-logo h-5 w-auto shrink-0 object-contain" src="/brand/navines-wordmark-slim.png" />
+          <Image alt="Navines" className="brand-logo h-6 w-auto shrink-0 object-contain" height={33} priority src="/brand/navines-wordmark-slim.png" width={176} />
           <span className="hidden min-w-0 leading-tight sm:block">
             <strong className="block truncate text-base font-semibold" style={{ color: "var(--text)" }}>{isHebrew ? site.name : "Navines"}</strong>
             <span className="block truncate text-sm" style={{ color: "var(--text-muted)" }}>{localizedTagline[activeLocale]}</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label={isHebrew ? "תפריט ראשי" : "Primary navigation"}>
+        <nav className="hidden items-center gap-1 xl:flex" aria-label={isHebrew ? "תפריט ראשי" : "Primary navigation"}>
           {isHebrew ? (
             <>
               <DropdownButton active={pathname?.startsWith("/services") || pathname === "/optimization-hub"} isOpen={dropdown === "services"} label="שירותים" onClick={() => setDropdown((current) => (current === "services" ? null : "services"))} />
@@ -181,7 +182,7 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
           <button
             aria-expanded={dropdown === "language"}
             aria-label={isHebrew ? "בחירת שפה" : localized?.language || "Language selector"}
-            className="header-language-trigger hidden min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition lg:inline-flex"
+            className="header-language-trigger hidden min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition xl:inline-flex"
             onClick={() => setDropdown((current) => (current === "language" ? null : "language"))}
             type="button"
           >
@@ -189,14 +190,14 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
             <span className="hidden text-sm sm:inline">{activeLanguage.nativeName}</span>
             <ChevronIcon open={dropdown === "language"} />
           </button>
-          <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold text-white lg:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)" }}>
+          <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold text-white xl:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)" }}>
             {isHebrew ? "דברו איתנו" : localized?.cta || "WhatsApp"}
           </a>
           <button
             ref={menuButtonRef}
             aria-expanded={mobileOpen}
             aria-label={isHebrew ? "פתיחת תפריט" : localized?.menu || "Open menu"}
-            className="mobile-menu-button inline-flex min-h-10 items-center justify-center px-3 py-2 text-sm font-semibold lg:hidden"
+            className="mobile-menu-button inline-flex min-h-10 items-center justify-center px-3 py-2 text-sm font-semibold xl:hidden"
             onClick={() => setMobileOpen((value) => !value)}
             type="button"
           >
@@ -206,7 +207,7 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
       </div>
 
       {dropdown && (
-        <div className="hidden border-t lg:block" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+        <div className="site-header-dropdown hidden border-t xl:block" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
           <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
             {dropdown === "services" ? <ServicesDropdown onClick={closeAll} /> : null}
             {dropdown === "solutions" ? <SolutionsDropdown onClick={closeAll} /> : null}
@@ -218,14 +219,14 @@ export function Header({ initialLocale = "he", initialTheme = "light" }: { initi
       {mobileOpen ? (
         <button
           aria-label={isHebrew ? "סגירת תפריט" : "Close menu"}
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[1px] lg:hidden"
+          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[1px] xl:hidden"
           onClick={() => closeMobile(true)}
           type="button"
         />
       ) : null}
 
       {mobileOpen ? (
-        <nav className="mobile-menu-panel relative z-50 max-h-[calc(100svh-4.5rem)] overflow-y-auto px-4 py-4 lg:hidden" aria-label={isHebrew ? "תפריט מובייל" : "Mobile navigation"}>
+        <nav className="mobile-menu-panel relative z-50 max-h-[calc(100svh-4.5rem)] overflow-y-auto px-4 py-4 xl:hidden" aria-label={isHebrew ? "תפריט מובייל" : "Mobile navigation"}>
           <div className="mx-auto grid max-w-7xl gap-2 pb-6">
             {isHebrew ? (
               <>

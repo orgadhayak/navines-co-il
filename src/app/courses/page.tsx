@@ -50,12 +50,11 @@ export default function CoursesPage() {
               </Link>
             </div>
           </div>
-          <div className="command-glass rounded-[1.8rem] p-5">
+          <div className="border-y py-6" style={{ borderColor: "var(--border)" }}>
             <p className="text-base font-semibold text-glowred">מה הופך את המסלול לשונה?</p>
             <div className="mt-4 grid gap-3">
               {["מרעיון לתוצר שאפשר להציג", "10 מפגשים פרונטליים", "שנה שלמה של תמיכה וליווי", "לא נדרש ידע מוקדם", "מבחן התאמה וראיון לפני קבלה"].map((item) => (
-                <div className="dashboard-row rounded-[1.15rem] p-4" key={item}>
-                  <span className="status-pip bg-purple-200 text-purple-200" />
+                <div className="border-t py-4" key={item} style={{ borderColor: "var(--border)" }}>
                   <p className="mt-2 text-lg font-semibold text-white">{item}</p>
                 </div>
               ))}
@@ -67,10 +66,10 @@ export default function CoursesPage() {
       <Section eyebrow="מסלולים" title="בחרו את מסלול AI שמתאים לכם" id="course-tracks" className="py-6 lg:py-10">
         <div className="grid gap-5 md:grid-cols-2">
           {courseTracks.map((course) => (
-            <article className="command-glass group rounded-[1.7rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" key={course.slug}>
+            <article className="group border-t py-6 transition" key={course.slug} style={{ borderColor: "var(--border)" }}>
               <div className="flex items-center justify-between gap-3">
                 <p className="text-sm font-semibold text-glowred">{course.eyebrow}</p>
-                <span className="live-status-chip rounded-full px-3 py-1 text-sm font-semibold text-purple-100">פרונטלי</span>
+                <span className="text-sm font-semibold text-glowred">פרונטלי</span>
               </div>
               <Link className="mt-4 block text-3xl font-semibold leading-tight text-white transition hover:text-glowred" href={`/courses/${course.slug}`}>
                 {course.navLabel}
@@ -101,7 +100,7 @@ export default function CoursesPage() {
             { title: "מוצר", text: "מפרקים את הרעיון לתוצר שאפשר לבנות, לבדוק, לשפר ולהציג בלי להסתבך יותר מדי." },
             { title: "הקשר דיגיטלי", text: "לומדים איפה התוצר צריך לחיות: אתר, כלי, דף הצגה, תהליך עבודה או מערכת קטנה." },
           ].map((item) => (
-            <article className="dashboard-row rounded-[1.35rem] p-5" key={item.title}>
+            <article className="border-t py-6" key={item.title} style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
               <p className="mt-3 text-lg leading-8 text-zinc-300">{item.text}</p>
             </article>

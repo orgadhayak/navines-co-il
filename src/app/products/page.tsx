@@ -22,7 +22,7 @@ export default function ProductsPage() {
       <Section eyebrow="כלים ומוצרים" title="כלים שעוזרים לעסק לראות מה באמת קורה" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">אנחנו בונים כלים שמורידים ניחושים מהשולחן: בדיקת אתר, ניטור נכסים דיגיטליים, הבנת נתונים, בדיקת קישורים וזיהוי בעיות לפני שהן פוגעות בפניות, מכירות או אמון.</p>
         {talkToDataProduct ? (
-          <div className="command-glass mt-7 rounded-[1.8rem] p-5 lg:flex lg:items-center lg:justify-between lg:gap-6">
+          <div className="mt-8 border-y py-8 lg:flex lg:items-center lg:justify-between lg:gap-10" style={{ borderColor: "var(--border)" }}>
             <div className="max-w-3xl">
               <p className="text-sm font-semibold text-glowred">הכלי הראשון שכדאי לראות</p>
               <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-5xl">{talkToDataProduct.hebrewName}</h2>
@@ -36,13 +36,13 @@ export default function ProductsPage() {
         ) : null}
         <div className="mt-8">
           <h2 className="text-3xl font-semibold text-white">כלים מובילים שכדאי להכיר</h2>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-x-8 md:grid-cols-3">
             {featuredProducts.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
           </div>
         </div>
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
           {otherProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}

@@ -234,7 +234,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </>
           )}
           {service.serviceHighlights?.length ? (
-            <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+            <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold text-white">נקודות שחשוב להבין</h2>
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 {service.serviceHighlights.map((highlight) => {
@@ -249,7 +249,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   const isExternalPrimary = !highlight.href && Boolean(highlight.externalHref);
 
                   return primaryHref ? (
-                    <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4" key={highlight.title}>
+                    <div className="border-t py-4" key={highlight.title} style={{ borderColor: "var(--border)" }}>
                       {isExternalPrimary ? (
                         <a className="block transition hover:text-sky-200" href={primaryHref} rel="noopener noreferrer" target="_blank">{content}</a>
                       ) : (
@@ -262,7 +262,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                       ) : null}
                     </div>
                   ) : (
-                    <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4" key={highlight.title}>
+                    <div className="border-t py-4" key={highlight.title} style={{ borderColor: "var(--border)" }}>
                       {content}
                     </div>
                   );
@@ -271,11 +271,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </article>
           ) : null}
           {service.relatedArticles?.length ? (
-            <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+            <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold text-white">מדריכים קשורים</h2>
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 {service.relatedArticles.map((article) => (
-                  <Link className="rounded-lg border border-purple-200/12 bg-black/18 p-4 transition hover:border-purple-200/35 hover:bg-purple-500/12" href={article.href} key={article.href}>
+                  <Link className="block border-t py-4 transition hover:text-glowred" href={article.href} key={article.href} style={{ borderColor: "var(--border)" }}>
                     <h3 className="text-xl font-semibold text-white">{article.title}</h3>
                     <p className="mt-2 text-base leading-7 text-zinc-400">{article.text}</p>
                   </Link>
@@ -289,7 +289,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {isBrowserExtensionService ? <BrowserExtensionGuidance /> : null}
           {isLegalTechnologyService ? <LegalTechnologyGuidance /> : null}
           {isTrafficLawService ? <TrafficLawGuidance /> : null}
-          <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5" id={isAppraisalService ? "appraisal-process" : undefined}>
+          <article className="border-t py-6" id={isAppraisalService ? "appraisal-process" : undefined} style={{ borderColor: "var(--border)" }}>
             <h2 className="text-2xl font-semibold text-white">תהליך עבודה</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {(service.processSteps || [
@@ -300,19 +300,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 { title: "בדיקות ושיפור", text: "בודקים מובייל, ביצועים, טפסים, הרשאות, נתונים וחוויית משתמש." },
                 { title: "השקה וליווי", text: "מעלים לאוויר, עוקבים אחרי שימוש וממשיכים לשפר לפי נתונים." },
               ]).map((step, index) => (
-                <div className="rounded-premium border border-white/10 bg-black/20 p-4" key={step.title}>
-                  <span className="grid h-9 w-9 place-items-center rounded-premium bg-navred font-semibold text-white">{index + 1}</span>
+                <div className="border-t py-4" key={step.title} style={{ borderColor: "var(--border)" }}>
+                  <span className="text-sm font-semibold text-glowred">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="mt-3 font-semibold text-white">{step.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-zinc-400">{step.text}</p>
                 </div>
               ))}
             </div>
           </article>
-          <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+          <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
             <h2 className="text-2xl font-semibold text-white">שאלות נפוצות</h2>
             <div className="mt-5 grid gap-3">
               {service.faqs.map((faq) => (
-                <details className="rounded-premium border border-white/10 bg-black/20 p-4" key={faq.question}>
+                <details className="border-t py-4" key={faq.question} style={{ borderColor: "var(--border)" }}>
                   <summary className="cursor-pointer font-semibold text-silver">{faq.question}</summary>
                   <p className="mt-3 leading-7 text-zinc-400">{faq.answer}</p>
                 </details>
@@ -673,7 +673,7 @@ function BrowserExtensionGuidance() {
   const safeguards = ["הרשאות מינימליות", "שמירה על פרטיות", "לא לבצע מעקב נסתר", "לא לאסוף מידע בלי צורך והסכמה", "מפתחות API ושירותים רגישים נשארים בצד שרת", "עבודה לפי מדיניות חנויות הדפדפנים"];
 
   return (
-    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+    <article className="border-y py-6" style={{ borderColor: "var(--border)" }}>
       <h2 className="text-2xl font-semibold text-white">תוספים פנימיים, AI ואבטחה</h2>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         תוסף לא חייב להיות מוצר ציבורי. לפעמים הערך הגדול ביותר הוא כלי פנימי קטן שמקצר פעולה שחוזרת כל יום. אפשר לשלב בו גם AI, סיכום מידע, חילוץ פרטים, המלצות או חיבור למערכת של העסק, אבל עושים את זה בזהירות.
@@ -793,7 +793,7 @@ function AccountHackGuidance() {
   const donts = ["לא לשלם מיד בלי להבין את הסיכון", "לא למחוק הודעות או ראיות", "לא להתווכח בפאניקה עם מי שמחזיק בגישה", "לא לפתוח קישורים חשודים", "לא למסור עוד קודים או סיסמאות", "לא להתקין תוכנות שמישהו שלח לכם", "לא לפרסם פוסט לפני שמבינים את הסיכון", "לא לחכות אם מדובר בחשבון עסקי"];
 
   return (
-    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+    <article className="border-y py-6" style={{ borderColor: "var(--border)" }}>
       <h2 className="text-2xl font-semibold text-white">תקשורת מול התוקף או מי שמחזיק בגישה</h2>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         במקרים מסוימים יש צורך לנהל תקשורת זהירה ומחושבת מול מי שמחזיק בגישה לחשבון או מאיים בפרסום מידע. אנחנו לא ממליצים לפעול בפאניקה, לשלם מיד, לאיים או לעשות פעולה לא חוקית. המטרה היא לקנות זמן, להבין את מצב הסיכון, לשמור ראיות, לצמצם נזק ולפעול בצורה חכמה וחוקית.
@@ -866,7 +866,7 @@ function DueDiligenceGuidance() {
       </p>
       <div className="mt-4 grid gap-2 md:grid-cols-2">
         {outputs.map((item) => (
-          <div className="rounded-lg border border-purple-200/12 bg-black/18 px-4 py-3 text-base font-bold text-zinc-200" key={item}>{item}</div>
+          <div className="border-r pr-4 text-base font-semibold text-zinc-200" style={{ borderColor: "var(--border-strong)" }} key={item}>{item}</div>
         ))}
       </div>
     </article>
@@ -965,11 +965,11 @@ function InfoBlock({ title, items, plain = false }: { title: string; items: stri
   }
 
   return (
-    <article className="rounded-premium border border-white/10 bg-white/[0.045] p-5">
+    <article className="border-y py-6" style={{ borderColor: "var(--border)" }}>
       <h2 className="text-2xl font-semibold text-white">{title}</h2>
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-5 grid gap-3 md:grid-cols-2">
         {items.map((item) => (
-          <span className="tag" key={item}>
+          <span className="border-r pr-4 text-base leading-7" style={{ borderColor: "var(--border-strong)", color: "var(--text-muted)" }} key={item}>
             {item}
           </span>
         ))}

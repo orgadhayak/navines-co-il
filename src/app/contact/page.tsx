@@ -29,8 +29,8 @@ const contactActions = [
 export default function ContactPage() {
   return (
     <Section eyebrow="יצירת קשר" title="שלחו הודעה קצרה ונכוון אתכם" titleAs="h1" className="lg:py-14">
-      <div className="mx-auto max-w-4xl">
-        <div className="command-glass p-6 sm:p-8">
+      <div className="max-w-5xl border-y py-8" style={{ borderColor: "var(--border)" }}>
+        <div>
           <div>
             <p className="max-w-2xl text-xl leading-9 text-zinc-200">
               לא צריך להכין מסמך ארוך. כתבו לנו בוואטסאפ מה יש לכם היום ומה הייתם רוצים לשפר: אתר, חנות, מערכת, אוטומציה, מהירות או אבטחה. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.
@@ -46,14 +46,14 @@ export default function ContactPage() {
               })}
             </div>
 
-            <div className="mt-8 grid gap-4 text-base text-zinc-300 sm:grid-cols-2">
-              <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-5">
+            <div className="mt-10 grid gap-8 border-t pt-7 text-base text-zinc-300 sm:grid-cols-2" style={{ borderColor: "var(--border)" }}>
+              <div>
                 <strong className="block text-lg text-white">{site.hebrewLegalName}</strong>
                 <span className="mt-2 block">{site.companyNumberLabel}</span>
                 <span className="mt-2 block">{site.hebrewAddress}</span>
               </div>
 
-              <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-5">
+              <div className="sm:border-r sm:pr-8" style={{ borderColor: "var(--border)" }}>
                 <a className="english-tech block font-semibold text-white transition hover:text-glowred" dir="ltr" href={site.phoneHref}>
                   {site.phone}
                 </a>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useId, useState } from "react";
 import { languageLinks, type LocaleSlug } from "@/i18n/locales";
 import { products, services, site, type Product, type Service } from "@/data/site";
@@ -171,7 +172,7 @@ function FooterBrand() {
   return (
     <section className="footer-brand min-w-0">
       <Link className="inline-flex items-center" href="/" aria-label="חזרה לעמוד הבית">
-        <img alt="Navines" className="brand-logo h-6 w-auto object-contain" src="/brand/navines-wordmark-slim.png" />
+        <Image alt="Navines" className="brand-logo h-6 w-auto object-contain" height={33} src="/brand/navines-wordmark-slim.png" width={176} />
       </Link>
       <strong className="mt-4 block text-lg font-semibold">{site.hebrewLegalName}</strong>
       <p className="mt-3 max-w-sm text-base leading-7" style={{ color: "var(--text-muted)" }}>חברת תוכנה ו־AI שמפתחת מערכות, אוטומציות, אתרים וכלים דיגיטליים לעסקים.</p>
@@ -247,7 +248,7 @@ function LocalizedFooter({ locale, copy, showCta }: { locale: Exclude<LocaleSlug
       <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {showCta ? <section className="mb-10 border-b pb-8" style={{ borderColor: "var(--border)" }}><h2 className="text-2xl font-semibold">{copy.ctaTitle}</h2><p className="mt-2 max-w-2xl" style={{ color: "var(--text-muted)" }}>{copy.ctaText}</p><div className="mt-5 flex flex-wrap gap-3"><a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a><a className="btn-secondary" href={site.emailHref}>{copy.email}</a></div></section> : null}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <section><Link href={homeHref}><img alt="Navines" className="brand-logo h-6 w-auto" src="/brand/navines-wordmark-slim.png" /></Link><p className="mt-4 text-base leading-7" style={{ color: "var(--text-muted)" }}>{copy.description}</p></section>
+          <section><Link href={homeHref}><Image alt="Navines" className="brand-logo h-6 w-auto" height={33} src="/brand/navines-wordmark-slim.png" width={176} /></Link><p className="mt-4 text-base leading-7" style={{ color: "var(--text-muted)" }}>{copy.description}</p></section>
           <FooterColumn group={{ id: "services", title: copy.services, items: serviceItems }} />
           <FooterColumn group={{ id: "languages", title: copy.languages, items: languageItems() }} />
           <section><h3 className="mb-3 text-base font-semibold">{copy.contact}</h3><div className="grid gap-2 text-sm" style={{ color: "var(--text-muted)" }}><a className="footer-contact-link" dir="ltr" href={site.phoneHref}><bdi>{site.phone}</bdi></a><a className="footer-contact-link" dir="ltr" href={site.emailHref}><bdi>{site.email}</bdi></a><a className="footer-contact-link" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">{copy.whatsapp}</a></div></section>

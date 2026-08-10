@@ -10,7 +10,7 @@ export const metadata = createMetadata({
 
 export default function GamesPage() {
   return (
-    <main>
+    <main className="games-page">
       <Section eyebrow="משחקים" title="משחקים חכמים קטנים לעסקים ואנשים סקרנים" titleAs="h1" className="py-8 lg:py-12">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">
           משחק ארקייד מרכזי ועוד כמה משחקים קלים ומהירים בעברית שמתרגלים חשיבה עסקית, זיכרון נתונים, תגובה מהירה ורעיונות לכלים דיגיטליים. הכל עובד ישירות בדפדפן, בלי חיבור חיצוני ובלי שמירת מידע רגיש.

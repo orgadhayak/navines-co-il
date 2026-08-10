@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+import Image from "next/image";
+import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { Section } from "@/components/Section";
@@ -8,221 +9,174 @@ import { formatBlogDate } from "@/lib/dates";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "פתרונות בינה מלאכותית, תוכנה ואוטומציה לעסקים בישראל",
-  description: "נביא נס בונה אתרים, מערכות, אוטומציות, כלי AI, TalkToData ותשתיות דיגיטליות לעסקים בישראל.",
+  title: "בית תוכנה, בינה מלאכותית ואוטומציה לעסקים בישראל",
+  description: "נביא נס ישראל בע״מ מתכננת ומפתחת מערכות תוכנה, פתרונות AI, אוטומציות, אתרים, מסחר דיגיטלי ותשתיות לעסקים.",
 });
 
-const serviceGroups = [
-  { title: "NAVINES IQ וחיבור מערכות ל־ChatGPT", text: "מחברים חשבוניות, ERP, CRM, חנויות ודוחות לשיחה אחת שמאפשרת להבין מה דורש טיפול.", href: "/services/business-systems-chatgpt-integration", cta: "לשירות החדש", label: "חיבור למערכות קיימות" },
-  { title: "AI ואוטומציה", text: "תהליכים שחוסכים עבודה ידנית, מחברים פניות, נתונים ומשימות, ומחזירים לצוות זמן.", href: "/services/ai-automation" },
-  { title: "אתרים ומערכות", text: "אתרים, פורטלים, דשבורדים ומערכות פנימיות שנבנים סביב צורך עסקי ברור.", href: "/services/web-development" },
-  { title: "פלטפורמת מותג גלובלית ו-B2B", text: "אתר בינלאומי רשמי שמחבר חברה, מותג, מוצרים, שווקים, שותפים, תוכן וכלים למקור אחד שמייצר אמון ופניות עסקיות.", href: "/services/global-brand-b2b-platform", cta: "לשירות הגלובלי", label: "כולל דוגמה חיה" },
-  { title: "איקומרס ומרקטפלייסים", text: "Shopify, WooCommerce, Amazon ו-eBay עם תשתית מכירה, מדידה ותפעול מסודרת.", href: "/services/ecommerce" },
-  { title: "תמיכה, סייבר ושחזור", text: "תקלות אתר, מיילים, DNS, פריצות לחשבונות ונכסים דיגיטליים שדורשים תגובה אחראית.", href: "/services/technical-support-cyber-networks" },
-  { title: "שמאות והערכת נזקים", text: "שמאות רכב, רכוש וחקלאות בגישה טכנולוגית, עם תיעוד מפורט, בקרת נתונים וחוות דעת שמאית ברורה.", href: "/services/vehicle-property-agricultural-appraisal" },
-  { title: "משפט וטכנולוגיה", text: "מידע כללי לבחירת משרד עם עבודה טכנולוגית מסודרת, לצד פתרונות תוכנה לארגון מידע ותהליכים.", href: "/services/legal-operations-technology" },
-  { title: "בדיקות ואופטימיזציה", text: "מהירות, SEO, תשתית, אבטחה, נתונים וחוויית משתמש, כדי שהאתר יעבוד טוב יותר.", href: "/optimization-hub" },
-];
-
-const highlighted = [
-  { title: "חיבור מערכות עסקיות ל־ChatGPT ול־NAVINES IQ", href: "/services/business-systems-chatgpt-integration" },
-  { title: "צ׳ט AI חכם לאתרים", href: "/services/ai-chat-for-websites" },
-  { title: "פיתוח תוספים לדפדפן", href: "/services/browser-extension-development" },
-  { title: "אתר SEO למוכרי Amazon", href: "/services/amazon-seller-seo-website" },
-  { title: "בחירת משרד עם יתרון טכנולוגי", href: "/services/legal-operations-technology" },
-  { title: "תעבורה וטכנולוגיה", href: "/services/traffic-case-technology" },
-  { title: "שמאות רכב, רכוש וחקלאות", href: "/services/vehicle-property-agricultural-appraisal" },
-  { title: "בדיקת עסק לפני רכישה", href: "/services/business-due-diligence-intelligence" },
+const capabilityGroups = [
+  {
+    title: "תוכנה ומערכות עסקיות",
+    text: "מערכות פנימיות, פורטלים, אתרים ואפליקציות שנבנים סביב תהליך עסקי מוגדר, לא סביב תבנית.",
+    links: [["פיתוח אתרים ומערכות", "/services/web-development"], ["פיתוח אפליקציות", "/services/mobile-app-development"], ["פיתוח תוספים לדפדפנים", "/services/browser-extension-development"]],
+  },
+  {
+    title: "AI, נתונים ואוטומציה",
+    text: "חיבור מידע, מערכות ומשימות לכלים חכמים שמקצרים עבודה ידנית ועוזרים לקבל החלטות מהר יותר.",
+    links: [["AI ואוטומציה", "/services/ai-automation"], ["חיבור מערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"]],
+  },
+  {
+    title: "מסחר ותשתיות דיגיטליות",
+    text: "חנויות, מרקטפלייסים, ביצועים, אבטחה ותמיכה טכנית שמחזיקים את הפעילות הדיגיטלית יציבה ומדידה.",
+    links: [["איקומרס", "/services/ecommerce"], ["מרכז אופטימיזציה", "/optimization-hub"], ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"]],
+  },
 ];
 
 const process = [
-  ["אבחון", "מבינים את העסק, התהליך, האתר או המערכת הקיימת."],
-  ["תכנון", "מגדירים פתרון קטן וברור שאפשר לבנות, למדוד ולשפר."],
-  ["בנייה וחיבור", "מפתחים אתר, כלי, אוטומציה, מערכת או אינטגרציה."],
-  ["שיפור ותמיכה", "בודקים ביצועים, מתקנים תקלות וממשיכים לפתח לפי צורך."],
-];
-
-const ecosystemGroups = [
-  { title: "AI, נתונים ואוטומציה", text: "מערכות שמחברות מידע, משימות ותהליכים לעבודה ברורה יותר.", links: [["חיבור מערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["AI ואוטומציה", "/services/ai-automation"], ["TalkToData", "/services/chatgpt-business-data"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"]] },
-  { title: "אתרים, מערכות ואיקומרס", text: "פיתוח, שיפור וחיבור של נכסים דיגיטליים סביב מה שהעסק באמת צריך.", links: [["בניית אתרים ומערכות", "/services/web-development"], ["פלטפורמת מותג גלובלית", "/services/global-brand-b2b-platform"], ["איקומרס", "/services/ecommerce"], ["פיתוח אפליקציות", "/services/mobile-app-development"]] },
-  { title: "מוצרים וכלים של נביא נס", text: "כלים שעוזרים להבין נתונים, לזהות בעיות ולפעול מהר יותר.", links: [["AmazonIQ", "/products/amazoniq"], ["כל המוצרים", "/products"], ["ביקון", "https://beacon.navines.com"]] },
-  { title: "תמיכה ושירותים מקצועיים", text: "תגובה אחראית לתקלות, סיכונים ותהליכים שדורשים בדיקה מסודרת.", links: [["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"], ["שחזור חשבונות", "/services/account-hack-recovery"], ["בדיקת עסק", "/services/business-due-diligence-intelligence"]] },
+  ["מבינים", "ממפים את הבעיה, התהליך והמערכות שכבר קיימות."],
+  ["מתכננים", "מגדירים תוצאה, סדרי עדיפויות ופתרון שאפשר לתחזק."],
+  ["בונים", "מפתחים, מחברים ובודקים מול שימוש אמיתי."],
+  ["משפרים", "מודדים, מתקנים ומרחיבים לפי מה שהעסק צריך."],
 ];
 
 const homeBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: site.name, item: site.url },
-  ],
+  itemListElement: [{ "@type": "ListItem", position: 1, name: site.name, item: site.url }],
 };
 
-function trimText(text: string, length = 118) {
+function trimText(text: string, length = 150) {
   return text.length > length ? `${text.slice(0, length).trim()}...` : text;
 }
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
-  const featuredProducts = products.filter((product) => ["checklink", "talk-to-data", "amazoniq", "Navines-beacon", "navines-tools-hub-extension"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "checklink"].includes(product.slug));
+  const featuredSolutions = solutionPages.slice(0, 3);
 
   return (
     <>
       <JsonLd data={homeBreadcrumbSchema} />
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:px-8 lg:py-16">
-        <div>
-          <p className="mb-4 text-sm font-semibold text-glowred">חברת תוכנה ו-AI ישראלית לעסקים שרוצים פתרון מעשי</p>
-          <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-white md:text-5xl">
-            מערכות AI, אתרים, אוטומציה ותשתיות דיגיטליות שמשרתות את העסק
-          </h1>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
-            נביא נס ישראל בע״מ עוזרת לעסקים להפוך רעיון, בעיה או תהליך שחוזר על עצמו לפתרון דיגיטלי ברור: אתר, מערכת, כלי AI, אוטומציה, תוסף לדפדפן או תשתית נתונים שעובדת ביום-יום.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו ב-WhatsApp</a>
-            <Link className="btn-secondary" href="/services">צפייה בשירותים</Link>
-          </div>
-        </div>
 
-        <div className="hidden rounded-lg border p-6 md:block" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }}>
-          <h2 className="text-2xl font-semibold">מה אפשר לבנות איתנו?</h2>
-          <div className="mt-5 grid gap-4">
-            {highlighted.map((item) => (
-              <Link className="flex items-center justify-between gap-4 border-b pb-3 text-base font-medium transition hover:text-sky-700" href={item.href} key={item.href} style={{ borderColor: "var(--border)", color: "var(--text)" }}>
-                <span>{item.title}</span>
-                <span aria-hidden="true">←</span>
-              </Link>
-            ))}
+      <section className="home-hero">
+        <div className="home-hero-visual" aria-hidden="true">
+          <Image alt="" className="home-hero-mark" fill priority sizes="(max-width: 768px) 80vw, 44vw" src="/brand/navines-symbol.jpg" />
+        </div>
+        <div className="home-hero-inner mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="home-hero-copy">
+            <p className="home-hero-kicker">בית תוכנה ישראלי לעסקים וארגונים</p>
+            <h1>נביא נס ישראל בע״מ</h1>
+            <p className="home-hero-offer">תוכנה, בינה מלאכותית ותשתיות דיגיטליות שבנויות לעבודה אמיתית.</p>
+            <p className="home-hero-summary">
+              אנחנו מתכננים ומפתחים מערכות, אתרים, אוטומציות וכלי נתונים שמחברים בין צורך עסקי, חוויית משתמש וטכנולוגיה יציבה.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">ספרו לנו מה צריך לבנות</a>
+              <Link className="btn-on-dark" href="/services">לכל השירותים</Link>
+            </div>
           </div>
-          <p className="mt-5 text-base leading-7" style={{ color: "var(--text-muted)" }}>
-            במקום להעמיס עשרות הבטחות, מתחילים בשאלה פשוטה: מה צריך לעבוד טוב יותר בעסק, ואיזה פתרון קטן וברור יכול להזיז את זה קדימה.
-          </p>
+          <div className="home-hero-proof" aria-label="תחומי פעילות מרכזיים">
+            <span>מערכות AI</span>
+            <span>פיתוח תוכנה</span>
+            <span>מסחר דיגיטלי</span>
+            <span>אבטחה ותשתיות</span>
+          </div>
         </div>
       </section>
 
       <LanguageStrip current="he" title="נביא נס ישראל בע״מ בעולם" />
 
-      <Section eyebrow="מה אנחנו עושים" title="תחומים מרכזיים, בלי לפזר אתכם בין עשרות מונחים">
-        <div className="grid gap-x-10 gap-y-7 md:grid-cols-2 lg:grid-cols-3">
-          {serviceGroups.map((service) => (
-            <Link className="group border-t pt-5 transition" href={service.href} key={service.href} style={{ borderColor: "var(--border)" }}>
-              {service.label ? <span className="mb-2 block text-xs font-semibold text-glowred">{service.label}</span> : null}
-              <h2 className="text-2xl font-semibold">{service.title}</h2>
-              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{service.text}</p>
-              <span className="mt-4 inline-flex text-sm font-semibold text-glowred transition group-hover:translate-x-[-2px]">{service.cta || "למידע נוסף"}</span>
-            </Link>
+      <Section eyebrow="היכולות שלנו" title="טכנולוגיה שמתחילה בצורך העסקי">
+        <p className="section-lead">במקום למכור כלי אחד לכל בעיה, אנחנו בודקים מה צריך לעבוד טוב יותר ובונים את השילוב הנכון בין תוכנה, נתונים, אוטומציה ותשתית.</p>
+        <div className="capability-columns mt-10">
+          {capabilityGroups.map((group, index) => (
+            <article className="capability-column" key={group.title}>
+              <span className="editorial-index">0{index + 1}</span>
+              <h2>{group.title}</h2>
+              <p>{group.text}</p>
+              <nav aria-label={group.title}>
+                {group.links.map(([label, href]) => <Link href={href} key={href}>{label}<span aria-hidden="true">←</span></Link>)}
+              </nav>
+            </article>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="מוצרים וכלים" title="מוצרים שמדגימים את דרך החשיבה של נביא נס ישראל בע״מ">
-        <Link
-          className="group mb-8 grid gap-3 border-y py-5 transition md:grid-cols-[1fr_auto] md:items-center"
-          href="/blog/business-tools-built-by-navines-israel"
-          style={{ borderColor: "var(--border)" }}
-        >
-          <span>
-            <span className="block text-sm font-semibold text-glowred">מאמר חדש</span>
-            <span className="mt-1 block text-2xl font-semibold">הכלים שבנינו: CheckLink.ai, TalkToData, AmazonIQ, תוספים ועוד</span>
-            <span className="mt-2 block text-base leading-7" style={{ color: "var(--text-muted)" }}>היכרות מרוכזת עם הכלים הפעילים, הפתרונות שבפיתוח והחשיבה שמחברת ביניהם.</span>
-          </span>
-          <span className="text-sm font-semibold text-glowred transition group-hover:translate-x-[-2px]">לקריאת המאמר ←</span>
-        </Link>
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          {featuredProducts.map((product) => {
-            const href = product.url || "/products";
-            const content = (
-              <>
-                <p className="text-sm font-semibold text-glowred">{product.status}</p>
-                <h2 className="mt-2 text-2xl font-semibold">{product.hebrewName || product.name}</h2>
-                <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{trimText(product.description, 170)}</p>
-              </>
-            );
+      <section className="feature-band">
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8 lg:py-20">
+          <div>
+            <p className="section-eyebrow">שירות מוביל</p>
+            <h2>המערכות שלכם, בשיחה אחת עם ChatGPT</h2>
+            <p>מחברים חשבוניות, ERP, CRM, חנויות, דוחות ומאגרי מידע לממשק מאובטח שמאפשר לשאול שאלות רגילות ולקבל תמונה עסקית ברורה.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">איך החיבור עובד</Link>
+              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לצפייה ב־TalkToData</a>
+            </div>
+          </div>
+          <dl className="feature-specs">
+            <div><dt>חיבור</dt><dd>למערכות הקיימות, בלי להחליף את כל סביבת העבודה.</dd></div>
+            <div><dt>שימוש</dt><dd>שאלות בעברית על מכירות, תפעול, לקוחות, מלאי ודוחות.</dd></div>
+            <div><dt>שליטה</dt><dd>תכנון הרשאות, גבולות מידע ותהליך מסודר לפני שעולים לאוויר.</dd></div>
+          </dl>
+        </div>
+      </section>
 
-            return href.startsWith("http") ? (
-              <a className="block border-t pt-5 transition hover:border-sky-400" href={href} key={product.slug} rel="noopener noreferrer" target="_blank" style={{ borderColor: "var(--border)" }}>{content}</a>
-            ) : (
-              <Link className="block border-t pt-5 transition hover:border-sky-400" href={href} key={product.slug} style={{ borderColor: "var(--border)" }}>{content}</Link>
-            );
+      <Section eyebrow="מוצרים וכלים" title="מוצרים שבנינו כדי להפוך מידע לפעולה">
+        <div className="product-editorial-list">
+          {featuredProducts.map((product, index) => {
+            const href = product.url || "/products";
+            const content = <><span className="editorial-index">0{index + 1}</span><span className="product-editorial-copy"><small>{product.status}</small><strong>{product.hebrewName || product.name}</strong><span>{trimText(product.description, 180)}</span></span><span className="product-editorial-arrow" aria-hidden="true">←</span></>;
+            return href.startsWith("http") ? <a href={href} key={product.slug} rel="noopener noreferrer" target="_blank">{content}</a> : <Link href={href} key={product.slug}>{content}</Link>;
           })}
         </div>
-        <Link className="btn-secondary mt-6" href="/products">לכל המוצרים והכלים</Link>
+        <div className="mt-7 flex flex-wrap gap-3"><Link className="btn-secondary" href="/products">לכל המוצרים</Link><Link className="editorial-link inline-flex items-center gap-2" href="/blog/business-tools-built-by-navines-israel">הסיפור מאחורי הכלים <span aria-hidden="true">←</span></Link></div>
       </Section>
 
-      <Section eyebrow="איך עובדים איתנו" title="תהליך קצר, מסודר ופרקטי">
-        <ol className="grid gap-5 md:grid-cols-4">
-          {process.map(([title, text], index) => (
-            <li className="border-t pt-5" key={title} style={{ borderColor: "var(--border)" }}>
-              <span className="text-sm font-semibold text-glowred">{String(index + 1).padStart(2, "0")}</span>
-              <h2 className="mt-2 text-2xl font-semibold">{title}</h2>
-              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{text}</p>
-            </li>
-          ))}
+      <Section eyebrow="איך עובדים איתנו" title="תהליך שקוף מהרעיון ועד למערכת פעילה">
+        <ol className="process-line">
+          {process.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{text}</p></li>)}
         </ol>
       </Section>
 
-      <Section eyebrow="למי אנחנו עוזרים" title="עסקים ויזמים שצריכים יותר מסתם אתר יפה">
-        <div className="grid gap-5 md:grid-cols-3">
-          {solutionPages.slice(0, 3).map((solution) => (
-            <Link className="command-glass block p-5" href={`/solutions/${solution.slug}`} key={solution.slug}>
-              <p className="text-sm font-semibold text-glowred">{solution.eyebrow}</p>
-              <h2 className="mt-2 text-2xl font-semibold">{solution.navLabel}</h2>
-              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{trimText(solution.seoDescription, 150)}</p>
+      <Section eyebrow="פתרונות לפי פעילות" title="מכירים את התהליך לפני שנוגעים בטכנולוגיה">
+        <div className="solution-directory">
+          {featuredSolutions.map((solution) => (
+            <Link href={`/solutions/${solution.slug}`} key={solution.slug}>
+              <span><small>{solution.eyebrow}</small><strong>{solution.navLabel}</strong></span>
+              <p>{trimText(solution.seoDescription, 155)}</p>
+              <span className="solution-directory-arrow" aria-hidden="true">←</span>
             </Link>
           ))}
         </div>
-        <Link className="btn-secondary mt-6" href="/solutions">לכל הפתרונות</Link>
+        <Link className="btn-secondary mt-7" href="/solutions">לכל הפתרונות</Link>
       </Section>
 
-      <Section eyebrow="למה נביא נס ישראל בע״מ" title="טכנולוגיה עם חשיבה עסקית">
-        <div className="max-w-4xl space-y-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>
-          <p>אנחנו לא מתחילים מכלי או מטרנד. מתחילים מהצורך: איפה העסק מאבד זמן, פניות, כסף או שליטה, ומה אפשר לבנות כדי להפוך את העבודה לברורה יותר.</p>
-          <p>העבודה משלבת אפיון, פיתוח, אוטומציה, נתונים, SEO, תשתית ותמיכה טכנית. כשצריך, אנחנו בונים פתרון קטן וממוקד. כשנכון יותר, מחברים מערכות קיימות במקום להחליף הכול.</p>
+      <Section eyebrow="קורסי AI מעשיים" title="לומדים לבנות, לא רק להשתמש בכלים">
+        <div className="course-preview">
+          <Link href="/courses/ai-for-kids"><small>מסלול לילדים</small><h2>מרעיון למוצר אמיתי</h2><p>חשיבה יצירתית, בניית פרויקטים וליווי שמאפשר להתקדם בקצב הנכון.</p><span>לפרטי המסלול ←</span></Link>
+          <Link href="/courses/ai-for-adults"><small>מסלול לבוגרים</small><h2>מוצרים, תהליכים וכלים חכמים</h2><p>מסלול מעשי לבעלי עסקים, מנהלים, פרילנסרים ויזמים שרוצים לעבוד נכון עם AI.</p><span>לפרטי המסלול ←</span></Link>
         </div>
       </Section>
 
-      <Section eyebrow="מאמרים אחרונים" title="תובנות קצרות לפני שמתחילים פרויקט">
-        <div className="grid gap-5 md:grid-cols-3">
-          {latestPosts.map((post) => (
-            <Link className="command-glass block p-5" href={`/blog/${post.slug}`} key={post.slug}>
-              <div className="flex flex-wrap gap-2 text-sm font-medium" style={{ color: "var(--text-soft)" }}>
-                <span>{post.category}</span>
-                <span>{formatBlogDate(post.publishedAt)}</span>
-              </div>
-              <h2 className="mt-3 text-2xl font-semibold">{post.title}</h2>
-              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{trimText(post.excerpt, 130)}</p>
+      <Section eyebrow="תובנות" title="מידע מעשי לפני שמקבלים החלטה">
+        <div className="insights-layout">
+          {latestPosts.map((post, index) => (
+            <Link className={index === 0 ? "insight-featured" : "insight-secondary"} href={`/blog/${post.slug}`} key={post.slug}>
+              <div><span>{post.category}</span><span>{formatBlogDate(post.publishedAt)}</span></div>
+              <h2>{post.title}</h2>
+              <p>{trimText(post.excerpt, index === 0 ? 210 : 130)}</p>
+              <strong>לקריאת המאמר ←</strong>
             </Link>
           ))}
         </div>
-        <Link className="btn-secondary mt-6" href="/blog">לכל המאמרים</Link>
+        <Link className="btn-secondary mt-7" href="/blog">לכל המאמרים</Link>
       </Section>
 
-      <Section eyebrow="כל מה שנביא נס בונה ומפעילה" title="שירותים, מוצרים וכלים במקום אחד">
-        <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>מפתרונות AI, מערכות ואוטומציה ועד AmazonIQ, TalkToData, ניטור דיגיטלי, שמאות ושירותים מקצועיים. אפשר להתחיל מהצורך ולבחור את המסלול המתאים.</p>
-        <div className="mt-8 grid gap-x-10 gap-y-7 md:grid-cols-2">
-          {ecosystemGroups.map((group) => (
-            <section className="border-t pt-5" key={group.title} style={{ borderColor: "var(--border)" }}>
-              <h2 className="text-2xl font-semibold">{group.title}</h2>
-              <p className="mt-2 text-base leading-7" style={{ color: "var(--text-muted)" }}>{group.text}</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                {group.links.map(([label, href]) => href.startsWith("http") ? <a className="text-sm font-semibold text-glowred" href={href} key={href} rel="noopener noreferrer" target="_blank">{label}</a> : <Link className="text-sm font-semibold text-glowred" href={href} key={href}>{label}</Link>)}
-              </div>
-            </section>
-          ))}
+      <section className="home-final-cta">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:flex lg:items-end lg:justify-between lg:gap-12 lg:px-8 lg:py-20">
+          <div><p>הצעד הבא</p><h2>יש לכם רעיון, מערכת או תהליך שצריך לעבוד טוב יותר?</h2><span>שלחו כמה מילים. נבין את הצורך ונציע נקודת התחלה מעשית.</span></div>
+          <div className="mt-8 flex shrink-0 flex-wrap gap-3 lg:mt-0"><a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו בוואטסאפ</a><Link className="btn-on-dark" href="/contact">אפשרויות יצירת קשר</Link></div>
         </div>
-        <div className="mt-7 flex flex-wrap gap-3"><Link className="btn-secondary" href="/services">לכל השירותים</Link><Link className="btn-secondary" href="/products">לכל המוצרים</Link><Link className="btn-secondary" href="/contact">דברו איתנו</Link></div>
-      </Section>
-
-      <Section eyebrow="יצירת קשר" title="רוצים להבין מה נכון לעסק שלכם?">
-        <div className="rounded-lg border p-6 md:flex md:items-center md:justify-between md:gap-8" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }}>
-          <p className="max-w-2xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
-            ספרו לנו מה אתם רוצים לבנות, לחבר או לשפר, ונעזור לבחור את הצעד הראשון.
-          </p>
-          <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
-            <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו בוואטסאפ</a>
-            <a className="btn-secondary" href={site.emailHref}>שליחת אימייל</a>
-          </div>
-        </div>
-      </Section>
+      </section>
     </>
   );
 }
