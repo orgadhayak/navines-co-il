@@ -59,7 +59,7 @@ export default function HomePage() {
 
       <section className="home-hero">
         <div className="home-hero-visual" aria-hidden="true">
-          <Image alt="" className="home-hero-mark" fill priority sizes="(max-width: 768px) 80vw, 44vw" src="/brand/navines-symbol.jpg" />
+          <Image alt="" className="home-hero-mark" fill priority sizes="(max-width: 768px) 100vw, 44vw" src="/brand/navines-symbol.png" />
         </div>
         <div className="home-hero-inner mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="home-hero-copy">

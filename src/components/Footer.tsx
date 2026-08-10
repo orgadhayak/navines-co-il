@@ -186,7 +186,7 @@ function FooterCopyright() {
       </div>
       <div>
         <span><bdi>© 2026</bdi> כל הזכויות שמורות</span>
-        <a className="english-tech footer-contact-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>navines.com</bdi></a>
+        <a className="english-tech footer-contact-link" dir="ltr" href={site.internationalUrl} rel="noopener noreferrer" target="_blank"><bdi>NAVINES.COM</bdi></a>
       </div>
     </div>
   );
