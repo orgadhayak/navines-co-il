@@ -111,8 +111,25 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
     closeMobile(restoreFocus);
   }, [closeMobile]);
 
+  const toggleDropdown = useCallback((key: Exclude<DropdownKey, null>) => {
+    closeMobile(false);
+    setDropdown((current) => (current === key ? null : key));
+  }, [closeMobile]);
+
+  const toggleMobileMenu = useCallback(() => {
+    setDropdown(null);
+    setMobileOpen((current) => {
+      if (current) setMobileGroup(null);
+      return !current;
+    });
+  }, []);
+
+  const toggleMobileGroup = useCallback((group: Exclude<MobileGroup, null>) => {
+    setMobileGroup((current) => (current === group ? null : group));
+  }, []);
+
   useEffect(() => {
-    function handleOutsideInteraction(event: MouseEvent) {
+    function handleOutsideInteraction(event: PointerEvent) {
       if (!headerRef.current?.contains(event.target as Node)) {
         setDropdown(null);
         if (mobileOpen) closeMobile(false);
@@ -126,11 +143,11 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
       }
     }
 
-    document.addEventListener("click", handleOutsideInteraction);
+    document.addEventListener("pointerdown", handleOutsideInteraction);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener("click", handleOutsideInteraction);
+      document.removeEventListener("pointerdown", handleOutsideInteraction);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [closeMobile, mobileOpen]);
@@ -148,6 +165,20 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1280px)");
+    const handleViewportChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        closeMobile(false);
+      } else {
+        setDropdown(null);
+      }
+    };
+
+    desktopQuery.addEventListener("change", handleViewportChange);
+    return () => desktopQuery.removeEventListener("change", handleViewportChange);
+  }, [closeMobile]);
+
   return (
     <header ref={headerRef} className="site-header sticky top-0 z-40 border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
       <div className="site-header-inner relative z-50 mx-auto flex max-w-[96rem] items-center justify-between gap-4 px-4 py-3 sm:px-6 xl:px-5">
@@ -162,8 +193,8 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
         <nav className="hidden items-center gap-1 xl:flex" aria-label={isHebrew ? "תפריט ראשי" : "Primary navigation"}>
           {isHebrew ? (
             <>
-              <DropdownButton active={pathname?.startsWith("/services") || pathname === "/optimization-hub"} isOpen={dropdown === "services"} label="שירותים" onClick={() => setDropdown((current) => (current === "services" ? null : "services"))} />
-              <DropdownButton active={pathname?.startsWith("/solutions") || pathname?.startsWith("/courses")} isOpen={dropdown === "solutions"} label="פתרונות" onClick={() => setDropdown((current) => (current === "solutions" ? null : "solutions"))} />
+              <DropdownButton active={pathname?.startsWith("/services") || pathname === "/optimization-hub"} isOpen={dropdown === "services"} label="שירותים" onClick={() => toggleDropdown("services")} />
+              <DropdownButton active={pathname?.startsWith("/solutions") || pathname?.startsWith("/courses")} isOpen={dropdown === "solutions"} label="פתרונות" onClick={() => toggleDropdown("solutions")} />
               <NavLink active={pathname === "/products" || pathname?.startsWith("/products/")} href="/products" label="מוצרים" onClick={closeAll} />
               <NavLink active={pathname === "/tools"} href="/tools" label="כלים" onClick={closeAll} />
               <NavLink active={pathname === "/blog" || pathname?.startsWith("/blog/")} href="/blog" label="מאמרים" onClick={closeAll} />
@@ -189,7 +220,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
             aria-expanded={dropdown === "language"}
             aria-label={isHebrew ? "בחירת שפה" : localized?.language || "Language selector"}
             className="header-language-trigger hidden min-h-10 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition xl:inline-flex"
-            onClick={() => setDropdown((current) => (current === "language" ? null : "language"))}
+            onClick={() => toggleDropdown("language")}
             type="button"
           >
             <span className="english-tech text-xs font-semibold">{activeLanguage.shortLabel}</span>
@@ -200,10 +231,11 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
           </a>
           <button
             ref={menuButtonRef}
+            aria-controls="mobile-site-navigation"
             aria-expanded={mobileOpen}
-            aria-label={isHebrew ? "פתיחת תפריט" : localized?.menu || "Open menu"}
+            aria-label={mobileOpen ? (isHebrew ? "סגירת תפריט" : "Close menu") : (isHebrew ? "פתיחת תפריט" : localized?.menu || "Open menu")}
             className="mobile-menu-button inline-flex min-h-10 items-center justify-center px-3 py-2 text-sm font-semibold xl:hidden"
-            onClick={() => setMobileOpen((value) => !value)}
+            onClick={toggleMobileMenu}
             type="button"
           >
             {isHebrew ? "תפריט" : localized?.menu || "Menu"}
@@ -231,13 +263,13 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
       ) : null}
 
       {mobileOpen ? (
-        <nav className="mobile-menu-panel relative z-50 max-h-[calc(100svh-4.5rem)] overflow-y-auto px-4 py-4 xl:hidden" aria-label={isHebrew ? "תפריט מובייל" : "Mobile navigation"}>
+        <nav id="mobile-site-navigation" className="mobile-menu-panel z-50 px-4 py-4 xl:hidden" aria-label={isHebrew ? "תפריט מובייל" : "Mobile navigation"}>
           <div className="mx-auto grid max-w-7xl gap-2 pb-6">
             {isHebrew ? (
               <>
-                <MobileGroupButton label="שירותים" open={mobileGroup === "services"} onClick={() => setMobileGroup((current) => (current === "services" ? null : "services"))} />
+                <MobileGroupButton label="שירותים" open={mobileGroup === "services"} onClick={() => toggleMobileGroup("services")} />
                 {mobileGroup === "services" ? <MobileLinks links={[["כל השירותים", "/services"], ...services.slice(0, 18).map((service) => [service.title, `/services/${service.slug}`] as [string, string])]} onClick={closeAll} /> : null}
-                <MobileGroupButton label="פתרונות" open={mobileGroup === "solutions"} onClick={() => setMobileGroup((current) => (current === "solutions" ? null : "solutions"))} />
+                <MobileGroupButton label="פתרונות" open={mobileGroup === "solutions"} onClick={() => toggleMobileGroup("solutions")} />
                 {mobileGroup === "solutions" ? <MobileLinks links={[["כל הפתרונות", "/solutions"], ...solutionPages.map((solution) => [solution.navLabel, `/solutions/${solution.slug}`] as [string, string])]} onClick={closeAll} /> : null}
                 <MobileLinks links={[["מוצרים", "/products"], ["כלים שימושיים בעברית", "/tools"], ["מאמרים", "/blog"], ["קורסים", "/courses"], ["אודות", "/about"], ["יצירת קשר", "/contact"]]} onClick={closeAll} />
               </>

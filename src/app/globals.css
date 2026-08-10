@@ -485,7 +485,14 @@ main section .rounded-full:not(.status-pip) {
 }
 
 .mobile-menu-panel {
-  max-height: calc(100dvh - 4.7rem);
+  position: fixed;
+  inset-inline: 0;
+  top: 4.25rem;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  max-height: none;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -495,6 +502,12 @@ main section .rounded-full:not(.status-pip) {
   box-shadow: 0 18px 44px rgba(15, 23, 42, 0.12);
   scrollbar-color: var(--primary) var(--bg-alt);
   scrollbar-width: thin;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .mobile-menu-panel {
+    top: 4.75rem;
+  }
 }
 
 .mobile-menu-link,
