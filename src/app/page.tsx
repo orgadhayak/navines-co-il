@@ -52,6 +52,8 @@ export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
   const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "checklink"].includes(product.slug));
   const featuredSolutions = solutionPages.slice(0, 3);
+  const musicDistributionService = services.find((service) => service.slug === "music-distribution-artist-digital-presence");
+  const robloxExperienceService = services.find((service) => service.slug === "roblox-brand-experiences");
   const affiliateProgramService = services.find((service) => service.slug === "affiliate-program-platform");
   const financialReviewService = services.find((service) => service.slug === "payment-discrepancy-review");
 
@@ -102,6 +104,42 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
+
+      {musicDistributionService ? (
+        <section className="feature-band border-y" style={{ borderColor: "var(--border)" }} aria-labelledby="music-distribution-title">
+          <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:py-16">
+            <div className="max-w-4xl">
+              <p className="section-eyebrow">מוזיקה, הפצה וניהול אמן</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="music-distribution-title">{musicDistributionService.title}</h2>
+              <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>מהכנת Master, עטיפה ומטא־דאטה ועד בחירת מפיץ, פרופילי אמן, Spotify, Apple Music, YouTube, תוכן וקידום אורגני. נביא נס מנהלת את הנוכחות הדיגיטלית של הפרויקט של רננו ומציגה אותו כמקרה בוחן ציבורי.</p>
+              <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>הפצה מקצועית מסדרת את הדרך אל הפלטפורמות; היא אינה מבטיחה השמעות, הכנסה, חשיפה או קבלה לפלייליסטים.</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link className="btn-primary" href={`/services/${musicDistributionService.slug}`}>לפרטי השירות</Link>
+              <a className="btn-on-dark" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">רננו ב־Spotify</a>
+              <Link className="editorial-link inline-flex items-center" href="/blog/how-to-distribute-music-spotify-apple-youtube">למדריך ההפצה</Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {robloxExperienceService ? (
+        <section className="feature-band border-y" style={{ borderColor: "var(--border)" }} aria-labelledby="roblox-brand-title">
+          <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:py-16">
+            <div className="max-w-4xl">
+              <p className="section-eyebrow">משחקים וחוויות מותג</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="roblox-brand-title">{robloxExperienceService.title}</h2>
+              <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>הופכים סיפור, מוצר או קהילה לעולם שאפשר להיכנס אליו: קונספט, משחקיות, עיצוב, פיתוח, ביצועים והשקה. אפשר להתחיל במשחק חדש או לשפר חוויה קיימת.</p>
+              <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>NAVINES WORLD הוא עולם התנסות שבנינו כדי ללמוד ולבדוק רעיונות בתוך Roblox; הוא אינו מוצג כמשחק ויראלי או כהבטחה לתוצאה.</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link className="btn-primary" href={`/services/${robloxExperienceService.slug}`}>לפרטי השירות</Link>
+              <a className="btn-on-dark" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">לשחק ב־NAVINES WORLD</a>
+              <Link className="editorial-link inline-flex items-center" href="/blog/roblox-brand-experience-for-business">למדריך למותגים</Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {affiliateProgramService ? (
         <section className="feature-band border-y" style={{ borderColor: "var(--border)" }}>

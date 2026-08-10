@@ -14,6 +14,8 @@ export const metadata = createMetadata({
 
 const groups: { title: string; description?: string; items: string[] }[] = [
   { title: "בינה מלאכותית ואוטומציה", items: ["חיבור Morning, Priority, ריווחית ומערכות נוספות ל־ChatGPT", "NAVINES IQ", "צ׳ט AI חכם לאתרים", "העוזר החכם של נביא נס", "לדבר עם הנתונים באמצעות ChatGPT", "חיבור נתונים עסקיים אל ChatGPT", "צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
+  { title: "מוזיקה וניהול אמן", description: "תהליך מסודר לאמנים: הכנת הפצה, בחירת מפיץ, זכויות, פרופילים רשמיים, תוכן וקידום.", items: ["Spotify", "Apple Music", "YouTube Music", "Amazon Music", "בחירת מפיץ", "מטא־דאטה וקרדיטים", "פרופילי אמן", "Smart Links", "Content ID לפי זכאות", "קידום אורגני למוזיקאים"] },
+  { title: "משחקים וחוויות מותג", description: "חוויות אינטראקטיביות שמחברות קהל, סיפור ומותג בתוך עולם שאפשר לחקור ולשחק בו.", items: ["פיתוח משחקי Roblox", "עולמות מותג", "אירועים דיגיטליים", "משימות ומכניקות משחק", "UI וכניסה לשחקן", "שיפור משחק קיים", "ביצועים ובדיקות", "תוכנית השקה ועדכונים"] },
   { title: "פיתוח, מותגים וטכנולוגיה", items: ["פיתוח אתרים", "פלטפורמת מותג גלובלית ו-B2B", "אתר תאגידי בינלאומי", "עמודי שווקים ושותפים", "פיתוח תוספים לדפדפנים", "Chrome, Edge, Brave ו Opera לפי התאמה", "וורדפרס", "מערכות מותאמות", "קוד נקי", "פיתוח צד שרת", "בדיקות איכות"] },
   { title: "איקומרס", items: ["שופיפיי", "ווקומרס", "אמזון", "איביי", "ניהול מלאי", "איקומרס לעסקים"] },
   { title: "תשתיות וחירום דיגיטלי", items: ["תמיכה טכנית, סייבר ורשתות", "סיוע במקרה פריצה לחשבון", "תמיכה מרחוק והגעה לפי צורך", "קלאודפלייר", "דומיינים", "תעודת אבטחה", "אחסון", "ניטור אתרים", "מדידה ונתונים"] },
@@ -24,6 +26,8 @@ const groups: { title: string; description?: string; items: string[] }[] = [
 
 export default function ServicesPage() {
   const systemsIntegrationService = services.find((service) => service.slug === "business-systems-chatgpt-integration");
+  const musicDistributionService = services.find((service) => service.slug === "music-distribution-artist-digital-presence");
+  const robloxExperienceService = services.find((service) => service.slug === "roblox-brand-experiences");
   const affiliateProgramService = services.find((service) => service.slug === "affiliate-program-platform");
   const financialReviewService = services.find((service) => service.slug === "payment-discrepancy-review");
 
@@ -50,6 +54,32 @@ export default function ServicesPage() {
             </div>
           </div>
         ) : null}
+      {musicDistributionService ? (
+        <div className="mt-8 border-y py-7 lg:flex lg:items-end lg:justify-between lg:gap-10" style={{ borderColor: "var(--border)" }}>
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold text-glowred">מוזיקה, הפצה וניהול אמן</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white">{musicDistributionService.title}</h2>
+            <p className="mt-3 text-lg leading-8 text-zinc-300">{musicDistributionService.summary}</p>
+          </div>
+          <div className="mt-5 flex shrink-0 flex-wrap gap-3 lg:mt-0">
+            <Link className="btn-secondary" href={`/services/${musicDistributionService.slug}`}>לפרטי השירות</Link>
+            <a className="editorial-link inline-flex items-center" href="https://www.youtube.com/@raneno.official" rel="noopener noreferrer" target="_blank">הפרויקט של רננו</a>
+          </div>
+        </div>
+      ) : null}
+      {robloxExperienceService ? (
+        <div className="mt-8 border-y py-7 lg:flex lg:items-end lg:justify-between lg:gap-10" style={{ borderColor: "var(--border)" }}>
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold text-glowred">משחקים ועולמות מותג אינטראקטיביים</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white">{robloxExperienceService.title}</h2>
+            <p className="mt-3 text-lg leading-8 text-zinc-300">{robloxExperienceService.summary}</p>
+          </div>
+          <div className="mt-5 flex shrink-0 flex-wrap gap-3 lg:mt-0">
+            <Link className="btn-secondary" href={`/services/${robloxExperienceService.slug}`}>לפרטי השירות</Link>
+            <a className="editorial-link inline-flex items-center" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">ל־NAVINES WORLD</a>
+          </div>
+        </div>
+      ) : null}
       {affiliateProgramService ? (
           <div className="mt-8 border-y py-7 lg:flex lg:items-center lg:justify-between lg:gap-10" style={{ borderColor: "var(--border)" }}>
             <div className="max-w-4xl">

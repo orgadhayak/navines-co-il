@@ -4,7 +4,7 @@ import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/Section";
 import { services, site } from "@/data/site";
-import { affiliateServiceAlternates, financialReviewServiceAlternates } from "@/i18n/locales";
+import { affiliateServiceAlternates, financialReviewServiceAlternates, musicServiceAlternates, robloxServiceAlternates } from "@/i18n/locales";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -26,6 +26,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (service.slug === "payment-discrepancy-review") {
     return { ...metadata, alternates: { ...metadata.alternates, languages: financialReviewServiceAlternates } };
   }
+  if (service.slug === "roblox-brand-experiences") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: robloxServiceAlternates } };
+  }
+  if (service.slug === "music-distribution-artist-digital-presence") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: musicServiceAlternates } };
+  }
   return metadata;
 }
 
@@ -46,6 +52,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isTrafficLawService = service.slug === "traffic-case-technology";
   const isGlobalBrandService = service.slug === "global-brand-b2b-platform";
   const isPaymentDiscrepancyReviewService = service.slug === "payment-discrepancy-review";
+  const isRobloxExperienceService = service.slug === "roblox-brand-experiences";
+  const isMusicDistributionService = service.slug === "music-distribution-artist-digital-presence";
   const generalLegalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל הכוונה כללית לגבי סוג המשרד או תחום ההתמחות שכדאי לחפש. נושא הפנייה הכללי הוא:")}`;
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
 
@@ -74,6 +82,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       : { "@id": `${site.url}/#organization` },
     ...(isAppraisalService
       ? { serviceType: "Vehicle, property and agricultural damage appraisal", areaServed: "IL" }
+      : isRobloxExperienceService
+        ? { serviceType: "Roblox game development and interactive brand experiences", areaServed: "Worldwide" }
+      : isMusicDistributionService
+        ? { serviceType: "Music distribution preparation, artist digital presence and release management", areaServed: "Worldwide" }
       : isGlobalBrandService
         ? { serviceType: "Global corporate brand and B2B platform development", areaServed: "Worldwide" }
       : isLegalTechnologyService
@@ -145,6 +157,29 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <Link className="btn-secondary" href="/products/amazoniq">
               לדוגמת AmazonIQ
             </Link>
+          </div>
+        ) : null}
+        {isRobloxExperienceService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, יש לנו רעיון למשחק או עולם מותג ב־Roblox ונרצה לבדוק התאמה.")}`} rel="noopener noreferrer" target="_blank">
+              ספרו לנו על רעיון ה־Roblox
+            </a>
+            <a className="btn-secondary" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">
+              לשחק ב־NAVINES WORLD
+            </a>
+          </div>
+        ) : null}
+        {isMusicDistributionService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, אני אמן או מוזיקאי ורוצה לבדוק הפצה וניהול נוכחות דיגיטלית.")}`} rel="noopener noreferrer" target="_blank">
+              ספרו לנו על המוזיקה שלכם
+            </a>
+            <a className="btn-secondary" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">
+              הפרויקט של רננו ב־Spotify
+            </a>
+            <a className="btn-secondary" href="https://www.youtube.com/@raneno.official" rel="noopener noreferrer" target="_blank">
+              ערוץ YouTube הרשמי
+            </a>
           </div>
         ) : null}
       </Section>
@@ -342,8 +377,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
       <CTA
-        title={isBusinessSystemsChatGptService ? "רוצים לשאול את המערכות שלכם שאלה רגילה ולקבל תשובה ברורה?" : isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב אמזון?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
-        text={isBusinessSystemsChatGptService ? "שלחו לנו את שמות המערכות ואת שלוש השאלות שהכי קשה לענות עליהן היום. נבדוק API, הרשאות ואיכות נתונים ונציע חיבור ראשון קטן, שימושי ובטוח." : isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל אמזון." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
+        title={isMusicDistributionService ? "יש לכם שיר מוכן או קטלוג שצריך לעשות בו סדר?" : isRobloxExperienceService ? "יש לכם רעיון למשחק או לעולם מותג ב־Roblox?" : isBusinessSystemsChatGptService ? "רוצים לשאול את המערכות שלכם שאלה רגילה ולקבל תשובה ברורה?" : isAiChatService ? "רוצים צ׳ט AI כזה באתר שלכם?" : isTechnicalSupportService ? "צריכים תמיכה טכנית עכשיו?" : isAccountHackRecoveryService ? "פרצו לכם לחשבון או לנכס דיגיטלי?" : isDueDiligenceService ? "לפני שאתם חותמים, רוצים לבדוק את התמונה הדיגיטלית?" : isAppraisalService ? "צריכים חוות דעת שמאית מסודרת?" : isLegalTechnologyService ? "קבלו הכוונה כללית לבחירת משרד" : isTrafficLawService ? "קבלו הכוונה כללית לבחירת עורך דין" : isAmazonSeoWebsiteService ? "יש לכם מוצרים פעילים ב אמזון?" : isBrowserExtensionService ? "יש לכם רעיון לתוסף? בואו נהפוך אותו לכלי אמיתי" : isChatGptDataService ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : `רוצים לבדוק אם ${service.title} מתאים לעסק שלכם?`}
+        text={isMusicDistributionService ? "שלחו לנו מה כבר מוכן: שיר, עטיפה, שם אמן, תאריך רצוי וקישורים קיימים. נבדוק מה חסר לפני הפצה, אילו פרופילים צריך לסדר ואיך לבנות השקה מקצועית בלי להבטיח השמעות או הכנסה." : isRobloxExperienceService ? "ספרו לנו מי המותג, למי המשחק מיועד ומה הייתם רוצים שהשחקן ירגיש או יעשה. נבדוק אם נכון להתחיל בעולם קטן, אירוע או משחק רחב יותר, בלי להבטיח תנועה או ויראליות." : isBusinessSystemsChatGptService ? "שלחו לנו את שמות המערכות ואת שלוש השאלות שהכי קשה לענות עליהן היום. נבדוק API, הרשאות ואיכות נתונים ונציע חיבור ראשון קטן, שימושי ובטוח." : isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל אמזון." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
   );

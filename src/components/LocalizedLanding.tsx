@@ -8,7 +8,9 @@ import { site } from "@/data/site";
 import { getLocalizedToolsCopy } from "@/content/localized/tools";
 import { localizedAffiliateProgramContent } from "@/content/localized/affiliate-program";
 import { localizedFinancialReviewContent } from "@/content/localized/payment-discrepancy-review";
-import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths } from "@/i18n/locales";
+import { localizedMusicContent } from "@/content/localized/music-distribution";
+import { localizedRobloxContent } from "@/content/localized/roblox-brand-experiences";
+import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths, localizedMusicArticlePaths, localizedMusicServicePaths, localizedRobloxArticlePaths, localizedRobloxServicePaths } from "@/i18n/locales";
 import type { LocalizedLandingContent } from "@/content/localized/types";
 
 function whatsappHref(text: string) {
@@ -24,6 +26,8 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
   const toolsCopy = getLocalizedToolsCopy(content.locale);
   const affiliateProgram = localizedAffiliateProgramContent[content.locale];
   const financialReview = localizedFinancialReviewContent[content.locale];
+  const musicDistribution = localizedMusicContent[content.locale];
+  const robloxExperience = localizedRobloxContent[content.locale];
   const pageUrl = `${site.url}/${content.locale}`;
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -97,6 +101,32 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
                 <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}><BrandInline text={item.text} /></p>
               </div>
             ))}
+          </div>
+        </LocalizedSection>
+
+        <LocalizedSection id="music-distribution" title={musicDistribution.service.previewTitle}>
+          <div className="border-y py-7 md:flex md:items-end md:justify-between md:gap-8" style={{ borderColor: "var(--border)" }}>
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>{musicDistribution.service.previewText}</p>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
+              <Link className="btn-primary" href={localizedMusicServicePaths[content.locale]}>{musicDistribution.service.ctaLabel}</Link>
+              <Link className="btn-secondary" href={localizedMusicArticlePaths[content.locale]}>{musicDistribution.service.articleLabel}</Link>
+              <a className="editorial-link inline-flex items-center" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">Spotify</a>
+            </div>
+          </div>
+        </LocalizedSection>
+
+        <LocalizedSection id="roblox-brand-experiences" title={robloxExperience.service.previewTitle}>
+          <div className="border-y py-7 md:flex md:items-end md:justify-between md:gap-8" style={{ borderColor: "var(--border)" }}>
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>{robloxExperience.service.previewText}</p>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
+              <Link className="btn-primary" href={localizedRobloxServicePaths[content.locale]}>{robloxExperience.service.ctaLabel}</Link>
+              <Link className="btn-secondary" href={localizedRobloxArticlePaths[content.locale]}>{robloxExperience.service.articleLabel}</Link>
+              <a className="editorial-link inline-flex items-center" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">NAVINES WORLD</a>
+            </div>
           </div>
         </LocalizedSection>
 

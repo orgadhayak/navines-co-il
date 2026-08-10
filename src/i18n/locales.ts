@@ -146,3 +146,79 @@ export const financialReviewArticleAlternates = {
   "fr-FR": `https://www.navines.co.il${localizedFinancialReviewArticlePaths.fr}`,
   "zh-CN": `https://www.navines.co.il${localizedFinancialReviewArticlePaths.zh}`,
 };
+
+export const localizedRobloxServicePaths: Record<PublicLocale, string> = {
+  de: "/de/services/roblox-brand-experiences",
+  jp: "/jp/services/roblox-brand-experiences",
+  ar: "/ar/services/roblox-brand-experiences",
+  hi: "/hi/services/roblox-brand-experiences",
+  fr: "/fr/services/roblox-brand-experiences",
+  zh: "/zh/services/roblox-brand-experiences",
+};
+
+export const localizedRobloxArticlePaths: Record<PublicLocale, string> = {
+  de: "/de/insights/roblox-brand-experiences",
+  jp: "/jp/insights/roblox-brand-experiences",
+  ar: "/ar/insights/roblox-brand-experiences",
+  hi: "/hi/insights/roblox-brand-experiences",
+  fr: "/fr/insights/roblox-brand-experiences",
+  zh: "/zh/insights/roblox-brand-experiences",
+};
+
+export const robloxServiceAlternates = {
+  "he-IL": "https://www.navines.co.il/services/roblox-brand-experiences",
+  "de-DE": `https://www.navines.co.il${localizedRobloxServicePaths.de}`,
+  "ja-JP": `https://www.navines.co.il${localizedRobloxServicePaths.jp}`,
+  ar: `https://www.navines.co.il${localizedRobloxServicePaths.ar}`,
+  "hi-IN": `https://www.navines.co.il${localizedRobloxServicePaths.hi}`,
+  "fr-FR": `https://www.navines.co.il${localizedRobloxServicePaths.fr}`,
+  "zh-CN": `https://www.navines.co.il${localizedRobloxServicePaths.zh}`,
+};
+
+export const robloxArticleAlternates = {
+  "he-IL": "https://www.navines.co.il/blog/roblox-brand-experience-for-business",
+  "de-DE": `https://www.navines.co.il${localizedRobloxArticlePaths.de}`,
+  "ja-JP": `https://www.navines.co.il${localizedRobloxArticlePaths.jp}`,
+  ar: `https://www.navines.co.il${localizedRobloxArticlePaths.ar}`,
+  "hi-IN": `https://www.navines.co.il${localizedRobloxArticlePaths.hi}`,
+  "fr-FR": `https://www.navines.co.il${localizedRobloxArticlePaths.fr}`,
+  "zh-CN": `https://www.navines.co.il${localizedRobloxArticlePaths.zh}`,
+};
+
+export const localizedMusicServicePaths: Record<PublicLocale, string> = {
+  de: "/de/services/music-distribution-artist-digital-presence",
+  jp: "/jp/services/music-distribution-artist-digital-presence",
+  ar: "/ar/services/music-distribution-artist-digital-presence",
+  hi: "/hi/services/music-distribution-artist-digital-presence",
+  fr: "/fr/services/music-distribution-artist-digital-presence",
+  zh: "/zh/services/music-distribution-artist-digital-presence",
+};
+
+export const localizedMusicArticlePaths: Record<PublicLocale, string> = {
+  de: "/de/insights/music-distribution-for-artists",
+  jp: "/jp/insights/music-distribution-for-artists",
+  ar: "/ar/insights/music-distribution-for-artists",
+  hi: "/hi/insights/music-distribution-for-artists",
+  fr: "/fr/insights/music-distribution-for-artists",
+  zh: "/zh/insights/music-distribution-for-artists",
+};
+
+export const musicServiceAlternates = {
+  "he-IL": "https://www.navines.co.il/services/music-distribution-artist-digital-presence",
+  "de-DE": `https://www.navines.co.il${localizedMusicServicePaths.de}`,
+  "ja-JP": `https://www.navines.co.il${localizedMusicServicePaths.jp}`,
+  ar: `https://www.navines.co.il${localizedMusicServicePaths.ar}`,
+  "hi-IN": `https://www.navines.co.il${localizedMusicServicePaths.hi}`,
+  "fr-FR": `https://www.navines.co.il${localizedMusicServicePaths.fr}`,
+  "zh-CN": `https://www.navines.co.il${localizedMusicServicePaths.zh}`,
+};
+
+export const musicArticleAlternates = {
+  "he-IL": "https://www.navines.co.il/blog/how-to-distribute-music-spotify-apple-youtube",
+  "de-DE": `https://www.navines.co.il${localizedMusicArticlePaths.de}`,
+  "ja-JP": `https://www.navines.co.il${localizedMusicArticlePaths.jp}`,
+  ar: `https://www.navines.co.il${localizedMusicArticlePaths.ar}`,
+  "hi-IN": `https://www.navines.co.il${localizedMusicArticlePaths.hi}`,
+  "fr-FR": `https://www.navines.co.il${localizedMusicArticlePaths.fr}`,
+  "zh-CN": `https://www.navines.co.il${localizedMusicArticlePaths.zh}`,
+};

@@ -24,6 +24,8 @@ const serviceGroups = [
       ["פלטפורמת מותג גלובלית", "/services/global-brand-b2b-platform"],
       ["פיתוח תוספים לדפדפן", "/services/browser-extension-development"],
       ["פיתוח אפליקציות", "/services/mobile-app-development"],
+      ["הפצת מוזיקה וניהול אמן", "/services/music-distribution-artist-digital-presence"],
+      ["משחקי Roblox ועולמות מותג", "/services/roblox-brand-experiences"],
     ],
   },
   {

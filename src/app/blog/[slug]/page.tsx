@@ -6,7 +6,7 @@ import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { blogPosts, site } from "@/data/site";
 import { formatBlogDate } from "@/lib/dates";
-import { affiliateArticleAlternates, financialReviewArticleAlternates } from "@/i18n/locales";
+import { affiliateArticleAlternates, financialReviewArticleAlternates, musicArticleAlternates, robloxArticleAlternates } from "@/i18n/locales";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -28,6 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
   if (post.slug === "how-to-review-payments-and-refunds") {
     return { ...metadata, alternates: { ...metadata.alternates, languages: financialReviewArticleAlternates } };
+  }
+  if (post.slug === "roblox-brand-experience-for-business") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: robloxArticleAlternates } };
+  }
+  if (post.slug === "how-to-distribute-music-spotify-apple-youtube") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: musicArticleAlternates } };
   }
   return metadata;
 }
@@ -214,6 +220,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isSmartLocalToolsPost = post.slug === "smart-local-tools-for-digital-decisions";
   const isAffiliateProgramPost = post.slug === "affiliate-program-for-existing-website";
   const isPaymentDiscrepancyReviewPost = post.slug === "how-to-review-payments-and-refunds";
+  const isRobloxExperiencePost = post.slug === "roblox-brand-experience-for-business";
+  const isMusicDistributionPost = post.slug === "how-to-distribute-music-spotify-apple-youtube";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
@@ -296,15 +304,27 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
+      {isMusicDistributionPost ? (
+        <CTA
+          title="רוצים להוציא את המוזיקה שלכם בצורה מסודרת?"
+          text="שלחו לנו מה כבר מוכן, אילו פרופילים קיימים ומה תאריך היציאה הרצוי. נבדוק יחד את ההפצה, המטא־דאטה, הנכסים הרשמיים ותוכנית ההשקה."
+        />
+      ) : isRobloxExperiencePost ? (
+        <CTA
+          title="יש לכם רעיון לעולם מותג או משחק ב־Roblox?"
+          text="שלחו לנו מי המותג, למי המשחק מיועד ומה תרצו שהשחקן יעשה או ירגיש. נבדוק כיוון ראשוני ונחליט אם להתחיל בעולם קטן, אירוע או משחק רחב יותר."
+        />
+      ) : (
       <CTA
         title={isPaymentDiscrepancyReviewPost ? "יש חיוב, תשלום או זיכוי שלא מסתדר?" : isAffiliateProgramPost ? "רוצים להפוך המלצות של יוצרים לתוכנית שותפים מסודרת?" : isBusinessSystemsChatGptPost ? "רוצים לחבר את המערכות שלכם ל־ChatGPT?" : isSmartLocalToolsPost || isHebrewToolsPost ? "רוצים כלי שימושי בעברית באתר שלכם?" : isToolsPortfolioPost ? "רוצים כלי חכם שמותאם לעסק שלכם?" : isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני אמזון בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל אמזון?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
         text={isPaymentDiscrepancyReviewPost ? "שלחו לנו בוואטסאפ רק מול איזה גוף או תהליך קיים פער ומה בערך לא מסתדר. שיחת ההתאמה הראשונה ללא עלות. אין לשלוח סיסמאות, קודי אימות, פרטי כרטיס מלאים או מידע אישי רגיש." : isAffiliateProgramPost ? "שלחו לנו בוואטסאפ על איזה אתר או חנות מדובר, מי אמור להיות שותף ומה נחשב אצלכם להפניה או הצלחה. נבדוק את החיבור הקיים ונציע דרך להתחיל בתוכנית ברורה, מאובטחת ונוחה לתפעול." : isBusinessSystemsChatGptPost ? "שלחו לנו בוואטסאפ אילו מערכות יש לכם, למשל Morning, Priority, ריווחית, CRM או חנות, ואילו שלוש שאלות הייתם רוצים לשאול בלי לחפש בדוחות. נבדוק API, הרשאות והיתכנות ונציע התחלה מצומצמת ובטוחה." : isSmartLocalToolsPost || isHebrewToolsPost ? "שלחו לנו בוואטסאפ איזה כלי הייתם רוצים להוסיף לאתר שלכם ואיזו פעולה הגולש צריך לבצע. נחשוב על כלי קטן, שימושי וברור שנותן ערך אמיתי." : isToolsPortfolioPost ? "שלחו לנו בוואטסאפ מה העסק עושה, איזו פעולה חוזרת על עצמה ומה הייתם רוצים שהלקוח או הצוות יוכלו לבצע בקלות. נבדוק אם נכון לבנות כלי קטן, תוסף, מערכת נתונים או פתרון רחב יותר." : isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, אמזון, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי אמזון בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
         whatsappHref={isAppraisalGuidePost ? appraisalWhatsappHref : undefined}
         whatsappLabel={isAppraisalGuidePost ? "סיוע ראשוני בוואטסאפ" : undefined}
       />
+      )}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-3xl font-semibold text-white">מאמרים קשורים</h2>
         <div className="grid gap-5 md:grid-cols-3">
@@ -2339,6 +2359,140 @@ function AmazonIQArticleBody() {
       <p>AmazonIQ מתאים למוכרי אמזון, מותגים, צוותי איקומרס ומנהלי פעילות שרוצים להבין תמונת מצב לפני החלטה. הוא לא דורש להפוך את כל העסק למערכת חדשה, אלא להתחיל מהחיבור האזורי המורשה ומהשאלה העסקית שמעסיקה את המוכר עכשיו.</p>
       <ul>{startQuestions.map((question) => <li key={question}>{question}</li>)}</ul>
       <p>אפשר לקרוא את <Link href="/products/amazoniq">עמוד AmazonIQ בעברית</Link>, לעבור ל<a aria-label="לפתוח את AmazonIQ באתר החיצוני" href="https://iq.navines.com/" rel="noopener noreferrer" target="_blank">אתר AmazonIQ</a>, או להעמיק ב<a href="/solutions/amazon-sellers">פתרונות למוכרי אמזון</a> וב<a href="/services/amazon-account-management">שירות הניהול והליווי האנושי</a>.</p>
+    </div>
+  );
+}
+
+function MusicDistributionArticleBody() {
+  return (
+    <div className="mt-12 space-y-12 text-lg leading-8 text-zinc-300">
+      <section>
+        <h2 className="text-3xl font-semibold text-white">הפצה היא תהליך, לא רק העלאת קובץ</h2>
+        <p className="mt-4">
+          שירותי סטרימינג אינם מקבלים בדרך כלל העלאה ישירה מכל אמן. מפיץ דיגיטלי מעביר את קובץ השמע, העטיפה והמטא־דאטה אל Spotify, Apple Music,
+          YouTube Music, Amazon Music ויעדים נוספים שהוא תומך בהם. לפני שבוחרים מפיץ צריך להבין מחיר, עמלה, בעלות על הקטלוג, זמני טיפול,
+          תשלומים, שינוי מפיץ, תמיכה ויכולות כמו Content ID.
+        </p>
+        <p className="mt-4">
+          מפיץ טוב לא מתקן לבדו שם אמן שגוי, עטיפה לא מתאימה, חלוקת זכויות לא ברורה או השקה בלי תוכן. האחריות על הכנה נכונה נשארת אצל האמן והצוות שלו.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">מה מכינים לפני ההגשה</h2>
+        <div className="mt-5 grid gap-x-8 md:grid-cols-2">
+          {["קובץ Master בפורמט ובאיכות שהמפיץ דורש", "עטיפה מקורית שעומדת במידות ובכללי הפלטפורמות", "שם אמן, שם יצירה, גרסה, שפה, ז׳אנר ותאריך יציאה", "קרדיטים לכותבים, מלחינים, מבצעים, מפיקים ובעלי זכויות", "חלוקת זכויות והסכמות כתובות בין המשתתפים", "קישורי פרופילים קיימים כדי לצמצם יצירת עמודי אמן כפולים", "תוכנית תוכן לפני ואחרי ההשקה", "בדיקת רישיונות לחומרים, לופים, סימפולים ויצירות צד שלישי"].map((item) => (
+            <p className="border-t py-4" key={item} style={{ borderColor: "var(--border)" }}>{item}</p>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">הפרויקט של רננו: מקרה בוחן ציבורי</h2>
+        <p className="mt-4">
+          נביא נס ישראל בע״מ מנהלת את הפרויקט של רננו ומטפלת בנוכחות הדיגיטלית שלו. הקטלוג הציבורי מופיע בכמה פלטפורמות, עם עמודי אמן ותוכן רשמי.
+          הפרויקט מוצג כדוגמה לעבודה מסודרת עם הפצה, קטלוג, קישורים ותוכן; הוא אינו מוצג כהבטחה למספר האזנות, הכנסה או הצלחה לפרויקט אחר.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a className="btn-secondary" href="https://www.youtube.com/@raneno.official" rel="noopener noreferrer" target="_blank">YouTube</a>
+          <a className="btn-secondary" href="https://music.youtube.com/channel/UCG_ksW1JAPOzBl3wXgfK8xw" rel="noopener noreferrer" target="_blank">YouTube Music</a>
+          <a className="btn-secondary" href="https://open.spotify.com/artist/6dAsJpPkTJK8ONY4HN1Vs7" rel="noopener noreferrer" target="_blank">Spotify</a>
+          <a className="btn-secondary" href="https://music.apple.com/il/artist/%D7%94%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98-%D7%A9%D7%9C-%D7%A8%D7%A0%D7%A0%D7%95/1861554140" rel="noopener noreferrer" target="_blank">Apple Music</a>
+          <a className="btn-secondary" href="https://www.shazam.com/artist/%D7%94%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98-%D7%A9%D7%9C-%D7%A8%D7%A0%D7%A0%D7%95/1861554140" rel="noopener noreferrer" target="_blank">Shazam</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">אחרי שהשיר באוויר</h2>
+        <p className="mt-4">
+          בודקים שהיצירה הופיעה תחת האמן הנכון, שהקרדיטים והעטיפה תקינים ושהקישורים מובילים למקומות הרשמיים. בהתאם לזמינות ולזכאות אפשר לתבוע גישה
+          לכלי אמן, לעדכן תמונות ותיאור, לחבר ערוצי תוכן, ליצור Smart Link ולעקוב אחר נתונים שהפלטפורמות מספקות.
+        </p>
+        <p className="mt-4">
+          קידום אורגני למוזיקאים נשען על עקביות: תוכן מאחורי הקלעים, חיפוש נכון ב־YouTube ובאתר, קליפים קצרים, קהילה, שיתופי פעולה והפניה ברורה מכל ערוץ
+          אל עמודי ההאזנה. הפצה מאפשרת למוזיקה להיות זמינה; הקידום עוזר לקהל לגלות אותה.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">זכויות, תמלוגים ונתונים</h2>
+        <p className="mt-4">
+          צריך להפריד בין תמלוגים מהקלטה, זכויות ביצירה, הכנסות פלטפורמה, זכויות מבצעים ומערכות גבייה נוספות. לא כל מפיץ מטפל בכל שכבה, ולא כל שימוש
+          מתאים ל־Content ID. מומלץ לתעד הסכמות, לשמור מזהים וקבצי מקור ולהיעזר באנשי מקצוע מתאימים כשיש שאלה משפטית, חשבונאית או חוזית.
+        </p>
+        <p className="mt-4">
+          השירות של נביא נס מתמקד בסדר הדיגיטלי והתפעולי: הכנת נכסים, תהליך הפצה, פרופילים, קישורים, תוכן ומדידה. הוא אינו מחליף ייעוץ משפטי,
+          חשבונאי או ניהול זכויות מקצועי.
+        </p>
+      </section>
+
+      <section className="border-y py-6" style={{ borderColor: "var(--border)" }}>
+        <Link className="editorial-link" href="/services/music-distribution-artist-digital-presence">לשירות הפצת מוזיקה וניהול נוכחות דיגיטלית לאמנים</Link>
+      </section>
+    </div>
+  );
+}
+
+function RobloxBrandExperienceArticleBody() {
+  return (
+    <div className="mt-12 space-y-12 text-lg leading-8 text-zinc-300">
+      <section>
+        <h2 className="text-3xl font-semibold text-white">מפרסומת שרואים לעולם שנכנסים אליו</h2>
+        <p className="mt-4">
+          מודעה מבקשת מהקהל לעצור ולהסתכל. עולם Roblox מזמין אותו להיכנס, לבחור, לחקור ולפעול. עבור מותג עם קהל רלוונטי,
+          ההבדל הזה יכול להפוך מסר מופשט לחוויה שזוכרים: משימה שממחישה ערך, אירוע שמחבר קהילה או עולם שמספר את סיפור המותג בלי מצגת ארוכה.
+        </p>
+        <p className="mt-4">
+          זה לא אומר שכל מותג צריך מיד משחק גדול. השאלה הראשונה היא האם יש קהל מתאים, רעיון שאפשר להפוך לפעולה ומחויבות לשמור על החוויה גם אחרי ההשקה.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">המשחק צריך לעבוד גם בלי הלוגו</h2>
+        <p className="mt-4">
+          חוויית מותג טובה מתחילה מלולאת משחק ברורה: מה השחקן עושה, מה הוא לומד, איך הוא מתקדם ולמה שירצה לחזור. רק אחר כך מחברים את הצבעים,
+          הסיפור, הדמויות, המוצרים והמסרים. כאשר המשחק הוא רק חדר מלא בלוגואים, השחקן מרגיש שמכרו לו פרסומת במקום לתת לו חוויה.
+        </p>
+        <ul className="mt-5 list-disc space-y-3 pr-6">
+          <li>כניסה קצרה שמסבירה מה עושים בלי מדריך ארוך.</li>
+          <li>משימות ותגמולים שמתאימים לקהל ולמטרה.</li>
+          <li>UI ברור במובייל ובמחשב.</li>
+          <li>נוכחות מותג טבעית שאינה מסתירה את המשחקיות.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">מה אפשר לבנות סביב מותג</h2>
+        <div className="mt-5 grid gap-x-8 md:grid-cols-2">
+          {["עולם שמציג סיפור, קטגוריה או ערכי מותג", "אירוע דיגיטלי, השקה או פעילות עונתית", "משחק משימות עם התקדמות ותוכן שנפתח", "מרחב קהילתי ליוצרים, לקוחות או מעריצים", "שיפור משחק קיים: onboarding, UI וביצועים", "תוכנית עדכונים ותוכן שחוזר לאורך זמן"].map((item) => (
+            <p className="border-t py-4" key={item} style={{ borderColor: "var(--border)" }}>{item}</p>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">NAVINES WORLD: ללמוד את Roblox מבפנים</h2>
+        <p className="mt-4">
+          בנינו את NAVINES WORLD כסביבת התנסות קטנה שבה אפשר לבחון רעיונות, להרגיש את זרימת השחקן ולהכיר את הפלטפורמה מתוך המשחק עצמו.
+          אנחנו מציגים אותו כדוגמת עבודה ולמידה, לא כטענה למשחק ויראלי ולא כהבטחה שפרויקט אחר יקבל תנועה דומה.
+        </p>
+        <a className="btn-secondary mt-6" href="https://www.roblox.com/games/8820246222/NAVINES-WORLD" rel="noopener noreferrer" target="_blank">
+          לשחק ב־NAVINES WORLD
+        </a>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-white">השקה היא תחילת העבודה</h2>
+        <p className="mt-4">
+          אחרי העלייה לאוויר בודקים היכן שחקנים עוצרים, מה לא ברור, אילו מכשירים מתקשים ומה גורם לחזרה. משם אפשר לתכנן תיקונים, אירועים,
+          משימות ותוכן חדש לפי נתונים זמינים ומשוב אמיתי. אין דרך אחראית להבטיח ויראליות, מספר שחקנים או מכירות; אפשר לבנות בסיס טוב, למדוד ולשפר.
+        </p>
+        <p className="mt-4">
+          <Link className="editorial-link" href="/services/roblox-brand-experiences">לשירות פיתוח משחקי Roblox ועולמות מותג</Link>
+          {" · "}
+          <Link className="editorial-link" href="/services/global-brand-b2b-platform">לבניית פלטפורמת מותג רחבה</Link>
+        </p>
+      </section>
     </div>
   );
 }

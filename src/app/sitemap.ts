@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { solutionPages } from "@/data/solutions";
 import { blogPosts, courseTracks, services, site } from "@/data/site";
-import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedArticlePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths, publicLocales } from "@/i18n/locales";
+import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedArticlePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths, localizedMusicArticlePaths, localizedMusicServicePaths, localizedRobloxArticlePaths, localizedRobloxServicePaths, publicLocales } from "@/i18n/locales";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = ["", "/about", "/services", "/courses", "/solutions", "/optimization-hub", "/products", "/products/amazoniq", "/tools", "/games", "/blog", "/contact", "/privacy", "/terms", "/accessibility"];
@@ -12,14 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localizedAffiliateArticlePages = publicLocales.map((locale) => localizedAffiliateArticlePaths[locale]);
   const localizedFinancialReviewServicePages = publicLocales.map((locale) => localizedFinancialReviewServicePaths[locale]);
   const localizedFinancialReviewArticlePages = publicLocales.map((locale) => localizedFinancialReviewArticlePaths[locale]);
+  const localizedMusicServicePages = publicLocales.map((locale) => localizedMusicServicePaths[locale]);
+  const localizedMusicArticlePages = publicLocales.map((locale) => localizedMusicArticlePaths[locale]);
+  const localizedRobloxServicePages = publicLocales.map((locale) => localizedRobloxServicePaths[locale]);
+  const localizedRobloxArticlePages = publicLocales.map((locale) => localizedRobloxArticlePaths[locale]);
   const servicePages = services.map((service) => `/services/${service.slug}`);
   const coursePages = courseTracks.map((course) => `/courses/${course.slug}`);
   const solutionPagePaths = solutionPages.map((solution) => `/solutions/${solution.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
 
-  return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
+  return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...localizedMusicServicePages, ...localizedMusicArticlePages, ...localizedRobloxServicePages, ...localizedRobloxArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
     url: `${site.url}${path}`,
-    lastModified: new Date("2026-08-09"),
+    lastModified: new Date("2026-08-11"),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : 0.7,
   }));
