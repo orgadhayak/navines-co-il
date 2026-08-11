@@ -5,8 +5,8 @@ import { Section } from "@/components/Section";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "15 כלים שימושיים בעברית לבדיקות דיגיטליות",
-  description: "15 כלים מקומיים וחינמיים בעברית מבית נביא נס ישראל בע״מ: קישורים, הודעות, דומיינים, אימיילים, קמפיינים, חשבונות ואתרים.",
+  title: "20 כלים שימושיים בעברית לבדיקות דיגיטליות",
+  description: "20 כלים מקומיים וחינמיים בעברית מבית נביא נס ישראל בע״מ: קישורים, QR מתמונה, אימיילים, בקשות תשלום, הפניות, קמפיינים וחשבונות.",
   path: "/tools",
 });
 
@@ -15,7 +15,7 @@ export default function ToolsPage() {
     <>
       <Section eyebrow="כלים שימושיים בעברית" title="בדיקה קטנה לפני פעולה גדולה" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">
-          בנינו 15 כלים קצרים שעוזרים לעצור לרגע לפני שלוחצים, מגיבים, משתפים, עולים עם קמפיין או מטפלים באירוע דיגיטלי. הם פועלים בדפדפן, בעברית, בלי הרשמה ובלי לשלוח את הטקסט שהזנתם לשרת. התוצאות הן סימנים לבדיקה, לא הבטחה שהקישור או ההודעה בטוחים.
+          בנינו 20 כלים קצרים שעוזרים לעצור לרגע לפני שלוחצים, סורקים QR, מגיבים, מאשרים תשלום, עולים עם קמפיין או מטפלים באירוע דיגיטלי. הם פועלים בדפדפן, בעברית, בלי הרשמה ובלי לשלוח את הקלט לשרת. התוצאות הן סימנים לבדיקה, לא הבטחה שהקישור, ההודעה או הבקשה בטוחים.
         </p>
         <HebrewToolsClient />
       </Section>
@@ -33,6 +33,7 @@ export default function ToolsPage() {
           <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><strong>CheckLink.ai</strong><span>סריקה רחבה יותר של קישורים וסימני אמון</span></a>
           <Link href="/products"><strong>כל המוצרים</strong><span>ל־TalkToData, AmazonIQ, Beacon וכלי עבודה נוספים יש עמודים וקישורים מסודרים.</span></Link>
           <Link href="/blog/business-tools-built-by-navines-israel"><strong>איך נבנו הכלים</strong><span>הסיפור, השימושים והדרך להפוך צורך לכלי</span></Link>
+          <Link href="/blog/qr-email-and-link-safety-tools"><strong>המדריך לכלים החדשים</strong><span>QR מתמונה, כותרות אימייל, בקשות תשלום ושרשראות הפניה</span></Link>
         </div>
       </Section>
       <CTA title="יש לכם רעיון לכלי שיעזור לגולשים שלכם?" text="ספרו לנו מה המשתמשים שלכם צריכים לעשות. נחשוב על כלי קטן, ברור ושימושי שאפשר להוסיף לאתר ולתת בו ערך אמיתי." />

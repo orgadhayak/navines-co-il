@@ -5,12 +5,12 @@ import { BrandInline } from "@/components/BrandInline";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { siteLocales } from "@/i18n/locales";
 import { site } from "@/data/site";
-import { getLocalizedToolsCopy } from "@/content/localized/tools";
+import { getLocalizedToolsCopy, type LocalToolId } from "@/content/localized/tools";
 import { localizedAffiliateProgramContent } from "@/content/localized/affiliate-program";
 import { localizedFinancialReviewContent } from "@/content/localized/payment-discrepancy-review";
 import { localizedMusicContent } from "@/content/localized/music-distribution";
 import { localizedRobloxContent } from "@/content/localized/roblox-brand-experiences";
-import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths, localizedMusicArticlePaths, localizedMusicServicePaths, localizedRobloxArticlePaths, localizedRobloxServicePaths } from "@/i18n/locales";
+import { localizedAffiliateArticlePaths, localizedAffiliateServicePaths, localizedFinancialReviewArticlePaths, localizedFinancialReviewServicePaths, localizedMusicArticlePaths, localizedMusicServicePaths, localizedRobloxArticlePaths, localizedRobloxServicePaths, localizedSafetyToolsArticlePaths } from "@/i18n/locales";
 import type { LocalizedLandingContent } from "@/content/localized/types";
 
 function whatsappHref(text: string) {
@@ -20,6 +20,8 @@ function whatsappHref(text: string) {
 function emailHref(subject: string) {
   return `mailto:hello@navines.com?subject=${encodeURIComponent(subject)}`;
 }
+
+const featuredToolIds: LocalToolId[] = ["qr", "email-header", "bec-request", "redirect-chain", "qr-campaign", "official-links"];
 
 export function LocalizedLanding({ content }: { content: LocalizedLandingContent }) {
   const locale = siteLocales[content.locale];
@@ -80,15 +82,18 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
           <LocalizedSection id="tools" eyebrow={toolsCopy.eyebrow} title={toolsCopy.previewTitle}>
             <p className="max-w-3xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>{toolsCopy.previewText}</p>
             <div className="home-tools-list mt-8">
-              {(Object.entries(toolsCopy.tools) as [string, (typeof toolsCopy.tools)[keyof typeof toolsCopy.tools]][]).slice(0, 6).map(([id, tool], index) => (
+              {featuredToolIds.map((id, index) => {
+                const tool = toolsCopy.tools[id];
+                return (
                 <Link href={`/${content.locale}/tools#${id}`} key={id}>
                   <span className="editorial-index">0{index + 1}</span>
                   <span><strong>{tool.title}</strong><small>{tool.summary}</small></span>
                   <span className="editorial-link">{content.hero.secondaryCta}</span>
                 </Link>
-              ))}
+                );
+              })}
             </div>
-            <Link className="editorial-link mt-6 inline-flex" href={`/${content.locale}/tools`}>{toolsCopy.pageTitle}</Link>
+            <div className="mt-6 flex flex-wrap gap-5"><Link className="editorial-link inline-flex" href={`/${content.locale}/tools`}>{toolsCopy.pageTitle}</Link><Link className="editorial-link inline-flex" href={localizedSafetyToolsArticlePaths[content.locale]}>{toolsCopy.previewTitle}</Link></div>
           </LocalizedSection>
         ) : null}
 

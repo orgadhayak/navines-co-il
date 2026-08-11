@@ -51,6 +51,7 @@ function trimText(text: string, length = 150) {
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
   const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "checklink"].includes(product.slug));
+  const featuredTools = hebrewTools.filter((tool) => ["qr", "email-header", "bec-request", "redirect-chain", "link", "first-aid"].includes(tool.id));
   const featuredSolutions = solutionPages.slice(0, 3);
   const musicDistributionService = services.find((service) => service.slug === "music-distribution-artist-digital-presence");
   const robloxExperienceService = services.find((service) => service.slug === "roblox-brand-experiences");
@@ -203,9 +204,9 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="כלים שימושיים בעברית" title="בדיקה קטנה לפני פעולה גדולה">
-        <p className="section-lead">15 כלים קצרים שפועלים בדפדפן ועוזרים לבדוק קישורים, הודעות, דומיינים, רשימות, קמפיינים, חשבונות וטקסט לפני שמתקדמים. בלי הרשמה ובלי להעלות מידע רגיש לשרת.</p>
+        <p className="section-lead">20 כלים קצרים שפועלים בדפדפן ועוזרים לבדוק קישורים, קודי QR, כותרות אימייל, בקשות תשלום, הפניות, קמפיינים וחשבונות לפני שמתקדמים. בלי הרשמה ובלי להעלות את הקלט לשרת.</p>
         <div className="home-tools-list">
-          {hebrewTools.map((tool, index) => (
+          {featuredTools.map((tool, index) => (
             <Link href={`/tools#${tool.id}`} key={tool.id}>
               <span className="editorial-index">0{index + 1}</span>
               <span><strong>{tool.title}</strong><small>{tool.summary}</small></span>
@@ -215,6 +216,7 @@ export default function HomePage() {
         </div>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link className="btn-primary" href="/tools">לכל הכלים בעברית</Link>
+          <Link className="btn-secondary" href="/blog/qr-email-and-link-safety-tools">למדריך על הכלים החדשים</Link>
           <a className="btn-secondary" href="https://checklink.ai" rel="noopener noreferrer" target="_blank">ל־CheckLink.ai המלא</a>
         </div>
       </Section>

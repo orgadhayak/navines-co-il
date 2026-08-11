@@ -71,6 +71,25 @@ export const articleAlternates = {
   "zh-CN": `https://www.navines.co.il${localizedArticlePaths.zh}`,
 };
 
+export const localizedSafetyToolsArticlePaths: Record<PublicLocale, string> = {
+  de: "/de/insights/lokale-sicherheitswerkzeuge-qr-email-links",
+  jp: "/jp/insights/local-safety-tools-qr-email-links",
+  ar: "/ar/insights/local-safety-tools-qr-email-links",
+  hi: "/hi/insights/local-safety-tools-qr-email-links",
+  fr: "/fr/insights/outils-locaux-securite-qr-email-liens",
+  zh: "/zh/insights/local-safety-tools-qr-email-links",
+};
+
+export const safetyToolsArticleAlternates = {
+  "he-IL": "https://www.navines.co.il/blog/qr-email-and-link-safety-tools",
+  "de-DE": `https://www.navines.co.il${localizedSafetyToolsArticlePaths.de}`,
+  "ja-JP": `https://www.navines.co.il${localizedSafetyToolsArticlePaths.jp}`,
+  ar: `https://www.navines.co.il${localizedSafetyToolsArticlePaths.ar}`,
+  "hi-IN": `https://www.navines.co.il${localizedSafetyToolsArticlePaths.hi}`,
+  "fr-FR": `https://www.navines.co.il${localizedSafetyToolsArticlePaths.fr}`,
+  "zh-CN": `https://www.navines.co.il${localizedSafetyToolsArticlePaths.zh}`,
+};
+
 export const localizedAffiliateServicePaths: Record<PublicLocale, string> = {
   de: "/de/services/affiliate-program-platform",
   jp: "/jp/services/affiliate-program-platform",

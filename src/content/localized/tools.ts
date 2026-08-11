@@ -1,16 +1,17 @@
 import type { PublicLocale } from "@/i18n/locales";
 
 export type BaseLocalToolId = "link" | "message" | "domain" | "email" | "campaign";
-export type ExtendedLocalToolId = "bulk" | "first-aid" | "website" | "message-links" | "email-list" | "utm-builder" | "copy" | "qr" | "password-check" | "account-protection";
+export type ExtendedLocalToolId = "bulk" | "first-aid" | "website" | "message-links" | "email-list" | "utm-builder" | "copy" | "qr" | "password-check" | "account-protection" | "email-header" | "bec-request" | "redirect-chain" | "qr-campaign" | "official-links";
 export type LocalToolId = BaseLocalToolId | ExtendedLocalToolId;
 
-export const localToolIds: LocalToolId[] = ["link", "message", "domain", "email", "campaign", "bulk", "first-aid", "website", "message-links", "email-list", "utm-builder", "copy", "qr", "password-check", "account-protection"];
+export const localToolIds: LocalToolId[] = ["link", "message", "domain", "email", "campaign", "qr", "email-header", "bec-request", "redirect-chain", "qr-campaign", "official-links", "bulk", "first-aid", "website", "message-links", "email-list", "utm-builder", "copy", "password-check", "account-protection"];
 
 export type LocalizedTool = {
   title: string;
   summary: string;
   formTitle: string;
   fieldLabel: string;
+  secondFieldLabel?: string;
   placeholder: string;
   submit: string;
   note: string;
@@ -43,9 +44,9 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "de",
     eyebrow: "Praktische Browser-Tools",
     pageTitle: "Kleine Prüfungen für klare digitale Entscheidungen",
-    pageDescription: "Kostenlose lokale Prüfungen für Links, Nachrichten, Domains, E-Mail-Adressen und Kampagnen-Links. Ohne Registrierung und ohne die Eingabe an einen Server zu senden.",
+    pageDescription: "20 kostenlose lokale Prüfungen für Links, QR-Bilder, E-Mail-Header, Zahlungsanfragen, Weiterleitungen und Kampagnen. Ohne Registrierung und ohne die Eingabe an einen Server zu senden.",
     previewTitle: "Kleine Werkzeuge für klarere digitale Entscheidungen",
-    previewText: "15 kurze Werkzeuge für Links, Nachrichten, Domains, E-Mails, Kampagnen und digitale Erste Hilfe. Sie laufen lokal im Browser und liefern Hinweise, keine Garantien.",
+    previewText: "20 kurze Werkzeuge für Links, QR-Codes, E-Mail-Prüfungen, Kampagnen und digitale Erste Hilfe. Sie laufen lokal im Browser und liefern Hinweise, keine Garantien.",
     privacyNote: "Die Prüfungen laufen im Browser. Geben Sie keine Passwörter, Codes oder vertraulichen Geschäftsdaten ein.",
     homeLabel: "Zur deutschen Startseite",
     hebrewToolsLabel: "Zu den hebräischen Tools",
@@ -64,9 +65,9 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "jp",
     eyebrow: "実務に使えるブラウザツール",
     pageTitle: "クリックや共有の前に、短く確認するためのツール",
-    pageDescription: "リンク、メッセージ、ドメイン、メールアドレス、キャンペーンURLをブラウザ内で確認できます。登録不要で、入力内容をサーバーへ送信しません。",
+    pageDescription: "リンク、QR画像、メールヘッダー、支払い依頼、リダイレクト、キャンペーンを確認できる20のローカルツールです。登録不要で、入力内容をサーバーへ送信しません。",
     previewTitle: "デジタル上の判断をわかりやすくする小さなツール",
-    previewText: "リンク、メッセージ、ドメイン、メール、キャンペーン、デジタル初動に役立つ15の小さなツールです。結果は参考情報であり、保証ではありません。",
+    previewText: "リンク、QRコード、メール、キャンペーン、デジタル初動に役立つ20の小さなツールです。ブラウザ内で動作し、結果は参考情報であって保証ではありません。",
     privacyNote: "確認はブラウザ内で行います。パスワード、認証コード、機密情報は入力しないでください。",
     homeLabel: "日本語トップへ戻る",
     hebrewToolsLabel: "ヘブライ語ツールを見る",
@@ -85,9 +86,9 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "ar",
     eyebrow: "أدوات عملية من المتصفح",
     pageTitle: "فحوص قصيرة تساعدكم على اتخاذ قرار رقمي أوضح",
-    pageDescription: "فحوص محلية للروابط والرسائل والنطاقات وعناوين البريد وروابط الحملات، من دون تسجيل أو إرسال النص إلى خادم.",
+    pageDescription: "20 فحصاً محلياً للروابط وصور QR وترويسات البريد وطلبات الدفع والتحويلات والحملات، من دون تسجيل أو إرسال المدخلات إلى خادم.",
     previewTitle: "أدوات صغيرة لقرارات رقمية أوضح",
-    previewText: "15 أداة قصيرة للروابط والرسائل والنطاقات والبريد والحملات والإسعاف الرقمي. تعمل محلياً وتقدم إشارات للمراجعة لا ضمانات.",
+    previewText: "20 أداة قصيرة للروابط ورموز QR والبريد والحملات والإسعاف الرقمي. تعمل محلياً في المتصفح وتقدم إشارات للمراجعة لا ضمانات.",
     privacyNote: "تعمل الفحوص داخل المتصفح. لا تدخلوا كلمات مرور أو رموز تحقق أو معلومات تجارية حساسة.",
     homeLabel: "العودة إلى الصفحة العربية",
     hebrewToolsLabel: "الانتقال إلى الأدوات بالعبرية",
@@ -106,9 +107,9 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "hi",
     eyebrow: "व्यावहारिक ब्राउज़र टूल्स",
     pageTitle: "क्लिक, जवाब या शेयर करने से पहले छोटी और उपयोगी जाँच",
-    pageDescription: "लिंक, संदेश, डोमेन, ईमेल पते और कैंपेन लिंक की स्थानीय जाँच। रजिस्ट्रेशन की जरूरत नहीं और आपका इनपुट सर्वर पर नहीं भेजा जाता।",
+    pageDescription: "लिंक, QR चित्र, ईमेल हेडर, भुगतान अनुरोध, रीडायरेक्ट और कैंपेन के लिए 20 स्थानीय जाँच। रजिस्ट्रेशन की जरूरत नहीं और इनपुट सर्वर पर नहीं भेजा जाता।",
     previewTitle: "बेहतर डिजिटल फैसलों के लिए छोटे उपयोगी टूल्स",
-    previewText: "लिंक, संदेश, डोमेन, ईमेल, कैंपेन और डिजिटल प्राथमिक सहायता के लिए 15 छोटे टूल। ये ब्राउज़र में चलते हैं और संकेत देते हैं, गारंटी नहीं।",
+    previewText: "लिंक, QR कोड, ईमेल, कैंपेन और डिजिटल प्राथमिक सहायता के लिए 20 छोटे टूल। ये ब्राउज़र में स्थानीय रूप से चलते हैं और संकेत देते हैं, गारंटी नहीं।",
     privacyNote: "जाँच ब्राउज़र में होती है। पासवर्ड, सत्यापन कोड या संवेदनशील व्यावसायिक जानकारी दर्ज न करें।",
     homeLabel: "हिंदी होमपेज पर जाएँ",
     hebrewToolsLabel: "हिब्रू टूल्स देखें",
@@ -127,9 +128,9 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "fr",
     eyebrow: "Outils pratiques dans le navigateur",
     pageTitle: "De petites vérifications pour des décisions numériques plus claires",
-    pageDescription: "Des vérifications locales pour les liens, messages, domaines, adresses e-mail et URLs de campagne. Sans inscription et sans envoyer votre saisie à un serveur.",
+    pageDescription: "20 vérifications locales pour liens, images QR, en-têtes e-mail, demandes de paiement, redirections et campagnes. Sans inscription ni envoi de la saisie à un serveur.",
     previewTitle: "De petits outils pour des décisions numériques plus claires",
-    previewText: "15 petits outils pour les liens, messages, domaines, e-mails, campagnes et premiers gestes numériques. Ils donnent des signaux, pas des garanties.",
+    previewText: "20 petits outils pour les liens, QR codes, e-mails, campagnes et premiers gestes numériques. Ils fonctionnent localement et donnent des repères, pas des garanties.",
     privacyNote: "Les vérifications restent dans le navigateur. N’entrez jamais de mots de passe, codes ou données professionnelles sensibles.",
     homeLabel: "Retour à l’accueil français",
     hebrewToolsLabel: "Voir les outils en hébreu",
@@ -148,9 +149,9 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "zh",
     eyebrow: "实用浏览器工具",
     pageTitle: "点击、回复或分享前，先做一次简短检查",
-    pageDescription: "在浏览器中本地检查链接、消息、域名、邮箱地址和活动链接。无需注册，输入内容不会发送到服务器。",
+    pageDescription: "20项本地工具可检查链接、二维码图片、邮件头、付款请求、重定向和活动链接。无需注册，输入内容不会发送到服务器。",
     previewTitle: "帮助做出更清晰数字判断的小工具",
-    previewText: "15项小工具可帮助检查链接、消息、域名、邮箱、活动链接和数字应急步骤。结果仅供参考，不构成保证。",
+    previewText: "20项小工具可帮助检查链接、二维码、邮件、活动链接和数字应急步骤。工具在浏览器内本地运行，结果仅供参考，不构成保证。",
     privacyNote: "检查在浏览器内完成。请勿输入密码、验证码或敏感业务信息。",
     homeLabel: "返回中文首页",
     hebrewToolsLabel: "查看希伯来语工具",
@@ -176,9 +177,14 @@ const extendedLocalizedTools: Record<PublicLocale, Record<ExtendedLocalToolId, L
     "email-list": { title: "E-Mail-Liste prüfen", summary: "Format, Duplikate und einfache Auffälligkeiten vor Import oder Versand prüfen.", formTitle: "Eine E-Mail-Liste lokal bereinigen", fieldLabel: "Eine Adresse pro Zeile", placeholder: "name@example.com", submit: "Liste lokal prüfen", note: "Die Prüfung bestätigt weder Zustellung noch Zustimmung der Empfänger." },
     "utm-builder": { title: "Kampagnen-Link erstellen", summary: "Einen klar markierten UTM-Link vor der Veröffentlichung zusammenstellen.", formTitle: "UTM-Link im Browser erstellen", fieldLabel: "Zieladresse", placeholder: "https://example.com", submit: "Link lokal erstellen", note: "Prüfen Sie Ziel und Kennzeichnung vor der Veröffentlichung." },
     copy: { title: "Textklarheit prüfen", summary: "Länge und Struktur eines kurzen Textes lokal einschätzen.", formTitle: "Text auf Grundstruktur prüfen", fieldLabel: "Text für Seite, Nachricht oder Kampagne", placeholder: "Text ohne vertrauliche Daten einfügen", submit: "Text lokal prüfen", note: "Die Kennzahlen ersetzen keine redaktionelle oder rechtliche Prüfung." },
-    qr: { title: "QR-Zieladresse prüfen", summary: "Eine neben einem QR-Code angezeigte Adresse vor dem Öffnen lokal prüfen.", formTitle: "Prüfen Sie eine QR-Zieladresse", fieldLabel: "Angezeigte Webadresse", placeholder: "https://example.com", submit: "Adresse lokal prüfen", note: "Das Tool liest keine Bilder oder QR-Codes und öffnet das Ziel nicht." },
+    qr: { title: "QR-Code aus Bild lesen", summary: "Einen QR-Code lokal aus einem Bild lesen und die Zieladresse vor dem Öffnen prüfen.", formTitle: "QR-Code lokal aus einem Bild lesen", fieldLabel: "Bild mit QR-Code", placeholder: "", submit: "Bild lokal prüfen", note: "Das Bild bleibt im Browser. Das Ziel wird nicht geöffnet und nicht als sicher bestätigt." },
     "password-check": { title: "Passwortstruktur prüfen", summary: "Eine Beispielstruktur lokal auf Länge und Zeichenvielfalt prüfen.", formTitle: "Prüfen Sie nur ein Passwort-Beispiel", fieldLabel: "Beispiel, kein aktives Passwort", placeholder: "Kein echtes Passwort eingeben", submit: "Struktur lokal prüfen", note: "Die Eingabe bleibt im Browser. Geben Sie nie ein aktives oder geheimes Passwort ein." },
     "account-protection": { title: "Kontoschutz-Checkliste", summary: "Grundlegende Schutzmaßnahmen für ein privates oder geschäftliches Konto ordnen.", formTitle: "Prüfen Sie die Grundlagen des Kontoschutzes", fieldLabel: "Bereits eingerichtet", placeholder: "", submit: "Checkliste auswerten", note: "Dies ist eine Selbstprüfung und keine Untersuchung eines realen Kontos.", checklist: ["Ein eindeutiges Passwort wird nicht für andere Konten wiederverwendet.", "Zwei-Faktor-Authentifizierung ist aktiviert.", "Wiederherstellungs-E-Mail und Telefonnummer sind aktuell.", "Angemeldete Geräte und Sitzungen werden regelmäßig geprüft.", "Keine Codes oder Zugangsdaten werden über unsichere Nachrichten geteilt."] },
+    "email-header": { title: "E-Mail-Header prüfen", summary: "SPF, DKIM, DMARC, Reply-To und Versandweg lokal zusammenfassen.", formTitle: "Technische E-Mail-Header prüfen", fieldLabel: "Header ohne vertraulichen Inhalt", placeholder: "From: ...\nReply-To: ...\nAuthentication-Results: ...", submit: "Header lokal prüfen", note: "Die Prüfung verbindet sich nicht mit dem Postfach und bestätigt die Absenderidentität nicht." },
+    "bec-request": { title: "Geschäftliche Zahlungsanfrage prüfen", summary: "Druck, geänderte Bankdaten, Geheimhaltung und ungewöhnliche Zahlungswege erkennen.", formTitle: "Anfrage vor Freigabe prüfen", fieldLabel: "Bereinigter Nachrichtentext", placeholder: "Text ohne Namen, Kontodaten oder vertrauliche Angaben", submit: "Anfrage lokal prüfen", note: "Finanzielle Anfragen immer über einen bekannten offiziellen Kanal bestätigen." },
+    "redirect-chain": { title: "Weiterleitungskette prüfen", summary: "Domains, HTTPS, Kurzlinks und Anzahl der Stationen in einer bekannten Kette prüfen.", formTitle: "Bekannte Weiterleitungskette prüfen", fieldLabel: "Eine Adresse pro Zeile", placeholder: "https://short.example/a", submit: "Kette lokal prüfen", note: "Das Tool folgt keinen Links. Es prüft nur die eingefügten Adressen." },
+    "qr-campaign": { title: "QR-Kampagne vor Druck prüfen", summary: "Ziel, Mobilansicht, HTTPS, Ersatzadresse und Drucktest ordnen.", formTitle: "QR-Kampagne vor Veröffentlichung prüfen", fieldLabel: "Bereits geprüft", placeholder: "", submit: "Bereitschaft prüfen", note: "Die Checkliste ersetzt keinen realen Druck-, Sicherheits- oder Messtest.", checklist: ["Der Code führt zu einer erkennbaren offiziellen Domain.", "Die Zielseite nutzt HTTPS und wurde auf einem echten Mobilgerät getestet.", "Die Zielseite erklärt sofort die erwartete Aktion.", "Neben dem Code steht eine lesbare Ersatzadresse.", "Größe, Kontrast und Scanabstand wurden mit einem Ausdruck getestet.", "Die Messung verschleiert weder Domain noch Zweck des Links."] },
+    "official-links": { title: "Hinweis zu offiziellen Links erstellen", summary: "Einen kurzen Kundenhinweis zu offizieller Domain und sicherer Verifikation erstellen.", formTitle: "Hinweis für offizielle Links erstellen", fieldLabel: "Unternehmensname", secondFieldLabel: "Offizielle Domain", placeholder: "Unternehmen", submit: "Hinweis lokal erstellen", note: "Prüfen Sie Domain und Kontaktweg vor der Veröffentlichung." },
   },
   jp: {
     bulk: { title: "複数リンクを確認", summary: "最大10件のURLをブラウザ内で簡易確認します。", formTitle: "複数のリンクをまとめて確認", fieldLabel: "1行に1つのリンク", placeholder: "https://example.com", submit: "ローカルで確認", note: "リンクを開いたり外部サービスへ送信したりしません。" },
@@ -188,9 +194,14 @@ const extendedLocalizedTools: Record<PublicLocale, Record<ExtendedLocalToolId, L
     "email-list": { title: "メールアドレス一覧を確認", summary: "形式、重複、基本的な注意点をローカルで確認します。", formTitle: "メールアドレス一覧を整理", fieldLabel: "1行に1つのアドレス", placeholder: "name@example.com", submit: "ローカルで一覧を確認", note: "配信可否や受信者の同意を保証するものではありません。" },
     "utm-builder": { title: "キャンペーンURLを作成", summary: "公開前にUTM付きリンクを整理して作れます。", formTitle: "ブラウザ内でUTMリンクを作成", fieldLabel: "リンク先URL", placeholder: "https://example.com", submit: "ローカルでURLを作成", note: "公開前にリンク先とタグを確認してください。" },
     copy: { title: "文章の分かりやすさを確認", summary: "短い文章の長さと構成をローカルで確認します。", formTitle: "文章の基本構造を確認", fieldLabel: "ページ、メッセージ、キャンペーン用の文章", placeholder: "機密情報を含まない文章を貼り付け", submit: "ローカルで文章を確認", note: "編集や法務確認の代わりにはなりません。" },
-    qr: { title: "QRコードのリンク先を確認", summary: "QRコードの近くに表示されたURLを開く前に確認します。", formTitle: "QRコードのリンク先URLを確認", fieldLabel: "表示されたURL", placeholder: "https://example.com", submit: "ローカルで確認", note: "画像やQRコード自体を読み取らず、リンク先も開きません。" },
+    qr: { title: "画像からQRコードを読み取る", summary: "画像内のQRコードを端末内で読み取り、開く前にリンク先を確認します。", formTitle: "画像からQRコードをローカルで読み取る", fieldLabel: "QRコードを含む画像", placeholder: "", submit: "画像をローカルで確認", note: "画像はブラウザ内に留まり、リンク先は開きません。" },
     "password-check": { title: "パスワード構造を確認", summary: "例示用の文字列を使い、長さと文字の種類をローカルで確認します。", formTitle: "実際のパスワードではなく例を確認", fieldLabel: "例示用の文字列", placeholder: "実際のパスワードは入力しないでください", submit: "構造をローカルで確認", note: "入力はブラウザ内に留まります。実際のパスワードや秘密情報は入力しないでください。" },
     "account-protection": { title: "アカウント保護チェック", summary: "個人または業務アカウントの基本的な保護項目を整理します。", formTitle: "アカウント保護の基本を確認", fieldLabel: "設定済みの項目", placeholder: "", submit: "チェックリストを確認", note: "これは自己確認であり、実際のアカウント調査ではありません。", checklist: ["他のアカウントと使い回さない固有のパスワードを使っている。", "二要素認証を有効にしている。", "復旧用メールアドレスと電話番号が最新である。", "ログイン中の端末やセッションを定期的に確認している。", "コードや認証情報を安全でないメッセージで共有していない。"] },
+    "email-header": { title: "メールヘッダーを確認", summary: "SPF、DKIM、DMARC、Reply-To、配送経路をローカルで整理します。", formTitle: "メールの技術ヘッダーを確認", fieldLabel: "機密情報を除いたヘッダー", placeholder: "From: ...\nReply-To: ...\nAuthentication-Results: ...", submit: "ローカルで確認", note: "メールボックスへ接続せず、送信者の本人性を保証しません。" },
+    "bec-request": { title: "業務上の支払い依頼を確認", summary: "急かす表現、振込先変更、秘密保持、特殊な支払い方法を確認します。", formTitle: "承認前に依頼文を確認", fieldLabel: "個人情報を除いた依頼文", placeholder: "氏名、口座情報、機密情報を除いて貼り付け", submit: "ローカルで確認", note: "支払い依頼は既知の公式連絡先から別途確認してください。" },
+    "redirect-chain": { title: "リダイレクト経路を確認", summary: "既知の経路に含まれるドメイン、HTTPS、短縮URL、段階数を確認します。", formTitle: "既知のリダイレクト経路を確認", fieldLabel: "1行に1つのURL", placeholder: "https://short.example/a", submit: "ローカルで確認", note: "リンクを追跡せず、入力されたURLのみ確認します。" },
+    "qr-campaign": { title: "印刷前のQRキャンペーン確認", summary: "公式ドメイン、モバイル表示、HTTPS、代替URL、印刷テストを整理します。", formTitle: "公開前にQRキャンペーンを確認", fieldLabel: "確認済みの項目", placeholder: "", submit: "準備状況を確認", note: "実際の印刷、セキュリティ、計測テストの代わりにはなりません。", checklist: ["コードは認識しやすい公式ドメインへ移動する。", "リンク先はHTTPSを使用し、実機で確認した。", "モバイル画面で次の操作がすぐ分かる。", "コードの近くに読める代替URLがある。", "印刷物でサイズ、コントラスト、距離を確認した。", "計測方法がドメインや目的を分かりにくくしていない。"] },
+    "official-links": { title: "公式リンク案内を作成", summary: "公式ドメインと安全な確認方法を伝える短い案内文を作ります。", formTitle: "公式リンク案内を作成", fieldLabel: "会社名", secondFieldLabel: "公式ドメイン", placeholder: "会社名", submit: "ローカルで案内を作成", note: "公開前にドメインと連絡先が正しいか確認してください。" },
   },
   ar: {
     bulk: { title: "فحص عدة روابط", summary: "فحص محلي سريع لما يصل إلى عشرة روابط.", formTitle: "فحص عدة روابط دفعة واحدة", fieldLabel: "رابط واحد في كل سطر", placeholder: "https://example.com", submit: "فحص محلي للقائمة", note: "لا يتم فتح الروابط أو إرسالها إلى خدمة خارجية." },
@@ -200,9 +211,14 @@ const extendedLocalizedTools: Record<PublicLocale, Record<ExtendedLocalToolId, L
     "email-list": { title: "فحص قائمة بريد إلكتروني", summary: "فحص الشكل والتكرارات والإشارات الأساسية قبل الاستيراد أو الإرسال.", formTitle: "تنظيف قائمة بريد إلكتروني محلياً", fieldLabel: "عنوان واحد في كل سطر", placeholder: "name@example.com", submit: "فحص القائمة محلياً", note: "لا يثبت الفحص قابلية التسليم أو موافقة المستلم." },
     "utm-builder": { title: "إنشاء رابط حملة", summary: "إنشاء رابط منظم بعلامات UTM قبل النشر.", formTitle: "إنشاء رابط UTM في المتصفح", fieldLabel: "عنوان الوجهة", placeholder: "https://example.com", submit: "إنشاء الرابط محلياً", note: "راجع الوجهة والوسوم قبل النشر." },
     copy: { title: "فحص وضوح النص", summary: "مؤشرات محلية لطول وبنية نص قصير.", formTitle: "فحص البنية الأساسية للنص", fieldLabel: "نص لصفحة أو رسالة أو حملة", placeholder: "ألصق نصاً من دون بيانات حساسة", submit: "فحص النص محلياً", note: "المؤشرات لا تغني عن التحرير أو المراجعة القانونية." },
-    qr: { title: "فحص رابط QR", summary: "فحص العنوان الظاهر قرب رمز QR قبل فتحه.", formTitle: "افحصوا عنوان رابط QR", fieldLabel: "العنوان الظاهر", placeholder: "https://example.com", submit: "فحص محلي", note: "لا تقرأ هذه الأداة الصورة أو رمز QR نفسه ولا تفتح الوجهة." },
+    qr: { title: "قراءة رمز QR من صورة", summary: "قراءة رمز QR محلياً من صورة وفحص عنوان الوجهة قبل فتحه.", formTitle: "قراءة رمز QR محلياً من صورة", fieldLabel: "صورة تحتوي على رمز QR", placeholder: "", submit: "فحص الصورة محلياً", note: "تبقى الصورة داخل المتصفح ولا يتم فتح الوجهة." },
     "password-check": { title: "فحص بنية كلمة المرور", summary: "استخدموا مثالاً فقط لفحص الطول وتنوع الأحرف محلياً.", formTitle: "افحصوا مثالاً لا كلمة المرور الفعلية", fieldLabel: "مثال فقط", placeholder: "لا تدخلوا كلمة مرور فعلية", submit: "فحص البنية محلياً", note: "يبقى الإدخال داخل المتصفح. لا تدخلوا كلمة مرور نشطة أو سرية." },
     "account-protection": { title: "قائمة حماية الحساب", summary: "ترتيب خطوات الحماية الأساسية لحساب شخصي أو تجاري.", formTitle: "راجعوا أساسيات حماية الحساب", fieldLabel: "متوفر حالياً", placeholder: "", submit: "مراجعة القائمة", note: "هذه مراجعة ذاتية وليست فحصاً لحساب فعلي.", checklist: ["تستخدمون كلمة مرور فريدة غير معاد استخدامها.", "المصادقة الثنائية مفعلة.", "بريد الاسترداد ورقم الهاتف محدثان.", "تتم مراجعة الأجهزة والجلسات المتصلة بانتظام.", "لا تتم مشاركة رموز التحقق أو بيانات الدخول في رسائل غير آمنة."] },
+    "email-header": { title: "فحص ترويسات البريد", summary: "تلخيص SPF وDKIM وDMARC وReply-To ومسار الرسالة محلياً.", formTitle: "فحص الترويسات التقنية للبريد", fieldLabel: "الترويسات بعد حذف المعلومات الحساسة", placeholder: "From: ...\nReply-To: ...\nAuthentication-Results: ...", submit: "فحص محلي للترويسات", note: "لا تتصل الأداة بصندوق البريد ولا تثبت هوية المرسل." },
+    "bec-request": { title: "فحص طلب دفع تجاري", summary: "اكتشاف الاستعجال وتغيير بيانات البنك وطلبات السرية وطرق الدفع غير المعتادة.", formTitle: "فحص الطلب قبل الموافقة", fieldLabel: "نص الطلب بعد حذف البيانات الحساسة", placeholder: "احذفوا الأسماء وأرقام الحساب والمعلومات السرية", submit: "فحص الطلب محلياً", note: "أكدوا أي طلب مالي عبر قناة رسمية معروفة ومستقلة." },
+    "redirect-chain": { title: "فحص سلسلة التحويل", summary: "فحص النطاقات وHTTPS والروابط المختصرة وعدد الخطوات في سلسلة معروفة.", formTitle: "فحص سلسلة تحويل معروفة", fieldLabel: "رابط واحد في كل سطر", placeholder: "https://short.example/a", submit: "فحص السلسلة محلياً", note: "لا تتبع الأداة الروابط، بل تفحص العناوين التي ألصقتموها فقط." },
+    "qr-campaign": { title: "فحص حملة QR قبل الطباعة", summary: "مراجعة الوجهة وتجربة الهاتف وHTTPS والرابط البديل واختبار الطباعة.", formTitle: "راجعوا حملة QR قبل النشر", fieldLabel: "العناصر التي تم فحصها", placeholder: "", submit: "فحص الجاهزية", note: "لا تستبدل القائمة اختبار الطباعة أو الأمان أو القياس الفعلي.", checklist: ["يؤدي الرمز إلى نطاق رسمي يمكن للجمهور تمييزه.", "تستخدم صفحة الوجهة HTTPS وتم اختبارها على هاتف فعلي.", "توضح صفحة الهاتف الخطوة المطلوبة فوراً.", "يوجد قرب الرمز رابط بديل مقروء.", "تم اختبار الحجم والتباين ومسافة المسح بعد الطباعة.", "لا تخفي طريقة القياس النطاق أو غرض الرابط."] },
+    "official-links": { title: "إنشاء تنبيه للروابط الرسمية", summary: "إنشاء نص قصير يوضح النطاق الرسمي وطريقة التحقق الآمنة.", formTitle: "إنشاء تنبيه للروابط الرسمية", fieldLabel: "اسم الشركة", secondFieldLabel: "النطاق الرسمي", placeholder: "اسم الشركة", submit: "إنشاء النص محلياً", note: "راجعوا النطاق وطريقة التواصل قبل النشر." },
   },
   hi: {
     bulk: { title: "कई लिंक जाँचें", summary: "अधिकतम दस URL का ब्राउज़र में स्थानीय प्रारंभिक परीक्षण।", formTitle: "कई लिंक एक साथ जाँचें", fieldLabel: "हर पंक्ति में एक लिंक", placeholder: "https://example.com", submit: "सूची स्थानीय रूप से जाँचें", note: "लिंक खोले या किसी बाहरी सेवा को भेजे नहीं जाते।" },
@@ -212,9 +228,14 @@ const extendedLocalizedTools: Record<PublicLocale, Record<ExtendedLocalToolId, L
     "email-list": { title: "ईमेल सूची जाँचें", summary: "फ़ॉर्मेट, डुप्लिकेट और बुनियादी संकेतों को स्थानीय रूप से जाँचें।", formTitle: "ईमेल सूची को स्थानीय रूप से व्यवस्थित करें", fieldLabel: "हर पंक्ति में एक पता", placeholder: "name@example.com", submit: "सूची स्थानीय रूप से जाँचें", note: "यह डिलीवरी या प्राप्तकर्ता की सहमति की पुष्टि नहीं करता।" },
     "utm-builder": { title: "कैंपेन लिंक बनाएँ", summary: "प्रकाशन से पहले स्पष्ट UTM टैग वाला लिंक बनाएँ।", formTitle: "ब्राउज़र में UTM लिंक बनाएँ", fieldLabel: "लक्ष्य URL", placeholder: "https://example.com", submit: "लिंक स्थानीय रूप से बनाएँ", note: "भेजने या प्रकाशित करने से पहले URL और टैग देखें।" },
     copy: { title: "टेक्स्ट स्पष्टता जाँचें", summary: "छोटे टेक्स्ट की लंबाई और संरचना के स्थानीय संकेत।", formTitle: "टेक्स्ट की बुनियादी संरचना जाँचें", fieldLabel: "पेज, संदेश या कैंपेन के लिए टेक्स्ट", placeholder: "संवेदनशील जानकारी के बिना टेक्स्ट चिपकाएँ", submit: "टेक्स्ट स्थानीय रूप से जाँचें", note: "ये संकेत संपादकीय या कानूनी समीक्षा का विकल्प नहीं हैं।" },
-    qr: { title: "QR लिंक जाँचें", summary: "QR कोड के पास दिखे पते को खोलने से पहले स्थानीय रूप से जाँचें।", formTitle: "QR गंतव्य URL जाँचें", fieldLabel: "दिखाया गया URL", placeholder: "https://example.com", submit: "स्थानीय जाँच", note: "यह टूल चित्र या QR कोड नहीं पढ़ता और गंतव्य नहीं खोलता।" },
+    qr: { title: "चित्र से QR कोड पढ़ें", summary: "चित्र में मौजूद QR कोड को स्थानीय रूप से पढ़ें और खोलने से पहले गंतव्य जाँचें।", formTitle: "चित्र से QR कोड स्थानीय रूप से पढ़ें", fieldLabel: "QR कोड वाला चित्र", placeholder: "", submit: "चित्र स्थानीय रूप से जाँचें", note: "चित्र ब्राउज़र में रहता है और गंतव्य नहीं खोला जाता।" },
     "password-check": { title: "पासवर्ड संरचना जाँचें", summary: "केवल उदाहरण से लंबाई और अक्षर-विविधता की स्थानीय जाँच करें।", formTitle: "वास्तविक पासवर्ड नहीं, केवल उदाहरण जाँचें", fieldLabel: "केवल उदाहरण", placeholder: "वास्तविक पासवर्ड न डालें", submit: "संरचना स्थानीय रूप से जाँचें", note: "इनपुट ब्राउज़र में रहता है। सक्रिय या गोपनीय पासवर्ड कभी न डालें।" },
     "account-protection": { title: "खाता सुरक्षा चेकलिस्ट", summary: "व्यक्तिगत या व्यावसायिक खाते की बुनियादी सुरक्षा व्यवस्थित करें।", formTitle: "खाता सुरक्षा की बुनियाद जाँचें", fieldLabel: "पहले से उपलब्ध", placeholder: "", submit: "चेकलिस्ट जाँचें", note: "यह स्व-जाँच है, किसी वास्तविक खाते की जाँच नहीं।", checklist: ["एक विशिष्ट पासवर्ड उपयोग में है जो अन्य खातों में दोहराया नहीं गया है।", "दो-स्तरीय सत्यापन चालू है।", "रिकवरी ईमेल और फोन नंबर अद्यतन हैं।", "लॉग-इन डिवाइस और सत्र नियमित रूप से देखे जाते हैं।", "कोड या लॉगिन विवरण असुरक्षित संदेशों में साझा नहीं किए जाते।"] },
+    "email-header": { title: "ईमेल हेडर जाँचें", summary: "SPF, DKIM, DMARC, Reply-To और डिलीवरी मार्ग का स्थानीय सार देखें।", formTitle: "ईमेल के तकनीकी हेडर जाँचें", fieldLabel: "संवेदनशील जानकारी हटाकर हेडर", placeholder: "From: ...\nReply-To: ...\nAuthentication-Results: ...", submit: "हेडर स्थानीय रूप से जाँचें", note: "यह मेलबॉक्स से कनेक्ट नहीं होता और प्रेषक की पहचान प्रमाणित नहीं करता।" },
+    "bec-request": { title: "व्यावसायिक भुगतान अनुरोध जाँचें", summary: "जल्दबाजी, बैंक विवरण बदलाव, गोपनीयता और असामान्य भुगतान के संकेत देखें।", formTitle: "मंजूरी से पहले अनुरोध जाँचें", fieldLabel: "संवेदनशील जानकारी हटाकर संदेश", placeholder: "नाम, खाता नंबर और गोपनीय जानकारी हटाएँ", submit: "अनुरोध स्थानीय रूप से जाँचें", note: "हर वित्तीय अनुरोध की पुष्टि किसी परिचित आधिकारिक माध्यम से अलग से करें।" },
+    "redirect-chain": { title: "रीडायरेक्ट क्रम जाँचें", summary: "ज्ञात क्रम में डोमेन, HTTPS, शॉर्ट लिंक और चरणों की संख्या देखें।", formTitle: "ज्ञात रीडायरेक्ट क्रम जाँचें", fieldLabel: "हर पंक्ति में एक URL", placeholder: "https://short.example/a", submit: "क्रम स्थानीय रूप से जाँचें", note: "टूल लिंक का पीछा नहीं करता, केवल डाले गए पते जाँचता है।" },
+    "qr-campaign": { title: "प्रिंट से पहले QR कैंपेन जाँचें", summary: "आधिकारिक गंतव्य, मोबाइल अनुभव, HTTPS, वैकल्पिक URL और प्रिंट परीक्षण व्यवस्थित करें।", formTitle: "प्रकाशन से पहले QR कैंपेन जाँचें", fieldLabel: "जाँचे गए बिंदु", placeholder: "", submit: "तैयारी जाँचें", note: "यह वास्तविक प्रिंट, सुरक्षा या मापन परीक्षण का विकल्प नहीं है।", checklist: ["कोड पहचाने जा सकने वाले आधिकारिक डोमेन पर जाता है।", "गंतव्य HTTPS उपयोग करता है और वास्तविक फोन पर जाँचा गया है।", "मोबाइल पेज तुरंत अगला कदम स्पष्ट करता है।", "कोड के पास पढ़ने योग्य वैकल्पिक URL है।", "प्रिंट के बाद आकार, कंट्रास्ट और दूरी जाँची गई है।", "मापन व्यवस्था डोमेन या लिंक का उद्देश्य नहीं छिपाती।"] },
+    "official-links": { title: "आधिकारिक लिंक सूचना बनाएँ", summary: "आधिकारिक डोमेन और सुरक्षित पुष्टि का छोटा ग्राहक संदेश बनाएँ।", formTitle: "आधिकारिक लिंक सूचना बनाएँ", fieldLabel: "व्यवसाय का नाम", secondFieldLabel: "आधिकारिक डोमेन", placeholder: "व्यवसाय का नाम", submit: "सूचना स्थानीय रूप से बनाएँ", note: "प्रकाशन से पहले डोमेन और संपर्क मार्ग सही होने की पुष्टि करें।" },
   },
   fr: {
     bulk: { title: "Vérifier plusieurs liens", summary: "Contrôler localement jusqu’à dix URLs en une fois.", formTitle: "Vérifiez plusieurs liens à la fois", fieldLabel: "Un lien par ligne", placeholder: "https://example.com", submit: "Vérifier la liste localement", note: "Les liens ne sont ni ouverts ni envoyés à un service externe." },
@@ -224,9 +245,14 @@ const extendedLocalizedTools: Record<PublicLocale, Record<ExtendedLocalToolId, L
     "email-list": { title: "Vérifier une liste d’e-mails", summary: "Contrôler localement format, doublons et signaux simples avant import ou envoi.", formTitle: "Nettoyez une liste d’e-mails localement", fieldLabel: "Une adresse par ligne", placeholder: "name@example.com", submit: "Vérifier la liste localement", note: "La vérification ne confirme ni la délivrabilité ni le consentement du destinataire." },
     "utm-builder": { title: "Créer un lien de campagne", summary: "Construire un lien UTM clair avant diffusion.", formTitle: "Créez un lien UTM dans le navigateur", fieldLabel: "URL de destination", placeholder: "https://example.com", submit: "Créer le lien localement", note: "Vérifiez la destination et les balises avant publication." },
     copy: { title: "Vérifier la clarté d’un texte", summary: "Des indicateurs locaux de longueur et de structure pour un texte court.", formTitle: "Vérifiez la structure de base d’un texte", fieldLabel: "Texte pour une page, un message ou une campagne", placeholder: "Collez un texte sans donnée sensible", submit: "Vérifier le texte localement", note: "Ces indicateurs ne remplacent ni une relecture éditoriale ni une validation juridique." },
-    qr: { title: "Vérifier un lien QR", summary: "Contrôler l’adresse affichée près d’un QR code avant de l’ouvrir.", formTitle: "Vérifiez une URL issue d’un QR code", fieldLabel: "Adresse affichée", placeholder: "https://example.com", submit: "Vérifier localement", note: "L’outil ne lit ni image ni QR code et n’ouvre pas la destination." },
+    qr: { title: "Lire un QR code depuis une image", summary: "Lire localement un QR code présent dans une image et vérifier sa destination avant ouverture.", formTitle: "Lire localement un QR code depuis une image", fieldLabel: "Image contenant un QR code", placeholder: "", submit: "Analyser l’image localement", note: "L’image reste dans le navigateur et la destination n’est pas ouverte." },
     "password-check": { title: "Vérifier la structure d’un mot de passe", summary: "Vérifier localement longueur et variété de caractères avec un exemple uniquement.", formTitle: "Vérifiez un exemple, pas un mot de passe réel", fieldLabel: "Exemple uniquement", placeholder: "N’entrez pas de mot de passe réel", submit: "Vérifier la structure localement", note: "La saisie reste dans le navigateur. N’entrez jamais un mot de passe actif ou confidentiel." },
     "account-protection": { title: "Checklist de protection du compte", summary: "Organiser les bases de protection d’un compte personnel ou professionnel.", formTitle: "Vérifiez les bases de protection du compte", fieldLabel: "Déjà en place", placeholder: "", submit: "Examiner la checklist", note: "Il s’agit d’une auto-vérification, pas d’un audit d’un compte réel.", checklist: ["Un mot de passe unique, non réutilisé, est en place.", "La double authentification est activée.", "L’e-mail et le téléphone de récupération sont à jour.", "Les appareils et sessions connectés sont vérifiés régulièrement.", "Aucun code ni identifiant n’est partagé par message non sécurisé."] },
+    "email-header": { title: "Vérifier les en-têtes d’un e-mail", summary: "Résumer localement SPF, DKIM, DMARC, Reply-To et le parcours du message.", formTitle: "Vérifiez les en-têtes techniques de l’e-mail", fieldLabel: "En-têtes sans contenu confidentiel", placeholder: "From: ...\nReply-To: ...\nAuthentication-Results: ...", submit: "Vérifier localement", note: "L’outil ne se connecte pas à la messagerie et ne certifie pas l’identité de l’expéditeur." },
+    "bec-request": { title: "Vérifier une demande de paiement", summary: "Repérer urgence, changement bancaire, secret imposé et moyens de paiement inhabituels.", formTitle: "Vérifiez la demande avant validation", fieldLabel: "Message sans données sensibles", placeholder: "Retirez noms, coordonnées bancaires et informations confidentielles", submit: "Vérifier localement", note: "Confirmez toute demande financière par un canal officiel déjà connu." },
+    "redirect-chain": { title: "Vérifier une chaîne de redirections", summary: "Contrôler domaines, HTTPS, liens courts et nombre d’étapes d’une chaîne connue.", formTitle: "Vérifiez une chaîne de redirections connue", fieldLabel: "Une URL par ligne", placeholder: "https://short.example/a", submit: "Vérifier la chaîne localement", note: "L’outil ne suit pas les liens et contrôle seulement les adresses collées." },
+    "qr-campaign": { title: "Vérifier une campagne QR avant impression", summary: "Organiser destination officielle, mobile, HTTPS, URL de secours et test imprimé.", formTitle: "Vérifiez la campagne QR avant diffusion", fieldLabel: "Éléments déjà contrôlés", placeholder: "", submit: "Vérifier la préparation", note: "La checklist ne remplace pas un test réel d’impression, de sécurité ou de mesure.", checklist: ["Le code mène à un domaine officiel reconnaissable.", "La destination utilise HTTPS et a été testée sur un vrai téléphone.", "La page mobile explique immédiatement l’action attendue.", "Une URL de secours lisible apparaît près du code.", "Taille, contraste et distance ont été testés après impression.", "La mesure ne masque ni le domaine ni l’objectif du lien."] },
+    "official-links": { title: "Créer une notice sur les liens officiels", summary: "Créer un court message client sur le domaine officiel et la vérification sûre.", formTitle: "Créez une notice sur les liens officiels", fieldLabel: "Nom de l’entreprise", secondFieldLabel: "Domaine officiel", placeholder: "Nom de l’entreprise", submit: "Créer la notice localement", note: "Vérifiez le domaine et le canal de contact avant publication." },
   },
   zh: {
     bulk: { title: "批量检查链接", summary: "在浏览器内快速检查最多十个URL。", formTitle: "一次检查多个链接", fieldLabel: "每行一个链接", placeholder: "https://example.com", submit: "本地检查列表", note: "不会打开链接，也不会将链接发送给外部服务。" },
@@ -236,9 +262,14 @@ const extendedLocalizedTools: Record<PublicLocale, Record<ExtendedLocalToolId, L
     "email-list": { title: "检查邮箱地址列表", summary: "在导入或发送前，本地检查格式、重复和基本提示。", formTitle: "本地整理邮箱地址列表", fieldLabel: "每行一个邮箱地址", placeholder: "name@example.com", submit: "本地检查列表", note: "此检查不确认邮箱可送达或收件人同意。" },
     "utm-builder": { title: "创建活动链接", summary: "发布前创建带有清晰UTM标记的链接。", formTitle: "在浏览器内创建UTM链接", fieldLabel: "目标URL", placeholder: "https://example.com", submit: "本地创建链接", note: "发布前请检查目标地址和标记。" },
     copy: { title: "检查文本清晰度", summary: "本地查看短文本的长度和结构提示。", formTitle: "检查文本的基础结构", fieldLabel: "用于页面、消息或活动的文本", placeholder: "请粘贴不含敏感信息的文本", submit: "本地检查文本", note: "这些提示不能替代编辑或法律审查。" },
-    qr: { title: "检查二维码链接", summary: "打开前检查二维码旁显示的网址。", formTitle: "检查二维码目标网址", fieldLabel: "显示的网址", placeholder: "https://example.com", submit: "本地检查", note: "该工具不读取图片或二维码本身，也不会打开目标网站。" },
+    qr: { title: "从图片读取二维码", summary: "在浏览器内读取图片中的二维码，并在打开前检查目标网址。", formTitle: "从图片本地读取二维码", fieldLabel: "包含二维码的图片", placeholder: "", submit: "本地检查图片", note: "图片保留在浏览器中，不会打开目标网址。" },
     "password-check": { title: "检查密码结构", summary: "仅使用示例字符串，本地检查长度和字符种类。", formTitle: "检查示例，不要输入真实密码", fieldLabel: "仅限示例", placeholder: "请勿输入真实密码", submit: "本地检查结构", note: "输入只保留在浏览器中。请勿输入正在使用的密码或机密信息。" },
     "account-protection": { title: "账户保护清单", summary: "整理个人或业务账户的基础保护措施。", formTitle: "检查账户保护基础", fieldLabel: "已具备的项目", placeholder: "", submit: "查看清单", note: "这是自查，不是对真实账户的调查。", checklist: ["使用未在其他账户重复使用的独特密码。", "已启用双重验证。", "恢复邮箱和电话号码保持最新。", "定期检查已登录设备和会话。", "不通过不安全的消息分享验证码或登录信息。"] },
+    "email-header": { title: "检查邮件头", summary: "在浏览器内整理SPF、DKIM、DMARC、Reply-To和邮件路径。", formTitle: "检查邮件技术头信息", fieldLabel: "删除敏感内容后的邮件头", placeholder: "From: ...\nReply-To: ...\nAuthentication-Results: ...", submit: "本地检查邮件头", note: "工具不会连接邮箱，也不能证明发件人身份。" },
+    "bec-request": { title: "检查业务付款请求", summary: "识别催促、银行信息变更、保密要求和异常付款方式。", formTitle: "批准前检查请求", fieldLabel: "删除敏感信息后的消息", placeholder: "请删除姓名、账号和机密信息", submit: "本地检查请求", note: "任何财务请求都应通过已知的官方渠道单独确认。" },
+    "redirect-chain": { title: "检查重定向链", summary: "检查已知链路中的域名、HTTPS、短链接和跳转次数。", formTitle: "检查已知重定向链", fieldLabel: "每行一个网址", placeholder: "https://short.example/a", submit: "本地检查链路", note: "工具不会跟随链接，只检查您粘贴的网址。" },
+    "qr-campaign": { title: "印刷前检查二维码活动", summary: "整理官方目标、移动体验、HTTPS、备用网址和印刷测试。", formTitle: "发布前检查二维码活动", fieldLabel: "已检查的项目", placeholder: "", submit: "检查准备情况", note: "清单不能替代真实的印刷、安全或数据测试。", checklist: ["二维码指向用户可以识别的官方域名。", "目标页面使用HTTPS，并已在真实手机上测试。", "移动页面会立即说明下一步操作。", "二维码旁提供可读的备用网址。", "印刷后测试了尺寸、对比度和扫描距离。", "数据统计方式不会隐藏域名或链接目的。"] },
+    "official-links": { title: "生成官方链接说明", summary: "生成一段说明官方域名和安全核验方式的简短文字。", formTitle: "生成官方链接说明", fieldLabel: "企业名称", secondFieldLabel: "官方域名", placeholder: "企业名称", submit: "本地生成说明", note: "发布前请确认域名和联系方式准确。" },
   },
 };
 

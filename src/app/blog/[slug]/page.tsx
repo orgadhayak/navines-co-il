@@ -6,7 +6,7 @@ import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { blogPosts, site } from "@/data/site";
 import { formatBlogDate } from "@/lib/dates";
-import { affiliateArticleAlternates, financialReviewArticleAlternates, musicArticleAlternates, robloxArticleAlternates } from "@/i18n/locales";
+import { affiliateArticleAlternates, financialReviewArticleAlternates, musicArticleAlternates, robloxArticleAlternates, safetyToolsArticleAlternates } from "@/i18n/locales";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -34,6 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
   if (post.slug === "how-to-distribute-music-spotify-apple-youtube") {
     return { ...metadata, alternates: { ...metadata.alternates, languages: musicArticleAlternates } };
+  }
+  if (post.slug === "qr-email-and-link-safety-tools") {
+    return { ...metadata, alternates: { ...metadata.alternates, languages: safetyToolsArticleAlternates } };
   }
   return metadata;
 }
@@ -218,6 +221,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isBusinessSystemsChatGptPost = post.slug === "connect-business-systems-to-chatgpt-israel";
   const isHebrewToolsPost = post.slug === "hebrew-digital-safety-tools";
   const isSmartLocalToolsPost = post.slug === "smart-local-tools-for-digital-decisions";
+  const isNewSafetyToolsPost = post.slug === "qr-email-and-link-safety-tools";
   const isAffiliateProgramPost = post.slug === "affiliate-program-for-existing-website";
   const isPaymentDiscrepancyReviewPost = post.slug === "how-to-review-payments-and-refunds";
   const isRobloxExperiencePost = post.slug === "roblox-brand-experience-for-business";
@@ -304,7 +308,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       {isMusicDistributionPost ? (
@@ -319,8 +323,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         />
       ) : (
       <CTA
-        title={isPaymentDiscrepancyReviewPost ? "יש חיוב, תשלום או זיכוי שלא מסתדר?" : isAffiliateProgramPost ? "רוצים להפוך המלצות של יוצרים לתוכנית שותפים מסודרת?" : isBusinessSystemsChatGptPost ? "רוצים לחבר את המערכות שלכם ל־ChatGPT?" : isSmartLocalToolsPost || isHebrewToolsPost ? "רוצים כלי שימושי בעברית באתר שלכם?" : isToolsPortfolioPost ? "רוצים כלי חכם שמותאם לעסק שלכם?" : isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני אמזון בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל אמזון?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isPaymentDiscrepancyReviewPost ? "שלחו לנו בוואטסאפ רק מול איזה גוף או תהליך קיים פער ומה בערך לא מסתדר. שיחת ההתאמה הראשונה ללא עלות. אין לשלוח סיסמאות, קודי אימות, פרטי כרטיס מלאים או מידע אישי רגיש." : isAffiliateProgramPost ? "שלחו לנו בוואטסאפ על איזה אתר או חנות מדובר, מי אמור להיות שותף ומה נחשב אצלכם להפניה או הצלחה. נבדוק את החיבור הקיים ונציע דרך להתחיל בתוכנית ברורה, מאובטחת ונוחה לתפעול." : isBusinessSystemsChatGptPost ? "שלחו לנו בוואטסאפ אילו מערכות יש לכם, למשל Morning, Priority, ריווחית, CRM או חנות, ואילו שלוש שאלות הייתם רוצים לשאול בלי לחפש בדוחות. נבדוק API, הרשאות והיתכנות ונציע התחלה מצומצמת ובטוחה." : isSmartLocalToolsPost || isHebrewToolsPost ? "שלחו לנו בוואטסאפ איזה כלי הייתם רוצים להוסיף לאתר שלכם ואיזו פעולה הגולש צריך לבצע. נחשוב על כלי קטן, שימושי וברור שנותן ערך אמיתי." : isToolsPortfolioPost ? "שלחו לנו בוואטסאפ מה העסק עושה, איזו פעולה חוזרת על עצמה ומה הייתם רוצים שהלקוח או הצוות יוכלו לבצע בקלות. נבדוק אם נכון לבנות כלי קטן, תוסף, מערכת נתונים או פתרון רחב יותר." : isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, אמזון, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי אמזון בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isPaymentDiscrepancyReviewPost ? "יש חיוב, תשלום או זיכוי שלא מסתדר?" : isAffiliateProgramPost ? "רוצים להפוך המלצות של יוצרים לתוכנית שותפים מסודרת?" : isBusinessSystemsChatGptPost ? "רוצים לחבר את המערכות שלכם ל־ChatGPT?" : isNewSafetyToolsPost || isSmartLocalToolsPost || isHebrewToolsPost ? "רוצים כלי שימושי בעברית באתר שלכם?" : isToolsPortfolioPost ? "רוצים כלי חכם שמותאם לעסק שלכם?" : isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני אמזון בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל אמזון?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isPaymentDiscrepancyReviewPost ? "שלחו לנו בוואטסאפ רק מול איזה גוף או תהליך קיים פער ומה בערך לא מסתדר. שיחת ההתאמה הראשונה ללא עלות. אין לשלוח סיסמאות, קודי אימות, פרטי כרטיס מלאים או מידע אישי רגיש." : isAffiliateProgramPost ? "שלחו לנו בוואטסאפ על איזה אתר או חנות מדובר, מי אמור להיות שותף ומה נחשב אצלכם להפניה או הצלחה. נבדוק את החיבור הקיים ונציע דרך להתחיל בתוכנית ברורה, מאובטחת ונוחה לתפעול." : isBusinessSystemsChatGptPost ? "שלחו לנו בוואטסאפ אילו מערכות יש לכם, למשל Morning, Priority, ריווחית, CRM או חנות, ואילו שלוש שאלות הייתם רוצים לשאול בלי לחפש בדוחות. נבדוק API, הרשאות והיתכנות ונציע התחלה מצומצמת ובטוחה." : isNewSafetyToolsPost || isSmartLocalToolsPost || isHebrewToolsPost ? "שלחו לנו בוואטסאפ איזה כלי הייתם רוצים להוסיף לאתר שלכם ואיזו פעולה הגולש צריך לבצע. נחשוב על כלי קטן, שימושי וברור שנותן ערך אמיתי." : isToolsPortfolioPost ? "שלחו לנו בוואטסאפ מה העסק עושה, איזו פעולה חוזרת על עצמה ומה הייתם רוצים שהלקוח או הצוות יוכלו לבצע בקלות. נבדוק אם נכון לבנות כלי קטן, תוסף, מערכת נתונים או פתרון רחב יותר." : isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, אמזון, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי אמזון בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
         whatsappHref={isAppraisalGuidePost ? appraisalWhatsappHref : undefined}
         whatsappLabel={isAppraisalGuidePost ? "סיוע ראשוני בוואטסאפ" : undefined}
       />
@@ -2042,6 +2046,53 @@ function EmailToChatGptArticleBody() {
   );
 }
 
+function NewSafetyToolsArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-a:text-glowred prose-headings:font-semibold prose-headings:text-white prose-li:text-zinc-300 prose-p:leading-8 prose-p:text-zinc-300">
+      <h2>למה הוספנו עוד שכבת בדיקה מקומית</h2>
+      <p>
+        הרבה פעולות דיגיטליות מתחילות בפריט קטן: תמונת QR, כותרת אימייל, בקשת תשלום או קישור שעובר בכמה תחנות. בדיוק שם קל לפספס פרט. הרחבנו את <Link href="/tools">עמוד הכלים בעברית</Link> ל־20 כלים כדי לתת לגולש דרך קצרה לעצור, לסדר סימנים ולהחליט מה צריך לאמת.
+      </p>
+      <p>
+        הכלים אינם מחליפים איש אבטחה, ספק מייל, בנק או בדיקה מקצועית. הם אינם פותחים קישורים ואינם שולחים את הקלט לשרת. המטרה היא להציג מידע ראשוני בצורה ברורה ולא להבטיח ביטחון מוחלט.
+      </p>
+
+      <h2>סריקת QR מתמונה בלי לפתוח את היעד</h2>
+      <p>
+        כלי <Link href="/tools#qr">סריקת QR מתמונה</Link> קורא את הקוד בתוך הדפדפן, מציג את הכתובת ומעביר אותה לבדיקת מבנה בסיסית. כך אפשר לראות את הדומיין לפני שהטלפון פותח אותו. בדפדפן שאינו תומך בקריאה מקומית, הכלי מציג חלופה ברורה במקום להעמיד פנים שהסריקה הצליחה.
+      </p>
+
+      <h2>כותרות אימייל מספרות יותר מהשם שמופיע במסך</h2>
+      <p>
+        שם תצוגה באימייל קל לשנות. <Link href="/tools#email-header">בודק כותרות האימייל</Link> מסכם שדות כמו SPF, DKIM, DMARC, Reply-To ו־Return-Path. גם תוצאה תקינה אינה הוכחה שהבקשה לגיטימית, אבל פערים בין השדות או כישלונות אימות הם סיבה טובה לעצור ולבדוק דרך ערוץ רשמי.
+      </p>
+
+      <h2>בקשת תשלום עסקית צריכה אימות נפרד</h2>
+      <p>
+        שינוי פתאומי בפרטי בנק, לחץ לבצע פעולה היום, בקשה לשמור סוד או תשלום באמצעי חריג הם דפוסים שחוזרים באירועי התחזות עסקית. <Link href="/tools#bec-request">בודק בקשות התשלום</Link> מסמן אותם מקומית. הפעולה הנכונה לאחר מכן היא לא להשיב לאותו שרשור, אלא לפנות לאדם המוסמך במספר שכבר היה מוכר לארגון.
+      </p>
+
+      <h2>שרשרת הפניות יכולה להסתיר את היעד</h2>
+      <p>
+        קישור קצר יכול לעבור בין כמה דומיינים לפני שהוא מגיע לעמוד הסופי. <Link href="/tools#redirect-chain">בודק שרשרת ההפניות</Link> אינו גולש ברשת בעצמו. הוא מנתח רשימה שהמשתמש כבר אסף ומראה כמה תחנות ודומיינים יש, האם נשמר HTTPS והאם המעבר מורכב מהצפוי.
+      </p>
+
+      <h2>QR בקמפיין צריך לעבוד גם אחרי ההדפסה</h2>
+      <p>
+        לפני שמדפיסים מאות עותקים, בודקים את הדומיין, חוויית המובייל, הכתובת החלופית, הניגודיות, מרחק הסריקה והמדידה. <Link href="/tools#qr-campaign">צ׳קליסט קמפיין QR</Link> מרכז את הנקודות האלה ומפחית את הסיכון לגלות מאוחר שהקוד קטן מדי או שהיעד אינו ברור.
+      </p>
+
+      <h2>הקשר ל־CheckLink.ai ולפיתוח כלי מותאם</h2>
+      <p>
+        <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">CheckLink.ai</bdi></a> מציג משפחה רחבה יותר של בדיקות קישורים ואמון. בעמוד הישראלי בחרנו פעולות מקומיות שאפשר להבין במהירות. אותו עיקרון יכול להפוך גם לצ׳קליסט, מחשבון, בודק מסמכים או מחולל החלטה שנבנה במיוחד לנישה של עסק.
+      </p>
+      <p>
+        רוצים לחשוב על כלי כזה? קראו על <Link href="/services/smart-website-lead-engine">בניית כלים חכמים לגולשים באתר קיים</Link> או שלחו לנו בוואטסאפ את הפעולה שהקהל שלכם מתקשה לבצע.
+      </p>
+    </div>
+  );
+}
+
 function SmartLocalToolsArticleBody() {
   const tools = [
     ["בדיקת קישור", "בודק מבנה, HTTPS, קיצור וסימנים מקומיים לפני פתיחה או שיתוף.", "link"],
@@ -2056,22 +2107,27 @@ function SmartLocalToolsArticleBody() {
     ["בדיקת רשימת אימיילים", "מזהה מבנים חסרים וכפילויות לפני ייבוא או שליחה.", "email-list"],
     ["בניית קישור קמפיין", "יוצרת כתובת UTM מסודרת בדפדפן, בלי לשלוח את פרטי הקמפיין לשרת.", "utm-builder"],
     ["בדיקת בהירות של טקסט", "מחזירה מדדי אורך ומבנה כדי לפתוח שיחה על מסר, פסקאות והנעה לפעולה.", "copy"],
-    ["בדיקת קישור לפני סריקת QR", "בודקת כתובת שהוצגה ליד קוד QR בלי לפענח את הקוד או לפתוח את היעד.", "qr"],
+    ["סריקת QR מתמונה", "קוראת קוד QR מקומית, מציגה את הכתובת ובודקת את המבנה בלי לפתוח את היעד.", "qr"],
     ["בדיקת מבנה סיסמה", "בודקת דוגמה מקומית לפי אורך ומגוון תווים, בלי לשמור או לשלוח אותה.", "password-check"],
     ["צ׳קליסט הגנה לחשבון", "מסדר פעולות בסיסיות כמו אימות דו שלבי, שחזור ובדיקת התחברויות.", "account-protection"],
+    ["בדיקת כותרות אימייל", "מסכמת SPF, DKIM, DMARC, Reply-To ונתיב מסירה בלי להתחבר לתיבה.", "email-header"],
+    ["בדיקת בקשת תשלום עסקית", "מסמנת דחיפות, שינוי פרטי בנק, סודיות ואמצעי תשלום חריגים.", "bec-request"],
+    ["בדיקת שרשרת הפניות", "מסדרת כתובות לפי תחנות, דומיינים ו־HTTPS בלי לפתוח אותן.", "redirect-chain"],
+    ["בדיקת QR לפני הדפסה", "מרכזת יעד רשמי, מובייל, כתובת גיבוי, ניגודיות ומדידה.", "qr-campaign"],
+    ["מחולל מדיניות קישורים רשמיים", "יוצר הודעה קצרה שמסבירה ללקוחות איך לזהות את הדומיין הרשמי.", "official-links"],
   ] as const;
 
   return (
     <div className="prose prose-invert mt-10 max-w-none prose-a:text-glowred prose-headings:font-semibold prose-headings:text-white prose-li:text-zinc-300 prose-p:leading-8 prose-p:text-zinc-300">
       <h2>למה כלי קטן יכול להיות שימושי יותר מעוד עמוד הסבר</h2>
       <p>
-        כשגולש צריך להחליט אם לפתוח קישור, לנקות רשימת אימיילים או לבדוק קמפיין, הוא לא תמיד צריך מערכת גדולה. כלי קצר שנותן סימנים ברורים יכול לעזור לעצור, לסדר את המידע ולבחור את הצעד הבא. לכן הרחבנו את <Link href="/tools">עמוד הכלים בעברית</Link> ל־15 כלים מקומיים.
+        כשגולש צריך להחליט אם לפתוח קישור, לנקות רשימת אימיילים או לבדוק קמפיין, הוא לא תמיד צריך מערכת גדולה. כלי קצר שנותן סימנים ברורים יכול לעזור לעצור, לסדר את המידע ולבחור את הצעד הבא. לכן הרחבנו את <Link href="/tools">עמוד הכלים בעברית</Link> ל־20 כלים מקומיים.
       </p>
       <p>
         כל הבדיקות פועלות בדפדפן בלבד. הן אינן פותחות קישורים, אינן שולחות את הקלט לשרת ואינן מבטיחות זהות, אבטחה, מסירה או תוצאה עסקית. גם כאן לא מזינים סיסמאות, קודי אימות, פרטי תשלום או מידע עסקי רגיש.
       </p>
 
-      <h2>15 בדיקות קטנות, לפי המשימה של הגולש</h2>
+      <h2>20 בדיקות קטנות, לפי המשימה של הגולש</h2>
       <ol>
         {tools.map(([title, text, hash]) => <li key={hash}><Link href={`/tools#${hash}`}>{title}</Link>: {text}</li>)}
       </ol>
@@ -2102,7 +2158,7 @@ function HebrewToolsArticleBody() {
         הודעה קצרה, קישור שנשלח בקבוצה או דומיין שנראה כמעט מוכר יכולים לגרום לאדם לפעול מהר מדי. לא תמיד צריך מערכת גדולה כדי לעצור את הרגע הזה. לפעמים מספיק כלי קטן שמסדר את הסימנים החשובים ומזכיר לבדוק את המקור לפני שמכניסים פרטים או מעבירים כסף.
       </p>
       <p>
-        לכן הרחבנו את <Link href="/tools">עמוד הכלים בעברית</Link> ל־15 בדיקות מקומיות: קישורים, הודעות, דומיינים, אימיילים, קמפיינים, רשימות, צ׳קליסט אתר, עזרה ראשונה דיגיטלית, חשבונות ומדדי טקסט. הן נבנו לשימוש מהיר, ללא הרשמה וללא שליחת הטקסט שהוזן לשרת.
+        לכן הרחבנו את <Link href="/tools">עמוד הכלים בעברית</Link> ל־20 בדיקות מקומיות: קישורים, QR מתמונה, כותרות אימייל, בקשות תשלום, שרשראות הפניה, קמפיינים, רשימות, צ׳קליסט אתר, עזרה ראשונה דיגיטלית, חשבונות ומדדי טקסט. הן נבנו לשימוש מהיר, ללא הרשמה וללא שליחת הקלט לשרת.
       </p>
 
       <h2>בדיקת קישור לפני שליחה או פתיחה</h2>

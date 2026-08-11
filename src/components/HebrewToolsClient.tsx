@@ -2,6 +2,7 @@
 
 import { FormEvent, type ReactNode, useEffect, useMemo, useState } from "react";
 import { hebrewTools } from "@/data/site";
+import { decodeQrImage } from "@/lib/decodeQrImage";
 
 type ToolId = (typeof hebrewTools)[number]["id"];
 type ResultTone = "positive" | "caution" | "warning";
@@ -63,6 +64,15 @@ const accountProtectionItems = [
   "אין קודי שחזור, סיסמאות או פרטי גישה שמועברים בהודעות לא מאובטחות.",
 ];
 
+const qrCampaignItems = [
+  "הקוד מוביל לדומיין רשמי שהקהל יכול לזהות.",
+  "דף היעד משתמש ב־HTTPS ונבדק בטלפון אמיתי.",
+  "היעד מותאם למובייל ומציג מיד מה מצופה מהגולש.",
+  "יש ליד הקוד כתובת קצרה וקריאה כחלופה לסריקה.",
+  "נבדקו גודל ההדפסה, הניגודיות והסריקה ממרחק סביר.",
+  "המדידה אינה מסתירה מהגולש את הדומיין או את מטרת הקישור.",
+];
+
 export function HebrewToolsClient() {
   const [activeTool, setActiveTool] = useState<ToolId>("link");
   const active = hebrewTools.find((tool) => tool.id === activeTool) || hebrewTools[0];
@@ -113,6 +123,11 @@ export function HebrewToolsClient() {
         {activeTool === "qr" ? <QrLinkTool /> : null}
         {activeTool === "password-check" ? <PasswordPatternTool /> : null}
         {activeTool === "account-protection" ? <AccountProtectionTool /> : null}
+        {activeTool === "email-header" ? <EmailHeaderTool /> : null}
+        {activeTool === "bec-request" ? <BusinessRequestTool /> : null}
+        {activeTool === "redirect-chain" ? <RedirectChainTool /> : null}
+        {activeTool === "qr-campaign" ? <QrCampaignTool /> : null}
+        {activeTool === "official-links" ? <OfficialLinksPolicyTool /> : null}
       </div>
     </div>
   );
@@ -263,13 +278,33 @@ function CopyClarityTool() {
 }
 
 function QrLinkTool() {
-  const [value, setValue] = useState("");
+  const [decodedValue, setDecodedValue] = useState("");
   const [result, setResult] = useState<ToolResult | null>(null);
-  return <ToolForm onSubmit={(event) => { event.preventDefault(); setResult(checkQrLink(value)); }} title="בדקו כתובת לפני פתיחת קישור שמגיע מקוד QR">
-    <label className="hebrew-tool-label" htmlFor="qr-link-input">כתובת שהוצגה ליד קוד QR</label>
-    <div className="hebrew-tool-input-row"><input className="hebrew-tool-input" id="qr-link-input" inputMode="url" onChange={(event) => setValue(event.target.value)} placeholder="https://example.com" type="text" value={value} /><button className="btn-primary" type="submit">בדיקה מקומית</button></div>
-    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">הכלי בודק כתובת שהודבקה ידנית בלבד. הוא לא קורא תמונות, לא פותח קישורים ולא מאמת את זהות היעד.</p>}
-  </ToolForm>;
+  const [scanning, setScanning] = useState(false);
+
+  async function scanImage(file: File | undefined) {
+    if (!file) return;
+    setScanning(true);
+    try {
+      const value = await decodeQrImage(file);
+      setDecodedValue(value);
+      setResult(value ? { ...checkLink(value), body: "הכתובת חולצה מהתמונה מקומית ולא נפתחה. עברו על הדומיין ועל סימני האזהרה לפני פעולה." } : { tone: "caution", title: "לא זוהה קוד QR ברור", body: "נסו תמונה חדה יותר שבה הקוד שלם, ישר ובניגודיות טובה.", checks: [] });
+    } catch {
+      setResult({ tone: "warning", title: "לא הצלחנו לקרוא את התמונה", body: "ודאו שזה קובץ תמונה תקין ושקוד ה־QR מופיע בו במלואו.", checks: [] });
+    } finally {
+      setScanning(false);
+    }
+  }
+
+  return <form className="hebrew-tool-form" onSubmit={(event) => event.preventDefault()}>
+    <h2>חלצו כתובת מקוד QR לפני שאתם פותחים אותה</h2>
+    <label className="hebrew-tool-label" htmlFor="qr-image-input">צילום מסך או תמונה של קוד QR
+      <input accept="image/*" className="hebrew-tool-input" id="qr-image-input" onChange={(event) => void scanImage(event.target.files?.[0])} type="file" />
+    </label>
+    <p className="hebrew-tool-note">{scanning ? "קוראים את הקוד בתוך הדפדפן…" : "התמונה אינה נשלחת לשרת. אל תעלו צילום שמכיל מידע אישי או סודי."}</p>
+    {decodedValue ? <label className="hebrew-tool-label" htmlFor="decoded-qr-value">הכתובת שזוהתה<input className="hebrew-tool-input" dir="ltr" id="decoded-qr-value" readOnly value={decodedValue} /></label> : null}
+    {result ? <ToolResultView result={result} /> : null}
+  </form>;
 }
 
 function PasswordPatternTool() {
@@ -292,6 +327,77 @@ function AccountProtectionTool() {
     </div>
     <button className="btn-primary" type="submit">בדיקת צ׳קליסט</button>
     {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">זהו סדר פעולות בסיסי לשגרה. בחשד לפריצה או לאובדן גישה, פעלו מהר דרך הערוצים הרשמיים וקבלו סיוע מקצועי לפי הצורך.</p>}
+  </ToolForm>;
+}
+
+function EmailHeaderTool() {
+  const [value, setValue] = useState("");
+  const [result, setResult] = useState<ToolResult | null>(null);
+  return <ToolForm onSubmit={(event) => { event.preventDefault(); setResult(checkEmailHeaders(value)); }} title="בדקו את כותרות האימייל לפני שסומכים על השולח">
+    <label className="hebrew-tool-label" htmlFor="email-header-input">כותרות טכניות של ההודעה</label>
+    <textarea className="hebrew-tool-input hebrew-tool-textarea" id="email-header-input" onChange={(event) => setValue(event.target.value)} placeholder="From: ...&#10;Reply-To: ...&#10;Authentication-Results: ..." rows={9} value={value} />
+    <button className="btn-primary" type="submit">בדיקת כותרות מקומית</button>
+    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">מומלץ להסיר תוכן אישי שאינו נחוץ. אין להדביק סיסמאות, קודים או תוכן מלא של התכתבות רגישה.</p>}
+  </ToolForm>;
+}
+
+function BusinessRequestTool() {
+  const [value, setValue] = useState("");
+  const [result, setResult] = useState<ToolResult | null>(null);
+  return <ToolForm onSubmit={(event) => { event.preventDefault(); setResult(checkBusinessRequest(value)); }} title="בדקו בקשת תשלום או שינוי פרטים לפני שהצוות פועל">
+    <label className="hebrew-tool-label" htmlFor="business-request-input">נוסח הבקשה ללא פרטים רגישים</label>
+    <textarea className="hebrew-tool-input hebrew-tool-textarea" id="business-request-input" onChange={(event) => setValue(event.target.value)} placeholder="הדביקו את נוסח הבקשה לאחר שמחקתם שמות, מספרי חשבון ומידע סודי" rows={8} value={value} />
+    <button className="btn-primary" type="submit">ניתוח בקשה מקומי</button>
+    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">הבדיקה מחפשת דפוסי לחץ והתחזות נפוצים. היא אינה קובעת אם הבקשה אמיתית.</p>}
+  </ToolForm>;
+}
+
+function RedirectChainTool() {
+  const [value, setValue] = useState("");
+  const [result, setResult] = useState<ToolResult | null>(null);
+  return <ToolForm onSubmit={(event) => { event.preventDefault(); setResult(checkRedirectChain(value)); }} title="בדקו שרשרת כתובות שכבר אספתם">
+    <label className="hebrew-tool-label" htmlFor="redirect-chain-input">כתובת אחת בכל שורה, לפי סדר ההפניה</label>
+    <textarea className="hebrew-tool-input hebrew-tool-textarea" dir="ltr" id="redirect-chain-input" onChange={(event) => setValue(event.target.value)} placeholder={"https://short.example/a\nhttps://campaign.example/offer\nhttps://official.example/page"} rows={8} value={value} />
+    <button className="btn-primary" type="submit">בדיקת שרשרת מקומית</button>
+    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">הכלי אינו עוקב אחרי הפניות ברשת. הדביקו רק שרשרת שכבר קיבלתם מכלי בדיקה או ממערכת שלכם.</p>}
+  </ToolForm>;
+}
+
+function QrCampaignTool() {
+  const [checked, setChecked] = useState<Record<number, boolean>>({});
+  const [result, setResult] = useState<ToolResult | null>(null);
+  const selected = useMemo(() => Object.values(checked).filter(Boolean).length, [checked]);
+  return <ToolForm onSubmit={(event) => { event.preventDefault(); setResult(checkQrCampaign(selected)); }} title="עברו על קמפיין ה־QR לפני הדפסה או הפצה">
+    <div className="hebrew-tool-checklist">
+      {qrCampaignItems.map((item, index) => <label className="hebrew-tool-check" key={item}><input checked={Boolean(checked[index])} onChange={(event) => setChecked((current) => ({ ...current, [index]: event.target.checked }))} type="checkbox" /><span>{item}</span></label>)}
+    </div>
+    <button className="btn-primary" type="submit">בדיקת מוכנות</button>
+    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">בדקו שוב גם עותק מודפס ובכמה מכשירים לפני שמפיצים כמות גדולה.</p>}
+  </ToolForm>;
+}
+
+function OfficialLinksPolicyTool() {
+  const [businessName, setBusinessName] = useState("");
+  const [domain, setDomain] = useState("");
+  const [contact, setContact] = useState("");
+  const [policy, setPolicy] = useState("");
+  const [result, setResult] = useState<ToolResult | null>(null);
+
+  function buildPolicy() {
+    const built = createOfficialLinksPolicy(businessName, domain, contact);
+    setPolicy(built.policy);
+    setResult(built.result);
+  }
+
+  return <ToolForm onSubmit={(event) => { event.preventDefault(); buildPolicy(); }} title="צרו הודעת אימות קצרה ללקוחות">
+    <div className="hebrew-tool-two-column">
+      <label className="hebrew-tool-label" htmlFor="policy-business">שם העסק<input className="hebrew-tool-input" id="policy-business" onChange={(event) => setBusinessName(event.target.value)} placeholder="שם העסק" value={businessName} /></label>
+      <label className="hebrew-tool-label" htmlFor="policy-domain">הדומיין הרשמי<input className="hebrew-tool-input" dir="ltr" id="policy-domain" onChange={(event) => setDomain(event.target.value)} placeholder="example.com" value={domain} /></label>
+      <label className="hebrew-tool-label" htmlFor="policy-contact">ערוץ אימות רשמי<input className="hebrew-tool-input" id="policy-contact" onChange={(event) => setContact(event.target.value)} placeholder="טלפון או כתובת עמוד יצירת קשר" value={contact} /></label>
+    </div>
+    <button className="btn-primary" type="submit">יצירת נוסח מקומי</button>
+    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">הנוסח נוצר במכשיר שלכם בלבד. ודאו שכל הפרטים מדויקים לפני פרסום.</p>}
+    {policy ? <label className="hebrew-tool-label" htmlFor="official-policy-output">נוסח מוצע<textarea className="hebrew-tool-input hebrew-tool-textarea" id="official-policy-output" readOnly rows={6} value={policy} /></label> : null}
   </ToolForm>;
 }
 
@@ -422,10 +528,93 @@ function checkCopyClarity(value: string): ToolResult {
   return { tone: longSentences > 2 ? "caution" : "positive", title: "מדדי הבהירות המקומיים מוכנים", body: "המדדים עוזרים לפתוח שיחה על מבנה הטקסט. הם אינם קובעים אם המסר נכון לקהל או עומד בכל דרישת תוכן.", checks: [`מספר מילים: ${words}`, `פסקאות: ${paragraphs}`, `משפטים ארוכים במיוחד: ${longSentences}`, hasAction ? "נמצאה הנעה לפעולה." : "לא זוהתה הנעה לפעולה מפורשת."] };
 }
 
-function checkQrLink(value: string): ToolResult {
-  const result = checkLink(value);
-  if (!value.trim()) return { ...result, title: "לא הוזנה כתובת", body: "הדביקו את הכתובת שהופיעה ליד הקוד כדי לקבל בדיקה בסיסית לפני פתיחה." };
-  return { ...result, body: "הבדיקה מתייחסת לכתובת שהוזנה ידנית. היא אינה מפענחת קוד QR, אינה פותחת את היעד ואינה מבטיחה שהאתר בטוח." };
+function checkEmailHeaders(value: string): ToolResult {
+  const text = value.trim();
+  if (!text) return { tone: "warning", title: "לא הודבקו כותרות אימייל", body: "פתחו את הצגת המקור של ההודעה והדביקו רק את הכותרות הדרושות לבדיקה.", checks: [] };
+  const normalized = text.replace(/\r?\n[ \t]+/g, " ");
+  const header = (name: string) => normalized.match(new RegExp(`^${name}:\\s*(.+)$`, "im"))?.[1]?.trim() || "";
+  const from = header("From");
+  const replyTo = header("Reply-To");
+  const returnPath = header("Return-Path");
+  const auth = `${header("Authentication-Results")} ${header("Received-SPF")}`.toLowerCase();
+  const emailDomain = (input: string) => input.match(/@([^>\s]+)/)?.[1]?.toLowerCase().replace(/[;,]$/, "") || "";
+  const fromDomain = emailDomain(from);
+  const replyDomain = emailDomain(replyTo);
+  const spf = /spf=pass|\bpass\b.*spf/i.test(auth) ? "עבר" : /spf=(?:fail|softfail|neutral|none)|\b(?:fail|softfail)\b.*spf/i.test(auth) ? "דורש בדיקה" : "לא נמצא";
+  const dkim = /dkim=pass/i.test(auth) ? "עבר" : /dkim=(?:fail|neutral|none)/i.test(auth) ? "דורש בדיקה" : "לא נמצא";
+  const dmarc = /dmarc=pass/i.test(auth) ? "עבר" : /dmarc=(?:fail|bestguesspass|none)/i.test(auth) ? "דורש בדיקה" : "לא נמצא";
+  const replyMismatch = Boolean(fromDomain && replyDomain && fromDomain !== replyDomain);
+  const failures = [spf, dkim, dmarc].filter((status) => status === "דורש בדיקה").length + Number(replyMismatch);
+  return {
+    tone: failures >= 2 ? "warning" : failures || [spf, dkim, dmarc].includes("לא נמצא") ? "caution" : "positive",
+    title: failures >= 2 ? "נמצאו כמה סימנים שדורשים אימות" : failures ? "יש פרט שכדאי לבדוק לפני תשובה" : "הכותרות נותחו מקומית",
+    body: "כותרות אימייל יכולות לעזור להבין את מסלול ההודעה, אך אינן מוכיחות לבדן שהשולח אמין. אמתו בקשה רגישה בערוץ רשמי ונפרד.",
+    checks: [
+      `SPF: ${spf}`,
+      `DKIM: ${dkim}`,
+      `DMARC: ${dmarc}`,
+      replyMismatch ? "כתובת Reply-To משתמשת בדומיין שונה מכתובת From." : "לא זוהה פער ברור בין From ל־Reply-To.",
+      returnPath ? "נמצאה כתובת Return-Path לבדיקה נוספת." : "לא נמצאה שורת Return-Path בטקסט שהודבק.",
+    ],
+  };
+}
+
+function checkBusinessRequest(value: string): ToolResult {
+  const text = value.trim();
+  if (!text) return { tone: "warning", title: "לא הודבק נוסח לבדיקה", body: "הדביקו נוסח כללי לאחר שמחקתם שמות, מספרי חשבון ומידע רגיש.", checks: [] };
+  const patterns = [
+    [/דחוף|מיד|היום|עכשיו|urgent|immediately|today/i, "ניסיון לזרז פעולה"],
+    [/שינוי.*(?:בנק|חשבון)|פרטי.*(?:בנק|תשלום)|change.*bank|new account/i, "שינוי בפרטי תשלום או בנק"],
+    [/אל תתקשר|סודי|בינינו|confidential|do not call|keep this/i, "בקשה להימנע מאימות רגיל"],
+    [/קוד|סיסמה|OTP|verification code|password/i, "בקשה לקוד או לפרטי גישה"],
+    [/כרטיס מתנה|gift card|crypto|ביטקוין|מטבע דיגיטלי/i, "אמצעי תשלום שקשה לבטל"],
+    [/חשבונית|העברה|תשלום|invoice|wire|transfer|payment/i, "פעולה כספית"],
+  ] as const;
+  const checks = patterns.filter(([pattern]) => pattern.test(text)).map(([, label]) => label);
+  return {
+    tone: checks.length >= 3 ? "warning" : checks.length ? "caution" : "positive",
+    title: checks.length >= 3 ? "עצרו ואמתו את הבקשה בערוץ נוסף" : checks.length ? "יש סימנים שדורשים אימות" : "לא נמצאו דפוסי לחץ מרכזיים",
+    body: "אל תאשרו תשלום או שינוי פרטים מתוך אותה הודעה בלבד. התקשרו למספר רשמי שכבר היה מוכר לארגון ובדקו עם אדם מוסמך.",
+    checks: checks.length ? checks : ["לא זוהתה דחיפות, סודיות, שינוי בנק, קוד או אמצעי תשלום חריג לפי הבדיקה המקומית."],
+  };
+}
+
+function checkRedirectChain(value: string): ToolResult {
+  const links = value.split(/\r?\n/).map((item) => item.trim()).filter(Boolean).slice(0, 12);
+  if (!links.length) return { tone: "warning", title: "לא הודבקה שרשרת", body: "הדביקו כתובת אחת בכל שורה לפי סדר ההפניה.", checks: [] };
+  const inspected = links.map(inspectUrl);
+  const hosts = inspected.map((item) => item.parsed?.hostname.toLowerCase()).filter((host): host is string => Boolean(host));
+  const uniqueHosts = new Set(hosts);
+  const invalid = inspected.filter((item) => !item.parsed).length;
+  const insecure = inspected.filter((item) => item.parsed?.protocol !== "https:").length;
+  const risky = inspected.filter((item) => item.risk > 0).length;
+  const concerns = invalid + insecure + Number(uniqueHosts.size > 2) + Number(links.length > 5) + Number(risky > 1);
+  return {
+    tone: concerns >= 3 ? "warning" : concerns ? "caution" : "positive",
+    title: concerns >= 3 ? "השרשרת מורכבת ודורשת בדיקה" : concerns ? "יש מעבר שכדאי להבין" : "השרשרת נראית פשוטה בבדיקת המבנה",
+    body: "הכלי אינו פותח קישורים ואינו מאמת את היעד הסופי. ודאו שהכתובת האחרונה שייכת לגוף הרשמי שציפיתם לראות.",
+    checks: [`מספר תחנות: ${links.length}`, `מספר דומיינים שונים: ${uniqueHosts.size}`, `כתובות לא תקינות: ${invalid}`, `כתובות ללא HTTPS: ${insecure}`],
+  };
+}
+
+function checkQrCampaign(selected: number): ToolResult {
+  const total = qrCampaignItems.length;
+  const tone: ResultTone = selected >= total - 1 ? "positive" : selected >= Math.ceil(total / 2) ? "caution" : "warning";
+  return {
+    tone,
+    title: tone === "positive" ? "הקמפיין קרוב למוכנות" : tone === "caution" ? "כדאי להשלים כמה בדיקות" : "עדיין חסרים יסודות לפני הדפסה",
+    body: "סרקו את הקוד מעותק אמיתי, בדקו את היעד בכמה מכשירים ושמרו דרך חלופית להגיע לאותו מידע.",
+    checks: [`סומנו ${selected} מתוך ${total} בדיקות.`, "לפני הדפסה בכמות גדולה, בצעו בדיקת ניסיון עם אדם שלא מכיר את הקמפיין."],
+  };
+}
+
+function createOfficialLinksPolicy(businessName: string, domainValue: string, contact: string) {
+  const name = businessName.trim();
+  const domain = cleanDomain(domainValue);
+  if (!name || !domain) return { policy: "", result: { tone: "warning" as const, title: "חסרים שם עסק או דומיין", body: "מלאו שם עסק ודומיין רשמי כדי ליצור נוסח.", checks: [] } };
+  const verification = contact.trim() || "עמוד יצירת הקשר הרשמי באתר";
+  const policy = `${name} משתמשת בדומיין הרשמי ${domain}. לפני הזנת פרטים או ביצוע תשלום, בדקו שהכתובת מסתיימת בדומיין הזה. קיבלתם הודעה או קישור לא צפויים? אל תמסרו סיסמה או קוד אימות. אמתו את הפנייה דרך ${verification}.`;
+  return { policy, result: { tone: "positive" as const, title: "נוצר נוסח ראשוני", body: "בדקו שהדומיין וערוץ האימות נכונים, וקבלו אישור פנימי לפני פרסום באתר או בהודעות.", checks: [`דומיין רשמי: ${domain}`, `ערוץ אימות: ${verification}`] } };
 }
 
 function checkPasswordPattern(value: string): ToolResult {

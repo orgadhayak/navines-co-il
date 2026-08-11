@@ -203,6 +203,20 @@ dd {
 
 .theme-toggle-indicator {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+  animation: theme-indicator-pulse 3.4s ease-in-out infinite;
+  will-change: opacity, box-shadow;
+}
+
+@keyframes theme-indicator-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 14%, transparent), 0 0 8px color-mix(in srgb, var(--primary) 18%, transparent);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 22%, transparent), 0 0 14px color-mix(in srgb, var(--primary) 34%, transparent);
+  }
 }
 
 html.theme-light .theme-toggle {
@@ -608,6 +622,23 @@ html.theme-light .prose-invert :where(p, li, dd, blockquote):not(:where([class~=
 html.theme-light [class*="bg-sky-50"] {
   background: #f8fafc !important;
   background-color: #f8fafc !important;
+  color: #334155 !important;
+}
+
+html.theme-light [class*="bg-sky-50"] :is(h1, h2, h3, h4, strong) {
+  color: #0f172a !important;
+}
+
+html.theme-light [class*="bg-sky-50"] :is(p, li, dd) {
+  color: #475569 !important;
+}
+
+html.theme-light main :is(.text-white, .text-zinc-100, .text-zinc-200):not(.btn-primary):not(.btn-on-dark) {
+  color: var(--text) !important;
+}
+
+html.theme-light main :is(.text-zinc-300, .text-zinc-400, .text-zinc-500, .text-silver) {
+  color: var(--text-muted) !important;
 }
 
 .mobile-menu-cta,
