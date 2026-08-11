@@ -633,12 +633,38 @@ html.theme-light [class*="bg-sky-50"] :is(p, li, dd) {
   color: #475569 !important;
 }
 
-html.theme-light main :is(.text-white, .text-zinc-100, .text-zinc-200):not(.btn-primary):not(.btn-on-dark) {
+html.theme-light main :is(.text-white, .text-zinc-100, .text-zinc-200):not(.btn-primary):not(.btn-on-dark):not([class*="bg-red-500"]) {
   color: var(--text) !important;
 }
 
 html.theme-light main :is(.text-zinc-300, .text-zinc-400, .text-zinc-500, .text-silver) {
   color: var(--text-muted) !important;
+}
+
+html.theme-light main :is(.text-sky-200, .text-sky-300, .text-sky-400) {
+  color: var(--primary) !important;
+}
+
+html.theme-light main :is([class*="text-red-50"], [class*="text-red-100"], [class*="text-red-200"]) {
+  color: #991b1b !important;
+}
+
+html.theme-light main [class*="bg-red-950"] {
+  background: #fff1f2 !important;
+  background-color: #fff1f2 !important;
+  background-image: none !important;
+  border-color: #fecaca !important;
+}
+
+html.theme-light main [class*="bg-red-500"] {
+  background: #b91c1c !important;
+  background-color: #b91c1c !important;
+  border-color: #b91c1c !important;
+  color: #ffffff !important;
+}
+
+html.theme-light main [class*="bg-red-500"] :is(span, strong) {
+  color: #ffffff !important;
 }
 
 .mobile-menu-cta,
@@ -1070,6 +1096,18 @@ html.theme-light main :is(.text-zinc-300, .text-zinc-400, .text-zinc-500, .text-
   color: var(--text-muted);
   font-size: 1.1rem;
   line-height: 1.8;
+}
+
+html.theme-light .feature-band .btn-on-dark {
+  border-color: var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+}
+
+html.theme-light .feature-band .btn-on-dark:hover {
+  border-color: var(--primary);
+  background: var(--surface-soft);
+  color: var(--primary);
 }
 
 .feature-specs {
