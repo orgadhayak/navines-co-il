@@ -14,7 +14,7 @@ export const metadata = createMetadata({
 export default function ProductsPage() {
   const visibleProducts = products.filter((product) => !product.hidden);
   const talkToDataProduct = visibleProducts.find((product) => product.slug === "talk-to-data");
-  const featuredProducts = visibleProducts.filter((product) => ["amazoniq", "Navines-beacon", "checklink"].includes(product.slug));
+  const featuredProducts = visibleProducts.filter((product) => ["navines-seo-lab", "amazoniq", "Navines-beacon", "checklink"].includes(product.slug));
   const otherProducts = visibleProducts.filter((product) => product.slug !== talkToDataProduct?.slug && !featuredProducts.some((featured) => featured.slug === product.slug));
 
   return (
@@ -36,7 +36,7 @@ export default function ProductsPage() {
         ) : null}
         <div className="mt-8">
           <h2 className="text-3xl font-semibold text-white">כלים מובילים שכדאי להכיר</h2>
-          <div className="mt-5 grid gap-x-8 md:grid-cols-3">
+          <div className="mt-5 grid gap-x-8 md:grid-cols-2 xl:grid-cols-4">
             {featuredProducts.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}

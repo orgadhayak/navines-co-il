@@ -50,7 +50,7 @@ function trimText(text: string, length = 150) {
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
-  const featuredProducts = products.filter((product) => ["talk-to-data", "amazoniq", "checklink"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["navines-seo-lab", "talk-to-data", "amazoniq", "checklink"].includes(product.slug));
   const featuredTools = hebrewTools.filter((tool) => ["qr", "email-header", "bec-request", "redirect-chain", "link", "first-aid"].includes(tool.id));
   const featuredSolutions = solutionPages.slice(0, 3);
   const musicDistributionService = services.find((service) => service.slug === "music-distribution-artist-digital-presence");

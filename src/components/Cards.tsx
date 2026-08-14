@@ -161,6 +161,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "how-to-review-payments-and-refunds": "לבדיקת חיובים והחזרים",
     "roblox-brand-experience-for-business": "למדריך רובלוקס למותגים",
     "how-to-distribute-music-spotify-apple-youtube": "למדריך ההפצה למוזיקאים",
+    "navines-seo-lab-free-tools-and-research": "לכלי SEO ולמחקר",
   };
 
   if (labels[post.slug]) return labels[post.slug];

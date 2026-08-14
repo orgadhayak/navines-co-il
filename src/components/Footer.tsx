@@ -32,6 +32,7 @@ const footerGroups: FooterGroup[] = [
     items: [
       { label: "TalkToData", href: "https://talktodata.navines.com" },
       { label: "AmazonIQ", href: "/products/amazoniq" },
+      { label: "NAVINES SEO Lab", href: "https://seo.navines.com/he/" },
       { label: "CheckLink.ai", href: "https://checklink.ai" },
       { label: "בודק האתרים של נביא נס", href: "https://analyze.navines.com" },
       { label: "כלים שימושיים בעברית", href: "/tools" },
