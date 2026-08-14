@@ -8,15 +8,15 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
     <Link className="editorial-card group block" href={`/services/${service.slug}`}>
       <div className="flex items-center justify-between gap-3">
         <p className="text-xs font-semibold text-glowred">
-          <BrandInline text={service.eyebrow} />
+          <BrandInline linkProducts={false} text={service.eyebrow} />
         </p>
         <span className="editorial-index text-sm font-medium">{String(index + 1).padStart(2, "0")}</span>
       </div>
       <h3 className="mt-4 text-2xl font-semibold text-white">
-        <BrandInline text={service.title} />
+        <BrandInline linkProducts={false} text={service.title} />
       </h3>
       <p className="mt-3 text-base leading-7 text-zinc-400">
-        <BrandInline text={service.summary} />
+        <BrandInline linkProducts={false} text={service.summary} />
       </p>
       <span className="editorial-link mt-6 inline-flex items-center gap-2 text-sm font-semibold">
         לעמוד השירות
@@ -106,16 +106,16 @@ export function BlogCard({ post }: { post: BlogPost }) {
       <div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-zinc-500">
           <span className="text-glowred">
-            <BrandInline text={post.category} />
+            <BrandInline linkProducts={false} text={post.category} />
           </span>
           <span>{formatBlogDate(post.publishedAt)}</span>
           <span>{post.readingTime}</span>
         </div>
         <h3 className="mt-3 text-2xl font-semibold leading-tight text-white">
-          <BrandInline text={post.title} />
+          <BrandInline linkProducts={false} text={post.title} />
         </h3>
         <p className="mt-3 text-base leading-7 text-zinc-400">
-          <BrandInline text={post.excerpt} />
+          <BrandInline linkProducts={false} text={post.excerpt} />
         </p>
         {post.englishTitle ? (
           <span className="article-note mt-3 inline-flex">

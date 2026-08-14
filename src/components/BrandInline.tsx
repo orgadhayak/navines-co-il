@@ -13,14 +13,14 @@ const productLinks = {
 
 const productPattern = Object.keys(productLinks).sort((first, second) => second.length - first.length).map((name) => name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
 
-export function BrandInline({ text, className = "text-glowred hover:text-white" }: { text: string; className?: string }) {
+export function BrandInline({ text, className = "text-glowred hover:text-white", linkProducts = true }: { text: string; className?: string; linkProducts?: boolean }) {
   const parts = text.split(new RegExp(`(${productPattern}|[A-Za-z0-9][A-Za-z0-9._:/+-]*(?:\\.[A-Za-z0-9._:/+-]+)*)`, "g")).filter(Boolean);
 
   return (
     <>
       {parts.map((part, index): ReactNode => {
         const href = productLinks[part as keyof typeof productLinks];
-        if (href) {
+        if (href && linkProducts) {
           return (
             <a className={`${className} english-tech`} href={href} key={`${part}-${index}`} rel="noopener noreferrer" target="_blank">
               {part}

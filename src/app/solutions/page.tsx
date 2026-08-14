@@ -29,10 +29,10 @@ export default function SolutionsPage() {
             <Link className="command-glass group rounded-[1.45rem] p-5 transition hover:-translate-y-0.5 hover:border-purple-200/45" href={`/solutions/${solution.slug}`} key={solution.slug}>
               <p className="text-sm font-semibold text-glowred">{solution.eyebrow}</p>
               <h2 className="mt-3 text-2xl font-semibold leading-tight text-white">
-                <BrandInline text={solution.navLabel} />
+                <BrandInline linkProducts={false} text={solution.navLabel} />
               </h2>
               <p className="mt-3 text-base leading-7 text-zinc-400">
-                <BrandInline text={solution.summary} />
+                <BrandInline linkProducts={false} text={solution.summary} />
               </p>
               <span className="mt-5 inline-flex rounded-full border border-purple-200/20 bg-purple-500/12 px-5 py-2 text-base font-semibold text-white transition group-hover:bg-purple-500/24">
                 לעמוד הפתרון
@@ -56,4 +56,3 @@ export default function SolutionsPage() {
     </>
   );
 }
-
