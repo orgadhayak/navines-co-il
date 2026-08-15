@@ -15,6 +15,7 @@ const footerGroups: FooterGroup[] = [
     title: "שירותים מרכזיים",
     items: [
       { label: "בינה מלאכותית ואוטומציה", href: "/services/ai-automation" },
+      { label: "מחקר החלטות וניסויים לאתרים", href: "/services/website-decision-research-experiments" },
       { label: "חיבור מערכות עסקיות ל־ChatGPT", href: "/services/business-systems-chatgpt-integration" },
       { label: "פיתוח אתרים ומערכות", href: "/services/web-development" },
       { label: "פיתוח אפליקציות", href: "/services/mobile-app-development" },

@@ -20,6 +20,7 @@ const serviceGroups = [
       ["חיבור מערכות עסקיות ל־ChatGPT", "/services/business-systems-chatgpt-integration"],
       ["חיבור נתונים ל-ChatGPT", "/services/chatgpt-business-data"],
       ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"],
+      ["מחקר החלטות וניסויים לאתרים", "/services/website-decision-research-experiments"],
       ["בניית אתרים ומערכות", "/services/web-development"],
       ["פלטפורמת מותג גלובלית", "/services/global-brand-b2b-platform"],
       ["פיתוח תוספים לדפדפן", "/services/browser-extension-development"],

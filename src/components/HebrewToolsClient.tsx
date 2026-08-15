@@ -128,9 +128,70 @@ export function HebrewToolsClient() {
         {activeTool === "redirect-chain" ? <RedirectChainTool /> : null}
         {activeTool === "qr-campaign" ? <QrCampaignTool /> : null}
         {activeTool === "official-links" ? <OfficialLinksPolicyTool /> : null}
+        {activeTool === "experiment" ? <ExperimentPlannerTool /> : null}
       </div>
     </div>
   );
+}
+
+const experimentGoals = {
+  inquiry: {
+    label: "לעזור לגולש להבין שירות ולפנות עם יותר הקשר",
+    hypothesis: "אם נבהיר את השירות ואת הצעד הבא, גולשים מתאימים יבינו מהר יותר אם נכון להם לפנות.",
+    primary: "השלמת פנייה עם תיאור צורך ברור",
+    guardrail: "איכות הפניות ועומס פניות שאינן רלוונטיות",
+    next: "בחרו עמוד אחד, נסחו את ההצעה והפעולה הבאה מחדש, ובדקו לפני ואחרי באותו מקור תנועה.",
+  },
+  clarity: {
+    label: "להסביר שירות או מוצר מורכב בצורה ברורה יותר",
+    hypothesis: "אם נסדר את המידע לפי השאלה של הגולש, פחות אנשים יחפשו שוב את אותה תשובה או יעזבו באמצע.",
+    primary: "הגעה לצעד הבא אחרי קריאת ההסבר",
+    guardrail: "זמן טעינה, שאלות תמיכה חוזרות ושיעור יציאה",
+    next: "בחרו שאלה אחת שחוזרת אצל לקוחות, כתבו לה תשובה קצרה בעמוד, ובקשו ממשתמש אמיתי לבדוק אם היא ברורה.",
+  },
+  tool: {
+    label: "לתת לגולש ערך עם כלי חינמי באתר",
+    hypothesis: "אם הכלי פותר שאלה אמיתית בתוך דקה, הוא יכול ליצור שימוש, אמון והקשר טוב יותר לפני פנייה.",
+    primary: "השלמת פעולה שימושית בכלי",
+    guardrail: "בהירות המגבלות, פרטיות הקלט והאם הכלי באמת נותן תוצאה שימושית",
+    next: "הגדירו משתמש, שאלה אחת, תוצאה אחת וגבול ברור למה שהכלי אינו בודק. התחילו בגרסה קטנה ופשוטה.",
+  },
+  ecommerce: {
+    label: "לעזור ללקוח לבחור מוצר או להשלים רכישה",
+    hypothesis: "אם נצמצם בלבול סביב התאמה, משלוח או תנאים, לקוחות מתאימים יוכלו לבחור בקלות רבה יותר.",
+    primary: "התקדמות לעמוד מוצר, סל או פנייה על מוצר",
+    guardrail: "החזרות, ביטולים, שאלות שירות ושקיפות על תנאים",
+    next: "בחרו נקודת בלבול אחת, למשל התאמה או משלוח, והציגו את התשובה ליד ההחלטה במקום להוסיף עוד אפשרויות.",
+  },
+} as const;
+
+function ExperimentPlannerTool() {
+  const [goal, setGoal] = useState<keyof typeof experimentGoals>("inquiry");
+  const [result, setResult] = useState<ToolResult | null>(null);
+  const selected = experimentGoals[goal];
+
+  return <ToolForm onSubmit={(event) => {
+    event.preventDefault();
+    setResult({
+      tone: "caution",
+      title: "תוכנית בדיקה ראשונית מוכנה",
+      body: "זו מסגרת לחשיבה על שינוי אחד. היא אינה מבטיחה תוצאה ואינה מחליפה מדידה, מחקר משתמשים או ניסוי מבוקר כשנדרשת ודאות גבוהה.",
+      checks: [
+        `מטרה: ${selected.label}`,
+        `השערה: ${selected.hypothesis}`,
+        `מדד עיקרי: ${selected.primary}`,
+        `מדד הגנה: ${selected.guardrail}`,
+        `הצעד הבא: ${selected.next}`,
+      ],
+    });
+  }} title="בחרו מטרה וקבלו מסגרת לבדיקה קטנה וברורה">
+    <label className="hebrew-tool-label" htmlFor="experiment-goal">מה אתם רוצים לשפר?</label>
+    <select className="hebrew-tool-select" id="experiment-goal" onChange={(event) => setGoal(event.target.value as keyof typeof experimentGoals)} value={goal}>
+      {Object.entries(experimentGoals).map(([value, item]) => <option key={value} value={value}>{item.label}</option>)}
+    </select>
+    <button className="btn-primary" type="submit">בניית תוכנית בדיקה</button>
+    {result ? <ToolResultView result={result} /> : <p className="hebrew-tool-note">הכלי פועל בדפדפן בלבד. הוא מסייע לנסח בדיקה, לא מבצע מעקב ואינו אוסף נתונים מהאתר שלכם.</p>}
+  </ToolForm>;
 }
 
 function LinkSafetyTool() {

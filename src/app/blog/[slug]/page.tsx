@@ -227,6 +227,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isRobloxExperiencePost = post.slug === "roblox-brand-experience-for-business";
   const isMusicDistributionPost = post.slug === "how-to-distribute-music-spotify-apple-youtube";
   const isSeoLabPost = post.slug === "navines-seo-lab-free-tools-and-research";
+  const isDecisionResearchPost = post.slug === "how-to-improve-website-with-trust-and-experiments";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
@@ -309,7 +310,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isSeoLabPost ? <SeoLabArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       {isMusicDistributionPost ? (
@@ -2846,6 +2847,32 @@ function SeoLabArticleBody() {
       <p>
         NAVINES SEO Lab נבנתה כדי לתת לאנשים דרך טובה יותר להבין את המציאות האורגנית: פחות מיתוסים, יותר ראיות, וכלים שאפשר לפתוח ולהשתמש בהם כבר עכשיו.
       </p>
+    </div>
+  );
+}
+
+function DecisionResearchArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>למה תחושת בטן לבדה לא מספיקה?</h2>
+      <p>כשעמוד לא מייצר מספיק פניות, קל לקפוץ ישר לעיצוב חדש, כפתור חדש או קמפיין חדש. אבל בלי להגדיר מה מפריע לגולש ומה אמור להשתפר, אפשר לשנות הרבה ולא לדעת מה באמת עזר. דרך טובה יותר מתחילה בהחלטה אחת קטנה שאפשר להסביר ולבדוק.</p>
+      <h2>אמון הוא חלק מהפעולה, לא קישוט</h2>
+      <p>גולש צריך להבין מי עומד מאחורי האתר, מה מוצע לו, איך יוצרים קשר ומה קורה אחרי שהוא פונה. פרטי קשר ברורים, מידע מסודר, שפה פשוטה, ניווט הגיוני וגבולות ברורים לטענות יוצרים בסיס לאמון. זה לא מחליף איכות שירות, אבל הוא מאפשר לגולש להעריך את האתר בלי להתאמץ יותר מדי.</p>
+      <h2>לא כל קליק הוא הצלחה</h2>
+      <p>קליק על כפתור יכול להעיד על עניין, אבל גם על בלבול. זמן ארוך בעמוד יכול להעיד על קריאה, אבל גם על חיפוש מתיש. לכן לפני שמכריזים על הצלחה צריך לחבר את המדד לשאלה העסקית: האם הגולש מצא תשובה, התקדם לצעד המתאים או פנה עם הקשר ברור יותר?</p>
+      <h2>כך נראה ניסוי קטן ומסודר</h2>
+      <ul>
+        <li>בוחרים נקודה אחת: למשל הסבר שירות, בחירת מוצר או טופס פנייה.</li>
+        <li>מנסחים השערה: מה ישתנה עבור המשתמש ולמה.</li>
+        <li>בוחרים מדד עיקרי שמתאים למטרה, ולא רק מספר קל לצפייה.</li>
+        <li>מוסיפים מדד הגנה: מה אסור שייפגע, למשל איכות פניות, עומס תמיכה או מהירות.</li>
+        <li>משנים דבר אחד, בודקים לאורך זמן מתאים ומתעדים מה ידוע ומה עדיין לא ברור.</li>
+      </ul>
+      <h2>ומה לגבי יותר מדי אפשרויות?</h2>
+      <p>אין מספר קסם של אפשרויות שמתאים לכל אתר. לפעמים בחירה רחבה עוזרת, ולפעמים היא מעמיסה. השאלה הטובה היא האם כל אפשרות מסבירה למי היא מתאימה ומה הצעד הבא. במקום להעלים מידע אוטומטית, מסדרים אותו סביב צורך ומאפשרים לגולש להבין את ההבדל.</p>
+      <h2>כלי חינמי יכול להיות נקודת התחלה טובה</h2>
+      <p>כלי קטן אינו צריך להבטיח תוצאה כדי לתת ערך. הוא יכול לעזור לגולש לארגן שאלה, לבדוק מוכנות, להשוות אפשרויות או להבין מה כדאי להכין לשיחה. כאשר הכלי מציג מגבלות ברורות ושומר על פרטיות, הוא יכול לבנות אמון ולתת לעסק פנייה עם יותר הקשר.</p>
+      <p><Link className="font-semibold text-glowred hover:text-white" href="/tools#experiment">פתחו את מתכנן הניסוי הקטן באתר</Link> או <Link className="font-semibold text-glowred hover:text-white" href="/services/website-decision-research-experiments">קראו על שירות מחקר החלטות, אמון וניסויים</Link>.</p>
     </div>
   );
 }

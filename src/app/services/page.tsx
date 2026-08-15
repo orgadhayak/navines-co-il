@@ -20,7 +20,7 @@ const groups: { title: string; description?: string; items: string[] }[] = [
   { title: "איקומרס", items: ["שופיפיי", "ווקומרס", "אמזון", "איביי", "ניהול מלאי", "איקומרס לעסקים"] },
   { title: "תשתיות וחירום דיגיטלי", items: ["תמיכה טכנית, סייבר ורשתות", "סיוע במקרה פריצה לחשבון", "תמיכה מרחוק והגעה לפי צורך", "קלאודפלייר", "דומיינים", "תעודת אבטחה", "אחסון", "ניטור אתרים", "מדידה ונתונים"] },
   { title: "שמאות והערכת נזקים", description: "בדיקות מקצועיות וחוות דעת בתחומי הרכב, הרכוש והחקלאות, בשילוב תיעוד וכלים טכנולוגיים.", items: ["שמאות רכב", "שמאות רכוש", "שמאות חקלאות", "תיעוד נזק", "חוות דעת שמאית", "בקרת מסמכים", "מדידות ונספחים"] },
-  { title: "שיווק, נתונים ובדיקות עסק", items: ["מערכת תוכנית שותפים לאתר קיים", "בדיקת חיובים, תשלומים והחזרים אפשריים", "פורטל ליוצרים ואנשי תוכן", "קידום אורגני", "פרסום ממומן", "שיווק במייל", "בדיקת עסק לפני רכישה", "יצירת פניות", "מוניטין", "ניתוח נתונים עסקיים"] },
+  { title: "שיווק, נתונים ובדיקות עסק", items: ["מחקר החלטות, אמון וניסויים לאתרים", "מערכת תוכנית שותפים לאתר קיים", "בדיקת חיובים, תשלומים והחזרים אפשריים", "פורטל ליוצרים ואנשי תוכן", "קידום אורגני", "פרסום ממומן", "שיווק במייל", "בדיקת עסק לפני רכישה", "יצירת פניות", "מוניטין", "ניתוח נתונים עסקיים"] },
   { title: "משפט וטכנולוגיה", description: "מידע והכוונה כללית לבחירת משרדי עורכי דין המשתמשים בכלים טכנולוגיים, לצד פתרונות תוכנה של נביא נס ישראל בע״מ לארגון מידע ותהליכים.", items: ["בחירת משרד עם יתרון טכנולוגי", "תעבורה וטכנולוגיה", "ארגון מסמכים", "ניהול מועדים", "הרשאות ובקרה", "הימנעות מהבטחות לתוצאה"] },
 ];
 
@@ -30,6 +30,7 @@ export default function ServicesPage() {
   const robloxExperienceService = services.find((service) => service.slug === "roblox-brand-experiences");
   const affiliateProgramService = services.find((service) => service.slug === "affiliate-program-platform");
   const financialReviewService = services.find((service) => service.slug === "payment-discrepancy-review");
+  const decisionResearchService = services.find((service) => service.slug === "website-decision-research-experiments");
 
   return (
     <>
@@ -98,6 +99,19 @@ export default function ServicesPage() {
             <p className="mt-3 text-lg leading-8 text-zinc-300">{financialReviewService.summary}</p>
           </div>
           <Link className="btn-secondary mt-5 shrink-0 lg:mt-0" href={`/services/${financialReviewService.slug}`}>לפרטי הבדיקה</Link>
+        </div>
+      ) : null}
+      {decisionResearchService ? (
+        <div className="mt-8 border-y py-7 lg:flex lg:items-center lg:justify-between lg:gap-10" style={{ borderColor: "var(--border)" }}>
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold text-glowred">מחקר משתמשים, אמון וניסוי קטן</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white">{decisionResearchService.title}</h2>
+            <p className="mt-3 text-lg leading-8 text-zinc-300">{decisionResearchService.summary}</p>
+          </div>
+          <div className="mt-5 flex shrink-0 flex-wrap gap-3 lg:mt-0">
+            <Link className="btn-secondary" href={`/services/${decisionResearchService.slug}`}>לפרטי השירות</Link>
+            <Link className="editorial-link inline-flex items-center" href="/tools#experiment">לכלי התכנון החינמי</Link>
+          </div>
         </div>
       ) : null}
         <div className="service-directory-grid mt-10 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
