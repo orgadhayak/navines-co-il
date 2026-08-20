@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
@@ -63,9 +62,6 @@ export default function HomePage() {
       <JsonLd data={homeBreadcrumbSchema} />
 
       <section className="home-hero">
-        <div className="home-hero-visual" aria-hidden="true">
-          <Image alt="" className="home-hero-mark" fill priority sizes="(max-width: 768px) 100vw, 44vw" src="/brand/navines-symbol.png" />
-        </div>
         <div className="home-hero-inner mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="home-hero-copy">
             <p className="home-hero-kicker">בית תוכנה ישראלי לעסקים וארגונים</p>
@@ -74,17 +70,17 @@ export default function HomePage() {
             <p className="home-hero-summary">
               אנחנו מתכננים ומפתחים מערכות, אתרים, אוטומציות וכלי נתונים שמחברים בין צורך עסקי, חוויית משתמש וטכנולוגיה יציבה.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="home-hero-actions">
               <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">ספרו לנו מה צריך לבנות</a>
               <Link className="btn-on-dark" href="/services">לכל השירותים</Link>
             </div>
           </div>
-          <div className="home-hero-proof" aria-label="תחומי פעילות מרכזיים">
-            <span>מערכות AI</span>
-            <span>פיתוח תוכנה</span>
-            <span>מסחר דיגיטלי</span>
-            <span>אבטחה ותשתיות</span>
-          </div>
+          <nav className="home-hero-proof" aria-label="תחומי פעילות מרכזיים">
+            <Link href="/services/ai-automation">מערכות AI</Link>
+            <Link href="/services/web-development">פיתוח תוכנה</Link>
+            <Link href="/services/ecommerce">מסחר דיגיטלי</Link>
+            <Link href="/services/technical-support-cyber-networks">אבטחה ותשתיות</Link>
+          </nav>
         </div>
       </section>
 
