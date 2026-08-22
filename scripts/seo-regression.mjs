@@ -5,13 +5,14 @@ import { join } from "node:path";
 const root = process.cwd();
 const read = (path) => readFile(join(root, path), "utf8");
 
-const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, seoSource] = await Promise.all([
+const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource] = await Promise.all([
   read("src/data/site.ts"),
   read("src/data/solutions.ts"),
   read("src/app/blog/[slug]/page.tsx"),
   read("src/app/services/[slug]/page.tsx"),
   read("src/app/solutions/[slug]/page.tsx"),
   read("src/app/page.tsx"),
+  read("src/app/products/navines-noise/page.tsx"),
   read("src/lib/seo.ts"),
 ]);
 
@@ -64,6 +65,8 @@ includes(servicePage, 'titleAs="h1"', "Service H1");
 includes(solutionPage, 'titleAs="h1"', "Solution H1");
 includes(seoSource, "canonical: url", "Self canonical support");
 includes(seoSource, "index: true", "Indexable metadata");
+includes(noiseProductPage, 'const productUrl = "https://seo.navines.com/he/";', "Hebrew NAVINES NOISE product destination");
+includes(blogPage, 'href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">לעמוד NAVINES NOISE</a>', "Hebrew NAVINES NOISE article destination");
 
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");

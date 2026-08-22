@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 const chromeStoreUrl = "https://chromewebstore.google.com/detail/navines-noise/nlhpkfadkikhcaplbjeaehkiajhpiigi";
-const productUrl = "https://seo.navines.com/noise/";
+const productUrl = "https://seo.navines.com/he/";
 
 const scanAreas = [
   ["SEO", "כותרת ותיאור, קנוניקל, robots, שפת מסמך, נתונים מובנים ואותות טכניים נוספים שנמצאים בעמוד המרונדר."],

@@ -2794,7 +2794,7 @@ function NavinesNoiseArticleBody() {
       </p>
       <div className="not-prose mt-7 flex flex-wrap gap-3">
         <a className="btn-primary" href="https://chromewebstore.google.com/detail/navines-noise/nlhpkfadkikhcaplbjeaehkiajhpiigi" rel="noopener noreferrer" target="_blank">להתקנה מ־Chrome Web Store</a>
-        <a className="btn-secondary" href="https://seo.navines.com/noise/" rel="noopener noreferrer" target="_blank">לעמוד NAVINES NOISE</a>
+        <a className="btn-secondary" href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">לעמוד NAVINES NOISE</a>
         <Link className="editorial-link inline-flex items-center" href="/products/navines-noise">לעמוד המוצר בעברית</Link>
       </div>
 
