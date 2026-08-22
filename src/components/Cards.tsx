@@ -163,6 +163,7 @@ function getBlogCtaLabel(post: BlogPost) {
     "how-to-distribute-music-spotify-apple-youtube": "למדריך ההפצה למוזיקאים",
     "navines-seo-lab-free-tools-and-research": "לכלי SEO ולמחקר",
     "how-to-improve-website-with-trust-and-experiments": "לשפר אתר בלי לנחש",
+    "navines-noise-website-intelligence-extension": "להכיר את NAVINES NOISE",
   };
 
   if (labels[post.slug]) return labels[post.slug];

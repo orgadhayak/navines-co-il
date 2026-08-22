@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
@@ -49,13 +50,14 @@ function trimText(text: string, length = 150) {
 
 export default function HomePage() {
   const latestPosts = [...blogPosts].sort((first, second) => second.publishedAt.localeCompare(first.publishedAt)).slice(0, 3);
-  const featuredProducts = products.filter((product) => ["navines-seo-lab", "talk-to-data", "amazoniq", "checklink"].includes(product.slug));
+  const featuredProducts = products.filter((product) => ["navines-noise", "navines-seo-lab", "talk-to-data", "amazoniq", "checklink"].includes(product.slug));
   const featuredTools = hebrewTools.filter((tool) => ["experiment", "qr", "email-header", "bec-request", "redirect-chain", "link"].includes(tool.id));
   const featuredSolutions = solutionPages.slice(0, 3);
   const musicDistributionService = services.find((service) => service.slug === "music-distribution-artist-digital-presence");
   const robloxExperienceService = services.find((service) => service.slug === "roblox-brand-experiences");
   const affiliateProgramService = services.find((service) => service.slug === "affiliate-program-platform");
   const financialReviewService = services.find((service) => service.slug === "payment-discrepancy-review");
+  const navinesNoiseProduct = products.find((product) => product.slug === "navines-noise");
 
   return (
     <>
@@ -187,6 +189,24 @@ export default function HomePage() {
           </dl>
         </div>
       </section>
+
+      {navinesNoiseProduct ? (
+        <section className="border-y" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }} aria-labelledby="navines-noise-home-title">
+          <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[7rem_minmax(0,1fr)_auto] lg:items-center lg:px-8 lg:py-14">
+            <Image alt="האייקון של NAVINES NOISE" className="h-24 w-24" height={96} src="/products/navines-noise-icon.png" width={96} />
+            <div>
+              <p className="section-eyebrow">חדש מבית נביא נס ישראל בע״מ</p>
+              <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="navines-noise-home-title">NAVINES NOISE: למצוא את האות בתוך הרעש</h2>
+              <p className="mt-3 max-w-3xl text-lg leading-8 text-zinc-300">{navinesNoiseProduct.description}</p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:max-w-56 lg:flex-col">
+              <Link className="btn-primary" href="/products/navines-noise">לפרטי התוסף</Link>
+              <a className="btn-secondary" href="https://chromewebstore.google.com/detail/navines-noise/nlhpkfadkikhcaplbjeaehkiajhpiigi" rel="noopener noreferrer" target="_blank">להתקנה בחנות</a>
+              <Link className="editorial-link inline-flex items-center" href="/blog/navines-noise-website-intelligence-extension">למאמר המלא</Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <Section eyebrow="מוצרים וכלים" title="מוצרים שבנינו כדי להפוך מידע לפעולה">
         <div className="product-editorial-list">
