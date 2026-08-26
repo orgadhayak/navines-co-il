@@ -17,17 +17,17 @@ const capabilityGroups = [
   {
     title: "תוכנה ומערכות עסקיות",
     text: "מערכות פנימיות, פורטלים, אתרים ואפליקציות שנבנים סביב תהליך עסקי מוגדר, לא סביב תבנית.",
-    links: [["פיתוח אתרים ומערכות", "/services/web-development"], ["פיתוח אפליקציות", "/services/mobile-app-development"], ["פיתוח תוספים לדפדפנים", "/services/browser-extension-development"]],
+    links: [["פיתוח אתרים ומערכות", "/services/web-development"], ["פיתוח אפליקציות", "/services/mobile-app-development"], ["מדריך לבניית אפליקציה לעסק", "/blog/mobile-app-service-guide"], ["פיתוח תוספים לדפדפנים", "/services/browser-extension-development"]],
   },
   {
     title: "AI, נתונים ואוטומציה",
     text: "חיבור מידע, מערכות ומשימות לכלים חכמים שמקצרים עבודה ידנית ועוזרים לקבל החלטות מהר יותר.",
-    links: [["AI ואוטומציה", "/services/ai-automation"], ["חיבור מערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
+    links: [["AI ואוטומציה", "/services/ai-automation"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חיבור מערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
   },
   {
     title: "מסחר ותשתיות דיגיטליות",
     text: "חנויות, מרקטפלייסים, ביצועים, אבטחה ותמיכה טכנית שמחזיקים את הפעילות הדיגיטלית יציבה ומדידה.",
-    links: [["איקומרס", "/services/ecommerce"], ["מערכת תוכנית שותפים לאתר קיים", "/services/affiliate-program-platform"], ["בדיקת חיובים והחזרים אפשריים", "/services/payment-discrepancy-review"], ["מרכז אופטימיזציה", "/optimization-hub"], ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"]],
+    links: [["איקומרס", "/services/ecommerce"], ["מדריך להקמת חנות איקומרס", "/blog/ecommerce-service-guide"], ["מערכת תוכנית שותפים לאתר קיים", "/services/affiliate-program-platform"], ["בדיקת חיובים והחזרים אפשריים", "/services/payment-discrepancy-review"], ["מרכז אופטימיזציה", "/optimization-hub"], ["תמיכה טכנית וסייבר", "/services/technical-support-cyber-networks"]],
   },
 ];
 

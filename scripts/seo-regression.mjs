@@ -37,7 +37,7 @@ const accountantsSolution = segment(solutionData, "accountants");
 const freelancersSolution = segment(solutionData, "freelancers");
 
 includes(hackPost, "metaDescription:", "Hack article metadata");
-includes(invoicePost, 'metaTitle: "סינון וסריקת חשבוניות עם AI: חילוץ, אימות וקליטה"', "Invoice metadata");
+includes(invoicePost, 'metaTitle: "סריקת חשבוניות עם AI: חילוץ, סינון ואימות נתונים"', "Invoice metadata");
 includes(aiChatService, 'metaTitle: "צ׳ט AI לאתר שמכיר את העסק ומוביל לוואטסאפ"', "AI chat metadata");
 includes(freelancersSolution, 'title: "CRM, אוטומציה ופתרונות AI לפרילנסרים"', "Freelancer H1 source");
 
