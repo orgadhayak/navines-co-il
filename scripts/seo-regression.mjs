@@ -5,7 +5,7 @@ import { join } from "node:path";
 const root = process.cwd();
 const read = (path) => readFile(join(root, path), "utf8");
 
-const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource] = await Promise.all([
+const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant] = await Promise.all([
   read("src/data/site.ts"),
   read("src/data/solutions.ts"),
   read("src/app/blog/[slug]/page.tsx"),
@@ -14,6 +14,7 @@ const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, no
   read("src/app/page.tsx"),
   read("src/app/products/navines-noise/page.tsx"),
   read("src/lib/seo.ts"),
+  read("src/app/api/site-assistant/route.ts"),
 ]);
 
 function segment(source, slug) {
@@ -33,6 +34,11 @@ const aiChatService = segment(siteData, "ai-chat-for-websites");
 const hackService = segment(siteData, "account-hack-recovery");
 const aiAutomationService = segment(siteData, "ai-automation");
 const chatGptDataService = segment(siteData, "chatgpt-business-data");
+const businessSystemsChatGptService = segment(siteData, "business-systems-chatgpt-integration");
+const aiAgentsService = segment(siteData, "chatgpt-ai-agents-business");
+const autonomousSeoService = segment(siteData, "autonomous-seo-agent-search-console-chatgpt");
+const morningGreenInvoicePost = segment(siteData, "morning-green-invoice-chatgpt-business-data");
+const autonomousSeoPost = segment(siteData, "google-search-console-chatgpt-autonomous-seo-agent");
 const accountantsSolution = segment(solutionData, "accountants");
 const freelancersSolution = segment(solutionData, "freelancers");
 
@@ -40,6 +46,35 @@ includes(hackPost, "metaDescription:", "Hack article metadata");
 includes(invoicePost, 'metaTitle: "סריקת חשבוניות עם AI: חילוץ, סינון ואימות נתונים"', "Invoice metadata");
 includes(aiChatService, 'metaTitle: "צ׳ט AI לאתר שמכיר את העסק ומוביל לוואטסאפ"', "AI chat metadata");
 includes(freelancersSolution, 'title: "CRM, אוטומציה ופתרונות AI לפרילנסרים"', "Freelancer H1 source");
+includes(businessSystemsChatGptService, "חשבונית אונליין", "Online invoice service keyword");
+includes(businessSystemsChatGptService, "חשבונית און ליין", "Online invoice spaced variant");
+includes(businessSystemsChatGptService, "Morning", "Morning service keyword");
+includes(businessSystemsChatGptService, "Green Invoice", "Green Invoice service keyword");
+includes(businessSystemsChatGptService, "Priority", "Priority service keyword");
+includes(businessSystemsChatGptService, "קו מערכות", "CAV Systems service keyword");
+includes(businessSystemsChatGptService, "מוסכית 2020", "Mossachit service keyword");
+includes(businessSystemsChatGptService, "צ׳ט ג׳י פי טי", "Hebrew ChatGPT service keyword");
+includes(aiAgentsService, 'metaTitle: "בניית סוכני AI וצ׳ט ג׳י פי טי לעסקים"', "AI agents metadata");
+includes(aiAgentsService, "מפעל", "Factory agent use case");
+includes(aiAgentsService, "מוסך", "Garage agent use case");
+includes(aiAgentsService, "שמאית", "Appraiser agent use case");
+includes(morningGreenInvoicePost, "Green Invoice", "Green Invoice article keyword");
+includes(morningGreenInvoicePost, "חשבונית אונליין", "Online invoice article keyword");
+includes(autonomousSeoService, "Google Search Console", "Search Console service keyword");
+includes(autonomousSeoService, "Google Analytics", "Analytics service keyword");
+includes(autonomousSeoService, "שינוי בקוד", "Autonomous code change service copy");
+includes(autonomousSeoService, "דיפלוי", "Deployment service copy");
+includes(autonomousSeoService, "לוגים", "Server logs service copy");
+includes(autonomousSeoPost, "קידום אורגני אוטונומי", "Autonomous SEO article keyword");
+includes(blogPage, "MorningGreenInvoiceChatGptArticleBody", "Morning article custom body");
+includes(blogPage, "AutonomousSeoAgentArticleBody", "Autonomous SEO article custom body");
+includes(homePage, "חשבונית אונליין, Priority ונתוני העסק בתוך צ׳ט ג׳י פי טי", "Homepage integration heading");
+includes(homePage, '/services/chatgpt-ai-agents-business', "Homepage AI agent link");
+includes(homePage, "מחברים Google Search Console לצ׳ט ג׳י פי טי", "Homepage Search Console heading");
+includes(homePage, '/services/autonomous-seo-agent-search-console-chatgpt', "Homepage autonomous SEO link");
+includes(siteAssistant, '/services/business-systems-chatgpt-integration', "Assistant integration routing");
+includes(siteAssistant, '/services/chatgpt-ai-agents-business', "Assistant agent routing");
+includes(siteAssistant, '/services/autonomous-seo-agent-search-console-chatgpt', "Assistant SEO agent routing");
 
 includes(blogPage, 'href="/services/account-hack-recovery"', "Hack article service link");
 includes(blogPage, "סיוע במקרה פריצה לחשבון", "Hack article service anchor");
@@ -75,6 +110,11 @@ if (process.env.SEO_TEST_BASE_URL) {
     "/services/account-hack-recovery",
     "/blog/ai-invoice-scanning-and-filtering",
     "/services/ai-chat-for-websites",
+    "/services/business-systems-chatgpt-integration",
+    "/services/chatgpt-ai-agents-business",
+    "/blog/morning-green-invoice-chatgpt-business-data",
+    "/services/autonomous-seo-agent-search-console-chatgpt",
+    "/blog/google-search-console-chatgpt-autonomous-seo-agent",
     "/solutions/freelancers",
   ];
 

@@ -53,7 +53,7 @@ export const solutionPages: SolutionPage[] = [
     title: "פתרונות AI ואוטומציה לרואי חשבון ומשרדי הנהלת חשבונות",
     eyebrow: "פתרונות לפי סוג עסק",
     summary:
-      "נביא נס ישראל בע\"מ בונה למשרדי רואי חשבון והנהלת חשבונות מערכות חכמות שמרכזות מסמכים, חשבוניות, דוחות, שאלות לקוחות, טבלאות ונתונים לממשק עבודה פשוט יותר. המטרה היא לא להחליף שיקול דעת מקצועי, אלא לעזור לצוות למצוא מידע מהר, לסכם נקודות חשובות, לזהות חריגות ולחסוך זמן בעבודה חוזרת.",
+      "נביא נס ישראל בע\"מ בונה למשרדי רואי חשבון והנהלת חשבונות מערכות חכמות שמרכזות מסמכים, חשבוניות, דוחות, שאלות לקוחות, טבלאות ונתונים לממשק עבודה פשוט יותר. אפשר לבדוק חיבור של חשבונית אונליין, Morning/מורנינג, Green Invoice/חשבונית ירוקה ומערכות נוספות אל ChatGPT וצ׳ט ג׳י פי טי, בהתאם ל־API ולהרשאות. המטרה אינה להחליף שיקול דעת מקצועי, אלא לעזור לצוות למצוא מידע מהר, לסכם נקודות חשובות, לזהות חריגות ולחסוך זמן בעבודה חוזרת.",
     seoDescription:
       "פתרונות AI ואוטומציה לרואי חשבון ומשרדי הנהלת חשבונות: לדבר עם דוחות, מסמכים ונתונים בעברית, לחסוך זמן מול לקוחות ולסדר תהליכים.",
     whoFor: [
@@ -102,6 +102,9 @@ export const solutionPages: SolutionPage[] = [
     ],
     internalLinks: [
       { label: "TalkToData", href: "/services/chatgpt-business-data" },
+      { label: "חיבור חשבונית אונליין ומורנינג ל־ChatGPT", href: "/services/business-systems-chatgpt-integration" },
+      { label: "סוכני AI וצ׳ט ג׳י פי טי לרואי חשבון", href: "/services/chatgpt-ai-agents-business" },
+      { label: "מדריך לחיבור Morning ו־Green Invoice ל־ChatGPT", href: "/blog/morning-green-invoice-chatgpt-business-data" },
       { label: "חילוץ ואימות נתונים מחשבוניות", href: "/blog/ai-invoice-scanning-and-filtering" },
       { label: "איך לבחור רואה חשבון לעסק דיגיטלי", href: "/blog/how-to-choose-accountant-for-digital-business" },
       { label: "AI ואוטומציה לעסקים", href: "/services/ai-automation" },
