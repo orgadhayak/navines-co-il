@@ -74,7 +74,7 @@ export function LocalizedArticle({ article, path: explicitPath, relatedService, 
   return (
     <>
       <JsonLd data={[articleSchema, breadcrumbSchema, faqSchema]} />
-      <article className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8" lang={locale.lang} dir={locale.dir}>
         <Link className="text-sm font-semibold text-glowred" href={landingHref}>Navines</Link>
         <h1 className="mt-4 hyphens-auto break-words text-4xl font-semibold leading-tight text-white [overflow-wrap:anywhere] md:text-6xl">{article.title}</h1>
         <div className="mt-5 flex flex-wrap gap-3 text-sm" style={{ color: "var(--text-soft)" }}>

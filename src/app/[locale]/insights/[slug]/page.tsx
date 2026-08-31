@@ -7,7 +7,14 @@ import { getLocalizedToolsCopy } from "@/content/localized/tools";
 import { articleAlternates, localizedArticlePaths, localizedSafetyToolsArticlePaths, safetyToolsArticleAlternates, siteLocales, type PublicLocale } from "@/i18n/locales";
 import { site } from "@/data/site";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return (Object.keys(localizedArticlePaths) as PublicLocale[]).flatMap((locale) => [
+    { locale, slug: localizedArticlePaths[locale].split("/").pop()! },
+    { locale, slug: localizedSafetyToolsArticlePaths[locale].split("/").pop()! },
+  ]);
+}
 
 const safetyToolsWhatsappMessages: Record<PublicLocale, string> = {
   de: "Hallo Navines, ich habe den Artikel über die lokalen Sicherheitswerkzeuge gelesen und möchte ein nützliches Werkzeug für unsere Website besprechen.",
@@ -50,11 +57,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: "Navines",
       locale: meta.ogLocale,
       type: "article",
+      images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "Navines insight" }],
     },
     twitter: {
       card: "summary_large_image",
       title: resolved.article.metaTitle,
       description: resolved.article.metaDescription,
+      images: ["/og-navines-israel.jpg"],
     },
     robots: { index: true, follow: true },
   };

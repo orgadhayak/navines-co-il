@@ -80,6 +80,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           alternateName: site.englishLegalName,
         }
       : { "@id": `${site.url}/#organization` },
+    url: `${site.url}/services/${service.slug}`,
     ...(isAppraisalService
       ? { serviceType: "Vehicle, property and agricultural damage appraisal", areaServed: "IL" }
       : isRobloxExperienceService

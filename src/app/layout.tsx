@@ -1,13 +1,11 @@
 ﻿import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
-import { headers } from "next/headers";
 import { Inter, Noto_Sans_Hebrew } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { JsonLd } from "@/components/JsonLd";
-import { localeFromPath } from "@/i18n/locales";
+import { LocaleDocument } from "@/components/LocaleDocument";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -23,6 +21,8 @@ const latinFont = Inter({
   display: "swap",
   variable: "--font-latin",
 });
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.navines.co.il"),
@@ -64,41 +64,21 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export const dynamic = "force-dynamic";
-
-const skipLabels = {
-  he: "דלגו לתוכן המרכזי",
-  de: "Zum Hauptinhalt springen",
-  jp: "本文へスキップ",
-  ar: "تخطي إلى المحتوى الرئيسي",
-  hi: "मुख्य सामग्री पर जाएँ",
-  fr: "Aller au contenu principal",
-  zh: "跳到主要内容",
-};
-
 const enableVercelAnalytics = process.env.VERCEL === "1";
 
-export default async function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  const requestHeaders = await headers();
-  const cookieStore = await cookies();
-  const locale = localeFromPath(requestHeaders.get("x-Navines-pathname"));
-  const pathname = requestHeaders.get("x-Navines-pathname") || "/";
-  const initialTheme = cookieStore.get("navines-theme")?.value === "light" ? "light" : "dark";
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const initialTheme = "dark";
 
   return (
-    <html className={initialTheme === "dark" ? "theme-dark" : "theme-light"} dir={locale.dir} lang={locale.lang}>
+    <html className={initialTheme === "dark" ? "theme-dark" : "theme-light"} dir="rtl" lang="he-IL">
       <head />
       <body className={`${hebrewFont.variable} ${latinFont.variable}`}>
         <JsonLd data={[organizationSchema, localBusinessSchema, websiteSchema]} />
-        <a className="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-50 focus:rounded-premium focus:bg-white focus:px-4 focus:py-3 focus:text-ink" href="#main">
-          {skipLabels[locale.slug] || skipLabels.he}
-        </a>
-        <Header initialLocale={locale.slug} initialTheme={initialTheme} />
+        <LocaleDocument />
+        <Header initialLocale="he" initialTheme={initialTheme} />
         <main id="main">{children}</main>
-        <Footer locale={locale.slug} showCta={pathname !== "/"} />
-        <FloatingContact locale={locale.slug} />
+        <Footer locale="he" showCta={false} />
+        <FloatingContact locale="he" />
         <AnalyticsEvents />
         {enableVercelAnalytics ? <Analytics /> : null}
       </body>

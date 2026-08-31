@@ -52,6 +52,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
     provider: { "@type": "Organization", name: site.hebrewLegalName, url: site.url },
     areaServed: "IL",
     serviceType: solution.navLabel,
+    url: `${site.url}/solutions/${solution.slug}`,
   };
 
   return (

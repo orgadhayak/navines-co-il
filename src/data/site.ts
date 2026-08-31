@@ -15,6 +15,7 @@
   emailHref: "mailto:hello@navines.com",
   address: "Winkler Alter 8, Petah Tikva, Israel",
   hebrewAddress: "וינקלר אלתר 8, פתח תקווה",
+  lastModified: "2026-08-26",
 };
 
 export const mainNav = [
@@ -1240,7 +1241,7 @@ export const services: Service[] = [
   {
     slug: "mobile-app-development",
     title: "פיתוח אפליקציות לעסקים",
-    metaTitle: "פיתוח אפליקציות לעסקים, iOS ו-Android",
+    metaTitle: "בניית אפליקציה סלולרית לעסק | iOS ו-Android",
     metaDescription: "פיתוח אפליקציות לעסקים משלב אפיון, UX, חיבורי API, בדיקות במכשירים אמיתיים, השקה ותחזוקה, בלי לפתח אפליקציה מיותרת כשאתר מובייל או PWA מספיקים.",
     heroTitle: "פיתוח אפליקציות לעסקים, מאפיון ועד השקה",
     eyebrow: "אפליקציות מובייל",
@@ -1284,6 +1285,8 @@ export const services: Service[] = [
   {
     slug: "ecommerce",
     title: "איקומרס וחנויות אונליין",
+    metaTitle: "בניית חנות איקומרס לעסקים | Shopify ו-WooCommerce",
+    metaDescription: "בניית ושיפור חנות איקומרס לעסקים: Shopify, WooCommerce, מוצרים, סליקה, משלוחים, מלאי, מובייל, SEO וחיבור למערכות העסק.",
     eyebrow: "איקומרס",
     summary: "חנות איקומרס טובה היא לא רק עיצוב יפה. היא מערכת מכירה שמחברת מוצרים, סליקה, משלוחים, מלאי, תוכן, SEO ומדידה כדי שלקוחות יוכלו לקנות בקלות והעסק יוכל לגדול בצורה מסודרת.",
     audience: ["חנויות חדשות שרוצות להיבנות נכון מהיום הראשון", "מותגים בצמיחה שרוצים לשפר מכירות וניהול", "מוכרים באמזון, איביי או חנויות עצמאיות שרוצים יותר שליטה"],
@@ -2080,7 +2083,7 @@ export const blogPosts: BlogPost[] = [
   { slug: "Navines-beacon", title: "מה זה ביקון ולמה עסקים צריכים ניטור דיגיטלי", category: "כלים מבית המותג", tags: ["ביקון", "ניטור"], date: "2 בפברואר 2026", publishedAt: "2026-02-02", readingTime: "5 דקות", excerpt: "ניטור דיגיטלי עוזר לזהות בעיות לפני שהן הופכות לפגיעה במכירות, אמון או שירות." },
   { slug: "internal-business-system", title: "איך בונים מערכת פנימית לעסק בלי להסתבך", category: "מערכות עסקיות", tags: ["מערכות", "תפעול"], date: "6 בפברואר 2026", publishedAt: "2026-02-06", readingTime: "6 דקות", excerpt: "מערכת פנימית טובה מתחילה מתהליך ברור, הרשאות נכונות ומדידה של מה שבאמת חשוב." },
   { slug: "wordpress-security", title: "אבטחת אתרי וורדפרס, מה כל בעל עסק חייב לדעת", category: "אבטחה", tags: ["וורדפרס", "אבטחה"], date: "10 בפברואר 2026", publishedAt: "2026-02-10", readingTime: "5 דקות", excerpt: "הקשחת וורדפרס, גיבויים ועדכונים הם שכבת בסיס לכל אתר עסקי פעיל." },
-  { slug: "technical-seo-hebrew", title: "קידום אורגני טכני בעברית, הבסיס שאתרים בישראל מפספסים", category: "קידום אורגני", tags: ["קידום אורגני", "עברית", "מבנה אתר"], date: "14 בפברואר 2026", publishedAt: "2026-02-14", readingTime: "6 דקות", excerpt: "מבנה נכון, מהירות, תגיות ומדידה עוזרים לאתר ישראלי להיסרק ולהתקדם." },
+  { slug: "technical-seo-hebrew", title: "קידום אורגני טכני בעברית, הבסיס שאתרים בישראל מפספסים", metaTitle: "קידום אתרים בעברית: מדריך SEO טכני לאתרים בישראל", metaDescription: "מדריך SEO טכני בעברית לאתרים בישראל: מבנה אתר, סריקה, מהירות, תגיות, קישורים פנימיים ומדידה שעוזרים להתקדם בגוגל.", category: "קידום אורגני", tags: ["קידום אורגני", "עברית", "מבנה אתר"], date: "14 בפברואר 2026", publishedAt: "2026-02-14", readingTime: "6 דקות", excerpt: "מבנה נכון, מהירות, תגיות ומדידה עוזרים לאתר ישראלי להיסרק ולהתקדם." },
   { slug: "ai-automation-service-guide", title: "בינה מלאכותית ואוטומציה לעסקים, הסבר קצר וברור", category: "סקירת שירותים", tags: ["בינה מלאכותית", "אוטומציה", "וואטסאפ"], date: "18 בפברואר 2026", publishedAt: "2026-02-18", readingTime: "4 דקות", excerpt: "אוטומציה טובה עוזרת לעסק לענות מהר יותר, לסדר פניות, לחסוך עבודה ידנית ולתת לצוות יותר שליטה בלי להפוך את השירות לקר ומנותק.", englishTitle: "AI Automation for Business", englishExcerpt: "Smart automation helps a business answer faster, organize messages, reduce manual work and keep the team in control.", serviceIntro: "בשירות הזה אנחנו מתחילים מהתהליך העסקי: איפה פניות נתקעות, איפה הצוות חוזר על אותה פעולה ואיפה וואטסאפ, אתר ומערכת ניהול יכולים לעבוד יחד. משם בונים פתרון פשוט, מדיד וידידותי.", englishServiceIntro: "We start with the business process, then connect WhatsApp, website forms, tasks and customer data into a practical automation flow." },
   { slug: "web-systems-service-guide", title: "בניית אתרים ומערכות, מה העסק באמת מקבל", category: "סקירת שירותים", tags: ["אתרים", "מערכות", "תשתית"], date: "20 בפברואר 2026", publishedAt: "2026-02-20", readingTime: "4 דקות", excerpt: "אתר טוב הוא לא רק עיצוב יפה. הוא צריך להסביר, לייצר אמון, להביא פניות, להיטען מהר ולהתחבר לכלים שהעסק משתמש בהם.", englishTitle: "Web Development and Business Systems", englishExcerpt: "A good website is not only design. It should explain, build trust, generate inquiries, load fast and connect to the tools the business already uses.", serviceIntro: "אנחנו בונים אתרים, מערכות פנימיות, פורטלים ודשבורדים עם מחשבה על מה העסק צריך לעשות ביום יום. אנחנו גאים במיוחד במערכות שבנינו כי הן לא נשארות יפות על המסך, הן עוזרות לאנשים לעבוד טוב יותר.", englishServiceIntro: "We build websites, internal systems, portals and dashboards that support the daily work of the business, not just the visual layer." },
   { slug: "ecommerce-service-guide", title: "חנות איקומרס: מה זה ואיך בונים חנות אונליין שעובדת נכון", metaTitle: "חנות איקומרס: מה זה ואיך בונים חנות אונליין", metaDescription: "מדריך לבניית חנות איקומרס: בחירת Shopify או WooCommerce, מוצרים, סליקה, משלוחים, מלאי, מובייל, SEO וחיבור למערכות העסק.", category: "איקומרס", tags: ["חנות איקומרס", "בניית חנות איקומרס", "חנות אונליין", "אתר מכירות", "שופיפיי", "ווקומרס"], date: "22 בפברואר 2026", publishedAt: "2026-02-22", readingTime: "9 דקות", excerpt: "חנות איקומרס היא אתר מכירות שמחבר מוצרים, סליקה, משלוחים, מלאי, חוויית מובייל, SEO ומערכות עסקיות. כך בונים חנות אונליין שעובדת נכון ולא רק נראית טוב.", englishTitle: "eCommerce Store Guide", englishExcerpt: "An online store should connect products, payments, shipping, inventory, mobile UX, SEO and business systems.", serviceIntro: "המדריך מסביר מהי חנות איקומרס, למי היא מתאימה, מה ההבדל בין אתר רגיל לחנות, איך לבחור בין Shopify ל WooCommerce ומה צריך להכין לפני שמתחילים.", englishServiceIntro: "This guide explains what an eCommerce store is, when to use Shopify or WooCommerce, and what to prepare before building.", relatedSlugs: ["shopify-israel", "web-systems-service-guide", "mobile-app-service-guide"] },

@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocalizedLanding } from "@/components/LocalizedLanding";
 import { getLocalizedContent } from "@/content/localized";
-import { landingAlternates, siteLocales, type PublicLocale } from "@/i18n/locales";
+import { landingAlternates, publicLocales, siteLocales, type PublicLocale } from "@/i18n/locales";
 import { site } from "@/data/site";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return publicLocales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -28,11 +32,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: "Navines",
       locale: meta.ogLocale,
       type: "website",
+      images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "Navines digital systems and AI" }],
     },
     twitter: {
       card: "summary_large_image",
       title: content.landing.metaTitle,
       description: content.landing.metaDescription,
+      images: ["/og-navines-israel.jpg"],
     },
     robots: { index: true, follow: true },
   };

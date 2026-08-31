@@ -53,7 +53,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
   return (
     <>
       <JsonLd data={[serviceSchema, breadcrumbSchema]} />
-      <main>
+      <div lang={locale.lang} dir={locale.dir}>
         <section className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 md:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8 lg:py-16">
           <div>
             <p className="mb-4 text-sm font-semibold text-glowred">{content.hero.eyebrow}</p>
@@ -209,7 +209,7 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
           </div>
         </LocalizedSection>
         <LanguageStrip compact current={content.locale} title="Navines" />
-      </main>
+      </div>
     </>
   );
 }
