@@ -139,6 +139,8 @@ function getBlogCtaLabel(post: BlogPost) {
     "email-to-chatgpt-talktodata": "לחיבור אימיילים חכם",
     "talk-to-business-data-chatgpt": "לדבר עם הנתונים",
     "connect-business-systems-to-chatgpt-israel": "לחיבור המערכות ל־ChatGPT",
+    "morning-green-invoice-chatgpt-business-data": "לחיבור החשבוניות ל־ChatGPT",
+    "google-search-console-chatgpt-autonomous-seo-agent": "ללופ SEO האוטונומי",
     "business-automation-start": "להבין אוטומציה עסקית",
     "ai-invoice-scanning-and-filtering": "לסריקת חשבוניות עם AI",
     "ecommerce-service-guide": "לבניית חנות איקומרס",

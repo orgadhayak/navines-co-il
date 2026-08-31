@@ -22,7 +22,7 @@ const capabilityGroups = [
   {
     title: "AI, נתונים ואוטומציה",
     text: "חיבור מידע, מערכות ומשימות לכלים חכמים שמקצרים עבודה ידנית ועוזרים לקבל החלטות מהר יותר.",
-    links: [["AI ואוטומציה", "/services/ai-automation"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חיבור מערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
+    links: [["AI ואוטומציה", "/services/ai-automation"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
   },
   {
     title: "מסחר ותשתיות דיגיטליות",
@@ -175,17 +175,38 @@ export default function HomePage() {
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8 lg:py-20">
           <div>
             <p className="section-eyebrow">שירות מוביל</p>
-            <h2>המערכות שלכם, בשיחה אחת עם ChatGPT</h2>
-            <p>מחברים חשבוניות, ERP, CRM, חנויות, דוחות ומאגרי מידע לממשק מאובטח שמאפשר לשאול שאלות רגילות ולקבל תמונה עסקית ברורה.</p>
+            <h2>חשבונית אונליין, Priority ונתוני העסק בתוך צ׳ט ג׳י פי טי</h2>
+            <p>מחברים Morning ומורנינג, Green Invoice וגרין אינוויס, חשבונית ירוקה, Priority ופריוריטי, קו מערכות ומערכות נוספות ל־ChatGPT. כאשר יש API או גישה מורשית, אפשר לדבר עם נתוני אמת, לגלות חריגות ולבנות אוטומציה וסוכני AI ממוקדי מטרה.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">איך החיבור עובד</Link>
+              <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">חיבור חשבונית אונליין ומערכות</Link>
+              <Link className="btn-secondary" href="/services/chatgpt-ai-agents-business">בניית סוכן AI לעסק</Link>
               <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לצפייה ב־TalkToData</a>
             </div>
           </div>
           <dl className="feature-specs">
-            <div><dt>חיבור</dt><dd>למערכות הקיימות, בלי להחליף את כל סביבת העבודה.</dd></div>
-            <div><dt>שימוש</dt><dd>שאלות בעברית על מכירות, תפעול, לקוחות, מלאי ודוחות.</dd></div>
-            <div><dt>שליטה</dt><dd>תכנון הרשאות, גבולות מידע ותהליך מסודר לפני שעולים לאוויר.</dd></div>
+            <div><dt>חיבור</dt><dd>API, Webhook, מסד נתונים, קבצים או ממשק מורשה—בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
+            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות, מלאי, מוסך, מפעל, תיקים ודוחות.</dd></div>
+            <div><dt>שליטה</dt><dd>הרשאות, מקורות, לוגים ואישור אנושי לפני פעולות רגישות או בלתי הפיכות.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section className="border-b" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }} aria-labelledby="autonomous-seo-home-title">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-16">
+          <div>
+            <p className="section-eyebrow">SEO, AI וקוד בלופ אחד</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="autonomous-seo-home-title">מחברים Google Search Console לצ׳ט ג׳י פי טי ובונים סוכן SEO אוטונומי</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">הסוכן קורא שאילתות, עמודים, חשיפות, CTR ומיקום, משלב Google Analytics, סריקות ולוגים, מכין שינוי בקוד, מריץ בדיקות, פורס Preview או שינוי מאושר ומודד שוב. כך קידום אורגני הופך מלוח דוחות ללופ עבודה מתמשך ומתועד.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link className="btn-primary" href="/services/autonomous-seo-agent-search-console-chatgpt">לשירות סוכן SEO אוטונומי</Link>
+              <Link className="btn-secondary" href="/blog/google-search-console-chatgpt-autonomous-seo-agent">למדריך המלא</Link>
+              <a className="btn-secondary" href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">ל־NAVINES SEO Lab</a>
+            </div>
+          </div>
+          <dl className="feature-specs">
+            <div><dt>אותות</dt><dd>Search Console, GA4, Sitemap, סריקה, ביצועים ולוגי שרת זמינים.</dd></div>
+            <div><dt>פעולה</dt><dd>תוכן, קישורים, Schema, מטא־דאטה ותיקוני קוד עם בדיקות ו־Git.</dd></div>
+            <div><dt>למידה</dt><dd>תיעוד השערה, דיפלוי, מדדים ותוצאה כדי לשפר את המחזור הבא.</dd></div>
           </dl>
         </div>
       </section>

@@ -219,6 +219,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isGlobalBrandCaseStudyPost = post.slug === "global-brand-b2b-platform-bumpers-case-study";
   const isToolsPortfolioPost = post.slug === "business-tools-built-by-navines-israel";
   const isBusinessSystemsChatGptPost = post.slug === "connect-business-systems-to-chatgpt-israel";
+  const isMorningGreenInvoiceChatGptPost = post.slug === "morning-green-invoice-chatgpt-business-data";
+  const isAutonomousSeoAgentPost = post.slug === "google-search-console-chatgpt-autonomous-seo-agent";
   const isHebrewToolsPost = post.slug === "hebrew-digital-safety-tools";
   const isSmartLocalToolsPost = post.slug === "smart-local-tools-for-digital-decisions";
   const isNewSafetyToolsPost = post.slug === "qr-email-and-link-safety-tools";
@@ -315,7 +317,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       {isMusicDistributionPost ? (
@@ -330,8 +332,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         />
       ) : (
       <CTA
-        title={isNavinesNoisePost ? "רוצים להפוך בדיקה חוזרת לתוסף שימושי?" : isSeoLabPost ? "רוצים להבין מה באמת עוצר את הנראות האורגנית?" : isPaymentDiscrepancyReviewPost ? "יש חיוב, תשלום או זיכוי שלא מסתדר?" : isAffiliateProgramPost ? "רוצים להפוך המלצות של יוצרים לתוכנית שותפים מסודרת?" : isBusinessSystemsChatGptPost ? "רוצים לחבר את המערכות שלכם ל־ChatGPT?" : isNewSafetyToolsPost || isSmartLocalToolsPost || isHebrewToolsPost ? "רוצים כלי שימושי בעברית באתר שלכם?" : isToolsPortfolioPost ? "רוצים כלי חכם שמותאם לעסק שלכם?" : isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני אמזון בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל אמזון?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
-        text={isNavinesNoisePost ? "ספרו לנו איזו פעולה, בדיקה או החלטה חוזרת אצלכם. נבדוק אם נכון להפוך אותה לתוסף קטן, כלי באתר או מערכת פנימית עם הרשאות ברורות וחוויית שימוש פשוטה." : isSeoLabPost ? "פתחו את הכלים החינמיים ובדקו את האותות שאפשר למדוד. אם התמונה עדיין לא ברורה, שלחו לנו את כתובת האתר ואת היעד העסקי ונבדוק כיצד להפוך את הממצאים לתוכנית עבודה מסודרת." : isPaymentDiscrepancyReviewPost ? "שלחו לנו בוואטסאפ רק מול איזה גוף או תהליך קיים פער ומה בערך לא מסתדר. שיחת ההתאמה הראשונה ללא עלות. אין לשלוח סיסמאות, קודי אימות, פרטי כרטיס מלאים או מידע אישי רגיש." : isAffiliateProgramPost ? "שלחו לנו בוואטסאפ על איזה אתר או חנות מדובר, מי אמור להיות שותף ומה נחשב אצלכם להפניה או הצלחה. נבדוק את החיבור הקיים ונציע דרך להתחיל בתוכנית ברורה, מאובטחת ונוחה לתפעול." : isBusinessSystemsChatGptPost ? "שלחו לנו בוואטסאפ אילו מערכות יש לכם, למשל Morning, Priority, ריווחית, CRM או חנות, ואילו שלוש שאלות הייתם רוצים לשאול בלי לחפש בדוחות. נבדוק API, הרשאות והיתכנות ונציע התחלה מצומצמת ובטוחה." : isNewSafetyToolsPost || isSmartLocalToolsPost || isHebrewToolsPost ? "שלחו לנו בוואטסאפ איזה כלי הייתם רוצים להוסיף לאתר שלכם ואיזו פעולה הגולש צריך לבצע. נחשוב על כלי קטן, שימושי וברור שנותן ערך אמיתי." : isToolsPortfolioPost ? "שלחו לנו בוואטסאפ מה העסק עושה, איזו פעולה חוזרת על עצמה ומה הייתם רוצים שהלקוח או הצוות יוכלו לבצע בקלות. נבדוק אם נכון לבנות כלי קטן, תוסף, מערכת נתונים או פתרון רחב יותר." : isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, אמזון, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי אמזון בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
+        title={isNavinesNoisePost ? "רוצים להפוך בדיקה חוזרת לתוסף שימושי?" : isSeoLabPost ? "רוצים להבין מה באמת עוצר את הנראות האורגנית?" : isPaymentDiscrepancyReviewPost ? "יש חיוב, תשלום או זיכוי שלא מסתדר?" : isAffiliateProgramPost ? "רוצים להפוך המלצות של יוצרים לתוכנית שותפים מסודרת?" : isAutonomousSeoAgentPost ? "רוצים סוכן SEO שמחבר נתונים, קוד ודיפלוי ללופ אחד?" : isBusinessSystemsChatGptPost ? "רוצים לחבר את המערכות שלכם ל־ChatGPT?" : isNewSafetyToolsPost || isSmartLocalToolsPost || isHebrewToolsPost ? "רוצים כלי שימושי בעברית באתר שלכם?" : isToolsPortfolioPost ? "רוצים כלי חכם שמותאם לעסק שלכם?" : isGlobalBrandCaseStudyPost ? "רוצים לבנות פלטפורמת מותג גלובלית לחברה שלכם?" : isAmazonIQPost ? "רוצים לראות את נתוני אמזון בצורה ברורה יותר?" : isLegalOnlinePost ? "רוצים לארגן את הצד הדיגיטלי לפני שיחה מקצועית?" : isTrafficPointsPost ? "רוצים להבין איך לארגן חומר תעבורה בצורה מסודרת?" : isAppraisalGuidePost ? "צריכים שמאות רכב, רכוש או חקלאות?" : isBrowserExtensionPost ? "יש לכם רעיון לתוסף לדפדפן?" : isAccountantChoicePost ? "צריכים רואה חשבון שמבין עסק דיגיטלי?" : isBusinessAutomationPost ? "רוצים לבדוק איזו אוטומציה מתאימה לעסק שלכם?" : isInvoiceScanningPost ? "רוצים להפוך חשבוניות לנתונים מסודרים?" : isEcommerceStorePost ? "רוצים לבנות או לשפר חנות איקומרס?" : isMobileAppPost ? "יש לכם רעיון לאפליקציה?" : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "רוצים להביא תנועה מחוץ ל אמזון?" : isSecureAccountsPost || isAccountHackPost ? "צריכים סיוע דחוף אחרי פריצה לחשבון?" : isBusinessDueDiligencePost ? "בודקים עסק לפני רכישה?" : isAiChatWebsitePost ? "רוצים צ׳ט AI חכם באתר שלכם?" : isTechnicalSupportPost ? "יש תקלה שמפריעה לעסק לעבוד?" : isSmartWebsiteLeadPost ? "רוצים לבנות כלי חינמי ושימושי לגולשים באתר שלכם?" : isBusinessWebsite999Post ? "רוצים אתר תדמית לעסק במחיר 999 ₪?" : courseArticle ? "רוצים לבדוק התאמה לקורס AI מעשי?" : isEmailDataPost ? "רוצים לחבר אימיילים ונתונים אל ChatGPT בצורה מאובטחת?" : isTalkToDataPost || solutionArticle ? "רוצים לדבר עם הנתונים של העסק שלכם דרך ChatGPT?" : "רוצים שנבדוק את האתר או התהליך העסקי שלכם?"}
+        text={isNavinesNoisePost ? "ספרו לנו איזו פעולה, בדיקה או החלטה חוזרת אצלכם. נבדוק אם נכון להפוך אותה לתוסף קטן, כלי באתר או מערכת פנימית עם הרשאות ברורות וחוויית שימוש פשוטה." : isSeoLabPost ? "פתחו את הכלים החינמיים ובדקו את האותות שאפשר למדוד. אם התמונה עדיין לא ברורה, שלחו לנו את כתובת האתר ואת היעד העסקי ונבדוק כיצד להפוך את הממצאים לתוכנית עבודה מסודרת." : isPaymentDiscrepancyReviewPost ? "שלחו לנו בוואטסאפ רק מול איזה גוף או תהליך קיים פער ומה בערך לא מסתדר. שיחת ההתאמה הראשונה ללא עלות. אין לשלוח סיסמאות, קודי אימות, פרטי כרטיס מלאים או מידע אישי רגיש." : isAffiliateProgramPost ? "שלחו לנו בוואטסאפ על איזה אתר או חנות מדובר, מי אמור להיות שותף ומה נחשב אצלכם להפניה או הצלחה. נבדוק את החיבור הקיים ונציע דרך להתחיל בתוכנית ברורה, מאובטחת ונוחה לתפעול." : isAutonomousSeoAgentPost ? "שלחו לנו כתובת אתר וציינו אם יש גישה ל־Search Console, ל־GA4, למאגר הקוד ולאחסון. נתחיל בקריאה ובדוח הזדמנויות, נגדיר רמת אוטונומיה ונאפשר שינוי ודיפלוי רק אחרי בדיקות והרשאות ברורות." : isBusinessSystemsChatGptPost ? "שלחו לנו בוואטסאפ אילו מערכות יש לכם, למשל Morning, Priority, ריווחית, CRM או חנות, ואילו שלוש שאלות הייתם רוצים לשאול בלי לחפש בדוחות. נבדוק API, הרשאות והיתכנות ונציע התחלה מצומצמת ובטוחה." : isNewSafetyToolsPost || isSmartLocalToolsPost || isHebrewToolsPost ? "שלחו לנו בוואטסאפ איזה כלי הייתם רוצים להוסיף לאתר שלכם ואיזו פעולה הגולש צריך לבצע. נחשוב על כלי קטן, שימושי וברור שנותן ערך אמיתי." : isToolsPortfolioPost ? "שלחו לנו בוואטסאפ מה העסק עושה, איזו פעולה חוזרת על עצמה ומה הייתם רוצים שהלקוח או הצוות יוכלו לבצע בקלות. נבדוק אם נכון לבנות כלי קטן, תוסף, מערכת נתונים או פתרון רחב יותר." : isGlobalBrandCaseStudyPost ? "שלחו לנו כמה מילים על החברה, המוצרים, השווקים הקיימים והשותפים שאליהם אתם רוצים להגיע. נבדוק אם נכון להתחיל מאתר תאגידי, מרכז מותג, מסלולי B2B או ליבה קטנה שאפשר להרחיב." : isAmazonIQPost ? "אפשר לפתוח את AmazonIQ לגישה מוגבלת, או לשלוח לנו בוואטסאפ באיזה Marketplace אתם פועלים ומה אתם רוצים להבין טוב יותר בדוחות ובפעילות." : isLegalOnlinePost ? "אפשר לכתוב לנו בוואטסאפ רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נעזור להבין אילו מערכות, נכסים דיגיטליים ושאלות טכנולוגיות כדאי לסדר." : isTrafficPointsPost ? "אפשר לכתוב לנו בוואטסאפ את נושא הפנייה הכללי בלבד, בלי דוח, מספר רישיון או מידע מזהה. נעזור להבין איך לגשת לנושא בצורה מסודרת יותר." : isAppraisalGuidePost ? "שלחו לנו בוואטסאפ אם מדובר ברכב, רכוש או חקלאות, מתי התרחש האירוע ומה דחוף. בפנייה הראשונה אין לשלוח תעודת זהות, פרטי אשראי, סיסמאות, מסמכים רפואיים או חומר רגיש. לאחר בירור ראשוני יוסבר כיצד להעביר חומר רלוונטי בצורה מסודרת." : isBrowserExtensionPost ? "שלחו לנו בוואטסאפ מה הרעיון, מי אמור להשתמש בתוסף ואיזו פעולה הוא צריך לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה ואיך לבנות אותה בצורה נקייה ובטוחה." : isAccountantChoicePost ? "שלחו לנו בוואטסאפ מה סוג העסק, באילו מערכות אתם עובדים, ואם יש פעילות אונליין, אמזון, Shopify או WooCommerce. נבין את הצורך ונבדוק איך נכון לכוון אתכם לאיש מקצוע מתאים." : isBusinessAutomationPost ? "שלחו לנו בוואטסאפ מה חוזר על עצמו אצלכם בעסק: פניות, מיילים, חשבוניות, CRM, דוחות או תזכורות. נבדוק איפה אוטומציה יכולה לחסוך זמן בלי לסבך את הצוות." : isInvoiceScanningPost ? "שלחו לנו איזה סוג חשבוניות או מסמכים אתם מקבלים, באיזו מערכת הם צריכים להסתדר, ונבדוק אם אפשר לבנות פתרון מותאם עם בקרת אנוש והרשאות נכונות." : isEcommerceStorePost ? "שלחו לנו מה אתם מוכרים, באיזו פלטפורמה אתם חושבים להשתמש, ומה חשוב לכם: סליקה, משלוחים, מלאי, מהירות או SEO. נכוון אתכם לצעד הראשון." : isMobileAppPost ? "שלחו לנו מה האפליקציה אמורה לפתור, מי ישתמש בה ומה קיים היום. נגיד אם נכון להתחיל באפליקציה, באתר מובייל או במערכת פשוטה יותר." : isExternalAmazonTrafficPost || isMultilingualAmazonSeoPost ? "שלחו לנו כמה קישורים למוצרים, באיזו מדינה אתם מוכרים ומה היעד שלכם. נבדוק איך אפשר לבנות סביבם אתר תוכן איכותי שמפנה לעמודי אמזון בצורה מסודרת." : isSecureAccountsPost || isAccountHackPost ? "שלחו לנו בוואטסאפ מה קרה, באיזה חשבון מדובר והאם עדיין יש גישה למייל או לטלפון. ננסה להבין את המצב, לשמור כיוון מסודר ולפעול בצורה חוקית וזהירה." : isBusinessDueDiligencePost ? "שלחו לנו מה אתם שוקלים לקנות ומה המוכר כבר הציג. נבדוק איזה נכסים, נתונים וסיכונים כדאי לבחון לפני שמתקדמים." : isAiChatWebsitePost ? "שלחו לנו בוואטסאפ את כתובת האתר או תיאור קצר של השירותים שלכם. נבדוק איזה צ׳ט קצר וברור יכול לעזור לגולשים לקבל תשובות ולפנות אליכם." : isTechnicalSupportPost ? "שלחו לנו בוואטסאפ מה לא עובד: אתר, מייל, דומיין, רשת או מחשב. נבדוק אם אפשר להתחיל מרחוק ומה הצעד הנכון." : isSmartWebsiteLeadPost ? "שלחו לנו בוואטסאפ את כתובת האתר והנישה שלכם. נחשוב יחד איזה כלי יכול להיטיב עם הגולש, לתת לו ערך אמיתי בחינם, לבנות אמון, ליצור שימוש באתר ולקדם את העסק קדימה." : isBusinessWebsite999Post ? "שלחו לנו בוואטסאפ מה העסק עושה, אם יש לכם לוגו ותוכן בסיסי, ונגיד אם המסלול מתאים או שצריך פתרון רחב יותר." : courseArticle ? "שלחו לנו בוואטסאפ מי מתעניין במסלול, ילד או בוגר, ומה הייתם רוצים לבנות או ללמוד. נבדוק התאמה ונכוון אתכם בצורה פשוטה." : isEmailDataPost ? "שלחו לנו בוואטסאפ איזה מייל יש לכם, איזה מידע חשוב לכם להבין ומה הייתם רוצים לשאול. נבדוק אם יש דרך גישה מסודרת ובטוחה ונכוון אתכם לפתרון נכון." : isTalkToDataPost || solutionArticle ? "שלחו לנו בוואטסאפ איזו מערכת יש לכם, מה אתם רוצים להבין מהר יותר ואיפה יש עבודה ידנית שחוזרת על עצמה. נבדוק איך אפשר לחבר את זה בצורה שימושית, ברורה וזהירה." : "כתבו לנו בוואטסאפ מה אתם רוצים לשפר. שיחת היכרות חינם וחברית, אנחנו מפתח תקווה, ונשמח להבין יחד מה הצעד הבא הכי נכון."}
         whatsappHref={isAppraisalGuidePost ? appraisalWhatsappHref : undefined}
         whatsappLabel={isAppraisalGuidePost ? "סיוע ראשוני בוואטסאפ" : undefined}
       />
@@ -2704,15 +2706,181 @@ function AffiliateProgramArticleBody() {
   );
 }
 
+function AutonomousSeoAgentArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>מהו חיבור Google Search Console לצ׳ט ג׳י פי טי?</h2>
+      <p>
+        Google Search Console כבר יודע באילו שאילתות האתר הופיע, איזה עמוד קיבל חשיפות וקליקים, מה היה ה־CTR ומהו המיקום הממוצע. <a href="https://developers.google.com/webmaster-tools/v1/searchanalytics/query" rel="noopener noreferrer" target="_blank">Search Analytics API הרשמי</a> מאפשר לשלוף את הנתונים בהרשאה ולפלח אותם בין היתר לפי שאילתה, עמוד, מדינה ומכשיר. חשוב לדעת שה־API כפוף למגבלות ואינו מבטיח להחזיר כל שורת נתונים.
+      </p>
+      <p>
+        החיבור לצ׳ט ג׳י פי טי או ל־ChatGPT הופך דוח לשיחה: אילו ביטויים נמצאים במקומות 11–30? איזה עמוד מקבל הרבה חשיפות ו־CTR נמוך? איפה שני עמודים מתחרים על אותה כוונה? איזה נושא חדש כבר מקבל איתותים מגוגל? התשובה צריכה לכלול את השאילתה, העמוד, התקופה והמדדים שעליהם היא מבוססת.
+      </p>
+
+      <h2>למה מחברים גם Google Analytics?</h2>
+      <p>
+        Search Console מספר מה קרה בתוצאות החיפוש. Google Analytics או גוגל אנליטיקס מוסיף את מה שהוגדר באתר לאחר הכניסה: דף נחיתה, מקור תנועה, אירועים והמרות. <a href="https://developers.google.com/analytics/devguides/reporting/data/v1/basics" rel="noopener noreferrer" target="_blank">Google Analytics Data API</a> מאפשר להפיק דוחות GA4 לפי ממדים ומדדים, בהרשאה מתאימה.
+      </p>
+      <p>
+        השילוב חשוב: עמוד עם הרבה קליקים אינו בהכרח העמוד שמייצר פנייה, ועמוד עם מעט תנועה יכול להביא קהל מדויק. סוכן SEO טוב אינו רודף רק אחרי מיקום; הוא מחבר נראות אורגנית לערך העסקי שהוגדר ונמדד.
+      </p>
+
+      <h2>הלופ האוטונומי: מנתונים עד שינוי בלייב וחזרה למדידה</h2>
+      <ol>
+        <li><strong>איסוף:</strong> Search Console, GA4, Sitemap, סריקת אתר, ביצועים ולוגים נכנסים לתמונת מצב אחת.</li>
+        <li><strong>אבחון:</strong> הסוכן מזהה הזדמנויות, שגיאות, ירידות, קניבליזציה וחוסרים בתוכן או בקישורים.</li>
+        <li><strong>תיעדוף:</strong> כל רעיון מקבל השפעה צפויה, ביטחון, עלות וסיכון כדי לא לשנות הכול בבת אחת.</li>
+        <li><strong>שינוי קוד:</strong> הסוכן מכין כותרת, מטא־תיאור, קישור פנימי, Schema, תוכן, תיקון טכני או עמוד חדש במאגר המורשה.</li>
+        <li><strong>בדיקות:</strong> מריצים typecheck, lint, בדיקות SEO, build, בדיקות HTTP ובדיקת HTML של העמודים שהשתנו.</li>
+        <li><strong>פריסה:</strong> יוצרים Preview או Pull Request; שינוי קטן יכול לעלות אוטומטית רק אם המדיניות מאפשרת וכל הבדיקות עברו.</li>
+        <li><strong>אימות בלייב:</strong> בודקים סטטוס, Canonical, מטא־דאטה, Schema, Sitemap, קישורים וכותרות באתר האמיתי.</li>
+        <li><strong>למידה:</strong> אחרי חלון זמן מתאים משווים נתונים ושומרים מה שונה, למה ומה קרה בפועל.</li>
+      </ol>
+
+      <h2>שלוש רמות אוטונומיה במקום הרשאת־על אחת</h2>
+      <ul>
+        <li><strong>יועץ:</strong> הסוכן קורא נתונים ומחזיר רשימת פעולות עם ראיות, בלי לשנות קוד.</li>
+        <li><strong>מפתח בפיקוח:</strong> הסוכן מכין שינוי ו־Pull Request, מריץ בדיקות וממתין לאישור לפני מיזוג ודיפלוי.</li>
+        <li><strong>אוטונומיה מוגבלת:</strong> הסוכן רשאי לפרסם שינויים קטנים ומוגדרים שעברו בדיקות, עם תיעוד, ניטור ואפשרות חזרה לאחור.</li>
+      </ul>
+      <p>
+        שינוי תשתית, מחיקה, מעבר URL, תוכן משפטי או רפואי, שינוי מסחרי רחב ופעולה שעלולה לפגוע באתר נשארים באישור אנושי. המטרה היא קצב עבודה גבוה עם רדיוס נזק קטן.
+      </p>
+
+      <h2>לוגים, שרתים ותיקון תקלות בזמן אמת</h2>
+      <p>
+        SEO טכני אינו מסתיים בתוכן. שגיאות 4xx ו־5xx, כשלי Build, פונקציה שנופלת, Sitemap שלא נטען או דיפלוי שלא הסתיים יכולים לפגוע בזחילה ובחוויית המשתמש. לדוגמה, <a href="https://vercel.com/docs/logs/runtime" rel="noopener noreferrer" target="_blank">Vercel Runtime Logs</a> מציגים לוגים של פונקציות ו־Middleware, סטטוסים, מסלולים ופרטי פריסה; ספקים אחרים מציעים APIs, CLI או מערכות לוגים משלהם.
+      </p>
+      <p>
+        סוכן מורשה יכול לזהות דפוס שגיאה, לקשר אותו לקוד, להכין תיקון, לבדוק ב־Preview ולוודא לאחר דיפלוי שהסטטוס חזר ל־200. בשלב ראשון נכון לעבוד בזיהוי והתראה; רק תרחישים שחזרו ונבדקו מקבלים תיקון אוטומטי.
+      </p>
+
+      <h2>האם זה באמת AGI לקידום אורגני?</h2>
+      <p>
+        המילה AGI מתארת בינה כללית, וזה לא מה שמבטיחים כאן. זהו סוכן AI ממוקד SEO שמקבל חושים וכלים: נתוני גוגל, אנליטיקה, סריקה, קוד, בדיקות, Git, דיפלוי ולוגים. לפי <a href="https://developers.openai.com/api/reference/cli/resources/responses/methods/create" rel="noopener noreferrer" target="_blank">OpenAI Responses API</a>, מודלים יכולים להשתמש בכלים מובנים, בקוד מותאם, בפונקציות וב־MCP. החיבור בין כלים אלה יוצר אוטונומיה חזקה, אך עדיין תחת מטרה, הרשאות ובקרות.
+      </p>
+
+      <h2>דוגמה מעשית ללופ SEO</h2>
+      <p>
+        Search Console מראה שלעמוד יש 100 חשיפות לביטוי רלוונטי אך מיקום ממוצע 18 ו־CTR נמוך. הסוכן בודק אם הכוונה מתאימה לעמוד, משווה כותרת ותוכן, מוודא שאין עמוד מתחרה, מוסיף פסקה וקישורים פנימיים, מעדכן מטא־דאטה, מריץ בדיקות ומפרסם Preview. לאחר אישור ודיפלוי הוא מאמת את העמוד בלייב, מתעד את הניסוי ומחכה מספיק זמן לפני הסקת מסקנה. אם המדדים משתפרים, השינוי נשמר; אם לא, בודקים השערה אחרת במקום לכתוב עוד תוכן ללא כיוון.
+      </p>
+
+      <h2>זהו גם תהליך העבודה שאנחנו מפעילים על NAVINES</h2>
+      <p>
+        באתר NAVINES אנחנו משלבים נתוני Search Console, מחקר דרך הכלים שבנינו, בדיקת התוכן והקוד, בדיקות אוטומטיות, Git, דיפלוי ואימות של האתר החי. כל מחזור משאיר אחריו שינוי מתועד ותוצאה שאפשר לבדוק. כך אנחנו מפתחים את היכולת על אתר אמיתי ולא רק כותבים עליה, ובמקביל שומרים גבולות: לא מבטיחים דירוג, לא מפרסמים טענה בלי מקור ולא משנים אזורים מסוכנים בלי בדיקה מתאימה.
+      </p>
+
+      <h2>מה צריך כדי להתחיל?</h2>
+      <ul>
+        <li>גישה מורשית ל־Google Search Console ולנכס GA4 הרלוונטי, בדרך כלל בקריאה בלבד בשלב הראשון.</li>
+        <li>מאגר קוד או דרך בטוחה ומבוקרת לערוך את האתר.</li>
+        <li>תהליך בדיקות, Preview, דיפלוי וחזרה לגרסה תקינה.</li>
+        <li>גישה ללוגים רק אם רוצים ניטור ותיקון טכני, ובהרשאות המצומצמות הדרושות.</li>
+        <li>יעד עסקי ומדדים: לא רק ״יותר תנועה״, אלא אילו שירותים, קהלים ופעולות חשובים.</li>
+      </ul>
+
+      <div className="not-prose mt-8 flex flex-wrap gap-3">
+        <Link className="btn-primary" href="/services/autonomous-seo-agent-search-console-chatgpt">לבניית סוכן SEO אוטונומי</Link>
+        <a className="btn-secondary" href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">לכלי NAVINES SEO Lab</a>
+        <Link className="btn-secondary" href="/products/navines-noise">ל־NAVINES NOISE</Link>
+      </div>
+    </div>
+  );
+}
+
+function MorningGreenInvoiceChatGptArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>חשבונית אונליין, חשבונית און ליין, Morning ו־Green Invoice: עושים סדר בשמות</h2>
+      <p>
+        כשישראלים מחפשים חשבונית אונליין או חשבונית און ליין, הם מתכוונים לעיתים לקטגוריה של מערכות להפקת מסמכים וניהול עסק. Morning, מורנינג, חשבונית ירוקה, Green Invoice ו־גרין אינוויס הם שמות שבהם משתמשים כדי להגיע למותג ולמערכת של מורנינג מבית חשבונית ירוקה.
+      </p>
+      <p>
+        החיבור שאנחנו בונים אינו מחליף את מערכת החשבוניות. הוא מוסיף מעליה שכבת שיחה וכלים שמאפשרת לשאול שאלות בצ׳ט ג׳י פי טי או ב־ChatGPT, לקבל תשובה המבוססת על נתונים מורשים ולפתוח את הרשומה המקורית לצורך אימות וטיפול.
+      </p>
+
+      <h2>מה אפשר לשאול את צ׳ט ג׳י פי טי על נתוני החשבוניות?</h2>
+      <ul>
+        <li>אילו מסמכים או דרישות תשלום עדיין פתוחים ודורשים מעקב?</li>
+        <li>אילו לקוחות לא שילמו בתקופה שהוגדרה במערכת?</li>
+        <li>איך נראות ההכנסות לפי חודש, לקוח או סוג שירות?</li>
+        <li>איפה יש כפילות אפשרית, שדה חסר או חריגה שכדאי לבדוק?</li>
+        <li>אילו פניות ומסמכים מחכים לבקרת רואה חשבון או מנהל?</li>
+        <li>איזו משימה צריך לפתוח לצוות, ומאיזה מסמך או לקוח היא נובעת?</li>
+      </ul>
+      <p>
+        אלו דוגמאות לתכנון אפשרי, לא הבטחה שכל שדה זמין בכל חשבון. התשובה תלויה ב־API, במסלול, בהרשאות ובאיכות הנתונים. מידע כספי מחייב מקור ברור ובקרה מקצועית.
+      </p>
+
+      <h2>איך מתחברים ל־Morning או מורנינג של חשבונית ירוקה?</h2>
+      <p>
+        <a href="https://www.greeninvoice.co.il/help-center/api/" rel="noopener noreferrer" target="_blank">התיעוד הרשמי של מורנינג</a> מסביר שה־API מאפשר למערכות אחרות להתחבר לצורך צפייה או הפקת מסמכים, בכפוף למסלול, מפתח API והרשאות. לכן שלב ראשון הוא בדיקת החשבון והתיעוד, ולא העברת סיסמה או גישה חופשית למערכת.
+      </p>
+      <ol>
+        <li>מגדירים אילו שאלות או משימות באמת חשובות לעסק.</li>
+        <li>בודקים אילו נתונים ופעולות ה־API הרשמי מאפשר בחשבון הקיים.</li>
+        <li>יוצרים שכבת שרת מאובטחת שמחזיקה את ההרשאות ולא חושפת מפתחות למשתמש.</li>
+        <li>מחברים את שכבת הנתונים ל־ChatGPT, ליישום עסקי או לסוכן AI ממוקד.</li>
+        <li>מתחילים בקריאה בלבד, משווים למערכת המקור ומוסיפים פעולות רק לאחר בדיקה.</li>
+      </ol>
+
+      <h2>לא רק מורנינג: Priority, פריוריטי ומערכות מקצועיות</h2>
+      <p>
+        אותו עיקרון מתאים גם ל־Priority או פריוריטי, ל־<a href="https://www.cavsystems.com/blog-post/cav-api-integration" rel="noopener noreferrer" target="_blank">קו מערכות</a> ולמערכות ERP, CRM, מלאי, מוסכים, מפעלים, שמאות ושירות. במפעל אפשר לחבר הזמנות, רכש, מלאי, איכות ותקלות; במוסך אפשר לבדוק חיבור ל־<a href="https://www.eyalcomp.co.il/" rel="noopener noreferrer" target="_blank">מוסכית 2020</a> או למערכת אחרת כדי לרכז לקוחות, רכבים, תורים, חלקים וסטטוס טיפול; ובמשרד שמאות אפשר לרכז תיקים, מסמכים, תמונות, משימות וסטטוסים. החיבור בפועל תלוי בממשק הרשמי, בהרשאות ובמבנה הנתונים של כל מערכת.
+      </p>
+
+      <h2>לא רק שיחה: סוכן AI שמקדם עבודה</h2>
+      <p>
+        לפי <a href="https://developers.openai.com/api/reference/cli/resources/responses/methods/create" rel="noopener noreferrer" target="_blank">התיעוד הרשמי של OpenAI</a>, אפשר לחבר מודלים לקוד מותאם, לפונקציות ולכלי MCP. מבחינה עסקית זה אומר שסוכן ממוקד יכול לא רק להסביר נתון אלא גם להכין משימה, לרכז מסמכים, להציע סדר טיפול או לקרוא לכלי מאושר.
+      </p>
+      <p>
+        <Link href="/services/chatgpt-ai-agents-business">סוכן AI לעסק</Link> מקבל תפקיד מוגדר וגבולות פעולה. סוכן לרואה חשבון יכול לרכז מסמכים חסרים; סוכן למוסך יכול להכין רשימת רכבים שממתינים לעדכון; סוכן למפעל יכול להציף הזמנות או תקלות; וסוכן לשמאי או שמאית יכול לסדר חומר בתיק ולהכין רשימת פריטים לבדיקה. החלטה מקצועית או פעולה כספית נשארת תחת אישור אנושי.
+      </p>
+
+      <h2>למי החיבור מתאים?</h2>
+      <ul>
+        <li><strong>רואי חשבון ומנהלי חשבונות:</strong> ריכוז מסמכים, שאלות לקוחות ומשימות לבדיקה.</li>
+        <li><strong>בעלי עסקים:</strong> תשובות מהירות על הכנסות, מסמכים פתוחים ולקוחות שדורשים מעקב.</li>
+        <li><strong>מפעלים:</strong> שילוב נתוני חשבוניות עם הזמנות, רכש, מלאי, איכות ותפעול.</li>
+        <li><strong>מוסכים ועסקי שירות:</strong> חיבור בין לקוח, רכב, עבודה, חלקים, מסמך וסטטוס טיפול.</li>
+        <li><strong>שמאים ושמאיות:</strong> ארגון תיקים, תמונות, מסמכים, ביקורים ומשימות, בלי להחליף שיקול דעת מקצועי.</li>
+        <li><strong>חנויות אונליין:</strong> חיבור מכירות, תשלום, החזר, מלאי ושירות לתמונה אחת.</li>
+      </ul>
+
+      <h2>הניסיון שלנו מגיע ממוצרים שבנינו</h2>
+      <p>
+        <a href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">TalkToData</a> הוא מוצר שבנינו כדי להדגים את הרעיון Your data. Your ChatGPT. One conversation. אנחנו משתמשים באותה חשיבה גם בכלים אחרים: מתחילים ממקור נתונים אמיתי, מוסיפים שיחה וכלים, ומשאירים למשתמש דרך לראות מאיפה הגיעה התשובה.
+      </p>
+      <p>
+        מהניסיון שלנו בפרויקטים פעילים, רואי חשבון ובעלי עסקים מעריכים במיוחד את היכולת להגיע מהר למידע שדורש טיפול, בלי לעבור ידנית בין מסכים. אנחנו לא מפרסמים מספרי חיסכון או הבטחות גורפות בלי מדידה, אבל כן בונים את החיבור סביב עבודה אמיתית ושאלות שהצוות כבר שואל היום.
+      </p>
+
+      <h2>אבטחה, פרטיות ואחריות</h2>
+      <p>
+        לא מעבירים את כל המידע לצ׳ט ללא הבחנה. מצמצמים שדות, מפרידים הרשאות, שומרים מפתחות בצד השרת, מתעדים פעולות ומגדירים מתי נדרש אישור אנושי. תשובת AI אינה מחליפה את מערכת המקור, רואה החשבון, השמאי, מנהל המפעל או בעל התפקיד המוסמך.
+      </p>
+      <p>
+        נביא נס אינה מציגה שותפות מסחרית עם Morning, Green Invoice או Priority. השמות והסימנים המסחריים שייכים לבעליהם, והחיבור נבדק לפי התיעוד הרשמי והגישה המורשית של הלקוח.
+      </p>
+
+      <div className="not-prose mt-8 flex flex-wrap gap-3">
+        <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">לחיבור חשבונית אונליין ונתונים ל־ChatGPT</Link>
+        <Link className="btn-secondary" href="/services/chatgpt-ai-agents-business">לבניית סוכן AI לעסק</Link>
+        <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לצפייה ב־TalkToData</a>
+      </div>
+    </div>
+  );
+}
+
 function BusinessSystemsChatGptArticleBody() {
   return (
     <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
-      <h2>מה פירוש לחבר מערכת עסקית ל־ChatGPT?</h2>
+      <h2>מה פירוש לחבר מערכת עסקית לצ׳ט ג׳י פי טי או ל־ChatGPT?</h2>
       <p>
         רוב העסקים כבר מחזיקים את המידע שהם צריכים. הוא נמצא במערכת החשבוניות, ב־ERP, ב־CRM, בחנות, במלאי, במיילים ובדוחות. הבעיה היא שהמידע מפוזר, ולכן כדי לענות על שאלה פשוטה צריך לפתוח כמה מסכים, לייצא קבצים ולחבר את התמונה ידנית.
       </p>
       <p>
-        <Link href="/services/business-systems-chatgpt-integration">חיבור מערכות עסקיות ל־ChatGPT ול־NAVINES IQ</Link> יוצר שכבה מאובטחת בין מקורות המידע לבין ממשק שיחה. המשתמש שואל בעברית רגילה, המערכת שולפת רק את הנתונים המורשים, ומחזירה תשובה קצרה עם הקשר ומקור שאפשר לבדוק.
+        <Link href="/services/business-systems-chatgpt-integration">חיבור חשבונית אונליין ומערכות עסקיות לצ׳ט ג׳י פי טי</Link> יוצר שכבה מאובטחת בין מקורות המידע לבין ממשק שיחה. המשתמש שואל בעברית רגילה, המערכת שולפת רק את הנתונים המורשים, ומחזירה תשובה קצרה עם הקשר ומקור שאפשר לבדוק.
       </p>
 
       <h2>מה אפשר לשאול את הנתונים?</h2>
@@ -2729,13 +2897,14 @@ function BusinessSystemsChatGptArticleBody() {
         המטרה אינה להחליף את מערכת המקור או את אנשי המקצוע. המטרה היא לקצר את הדרך לשאלה הנכונה, להציג את הנתון הנכון מהר יותר ולעזור לאדם להבין מה כדאי לבדוק עכשיו.
       </p>
 
-      <h2>מערכות חשבוניות, הנהלת חשבונות ו־ERP בישראל</h2>
+      <h2>חשבונית אונליין, Morning, Green Invoice, Priority ומערכות ERP בישראל</h2>
       <p>
-        בישראל קיימות כמה מערכות מוכרות שמציעות API או דרך חיבור מתועדת, בהתאם למסלול, לרישיון ולהרשאות. דוגמאות רלוונטיות הן Morning, Priority, ריווחית, iCount, חשבשבת ו־SUMIT. קיום API אינו אומר שכל חשבון יכול לבצע כל פעולה, ולכן בודקים את התיעוד ואת החשבון בפועל לפני שמגדירים פתרון.
+        בישראל קיימות מערכות שמציעות API או דרך חיבור מתועדת, בהתאם למסלול, לרישיון ולהרשאות. דוגמאות רלוונטיות הן Morning או מורנינג של חשבונית ירוקה, Green Invoice או גרין אינוויס, Priority או פריוריטי, קו מערכות, ריווחית, iCount, חשבשבת ו־SUMIT. כאשר למערכת יש API, Webhook, ייצוא מסודר או גישה מורשית אחרת, אפשר לבדוק חיבור חכם; קיום ממשק אינו אומר שכל חשבון יכול לבצע כל פעולה.
       </p>
       <ul>
-        <li><a href="https://www.greeninvoice.co.il/help-center/api/" rel="noopener noreferrer" target="_blank">Morning</a>, מסמכים, לקוחות וחיבורי API במסלולים מתאימים.</li>
+        <li><a href="https://www.greeninvoice.co.il/help-center/api/" rel="noopener noreferrer" target="_blank">Morning, מורנינג, חשבונית ירוקה ו־Green Invoice</a>, מסמכים, לקוחות וחיבורי API במסלולים מתאימים.</li>
         <li><a href="https://cdn.priority-software.com/docs/Priority_OData_API_H.pdf" rel="noopener noreferrer" target="_blank">Priority</a>, חיבור OData ו־REST בכפוף למודולים, רישיונות והרשאות.</li>
+        <li><a href="https://www.cavsystems.com/blog-post/cav-api-integration" rel="noopener noreferrer" target="_blank">קו מערכות</a>, Web APIs, REST, JSON, SOAP והרשאות לפי התיעוד והמערכת.</li>
         <li><a href="https://www.rivhit.co.il/wp-content/uploads/2022/03/rivhit_api_rest.pdf" rel="noopener noreferrer" target="_blank">ריווחית אונליין</a>, API לקבלה ולעדכון מידע בזמן אמת בהתאם לטוקן ולהרשאות.</li>
         <li><a href="https://www.icount.co.il/features/api/" rel="noopener noreferrer" target="_blank">iCount</a>, API ו־Webhooks לחיבורים עסקיים.</li>
         <li><a href="https://www.h-erp.co.il/wp-content/uploads/2021/03/Hconnect-Documentation4.pdf" rel="noopener noreferrer" target="_blank">חשבשבת H-Connect</a>, ממשק מתועד לחיבור מערכות.</li>
@@ -2753,6 +2922,9 @@ function BusinessSystemsChatGptArticleBody() {
       <h2>איך TalkToData ו־AmazonIQ מדגימים את הרעיון?</h2>
       <p>
         <a href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">TalkToData</a> מדגים את חוויית Your data. Your ChatGPT. One conversation. במקום להתחיל מדשבורד עמוס, מתחילים בשאלה וממשיכים לשאלת המשך על אותו מידע.
+      </p>
+      <p>
+        אפשר להרחיב את אותה שכבה גם ל־<Link href="/services/chatgpt-ai-agents-business">סוכני AI ממוקדי מטרה</Link> שמרכזים בדיקות, מכינים משימות ומקדמים תהליך שוטף תחת הרשאות, לוגים ואישור אנושי לפעולות רגישות.
       </p>
       <p>
         <Link href="/products/amazoniq">AmazonIQ</Link> הוא דוגמה ממוקדת יותר: נתוני Seller Central מורשים מתחברים לדשבורד ולשיחה ייעודית בקריאה בלבד. המוצר אינו משנה ליסטינגים, מחירים, מלאי או הזמנות. שתי הדוגמאות מראות מדוע חיבור טוב נבנה סביב מקור נתונים, הרשאה ושימוש עסקי מוגדר, ולא סביב צ׳ט כללי שיודע לדבר על הכול.
