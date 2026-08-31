@@ -34,10 +34,12 @@ const aiChatService = segment(siteData, "ai-chat-for-websites");
 const hackService = segment(siteData, "account-hack-recovery");
 const aiAutomationService = segment(siteData, "ai-automation");
 const chatGptDataService = segment(siteData, "chatgpt-business-data");
+const apiIntegrationsService = segment(siteData, "api-integrations");
 const businessSystemsChatGptService = segment(siteData, "business-systems-chatgpt-integration");
 const aiAgentsService = segment(siteData, "chatgpt-ai-agents-business");
 const autonomousSeoService = segment(siteData, "autonomous-seo-agent-search-console-chatgpt");
 const morningGreenInvoicePost = segment(siteData, "morning-green-invoice-chatgpt-business-data");
+const customConnectorPost = segment(siteData, "connect-any-software-chatgpt-custom-connector");
 const autonomousSeoPost = segment(siteData, "google-search-console-chatgpt-autonomous-seo-agent");
 const accountantsSolution = segment(solutionData, "accountants");
 const freelancersSolution = segment(solutionData, "freelancers");
@@ -54,6 +56,17 @@ includes(businessSystemsChatGptService, "Priority", "Priority service keyword");
 includes(businessSystemsChatGptService, "קו מערכות", "CAV Systems service keyword");
 includes(businessSystemsChatGptService, "מוסכית 2020", "Mossachit service keyword");
 includes(businessSystemsChatGptService, "צ׳ט ג׳י פי טי", "Hebrew ChatGPT service keyword");
+includes(apiIntegrationsService, "NAVINES Bridge", "Custom connector architecture name");
+includes(apiIntegrationsService, "אין API", "No-API connector positioning");
+includes(apiIntegrationsService, "SUMIT", "SUMIT connector keyword");
+includes(apiIntegrationsService, "סמיט", "SUMIT Hebrew search variant");
+includes(apiIntegrationsService, "סמית", "SUMIT Smith search variant");
+includes(apiIntegrationsService, "ריווחית", "Rivhit connector keyword");
+includes(apiIntegrationsService, "שמאית", "Shamayit connector keyword");
+includes(apiIntegrationsService, "נשר", "Neshar connector keyword");
+includes(customConnectorPost, "NAVINES Bridge", "Custom connector article architecture");
+includes(customConnectorPost, "מוסכית 2020", "Custom connector garage keyword");
+includes(customConnectorPost, "סמית", "Custom connector Hebrew SUMIT variant");
 includes(aiAgentsService, 'metaTitle: "בניית סוכני AI וצ׳ט ג׳י פי טי לעסקים"', "AI agents metadata");
 includes(aiAgentsService, "מפעל", "Factory agent use case");
 includes(aiAgentsService, "מוסך", "Garage agent use case");
@@ -68,11 +81,18 @@ includes(autonomousSeoService, "לוגים", "Server logs service copy");
 includes(autonomousSeoPost, "קידום אורגני אוטונומי", "Autonomous SEO article keyword");
 includes(blogPage, "MorningGreenInvoiceChatGptArticleBody", "Morning article custom body");
 includes(blogPage, "AutonomousSeoAgentArticleBody", "Autonomous SEO article custom body");
-includes(homePage, "חשבונית אונליין, Priority ונתוני העסק בתוך צ׳ט ג׳י פי טי", "Homepage integration heading");
+includes(blogPage, "CustomConnectorArticleBody", "Custom connector article body");
+includes(blogPage, "https://app.sumit.co.il/developers/api/", "Official SUMIT API source");
+includes(blogPage, "https://tevelsoft.co.il/nesher-pro.asp", "Neshar and Shamayit integration source");
+includes(homePage, "חשבונית אונליין, SUMIT, ריווחית, Priority וכל תוכנה בתוך צ׳ט ג׳י פי טי", "Homepage integration heading");
+includes(homePage, "סמית או סאמיט", "Homepage SUMIT search variants");
+includes(homePage, "ריווחית", "Homepage Rivhit keyword");
+includes(homePage, "/services/api-integrations", "Homepage custom connector link");
 includes(homePage, '/services/chatgpt-ai-agents-business', "Homepage AI agent link");
 includes(homePage, "מחברים Google Search Console לצ׳ט ג׳י פי טי", "Homepage Search Console heading");
 includes(homePage, '/services/autonomous-seo-agent-search-console-chatgpt', "Homepage autonomous SEO link");
 includes(siteAssistant, '/services/business-systems-chatgpt-integration', "Assistant integration routing");
+includes(siteAssistant, '/services/api-integrations', "Assistant custom connector routing");
 includes(siteAssistant, '/services/chatgpt-ai-agents-business', "Assistant agent routing");
 includes(siteAssistant, '/services/autonomous-seo-agent-search-console-chatgpt', "Assistant SEO agent routing");
 
@@ -111,7 +131,9 @@ if (process.env.SEO_TEST_BASE_URL) {
     "/blog/ai-invoice-scanning-and-filtering",
     "/services/ai-chat-for-websites",
     "/services/business-systems-chatgpt-integration",
+    "/services/api-integrations",
     "/services/chatgpt-ai-agents-business",
+    "/blog/connect-any-software-chatgpt-custom-connector",
     "/blog/morning-green-invoice-chatgpt-business-data",
     "/services/autonomous-seo-agent-search-console-chatgpt",
     "/blog/google-search-console-chatgpt-autonomous-seo-agent",

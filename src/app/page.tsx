@@ -22,7 +22,7 @@ const capabilityGroups = [
   {
     title: "AI, נתונים ואוטומציה",
     text: "חיבור מידע, מערכות ומשימות לכלים חכמים שמקצרים עבודה ידנית ועוזרים לקבל החלטות מהר יותר.",
-    links: [["AI ואוטומציה", "/services/ai-automation"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
+    links: [["AI ואוטומציה", "/services/ai-automation"], ["Connector ו־API מותאם", "/services/api-integrations"], ["מדריך לחיבור כל תוכנה", "/blog/connect-any-software-chatgpt-custom-connector"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
   },
   {
     title: "מסחר ותשתיות דיגיטליות",
@@ -175,17 +175,18 @@ export default function HomePage() {
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8 lg:py-20">
           <div>
             <p className="section-eyebrow">שירות מוביל</p>
-            <h2>חשבונית אונליין, Priority ונתוני העסק בתוך צ׳ט ג׳י פי טי</h2>
-            <p>מחברים Morning ומורנינג, Green Invoice וגרין אינוויס, חשבונית ירוקה, Priority ופריוריטי, קו מערכות ומערכות נוספות ל־ChatGPT. כאשר יש API או גישה מורשית, אפשר לדבר עם נתוני אמת, לגלות חריגות ולבנות אוטומציה וסוכני AI ממוקדי מטרה.</p>
+            <h2>חשבונית אונליין, SUMIT, ריווחית, Priority וכל תוכנה בתוך צ׳ט ג׳י פי טי</h2>
+            <p>מחברים Morning ומורנינג, Green Invoice וגרין אינוויס, SUMIT—המוכר בחיפוש גם כסמיט, סמית או סאמיט—ריווחית, iCount, חשבשבת, Priority ופריוריטי, קו מערכות, מוסכית 2020, נשר, שמאית ומערכות נוספות ל־ChatGPT. כשיש API משתמשים בו; כשאין חיבור מוכן, NAVINES Bridge יכולה לעבוד דרך Webhook, קבצים, מסד נתונים, Plugin או Connector מורשה אחר.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">חיבור חשבונית אונליין ומערכות</Link>
+              <Link className="btn-secondary" href="/services/api-integrations">פיתוח Connector מותאם</Link>
               <Link className="btn-secondary" href="/services/chatgpt-ai-agents-business">בניית סוכן AI לעסק</Link>
               <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לצפייה ב־TalkToData</a>
             </div>
           </div>
           <dl className="feature-specs">
-            <div><dt>חיבור</dt><dd>API, Webhook, מסד נתונים, קבצים או ממשק מורשה—בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
-            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות, מלאי, מוסך, מפעל, תיקים ודוחות.</dd></div>
+            <div><dt>חיבור</dt><dd>NAVINES Bridge דרך API, Webhook, מסד נתונים, קבצים, Plugin או ממשק מורשה—בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
+            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות, מלאי, מוסך, מפעל, שמאות, תיקים ודוחות—יכולת חדשה מעל כל תוכנה מורשית.</dd></div>
             <div><dt>שליטה</dt><dd>הרשאות, מקורות, לוגים ואישור אנושי לפני פעולות רגישות או בלתי הפיכות.</dd></div>
           </dl>
         </div>

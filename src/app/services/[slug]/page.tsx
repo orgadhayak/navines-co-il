@@ -40,6 +40,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const isChatGptDataService = service.slug === "chatgpt-business-data";
+  const isApiIntegrationsService = service.slug === "api-integrations";
   const isBusinessSystemsChatGptService = service.slug === "business-systems-chatgpt-integration";
   const isAiAgentsService = service.slug === "chatgpt-ai-agents-business";
   const isAutonomousSeoService = service.slug === "autonomous-seo-agent-search-console-chatgpt";
@@ -83,7 +84,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         }
       : { "@id": `${site.url}/#organization` },
     url: `${site.url}/services/${service.slug}`,
-    ...(isAutonomousSeoService
+    ...(isApiIntegrationsService
+      ? { serviceType: "Custom connector and API integration development for ChatGPT, AI agents and business systems", areaServed: "IL" }
+      : isAutonomousSeoService
       ? { serviceType: "Autonomous SEO agent integration with Google Search Console, Google Analytics, code, deployments and logs", areaServed: "IL" }
       : isAiAgentsService
         ? { serviceType: "Custom AI and ChatGPT agent development for business", areaServed: "IL" }
@@ -153,6 +156,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <a className="btn-secondary" href={site.whatsappHref}>
               דברו איתנו בוואטסאפ
             </a>
+          </div>
+        ) : null}
+        {isApiIntegrationsService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, נרצה לבדוק Connector למערכת שלנו. שם התוכנה, הגרסה והשאלה העסקית הראשונה הם:")}`} rel="noopener noreferrer" target="_blank">
+              שלחו לנו את שם התוכנה
+            </a>
+            <Link className="btn-secondary" href="/blog/connect-any-software-chatgpt-custom-connector">
+              למפת החיבור גם בלי API מוכן
+            </Link>
+            <Link className="btn-secondary" href="/services/business-systems-chatgpt-integration">
+              לחיבור המערכות ל־ChatGPT
+            </Link>
           </div>
         ) : null}
         {isBusinessSystemsChatGptService ? (

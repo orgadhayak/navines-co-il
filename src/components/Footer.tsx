@@ -18,6 +18,7 @@ const footerGroups: FooterGroup[] = [
       { label: "בינה מלאכותית ואוטומציה", href: "/services/ai-automation" },
       { label: "מחקר החלטות וניסויים לאתרים", href: "/services/website-decision-research-experiments" },
       { label: "חשבונית אונליין ומערכות ל־ChatGPT", href: "/services/business-systems-chatgpt-integration" },
+      { label: "פיתוח Connector ו־API מותאם", href: "/services/api-integrations" },
       { label: "סוכני AI וצ׳ט ג׳י פי טי לעסקים", href: "/services/chatgpt-ai-agents-business" },
       { label: "סוכן SEO אוטונומי ו־Search Console", href: "/services/autonomous-seo-agent-search-console-chatgpt" },
       { label: "פיתוח אתרים ומערכות", href: "/services/web-development" },
