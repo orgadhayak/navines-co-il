@@ -103,8 +103,10 @@ export const solutionPages: SolutionPage[] = [
     internalLinks: [
       { label: "TalkToData", href: "/services/chatgpt-business-data" },
       { label: "חיבור חשבונית אונליין ומורנינג ל־ChatGPT", href: "/services/business-systems-chatgpt-integration" },
+      { label: "Connector מותאם ל־SUMIT ולכל מערכת", href: "/services/api-integrations" },
       { label: "סוכני AI וצ׳ט ג׳י פי טי לרואי חשבון", href: "/services/chatgpt-ai-agents-business" },
       { label: "מדריך לחיבור Morning ו־Green Invoice ל־ChatGPT", href: "/blog/morning-green-invoice-chatgpt-business-data" },
+      { label: "איך מחברים תוכנה גם בלי API מוכן", href: "/blog/connect-any-software-chatgpt-custom-connector" },
       { label: "חילוץ ואימות נתונים מחשבוניות", href: "/blog/ai-invoice-scanning-and-filtering" },
       { label: "איך לבחור רואה חשבון לעסק דיגיטלי", href: "/blog/how-to-choose-accountant-for-digital-business" },
       { label: "AI ואוטומציה לעסקים", href: "/services/ai-automation" },

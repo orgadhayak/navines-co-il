@@ -218,6 +218,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isTrafficPointsPost = post.slug === "traffic-points-speed-and-mobile-phone";
   const isGlobalBrandCaseStudyPost = post.slug === "global-brand-b2b-platform-bumpers-case-study";
   const isToolsPortfolioPost = post.slug === "business-tools-built-by-navines-israel";
+  const isCustomConnectorPost = post.slug === "connect-any-software-chatgpt-custom-connector";
   const isBusinessSystemsChatGptPost = post.slug === "connect-business-systems-to-chatgpt-israel";
   const isMorningGreenInvoiceChatGptPost = post.slug === "morning-green-invoice-chatgpt-business-data";
   const isAutonomousSeoAgentPost = post.slug === "google-search-console-chatgpt-autonomous-seo-agent";
@@ -317,7 +318,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       {isMusicDistributionPost ? (
@@ -2872,6 +2873,94 @@ function MorningGreenInvoiceChatGptArticleBody() {
   );
 }
 
+function CustomConnectorArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>API הוא הדלת הראשית, לא הדלת היחידה</h2>
+      <p>
+        כאשר תוכנה מציעה API רשמי ומתועד, זו בדרך כלל נקודת הפתיחה הטובה ביותר. ה־API מגדיר אילו נתונים ופעולות זמינים, כיצד מזדהים ומהן מגבלות הקצב. אבל עסק אינו צריך לוותר על אוטומציה רק משום שלא מצא כפתור בשם ChatGPT או Connector מוכן בחנות התוספים.
+      </p>
+      <p>
+        אפשר לבדוק גם Webhook, ייצוא CSV או Excel, קובצי XML ו־BKMV, תיקיית SFTP, תיבת מייל ייעודית, View מוגבל במסד נתונים, Plugin שמותקן ליד המערכת או שירות ביניים. המבחן הוא לא רק האם אפשר טכנית, אלא האם החיבור מורשה, יציב, מאובטח וניתן לניטור.
+      </p>
+
+      <h2>NAVINES Bridge: שכבת החיבור הייחודית שלנו</h2>
+      <p>
+        <Link href="/services/api-integrations">NAVINES Bridge</Link> הוא השם לארכיטקטורת ה־Connector המותאמת שאנחנו בונים בין המערכת הקיימת לבין ChatGPT, צ׳ט ג׳י פי טי, סוכן AI, דשבורד או תהליך אוטומציה. השכבה אינה רק מעבירה שדות: היא מתרגמת שמות ומזהים, מאחדת תאריכים וסטטוסים, מסמנת מקור וזמן עדכון ומחזירה שגיאה ברורה כאשר הנתון אינו שלם.
+      </p>
+      <p>
+        כך אפשר להחליף או להוסיף מערכת בעתיד בלי לבנות מחדש את כל שכבת השיחה. ה־Connector יודע לדבר בשפה של התוכנה; NAVINES Bridge מציג חוזה נתונים עקבי; והסוכן מקבל רק את הכלים והפעולות שהוגדרו לו. בתיעוד הרשמי של <a href="https://developers.openai.com/api/reference/cli/resources/responses/methods/create" rel="noopener noreferrer" target="_blank">OpenAI Responses API</a> מתואר שימוש בכלים מובנים, שרתי MCP, Connectors וקריאה לפונקציות או קוד מותאם—התשתית שמאפשרת להפוך חיבור עסקי לכלי שסוכן יכול להפעיל בגבולות ברורים.
+      </p>
+
+      <h2>מפת ההחלטה: איך בוחרים דרך חיבור?</h2>
+      <ol>
+        <li><strong>API רשמי:</strong> REST, GraphQL, OData, SOAP, SDK, MCP או ממשק אחר שהספק מפרסם ותומך בו.</li>
+        <li><strong>Webhook ואירועים:</strong> המערכת מודיעה בזמן שנוצר מסמך, לקוח, הזמנה, תשלום או שינוי סטטוס.</li>
+        <li><strong>ייצוא וקבצים:</strong> CSV, Excel, JSON, XML, BKMV, PDF, SFTP או קובץ שמגיע במייל ונקלט לפי תזמון.</li>
+        <li><strong>מסד נתונים או Plugin:</strong> View, Read Replica, שאילתה מוגבלת או תוסף שהספק והלקוח אישרו.</li>
+        <li><strong>תוסף דפדפן או RPA:</strong> פתרון אחרון למסך שאין לו ממשק מתאים, עם הרשאה, ניטור שינויי UI ועצירה לפני פעולה רגישה.</li>
+      </ol>
+      <p>
+        לא עוקפים כניסה, אבטחה, הרשאות או תנאי שימוש. אם אין נקודת גישה חוקית ויציבה, התוצאה המקצועית של בדיקת ההיתכנות יכולה להיות שלא נכון להתחבר כרגע, או שכדאי לבקש מהספק ממשק מתאים.
+      </p>
+
+      <h2>חשבונית אונליין: Morning, Green Invoice, SUMIT ומערכות נוספות</h2>
+      <p>
+        בעולם הנהלת החשבונות אפשר לבנות שאלות על מסמכים פתוחים, לקוחות, גבייה, הכנסות, מוצרים וחריגות. <a href="https://www.greeninvoice.co.il/help-center/api/" rel="noopener noreferrer" target="_blank">Morning, מורנינג, חשבונית ירוקה ו־Green Invoice</a> מפרסמת תיעוד API, וגם <a href="https://app.sumit.co.il/developers/api/" rel="noopener noreferrer" target="_blank">SUMIT</a>—הנכתב בחיפוש גם סמיט, סמית או סאמיט—מפרסמת REST API למשתמשי המערכת. חיבורים ל־<a href="https://www.rivhit.co.il/wp-content/uploads/2022/03/rivhit_api_rest.pdf" rel="noopener noreferrer" target="_blank">ריווחית</a>, iCount וחשבשבת נבדקים באותה צורה מול התיעוד, המסלול וההרשאות של הלקוח.
+      </p>
+      <p>
+        העובדה שקיים API אינה אומרת שכל חשבון יכול לקרוא כל שדה או להפיק כל מסמך. לכן מתחילים מתרחיש קריאה שניתן להשוות למקור, לדוגמה רשימת מסמכים פתוחים לתקופה, ורק לאחר אימות שוקלים כתיבה או פעולה כספית.
+      </p>
+
+      <h2>מפעלים, מלאי ו־ERP: Priority, קו מערכות ועוד</h2>
+      <p>
+        במפעל או במחסן השאלות שונות: אילו הזמנות מתעכבות, איזה חומר גלם מתקרב לסף, איזו פקודת עבודה חסומה ומה השתנה מול השבוע הקודם. <a href="https://cdn.priority-software.com/docs/Priority_OData_API_H.pdf" rel="noopener noreferrer" target="_blank">Priority או פריוריטי</a> מתעדת חיבור OData ו־REST, ו־<a href="https://www.cavsystems.com/blog-post/cav-api-integration" rel="noopener noreferrer" target="_blank">קו מערכות</a> מתארת אפשרויות Web API. אפשר לבדוק גם SAP, Microsoft Dynamics, WMS, מערכת רצפת ייצור או מערכת פנימית, כל אחת לפי הממשק והרישיון שלה.
+      </p>
+      <p>
+        כאן ה־Connector צריך להבין יחידות מידה, מחסנים, עצי מוצר, סטטוסים ומזהים ולא רק להעביר טבלה. סוכן טוב אינו מנחש למה ייצור נעצר; הוא מחזיר את הרשומות שהובילו למסקנה ומאפשר למנהל לפתוח אותן במערכת המקור.
+      </p>
+
+      <h2>מוסכים ושמאי רכב: מוסכית 2020, נשר ושמאית</h2>
+      <p>
+        במוסך אפשר לרכז כרטיסי עבודה, חלפים, תורים, סטטוס תיק ומסמכים. אצל שמאי רכב אפשר לארגן תיקים, תמונות, שומות, חלקים וחוסרים במסמכים—בלי להחליף את שיקול הדעת המקצועי של השמאי. בין המערכות הענפיות נמצאות מוסכית 2020, נשר ותוכנת שמאית.
+      </p>
+      <p>
+        באתר <a href="https://tevelsoft.co.il/nesher-pro.asp" rel="noopener noreferrer" target="_blank">נשר לניהול מוסך</a> מתואר חיבור ששולף נתוני שמאות מתוכנת שמאית אל כרטיס העבודה. זו אינדיקציה לכך שקיים לפחות תהליך אינטגרציה ענפי, אך היא אינה תיעוד API ציבורי של שמאית. לכן אנחנו מזהים את הספק והגרסה, בודקים ממשק פרטי, ייצוא, מסד נתונים או חיבור קיים ומתחייבים רק אחרי בדיקת היתכנות מורשית.
+      </p>
+
+      <h2>CRM, חנויות ומערכות שלא ציינתם בשם</h2>
+      <p>
+        אותה שיטה מתאימה ל־monday, Fireberry, HubSpot, Shopify, WooCommerce, מערכת שירות, פורטל ספקים, מערכת מעבדה, תוכנת שילוח או מוצר פנימי. השם המסחרי פחות חשוב מהשאלות: מי בעל הנתונים, מהו מקור האמת, איזו גישה קיימת, מה מותר לקרוא ומה מותר לשנות.
+      </p>
+      <p>
+        אם התוכנה פותחה במיוחד לעסק, אפשר להוסיף לה API קטן או Plugin במקום לבנות מעקף. אם היא ותיקה, לעיתים ייצוא מתוזמן עם מזהים עקביים יהיה בטוח וזול יותר מחיבור בזמן אמת. הייחודיות היא לבחור את המסלול הנכון לתהליך ולא לכפות את אותו פתרון על כל עסק.
+      </p>
+
+      <h2>מה חייב להיות ב־Connector מקצועי?</h2>
+      <ul>
+        <li>חוזה נתונים שמגדיר שדות, מזהים, אזור זמן, סטטוסים ומקור אמת.</li>
+        <li>הרשאות מינימליות, סודות בצד השרת והפרדה בין קריאה לכתיבה.</li>
+        <li>לוגים, Retry מבוקר, מגבלות קצב, התראה על כשל ובדיקות מול נתוני המקור.</li>
+        <li>סימון מקור וזמן עדכון כדי שהמשתמש ידע על מה מבוססת התשובה.</li>
+        <li>Idempotency ואישור אנושי בפעולות שעלולות ליצור מסמך, חיוב, שינוי מלאי או שינוי תיק.</li>
+      </ul>
+
+      <h2>הדרך הנכונה להתחיל</h2>
+      <p>
+        שולחים לנו את שם התוכנה, הגרסה אם ידועה, קישור לתיעוד או איש קשר אצל הספק, דוגמת ייצוא בלי מידע רגיש ושלוש שאלות שהעסק רוצה לשאול. אנחנו מדרגים את אפשרויות החיבור, מגדירים תרחיש ראשון בקריאה בלבד ובונים אב־טיפוס שאפשר להשוות למערכת המקור.
+      </p>
+      <p>
+        אחרי שהנתונים יציבים אפשר להוסיף <Link href="/services/chatgpt-ai-agents-business">סוכן AI או סוכן ChatGPT ממוקד מטרה</Link>, התראות, דשבורד או פעולה מבוקרת. כך החיבור נשאר נכס של העסק ולא הדגמה שנשברת בפעם הראשונה שמערכת משנה שדה.
+      </p>
+      <div className="not-prose mt-8 flex flex-wrap gap-3">
+        <Link className="btn-primary" href="/services/api-integrations">לבדיקת Connector ו־API מותאם</Link>
+        <Link className="btn-secondary" href="/services/business-systems-chatgpt-integration">לחיבור מערכות עסקיות ל־ChatGPT</Link>
+        <Link className="btn-secondary" href="/services/chatgpt-ai-agents-business">לבניית סוכן AI עסקי</Link>
+      </div>
+    </div>
+  );
+}
+
 function BusinessSystemsChatGptArticleBody() {
   return (
     <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
@@ -2908,8 +2997,16 @@ function BusinessSystemsChatGptArticleBody() {
         <li><a href="https://www.rivhit.co.il/wp-content/uploads/2022/03/rivhit_api_rest.pdf" rel="noopener noreferrer" target="_blank">ריווחית אונליין</a>, API לקבלה ולעדכון מידע בזמן אמת בהתאם לטוקן ולהרשאות.</li>
         <li><a href="https://www.icount.co.il/features/api/" rel="noopener noreferrer" target="_blank">iCount</a>, API ו־Webhooks לחיבורים עסקיים.</li>
         <li><a href="https://www.h-erp.co.il/wp-content/uploads/2021/03/Hconnect-Documentation4.pdf" rel="noopener noreferrer" target="_blank">חשבשבת H-Connect</a>, ממשק מתועד לחיבור מערכות.</li>
-        <li><a href="https://app.sumit.co.il/help/developers/swagger/index.html" rel="noopener noreferrer" target="_blank">SUMIT</a>, ממשקי API למסמכים, לקוחות, תשלומים, CRM וישויות נוספות.</li>
+        <li><a href="https://app.sumit.co.il/developers/api/" rel="noopener noreferrer" target="_blank">SUMIT, סמיט, סמית או סאמיט</a>, REST API למשתמשי המערכת וחיבור לישויות ולפעולות הזמינות לפי המודולים וההרשאות.</li>
       </ul>
+
+      <h2>ומה עושים כשאין API ציבורי?</h2>
+      <p>
+        API הוא המסלול המועדף, אך אפשר לבדוק גם Webhook, ייצוא CSV או Excel, XML, BKMV, SFTP, תיבת מייל, מסד נתונים או Plugin מורשה. <Link href="/services/api-integrations">NAVINES Bridge</Link> היא שכבת ה־Connector המותאמת שלנו, שמנרמלת את הנתונים ומחברת אותם לשיחה, לסוכן או לאוטומציה בלי לעקוף את הספק ואת ההרשאות.
+      </p>
+      <p>
+        זה רלוונטי גם למוסכים ולשמאי רכב שעובדים עם מוסכית 2020, נשר, שמאית או תוכנה ענפית אחרת. לא מצאנו API ציבורי עדכני של שמאית שאפשר להבטיח על בסיסו חיבור, ולכן מזהים את הספק והגרסה ובודקים ממשק פרטי, ייצוא או חיבור קיים לפני שמתחייבים. <Link href="/blog/connect-any-software-chatgpt-custom-connector">המדריך ל־Connector מותאם</Link> מציג את מפת ההחלטה המלאה.
+      </p>
 
       <h2>לא רק הנהלת חשבונות</h2>
       <p>
@@ -2954,6 +3051,11 @@ function BusinessSystemsChatGptArticleBody() {
       <p>
         לא צריך להכין מסמך טכני. שולחים לנו את שמות המערכות ואת שלוש השאלות שהכי קשה לענות עליהן היום. אנחנו בודקים מה באמת אפשר לחבר, איזה מידע דרוש, ומהו השלב הראשון הקטן שיכול לתת ערך בלי לסבך את העסק.
       </p>
+      <div className="not-prose mt-8 flex flex-wrap gap-3">
+        <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">לחיבור מערכות ל־ChatGPT</Link>
+        <Link className="btn-secondary" href="/services/api-integrations">לפיתוח Connector מותאם</Link>
+        <Link className="btn-secondary" href="/blog/connect-any-software-chatgpt-custom-connector">למדריך חיבור בלי API מוכן</Link>
+      </div>
     </div>
   );
 }

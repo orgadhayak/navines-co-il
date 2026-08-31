@@ -18,6 +18,7 @@ const serviceGroups = [
     links: [
       ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
       ["חשבונית אונליין ומערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"],
+      ["פיתוח Connector ו־API מותאם", "/services/api-integrations"],
       ["סוכני AI וצ׳ט ג׳י פי טי לעסקים", "/services/chatgpt-ai-agents-business"],
       ["סוכן SEO אוטונומי ו־Search Console", "/services/autonomous-seo-agent-search-console-chatgpt"],
       ["חיבור נתונים ל-ChatGPT", "/services/chatgpt-business-data"],
