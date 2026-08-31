@@ -1,9 +1,17 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 
 const root = process.cwd();
 const read = (path) => readFile(join(root, path), "utf8");
+
+async function listFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const nested = await Promise.all(entries.map((entry) => (
+    entry.isDirectory() ? listFiles(join(directory, entry.name)) : [join(directory, entry.name)]
+  )));
+  return nested.flat();
+}
 
 const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant] = await Promise.all([
   read("src/data/site.ts"),
@@ -122,6 +130,10 @@ includes(seoSource, "canonical: url", "Self canonical support");
 includes(seoSource, "index: true", "Indexable metadata");
 includes(noiseProductPage, 'const productUrl = "https://seo.navines.com/he/";', "Hebrew NAVINES NOISE product destination");
 includes(blogPage, 'href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">לעמוד NAVINES NOISE</a>', "Hebrew NAVINES NOISE article destination");
+
+const sourceFiles = (await listFiles(join(root, "src"))).filter((path) => /\.(?:js|jsx|ts|tsx|md|json)$/i.test(path));
+const sourceText = (await Promise.all(sourceFiles.map((path) => readFile(path, "utf8")))).join("\n");
+assert.ok(!/[\u2014\u2013\u2015]/u.test(sourceText), "Site source must not contain long dash characters");
 
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");
