@@ -176,7 +176,7 @@ export default function HomePage() {
           <div>
             <p className="section-eyebrow">שירות מוביל</p>
             <h2>חשבונית אונליין, SUMIT, ריווחית, Priority וכל תוכנה בתוך צ׳ט ג׳י פי טי</h2>
-            <p>מחברים Morning ומורנינג, Green Invoice וגרין אינוויס, SUMIT—המוכר בחיפוש גם כסמיט, סמית או סאמיט—ריווחית, iCount, חשבשבת, Priority ופריוריטי, קו מערכות, מוסכית 2020, נשר, שמאית ומערכות נוספות ל־ChatGPT. כשיש API משתמשים בו; כשאין חיבור מוכן, NAVINES Bridge יכולה לעבוד דרך Webhook, קבצים, מסד נתונים, Plugin או Connector מורשה אחר.</p>
+            <p>מחברים Morning ומורנינג, Green Invoice וגרין אינוויס, SUMIT, המוכר בחיפוש גם כסמיט, סמית או סאמיט, וכן ריווחית, iCount, חשבשבת, Priority ופריוריטי, קו מערכות, מוסכית 2020, נשר, שמאית ומערכות נוספות ל־ChatGPT. כשיש API משתמשים בו; כשאין חיבור מוכן, NAVINES Bridge יכולה לעבוד דרך Webhook, קבצים, מסד נתונים, Plugin או Connector מורשה אחר.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">חיבור חשבונית אונליין ומערכות</Link>
               <Link className="btn-secondary" href="/services/api-integrations">פיתוח Connector מותאם</Link>
@@ -185,8 +185,8 @@ export default function HomePage() {
             </div>
           </div>
           <dl className="feature-specs">
-            <div><dt>חיבור</dt><dd>NAVINES Bridge דרך API, Webhook, מסד נתונים, קבצים, Plugin או ממשק מורשה—בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
-            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות, מלאי, מוסך, מפעל, שמאות, תיקים ודוחות—יכולת חדשה מעל כל תוכנה מורשית.</dd></div>
+            <div><dt>חיבור</dt><dd>NAVINES Bridge דרך API, Webhook, מסד נתונים, קבצים, Plugin או ממשק מורשה, בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
+            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות, מלאי, מוסך, מפעל, שמאות, תיקים ודוחות. זו יכולת חדשה מעל כל תוכנה מורשית.</dd></div>
             <div><dt>שליטה</dt><dd>הרשאות, מקורות, לוגים ואישור אנושי לפני פעולות רגישות או בלתי הפיכות.</dd></div>
           </dl>
         </div>
