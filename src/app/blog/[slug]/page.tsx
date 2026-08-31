@@ -232,6 +232,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
+  const articleUrl = `${site.url}/blog/${post.slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -242,6 +243,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     publisher: { "@id": `${site.url}/#organization`, name: site.legalName },
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
+    url: articleUrl,
+    image: [`${site.url}/og-navines-israel.jpg`],
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
     inLanguage: "he-IL",
   };
   const faqSchema = post.faqs?.length

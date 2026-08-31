@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useId, useState } from "react";
-import { languageLinks, type LocaleSlug } from "@/i18n/locales";
+import { usePathname } from "next/navigation";
+import { languageLinks, localeFromPath, type LocaleSlug } from "@/i18n/locales";
 import { site } from "@/data/site";
 
 type FooterItem = { label: string; href: string; status?: string };
@@ -77,15 +78,18 @@ const localizedFooterCopy: Record<Exclude<LocaleSlug, "he">, { description: stri
 };
 
 export function Footer({ locale = "he", showCta = true }: { locale?: LocaleSlug; showCta?: boolean }) {
-  const isHebrew = locale === "he";
-  const localized = isHebrew ? null : localizedFooterCopy[locale as Exclude<LocaleSlug, "he">];
+  const pathname = usePathname();
+  const activeLocale = pathname ? localeFromPath(pathname).slug : locale;
+  const activeShowCta = pathname ? pathname !== "/" : showCta;
+  const isHebrew = activeLocale === "he";
+  const localized = isHebrew ? null : localizedFooterCopy[activeLocale as Exclude<LocaleSlug, "he">];
 
-  if (!isHebrew) return <LocalizedFooter locale={locale} copy={localized!} showCta={showCta} />;
+  if (!isHebrew) return <LocalizedFooter locale={activeLocale as Exclude<LocaleSlug, "he">} copy={localized!} showCta={activeShowCta} />;
 
   return (
     <footer className="site-footer border-t" style={{ borderColor: "var(--border)", background: "var(--bg-alt)" }}>
       <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        {showCta ? <FooterCta /> : null}
+        {activeShowCta ? <FooterCta /> : null}
         <div className="footer-desktop-directory hidden xl:grid">
           <FooterBrand />
           {footerGroups.map((group) => <FooterColumn group={group} key={group.id} />)}

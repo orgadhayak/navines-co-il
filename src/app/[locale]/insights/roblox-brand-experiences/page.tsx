@@ -5,7 +5,7 @@ import { localizedRobloxContent } from "@/content/localized/roblox-brand-experie
 import { localizedRobloxArticlePaths, localizedRobloxServicePaths, publicLocales, robloxArticleAlternates, siteLocales, type PublicLocale } from "@/i18n/locales";
 import { site } from "@/data/site";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return publicLocales.map((locale) => ({ locale }));

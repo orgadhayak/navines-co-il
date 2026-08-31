@@ -6,7 +6,11 @@ import { getLocalizedToolsCopy } from "@/content/localized/tools";
 import { publicLocales, siteLocales, type PublicLocale } from "@/i18n/locales";
 import { site } from "@/data/site";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return publicLocales.map((locale) => ({ locale }));
+}
 
 const toolsAlternates = {
   "he-IL": `${site.url}/tools`,
@@ -29,8 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: { absolute: `${copy.pageTitle} | Navines` },
     description: copy.pageDescription,
     alternates: { canonical: url, languages: toolsAlternates },
-    openGraph: { title: copy.pageTitle, description: copy.pageDescription, url, siteName: "Navines", locale: meta.ogLocale, type: "website" },
-    twitter: { card: "summary_large_image", title: copy.pageTitle, description: copy.pageDescription },
+    openGraph: { title: copy.pageTitle, description: copy.pageDescription, url, siteName: "Navines", locale: meta.ogLocale, type: "website", images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "Navines digital tools" }] },
+    twitter: { card: "summary_large_image", title: copy.pageTitle, description: copy.pageDescription, images: ["/og-navines-israel.jpg"] },
     robots: { index: true, follow: true },
   };
 }
@@ -40,8 +44,10 @@ export default async function LocalizedToolsPage({ params }: { params: Promise<{
   const copy = getLocalizedToolsCopy(locale);
   if (!copy || !publicLocales.includes(locale as PublicLocale)) notFound();
 
+  const localeMeta = siteLocales[locale as PublicLocale];
+
   return (
-    <main>
+    <div lang={localeMeta.lang} dir={localeMeta.dir}>
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20">
         <p className="mb-4 text-sm font-semibold text-glowred">{copy.eyebrow}</p>
         <h1 className="max-w-4xl text-3xl font-semibold leading-tight md:text-5xl">{copy.pageTitle}</h1>
@@ -65,6 +71,6 @@ export default async function LocalizedToolsPage({ params }: { params: Promise<{
           <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><strong>CheckLink.ai</strong><span>{copy.externalToolsLabel}</span></a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

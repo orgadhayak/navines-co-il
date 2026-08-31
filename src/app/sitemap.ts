@@ -21,10 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const coursePages = courseTracks.map((course) => `/courses/${course.slug}`);
   const solutionPagePaths = solutionPages.map((solution) => `/solutions/${solution.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
+  const blogLastModified = new Map(blogPosts.map((post) => [`/blog/${post.slug}`, new Date(post.publishedAt)]));
 
   return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedSafetyToolsArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...localizedMusicServicePages, ...localizedMusicArticlePages, ...localizedRobloxServicePages, ...localizedRobloxArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
     url: `${site.url}${path}`,
-    lastModified: new Date("2026-08-11"),
+    lastModified: blogLastModified.get(path) || new Date(site.lastModified),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : 0.7,
   }));

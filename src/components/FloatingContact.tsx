@@ -1,4 +1,7 @@
-import { type LocaleSlug } from "@/i18n/locales";
+"use client";
+
+import { usePathname } from "next/navigation";
+import { localeFromPath, type LocaleSlug } from "@/i18n/locales";
 import { site } from "@/data/site";
 
 const labels: Record<LocaleSlug, { whatsapp: string; phone: string }> = {
@@ -12,8 +15,10 @@ const labels: Record<LocaleSlug, { whatsapp: string; phone: string }> = {
 };
 
 export function FloatingContact({ locale = "he" }: { locale?: LocaleSlug }) {
-  const copy = labels[locale] || labels.he;
-  const isRtl = locale === "he" || locale === "ar";
+  const pathname = usePathname();
+  const activeLocale = pathname ? localeFromPath(pathname).slug : locale;
+  const copy = labels[activeLocale] || labels.he;
+  const isRtl = activeLocale === "he" || activeLocale === "ar";
 
   return (
     <div

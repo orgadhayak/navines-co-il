@@ -5,7 +5,7 @@ import { localizedFinancialReviewContent } from "@/content/localized/payment-dis
 import { site } from "@/data/site";
 import { financialReviewServiceAlternates, publicLocales, siteLocales, type PublicLocale } from "@/i18n/locales";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return publicLocales.map((locale) => ({ locale }));
