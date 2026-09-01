@@ -13,7 +13,7 @@ async function listFiles(directory) {
   return nested.flat();
 }
 
-const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant] = await Promise.all([
+const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant, nextConfig] = await Promise.all([
   read("src/data/site.ts"),
   read("src/data/solutions.ts"),
   read("src/app/blog/[slug]/page.tsx"),
@@ -23,6 +23,7 @@ const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, no
   read("src/app/products/navines-noise/page.tsx"),
   read("src/lib/seo.ts"),
   read("src/app/api/site-assistant/route.ts"),
+  read("next.config.ts"),
 ]);
 
 function segment(source, slug) {
@@ -53,7 +54,9 @@ const accountantsSolution = segment(solutionData, "accountants");
 const freelancersSolution = segment(solutionData, "freelancers");
 
 includes(hackPost, "metaDescription:", "Hack article metadata");
-includes(invoicePost, 'metaTitle: "סריקת חשבוניות עם AI: חילוץ, סינון ואימות נתונים"', "Invoice metadata");
+includes(invoicePost, 'metaTitle: "סינון חשבוניות עם AI: סריקה, חילוץ ואימות"', "Invoice metadata");
+includes(invoicePost, 'updatedAt: "2026-09-01"', "Invoice article updated date");
+includes(invoicePost, "אפשר לחבר את הנתונים ל־Morning, SUMIT, ריווחית או Priority?", "Invoice integration FAQ");
 includes(aiChatService, 'metaTitle: "צ׳ט AI לאתר שמכיר את העסק ומוביל לוואטסאפ"', "AI chat metadata");
 includes(freelancersSolution, 'title: "CRM, אוטומציה ופתרונות AI לפרילנסרים"', "Freelancer H1 source");
 includes(businessSystemsChatGptService, "חשבונית אונליין", "Online invoice service keyword");
@@ -90,6 +93,8 @@ includes(autonomousSeoPost, "קידום אורגני אוטונומי", "Autonom
 includes(blogPage, "MorningGreenInvoiceChatGptArticleBody", "Morning article custom body");
 includes(blogPage, "AutonomousSeoAgentArticleBody", "Autonomous SEO article custom body");
 includes(blogPage, "CustomConnectorArticleBody", "Custom connector article body");
+includes(blogPage, 'href="/services/business-systems-chatgpt-integration"', "Invoice article business systems link");
+includes(blogPage, 'href="/blog/connect-any-software-chatgpt-custom-connector"', "Invoice article connector link");
 includes(blogPage, "https://app.sumit.co.il/developers/api/", "Official SUMIT API source");
 includes(blogPage, "https://tevelsoft.co.il/nesher-pro.asp", "Neshar and Shamayit integration source");
 includes(homePage, "חשבונית אונליין, SUMIT, ריווחית, Priority וכל תוכנה בתוך צ׳ט ג׳י פי טי", "Homepage integration heading");
@@ -134,6 +139,8 @@ includes(blogPage, 'href="https://seo.navines.com/he/" rel="noopener noreferrer"
 const sourceFiles = (await listFiles(join(root, "src"))).filter((path) => /\.(?:js|jsx|ts|tsx|md|json)$/i.test(path));
 const sourceText = (await Promise.all(sourceFiles.map((path) => readFile(path, "utf8")))).join("\n");
 assert.ok(!/[\u2014\u2013\u2015]/u.test(sourceText), "Site source must not contain long dash characters");
+includes(nextConfig, '{ source: "/blog-Blog", destination: "/blog", permanent: true }', "Legacy blog redirect");
+includes(nextConfig, '{ source: "/products-Products", destination: "/products", permanent: true }', "Legacy products redirect");
 
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");
