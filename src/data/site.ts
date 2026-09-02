@@ -1984,6 +1984,26 @@ export const hebrewTools: HebrewTool[] = [
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "agi-console-autonomous-ai-workers-change-how-work-gets-done",
+    title: "מעובד צ׳ט לעובד AI: איך NAVINES AGI Console משנה את צורת העבודה",
+    metaTitle: "NAVINES AGI Console: עובדי AI עם משימות, ראיות ושליטה",
+    metaDescription: "איך עובדי AI מתמשכים עוברים משיחה חד־פעמית ל־Mission עם גבולות, תקציב, בדיקות, ראיות ואישור אנושי — ומה NAVINES AGI Console מאפשרת כבר היום.",
+    category: "עובדי AI ואוטומציה מבוקרת",
+    tags: ["NAVINES AGI Console", "עובדי AI", "AI agents", "אוטומציה מבוקרת", "משימות AI", "בינה מלאכותית לעסקים"],
+    date: "2 בספטמבר 2026",
+    publishedAt: "2026-09-02",
+    readingTime: "10 דקות",
+    excerpt: "המהפכה האמיתית אינה עוד חלון צ׳ט, אלא עובד AI שמקבל משימה תחומה, שומר רצף, משתמש בכלים מורשים, מציג ראיות ויודע לעצור לאישור. זה הכיוון של NAVINES AGI Console — להתחיל בזול ממשימה אחת ולהרחיב אחריות רק כשהמערכת מוכיחה את עצמה.",
+    serviceIntro: "NAVINES AGI Console היא סביבת עבודה נפרדת למימוש Missions מתמשכות. היא כבר תומכת בקריאת Search Console, בעבודה תחומה עם מאגר GitHub ויעד Vercel Production אחד, בדוחות ובנקודות אישור. החיבור לכל מקור או מערכת אינו אוטומטי ונעשה רק במסגרת הרשאות והיקף שהוגדרו.",
+    relatedSlugs: ["google-search-console-chatgpt-autonomous-seo-agent", "connect-business-systems-to-chatgpt-israel", "business-automation-start"],
+    faqs: [
+      { question: "מה ההבדל בין צ׳ט רגיל לעובד AI ב־AGI Console?", answer: "צ׳ט עונה בתוך שיחה. עובד AI מקבל Mission עם מטרה, היקף, תקציב, בדיקות ותנאי עצירה, מתקדם במחזורים ושומר ראיות שאפשר לבדוק." },
+      { question: "אילו יכולות קיימות במערכת כרגע?", answer: "נכון לספטמבר 2026 המערכת מציגה חיבור קריאה ל־Google Search Console, עבודה תחומה עם מאגר GitHub, יעד Vercel Production אחד, Missions מתוזמנות או מתמשכות, דוחות, אישורים ושימוש בתקציב משולם מראש." },
+      { question: "האם המערכת פועלת בלי שליטה אנושית?", answer: "לא כברירת מחדל. כל Mission מוגדרת עם גבולות ותנאי עצירה, ופעולות רגישות יכולות להמתין לאישור. רמת האוטונומיה צריכה להתאים לסיכון ולראיות שנצברו." },
+      { question: "איך מתחילים בלי השקעה גדולה?", answer: "בוחרים משימה חוזרת אחת שאפשר למדוד, מגדירים לה גבולות ותקציב ומריצים מחזור ראשון. מרחיבים רק אחרי שבודקים את הדוח, התוצרים והערך בפועל." }
+    ]
+  },
+  {
     slug: "navines-noise-website-intelligence-extension",
     title: "NAVINES NOISE: להפוך רעש של SEO, ביצועים ואמון לתוכנית פעולה",
     metaTitle: "NAVINES NOISE: תוסף לבדיקת SEO, ביצועים ואמון",

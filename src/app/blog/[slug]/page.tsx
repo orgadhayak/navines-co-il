@@ -232,6 +232,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isSeoLabPost = post.slug === "navines-seo-lab-free-tools-and-research";
   const isDecisionResearchPost = post.slug === "how-to-improve-website-with-trust-and-experiments";
   const isNavinesNoisePost = post.slug === "navines-noise-website-intelligence-extension";
+  const isAgiConsolePost = post.slug === "agi-console-autonomous-ai-workers-change-how-work-gets-done";
   const solutionArticle = solutionArticleContent[post.slug];
   const courseArticle = courseArticleContent[post.slug];
   const appraisalWhatsappHref = `${site.whatsappHref}?text=${encodeURIComponent("שלום, אשמח לקבל מידע על שירותי שמאות רכב, רכוש או חקלאות. סוג האירוע ומועדו הם:")}`;
@@ -318,7 +319,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isAgiConsolePost ? <AgiConsoleArticleBody /> : isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
       {isMusicDistributionPost ? (
@@ -3082,6 +3083,49 @@ function BusinessSystemsChatGptArticleBody() {
         <Link className="btn-secondary" href="/services/api-integrations">לפיתוח Connector מותאם</Link>
         <Link className="btn-secondary" href="/blog/connect-any-software-chatgpt-custom-connector">למדריך חיבור בלי API מוכן</Link>
       </div>
+    </div>
+  );
+}
+
+function AgiConsoleArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>השלב הבא של AI אינו עוד תשובה</h2>
+      <p>צ׳ט עם בינה מלאכותית שינה את הדרך שבה אנשים כותבים, חוקרים ומתכננים. אבל בכל שיחה חדשה צריך להסביר שוב את המטרה, לאסוף מחדש את ההקשר ולזכור לבד מה כבר בוצע. עבודה אמיתית דורשת יותר: רצף, גבולות, כלי עבודה, תקציב, בדיקות ותיעוד שאפשר לחזור אליו.</p>
+      <p>NAVINES AGI Console נבנית סביב המעבר הזה. במקום לבקש תשובה חד־פעמית, מגדירים Mission — חוזה עבודה קטן שמסביר מה התוצאה הרצויה, באילו נכסים מותר לגעת, אילו בדיקות חייבות לעבור, כמה משאבים מותר לצרוך ומתי העובד צריך לעצור ולבקש החלטה אנושית.</p>
+      <div className="not-prose mt-7 flex flex-wrap gap-3">
+        <a className="btn-primary" href="https://console.agi.navines.com" rel="noopener noreferrer" target="_blank">לפתיחת NAVINES AGI Console</a>
+        <a className="btn-secondary" href="https://agi.navines.com/how-it-works/" rel="noopener noreferrer" target="_blank">איך המערכת עובדת</a>
+      </div>
+
+      <h2>מה קיים במוצר היום?</h2>
+      <p>המוצר מתקדם יום־יום, אבל חשוב לשווק את מה שכבר קיים ולא הבטחה עמומה. נכון לספטמבר 2026 ה־Console מציגה יכולות לחיבור Google Search Console במצב קריאה, לעבודה מול מאגר GitHub מוגדר ולפריסה אל יעד Vercel Production אחד. אפשר להגדיר Missions מתמשכות או מתוזמנות, לקבל דוחות ותוצרים, לנהל אישורים ולעקוב אחר שימוש מתקציב ששולם מראש.</p>
+      <p>אלה אינן הרשאות לכל האינטרנט או לכל מערכות העסק. כל מקור וכל יעד נשארים בתוך היקף מורשה. המגבלה הזו היא חלק מהמוצר: עובד AI טוב אינו זה שיכול לעשות הכול, אלא זה שיודע בדיוק מה מותר לו לעשות, איך להוכיח שעשה זאת ומתי לא להתקדם לבד.</p>
+
+      <h2>כך נראית Mission טובה</h2>
+      <ol>
+        <li><strong>תוצאה ברורה:</strong> מה צריך להשתנות או להימסר בסוף המחזור.</li>
+        <li><strong>היקף נכסים:</strong> איזה אתר, מאגר, פרויקט או מקור מידע נמצא בתחום.</li>
+        <li><strong>תקציב:</strong> כמה שימוש וזמן מותר להשקיע לפני עצירה.</li>
+        <li><strong>בדיקות:</strong> אילו תנאים חייבים לעבור לפני שמסמנים עבודה כהושלמה.</li>
+        <li><strong>נקודות אישור:</strong> אילו פעולות רגישות נשארות בידי אדם.</li>
+        <li><strong>ראיות:</strong> דוח, שינוי, תוצאה או מדד שמאפשרים לבדוק מה קרה.</li>
+      </ol>
+
+      <h2>למה הרצף משנה את צורת העבודה?</h2>
+      <p>בצ׳ט רגיל האדם מנהל את הזיכרון: הוא חוזר עם הנתונים, מסביר מה כבר נוסה ומחבר בין השיחות. ב־Mission מתמשכת המערכת יכולה לשמור את מצב העבודה, להמשיך מהנקודה האחרונה ולבנות מחזור של תכנון, ביצוע, בדיקה ודיווח. האדם מפסיק להיות המתווך של כל פרט ועובר להגדיר יעד, סיכון ואיכות.</p>
+      <p>השינוי הזה אינו מבטל מומחיות אנושית. הוא מעביר אותה למקום שבו היא בעלת הערך הגבוה ביותר: ניסוח ההחלטה, בחינת ראיות, טיפול בחריגים והרחבת סמכות רק לאחר שהעובד הוכיח התנהגות עקבית.</p>
+
+      <h2>דוגמה: SEO כמשימה מתמשכת</h2>
+      <p>SEO אינו תיקון חד־פעמי. אפשר להתחיל מקריאה של נתוני Search Console, לזהות עמוד עם הזדמנות, לנסח השערה, להכין שינוי במאגר מורשה, להריץ בדיקות ולתעד את התוצאה. אחרי פריסה מאושרת חוזרים למדידה במחזור הבא. כך נוצר לופ שמחבר אות, פעולה וראיה במקום רשימת המלצות שנשכחת במסמך.</p>
+      <p>אפשר לקרוא את <Link href="/blog/google-search-console-chatgpt-autonomous-seo-agent">המדריך לסוכן SEO אוטונומי</Link>. החיבור המתואר שם הוא תרחיש עבודה אפשרי; הוא אינו אומר שכל אתר או חשבון מחוברים ל־Console אוטומטית.</p>
+
+      <h2>למה להתחיל קטן וזול?</h2>
+      <p>לא צריך להעביר תהליך שלם ביום הראשון. בוחרים משימה חוזרת אחת עם תוצר מדיד, מגבילים את ההרשאות והתקציב ומריצים מחזור. אם הדוח ברור, הבדיקות עוברות והתוצאה שימושית, אפשר להוסיף עוד כלי, עוד שלב או תדירות גבוהה יותר. כך העלות והסמכות גדלות יחד עם האמון, לא לפניו.</p>
+
+      <h2>ההזדמנות</h2>
+      <p>אנחנו נמצאים ברגע שבו בינה מלאכותית עוברת מכלי שמנסח תשובות לשכבת עבודה שמסוגלת להחזיק אחריות תחומה לאורך זמן. מי שילמד לנסח Missions, להגדיר בדיקות ולנהל ראיות לא רק יעבוד מהר יותר; הוא יבנה דרך עבודה חדשה שבה אנשים ועובדי AI מחלקים ביניהם משימות בצורה שקופה.</p>
+      <p>NAVINES AGI Console נבנית בדיוק לרגע הזה ומתפתחת בכל יום. אפשר <a href="https://console.agi.navines.com" rel="noopener noreferrer" target="_blank">לפתוח את המערכת</a>, להתחיל ממשימה ממוקדת ולהרחיב את העבודה לפי תוצאות אמיתיות.</p>
     </div>
   );
 }

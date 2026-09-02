@@ -213,6 +213,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="border-b" style={{ borderColor: "var(--border)" }} aria-labelledby="agi-console-home-title">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-16">
+          <div>
+            <p className="section-eyebrow">ממענה של AI לעבודה מתמשכת</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="agi-console-home-title">NAVINES AGI Console מפעילה עובדי AI עם משימה, גבולות, ראיות והמשך עבודה</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">במקום לפתוח עוד צ׳ט ולהתחיל מחדש, מגדירים Mission ברורה ומאפשרים לעובד AI להתקדם במחזורים מתועדים. המערכת כבר יודעת לעבוד עם Search Console לקריאה, מאגר GitHub מוגדר ויעד Vercel Production אחד, להכין דוחות, להריץ בדיקות ולהמתין לאישור בנקודות רגישות.</p>
+            <p className="mt-3 max-w-3xl leading-7 text-zinc-400">אפשר להתחיל בזול ממשימה תחומה אחת ולהרחיב רק כשהראיות מצדיקות זאת. המוצר משתפר בקצב יומי ונבנה כדי לשנות את חלוקת העבודה בין אנשים ל־AI — בלי להעמיד פנים שכל מערכת מחוברת אליו אוטומטית.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a className="btn-primary" href="https://console.agi.navines.com" rel="noopener noreferrer" target="_blank">לפתיחת AGI Console</a>
+              <Link className="btn-secondary" href="/blog/agi-console-autonomous-ai-workers-change-how-work-gets-done">איך עובדי AI משנים את העבודה</Link>
+              <a className="btn-secondary" href="https://agi.navines.com/research/the-operating-system-for-autonomous-ai-work/" rel="noopener noreferrer" target="_blank">למחקר המעמיק</a>
+            </div>
+          </div>
+          <dl className="feature-specs">
+            <div><dt>Mission</dt><dd>מטרה, היקף, תקציב, בדיקות ותנאי עצירה ברורים.</dd></div>
+            <div><dt>Evidence</dt><dd>דוחות, לוגים ותוצרים שמאפשרים לראות מה בוצע ולמה.</dd></div>
+            <div><dt>Control</dt><dd>אישורים לפני פעולה רגישה והרחבת סמכות בהדרגה.</dd></div>
+          </dl>
+        </div>
+      </section>
+
       {navinesNoiseProduct ? (
         <section className="border-y" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }} aria-labelledby="navines-noise-home-title">
           <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[7rem_minmax(0,1fr)_auto] lg:items-center lg:px-8 lg:py-14">
