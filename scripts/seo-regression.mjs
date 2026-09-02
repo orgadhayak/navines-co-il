@@ -13,7 +13,7 @@ async function listFiles(directory) {
   return nested.flat();
 }
 
-const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant, nextConfig] = await Promise.all([
+const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant, nextConfig, sitemapSource] = await Promise.all([
   read("src/data/site.ts"),
   read("src/data/solutions.ts"),
   read("src/app/blog/[slug]/page.tsx"),
@@ -24,6 +24,7 @@ const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, no
   read("src/lib/seo.ts"),
   read("src/app/api/site-assistant/route.ts"),
   read("next.config.ts"),
+  read("src/app/sitemap.ts"),
 ]);
 
 function segment(source, slug) {
@@ -64,6 +65,9 @@ includes(mobileAppPost, "כמה עולה בניית אפליקציה סלולר�
 includes(aiChatService, 'metaTitle: "צ׳ט AI לאתר שמכיר את העסק ומוביל לוואטסאפ"', "AI chat metadata");
 includes(freelancersSolution, 'title: "CRM, אוטומציה ופתרונות AI לפרילנסרים"', "Freelancer H1 source");
 includes(businessSystemsChatGptService, "חשבונית אונליין", "Online invoice service keyword");
+includes(businessSystemsChatGptService, 'metaTitle: "חשבונית אונליין ומורנינג ל־ChatGPT עם נתוני אמת"', "Business systems CTR title");
+includes(businessSystemsChatGptService, 'updatedAt: "2026-09-02"', "Business systems service updated date");
+includes(businessSystemsChatGptService, 'heroTitle: "מחברים חשבונית אונליין ומורנינג ל־ChatGPT כדי לדבר עם נתוני אמת"', "Business systems benefit-led H1");
 includes(businessSystemsChatGptService, "חשבונית און ליין", "Online invoice spaced variant");
 includes(businessSystemsChatGptService, "Morning", "Morning service keyword");
 includes(businessSystemsChatGptService, "Green Invoice", "Green Invoice service keyword");
@@ -146,6 +150,7 @@ const sourceText = (await Promise.all(sourceFiles.map((path) => readFile(path, "
 assert.ok(!/[\u2014\u2013\u2015]/u.test(sourceText), "Site source must not contain long dash characters");
 includes(nextConfig, '{ source: "/blog-Blog", destination: "/blog", permanent: true }', "Legacy blog redirect");
 includes(nextConfig, '{ source: "/products-Products", destination: "/products", permanent: true }', "Legacy products redirect");
+includes(sitemapSource, "serviceLastModified.get(path)", "Per-service sitemap modified dates");
 
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");

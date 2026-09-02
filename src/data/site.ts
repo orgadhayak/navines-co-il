@@ -334,6 +334,7 @@ export const serviceEcosystem: ServiceEcosystemGroup[] = [
 export type Service = {
   slug: string;
   title: string;
+  updatedAt?: string;
   metaTitle?: string;
   metaDescription?: string;
   heroTitle?: string;
@@ -1037,9 +1038,10 @@ export const services: Service[] = [
   {
     slug: "business-systems-chatgpt-integration",
     title: "חיבור חשבונית אונליין ומערכות עסקיות ל־ChatGPT",
-    metaTitle: "חיבור חשבונית אונליין, מורנינג ו־Green Invoice ל־ChatGPT",
-    metaDescription: "חיבור חשבונית אונליין, Morning, מורנינג, חשבונית ירוקה ו־Green Invoice לצ׳ט ג׳י פי טי ול־ChatGPT כדי לדבר עם נתוני אמת ולבנות אוטומציות מבוקרות.",
-    heroTitle: "החשבוניות והנתונים כבר מחזיקים את התשובות. אנחנו מחברים אותם לצ׳ט ג׳י פי טי",
+    updatedAt: "2026-09-02",
+    metaTitle: "חשבונית אונליין ומורנינג ל־ChatGPT עם נתוני אמת",
+    metaDescription: "חיבור חשבונית אונליין, Morning ו־Green Invoice ל־ChatGPT דרך API או Connector מורשה, כדי לשאול על מסמכים, גבייה ונתונים אמיתיים עם בקרה.",
+    heroTitle: "מחברים חשבונית אונליין ומורנינג ל־ChatGPT כדי לדבר עם נתוני אמת",
     eyebrow: "NAVINES IQ וחיבור מערכות עסקיות",
     summary: "נביא נס ישראל בע\"מ מחברת מערכות חשבונית אונליין וחשבונית און ליין, ובהן Morning או מורנינג של חשבונית ירוקה, המוכרת גם בשם Green Invoice או גרין אינוויס, לצד ERP, CRM, חנויות, שירות, מלאי ודוחות, לשכבת שיחה המבוססת על יכולות AI מתקדמות וטכנולוגיות OpenAI. במקום לעבור בין מסכים וקבצים, אפשר לשאול בצ׳ט ג׳י פי טי או ב־ChatGPT מה קרה במכירות, אילו חשבוניות ממתינות, איזה מלאי דורש טיפול, מי לא קיבל מענה ואיפה יש חריגה שכדאי לבדוק. TalkToData מדגים חוויה שבנינו לעבודה עם נתוני אמת, ו־AmazonIQ מדגים חיבור ייעודי לנתוני Seller Central בקריאה בלבד.",
     overview: "NAVINES IQ הוא השם לגישת השיחה והניתוח שלנו, ו־NAVINES Bridge הוא שכבת ה־Connector המותאמת שמביאה אליה את הנתונים. הפוטנציאל רחב: כל מערכת שמציעה API, Webhook, מסד נתונים, ייצוא מסודר או דרך גישה מורשית אחרת היא מועמדת לחיבור. גם כשאין API ציבורי, אפשר לבדוק מול הספק API פרטי, קובץ מתוזמן, SFTP, Plugin, מסד נתונים מוגבל או תוסף דפדפן מורשה. קודם מגדירים שאלות, אחר כך בודקים הרשאות ואיכות נתונים, ורק אז בונים ממשק שיחה, דשבורד, סוכן או אוטומציה. לא עוקפים הרשאות ולא כל מערכת מאפשרת כל שדה או פעולה.",
