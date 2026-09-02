@@ -44,6 +44,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isBusinessSystemsChatGptService = service.slug === "business-systems-chatgpt-integration";
   const isAiAgentsService = service.slug === "chatgpt-ai-agents-business";
   const isAutonomousSeoService = service.slug === "autonomous-seo-agent-search-console-chatgpt";
+  const isAiSearchVisibilityService = service.slug === "ai-search-visibility-geo";
   const isAiChatService = service.slug === "ai-chat-for-websites";
   const isTechnicalSupportService = service.slug === "technical-support-cyber-networks";
   const isAccountHackRecoveryService = service.slug === "account-hack-recovery";
@@ -84,7 +85,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         }
       : { "@id": `${site.url}/#organization` },
     url: `${site.url}/services/${service.slug}`,
-    ...(isApiIntegrationsService
+    ...(isAiSearchVisibilityService
+      ? { serviceType: "AI search visibility, GEO and AEO for ChatGPT, Gemini, Claude and Perplexity", areaServed: ["IL", "Worldwide"] }
+      : isApiIntegrationsService
       ? { serviceType: "Custom connector and API integration development for ChatGPT, AI agents and business systems", areaServed: "IL" }
       : isAutonomousSeoService
       ? { serviceType: "Autonomous SEO agent integration with Google Search Console, Google Analytics, code, deployments and logs", areaServed: "IL" }
@@ -207,6 +210,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </Link>
             <a className="btn-secondary" href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">
               ל־NAVINES SEO Lab
+            </a>
+          </div>
+        ) : null}
+        {isAiSearchVisibilityService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, נרצה לבדוק נראות של האתר ב־ChatGPT, Gemini, Claude ו־Perplexity. כתובת האתר היא:")}`} rel="noopener noreferrer" target="_blank">
+              שלחו אתר לבדיקת נראות במנועי AI
+            </a>
+            <Link className="btn-secondary" href="/services/autonomous-seo-agent-search-console-chatgpt">
+              לחיבור Search Console וסוכן SEO
+            </Link>
+            <a className="btn-secondary" href="/llms.txt" target="_blank">
+              לצפייה בקובץ llms.txt של NAVINES
             </a>
           </div>
         ) : null}

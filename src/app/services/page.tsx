@@ -1,16 +1,38 @@
 ﻿import Link from "next/link";
 import { ServiceCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
+import { JsonLd } from "@/components/JsonLd";
 import { OptimizationHubShowcase } from "@/components/OptimizationHubShowcase";
 import { Section } from "@/components/Section";
 import { serviceEcosystem, services, site } from "@/data/site";
-import { createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "שירותים",
   description: "שירותי נביא נס לעסקים: מרכז אופטימיזציה מלא, בינה מלאכותית, אוטומציה, אתרים, מערכות, איקומרס, שמאות, אבטחה, ביצועים, שיווק ותשתיות דיגיטליות.",
   path: "/services",
 });
+
+const servicesCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${site.url}/services#webpage`,
+  url: `${site.url}/services`,
+  name: "שירותי נביא נס ישראל בע\"מ",
+  inLanguage: "he-IL",
+  isPartOf: { "@id": `${site.url}/#website` },
+  about: { "@id": `${site.url}/#organization` },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: services.length,
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
+      url: `${site.url}/services/${service.slug}`,
+    })),
+  },
+};
 
 const groups: { title: string; description?: string; items: string[] }[] = [
   { title: "בינה מלאכותית ואוטומציה", items: ["חיבור Morning, Priority, ריווחית ומערכות נוספות ל־ChatGPT", "NAVINES IQ", "צ׳ט AI חכם לאתרים", "העוזר החכם של נביא נס", "לדבר עם הנתונים באמצעות ChatGPT", "חיבור נתונים עסקיים אל ChatGPT", "צ׳אטבוטים", "וואטסאפ עסקי", "אוטומציות טלגרם", "סוכני בינה מלאכותית", "מערכות עוזר וירטואלי"] },
@@ -34,6 +56,8 @@ export default function ServicesPage() {
 
   return (
     <>
+      <JsonLd data={servicesCollectionSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "שירותים", href: "/services" }])} />
       <Section eyebrow="שירותים" title="שירותים שמסדרים את העסק הדיגיטלי מקצה לקצה" titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">אם האתר לא מביא פניות, החנות קשה לניהול, הצוות עובד ידנית או המערכות לא מדברות אחת עם השנייה, אנחנו עוזרים לעשות סדר. בונים את מה שצריך, מחברים את מה שקיים ומשפרים את מה שכבר עובד כדי שהעסק יהיה מהיר, ברור ומדיד יותר.</p>
         {systemsIntegrationService ? (

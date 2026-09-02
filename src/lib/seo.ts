@@ -71,8 +71,38 @@ export const organizationSchema = {
   legalName: site.legalName,
   alternateName: site.englishLegalName,
   url: site.url,
+  description: "חברת תוכנה ובינה מלאכותית ישראלית שבונה מערכות עסקיות, אוטומציות, חיבורי נתונים, סוכני AI, אתרים ותשתיות דיגיטליות.",
+  logo: `${site.url}/icon.jpg`,
+  image: `${site.url}/og-navines-israel.jpg`,
   email: site.email,
   telephone: site.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.hebrewAddress,
+    addressLocality: "פתח תקווה",
+    addressCountry: "IL",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: site.phone,
+    email: site.email,
+    availableLanguage: ["Hebrew", "English"],
+    areaServed: "IL",
+  },
+  areaServed: ["IL", "Worldwide"],
+  knowsAbout: [
+    "Software development",
+    "Artificial intelligence for business",
+    "AI agents",
+    "ChatGPT business integrations",
+    "API integration",
+    "Business automation",
+    "Search engine optimization",
+    "AI search visibility",
+    "Google Search Console automation",
+    "Ecommerce",
+  ],
   sameAs: [site.internationalUrl],
 };
 
@@ -100,6 +130,7 @@ export const websiteSchema = {
   name: site.name,
   url: site.url,
   inLanguage: "he-IL",
+  publisher: { "@id": `${site.url}/#organization` },
 };
 
 export function breadcrumbSchema(items: { name: string; href: string }[]) {

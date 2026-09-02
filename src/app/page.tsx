@@ -22,7 +22,7 @@ const capabilityGroups = [
   {
     title: "AI, נתונים ואוטומציה",
     text: "חיבור מידע, מערכות ומשימות לכלים חכמים שמקצרים עבודה ידנית ועוזרים לקבל החלטות מהר יותר.",
-    links: [["AI ואוטומציה", "/services/ai-automation"], ["Connector ו־API מותאם", "/services/api-integrations"], ["מדריך לחיבור כל תוכנה", "/blog/connect-any-software-chatgpt-custom-connector"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
+    links: [["AI ואוטומציה", "/services/ai-automation"], ["Connector ו־API מותאם", "/services/api-integrations"], ["מדריך לחיבור כל תוכנה", "/blog/connect-any-software-chatgpt-custom-connector"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["קידום במנועי AI ו־ChatGPT", "/services/ai-search-visibility-geo"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
   },
   {
     title: "מסחר ותשתיות דיגיטליות",
@@ -197,9 +197,10 @@ export default function HomePage() {
           <div>
             <p className="section-eyebrow">SEO, AI וקוד בלופ אחד</p>
             <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="autonomous-seo-home-title">מחברים Google Search Console לצ׳ט ג׳י פי טי ובונים סוכן SEO אוטונומי</h2>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">הסוכן קורא שאילתות, עמודים, חשיפות, CTR ומיקום, משלב Google Analytics, סריקות ולוגים, מכין שינוי בקוד, מריץ בדיקות, פורס Preview או שינוי מאושר ומודד שוב. כך קידום אורגני הופך מלוח דוחות ללופ עבודה מתמשך ומתועד.</p>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">הסוכן קורא שאילתות, עמודים, חשיפות, CTR ומיקום, משלב Google Analytics, סריקות ולוגים, מכין שינוי בקוד, מריץ בדיקות, פורס Preview או שינוי מאושר ומודד שוב. במקביל אפשר לחזק נראות ב־ChatGPT, Gemini, Claude ו־Perplexity באמצעות מקור אמת, Schema, תוכן שניתן לצטט וגישה תקינה לזחלנים.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link className="btn-primary" href="/services/autonomous-seo-agent-search-console-chatgpt">לשירות סוכן SEO אוטונומי</Link>
+              <Link className="btn-secondary" href="/services/ai-search-visibility-geo">לקידום במנועי AI</Link>
               <Link className="btn-secondary" href="/blog/google-search-console-chatgpt-autonomous-seo-agent">למדריך המלא</Link>
               <a className="btn-secondary" href="https://seo.navines.com/he/" rel="noopener noreferrer" target="_blank">ל־NAVINES SEO Lab</a>
             </div>
