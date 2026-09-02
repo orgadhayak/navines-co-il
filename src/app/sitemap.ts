@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localizedRobloxArticlePages = publicLocales.map((locale) => localizedRobloxArticlePaths[locale]);
   const servicePages = services.map((service) => `/services/${service.slug}`);
   const serviceLastModified = new Map(services.filter((service) => service.updatedAt).map((service) => [`/services/${service.slug}`, new Date(service.updatedAt!)]));
+  const staticLastModified = new Map(["", "/about", "/services"].map((path) => [path, new Date("2026-09-02")]));
   const coursePages = courseTracks.map((course) => `/courses/${course.slug}`);
   const solutionPagePaths = solutionPages.map((solution) => `/solutions/${solution.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
@@ -26,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedSafetyToolsArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...localizedMusicServicePages, ...localizedMusicArticlePages, ...localizedRobloxServicePages, ...localizedRobloxArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
     url: `${site.url}${path}`,
-    lastModified: blogLastModified.get(path) || serviceLastModified.get(path) || new Date(site.lastModified),
+    lastModified: blogLastModified.get(path) || serviceLastModified.get(path) || staticLastModified.get(path) || new Date(site.lastModified),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : 0.7,
   }));

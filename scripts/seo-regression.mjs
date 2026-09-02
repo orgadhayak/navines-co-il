@@ -13,18 +13,22 @@ async function listFiles(directory) {
   return nested.flat();
 }
 
-const [siteData, solutionData, blogPage, servicePage, solutionPage, homePage, noiseProductPage, seoSource, siteAssistant, nextConfig, sitemapSource] = await Promise.all([
+const [siteData, solutionData, blogPage, servicePage, servicesPage, solutionPage, homePage, aboutPage, noiseProductPage, seoSource, siteAssistant, nextConfig, sitemapSource, robotsSource, llmsSource] = await Promise.all([
   read("src/data/site.ts"),
   read("src/data/solutions.ts"),
   read("src/app/blog/[slug]/page.tsx"),
   read("src/app/services/[slug]/page.tsx"),
+  read("src/app/services/page.tsx"),
   read("src/app/solutions/[slug]/page.tsx"),
   read("src/app/page.tsx"),
+  read("src/app/about/page.tsx"),
   read("src/app/products/navines-noise/page.tsx"),
   read("src/lib/seo.ts"),
   read("src/app/api/site-assistant/route.ts"),
   read("next.config.ts"),
   read("src/app/sitemap.ts"),
+  read("src/app/robots.ts"),
+  read("src/lib/llms.ts"),
 ]);
 
 function segment(source, slug) {
@@ -49,6 +53,7 @@ const apiIntegrationsService = segment(siteData, "api-integrations");
 const businessSystemsChatGptService = segment(siteData, "business-systems-chatgpt-integration");
 const aiAgentsService = segment(siteData, "chatgpt-ai-agents-business");
 const autonomousSeoService = segment(siteData, "autonomous-seo-agent-search-console-chatgpt");
+const aiSearchVisibilityService = segment(siteData, "ai-search-visibility-geo");
 const morningGreenInvoicePost = segment(siteData, "morning-green-invoice-chatgpt-business-data");
 const customConnectorPost = segment(siteData, "connect-any-software-chatgpt-custom-connector");
 const autonomousSeoPost = segment(siteData, "google-search-console-chatgpt-autonomous-seo-agent");
@@ -97,6 +102,12 @@ includes(autonomousSeoService, "Google Analytics", "Analytics service keyword");
 includes(autonomousSeoService, "שינוי בקוד", "Autonomous code change service copy");
 includes(autonomousSeoService, "דיפלוי", "Deployment service copy");
 includes(autonomousSeoService, "לוגים", "Server logs service copy");
+includes(aiSearchVisibilityService, 'metaTitle: "קידום במנועי AI: ChatGPT, Gemini ו־Perplexity"', "AI search visibility metadata");
+includes(aiSearchVisibilityService, 'updatedAt: "2026-09-02"', "AI search visibility modified date");
+includes(aiSearchVisibilityService, "OAI-SearchBot", "OpenAI search crawler guidance");
+includes(aiSearchVisibilityService, "Claude-SearchBot", "Anthropic search crawler guidance");
+includes(aiSearchVisibilityService, "PerplexityBot", "Perplexity search crawler guidance");
+includes(aiSearchVisibilityService, "אינו מבטיח אינדוקס", "llms.txt limitation");
 includes(autonomousSeoPost, "קידום אורגני אוטונומי", "Autonomous SEO article keyword");
 includes(blogPage, "MorningGreenInvoiceChatGptArticleBody", "Morning article custom body");
 includes(blogPage, "AutonomousSeoAgentArticleBody", "Autonomous SEO article custom body");
@@ -113,10 +124,22 @@ includes(homePage, "/services/api-integrations", "Homepage custom connector link
 includes(homePage, '/services/chatgpt-ai-agents-business', "Homepage AI agent link");
 includes(homePage, "מחברים Google Search Console לצ׳ט ג׳י פי טי", "Homepage Search Console heading");
 includes(homePage, '/services/autonomous-seo-agent-search-console-chatgpt', "Homepage autonomous SEO link");
+includes(homePage, '/services/ai-search-visibility-geo', "Homepage AI search visibility link");
+includes(aboutPage, "עובדות ברורות לבני אדם, למנועי חיפוש ולמערכות AI", "About entity facts section");
+includes(aboutPage, 'href="/llms.txt"', "About llms.txt discovery link");
+includes(servicesPage, '"@type": "ItemList"', "Services directory ItemList schema");
 includes(siteAssistant, '/services/business-systems-chatgpt-integration', "Assistant integration routing");
 includes(siteAssistant, '/services/api-integrations', "Assistant custom connector routing");
 includes(siteAssistant, '/services/chatgpt-ai-agents-business', "Assistant agent routing");
 includes(siteAssistant, '/services/autonomous-seo-agent-search-console-chatgpt', "Assistant SEO agent routing");
+includes(siteAssistant, '/services/ai-search-visibility-geo', "Assistant AI search visibility routing");
+for (const crawler of ["OAI-SearchBot", "GPTBot", "Claude-SearchBot", "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot"]) {
+  includes(robotsSource, `"${crawler}"`, `Explicit ${crawler} access`);
+}
+includes(llmsSource, "גרסה מורחבת למערכות AI", "llms.txt extended index link");
+includes(llmsSource, "האתר הרשמי בעברית הוא מקור המידע הקנוני", "llms.txt canonical source statement");
+includes(seoSource, "knowsAbout:", "Organization expertise schema");
+includes(seoSource, "contactPoint:", "Organization contact schema");
 
 includes(blogPage, 'href="/services/account-hack-recovery"', "Hack article service link");
 includes(blogPage, "סיוע במקרה פריצה לחשבון", "Hack article service anchor");
@@ -151,6 +174,7 @@ assert.ok(!/[\u2014\u2013\u2015]/u.test(sourceText), "Site source must not conta
 includes(nextConfig, '{ source: "/blog-Blog", destination: "/blog", permanent: true }', "Legacy blog redirect");
 includes(nextConfig, '{ source: "/products-Products", destination: "/products", permanent: true }', "Legacy products redirect");
 includes(sitemapSource, "serviceLastModified.get(path)", "Per-service sitemap modified dates");
+includes(sitemapSource, "staticLastModified.get(path)", "Per-static-page sitemap modified dates");
 
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");
@@ -165,7 +189,10 @@ if (process.env.SEO_TEST_BASE_URL) {
     "/blog/connect-any-software-chatgpt-custom-connector",
     "/blog/morning-green-invoice-chatgpt-business-data",
     "/services/autonomous-seo-agent-search-console-chatgpt",
+    "/services/ai-search-visibility-geo",
     "/blog/google-search-console-chatgpt-autonomous-seo-agent",
+    "/llms.txt",
+    "/llms-full.txt",
     "/solutions/freelancers",
   ];
 
