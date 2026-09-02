@@ -57,6 +57,7 @@ const aiSearchVisibilityService = segment(siteData, "ai-search-visibility-geo");
 const morningGreenInvoicePost = segment(siteData, "morning-green-invoice-chatgpt-business-data");
 const customConnectorPost = segment(siteData, "connect-any-software-chatgpt-custom-connector");
 const autonomousSeoPost = segment(siteData, "google-search-console-chatgpt-autonomous-seo-agent");
+const accountantsPost = segment(siteData, "accountants-ai-data-automation");
 const accountantsSolution = segment(solutionData, "accountants");
 const freelancersSolution = segment(solutionData, "freelancers");
 
@@ -108,6 +109,14 @@ includes(aiSearchVisibilityService, "OAI-SearchBot", "OpenAI search crawler guid
 includes(aiSearchVisibilityService, "Claude-SearchBot", "Anthropic search crawler guidance");
 includes(aiSearchVisibilityService, "PerplexityBot", "Perplexity search crawler guidance");
 includes(aiSearchVisibilityService, "אינו מבטיח אינדוקס", "llms.txt limitation");
+includes(accountantsSolution, 'title: "AI להנהלת חשבונות ורואי חשבון: אוטומציה, מסמכים ונתונים"', "Accountants query-aligned H1");
+includes(accountantsSolution, 'updatedAt: "2026-09-02"', "Accountants solution updated date");
+includes(accountantsSolution, "AI להנהלת חשבונות", "Accountants solution query coverage");
+includes(accountantsSolution, "אפשר לחבר Morning, חשבונית ירוקה או מערכת הנהלת חשבונות אחרת?", "Accountants integration FAQ");
+includes(accountantsPost, 'metaTitle: "AI להנהלת חשבונות: אוטומציה לרואי חשבון"', "Accountants article query-aligned metadata");
+includes(accountantsPost, 'updatedAt: "2026-09-02"', "Accountants article updated date");
+includes(accountantsPost, "AI חשבונאי", "Accountants article search variant");
+includes(accountantsPost, "אפשר לחבר לחשבונית אונליין, Morning או Green Invoice?", "Accountants article integration FAQ");
 includes(autonomousSeoPost, "קידום אורגני אוטונומי", "Autonomous SEO article keyword");
 includes(blogPage, "MorningGreenInvoiceChatGptArticleBody", "Morning article custom body");
 includes(blogPage, "AutonomousSeoAgentArticleBody", "Autonomous SEO article custom body");
@@ -174,6 +183,7 @@ assert.ok(!/[\u2014\u2013\u2015]/u.test(sourceText), "Site source must not conta
 includes(nextConfig, '{ source: "/blog-Blog", destination: "/blog", permanent: true }', "Legacy blog redirect");
 includes(nextConfig, '{ source: "/products-Products", destination: "/products", permanent: true }', "Legacy products redirect");
 includes(sitemapSource, "serviceLastModified.get(path)", "Per-service sitemap modified dates");
+includes(sitemapSource, "solutionLastModified.get(path)", "Per-solution sitemap modified dates");
 includes(sitemapSource, "staticLastModified.get(path)", "Per-static-page sitemap modified dates");
 
 if (process.env.SEO_TEST_BASE_URL) {
@@ -188,12 +198,14 @@ if (process.env.SEO_TEST_BASE_URL) {
     "/services/chatgpt-ai-agents-business",
     "/blog/connect-any-software-chatgpt-custom-connector",
     "/blog/morning-green-invoice-chatgpt-business-data",
+    "/blog/accountants-ai-data-automation",
     "/services/autonomous-seo-agent-search-console-chatgpt",
     "/services/ai-search-visibility-geo",
     "/blog/google-search-console-chatgpt-autonomous-seo-agent",
     "/llms.txt",
     "/llms-full.txt",
     "/solutions/freelancers",
+    "/solutions/accountants",
   ];
 
   const responses = await Promise.all(routes.map((route) => fetch(`${baseUrl}${route}`)));
