@@ -39,6 +39,7 @@ function includes(source, value, label) {
 
 const hackPost = segment(siteData, "what-to-do-when-account-is-hacked");
 const invoicePost = segment(siteData, "ai-invoice-scanning-and-filtering");
+const mobileAppPost = segment(siteData, "mobile-app-service-guide");
 const aiChatService = segment(siteData, "ai-chat-for-websites");
 const hackService = segment(siteData, "account-hack-recovery");
 const aiAutomationService = segment(siteData, "ai-automation");
@@ -57,6 +58,9 @@ includes(hackPost, "metaDescription:", "Hack article metadata");
 includes(invoicePost, 'metaTitle: "סינון חשבוניות עם AI: סריקה, חילוץ ואימות"', "Invoice metadata");
 includes(invoicePost, 'updatedAt: "2026-09-01"', "Invoice article updated date");
 includes(invoicePost, "אפשר לחבר את הנתונים ל־Morning, SUMIT, ריווחית או Priority?", "Invoice integration FAQ");
+includes(mobileAppPost, 'metaTitle: "בניית אפליקציה סלולרית לעסק: תהליך, API ועלויות"', "Mobile app query-aligned metadata");
+includes(mobileAppPost, 'updatedAt: "2026-09-02"', "Mobile app article updated date");
+includes(mobileAppPost, "כמה עולה בניית אפליקציה סלולרית לעסק?", "Mobile app cost FAQ");
 includes(aiChatService, 'metaTitle: "צ׳ט AI לאתר שמכיר את העסק ומוביל לוואטסאפ"', "AI chat metadata");
 includes(freelancersSolution, 'title: "CRM, אוטומציה ופתרונות AI לפרילנסרים"', "Freelancer H1 source");
 includes(businessSystemsChatGptService, "חשבונית אונליין", "Online invoice service keyword");
@@ -95,6 +99,7 @@ includes(blogPage, "AutonomousSeoAgentArticleBody", "Autonomous SEO article cust
 includes(blogPage, "CustomConnectorArticleBody", "Custom connector article body");
 includes(blogPage, 'href="/services/business-systems-chatgpt-integration"', "Invoice article business systems link");
 includes(blogPage, 'href="/blog/connect-any-software-chatgpt-custom-connector"', "Invoice article connector link");
+includes(blogPage, "שלבי בניית אפליקציה סלולרית לעסק", "Mobile app development steps");
 includes(blogPage, "https://app.sumit.co.il/developers/api/", "Official SUMIT API source");
 includes(blogPage, "https://tevelsoft.co.il/nesher-pro.asp", "Neshar and Shamayit integration source");
 includes(homePage, "חשבונית אונליין, SUMIT, ריווחית, Priority וכל תוכנה בתוך צ׳ט ג׳י פי טי", "Homepage integration heading");
