@@ -22,12 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticLastModified = new Map(["", "/about", "/services"].map((path) => [path, new Date("2026-09-02")]));
   const coursePages = courseTracks.map((course) => `/courses/${course.slug}`);
   const solutionPagePaths = solutionPages.map((solution) => `/solutions/${solution.slug}`);
+  const solutionLastModified = new Map(solutionPages.filter((solution) => solution.updatedAt).map((solution) => [`/solutions/${solution.slug}`, new Date(solution.updatedAt!)]));
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
   const blogLastModified = new Map(blogPosts.map((post) => [`/blog/${post.slug}`, new Date(post.updatedAt || post.publishedAt)]));
 
   return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedSafetyToolsArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...localizedMusicServicePages, ...localizedMusicArticlePages, ...localizedRobloxServicePages, ...localizedRobloxArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
     url: `${site.url}${path}`,
-    lastModified: blogLastModified.get(path) || serviceLastModified.get(path) || staticLastModified.get(path) || new Date(site.lastModified),
+    lastModified: blogLastModified.get(path) || serviceLastModified.get(path) || solutionLastModified.get(path) || staticLastModified.get(path) || new Date(site.lastModified),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : 0.7,
   }));
