@@ -63,11 +63,12 @@ const freelancersSolution = segment(solutionData, "freelancers");
 
 includes(hackPost, "metaDescription:", "Hack article metadata");
 includes(invoicePost, 'metaTitle: "סינון חשבוניות עם AI: סריקה, חילוץ ואימות"', "Invoice metadata");
-includes(invoicePost, 'updatedAt: "2026-09-01"', "Invoice article updated date");
+includes(invoicePost, 'updatedAt: "2026-09-16"', "Invoice article updated date");
 includes(invoicePost, "אפשר לחבר את הנתונים ל־Morning, SUMIT, ריווחית או Priority?", "Invoice integration FAQ");
-includes(mobileAppPost, 'metaTitle: "בניית אפליקציה סלולרית לעסק: תהליך, API ועלויות"', "Mobile app query-aligned metadata");
-includes(mobileAppPost, 'updatedAt: "2026-09-02"', "Mobile app article updated date");
+includes(mobileAppPost, 'metaTitle: "בניית אפליקציה סלולרית לעסק | יצירת אפליקציה ו־API"', "Mobile app query-aligned metadata");
+includes(mobileAppPost, 'updatedAt: "2026-09-16"', "Mobile app article updated date");
 includes(mobileAppPost, "כמה עולה בניית אפליקציה סלולרית לעסק?", "Mobile app cost FAQ");
+includes(mobileAppPost, "איך מתחילים יצירת אפליקציה סלולרית לעסק?", "Mobile app creation FAQ");
 includes(aiChatService, 'metaTitle: "צ׳ט AI לאתר שמכיר את העסק ומוביל לוואטסאפ"', "AI chat metadata");
 includes(freelancersSolution, 'title: "CRM, אוטומציה ופתרונות AI לפרילנסרים"', "Freelancer H1 source");
 includes(businessSystemsChatGptService, "חשבונית אונליין", "Online invoice service keyword");

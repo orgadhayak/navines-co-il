@@ -219,7 +219,7 @@ export default function HomePage() {
             <p className="section-eyebrow">ממענה של AI לעבודה מתמשכת</p>
             <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="agi-console-home-title">NAVINES AGI Console מפעילה עובדי AI עם משימה, גבולות, ראיות והמשך עבודה</h2>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">במקום לפתוח עוד צ׳ט ולהתחיל מחדש, מגדירים Mission ברורה ומאפשרים לעובד AI להתקדם במחזורים מתועדים. המערכת כבר יודעת לעבוד עם Search Console לקריאה, מאגר GitHub מוגדר ויעד Vercel Production אחד, להכין דוחות, להריץ בדיקות ולהמתין לאישור בנקודות רגישות.</p>
-            <p className="mt-3 max-w-3xl leading-7 text-zinc-400">אפשר להתחיל בזול ממשימה תחומה אחת ולהרחיב רק כשהראיות מצדיקות זאת. המוצר משתפר בקצב יומי ונבנה כדי לשנות את חלוקת העבודה בין אנשים ל־AI — בלי להעמיד פנים שכל מערכת מחוברת אליו אוטומטית.</p>
+            <p className="mt-3 max-w-3xl leading-7 text-zinc-400">אפשר להתחיל בזול ממשימה תחומה אחת ולהרחיב רק כשהראיות מצדיקות זאת. המוצר משתפר בקצב יומי ונבנה כדי לשנות את חלוקת העבודה בין אנשים ל־AI, בלי להעמיד פנים שכל מערכת מחוברת אליו אוטומטית.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a className="btn-primary" href="https://console.agi.navines.com" rel="noopener noreferrer" target="_blank">לפתיחת AGI Console</a>
               <Link className="btn-secondary" href="/blog/agi-console-autonomous-ai-workers-change-how-work-gets-done">איך עובדי AI משנים את העבודה</Link>
