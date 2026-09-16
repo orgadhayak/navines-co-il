@@ -3092,7 +3092,7 @@ function AgiConsoleArticleBody() {
     <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
       <h2>השלב הבא של AI אינו עוד תשובה</h2>
       <p>צ׳ט עם בינה מלאכותית שינה את הדרך שבה אנשים כותבים, חוקרים ומתכננים. אבל בכל שיחה חדשה צריך להסביר שוב את המטרה, לאסוף מחדש את ההקשר ולזכור לבד מה כבר בוצע. עבודה אמיתית דורשת יותר: רצף, גבולות, כלי עבודה, תקציב, בדיקות ותיעוד שאפשר לחזור אליו.</p>
-      <p>NAVINES AGI Console נבנית סביב המעבר הזה. במקום לבקש תשובה חד־פעמית, מגדירים Mission — חוזה עבודה קטן שמסביר מה התוצאה הרצויה, באילו נכסים מותר לגעת, אילו בדיקות חייבות לעבור, כמה משאבים מותר לצרוך ומתי העובד צריך לעצור ולבקש החלטה אנושית.</p>
+      <p>NAVINES AGI Console נבנית סביב המעבר הזה. במקום לבקש תשובה חד־פעמית, מגדירים Mission, חוזה עבודה קטן שמסביר מה התוצאה הרצויה, באילו נכסים מותר לגעת, אילו בדיקות חייבות לעבור, כמה משאבים מותר לצרוך ומתי העובד צריך לעצור ולבקש החלטה אנושית.</p>
       <div className="not-prose mt-7 flex flex-wrap gap-3">
         <a className="btn-primary" href="https://console.agi.navines.com" rel="noopener noreferrer" target="_blank">לפתיחת NAVINES AGI Console</a>
         <a className="btn-secondary" href="https://agi.navines.com/how-it-works/" rel="noopener noreferrer" target="_blank">איך המערכת עובדת</a>
