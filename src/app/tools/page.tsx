@@ -3,12 +3,16 @@ import { CTA } from "@/components/CTA";
 import { HebrewToolsClient } from "@/components/HebrewToolsClient";
 import { Section } from "@/components/Section";
 import { createMetadata } from "@/lib/seo";
+import { toolsAlternates } from "@/i18n/locales";
 
-export const metadata = createMetadata({
+export const metadata = {
+  ...createMetadata({
   title: "21 כלים שימושיים בעברית לבדיקות דיגיטליות",
   description: "21 כלים מקומיים וחינמיים בעברית מבית נביא נס ישראל בע״מ: קישורים, QR מתמונה, אימיילים, בקשות תשלום, ניסויי אתר, הפניות, קמפיינים וחשבונות.",
   path: "/tools",
-});
+  }),
+  alternates: { canonical: "https://www.navines.co.il/tools", languages: toolsAlternates },
+};
 
 export default function ToolsPage() {
   return (
@@ -32,6 +36,7 @@ export default function ToolsPage() {
         <div className="tools-related-links">
           <a href="https://checklink.ai" rel="noopener noreferrer" target="_blank"><strong>CheckLink.ai</strong><span>סריקה רחבה יותר של קישורים וסימני אמון</span></a>
           <Link href="/products"><strong>כל המוצרים</strong><span>ל־TalkToData, AmazonIQ, Beacon וכלי עבודה נוספים יש עמודים וקישורים מסודרים.</span></Link>
+          <Link href="/games"><strong>משחקים חכמים בעברית</strong><span>חידונים ומשחקי חשיבה בדפדפן לתרגול החלטות וזיכרון.</span></Link>
           <Link href="/blog/business-tools-built-by-navines-israel"><strong>איך נבנו הכלים</strong><span>הסיפור, השימושים והדרך להפוך צורך לכלי</span></Link>
           <Link href="/blog/qr-email-and-link-safety-tools"><strong>המדריך לכלים החדשים</strong><span>QR מתמונה, כותרות אימייל, בקשות תשלום ושרשראות הפניה</span></Link>
         </div>

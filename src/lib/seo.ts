@@ -69,7 +69,7 @@ export const organizationSchema = {
   "@id": `${site.url}/#organization`,
   name: site.name,
   legalName: site.legalName,
-  alternateName: site.englishLegalName,
+  alternateName: ["NAVINES", site.englishLegalName],
   url: site.url,
   description: "חברת תוכנה ובינה מלאכותית ישראלית שבונה מערכות עסקיות, אוטומציות, חיבורי נתונים, סוכני AI, אתרים ותשתיות דיגיטליות.",
   logo: `${site.url}/icon.jpg`,

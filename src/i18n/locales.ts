@@ -25,6 +25,11 @@ export const siteLocales: Record<LocaleSlug, LocaleMeta> = {
 
 export const publicLocales: PublicLocale[] = ["de", "jp", "ar", "hi", "fr", "zh"];
 
+export const toolsAlternates = {
+  "he-IL": "https://www.navines.co.il/tools",
+  ...Object.fromEntries(publicLocales.map((locale) => [siteLocales[locale].lang, `https://www.navines.co.il/${locale}/tools`])),
+};
+
 export const languageLinks = [
   siteLocales.he,
   { ...siteLocales.de, href: "/de" },

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LocalizedToolsClient } from "@/components/LocalizedToolsClient";
 import { getLocalizedToolsCopy } from "@/content/localized/tools";
-import { publicLocales, siteLocales, type PublicLocale } from "@/i18n/locales";
+import { publicLocales, siteLocales, toolsAlternates, type PublicLocale } from "@/i18n/locales";
 import { site } from "@/data/site";
 
 export const revalidate = 3600;
@@ -11,16 +11,6 @@ export const revalidate = 3600;
 export function generateStaticParams() {
   return publicLocales.map((locale) => ({ locale }));
 }
-
-const toolsAlternates = {
-  "he-IL": `${site.url}/tools`,
-  "de-DE": `${site.url}/de/tools`,
-  "ja-JP": `${site.url}/jp/tools`,
-  ar: `${site.url}/ar/tools`,
-  "hi-IN": `${site.url}/hi/tools`,
-  "fr-FR": `${site.url}/fr/tools`,
-  "zh-CN": `${site.url}/zh/tools`,
-};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;

@@ -40,6 +40,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const isChatGptDataService = service.slug === "chatgpt-business-data";
+  const isMobileAppService = service.slug === "mobile-app-development";
+  const isAutomationService = service.slug === "ai-automation";
   const isApiIntegrationsService = service.slug === "api-integrations";
   const isBusinessSystemsChatGptService = service.slug === "business-systems-chatgpt-integration";
   const isAiAgentsService = service.slug === "chatgpt-ai-agents-business";
@@ -141,6 +143,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "שירותים", href: "/services" }, { name: service.title, href: `/services/${service.slug}` }])} />
       <Section eyebrow={service.eyebrow} title={service.heroTitle || service.title} titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">{service.summary}</p>
+        {isMobileAppService || isAutomationService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent(isMobileAppService ? "שלום, נרצה לבדוק פיתוח אפליקציה לעסק. המשתמשים, הפעולה המרכזית והמערכות הקיימות הם:" : "שלום, נרצה לבדוק אוטומציה עסקית. התהליך החוזר והמערכות שבהן עובדים הם:")}`}>
+              {isMobileAppService ? "בדיקת התאמה לפיתוח אפליקציה" : "ספרו לנו על התהליך שצריך לשפר"}
+            </a>
+            <Link className="btn-secondary" href={isMobileAppService ? "/blog/mobile-app-service-guide" : "/blog/business-automation-start"}>
+              {isMobileAppService ? "מדריך לתכנון אפליקציה לעסק" : "איך בוחרים תהליך לאוטומציה"}
+            </Link>
+          </div>
+        ) : null}
         {isAppraisalService ? (
           <div className="mt-6 flex flex-wrap gap-3">
             <a aria-label="סיוע ראשוני בוואטסאפ לשירותי שמאות רכב, רכוש או חקלאות" className="btn-primary" href={appraisalWhatsappHref} rel="noopener noreferrer" target="_blank">
@@ -392,6 +404,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
             </article>
           ) : null}
+          {isMobileAppService ? <MobileAppEngagement /> : null}
+          {isAutomationService ? <AutomationEngagement /> : null}
+          {isChatGptDataService ? (
+            <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
+              <h2 className="text-2xl font-semibold text-white">מהשאלה העסקית אל מקור הנתון</h2>
+              <p className="mt-4 max-w-4xl text-lg leading-8 text-zinc-300">כאן מתכננים את חוויית השיחה: מי שואל, מה הוא רשאי לראות, איזו תקופה נבדקת ואיך מציגים מקור ותאריך עדכון. אם מקור הנתונים עדיין אינו מחובר, מתחילים ב<Link className="editorial-link" href="/services/business-systems-chatgpt-integration">בדיקת חיבור המערכות ל־ChatGPT</Link>. תשובה חסרה או מקור שאינו זמין צריכים להיות גלויים למשתמש, ולא להפוך לניחוש שנראה כמו עובדה.</p>
+              <p className="mt-4"><a className="editorial-link" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">היכרות עם TalkToData באתר המוצר</a></p>
+            </article>
+          ) : null}
           {service.relatedArticles?.length ? (
             <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
               <h2 className="text-2xl font-semibold text-white">מדריכים קשורים</h2>
@@ -448,6 +469,50 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         text={isMusicDistributionService ? "שלחו לנו מה כבר מוכן: שיר, עטיפה, שם אמן, תאריך רצוי וקישורים קיימים. נבדוק מה חסר לפני הפצה, אילו פרופילים צריך לסדר ואיך לבנות השקה מקצועית בלי להבטיח השמעות או הכנסה." : isRobloxExperienceService ? "ספרו לנו מי המותג, למי המשחק מיועד ומה הייתם רוצים שהשחקן ירגיש או יעשה. נבדוק אם נכון להתחיל בעולם קטן, אירוע או משחק רחב יותר, בלי להבטיח תנועה או ויראליות." : isAutonomousSeoService ? "שלחו את כתובת האתר וציינו אם קיימות גישות ל־Search Console, ל־GA4, לקוד ולאחסון. נגדיר התחלה בקריאה בלבד, בדיקות חובה ורמת אוטונומיה לפני שמאפשרים שינוי, דיפלוי או טיפול בלוגים." : isAiAgentsService ? "שלחו לנו את המטרה, שמות המערכות והמשימה החוזרת. נגדיר לסוכן מקורות, כלים והרשאות, נתחיל מתרחיש קטן ונוסיף אוטונומיה רק אחרי בדיקה, לוגים ובקרת אדם." : isBusinessSystemsChatGptService ? "שלחו לנו את שמות המערכות, למשל Morning, Green Invoice, Priority או קו מערכות, ואת שלוש השאלות שהכי קשה לענות עליהן היום. נבדוק API, הרשאות ואיכות נתונים ונציע חיבור ראשון קטן, שימושי ובטוח." : isAiChatService ? "דברו איתנו בוואטסאפ. שלחו כתובת אתר או תיאור קצר של העסק, ונבדוק איזה צ׳ט קצר, ברור ומדויק יכול לעזור לגולשים שלכם." : isTechnicalSupportService ? "שלחו הודעה בוואטסאפ עם התקלה, מה הפסיק לעבוד ומה דחוף. נבדוק אם אפשר לעזור מרחוק או אם נדרשת הגעה לפי צורך." : isAccountHackRecoveryService ? "שלחו הודעה קצרה עם מה קרה, באיזה חשבון מדובר, האם עדיין יש גישה למייל או לטלפון, וצילום מסך אם יש. לא נבטיח תוצאה, אבל נעזור להבין את המצב ולפעול נכון." : isDueDiligenceService ? "שלחו לנו איזה עסק, אתר, חנות או פעילות אתם בודקים, ומה כבר קיבלתם מהמוכר. נבנה רשימת בדיקות ושאלות שיעזרו לכם להבין את התמונה הדיגיטלית לפני החלטה." : isAppraisalService ? "שלחו לנו בוואטסאפ מה סוג האירוע ומתי הוא קרה: רכב, רכוש או חקלאות. בפנייה הראשונה אל תשלחו מסמכים רגישים; נבין את הצורך ונכוון איך להעביר חומר בצורה מסודרת." : isLegalTechnologyService || isTrafficLawService ? "אפשר לכתוב לנו רק את נושא הפנייה הכללי, בלי מסמכים ובלי מידע רגיש. נביא נס אינה משרד עורכי דין, אינה קשורה מסחרית למשרד מסוים ואינה מבטיחה התאמה, מחיר או תוצאה." : isAmazonSeoWebsiteService ? "שלחו לנו כמה קישורים למוצרים, ספרו באיזו מדינה אתם מוכרים, ונבדוק איך אפשר לבנות סביבם אתר חזק, עשיר ומוכן לצמיחה מחוץ ל אמזון." : isBrowserExtensionService ? "שלחו לנו בוואטסאפ הסבר קצר על הרעיון, למי הוא מיועד ואיזו פעולה הוא אמור לחסוך. נבדוק אם נכון להתחיל בגרסה פשוטה, אילו הרשאות נדרשות ואיך להפוך את זה לתוסף ברור ובטוח." : isChatGptDataService ? "שלחו לנו איזו מערכת יש לכם ונבדוק איך אפשר לחבר אותה: שופיפיי, ווקומרס, אמזון, איביי, CRM, ERP, גוגל אנליטיקס, מלאי, הזמנות או מערכת פנימית. לא בטוחים אם זה אפשרי? כתבו לנו ונכוון אתכם." : "כתבו לנו בוואטסאפ מה קיים אצלכם היום ומה הייתם רוצים לשפר. נחזור עם כיוון פשוט, ברור ומעשי."}
       />
     </>
+  );
+}
+
+function MobileAppEngagement() {
+  return (
+    <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
+      <h2 className="text-2xl font-semibold text-white">מה כוללת העבודה על האפליקציה שלכם?</h2>
+      <div className="mt-4 max-w-4xl space-y-4 text-lg leading-8 text-zinc-300">
+        <p>נביא נס מתחילה באפיון של המשתמש, הפעולה המרכזית והמידע שצריך לעבור למערכת העסקית. משם מגדירים גרסה ראשונה, מסכים, הרשאות וחיבורים. הפלטפורמות, ההגשה לחנויות והתחזוקה נכללות בהיקף שסוכם, ולא מובטחות כחבילה זהה לכל פרויקט.</p>
+        <h3 className="text-xl font-semibold text-white">אפליקציית לקוחות או כלי לצוות?</h3>
+        <p>באפליקציית לקוחות הדגש יכול להיות על הזמנה, אזור אישי ומעקב. בכלי לצוות הדגש יכול להיות על משימות, דיווח שטח והרשאות. בשני המקרים צריך לוודא שהמידע מגיע ליעד ושיש מענה לתקלה או לחוסר חיבור. אלו תרחישי אפיון אפשריים, לא הבטחה שכל יכולת מתאימה לכל עסק.</p>
+        <h3 className="text-xl font-semibold text-white">החיבור למערכות הוא חלק מהאפיון</h3>
+        <p>אם יש אתר, מלאי או מערכת ניהול לקוחות, בודקים <Link className="editorial-link" href="/services/api-integrations">חיבורי API והרשאות</Link> לפני שמתחייבים לפעולות. כאשר חסרה סביבת ניהול מתאימה, אפשר לבחון <Link className="editorial-link" href="/services/web-development">פיתוח מערכת עסקית</Link> לצד האפליקציה.</p>
+        <h3 className="text-xl font-semibold text-white">מה להכין לשיחת היכרות?</h3>
+        <ul className="list-disc space-y-2 ps-6">
+          <li>תיאור קצר של הבעיה ומי אמור להשתמש באפליקציה.</li>
+          <li>פעולה אחת שחשוב להשלים ודרך העבודה הקיימת כיום.</li>
+          <li>שמות המערכות שצריך לחבר והאדם שמנהל אותן, בלי סיסמאות.</li>
+          <li>אילוצי זמן, תקציב ופלטפורמות, אם כבר הוגדרו.</li>
+        </ul>
+        <p>לא חייבים להגיע עם מסמך טכני. ב<Link className="editorial-link" href="/blog/mobile-app-service-guide">מדריך לבניית אפליקציה לעסק</Link> תמצאו שאלות שיעזרו להשוות בין אפליקציה, PWA ואתר מובייל ולמנוע פיתוח מיותר.</p>
+      </div>
+    </article>
+  );
+}
+
+function AutomationEngagement() {
+  return (
+    <article className="border-t py-6" style={{ borderColor: "var(--border)" }}>
+      <h2 className="text-2xl font-semibold text-white">מה מגדירים לפני שבונים אוטומציה עסקית?</h2>
+      <div className="mt-4 max-w-4xl space-y-4 text-lg leading-8 text-zinc-300">
+        <p>בוחרים יחד תהליך אחד ומגדירים מה מפעיל אותו, אילו נתונים עוברים, מי מקבל את התוצאה ומה דורש אישור. בודקים אם מספיקים כללים קבועים או אם נדרש AI לקריאת טקסט וסיכום. ההצעה מבוססת על הגישה למערכות והיקף שנבדק, לא על הבטחה לחיבור לכל תוכנה.</p>
+        <h3 className="text-xl font-semibold text-white">שלושה כיוונים לתהליך ראשון</h3>
+        <ul className="list-disc space-y-2 ps-6">
+          <li>פנייה חדשה: איסוף המידע, שיוך לאחראי ופתיחת משימה. הודעה חסרה עוברת לטיפול ולא נעלמת.</li>
+          <li>מסמך שהתקבל: <Link className="editorial-link" href="/blog/ai-invoice-scanning-and-filtering">חילוץ נתונים וסינון חשבוניות עם AI</Link>, בדיקה ואישור לפני העברה למערכת.</li>
+          <li>סיכום לצוות: איסוף נתונים מורשים והכנת דוח או טיוטה. לשאלות המשך בודקים <Link className="editorial-link" href="/services/business-systems-chatgpt-integration">חיבור נתוני המערכות ל־ChatGPT</Link>.</li>
+        </ul>
+        <h3 className="text-xl font-semibold text-white">מה קורה אחרי הפיתוח?</h3>
+        <p>בודקים גם כפילויות, הרשאות שנפסקו ומערכת שאינה זמינה. מגדירים תיעוד, אחריות לטיפול בכשל ודרך לעצור או להחזיר שלב לטיפול ידני. בוחנים את זמן הטיפול והתיקונים מול המצב הקודם לפני שמרחיבים את התהליך.</p>
+        <h3 className="text-xl font-semibold text-white">מה לשלוח כדי להתחיל?</h3>
+        <p>תארו פעולה חוזרת, כמה פעמים היא מתרחשת, מי מטפל בה ובאילו מערכות. אין צורך לצרף פרטי לקוחות או סיסמאות. לעבודה עם כמה תיקי לקוח ראו <Link className="editorial-link" href="/solutions/accountants">אוטומציה למשרדי רואי חשבון והנהלת חשבונות</Link>.</p>
+      </div>
+    </article>
   );
 }
 

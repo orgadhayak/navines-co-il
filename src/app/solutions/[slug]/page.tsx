@@ -32,6 +32,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   if (!solution) notFound();
   const isAmazonSellerSolution = solution.slug === "amazon-sellers";
   const isFreelancerSolution = solution.slug === "freelancers";
+  const isAccountantSolution = solution.slug === "accountants";
   const showStandaloneTalkToData = solution.slug !== "freelancers" && !isAmazonSellerSolution;
 
   const faqSchema = {
@@ -94,8 +95,19 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
 
       {isFreelancerSolution ? <FreelancerCrmSection /> : null}
 
-      {solution.accountantConnection ? (
-        <AccountantConnectionSection content={solution.accountantConnection} />
+      {isAccountantSolution ? (
+        <Section eyebrow="תהליך העבודה במשרד" title="מהמסמך שהגיע עד המשימה שנסגרה" className="py-5 lg:py-8">
+          <div className="max-w-4xl space-y-5 text-lg leading-8 text-zinc-300">
+            <p>מגדירים לכל לקוח מקורות מידע מורשים, אחראי טיפול וסטטוס ברור. מסמך חדש משויך לתיק, חומר חסר מופיע ברשימת השלמות, והצוות רואה מה מוכן לבדיקה ומה עדיין ממתין. תזכורת או תשובה ללקוח נשלחת רק לפי כללי האישור שנקבעו עם המשרד.</p>
+            <p>כאשר צוואר הבקבוק הוא הקלדת מסמכים, מתחילים ב<Link className="editorial-link" href="/blog/ai-invoice-scanning-and-filtering">סריקת חשבוניות, סינון ואימות שדות</Link>. כשהבעיה רחבה יותר, <Link className="editorial-link" href="/services/ai-automation">שירות האוטומציה העסקית</Link> מחבר בין השלבים, ההתראות ואנשי הצוות.</p>
+            <h3 className="text-2xl font-semibold text-white">מיפוי לפני שמתחברים</h3>
+            <p>בשיחת האפיון מתארים את המערכות, מי עובד בכל תיק ואילו משימות מתעכבות. חיבור ל־Morning, ריווחית או מערכת אחרת נבחן לפי המוצר המדויק, הגרסה וההרשאות; עצם קיום API אצל הספק אינו אומר שקיים חיבור מוכן או שכל פעולה נתמכת. אין צורך לשלוח סיסמאות או מסמכי לקוח בשיחה הראשונה.</p>
+            <p>לצורך שאלות על מידע שכבר נמצא בתוכנה, בודקים <Link className="editorial-link" href="/services/business-systems-chatgpt-integration">חיבור מורשה של מערכות המשרד ל־ChatGPT</Link>. קריאה וסיכום אינם אישור לרישום, תשלום או דיווח חשבונאי.</p>
+            <h3 className="text-2xl font-semibold text-white">איך בוחנים אם הפתרון מתאים?</h3>
+            <p>מתחילים בתהליך מוגדר ובודקים זמן טיפול, מספר השלמות ותיקונים, הפרדת הרשאות ותיעוד של כל אישור. רק לאחר בדיקה מול הצוות מחליטים אם להרחיב לתיקים ולתהליכים נוספים. אין הבטחה לחיסכון קבוע או לדיוק מוחלט.</p>
+            <Link className="editorial-link" href="/blog/accountants-ai-data-automation">דוגמה לתהליך עבודה מבוקר עם AI במשרד רואי חשבון</Link>
+          </div>
+        </Section>
       ) : null}
 
       {solution.urgent ? (
@@ -218,6 +230,9 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         title="רוצים לבדוק אם זה מתאים לעסק שלכם?"
         text="שלחו לנו הודעה קצרה בוואטסאפ: מה העסק עושה, איפה הנתונים נמצאים ומה הייתם רוצים להבין מהר יותר. נענה בצורה פשוטה, חברית ומעשית."
       />
+      {solution.accountantConnection ? (
+        <AccountantConnectionSection content={solution.accountantConnection} />
+      ) : null}
     </>
   );
 }

@@ -9,8 +9,8 @@ import { formatBlogDate } from "@/lib/dates";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "בית תוכנה, בינה מלאכותית ואוטומציה לעסקים בישראל",
-  description: "נביא נס ישראל בע״מ מתכננת ומפתחת מערכות תוכנה, פתרונות AI, אוטומציות, אתרים, מסחר דיגיטלי ותשתיות לעסקים.",
+  title: "NAVINES: בית תוכנה ופתרונות AI לעסקים",
+  description: "NAVINES, נביא נס ישראל בע״מ, היא חברת תוכנה ישראלית המפתחת מערכות, אפליקציות, אוטומציות וחיבורי נתונים לעסקים. מאפיון הצורך ועד פיתוח ובדיקות.",
 });
 
 const capabilityGroups = [
@@ -66,7 +66,7 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero-inner mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="home-hero-copy">
-            <p className="home-hero-kicker">בית תוכנה ישראלי לעסקים וארגונים</p>
+            <p className="home-hero-kicker"><bdi dir="ltr">NAVINES</bdi> · בית תוכנה ישראלי לעסקים וארגונים</p>
             <h1>נביא נס ישראל בע״מ</h1>
             <p className="home-hero-offer">תוכנה, בינה מלאכותית ותשתיות דיגיטליות שבנויות לעבודה אמיתית.</p>
             <p className="home-hero-summary">
@@ -175,8 +175,8 @@ export default function HomePage() {
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8 lg:py-20">
           <div>
             <p className="section-eyebrow">שירות מוביל</p>
-            <h2>חשבונית אונליין, SUMIT, ריווחית, Priority וכל תוכנה בתוך צ׳ט ג׳י פי טי</h2>
-            <p>מחברים Morning ומורנינג, Green Invoice וגרין אינוויס, SUMIT, המוכר בחיפוש גם כסמיט, סמית או סאמיט, וכן ריווחית, iCount, חשבשבת, Priority ופריוריטי, קו מערכות, מוסכית 2020, נשר, שמאית ומערכות נוספות ל־ChatGPT. כשיש API משתמשים בו; כשאין חיבור מוכן, NAVINES Bridge יכולה לעבוד דרך Webhook, קבצים, מסד נתונים, Plugin או Connector מורשה אחר.</p>
+            <h2>המערכות שלכם, תשובות מתוך הנתונים</h2>
+            <p>מערכת החשבוניות, ניהול הלקוחות או המלאי כבר מחזיקות מידע חשוב. אנחנו בודקים איך לחבר אותו ל־ChatGPT, כדי שאפשר יהיה לשאול על נתונים במקום לחפש ידנית בכמה מסכים. החיבור נבחן לפי המערכת, יכולות ה־API וההרשאות, ולא לפי הבטחה שכל תוכנה תתחבר אוטומטית.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">חיבור חשבונית אונליין ומערכות</Link>
               <Link className="btn-secondary" href="/services/api-integrations">פיתוח Connector מותאם</Link>
@@ -186,7 +186,7 @@ export default function HomePage() {
           </div>
           <dl className="feature-specs">
             <div><dt>חיבור</dt><dd>NAVINES Bridge דרך API, Webhook, מסד נתונים, קבצים, Plugin או ממשק מורשה, בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
-            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות, מלאי, מוסך, מפעל, שמאות, תיקים ודוחות. זו יכולת חדשה מעל כל תוכנה מורשית.</dd></div>
+            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות או מלאי, בהתאם למקורות שאושרו ולנתונים שהחיבור יכול לקרוא.</dd></div>
             <div><dt>שליטה</dt><dd>הרשאות, מקורות, לוגים ואישור אנושי לפני פעולות רגישות או בלתי הפיכות.</dd></div>
           </dl>
         </div>
