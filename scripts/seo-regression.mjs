@@ -42,6 +42,19 @@ function includes(source, value, label) {
   assert.ok(source.includes(value), `${label}: expected ${value}`);
 }
 
+const mcpService = segment(siteData, "custom-ai-plugins-mcp-workspaces");
+for (const term of ["metaTitle:", "metaDescription:", "פלאגינים", "MCP", "סביבות עבודה", "בדיקת ספק, גרסה והרשאה", "אישור אנושי"]) {
+  includes(mcpService, term, "MCP service content and guardrails");
+}
+for (const [source, label] of [[homePage, "Homepage"], [siteAssistant, "Assistant"], [llmsSource, "AI index"]]) {
+  includes(source, "custom-ai-plugins-mcp-workspaces", `${label} plugin service discovery`);
+}
+includes(servicePage, "ארבע רמות של עבודה עם נתונים וכלים", "Plugin automation journey");
+includes(await read("src/components/Header.tsx"), "/services/custom-ai-plugins-mcp-workspaces", "Header plugin service navigation");
+for (const slug of ["api-integrations", "chatgpt-ai-agents-business"]) {
+  includes(segment(siteData, slug), '/services/custom-ai-plugins-mcp-workspaces', `${slug} contextual plugin link`);
+}
+
 const hackPost = segment(siteData, "what-to-do-when-account-is-hacked");
 const invoicePost = segment(siteData, "ai-invoice-scanning-and-filtering");
 const mobileAppPost = segment(siteData, "mobile-app-service-guide");
@@ -192,6 +205,7 @@ includes(sitemapSource, "staticLastModified.get(path)", "Per-static-page sitemap
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");
   const routes = [
+    "/services/custom-ai-plugins-mcp-workspaces",
     "/blog/what-to-do-when-account-is-hacked",
     "/services/account-hack-recovery",
     "/blog/ai-invoice-scanning-and-filtering",

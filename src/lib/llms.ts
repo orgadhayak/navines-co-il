@@ -2,6 +2,7 @@ import { blogPosts, products, services, site } from "@/data/site";
 import { solutionPages } from "@/data/solutions";
 
 const priorityServiceSlugs = [
+  "custom-ai-plugins-mcp-workspaces",
   "ai-search-visibility-geo",
   "autonomous-seo-agent-search-console-chatgpt",
   "business-systems-chatgpt-integration",

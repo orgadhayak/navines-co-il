@@ -19,6 +19,7 @@ const serviceGroups = [
       ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
       ["חשבונית אונליין ומערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"],
       ["פיתוח Connector ו־API מותאם", "/services/api-integrations"],
+      ["פלאגינים אישיים, MCP וסביבות עבודה", "/services/custom-ai-plugins-mcp-workspaces"],
       ["סוכני AI וצ׳ט ג׳י פי טי לעסקים", "/services/chatgpt-ai-agents-business"],
       ["סוכן SEO אוטונומי ו־Search Console", "/services/autonomous-seo-agent-search-console-chatgpt"],
       ["חיבור נתונים ל-ChatGPT", "/services/chatgpt-business-data"],

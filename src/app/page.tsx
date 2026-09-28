@@ -104,6 +104,11 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section eyebrow="פלאגינים אישיים וחיבורי MCP" title="סביבת עבודה עם AI, לפי הדרך שבה העסק שלכם עובד">
+        <p className="max-w-4xl text-lg leading-8 text-zinc-300">בונים Plugin אישי או צוותי שמרכז הוראות, תבניות וכלים, ומחברים נתונים דרך שרת MCP או Connector מורשה. מתחילים במשימה אחת, בודקים מול המקור ומגדירים הרשאות ואישורים לפני הרחבה לאוטומציה.</p>
+        <Link className="btn-primary mt-6 inline-flex" href="/services/custom-ai-plugins-mcp-workspaces">לפיתוח פלאגינים, MCP וסביבות עבודה</Link>
+      </Section>
+
       {musicDistributionService ? (
         <section className="feature-band border-y" style={{ borderColor: "var(--border)" }} aria-labelledby="music-distribution-title">
           <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:py-16">
