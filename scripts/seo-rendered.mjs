@@ -132,12 +132,16 @@ for (const path of extraPaths) {
 for (const path of pages.keys()) check(path === "/" || incoming.has(path), `Orphan sitemap page: ${path}`);
 
 const contextualEdges = {
+  "/": ["/services/custom-ai-plugins-mcp-workspaces"],
+  "/services/api-integrations": ["/services/custom-ai-plugins-mcp-workspaces"],
+  "/services/chatgpt-ai-agents-business": ["/services/custom-ai-plugins-mcp-workspaces"],
+  "/services/custom-ai-plugins-mcp-workspaces": ["/services/api-integrations", "/services/chatgpt-ai-agents-business", "/blog/connect-any-software-chatgpt-custom-connector"],
   "/blog/mobile-app-service-guide": ["/services/mobile-app-development", "/services/api-integrations"],
   "/services/mobile-app-development": ["/blog/mobile-app-service-guide", "/services/api-integrations", "/services/web-development"],
   "/blog/ai-invoice-scanning-and-filtering": ["/solutions/accountants", "/services/ai-automation"],
   "/solutions/accountants": ["/blog/ai-invoice-scanning-and-filtering", "/blog/accountants-ai-data-automation", "/services/ai-automation"],
   "/blog/accountants-ai-data-automation": ["/solutions/accountants", "/blog/ai-invoice-scanning-and-filtering"],
-  "/blog/business-automation-start": ["/services/ai-automation", "/services/business-systems-chatgpt-integration"],
+  "/blog/business-automation-start": ["/services/ai-automation", "/services/business-systems-chatgpt-integration", "/services/custom-ai-plugins-mcp-workspaces"],
   "/services/ai-automation": ["/blog/business-automation-start", "/blog/ai-invoice-scanning-and-filtering"],
   "/services/chatgpt-business-data": ["/services/business-systems-chatgpt-integration"],
   "/blog/talk-to-business-data-chatgpt": ["/services/business-systems-chatgpt-integration", "/services/chatgpt-business-data"],

@@ -45,6 +45,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const isApiIntegrationsService = service.slug === "api-integrations";
   const isBusinessSystemsChatGptService = service.slug === "business-systems-chatgpt-integration";
   const isAiAgentsService = service.slug === "chatgpt-ai-agents-business";
+  const isMcpPluginService = service.slug === "custom-ai-plugins-mcp-workspaces";
   const isAutonomousSeoService = service.slug === "autonomous-seo-agent-search-console-chatgpt";
   const isAiSearchVisibilityService = service.slug === "ai-search-visibility-geo";
   const isAiChatService = service.slug === "ai-chat-for-websites";
@@ -87,7 +88,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         }
       : { "@id": `${site.url}/#organization` },
     url: `${site.url}/services/${service.slug}`,
-    ...(isAiSearchVisibilityService
+    ...(isMcpPluginService
+      ? { serviceType: "Custom AI plugin development, MCP servers and AI workspaces", areaServed: "IL" }
+      : isAiSearchVisibilityService
       ? { serviceType: "AI search visibility, GEO and AEO for ChatGPT, Gemini, Claude and Perplexity", areaServed: ["IL", "Worldwide"] }
       : isApiIntegrationsService
       ? { serviceType: "Custom connector and API integration development for ChatGPT, AI agents and business systems", areaServed: "IL" }
@@ -143,6 +146,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <JsonLd data={breadcrumbSchema([{ name: "בית", href: "/" }, { name: "שירותים", href: "/services" }, { name: service.title, href: `/services/${service.slug}` }])} />
       <Section eyebrow={service.eyebrow} title={service.heroTitle || service.title} titleAs="h1">
         <p className="max-w-4xl text-lg leading-8 text-zinc-300">{service.summary}</p>
+        {isMcpPluginService ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent("שלום, נרצה לאפיין פלאגין אישי או סביבת עבודה עם MCP. סביבת ה־AI, התוכנות והמשימה הראשונה שלנו הן:")}`}>
+              בואו נאפיין את סביבת העבודה שלכם
+            </a>
+            <Link className="btn-secondary" href="/services/api-integrations">לבדיקת החיבור למערכות הקיימות</Link>
+          </div>
+        ) : null}
         {isMobileAppService || isAutomationService ? (
           <div className="mt-6 flex flex-wrap gap-3">
             <a className="btn-primary" href={`${site.whatsappHref}?text=${encodeURIComponent(isMobileAppService ? "שלום, נרצה לבדוק פיתוח אפליקציה לעסק. המשתמשים, הפעולה המרכזית והמערכות הקיימות הם:" : "שלום, נרצה לבדוק אוטומציה עסקית. התהליך החוזר והמערכות שבהן עובדים הם:")}`}>
@@ -262,6 +273,33 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         ) : null}
       </Section>
+      {isMcpPluginService ? (
+        <Section eyebrow="מפלאגין לאוטומציה" title="ארבע רמות של עבודה עם נתונים וכלים">
+          <p className="max-w-4xl text-lg leading-8 text-zinc-300">פלאגין נותן גישה ליכולת. אוטומציה מוסיפה זמן הפעלה, כללי החלטה וטיפול בכשל. בוחרים את רמת העצמאות המתאימה למשימה, ולא נותנים הרשאות נוספות רק משום שהטכנולוגיה מאפשרת זאת.</p>
+          <ol className="mt-8 grid gap-5 md:grid-cols-2">
+            {[
+              ["1. שאלה לפי דרישה", "המשתמש מבקש נתון והכלי מחזיר תשובה ממקור מורשה, עם טווח זמן ומגבלות. לדוגמה, רשימת הזמנות שלא טופלו, ללא שינוי במערכת."],
+              ["2. בדיקה מתוזמנת", "רכיב תזמון נתמך בודק שינוי מוגדר, למשל חריגה במלאי או ירידה בחשיפות. מגדירים תדירות, תקציב ומתי לשלוח התראה כדי לא לייצר רעש."],
+              ["3. הכנת פעולה לאישור", "המערכת מכינה טיוטת מענה, משימה או עדכון ומציגה את המקור והשינוי המוצע. בעל תפקיד בודק ומאשר לפני שהמידע נשלח או נשמר."],
+              ["4. משימה אוטונומית מוגבלת", "לאחר בדיקות, פעולות מוגדרות יכולות לרוץ בגבולות מאושרים. מגדירים מניעת כפילויות, עצירה בחריגה, תיעוד ופנייה לאדם כשאין מספיק מידע."],
+            ].map(([title, text]) => (
+              <li className="panel p-6" key={title}>
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="mt-3 leading-8 text-zinc-300">{text}</p>
+              </li>
+            ))}
+          </ol>
+          <h2 className="mt-10 text-2xl font-semibold">סביבת עבודה פרטית ותוצר שניתן לתחזק</h2>
+          <p className="mt-4 max-w-4xl leading-8 text-zinc-300">כשהצוות צריך יותר מכלי בצ׳ט, אפשר לבנות יישום פרטי עם תפקידים, תור אישורים, דשבורד והיסטוריית פעילות. היקף מסירת הקוד, הבעלות, חשבונות התשתית והתחזוקה נקבעים בהסכם הפרויקט. עלויות אחסון, מודלים ו־API של ספקים חיצוניים נבחנות בנפרד.</p>
+          <h2 className="mt-10 text-2xl font-semibold">מה כבר אפשר לראות אצל NAVINES?</h2>
+          <p className="mt-4 max-w-4xl leading-8 text-zinc-300">TalkToData, Noise ו־NAVINES AGI Console מציגים כיוונים שונים של חיבור מידע ועבודה עם כלים. הם אינם הוכחה שכל מערכת לקוח נתמכת. כל פרויקט נבדק בפני עצמו, ושימוש בשם AGI אינו טענה שהושגה בינה כללית או אוטונומיה בלתי מוגבלת.</p>
+          <div className="mt-5 flex flex-wrap gap-4">
+            <a className="editorial-link" href="https://talktodata.navines.com">TalkToData ונתונים עסקיים</a>
+            <Link className="editorial-link" href="/products/navines-noise">Noise ונתוני SEO</Link>
+            <a className="editorial-link" href="https://www.navines.com/custom-ai-plugins-mcp-connectors/">השירות באתר NAVINES הבינלאומי</a>
+          </div>
+        </Section>
+      ) : null}
       <Section>
         <div className="grid gap-5">
           {isTechnicalSupportService ? (
