@@ -221,20 +221,20 @@ export default function HomePage() {
       <section className="border-b" style={{ borderColor: "var(--border)" }} aria-labelledby="agi-console-home-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-16">
           <div>
-            <p className="section-eyebrow">ממענה של AI לעבודה מתמשכת</p>
-            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="agi-console-home-title">NAVINES AGI Console מפעילה עובדי AI עם משימה, גבולות, ראיות והמשך עבודה</h2>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">במקום לפתוח עוד צ׳ט ולהתחיל מחדש, מגדירים Mission ברורה ומאפשרים לעובד AI להתקדם במחזורים מתועדים. המערכת כבר יודעת לעבוד עם Search Console לקריאה, מאגר GitHub מוגדר ויעד Vercel Production אחד, להכין דוחות, להריץ בדיקות ולהמתין לאישור בנקודות רגישות.</p>
-            <p className="mt-3 max-w-3xl leading-7 text-zinc-400">אפשר להתחיל בזול ממשימה תחומה אחת ולהרחיב רק כשהראיות מצדיקות זאת. המוצר משתפר בקצב יומי ונבנה כדי לשנות את חלוקת העבודה בין אנשים ל־AI, בלי להעמיד פנים שכל מערכת מחוברת אליו אוטומטית.</p>
+            <p className="section-eyebrow">עובדי AI, דפדפן בענן ותוסף Chrome במקום אחד</p>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white md:text-4xl" id="agi-console-home-title">אומרים מה רוצים להשיג. NAVINES עוזרת לקדם את העבודה.</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-300">ב־NAVINES AGI Console בונים סוכני AI למשימות חוזרות, חוקרים אתרים ציבוריים דרך Cloud או נעזרים בתוסף בתוך הטאב שאישרתם ב־Chrome. כותבים בשפה רגילה, עוקבים אחר העבודה ומוסיפים הנחיות תוך כדי. פחות מעבר ידני בין עמודים, יותר זמן להבין, להחליט ולהתקדם.</p>
+            <p className="mt-3 max-w-3xl leading-7 text-zinc-400">ה־Cloud פועל בדפדפן נפרד; התוסף נעזר בעמוד ובהתחברות שכבר פתוחים אצלכם. אפשר להכין שדות נתמכים לאחר בדיקת הטקסט, ואת השליחה הסופית מבצעים בעצמכם. יכולות הדפדפן זמינות לחשבונות שהופעלו עבורם. אנחנו ממשיכים לשפר את המערכת, עם שאיפה גדולה וגבולות ברורים.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a className="btn-primary" href="https://console.agi.navines.com" rel="noopener noreferrer" target="_blank">לפתיחת AGI Console</a>
-              <Link className="btn-secondary" href="/blog/agi-console-autonomous-ai-workers-change-how-work-gets-done">איך עובדי AI משנים את העבודה</Link>
+              <Link className="btn-secondary" href="/blog/agi-console-autonomous-ai-workers-change-how-work-gets-done">מה מתאים לי: סוכן, Cloud או תוסף?</Link>
               <a className="btn-secondary" href="https://agi.navines.com/research/the-operating-system-for-autonomous-ai-work/" rel="noopener noreferrer" target="_blank">למחקר המעמיק</a>
             </div>
           </div>
           <dl className="feature-specs">
-            <div><dt>Mission</dt><dd>מטרה, היקף, תקציב, בדיקות ותנאי עצירה ברורים.</dd></div>
-            <div><dt>Evidence</dt><dd>דוחות, לוגים ותוצרים שמאפשרים לראות מה בוצע ולמה.</dd></div>
-            <div><dt>Control</dt><dd>אישורים לפני פעולה רגישה והרחבת סמכות בהדרגה.</dd></div>
+            <div><dt>סוכני AI</dt><dd>עובדים למשימות חוזרות, עם חיבורים ונכסים שאתם בוחרים.</dd></div>
+            <div><dt>Cloud</dt><dd>מחקר וניווט באתרים ציבוריים, עם תצוגת דפדפן ושיחה בקונסולה.</dd></div>
+            <div><dt>תוסף Chrome</dt><dd>עזרה בטאב המאושר שלכם, גם כשהמשימה דורשת את ההתחברות הקיימת.</dd></div>
           </dl>
         </div>
       </section>
