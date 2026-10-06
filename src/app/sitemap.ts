@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticLastModified = new Map(["", "/about", "/services"].map((path) => [path, new Date("2026-09-02")]));
   staticLastModified.set("", new Date("2026-09-28"));
   staticLastModified.set("/services", new Date("2026-09-28"));
+  staticLastModified.set("/products", new Date("2026-10-06"));
   const coursePages = courseTracks.map((course) => `/courses/${course.slug}`);
   const solutionPagePaths = solutionPages.map((solution) => `/solutions/${solution.slug}`);
   const solutionLastModified = new Map(solutionPages.filter((solution) => solution.updatedAt).map((solution) => [`/solutions/${solution.slug}`, new Date(solution.updatedAt!)]));

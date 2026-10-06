@@ -11,6 +11,7 @@ const pathname = (url) => new URL(url, origin).pathname.replace(/\/$/, "") || "/
 const failures = [];
 const warnings = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
+const removedExtension = /navines[\s-]+tools[\s-]+hub|ickjjfnfhmednmejidkphbcjdmlgjdpd|מרכז כלי נביא נס/iu;
 
 async function get(path, options) {
   return fetch(`${base}${path}`, { signal: AbortSignal.timeout(30000), ...options });
@@ -37,7 +38,9 @@ await Promise.all(Array.from({ length: 4 }, async () => {
       check(new URL(url).origin === origin, `Wrong sitemap origin: ${url}`);
       const response = await get(path);
       check(response.status === 200, `${path}: HTTP ${response.status}`);
-      const html = parse(await response.text());
+      const rawHtml = await response.text();
+      check(!removedExtension.test(rawHtml), `${path}: removed extension reference remains`);
+      const html = parse(rawHtml);
       const schemas = html.querySelectorAll('script[type="application/ld+json"]').flatMap((script) => {
         try { return JSON.parse(script.textContent); }
         catch { failures.push(`${path}: invalid JSON-LD`); return []; }
@@ -132,6 +135,8 @@ for (const path of extraPaths) {
 for (const path of pages.keys()) check(path === "/" || incoming.has(path), `Orphan sitemap page: ${path}`);
 
 const contextualEdges = {
+  "/services/browser-extension-development": ["/services/custom-ai-plugins-mcp-workspaces"],
+  "/blog/how-to-build-browser-extension-for-business": ["/services/browser-extension-development", "/services/custom-ai-plugins-mcp-workspaces"],
   "/": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/services/api-integrations": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/services/chatgpt-ai-agents-business": ["/services/custom-ai-plugins-mcp-workspaces"],
@@ -155,6 +160,11 @@ for (const path of Object.keys(contextualEdges).filter((path) => path.startsWith
   check(pages.get(path)?.schemas.some((schema) => schema["@type"] === "Service"), `${path}: Service schema missing`);
 }
 const robots = await (await get("/robots.txt")).text();
+for (const path of ["/llms.txt", "/llms-full.txt"]) {
+  const response = await get(path);
+  check(response.status === 200, `${path}: HTTP ${response.status}`);
+  check(!removedExtension.test(await response.text()), `${path}: removed extension reference remains`);
+}
 check(robots.includes(`${origin}/sitemap.xml`), "robots sitemap discovery");
 check(!/^Disallow:\s*\/\s*$/m.test(robots), "robots blocks site");
 for (const [path, target] of [["/blog-Blog", "/blog"], ["/products-Products", "/products"], ["/services/ai-automation/", "/services/ai-automation"]]) {
