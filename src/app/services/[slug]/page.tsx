@@ -841,13 +841,6 @@ function GlobalBrandServiceContent({ service }: { service: (typeof services)[num
 function BrowserExtensionExamples() {
   const extensions = [
     {
-      name: "Navines Tools Hub",
-      text: "תוסף שמרכז את כלי נביא נס ישראל בע״מ במקום אחד ומעניק גישה מהירה בלחיצה אחת לכלים ולשירותים שלנו.",
-      why: "בנינו אותו כדוגמה לתוסף שמחבר מותג שלם לדפדפן דרך מרכז כלים נקי, מהיר וקל להבנה.",
-      value: "המשתמש מקבל גישה מהירה, ממשק נקי, בלי פרסומות ובלי צורך לשמור סימניות מפוזרות.",
-      href: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd",
-    },
-    {
       name: "PartnerCrypto Toolkit",
       text: "תוסף שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות ישירות בדפדפן.",
       why: "בנינו אותו כדוגמה לתוסף שמלווה עולם תוכן מקצועי ומרכז פעולות שימושיות במקום אחד.",
@@ -861,11 +854,11 @@ function BrowserExtensionExamples() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-glowred">תוספים שכבר בנינו</p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">דוגמאות אמיתיות לתוספים לדפדפנים</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-white">דוגמה לתוסף שפיתחנו</h2>
         </div>
         <Link className="btn-secondary" href="/products">כלים ומוצרים</Link>
       </div>
-      <div className="mt-5 grid gap-4 lg:grid-cols-2">
+      <div className="mt-5 grid gap-4">
         {extensions.map((extension) => (
           <a className="rounded-lg border border-purple-200/14 bg-black/24 p-5 transition hover:-translate-y-0.5 hover:border-purple-200/35 hover:bg-purple-500/10" href={extension.href} key={extension.href} rel="noopener noreferrer" target="_blank">
             <h3 className="text-2xl font-semibold text-white">{extension.name}</h3>
@@ -902,6 +895,9 @@ function BrowserExtensionGuidance() {
       <h2 className="text-2xl font-semibold text-white">תוספים פנימיים, AI ואבטחה</h2>
       <p className="mt-3 text-lg leading-8 text-zinc-300">
         תוסף לא חייב להיות מוצר ציבורי. לפעמים הערך הגדול ביותר הוא כלי פנימי קטן שמקצר פעולה שחוזרת כל יום. אפשר לשלב בו גם AI, סיכום מידע, חילוץ פרטים, המלצות או חיבור למערכת של העסק, אבל עושים את זה בזהירות.
+      </p>
+      <p className="mt-3 text-base leading-7 text-zinc-300">
+        מחפשים כלי שפועל בתוך סביבת AI ולא תוסף שמותקן בדפדפן? <Link className="editorial-link" href="/services/custom-ai-plugins-mcp-workspaces">פיתוח פלאגינים אישיים ושרתי MCP</Link> הוא מסלול נפרד לחיבור מידע, הוראות וכלים. בוחרים את הסביבה לפי המשימה, ההרשאות והמשתמשים, ואפשר לשלב בין המסלולים כשיש צורך מוגדר.
       </p>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <div className="rounded-lg border border-purple-200/12 bg-black/18 p-4">

@@ -43,7 +43,6 @@ const footerGroups: FooterGroup[] = [
       { label: "CheckLink.ai", href: "https://checklink.ai" },
       { label: "בודק האתרים של נביא נס", href: "https://analyze.navines.com" },
       { label: "כלים שימושיים בעברית", href: "/tools" },
-      { label: "מרכז כלי נביא נס לדפדפן", href: "https://chromewebstore.google.com/detail/navines-tools-hub/ickjjfnfhmednmejidkphbcjdmlgjdpd" },
     ],
   },
   {
