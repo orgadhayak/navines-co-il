@@ -16,13 +16,13 @@ async function listFiles(directory) {
 const [siteData, solutionData, blogPage, servicePage, servicesPage, solutionPage, homePage, aboutPage, noiseProductPage, seoSource, siteAssistant, nextConfig, sitemapSource, robotsSource, llmsSource] = await Promise.all([
   read("src/data/site.ts"),
   read("src/data/solutions.ts"),
-  read("src/app/blog/[slug]/page.tsx"),
-  read("src/app/services/[slug]/page.tsx"),
-  read("src/app/services/page.tsx"),
-  read("src/app/solutions/[slug]/page.tsx"),
-  read("src/app/page.tsx"),
-  read("src/app/about/page.tsx"),
-  read("src/app/products/navines-noise/page.tsx"),
+  read("src/app/(he)/blog/[slug]/page.tsx"),
+  read("src/app/(he)/services/[slug]/page.tsx"),
+  read("src/app/(he)/services/page.tsx"),
+  read("src/app/(he)/solutions/[slug]/page.tsx"),
+  read("src/app/(he)/page.tsx"),
+  read("src/app/(he)/about/page.tsx"),
+  read("src/app/(he)/products/navines-noise/page.tsx"),
   read("src/lib/seo.ts"),
   read("src/app/api/site-assistant/route.ts"),
   read("next.config.ts"),
@@ -205,6 +205,28 @@ includes(sitemapSource, "staticLastModified.get(path)", "Per-static-page sitemap
 
 if (process.env.SEO_TEST_BASE_URL) {
   const baseUrl = process.env.SEO_TEST_BASE_URL.replace(/\/$/, "");
+  const localeRoutes = [
+    ["/", "he-IL", "rtl"],
+    ["/de", "de-DE", "ltr"],
+    ["/jp", "ja-JP", "ltr"],
+    ["/ar", "ar", "rtl"],
+    ["/hi", "hi-IN", "ltr"],
+    ["/fr", "fr-FR", "ltr"],
+    ["/zh", "zh-CN", "ltr"],
+    ["/de/insights/ki-automatisierung-softwareentwicklung", "de-DE", "ltr"],
+    ["/ar/services/affiliate-program-platform", "ar", "rtl"],
+  ];
+  for (const [route, lang, dir] of localeRoutes) {
+    const response = await fetch(`${baseUrl}${route}`);
+    assert.equal(response.status, 200, `${route} must return HTTP 200`);
+    const html = await response.text();
+    const documentTag = html.match(/<html\b[^>]*>/i)?.[0] || "";
+    assert.match(documentTag, new RegExp(`\\blang="${lang}"`), `${route} document language`);
+    assert.match(documentTag, new RegExp(`\\bdir="${dir}"`), `${route} document direction`);
+    assert.match(html, /<title>[^<]+<\/title>/i, `${route} title`);
+    assert.match(html, /<link\b[^>]*rel="canonical"[^>]*>/i, `${route} canonical`);
+    assert.match(html, /<h1\b/i, `${route} H1`);
+  }
   const routes = [
     "/services/custom-ai-plugins-mcp-workspaces",
     "/blog/what-to-do-when-account-is-hacked",

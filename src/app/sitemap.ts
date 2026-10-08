@@ -29,10 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
   const blogLastModified = new Map(blogPosts.map((post) => [`/blog/${post.slug}`, new Date(post.updatedAt || post.publishedAt)]));
 
-  return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedSafetyToolsArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...localizedMusicServicePages, ...localizedMusicArticlePages, ...localizedRobloxServicePages, ...localizedRobloxArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => ({
-    url: `${site.url}${path}`,
-    lastModified: blogLastModified.get(path) || serviceLastModified.get(path) || solutionLastModified.get(path) || staticLastModified.get(path) || new Date(site.lastModified),
-    changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.7,
-  }));
+  return [...staticPages, ...localizedLandingPages, ...localizedToolsPages, ...localizedArticlePages, ...localizedSafetyToolsArticlePages, ...localizedAffiliateServicePages, ...localizedAffiliateArticlePages, ...localizedFinancialReviewServicePages, ...localizedFinancialReviewArticlePages, ...localizedMusicServicePages, ...localizedMusicArticlePages, ...localizedRobloxServicePages, ...localizedRobloxArticlePages, ...servicePages, ...coursePages, ...solutionPagePaths, ...blogPages].map((path) => {
+    const lastModified = blogLastModified.get(path) || serviceLastModified.get(path) || solutionLastModified.get(path) || staticLastModified.get(path);
+
+    return {
+      url: `${site.url}${path}`,
+      ...(lastModified ? { lastModified } : {}),
+    };
+  });
 }

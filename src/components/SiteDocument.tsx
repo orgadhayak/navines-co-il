@@ -1,14 +1,14 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_Hebrew } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { FloatingContact } from "@/components/FloatingContact";
+import { Analytics } from "@vercel/analytics/next";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+import { FloatingContact } from "@/components/FloatingContact";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { LocaleDocument } from "@/components/LocaleDocument";
+import type { LocaleMeta } from "@/i18n/locales";
 import { localBusinessSchema, organizationSchema, websiteSchema } from "@/lib/seo";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
 
 const hebrewFont = Noto_Sans_Hebrew({
   subsets: ["hebrew"],
@@ -22,9 +22,7 @@ const latinFont = Inter({
   variable: "--font-latin",
 });
 
-export const revalidate = 3600;
-
-export const metadata: Metadata = {
+export const siteMetadata: Metadata = {
   metadataBase: new URL("https://www.navines.co.il"),
   applicationName: "נביא נס ישראל בע״מ",
   title: {
@@ -34,8 +32,8 @@ export const metadata: Metadata = {
   description: "נביא נס ישראל בע״מ מתכננת ומפתחת מערכות תוכנה, פתרונות בינה מלאכותית, אוטומציות, אתרים, מסחר דיגיטלי ותשתיות לעסקים.",
   keywords: ["נביא נס ישראל בע\"מ", "Navines", "בינה מלאכותית לעסקים", "אוטומציה", "בניית אתרים", "איקומרס", "תשתיות דיגיטליות", "קידום אורגני"],
   authors: [{ name: "נביא נס ישראל בע\"מ" }],
-  creator: "נביא נס ישראל בע\"מ",
-  publisher: "נביא נס ישראל בע\"מ",
+  creator: "נביא נס ישראל בע״מ",
+  publisher: "נביא נס ישראל בע״מ",
   icons: {
     icon: [{ url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" }],
     shortcut: [{ url: "/icon.jpg", type: "image/jpeg" }],
@@ -58,7 +56,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
+export const siteViewport: Viewport = {
   themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
@@ -66,19 +64,16 @@ export const viewport: Viewport = {
 
 const enableVercelAnalytics = process.env.VERCEL === "1";
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const initialTheme = "dark";
-
+export function SiteDocument({ children, locale }: Readonly<{ children: React.ReactNode; locale: LocaleMeta }>) {
   return (
-    <html className={initialTheme === "dark" ? "theme-dark" : "theme-light"} dir="rtl" lang="he-IL">
-      <head />
+    <html className="theme-dark" dir={locale.dir} lang={locale.lang}>
       <body className={`${hebrewFont.variable} ${latinFont.variable}`}>
         <JsonLd data={[organizationSchema, localBusinessSchema, websiteSchema]} />
         <LocaleDocument />
-        <Header initialLocale="he" initialTheme={initialTheme} />
+        <Header initialLocale={locale.slug} initialTheme="dark" />
         <main id="main">{children}</main>
-        <Footer locale="he" showCta={false} />
-        <FloatingContact locale="he" />
+        <Footer locale={locale.slug} showCta={false} />
+        <FloatingContact locale={locale.slug} />
         <AnalyticsEvents />
         {enableVercelAnalytics ? <Analytics /> : null}
       </body>
