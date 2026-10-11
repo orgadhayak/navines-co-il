@@ -56,6 +56,7 @@ for (const slug of ["api-integrations", "chatgpt-ai-agents-business"]) {
 }
 
 const hackPost = segment(siteData, "what-to-do-when-account-is-hacked");
+const ownedWorkspacePost = segment(siteData, "build-your-own-business-workspace");
 const invoicePost = segment(siteData, "ai-invoice-scanning-and-filtering");
 const mobileAppPost = segment(siteData, "mobile-app-service-guide");
 const aiChatService = segment(siteData, "ai-chat-for-websites");
@@ -75,6 +76,10 @@ const accountantsSolution = segment(solutionData, "accountants");
 const freelancersSolution = segment(solutionData, "freelancers");
 
 includes(hackPost, "metaDescription:", "Hack article metadata");
+for (const term of ["metaTitle:", "metaDescription:", "relatedSlugs:", "האם הקוד שייך לעסק אוטומטית?"]) {
+  includes(ownedWorkspacePost, term, "Owned workspace article metadata and guardrails");
+}
+includes(homePage, "/blog/build-your-own-business-workspace", "Homepage owned workspace article link");
 includes(invoicePost, 'metaTitle: "סינון חשבוניות עם AI: סריקה, חילוץ ואימות"', "Invoice metadata");
 includes(invoicePost, 'updatedAt: "2026-09-22"', "Invoice article updated date");
 includes(invoicePost, "אפשר לחבר את הנתונים ל־Morning, SUMIT, ריווחית או Priority?", "Invoice integration FAQ");
@@ -140,7 +145,7 @@ includes(blogPage, 'href="/blog/connect-any-software-chatgpt-custom-connector"',
 includes(blogPage, "שלבי בניית אפליקציה סלולרית לעסק", "Mobile app development steps");
 includes(blogPage, "https://app.sumit.co.il/developers/api/", "Official SUMIT API source");
 includes(blogPage, "https://tevelsoft.co.il/nesher-pro.asp", "Neshar and Shamayit integration source");
-includes(homePage, "המערכות שלכם, תשובות מתוך הנתונים", "Homepage integration benefit");
+includes(homePage, "סביבת עבודה שגדלה עם העסק שלכם", "Homepage owned workspace positioning");
 assert.ok(!homePage.includes("סמית או סאמיט"), "Homepage must not repeat spelling variants for search engines");
 includes(solutionPage, "עצם קיום API אצל הספק אינו אומר שקיים חיבור מוכן", "Rivhit capability limitation");
 includes(siteData, "בדיקת היתכנות לחיבור ריווחית, iCount וחשבשבת", "Rivhit service directory qualification");
@@ -228,6 +233,7 @@ if (process.env.SEO_TEST_BASE_URL) {
     assert.match(html, /<h1\b/i, `${route} H1`);
   }
   const routes = [
+    "/blog/build-your-own-business-workspace",
     "/services/custom-ai-plugins-mcp-workspaces",
     "/blog/what-to-do-when-account-is-hacked",
     "/services/account-hack-recovery",

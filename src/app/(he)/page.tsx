@@ -179,20 +179,21 @@ export default function HomePage() {
       <section className="feature-band">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8 lg:py-20">
           <div>
-            <p className="section-eyebrow">שירות מוביל</p>
-            <h2>המערכות שלכם, תשובות מתוך הנתונים</h2>
-            <p>מערכת החשבוניות, ניהול הלקוחות או המלאי כבר מחזיקות מידע חשוב. אנחנו בודקים איך לחבר אותו ל־ChatGPT, כדי שאפשר יהיה לשאול על נתונים במקום לחפש ידנית בכמה מסכים. החיבור נבחן לפי המערכת, יכולות ה־API וההרשאות, ולא לפי הבטחה שכל תוכנה תתחבר אוטומטית.</p>
+            <p className="section-eyebrow">מהחיבור הראשון לנכס עסקי</p>
+            <h2>סביבת עבודה שגדלה עם העסק שלכם</h2>
+            <p>אנחנו בית תוכנה: מציעים גם מוצרים מוכנים בדמי שימוש וגם פיתוח מערכות וסביבות עבודה לפי צורכי העסק. כשהעבודה מתפזרת בין חשבוניות, לקוחות, מלאי וקבצים, נבדוק מה כבר עובד, מה כדאי לחבר ומה נכון לבנות עבורכם. לא חייבים להחליף הכול כדי להתחיל להתקדם.</p>
+            <p>אפשר להתחיל בתהליך אחד ולהוסיף יכולות לאורך זמן, עם הרשאות ובקרה שמשאירות את ההחלטות בידי הצוות. בפיתוח ייעודי מגדירים מראש בהסכם את הגישה לקוד ולנתונים, התיעוד ותנאי הזכויות, כדי שהמערכת תוכל להתפתח יחד עם העסק.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">חיבור חשבונית אונליין ומערכות</Link>
-              <Link className="btn-secondary" href="/services/api-integrations">פיתוח Connector מותאם</Link>
-              <Link className="btn-secondary" href="/services/chatgpt-ai-agents-business">בניית סוכן AI לעסק</Link>
-              <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לצפייה ב־TalkToData</a>
+              <Link className="btn-primary" href="/services/web-development">לבניית מערכת מותאמת</Link>
+              <Link className="btn-secondary" href="/blog/build-your-own-business-workspace">מתי בונים סביבת עבודה משלכם?</Link>
+              <Link className="btn-secondary" href="/services/business-systems-chatgpt-integration">לחיבור מערכות קיימות</Link>
+              <Link className="btn-secondary" href="/products">למוצרים שלנו</Link>
             </div>
           </div>
           <dl className="feature-specs">
-            <div><dt>חיבור</dt><dd>NAVINES Bridge דרך API, Webhook, מסד נתונים, קבצים, Plugin או ממשק מורשה, בלי להחליף אוטומטית את המערכת הקיימת.</dd></div>
-            <div><dt>שימוש</dt><dd>שאלות בעברית על חשבוניות, לקוחות, מכירות או מלאי, בהתאם למקורות שאושרו ולנתונים שהחיבור יכול לקרוא.</dd></div>
-            <div><dt>שליטה</dt><dd>הרשאות, מקורות, לוגים ואישור אנושי לפני פעולות רגישות או בלתי הפיכות.</dd></div>
+            <div><dt>מתחילים</dt><dd>ממפים תהליך אחד ובודקים אם כלי קיים, חיבור מורשה או פיתוח מותאם הוא הצעד הנכון.</dd></div>
+            <div><dt>בונים</dt><dd>מסכים, נתונים והרשאות סביב הדרך שבה הצוות עובד, בלי להעתיק מידע רגיש למקום נוסף ללא צורך.</dd></div>
+            <div><dt>גדלים</dt><dd>מוסיפים יכולות בשלבים, עם קוד מתועד, גישה מוסדרת למאגר ותוכנית תחזוקה.</dd></div>
           </dl>
         </div>
       </section>

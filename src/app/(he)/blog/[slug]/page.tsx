@@ -196,6 +196,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
   const related = getRelatedPosts(post.slug);
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
+  const isOwnedWorkspacePost = post.slug === "build-your-own-business-workspace";
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
   const isBusinessAutomationPost = post.slug === "business-automation-start";
   const isInvoiceScanningPost = post.slug === "ai-invoice-scanning-and-filtering";
@@ -322,10 +323,15 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isAgiConsolePost ? <AgiConsoleArticleBody /> : isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isOwnedWorkspacePost ? <OwnedWorkspaceArticleBody /> : isAgiConsolePost ? <AgiConsoleArticleBody /> : isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
-      {isMusicDistributionPost ? (
+      {isOwnedWorkspacePost ? (
+        <CTA
+          title="רוצים לבנות סביבת עבודה שמתאימה לעסק שלכם?"
+          text="ספרו לנו איזה תהליך חשוב מתפזר היום בין מערכות, מה כבר עובד ומה חסר. נבדוק אם כדאי להשאיר כלי קיים, לחבר אותו או להתחיל לפתח רכיב מותאם שאפשר להרחיב."
+        />
+      ) : isMusicDistributionPost ? (
         <CTA
           title="רוצים להוציא את המוזיקה שלכם בצורה מסודרת?"
           text="שלחו לנו מה כבר מוכן, אילו פרופילים קיימים ומה תאריך היציאה הרצוי. נבדוק יחד את ההפצה, המטא־דאטה, הנכסים הרשמיים ותוכנית ההשקה."
@@ -3136,6 +3142,49 @@ function BusinessSystemsChatGptArticleBody() {
         <Link className="btn-primary" href="/services/business-systems-chatgpt-integration">לחיבור מערכות ל־ChatGPT</Link>
         <Link className="btn-secondary" href="/services/api-integrations">לפיתוח Connector מותאם</Link>
         <Link className="btn-secondary" href="/blog/connect-any-software-chatgpt-custom-connector">למדריך חיבור בלי API מוכן</Link>
+      </div>
+    </div>
+  );
+}
+
+function OwnedWorkspaceArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-glowred">
+      <h2>התוכנות לא הבעיה. התהליך שנכפה על העסק הוא הבעיה</h2>
+      <p>מערכת חשבוניות טובה, כלי לניהול לקוחות וחנות מוכנה יכולים לעזור לעסק להתחיל מהר. אין סיבה לבנות מחדש יכולת קיימת רק כדי לומר שהכול פותח במיוחד. אבל עם הזמן מתגלה לפעמים שהצוות עובד בשביל התוכנות: אותו לקוח מוזן בכמה מקומות, סטטוס של הזמנה עובר בהודעה ידנית, ודוח חשוב תלוי באדם שיודע לחבר קבצים.</p>
+      <p>ברגע הזה כדאי לשנות את השאלה. במקום לשאול איזו תוכנה נוספת לקנות, שואלים מהו תהליך העבודה שהעסק רוצה לשלוט בו גם בעוד שלוש שנים. התשובה יכולה להיות חיבור בין כלים קיימים, מערכת פנימית קטנה או סביבת עבודה רחבה יותר. לא כל עסק צריך לפתח מוצר משלו, אבל עסק עם תהליך ייחודי לא חייב להתאים את עצמו לנצח לתפריטים של ספק חיצוני.</p>
+
+      <h2>מוצר מוכן, חיבור או פיתוח ייעודי?</h2>
+      <p>כבית תוכנה, נביא נס ישראל בע״מ פועלת בשני המסלולים: אנחנו מפתחים <Link href="/products">מוצרים מוכנים לשימוש</Link> וגם בונים מערכות מותאמות ללקוחות. מוצר בדמי שימוש מתאים לצורך שחוזר אצל עסקים רבים, מאפשר להתחיל מהר ומגיע עם תחזוקה של המוצר. כאשר תהליך הליבה ייחודי לעסק, פיתוח ייעודי יכול לתת לצוות ממשק והרשאות שמתאימים לו. לעיתים הפתרון הנכון הוא שילוב: מוצר קיים לפעולה מסוימת וסביבת עבודה מותאמת שמחברת את התהליך כולו.</p>
+      <p>לא בוחרים מסלול לפי סיסמה של "הכול אצלנו" או "הכול בהתאמה אישית". מתחילים מהעבודה בשטח, מהאנשים שיפעילו את המערכת ומהמגבלות הטכניות של הכלים הקיימים. איש מקצוע ממשיך לקבל החלטות מקצועיות; המערכת עוזרת לו לראות מידע מורשה, לעקוב אחרי משימות ולהפחית עבודה חוזרת.</p>
+
+      <h2>מה הופך סביבת עבודה לנכס עסקי?</h2>
+      <p>סביבת עבודה מותאמת מחברת בין האנשים, הפעולות והמידע שהעסק באמת צריך: פנייה שמגיעה מהאתר, תיק לקוח, משימה, הזמנה, מסמך וסטטוס טיפול. לכל תפקיד רואים רק את מה שמותר לו לראות, וכל שלב משאיר תיעוד שאפשר לבדוק. הממשק אינו חייב להחזיק פיזית את כל הנתונים. אפשר להשאיר מקור אמת במערכת חשבוניות או בחנות, ולהציג מידע מורשה במקום שממנו הצוות עובד.</p>
+      <p>הנכס הוא לא רק מסך יפה. הוא כולל הגדרת תהליך, מודל נתונים, קוד שניתן לתחזק, בדיקות, תיעוד ותוכנית להוספת יכולות. כשהעסק גדל, אפשר להוסיף מסלול אישור, פורטל לקוחות, מדידה, אוטומציה או שכבת AI בלי להתחיל שוב מאפס בכל פעם.</p>
+
+      <h2>לא עוד חיבור מקרי, אלא החלטה על הליבה</h2>
+      <p><Link href="/services/api-integrations">חיבור API או Connector מורשה</Link> הוא לעיתים הצעד הנכון ביותר. הוא מאפשר להפיק ערך מהמערכות שכבר פועלות בלי להחליף אותן. <Link href="/services/business-systems-chatgpt-integration">שיחה עם נתונים עסקיים</Link> יכולה להוסיף שכבת גישה נוחה לשאלות חוזרות. אבל כאשר אותו תהליך מרכזי נמתח בין יותר מדי כלים, כדאי לבדוק אם חלק ממנו צריך להפוך לליבה משלכם.</p>
+      <p>למשל, עסק שירות יכול להשאיר את החשבוניות במערכת ייעודית, אך לנהל במערכת מותאמת את הפנייה, התיאום, המשימה, המסמכים והמעקב מול הלקוח. מפעל יכול להשאיר ERP קיים ולבנות סביבו תצוגת עבודה לצוות שטח. אלו דוגמאות לתכנון אפשרי, לא תיאור של פרויקט שהושלם או הבטחה שכל מערכת ניתנת לחיבור.</p>
+
+      <h2>בעלות אמיתית מתחילה בהסכם ובגישה</h2>
+      <p>המילים "המערכת שלכם" צריכות לקבל משמעות מעשית לפני תחילת הפיתוח. חשוב להגדיר בהסכם מי מחזיק בזכויות בקוד שנכתב לפרויקט, מי מקבל גישה למאגר הקוד ולסביבת ההפעלה, איך מוסרים תיעוד, מהו מסלול ייצוא הנתונים ומה קורה אם מחליפים ספק תחזוקה. רכיבי קוד פתוח, שירותי ענן, ממשקי API ומוצרים מורשים של צד שלישי כפופים לתנאים שלהם; פיתוח מותאם אינו מבטל את התלות בהם אוטומטית.</p>
+      <p>המטרה היא לצמצם תלות מיותרת ולשמור יכולת החלטה. אפשר לתכנן כך שהנתונים ניתנים לייצוא, שהקוד מתועד ושאדם נוסף יוכל להבין כיצד מפעילים וממשיכים את המערכת. זה דורש תחזוקה, אבטחה ותקציב לאורך זמן, ולכן צריך להשוות את ההשקעה לערך של התהליך ולא רק למחיר מנוי חודשי.</p>
+
+      <h2>איך מתחילים בלי להמר על מערכת ענקית?</h2>
+      <ol>
+        <li><strong>ממפים תהליך אחד:</strong> מי עושה מה, היכן הנתון נוצר, היכן הוא נתקע ואיזה מידע באמת נחוץ.</li>
+        <li><strong>משווים חלופות:</strong> כלי מדף מתאים, <Link href="/blog/connect-any-software-chatgpt-custom-connector">חיבור מורשה</Link> או פיתוח חלק מותאם. בודקים גם עלות תחזוקה וסיכון.</li>
+        <li><strong>בונים גרעין קטן:</strong> מסך או תהליך אחד עם הרשאות, בדיקות ומדד שימוש ברור, בלי להעביר בבת אחת את כל המידע.</li>
+        <li><strong>מסדירים בעלות ותפעול:</strong> קוד, גישה, תיעוד, גיבוי, ייצוא נתונים, אחריות ותנאי העברה מוגדרים מראש.</li>
+        <li><strong>מרחיבים לפי צורך:</strong> מוסיפים יכולת רק אחרי שהשלב הראשון עובד ומסייע לצוות בפועל.</li>
+      </ol>
+      <p>אפשר להוסיף אוטומציה או AI כשיש משימה מדויקת ונתונים אמינים. הם אינם מחליפים הגדרת תהליך והרשאות. <Link href="/blog/business-automation-start">המדריך לאוטומציה עסקית</Link> מסביר איך לזהות פעולה חוזרת שכדאי להתחיל ממנה.</p>
+
+      <h2>הצעד הבא: לבנות יכולת, לא רק לרכוש עוד כלי</h2>
+      <p>נביא נס ישראל בע״מ מאפיינת, מפתחת ומלווה פתרונות תוכנה לאורך זמן. בשיחה הראשונה נרצה להבין מה כבר עובד, מה גורם לעבודה כפולה ואיזו יכולת תשנה את היום של הצוות. אפשר להתחיל בבעיה אחת, לבדוק מוצר קיים או חיבור מורשה, ורק כשהצורך מצדיק זאת לבנות סביבת עבודה שהעסק יוכל לפתח בקצב שלו.</p>
+      <div className="not-prose mt-8 flex flex-wrap gap-3">
+        <Link className="btn-primary" href="/services/web-development">לפיתוח מערכת מותאמת</Link>
+        <Link className="btn-secondary" href="/services/api-integrations">לבדיקת חיבור למערכות קיימות</Link>
       </div>
     </div>
   );
