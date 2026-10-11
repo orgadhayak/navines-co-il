@@ -198,6 +198,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="border-y" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }} aria-labelledby="bumpers-case-study-title">
+        <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <div className="max-w-4xl">
+            <p className="section-eyebrow">פיתוח שנראה גם מחוץ למערכת</p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="bumpers-case-study-title">Bumpers: אתר מסחר, Club ומותג שעובדים יחד</h2>
+            <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>פיתוח של עסק אינו רק אתר יפה או כלי אחד. עבור Bumpers נבנו שכבות שונות לקהלים ולרגעים שונים: אתר קניות ישראלי לציבור, Bumpers Club כאזור נפרד לחברי המותג, ופלטפורמה תאגידית ו־B2B לעבודה מול שווקים ושותפים. כל שכבה משרתת צורך אחר, אך כולן שומרות על שפה ומסלול ברור.</p>
+          </div>
+          <div className="mt-9 grid gap-5 border-y py-5 md:grid-cols-3" style={{ borderColor: "var(--border)" }}>
+            <article className="min-w-0 md:border-l md:pl-5" style={{ borderColor: "var(--border)" }}>
+              <p className="english-tech text-xs font-semibold text-glowred">ECOMMERCE</p>
+              <h3 className="mt-2 text-xl font-semibold">Bumpers ישראל</h3>
+              <p className="mt-2 leading-7" style={{ color: "var(--text-muted)" }}>חנות ציבורית שמציגה מוצרים, מידע, בחירה ורכישה לקהל הישראלי.</p>
+              <a className="mt-4 inline-flex text-sm font-semibold text-glowred" href="https://www.bumpersisrael.com/" rel="noopener noreferrer" target="_blank">לפתיחת האתר</a>
+            </article>
+            <article className="min-w-0 md:border-l md:pl-5" style={{ borderColor: "var(--border)" }}>
+              <p className="english-tech text-xs font-semibold text-glowred">MEMBER EXPERIENCE</p>
+              <h3 className="mt-2 text-xl font-semibold">Bumpers Club</h3>
+              <p className="mt-2 leading-7" style={{ color: "var(--text-muted)" }}>אזור נפרד שמרחיב את החוויה מעבר לרכישה, עם כניסה לחברי המותג ושירותים המוצגים בו.</p>
+              <a className="mt-4 inline-flex text-sm font-semibold text-glowred" href="https://club.bumpersisrael.com/" rel="noopener noreferrer" target="_blank">לפתיחת ה־Club</a>
+            </article>
+            <article className="min-w-0">
+              <p className="english-tech text-xs font-semibold text-glowred">GLOBAL & B2B</p>
+              <h3 className="mt-2 text-xl font-semibold">Bumpers Comfort Ltd</h3>
+              <p className="mt-2 leading-7" style={{ color: "var(--text-muted)" }}>פלטפורמה תאגידית שמארגנת את המותג, השווקים והמסלולים העסקיים במקור ציבורי אחד.</p>
+              <Link className="mt-4 inline-flex text-sm font-semibold text-glowred" href="/blog/global-brand-b2b-platform-bumpers-case-study">למקרה הבוחן</Link>
+            </article>
+          </div>
+          <p className="mt-5 text-sm leading-6" style={{ color: "var(--text-soft)" }}>Bumpers בחרה להציג את הפרויקטים הציבוריים האלה. לקוחות אחרים ויכולות שאינן מיועדות לפרסום נשארים חסויים.</p>
+        </div>
+      </section>
+
       <section className="border-b" style={{ borderColor: "var(--border)", background: "var(--surface-soft)" }} aria-labelledby="autonomous-seo-home-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-16">
           <div>

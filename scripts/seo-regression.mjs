@@ -146,6 +146,8 @@ includes(blogPage, "שלבי בניית אפליקציה סלולרית לעסק
 includes(blogPage, "https://app.sumit.co.il/developers/api/", "Official SUMIT API source");
 includes(blogPage, "https://tevelsoft.co.il/nesher-pro.asp", "Neshar and Shamayit integration source");
 includes(homePage, "סביבת עבודה שגדלה עם העסק שלכם", "Homepage owned workspace positioning");
+includes(homePage, "Bumpers Club", "Homepage public Bumpers Club case study");
+includes(homePage, "https://www.bumpersisrael.com/", "Homepage public Bumpers Israel link");
 assert.ok(!homePage.includes("סמית או סאמיט"), "Homepage must not repeat spelling variants for search engines");
 includes(solutionPage, "עצם קיום API אצל הספק אינו אומר שקיים חיבור מוכן", "Rivhit capability limitation");
 includes(siteData, "בדיקת היתכנות לחיבור ריווחית, iCount וחשבשבת", "Rivhit service directory qualification");

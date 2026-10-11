@@ -747,16 +747,17 @@ function GlobalBrandServiceContent({ service }: { service: (typeof services)[num
         </div>
       </Section>
 
-      <Section eyebrow="פרויקט חי של נביא נס" title="Bumpers Comfort Ltd, ממותג ישראלי לפלטפורמת שותפים גלובלית" className="py-8 lg:py-12">
+      <Section eyebrow="פרויקט חי של נביא נס" title="Bumpers: מחנות ישראלית ו־Club ועד פלטפורמת שותפים גלובלית" className="py-8 lg:py-12">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="text-lg leading-8" style={{ color: "var(--text-muted)" }}>
-              נביא נס בנתה עבור Bumpers Comfort Ltd פלטפורמה תאגידית ו-B2B בינלאומית שמציגה את החברה, המותג, המוצרים, השווקים, ערוצי המכירה והזדמנויות השותפות במקום רשמי אחד.
+              נביא נס מפתחת עבור Bumpers נכסים דיגיטליים שונים שעובדים יחד: אתר מסחר ישראלי לציבור, Bumpers Club כאזור נפרד לחברי המותג, ופלטפורמה תאגידית ו־B2B בינלאומית שמציגה את החברה, המותג, השווקים וערוצי השותפות במקום רשמי אחד.
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
                 "אתר תאגידי שאינו מעבד הזמנות צרכניות",
                 "הפניה לערוצי קנייה רשמיים ונפרדים",
+                "חנות ישראלית לקהל הצרכני ו־Club נפרד לחברי המותג",
                 "מסלולי wholesale, distribution, retail, marketplaces, hospitality, corporate ו-media",
                 "טופס פנייה עסקי שמסווג שוק, ערוץ והזדמנות",
                 "עמודי שווקים, משאבים, Academy, Support, Research, Partner Success ו-Insights",
@@ -764,13 +765,15 @@ function GlobalBrandServiceContent({ service }: { service: (typeof services)[num
               ].map((item) => <li className="border-t pt-3 text-base leading-7" key={item} style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>{item}</li>)}
             </ul>
             <p className="mt-5 text-sm leading-6" style={{ color: "var(--text-soft)" }}>
-              הנתונים מתארים את מבנה הפלטפורמה החיה במועד הבדיקה ביולי 2026 ואינם טענה לתוצאה מסחרית.
+              התיאור מתייחס רק למבנה הציבורי שניתן לראות באתרים החיים ואינו טענה לתוצאה מסחרית.
             </p>
             <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>
-              האתר והמותג שייכים ל-Bumpers Comfort Ltd. הפרויקט מוצג כדוגמה לעבודת הדיגיטל והפיתוח של נביא נס.
+              האתרים והמותג שייכים ל־Bumpers. הפרויקטים מוצגים כדוגמה לעבודת הדיגיטל והפיתוח של נביא נס; מידע פנימי, נתוני מכירות ויכולות שאינן מיועדות לפרסום אינם מוצגים כאן.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a aria-label="צפייה באתר Bumpers Comfort Ltd החי, נפתח בחלון חדש" className="btn-secondary" href="https://www.bumperscomfortltd.com/" rel="noopener noreferrer" target="_blank">לצפייה בפרויקט החי</a>
+              <a aria-label="צפייה באתר Bumpers ישראל, נפתח בחלון חדש" className="btn-secondary" href="https://www.bumpersisrael.com/" rel="noopener noreferrer" target="_blank">לאתר Bumpers ישראל</a>
+              <a aria-label="צפייה ב־Bumpers Club, נפתח בחלון חדש" className="btn-secondary" href="https://club.bumpersisrael.com/" rel="noopener noreferrer" target="_blank">ל־Bumpers Club</a>
               <a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו על פלטפורמה דומה</a>
             </div>
           </div>
