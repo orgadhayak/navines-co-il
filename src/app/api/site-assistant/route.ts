@@ -124,11 +124,11 @@ const topics: Topic[] = [
     label: "לעמוד אתרים ומערכות",
   },
   {
-    keys: ["talktodata", "נתונים", "דאטה", "דוחות", "מיילים", "אימיילים", "chatgpt"],
+    keys: ["talktodata", "talktodata analytics", "נתונים", "דאטה", "דוחות", "מיילים", "אימיילים", "chatgpt", "ga4", "google analytics", "גוגל אנליטיקס", "פלאגין אנליטיקס"],
     answer:
-      "TalkToData מאפשר לעסק לדבר עם נתונים, דוחות ואימיילים בשפה פשוטה. אפשר לבדוק חיבור לחנות, מערכת לקוחות, מלאי, מיילים או API עסקי בצורה מאובטחת ומסודרת.",
-    href: "/services/chatgpt-business-data",
-    label: "לעמוד TalkToData",
+      "TalkToData Analytics הוא פלאגין ציבורי של NAVINES בתוך ChatGPT. הוא מחבר נכס Google Analytics 4 מאושר לחמישה כלי קריאה בלבד עבור תנועה, מקורות רכישה, עמודים, מכשירים וסיכום שבעה ימים. אפשר לשאול בעברית או בשפת העבודה, להפוך ממצא לתדריך מסודר ולהעביר אותו לאדם או לסוכן קוד מורשה. הפלאג עצמו אינו משנה את Analytics או את האתר.",
+    href: "/blog/talktodata-analytics-chatgpt-plugin",
+    label: "למדריך TalkToData Analytics",
   },
   {
     keys: ["beacon", "ביקון", "ניטור"],
@@ -196,6 +196,7 @@ const siteContext = `
 • AI ואוטומציה: /services/ai-automation
 • צ׳ט AI חכם לאתרים: /services/ai-chat-for-websites
 • TalkToData וחיבור נתונים אל ChatGPT: /services/chatgpt-business-data
+• פלאגין TalkToData Analytics ל־GA4 בתוך ChatGPT: /blog/talktodata-analytics-chatgpt-plugin
 • Navines Beacon וכלים: /products
 • קורסי AI לילדים ולבוגרים: /courses
 • פתרונות למוכרי Amazon: /solutions/amazon-sellers

@@ -195,6 +195,8 @@ assert.ok(!homePage.toLocaleLowerCase("he").includes("נס ai"), "Homepage must 
 includes(blogPage, "<h1", "Blog article H1");
 includes(servicePage, 'titleAs="h1"', "Service H1");
 includes(solutionPage, 'titleAs="h1"', "Solution H1");
+includes(homePage, 'href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b"', "TalkToData Analytics homepage destination");
+includes(blogPage, 'isTalkToDataAnalyticsPost ? <TalkToDataAnalyticsArticleBody />', "TalkToData Analytics dedicated article body");
 includes(seoSource, "canonical: url", "Self canonical support");
 includes(seoSource, "index: true", "Indexable metadata");
 includes(noiseProductPage, 'const productUrl = "https://seo.navines.com/he/";', "Hebrew NAVINES NOISE product destination");
@@ -235,6 +237,7 @@ if (process.env.SEO_TEST_BASE_URL) {
     assert.match(html, /<h1\b/i, `${route} H1`);
   }
   const routes = [
+    "/blog/talktodata-analytics-chatgpt-plugin",
     "/blog/build-your-own-business-workspace",
     "/services/custom-ai-plugins-mcp-workspaces",
     "/blog/what-to-do-when-account-is-hacked",

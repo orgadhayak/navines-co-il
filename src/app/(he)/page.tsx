@@ -22,7 +22,7 @@ const capabilityGroups = [
   {
     title: "AI, נתונים ואוטומציה",
     text: "חיבור מידע, מערכות ומשימות לכלים חכמים שמקצרים עבודה ידנית ועוזרים לקבל החלטות מהר יותר.",
-    links: [["AI ואוטומציה", "/services/ai-automation"], ["Connector ו־API מותאם", "/services/api-integrations"], ["מדריך לחיבור כל תוכנה", "/blog/connect-any-software-chatgpt-custom-connector"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["קידום במנועי AI ו־ChatGPT", "/services/ai-search-visibility-geo"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
+    links: [["AI ואוטומציה", "/services/ai-automation"], ["פלאגין TalkToData Analytics", "/blog/talktodata-analytics-chatgpt-plugin"], ["Connector ו־API מותאם", "/services/api-integrations"], ["מדריך לחיבור כל תוכנה", "/blog/connect-any-software-chatgpt-custom-connector"], ["מדריך לאוטומציה עסקית", "/blog/business-automation-start"], ["סריקת חשבוניות עם AI", "/blog/ai-invoice-scanning-and-filtering"], ["חשבונית אונליין ומורנינג ל־ChatGPT", "/services/business-systems-chatgpt-integration"], ["סוכני AI לעסקים", "/services/chatgpt-ai-agents-business"], ["סוכן SEO אוטונומי", "/services/autonomous-seo-agent-search-console-chatgpt"], ["קידום במנועי AI ו־ChatGPT", "/services/ai-search-visibility-geo"], ["צ׳ט AI לאתרים", "/services/ai-chat-for-websites"], ["מחקר החלטות וניסויים", "/services/website-decision-research-experiments"]],
   },
   {
     title: "מסחר ותשתיות דיגיטליות",
@@ -44,6 +44,17 @@ const homeBreadcrumbSchema = {
   itemListElement: [{ "@type": "ListItem", position: 1, name: site.name, item: site.url }],
 };
 
+const talkToDataAnalyticsSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TalkToData Analytics",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description: "פלאגין ChatGPT של NAVINES לניתוח נתוני Google Analytics 4 באמצעות חמישה כלי קריאה בלבד.",
+  url: "https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b",
+  author: { "@id": `${site.url}/#organization`, name: site.legalName },
+};
+
 function trimText(text: string, length = 150) {
   return text.length > length ? `${text.slice(0, length).trim()}...` : text;
 }
@@ -62,6 +73,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={homeBreadcrumbSchema} />
+      <JsonLd data={talkToDataAnalyticsSchema} />
 
       <section className="home-hero">
         <div className="home-hero-inner mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -87,6 +99,22 @@ export default function HomePage() {
       </section>
 
       <LanguageStrip current="he" title="נביא נס ישראל בע״מ בעולם" />
+
+      <section className="feature-band border-y" style={{ borderColor: "var(--border)" }} aria-labelledby="talktodata-analytics-launch-title">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:py-16">
+          <div className="max-w-4xl">
+            <p className="section-eyebrow">חדש ב־ChatGPT, מבית NAVINES</p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="talktodata-analytics-launch-title">TalkToData Analytics מחבר את Google Analytics 4 לשיחה אמיתית</h2>
+            <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>מתקינים את הפלאג ב־ChatGPT, מחברים נכס GA4 מאושר ושואלים בעברית, באנגלית או בשפת העבודה שלכם על תנועה, מקורות רכישה, עמודים ומכשירים. הפלאג משתמש בחמישה כלי קריאה בלבד ומציג את הנתונים בתוך ההקשר של השיחה.</p>
+            <p className="mt-3 leading-7" style={{ color: "var(--text-soft)" }}>מכאן אפשר להפוך ממצא מבוסס נתונים לתדריך מדויק: איזה עמוד לבדוק, מה לשפר, אילו קבצים מותר לשנות ואילו בדיקות חייבות לעבור. סוכן קוד מורשה יכול לבצע את העבודה בתהליך נפרד עם בדיקות ודיפלוי. הפלאג עצמו אינו משנה את Analytics או את האתר.</p>
+          </div>
+          <div className="flex flex-wrap gap-3 lg:grid">
+            <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">להתקנת TalkToData Analytics</a>
+            <Link className="btn-on-dark" href="/blog/talktodata-analytics-chatgpt-plugin">למדריך המלא</Link>
+            <Link className="editorial-link inline-flex items-center" href="/services/custom-ai-plugins-mcp-workspaces">לבניית פלאגין מותאם</Link>
+          </div>
+        </div>
+      </section>
 
       <Section eyebrow="היכולות שלנו" title="טכנולוגיה שמתחילה בצורך העסקי">
         <p className="section-lead">במקום למכור כלי אחד לכל בעיה, אנחנו בודקים מה צריך לעבוד טוב יותר ובונים את השילוב הנכון בין תוכנה, נתונים, אוטומציה ותשתית.</p>

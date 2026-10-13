@@ -12,6 +12,7 @@ const failures = [];
 const warnings = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 const removedExtension = /navines[\s-]+tools[\s-]+hub|ickjjfnfhmednmejidkphbcjdmlgjdpd|מרכז כלי נביא נס/iu;
+const jerusalemDate = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jerusalem", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 
 async function get(path, options) {
   return fetch(`${base}${path}`, { signal: AbortSignal.timeout(30000), ...options });
@@ -25,7 +26,7 @@ const urls = entries.map((entry) => entry.querySelector("loc").textContent);
 assert.equal(new Set(urls).size, urls.length, "Duplicate sitemap URLs");
 for (const entry of entries) {
   const modified = entry.querySelector("lastmod")?.textContent;
-  check(!modified || Date.parse(modified) <= Date.now(), `Future or invalid sitemap lastmod: ${modified}`);
+  check(!modified || (!Number.isNaN(Date.parse(modified)) && modified.slice(0, 10) <= jerusalemDate), `Future or invalid sitemap lastmod: ${modified}`);
 }
 
 const pages = new Map();
@@ -137,10 +138,10 @@ for (const path of pages.keys()) check(path === "/" || incoming.has(path), `Orph
 const contextualEdges = {
   "/services/browser-extension-development": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/blog/how-to-build-browser-extension-for-business": ["/services/browser-extension-development", "/services/custom-ai-plugins-mcp-workspaces"],
-  "/": ["/services/custom-ai-plugins-mcp-workspaces"],
+  "/": ["/services/custom-ai-plugins-mcp-workspaces", "/blog/talktodata-analytics-chatgpt-plugin"],
   "/services/api-integrations": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/services/chatgpt-ai-agents-business": ["/services/custom-ai-plugins-mcp-workspaces"],
-  "/services/custom-ai-plugins-mcp-workspaces": ["/services/api-integrations", "/services/chatgpt-ai-agents-business", "/blog/connect-any-software-chatgpt-custom-connector"],
+  "/services/custom-ai-plugins-mcp-workspaces": ["/services/api-integrations", "/services/chatgpt-ai-agents-business", "/blog/connect-any-software-chatgpt-custom-connector", "/blog/talktodata-analytics-chatgpt-plugin"],
   "/blog/mobile-app-service-guide": ["/services/mobile-app-development", "/services/api-integrations"],
   "/services/mobile-app-development": ["/blog/mobile-app-service-guide", "/services/api-integrations", "/services/web-development"],
   "/blog/ai-invoice-scanning-and-filtering": ["/solutions/accountants", "/services/ai-automation"],
@@ -148,8 +149,9 @@ const contextualEdges = {
   "/blog/accountants-ai-data-automation": ["/solutions/accountants", "/blog/ai-invoice-scanning-and-filtering"],
   "/blog/business-automation-start": ["/services/ai-automation", "/services/business-systems-chatgpt-integration", "/services/custom-ai-plugins-mcp-workspaces"],
   "/services/ai-automation": ["/blog/business-automation-start", "/blog/ai-invoice-scanning-and-filtering"],
-  "/services/chatgpt-business-data": ["/services/business-systems-chatgpt-integration"],
+  "/services/chatgpt-business-data": ["/services/business-systems-chatgpt-integration", "/blog/talktodata-analytics-chatgpt-plugin"],
   "/blog/talk-to-business-data-chatgpt": ["/services/business-systems-chatgpt-integration", "/services/chatgpt-business-data"],
+  "/blog/talktodata-analytics-chatgpt-plugin": ["/services/chatgpt-business-data", "/services/custom-ai-plugins-mcp-workspaces", "/blog/connect-any-software-chatgpt-custom-connector"],
 };
 for (const [path, targets] of Object.entries(contextualEdges)) {
   const links = pages.get(path)?.html.querySelectorAll("main a[href]") || [];
