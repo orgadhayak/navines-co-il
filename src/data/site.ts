@@ -356,7 +356,7 @@ export const services: Service[] = [
   {
     slug: "custom-ai-plugins-mcp-workspaces",
     title: "פיתוח פלאגינים אישיים, שרתי MCP וסביבות עבודה עם AI",
-    updatedAt: "2026-09-28",
+    updatedAt: "2026-10-14",
     metaTitle: "בניית פלאגינים אישיים ושרתי MCP לעסקים",
     metaDescription: "NAVINES מפתחת פלאגינים אישיים, שרתי MCP וסביבות עבודה עם AI: חיבור נתונים וכלים, הוראות עבודה, הרשאות ובדיקות. מתחילים מתהליך עסקי אחד ומדיד.",
     heroTitle: "פלאגינים אישיים ו־MCP לסביבת העבודה של העסק",
@@ -392,6 +392,7 @@ export const services: Service[] = [
       { title: "חיבור למערכות הקיימות", href: "/services/api-integrations", text: "משתמשים ב־API מורשה או ב־Connector מותאם. ללא API ציבורי נדרשת בדיקת ספק, גרסה והרשאה לייצוא או לממשק חלופי. לא עוקפים הגנות ולא מבטיחים חיבור לפני בדיקה." },
       { title: "דוגמה: דוח תפעול שבועי", text: "תרחיש אפשרי: קוראים הזמנות פתוחות ממקור מורשה, מרכזים חריגות ומכינים טיוטת משימות עם קישור למקור. עדכון ההזמנות עצמן נשאר פעולה נפרדת עם הרשאה ואישור מתאימים. זו דוגמת תכנון, לא תוצאת לקוח מוצגת." },
       { title: "מסביבת עבודה לסוכן ממוקד", href: "/services/chatgpt-ai-agents-business", text: "כשצריך תהליך רב־שלבי, מוסיפים סוכן עם תנאי עצירה, תקציב שימוש, טיפול בכשל ואישור לפעולות רגישות. תזמון ואוטונומיה הם רכיבים נפרדים שצריך לתכנן ולבדוק." },
+      { title: "מקרה חי: TalkToData Analytics", href: "/blog/talktodata-analytics-chatgpt-plugin", externalHref: "https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b", text: "פלאגין ציבורי של NAVINES בתוך ChatGPT שמחבר נכס Google Analytics 4 מאושר לחמישה כלי קריאה בלבד. הוא מדגים איך אורזים חיבור נתונים, הוראות ומגבלות למוצר שאפשר להתקין ולהפעיל בשיחה." },
       { title: "התיעוד הרשמי של MCP", externalHref: "https://modelcontextprotocol.io/docs/learn/architecture", text: "מקור טכני למבנה הפרוטוקול ולהבדל בין יישום מארח, לקוח ושרת. הפרוטוקול אינו מבטיח כשלעצמו דיוק, אבטחה או תאימות לכל יישום." }
     ],
     processSteps: [
@@ -1371,9 +1372,9 @@ export const services: Service[] = [
     slug: "chatgpt-business-data",
     title: "חיבור נתונים עסקיים אל ChatGPT בהתאמה אישית",
     metaTitle: "TalkToData: שאלות ותשובות על הנתונים העסקיים",
-    metaDescription: "שכבת שיחה לנתוני העסק: שאלות בעברית על מכירות, מלאי ודוחות, עם מקורות והרשאות. הכירו את TalkToData ובדקו התאמה למידע ולצוות שלכם.",
+    metaDescription: "חיבור נתונים עסקיים ל־ChatGPT עם TalkToData. הכירו את פלאגין TalkToData Analytics ל־GA4 ובדקו חיבורים מורשים לדוחות, חנויות ומערכות נוספות.",
     heroTitle: "לדבר עם הנתונים העסקיים: שאלות, מקורות והרשאות",
-    updatedAt: "2026-09-22",
+    updatedAt: "2026-10-14",
     eyebrow: "לדבר עם הנתונים",
     summary: "עסק יכול לחבר את הנתונים שלו אל ChatGPT ולשאול שאלות רגילות על מכירות, הזמנות, מלאי, לקוחות, מוצרים, ביצועים, דוחות, אימיילים וגם מסמכים כמו חשבוניות, בלי להסתבך עם מערכות מורכבות. TalkToData יכול לעזור גם בתיבות מייל שאינן Gmail או Outlook/Hotmail, כל עוד יש דרך גישה מאובטחת ומסודרת כמו IMAP, API או ייצוא נתונים. נביא נס ישראל בע\"מ בודקת איזה מערכות קיימות אצלכם, איך אפשר להתחבר אליהן בצורה בטוחה ושימושית, ובונה שכבת שיחה פשוטה שמחזירה תשובות שאפשר להבין ולפעול לפיהן.",
     audience: ["בעלי עסקים שרוצים להבין נתונים בלי להיכנס לדוחות מסובכים", "עסקים שרוצים לדבר עם אימיילים, פניות, שרשורי לקוחות ומסמכים מתוך תיבת הדואר", "חנויות אונליין שרוצות לשאול על מכירות, מלאי, הזמנות ומוצרים", "מנהלים וצוותי תפעול שרוצים תשובות מהירות מתוך מערכות קיימות", "עסקים שמשתמשים בשופיפיי, ווקומרס, אמזון, איביי, מערכת ניהול לקוחות, מערכת מלאי, תיבת מייל עסקית או בסיס נתונים פנימי"],
@@ -1393,6 +1394,7 @@ export const services: Service[] = [
       { question: "מה ההבדל בין דוח רגיל לבין לדבר עם הנתונים?", answer: "דוח מציג מסך קבוע. שיחה עם הנתונים מאפשרת לשאול שאלה חדשה בכל פעם, לקבל תשובה ברורה ולהמשיך לשאלת המשך בלי לבנות דוח חדש לכל צורך." },
     ],
     relatedArticles: [
+      { title: "TalkToData Analytics זמין כפלאגין ב־ChatGPT", href: "/blog/talktodata-analytics-chatgpt-plugin", text: "הכירו את הפלאג הציבורי ל־Google Analytics 4, את חמשת כלי הקריאה שלו ואת הדרך להפוך תובנה למשימת עבודה מבוקרת." },
       { title: "חיבור המערכות העסקיות ל־ChatGPT", href: "/services/business-systems-chatgpt-integration", text: "לבדיקת הגישה לנתונים, המערכת המקורית וההרשאות לפני הקמת שכבת השיחה." },
       { title: "סריקת וסינון חשבוניות עם AI", href: "/blog/ai-invoice-scanning-and-filtering", text: "מדריך על הפיכת חשבוניות ומסמכים לנתונים מסודרים שאפשר לסנן, לבדוק ולחבר לתהליכים חכמים." },
       { title: "איך לדבר עם הנתונים של העסק באמצעות ChatGPT", href: "/blog/talk-to-business-data-chatgpt", text: "הסבר רחב על חיבור נתונים עסקיים לשכבת שיחה פשוטה וברורה." },
@@ -1880,7 +1882,7 @@ export const products: Product[] = [
   { slug: "navines-seo-lab", name: "NAVINES SEO Lab", hebrewName: "מחקר, כלים ומערכות לצמיחה אורגנית", status: "פעיל", description: "סביבת SEO שבנינו כדי להפוך אותות חיפוש, מציאות טכנית ונתוני אתר לפעולות שאפשר להבין ולבדוק. היא כוללת כלים חינמיים, מסלולי למידה לפי תפקיד, מחקר מתועד ומתודולוגיה שמציגה גם את המגבלות.", audience: "בעלי עסקים, אנשי שיווק, מפתחים, מפעילי איקומרס וסוכנויות שרוצים לבדוק SEO בצורה מסודרת ולא להסתמך על ציון מסתורי", solves: "מרכז בדיקות טכניות, למידה ומחקר במקום אחד ומסייע לעבור מניחושים לרשימת פעולות מבוססת ראיות", url: "https://seo.navines.com/he/", cta: "לפתיחת SEO Lab בעברית" },
   { slug: "navines-noise", name: "NAVINES NOISE", hebrewName: "מודיעין אתר מקומי ישירות בדפדפן", status: "פעיל", description: "תוסף שפיתחנו כדי לסרוק את העמוד הפעיל לפי SEO, תוכן, ביצועים, אמון ונגישות, להציג פעולות לפי סדר עדיפות ולהכין תקציר תיקון לשימוש מבוקר עם AI. בגרסה 1.0.0 הסריקה מתחילה רק בלחיצה והדוח האחרון נשמר מקומית בדפדפן.", audience: "בעלי אתרים, אנשי שיווק, מקדמי אתרים, מפתחים וסוכנויות שרוצים לעבור במהירות מממצא טכני לרשימת פעולות שאפשר לבדוק", solves: "מרכז אותות מפוזרים לדוח אחד עם ראיות, סדרי עדיפויות ומגבלות ברורות, בלי להציג את הציון כהבטחת דירוג או כהסמכה", url: "/products/navines-noise", cta: "לפרטי NAVINES NOISE", externalUrl: "https://chromewebstore.google.com/detail/navines-noise/nlhpkfadkikhcaplbjeaehkiajhpiigi", externalCta: "להתקנה מ־Chrome Web Store" },
   { slug: "Navines-site-assistant", name: "Navines Site Assistant", hebrewName: "העוזר החכם של נביא נס", status: "פעיל", description: "צ׳ט AI קטן וברור לאתרים, שעונה בעברית על שאלות, מסביר שירותים, מכוון לעמודים רלוונטיים ומציע וואטסאפ כשצריך שיחה אנושית.", audience: "בעלי אתרים שרוצים לעזור לגולשים להבין מהר מה העסק מציע בלי לקרוא עשרות עמודים", solves: "מפחית שאלות חוזרות, מקצר חיפוש באתר ומוביל את הגולש לפנייה ברורה יותר", url: "/services/ai-chat-for-websites", cta: "לבניית צ׳ט AI לאתר" },
-  { slug: "talk-to-data", name: "TalkToData", hebrewName: "לדבר עם הנתונים, הדוחות והאימיילים של העסק באמצעות ChatGPT", status: "פעיל", description: "Your data. Your ChatGPT. One conversation. כלי שמדגים איך עסק יכול לשאול שאלות רגילות על מכירות, הזמנות, מלאי, לקוחות, מוצרים, ביצועים, דוחות ואימיילים. לא רק Gmail או Outlook/Hotmail: אפשר לבדוק חיבור גם לתיבות מייל אחרות כשיש גישה מאובטחת ומסודרת.", audience: "בעלי עסקים, מנהלים, צוותי מכירות, שירות, איקומרס ותפעול שרוצים להבין נתונים ומיילים מהר בשפה פשוטה", solves: "הופך נתונים, דוחות ותיבות מייל לשיחה אחת ברורה שמובילה להחלטות מהירות יותר ולפחות חיפוש ידני", url: "https://talktodata.navines.com", cta: "לצפייה ב TalkToData" },
+  { slug: "talk-to-data", name: "TalkToData Analytics", hebrewName: "פלאגין ChatGPT לנתוני Google Analytics 4", status: "פעיל", description: "TalkToData Analytics זמין להתקנה בתוך ChatGPT ומפותח על ידי NAVINES ISRAEL LTD. הפלאג מחזיר לפי דרישה נתוני GA4 מאושרים דרך חמישה כלי קריאה בלבד עבור תנועה, מקורות רכישה, עמודים, מכשירים וסיכום שבעה ימים. הוא אינו משנה את נכס Analytics או את האתר.", audience: "בעלי אתרים, מנהלי שיווק, אנשי SEO, מפתחים וסוכנויות שרוצים לחקור נתוני אתר בשיחה בעברית, באנגלית או בשפת העבודה שלהם", solves: "מקצר את הדרך מנתוני תנועה והמרות לשאלת המשך, תובנה ותדריך עבודה שאפשר להעביר לאדם או לסוכן קוד עם מקור, טווח זמן ומגבלות", url: "/services/chatgpt-business-data", cta: "לפרטי TalkToData", externalUrl: "https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b", externalCta: "להתקנת הפלאג ב־ChatGPT" },
   { slug: "amazoniq", name: "AmazonIQ", hebrewName: "מודיעין ייעודי למוכרי אמזון", status: "פעיל", description: "דשבורד ו GPT ייעודי שמחברים נתוני Seller Central בהרשאת מוכר לקריאה בלבד, כדי לבדוק מכירות, הזמנות, ליסטינגים, עמלות, מלאי FBA, דוחות וסימנים שדורשים בדיקה.", audience: "מוכרי אמזון, מותגים, צוותי איקומרס ומנהלי פעילות שרוצים להבין את מצב החשבון בלי לעבור ידנית בין עשרות דוחות", solves: "מרכז תמונת מצב, מאפשר לחקור שינויים ומבדיל בבירור בין נתונים שהוחזרו, מגבלות ותרחישים משוערים", url: "/products/amazoniq", cta: "לפרטי AmazonIQ בעברית", externalUrl: "https://iq.navines.com/", externalCta: "לפתוח את AmazonIQ" },
   { slug: "Navines-beacon", name: "Navines Beacon", hebrewName: "ביקון, מערכת ניטור דיגיטלית", status: "בטא", description: "מערכת שמסתכלת על אתרים, חנויות ונכסים דיגיטליים ומזהה סימנים מוקדמים לבעיות ביצועים, אמון, זמינות או סיכון.", audience: "עסקים שיש להם אתר או חנות פעילים ורוצים לדעת מהר כשמשהו משתבש", solves: "זיהוי מוקדם של בעיות לפני שהן פוגעות בפניות, מכירות או אמון", url: "https://beacon.navines.com", cta: "לצפייה בביקון" },
   { slug: "partnercrypto-toolkit-extension", name: "PartnerCrypto Toolkit", hebrewName: "ערכת כלי PartnerCrypto בדפדפן", status: "פעיל", description: "תוסף דפדפן שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות ישירות בדפדפן. הגרסה הציבורית זמינה ב Chrome Web Store.", audience: "משתמשים וצוותים שרוצים גישה מהירה לכלי מחקר, ניתוח ושימושים פרקטיים בתחום הקריפטו", solves: "מרכז כלים ופעולות שימושיות במקום אחד, בלי לחפש בכל פעם את המחשבון או הכלי הנכון", url: "https://chromewebstore.google.com/detail/partnercrypto-toolkit/kopifhlgbdmlanjgdckdjhmhanodifoo", cta: "פתחו ב Chrome Web Store" },
@@ -2060,6 +2062,27 @@ export const hebrewTools: HebrewTool[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "talktodata-analytics-chatgpt-plugin",
+    title: "TalkToData Analytics זמין עכשיו כפלאגין ב־ChatGPT",
+    metaTitle: "פלאגין ChatGPT ל־Google Analytics 4 מבית NAVINES",
+    metaDescription: "הכירו את TalkToData Analytics, פלאגין ChatGPT ל־GA4 מבית NAVINES. שאלו על תנועה, מקורות, עמודים ומכשירים והפכו תובנות למשימות עבודה מבוקרות.",
+    category: "פלאגינים, נתונים ובינה מלאכותית",
+    tags: ["TalkToData Analytics", "פלאגין ChatGPT", "צ׳ט ג׳י פי טי", "Google Analytics 4", "GA4", "ניתוח אתר עם AI", "סוכן קוד"],
+    date: "14 באוקטובר 2026",
+    publishedAt: "2026-10-14",
+    readingTime: "9 דקות",
+    excerpt: "הפלאג החדש של NAVINES מחבר נכס Google Analytics 4 מאושר לשיחה בתוך ChatGPT. אפשר לחקור תנועה, מקורות רכישה, עמודים ומכשירים, ואז להפוך את הראיות לתדריך מסודר לאדם או לסוכן קוד.",
+    serviceIntro: "TalkToData Analytics הוא פלאגין ציבורי של NAVINES ISRAEL LTD ב־ChatGPT. הוא משתמש בחמישה כלי קריאה בלבד ואינו משנה את נכס Analytics או את האתר. המאמר מסביר איך להשתמש בו בעברית או בשפת העבודה שלכם ואיך להמשיך מתובנה לעבודה מבוקרת.",
+    relatedSlugs: ["talk-to-business-data-chatgpt", "google-search-console-chatgpt-autonomous-seo-agent", "connect-any-software-chatgpt-custom-connector"],
+    faqs: [
+      { question: "מה אפשר לבדוק עם TalkToData Analytics?", answer: "הפלאג יכול להחזיר נתוני Google Analytics 4 מאושרים דרך חמישה כלי קריאה בלבד: תנועה, מקורות רכישה, עמודים, מכשירים וסיכום שבעה ימים. התוצאה תלויה בנכס שנבחר, בהרשאות ובנתונים ש־GA4 מחזיר." },
+      { question: "האם הפלאג משנה את Google Analytics או את האתר?", answer: "לא. הגרסה הציבורית המתוארת בעמוד הפלאג היא לקריאה בלבד ואינה משנה את נכס Analytics. שינוי תוכן, קוד או הגדרות באתר הוא תהליך נפרד שדורש הרשאה, בדיקות ואישור מתאים." },
+      { question: "אפשר לשאול בעברית או בשפה אחרת?", answer: "כן. אפשר לנסח את הבקשה בשפת השיחה, כולל עברית ואנגלית, ולבקש הסבר שמתאים לתפקיד שלכם. שמות שדות ומדדים עשויים להופיע באנגלית משום שהם מגיעים מ־Google Analytics 4." },
+      { question: "איך מחברים את הנתונים לסוכן AI או לסוכן קוד?", answer: "מתחילים בבדיקה ממוקדת ומבקשים לציין מקור, טווח זמן, פילטרים ומגבלות. לאחר אימות התובנה אפשר להכין תדריך נפרד לסוכן מורשה שכולל יעד, קבצים, בדיקות ותנאי עצירה. הפלאג עצמו אינו מפרסם קוד ואינו מבצע דיפלוי." },
+      { question: "האם אפשר לבנות פלאגין דומה למערכת אחרת?", answer: "כן, בכפוף ל־API, להרשאות ולמגבלות הספק. NAVINES בודקת את מקור הנתונים, היקף הקריאה או הכתיבה, מבנה הכלים, האימות והבדיקות לפני פיתוח פלאגין, MCP או Connector מותאם." }
+    ],
+  },
   {
     slug: "build-your-own-business-workspace",
     title: "לא עוד אוסף תוכנות: בונים סביבת עבודה שגדלה עם העסק",

@@ -29,8 +29,9 @@ export default function ProductsPage() {
               <p className="mt-4 text-lg leading-8 text-zinc-300">{talkToDataProduct.description}</p>
             </div>
             <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:grid">
-              <a className="btn-primary" href="https://talktodata.navines.com" rel="noreferrer" target="_blank"> לצפייה ב TalkToData </a>
-              <Link className="btn-secondary" href="/services/chatgpt-business-data"> חיבור נתונים אל ChatGPT </Link>
+              <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">להתקנת הפלאג ב־ChatGPT</a>
+              <Link className="btn-secondary" href="/blog/talktodata-analytics-chatgpt-plugin">למדריך TalkToData Analytics</Link>
+              <a className="editorial-link inline-flex items-center" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לכל החיבורים של TalkToData</a>
             </div>
           </div>
         ) : null}

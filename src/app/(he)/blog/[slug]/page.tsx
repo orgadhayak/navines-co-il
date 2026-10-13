@@ -196,6 +196,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
   const related = getRelatedPosts(post.slug);
   const isTalkToDataPost = post.slug === "talk-to-business-data-chatgpt";
+  const isTalkToDataAnalyticsPost = post.slug === "talktodata-analytics-chatgpt-plugin";
   const isOwnedWorkspacePost = post.slug === "build-your-own-business-workspace";
   const isEmailDataPost = post.slug === "email-to-chatgpt-talktodata";
   const isBusinessAutomationPost = post.slug === "business-automation-start";
@@ -208,6 +209,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const isTechnicalSupportPost = post.slug === "technical-support-cyber-networks-business";
   const isAccountHackPost = post.slug === "what-to-do-when-account-is-hacked";
   const isSecureAccountsPost = post.slug === "how-to-secure-accounts-after-hack";
+  const isSecureAccountsAfterHackPost = isSecureAccountsPost;
   const isBusinessDueDiligencePost = post.slug === "business-due-diligence-before-buying";
   const isExternalAmazonTrafficPost = post.slug === "how-to-bring-external-traffic-to-amazon-products";
   const isMultilingualAmazonSeoPost = post.slug === "multilingual-seo-website-for-amazon-sellers";
@@ -323,10 +325,15 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           </a>
         </div>
 
-        {isOwnedWorkspacePost ? <OwnedWorkspaceArticleBody /> : isAgiConsolePost ? <AgiConsoleArticleBody /> : isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
+        {isTalkToDataAnalyticsPost ? <TalkToDataAnalyticsArticleBody /> : isOwnedWorkspacePost ? <OwnedWorkspaceArticleBody /> : isAgiConsolePost ? <AgiConsoleArticleBody /> : isNavinesNoisePost ? <NavinesNoiseArticleBody /> : isSeoLabPost ? <SeoLabArticleBody /> : isDecisionResearchPost ? <DecisionResearchArticleBody /> : isMusicDistributionPost ? <MusicDistributionArticleBody /> : isRobloxExperiencePost ? <RobloxBrandExperienceArticleBody /> : isPaymentDiscrepancyReviewPost ? <PaymentDiscrepancyReviewArticleBody /> : isAffiliateProgramPost ? <AffiliateProgramArticleBody /> : isAutonomousSeoAgentPost ? <AutonomousSeoAgentArticleBody /> : isCustomConnectorPost ? <CustomConnectorArticleBody /> : isMorningGreenInvoiceChatGptPost ? <MorningGreenInvoiceChatGptArticleBody /> : isBusinessSystemsChatGptPost ? <BusinessSystemsChatGptArticleBody /> : isNewSafetyToolsPost ? <NewSafetyToolsArticleBody /> : isSmartLocalToolsPost ? <SmartLocalToolsArticleBody /> : isHebrewToolsPost ? <HebrewToolsArticleBody /> : isToolsPortfolioPost ? <ToolsPortfolioArticleBody /> : isGlobalBrandCaseStudyPost ? <GlobalBrandCaseStudyArticleBody /> : isAmazonIQPost ? <AmazonIQArticleBody /> : isLegalOnlinePost ? <LegalOnlineArticleBody /> : isTrafficPointsPost ? <TrafficPointsArticleBody /> : isAppraisalGuidePost ? <AppraisalGuideArticleBody /> : isBrowserExtensionPost ? <BrowserExtensionArticleBody /> : isAccountantChoicePost ? <AccountantChoiceArticleBody /> : isBusinessAutomationPost ? <BusinessAutomationArticleBody /> : isInvoiceScanningPost ? <InvoiceScanningArticleBody /> : isEcommerceStorePost ? <EcommerceStoreArticleBody /> : isMobileAppPost ? <MobileAppDevelopmentArticleBody /> : isExternalAmazonTrafficPost ? <ExternalAmazonTrafficArticleBody /> : isMultilingualAmazonSeoPost ? <MultilingualAmazonSeoArticleBody /> : isSecureAccountsAfterHackPost ? <SecureAccountsAfterHackArticleBody /> : isAccountHackPost ? <AccountHackArticleBody /> : isBusinessDueDiligencePost ? <BusinessDueDiligenceArticleBody /> : isAiChatWebsitePost ? <AiChatWebsiteArticleBody /> : isTechnicalSupportPost ? <TechnicalSupportArticleBody /> : isSmartWebsiteLeadPost ? <SmartWebsiteLeadArticleBody /> : isBusinessWebsite999Post ? <BusinessWebsite999ArticleBody /> : isEmailDataPost ? <EmailToChatGptArticleBody /> : isTalkToDataPost ? <TalkToDataArticleBody /> : solutionArticle ? <SolutionArticleBody content={solutionArticle} /> : courseArticle ? <CourseArticleBody content={courseArticle} /> : <DefaultArticleBody post={post} />}
         {post.faqs?.length ? <PostFaqList faqs={post.faqs} /> : null}
       </article>
-      {isOwnedWorkspacePost ? (
+      {isTalkToDataAnalyticsPost ? (
+        <CTA
+          title="רוצים להפוך נתוני אתר לעבודה שאפשר לבצע ולבדוק?"
+          text="התקינו את TalkToData Analytics לניתוח GA4 בתוך ChatGPT, או ספרו לנו איזה מקור נתונים ותהליך תרצו להפוך לפלאגין, MCP או סביבת עבודה מותאמת."
+        />
+      ) : isOwnedWorkspacePost ? (
         <CTA
           title="רוצים לבנות סביבת עבודה שמתאימה לעסק שלכם?"
           text="ספרו לנו איזה תהליך חשוב מתפזר היום בין מערכות, מה כבר עובד ומה חסר. נבדוק אם כדאי להשאיר כלי קיים, לחבר אותו או להתחיל לפתח רכיב מותאם שאפשר להרחיב."
@@ -3466,10 +3473,67 @@ function DefaultArticleBody({ post }: { post: (typeof blogPosts)[number] }) {
   );
 }
 
+function TalkToDataAnalyticsArticleBody() {
+  return (
+    <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
+      <h2>הפלאג החדש של NAVINES כבר זמין בתוך ChatGPT</h2>
+      <p><strong>TalkToData Analytics</strong> הוא פלאגין ציבורי שפיתחה NAVINES ISRAEL LTD עבור עבודה עם Google Analytics 4 בתוך ChatGPT. לאחר התקנה וחיבור מורשה לנכס המתאים, אפשר לשאול שאלות ממוקדות ולקבל נתונים חיים לפי דרישה בלי להעתיק דוחות ידנית לשיחה.</p>
+      <p>עמוד הפלאג הציבורי מציג חמישה כלי קריאה בלבד. הם מיועדים לתנועה, מקורות רכישה, עמודים, מכשירים וסיכום של שבעה ימים. המערכת מחזירה את המידע הזמין מהנכס שנבחר ואינה משנה את Google Analytics 4 או את האתר.</p>
+      <div className="not-prose my-8 flex flex-wrap gap-3">
+        <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">להתקנת TalkToData Analytics</a>
+        <a className="btn-secondary" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לאתר TalkToData</a>
+        <Link className="btn-secondary" href="/services/custom-ai-plugins-mcp-workspaces">לבניית פלאגין מותאם</Link>
+      </div>
+
+      <h2>מה אפשר לשאול את נתוני GA4?</h2>
+      <ul>
+        <li>מה השתנה בתנועה בשבעת הימים האחרונים?</li>
+        <li>אילו מקורות רכישה הביאו את מספר הביקורים או ההמרות הגבוה ביותר?</li>
+        <li>אילו עמודים קיבלו תנועה ואילו עמודים דורשים בדיקה נוספת?</li>
+        <li>האם התמונה שונה בין מובייל, מחשב וטאבלט?</li>
+        <li>איזו שאלה נוספת כדאי לבדוק לפני שמחליטים לשנות את האתר?</li>
+      </ul>
+      <p>אפשר לכתוב בעברית, באנגלית או בשפת העבודה שלכם ולבקש תשובה שמותאמת לבעל עסק, איש שיווק, מפתח או מנהל מוצר. שמות של מדדים ושדות עשויים להישאר באנגלית משום שהם מגיעים מ־GA4.</p>
+
+      <h2>העוצמה האמיתית מתחילה אחרי התשובה</h2>
+      <p>תשובה טובה אינה רק מספר. היא יכולה להפוך לתדריך עבודה מדויק. מבקשים מהשיחה לציין את מקור הנתונים, טווח התאריכים, הפילטרים, ההשוואה והמגבלות. לאחר שבודקים שהממצא נכון, אפשר להגדיר פעולה נפרדת לאדם או לסוכן קוד.</p>
+      <ol>
+        <li><strong>מחקר:</strong> בודקים אות אחד מתוך GA4 ומפרידים בין נתון שהוחזר לבין השערה.</li>
+        <li><strong>החלטה:</strong> מגדירים מה רוצים לשפר ואיזה מדד אסור לפגוע בו.</li>
+        <li><strong>תדריך:</strong> מציינים את העמוד, הקבצים, גבולות השינוי והבדיקות הנדרשות.</li>
+        <li><strong>ביצוע:</strong> אדם או סוכן מורשה משנים תוכן או קוד בסביבה נפרדת.</li>
+        <li><strong>אימות:</strong> מריצים בדיקות, עוברים על Preview ורק אז מפרסמים ומודדים שוב.</li>
+      </ol>
+      <p>כך אפשר לעבור משיחה על נתוני אמת לעבודה מעשית באתר, ועדיין לשמור על הפרדה חשובה: TalkToData Analytics קורא נתונים. שינוי הקוד, הפרסום והדיפלוי מתבצעים בתהליך אחר עם הרשאות ובקרות משלו.</p>
+
+      <h2>דוגמה לעבודה אורגנית חכמה</h2>
+      <p>נניח שעמוד תוכן מקבל יותר תנועה ממובייל אבל מעט פעולות המשך. GA4 לבדו אינו מוכיח למה זה קרה ואינו מציג מיקומים או שאילתות חיפוש. אפשר להשתמש בפלאג כדי לאמת את דפוס התנועה, לבדוק מקורות, עמודים ומכשירים, ואז להכין משימת בדיקה: לעבור על מהירות, כותרת, מבנה התוכן, קישורים פנימיים וקריאה לפעולה במובייל. לאחר שינוי מבוקר מודדים שוב.</p>
+      <p>כאשר צריך גם שאילתות, חשיפות, CTR ומיקום אורגני, משתמשים בחיבור נפרד ל־Google Search Console. לא מערבבים בין נתוני GA4 לנתוני חיפוש כאילו הם אותו מקור.</p>
+
+      <h2>מפלאג אחד לפלטפורמה שלמה</h2>
+      <p>TalkToData מציעה חיבורים ייעודיים למקורות עסקיים נוספים, ובהם Google Search Console, eBay, Shopify, WooCommerce, PayPal, אימייל, Microsoft Excel, Google Merchant Center, Cloudflare, Google Ads, QuickBooks ו־Xero. כל ערוץ נבדק לפי ההרשאות, השדות והמגבלות שלו, והמקור המקורי נשאר מקור האמת.</p>
+      <p>עסק עם מערכת פרטית, ERP, CRM או API פנימי יכול לבקש בדיקת Connector מותאם. במקרים כאלה ממפים את מקור הנתונים, מגדירים קריאה או כתיבה, מצמצמים הרשאות ובונים כלי שאפשר לבדוק. כשצריך תהליך רחב יותר, אפשר לשלב <Link href="/services/custom-ai-plugins-mcp-workspaces">פלאגין, שרת MCP וסביבת עבודה עם AI</Link>.</p>
+
+      <h2>מה הפלאג אינו עושה?</h2>
+      <ul>
+        <li>אינו משנה את נכס Google Analytics 4.</li>
+        <li>אינו עורך עמודים ואינו מעלה קוד לאתר.</li>
+        <li>אינו מוכיח סיבה לשינוי רק משום ששני מדדים זזו יחד.</li>
+        <li>אינו מחליף בדיקת הרשאות, אבטחה ומקור נתונים.</li>
+        <li>אינו מבטיח דירוג, תנועה, לידים או הכנסה.</li>
+      </ul>
+
+      <h2>איך מתחילים?</h2>
+      <p>פותחים את <a href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">עמוד TalkToData Analytics ב־ChatGPT</a>, מתקינים את הפלאג ופועלים לפי תהליך ההרשאה שמוצג. לאחר החיבור, מתחילים בשאלה אחת עם טווח זמן ברור. מי שרוצה לחבר מקור אחר יכול לעבור ל<Link href="/services/chatgpt-business-data">שירות חיבור הנתונים העסקיים ל־ChatGPT</Link> או לקרוא את <Link href="/blog/connect-any-software-chatgpt-custom-connector">המדריך לבניית Connector מותאם</Link>.</p>
+    </div>
+  );
+}
+
 function TalkToDataArticleBody() {
   return (
     <div className="prose prose-invert mt-10 max-w-none prose-headings:font-semibold prose-headings:text-white prose-p:leading-8 prose-p:text-zinc-300 prose-li:text-zinc-300">
       <h2>מה זה אומר לדבר עם הנתונים?</h2>
+      <p><strong>חדש:</strong> <Link href="/blog/talktodata-analytics-chatgpt-plugin">TalkToData Analytics זמין כפלאגין בתוך ChatGPT</Link> ומאפשר לחקור נתוני Google Analytics 4 מאושרים באמצעות חמישה כלי קריאה בלבד.</p>
       <p>במקום לפתוח כמה מערכות, להוריד קבצים, לחפש בטבלאות ולנסות להבין מה קרה, אפשר לחבר את הנתונים העסקיים לשכבת שיחה. בעל העסק שואל שאלה רגילה, והמערכת מחזירה תשובה שמבוססת על הנתונים הקיימים.</p>
       <p>הרעיון פשוט: אתם לא צריכים ללמוד מערכת מורכבת. אתם צריכים לשאול את השאלה הנכונה ולקבל תשובה ברורה מספיק כדי לקבל החלטה.</p>
       <h2>למה זה חשוב לבעלי עסקים?</h2>
