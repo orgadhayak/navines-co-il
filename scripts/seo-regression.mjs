@@ -81,7 +81,7 @@ for (const term of ["metaTitle:", "metaDescription:", "relatedSlugs:", "האם �
 }
 includes(homePage, "/blog/build-your-own-business-workspace", "Homepage owned workspace article link");
 includes(invoicePost, 'metaTitle: "סינון חשבוניות עם AI: סריקה, חילוץ ואימות"', "Invoice metadata");
-includes(invoicePost, 'updatedAt: "2026-09-22"', "Invoice article updated date");
+includes(invoicePost, 'updatedAt: "2026-10-20"', "Invoice article updated date");
 includes(invoicePost, "אפשר לחבר את הנתונים ל־Morning, SUMIT, ריווחית או Priority?", "Invoice integration FAQ");
 includes(mobileAppPost, 'metaTitle: "בניית אפליקציה סלולרית לעסק: מדריך מעשי"', "Mobile app research intent and GSC topic metadata");
 includes(mobileAppPost, 'updatedAt: "2026-09-22"', "Mobile app article updated date");

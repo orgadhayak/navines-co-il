@@ -169,7 +169,7 @@ for (const path of ["/llms.txt", "/llms-full.txt"]) {
 }
 check(robots.includes(`${origin}/sitemap.xml`), "robots sitemap discovery");
 check(!/^Disallow:\s*\/\s*$/m.test(robots), "robots blocks site");
-for (const [path, target] of [["/blog-Blog", "/blog"], ["/products-Products", "/products"], ["/services/ai-automation/", "/services/ai-automation"]]) {
+for (const [path, target] of [["/blog-Blog", "/blog"], ["/products-Products", "/products"], ["/blog/navines-beacon", "/blog/Navines-beacon"], ["/services/ai-automation/", "/services/ai-automation"]]) {
   const response = await get(path, { redirect: "manual" });
   check([301, 308].includes(response.status) && pathname(response.headers.get("location")) === target, `${path}: permanent redirect missing`);
 }
