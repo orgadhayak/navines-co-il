@@ -34,6 +34,11 @@ export const siteMetadata: Metadata = {
   authors: [{ name: "נביא נס ישראל בע\"מ" }],
   creator: "נביא נס ישראל בע״מ",
   publisher: "נביא נס ישראל בע״מ",
+  verification: {
+    other: {
+      "msvalidate.01": "1D8AC936FC8DF262C59FE0023E2408C0",
+    },
+  },
   icons: {
     icon: [{ url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" }],
     shortcut: [{ url: "/icon.jpg", type: "image/jpeg" }],
