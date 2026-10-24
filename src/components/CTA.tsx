@@ -6,11 +6,15 @@ export function CTA({
   text = "כתבו לנו בוואטסאפ מה קורה בעסק ומה הייתם רוצים לשפר. שיחת ההיכרות חינם וחברית, אנחנו מפתח תקווה, מחכים לשמוע מכם וגם אפשר להיפגש אם זה מה שנכון לפרויקט.",
   whatsappHref = site.whatsappHref,
   whatsappLabel = "דברו איתנו בוואטסאפ בחינם",
+  secondaryHref = "/services",
+  secondaryLabel = "ראו שירותים",
 }: {
   title?: string;
   text?: string;
   whatsappHref?: string;
   whatsappLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
 }) {
   return (
     <section className="cta-band mx-auto my-12 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -24,8 +28,8 @@ export function CTA({
           <a className="btn-primary" href={whatsappHref}>
             {whatsappLabel}
           </a>
-          <Link className="btn-secondary" href="/services">
-            ראו שירותים
+          <Link className="btn-secondary" href={secondaryHref}>
+            {secondaryLabel}
           </Link>
         </div>
       </div>

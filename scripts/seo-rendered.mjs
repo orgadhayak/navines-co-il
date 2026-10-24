@@ -47,7 +47,8 @@ await Promise.all(Array.from({ length: 4 }, async () => {
         catch { failures.push(`${path}: invalid JSON-LD`); return []; }
       });
       const row = {
-        html, schemas,
+        html, schemas, status: response.status,
+        robotsHeader: response.headers.get("x-robots-tag") || "",
         title: clean(html.querySelector("title")?.textContent),
         description: html.querySelector('meta[name="description"]')?.getAttribute("content"),
         canonical: html.querySelector('link[rel="canonical"]')?.getAttribute("href"),
@@ -176,3 +177,18 @@ for (const [path, target] of [["/blog-Blog", "/blog"], ["/products-Products", "/
 console.log(JSON.stringify({ pages: pages.size, internalResources: extraPaths.size, failures, warnings }, null, 2));
 assert.equal(failures.length, 0, "Rendered SEO checks failed");
 if (process.env.SEO_STRICT_LOCALES === "1") assert.equal(warnings.length, 0, "Server language checks failed");
+
+// Reuse the verified crawl when generating an audit inventory, without a second crawl.
+export { pages, origin };
+
+if (process.env.SEO_TEST_INTENT_HANDOFFS === "1") {
+  for (const path of ["/blog/ai-invoice-scanning-and-filtering", "/blog/business-automation-start"]) {
+    assert.ok(pages.get(path)?.html.querySelector('.cta-band a[href="/services/ai-automation"]'), `${path}: specific service CTA missing`);
+  }
+  const invoice = pages.get("/blog/ai-invoice-scanning-and-filtering")?.html;
+  assert.match(invoice?.querySelector("table caption")?.textContent || "", /נתונים מדומים/);
+  assert.equal(invoice?.querySelectorAll('table thead th[scope="col"]').length, 3);
+  assert.equal(invoice?.querySelectorAll('table tbody th[scope="row"]').length, 3);
+  assert.match(invoice?.querySelector("main")?.textContent || "", /אינו מעיד שיש בו OCR/);
+  console.log("Intent handoff and invoice example checks passed.");
+}
