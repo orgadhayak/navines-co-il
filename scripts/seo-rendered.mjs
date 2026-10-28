@@ -139,7 +139,10 @@ for (const path of pages.keys()) check(path === "/" || incoming.has(path), `Orph
 const contextualEdges = {
   "/services/browser-extension-development": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/blog/how-to-build-browser-extension-for-business": ["/services/browser-extension-development", "/services/custom-ai-plugins-mcp-workspaces"],
-  "/": ["/services/custom-ai-plugins-mcp-workspaces", "/blog/talktodata-analytics-chatgpt-plugin"],
+  "/": ["/services/custom-ai-plugins-mcp-workspaces", "/blog/talktodata-analytics-chatgpt-plugin", "/services/haredi-marketing", "/services/seo-digital-marketing"],
+  "/services": ["/services/haredi-marketing", "/services/seo-digital-marketing"],
+  "/services/haredi-marketing": ["/services/seo-digital-marketing", "/services/web-development"],
+  "/services/seo-digital-marketing": ["/services/haredi-marketing", "/blog/technical-seo-hebrew"],
   "/services/api-integrations": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/services/chatgpt-ai-agents-business": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/services/custom-ai-plugins-mcp-workspaces": ["/services/api-integrations", "/services/chatgpt-ai-agents-business", "/blog/connect-any-software-chatgpt-custom-connector", "/blog/talktodata-analytics-chatgpt-plugin"],
@@ -161,6 +164,22 @@ for (const [path, targets] of Object.entries(contextualEdges)) {
 
 for (const path of Object.keys(contextualEdges).filter((path) => path.startsWith("/services/"))) {
   check(pages.get(path)?.schemas.some((schema) => schema["@type"] === "Service"), `${path}: Service schema missing`);
+}
+for (const slug of ["haredi-marketing", "seo-digital-marketing"]) {
+  const path = `/services/${slug}`;
+  const page = pages.get(path);
+  for (const type of ["FAQPage", "BreadcrumbList"]) check(page?.schemas.some((schema) => schema["@type"] === type), `${path}: missing ${type}`);
+  for (const selector of ["main", ".cta-band"]) {
+    const links = page?.html.querySelectorAll(`${selector} a[href]`) || [];
+    check(links.some((link) => {
+      const url = new URL(link.getAttribute("href"), origin);
+      return url.origin === "https://wa.me" && url.pathname === "/972548180200" && Boolean(url.searchParams.get("text")) && Boolean(clean(link.textContent));
+    }), `${path}: ${selector} contextual WhatsApp CTA missing`);
+    check(links.some((link) => {
+      const url = new URL(link.getAttribute("href"), origin);
+      return url.protocol === "mailto:" && url.pathname === "hello@navines.com" && Boolean(url.searchParams.get("subject")) && Boolean(clean(link.textContent));
+    }), `${path}: ${selector} contextual email CTA missing`);
+  }
 }
 const robots = await (await get("/robots.txt")).text();
 for (const path of ["/llms.txt", "/llms-full.txt"]) {

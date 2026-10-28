@@ -43,6 +43,18 @@ function includes(source, value, label) {
 }
 
 const mcpService = segment(siteData, "custom-ai-plugins-mcp-workspaces");
+const harediMarketingService = segment(siteData, "haredi-marketing");
+const organicMarketingService = segment(siteData, "seo-digital-marketing");
+for (const [content, label] of [[harediMarketingService, "Haredi marketing"], [organicMarketingService, "Organic marketing"]]) {
+  for (const term of ["metaTitle:", "metaDescription:", 'updatedAt: "2026-10-28"', "processSteps:", "contact:", "emailSubject:"]) includes(content, term, label);
+}
+for (const term of ["מוצר פיזי", "תוכנית שיווק", "אין בכך הצהרה על הסכם", "האם מבטיחים מכירות או מספר לידים?", "/services/seo-digital-marketing"]) includes(harediMarketingService, term, "Marketing scope and accurate claims");
+for (const term of ["Google Search Console", "Bing Webmaster Tools", "IndexNow", "אינדוקס אינו מבטיח דירוג", "/services/haredi-marketing"]) includes(organicMarketingService, term, "Organic search scope and discovery");
+for (const slug of ["haredi-marketing", "seo-digital-marketing"]) includes(homePage, `/services/${slug}`, "Homepage marketing discovery");
+includes(servicesPage, "services.map(", "Services catalogue includes new service");
+includes(sitemapSource, "services.map(", "Sitemap includes new service");
+includes(servicePage, "encodeURIComponent(contact.message)", "Safe contextual WhatsApp message");
+includes(servicePage, "encodeURIComponent(contact.emailSubject)", "Safe contextual email subject");
 for (const term of ["metaTitle:", "metaDescription:", "פלאגינים", "MCP", "סביבות עבודה", "בדיקת ספק, גרסה והרשאה", "אישור אנושי"]) {
   includes(mcpService, term, "MCP service content and guardrails");
 }

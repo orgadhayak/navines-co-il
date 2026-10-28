@@ -130,6 +130,13 @@ export default function HomePage() {
             </article>
           ))}
         </div>
+        <div className="mt-8 border-t pt-6" style={{ borderColor: "var(--border)" }}>
+          <h3 className="text-xl font-semibold" style={{ color: "var(--text)" }}>גם הדרך להגיע לקהל הנכון מתחילה באפיון</h3>
+          <p className="mt-3 max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>
+            לצד הפיתוח אנחנו מלווים עסקים ב<Link className="editorial-link" href="/services/seo-digital-marketing">קידום אתרים אורגני ושיווק דיגיטלי</Link>.
+            {" "}למוצר, למותג או לשירות שפונים לקהילה החרדית, אנחנו מציעים גם <Link className="editorial-link" href="/services/haredi-marketing">אפיון ותוכנית שיווק למגזר החרדי</Link>, עם מסר מכבד, בחירת ערוצים מתאימים ודרך ברורה לפנייה.
+          </p>
+        </div>
       </Section>
 
       <Section eyebrow="פלאגינים אישיים וחיבורי MCP" title="סביבת עבודה עם AI, לפי הדרך שבה העסק שלכם עובד">
