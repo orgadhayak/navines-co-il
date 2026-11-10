@@ -17,6 +17,7 @@ const serviceGroups = [
     title: "AI, תוכנה ואתרים",
     links: [
       ["בינה מלאכותית ואוטומציה", "/services/ai-automation"],
+      ["לדבר עם הנתונים", "/plugins"],
       ["חשבונית אונליין ומערכות ל־ChatGPT", "/services/business-systems-chatgpt-integration"],
       ["פיתוח Connector ו־API מותאם", "/services/api-integrations"],
       ["פלאגינים אישיים, MCP וסביבות עבודה", "/services/custom-ai-plugins-mcp-workspaces"],
@@ -276,7 +277,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
                 {mobileGroup === "services" ? <MobileLinks links={[["כל השירותים", "/services"], ...services.slice(0, 18).map((service) => [service.title, `/services/${service.slug}`] as [string, string])]} onClick={closeAll} /> : null}
                 <MobileGroupButton label="פתרונות" open={mobileGroup === "solutions"} onClick={() => toggleMobileGroup("solutions")} />
                 {mobileGroup === "solutions" ? <MobileLinks links={[["כל הפתרונות", "/solutions"], ...solutionPages.map((solution) => [solution.navLabel, `/solutions/${solution.slug}`] as [string, string])]} onClick={closeAll} /> : null}
-                <MobileLinks links={[["מוצרים", "/products"], ["כלים שימושיים בעברית", "/tools"], ["מאמרים", "/blog"], ["קורסים", "/courses"], ["אודות", "/about"], ["יצירת קשר", "/contact"]]} onClick={closeAll} />
+                <MobileLinks links={[["מוצרים", "/products"], ["לדבר עם הנתונים", "/plugins"], ["כלים שימושיים בעברית", "/tools"], ["מאמרים", "/blog"], ["קורסים", "/courses"], ["אודות", "/about"], ["יצירת קשר", "/contact"]]} onClick={closeAll} />
               </>
             ) : (
               <MobileLinks

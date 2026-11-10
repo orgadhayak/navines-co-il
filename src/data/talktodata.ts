@@ -1,0 +1,42 @@
+export const featuredTalkToData = [
+  {
+    name: "TalkToData Analytics",
+    kind: "פלאגין ChatGPT",
+    source: "Google Analytics 4",
+    description: "שאלות על תנועה, מקורות הגעה, עמודים ומכשירים מתוך נכס GA4 שהמשתמש מורשה לגשת אליו. קריאה בלבד.",
+    href: "https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b",
+    connectionHref: "https://talktodata.navines.com/connect/analytics",
+  },
+  {
+    name: "TalkToData Webmaster",
+    kind: "פלאגין ChatGPT",
+    source: "Bing Webmaster Tools",
+    description: "נתוני חיפוש, סריקה ומפות אתר של נכס Bing מאומת. פעולות ניהול נתמכות נעשות רק לפי בקשה והרשאה מתאימות.",
+    href: "https://chatgpt.com/plugins/plugin_asdk_app_6ade250261b881919135651c345c77ff",
+    connectionHref: "https://talktodata.navines.com/connections",
+  },
+  {
+    name: "TalkToData Search Console",
+    kind: "GPT ייעודי",
+    source: "Google Search Console",
+    description: "בדיקת שאילתות, עמודים, קליקים וחשיפות של נכס מאומת. החיבור קורא נתוני ביצועים ואינו מבצע אינדוקס.",
+    href: "https://chatgpt.com/g/g-6a3af0d06b3c8191b8cfe34149ff34bb-talktodata",
+    connectionHref: "https://talktodata.navines.com/connect/search-console",
+  },
+  {
+    name: "TalkToData WooCommerce",
+    kind: "GPT ייעודי",
+    source: "WooCommerce",
+    description: "שאלות על נתוני חנות מורשית באמצעות מפתח REST API לקריאה בלבד שנמצא בשליטת בעל החנות.",
+    href: "https://chatgpt.com/g/g-6a37aa88323081919db653f950612b82-talktodata-woocommerce-gpt",
+    connectionHref: "https://talktodata.navines.com/connect/woocommerce",
+  },
+  {
+    name: "TalkToData Email",
+    kind: "GPT ייעודי",
+    source: "תיבת אימייל",
+    description: "עבודה עם תיבת דואר מחוברת ומורשית כדי לאתר פניות והקשר. היקף הקריאה והפעולות תלוי בחיבור ובהרשאות.",
+    href: "https://chatgpt.com/g/g-6a3b12758ac88191afa9d13787187a62-talktodata-email-gpt",
+    connectionHref: "https://talktodata.navines.com/connections",
+  },
+] as const;

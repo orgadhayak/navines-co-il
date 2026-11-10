@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { featuredTalkToData } from "@/data/talktodata";
 import { JsonLd } from "@/components/JsonLd";
 import { LanguageStrip } from "@/components/LanguageStrip";
 import { Section } from "@/components/Section";
@@ -115,6 +116,21 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Section eyebrow="מוצרי נביא נס ישראל בע״מ" title="לדבר עם הנתונים שלכם">
+        <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>פיתחנו את TalkToData כדי להפוך נתוני אתר, חיפוש, חנות ואימייל לשאלות ממוקדות בשיחה. אלה חמישה מסלולים נבחרים מתוך חיבורים נוספים; כל מסלול דורש חשבון והרשאה מתאימים.</p>
+        <div className="mt-7 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
+          {featuredTalkToData.map((item) => (
+            <div className="border-t py-5" key={item.name} style={{ borderColor: "var(--border)" }}>
+              <small className="text-glowred">{item.kind} · {item.source}</small>
+              <h3 className="mt-2 text-lg font-semibold" dir="ltr" style={{ color: "var(--text)" }}>{item.name}</h3>
+              <p className="mt-2 leading-7" style={{ color: "var(--text-muted)" }}>{item.description}</p>
+              <a className="editorial-link mt-3 inline-flex" href={item.href} rel="noopener noreferrer" target="_blank">לפתיחה ב־ChatGPT</a>
+            </div>
+          ))}
+        </div>
+        <Link className="btn-primary mt-6 inline-flex" href="/plugins">לדבר עם הנתונים: כל האפשרויות</Link>
+      </Section>
 
       <Section eyebrow="היכולות שלנו" title="טכנולוגיה שמתחילה בצורך העסקי">
         <p className="section-lead">במקום למכור כלי אחד לכל בעיה, אנחנו בודקים מה צריך לעבוד טוב יותר ובונים את השילוב הנכון בין תוכנה, נתונים, אוטומציה ותשתית.</p>

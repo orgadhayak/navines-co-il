@@ -43,6 +43,16 @@ function includes(source, value, label) {
 }
 
 const mcpService = segment(siteData, "custom-ai-plugins-mcp-workspaces");
+const pluginPage = await read("src/app/(he)/plugins/page.tsx");
+const pluginData = await read("src/data/talktodata.ts");
+for (const [source, label] of [[pluginPage, "Dedicated data conversation page"], [homePage, "Homepage"], [await read("src/components/Header.tsx"), "Header"], [await read("src/components/Footer.tsx"), "Footer"], [sitemapSource, "Sitemap"]]) {
+  includes(source, "/plugins", `${label} links to data conversation`);
+}
+includes(pluginPage, "לדבר עם הנתונים", "Hebrew page identity");
+includes(pluginPage, "הרשאות", "Plugin availability context");
+for (const id of ["plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b", "plugin_asdk_app_6ade250261b881919135651c345c77ff", "g-6a3af0d06b3c8191b8cfe34149ff34bb", "g-6a37aa88323081919db653f950612b82", "g-6a3b12758ac88191afa9d13787187a62"]) {
+  includes(pluginData, id, "Verified TalkToData destination");
+}
 for (const slug of ["account-hack-recovery", "amazon-seller-seo-website", "email-to-chatgpt-talktodata", "freelancers-ai-automation-systems"]) {
   includes(segment(siteData, slug), "metaTitle:", `${slug} dedicated search title`);
 }
