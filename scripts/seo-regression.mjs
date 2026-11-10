@@ -43,6 +43,15 @@ function includes(source, value, label) {
 }
 
 const mcpService = segment(siteData, "custom-ai-plugins-mcp-workspaces");
+for (const [slug, body] of [["technical-seo-hebrew", "TechnicalSeoArticleBody"], ["shopify-israel", "ShopifyIsraelArticleBody"], ["api-save-hours", "ApiPlanningArticleBody"]]) {
+  const content = segment(siteData, slug);
+  for (const field of ["metaTitle:", "metaDescription:", "relatedSlugs:", "faqs:", 'updatedAt: "2026-11-10"']) includes(content, field, `${slug} search intent`);
+  includes(blogPage, `if (post.slug === "${slug}") return <${body} />`, `${slug} dedicated content`);
+}
+includes(blogPage, "שליחה כפולה או חזרה אחרי timeout", "API failure handling guidance");
+includes(blogPage, "לא חוסמים קובצי עיצוב", "Crawl resources remain accessible");
+includes(segment(siteData, "ecommerce"), "contact:", "Ecommerce lead handoff");
+includes(await read("src/components/SiteDocument.tsx"), 'yandex: "1650634498dc3e97"', "Yandex ownership verification");
 const harediMarketingService = segment(siteData, "haredi-marketing");
 const organicMarketingService = segment(siteData, "seo-digital-marketing");
 for (const [content, label] of [[harediMarketingService, "Haredi marketing"], [organicMarketingService, "Organic marketing"]]) {

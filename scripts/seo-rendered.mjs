@@ -137,6 +137,10 @@ for (const path of extraPaths) {
 for (const path of pages.keys()) check(path === "/" || incoming.has(path), `Orphan sitemap page: ${path}`);
 
 const contextualEdges = {
+  "/blog/technical-seo-hebrew": ["/services/seo-digital-marketing", "/blog/ecommerce-service-guide", "/services/autonomous-seo-agent-search-console-chatgpt"],
+  "/blog/shopify-israel": ["/services/shopify", "/blog/ecommerce-service-guide", "/blog/api-save-hours"],
+  "/blog/api-save-hours": ["/services/api-integrations", "/services/mobile-app-development", "/blog/business-automation-start"],
+  "/services/ecommerce": ["/blog/ecommerce-service-guide", "/blog/shopify-israel"],
   "/services/browser-extension-development": ["/services/custom-ai-plugins-mcp-workspaces"],
   "/blog/how-to-build-browser-extension-for-business": ["/services/browser-extension-development", "/services/custom-ai-plugins-mcp-workspaces"],
   "/": ["/services/custom-ai-plugins-mcp-workspaces", "/blog/talktodata-analytics-chatgpt-plugin", "/services/haredi-marketing", "/services/seo-digital-marketing"],
@@ -165,7 +169,7 @@ for (const [path, targets] of Object.entries(contextualEdges)) {
 for (const path of Object.keys(contextualEdges).filter((path) => path.startsWith("/services/"))) {
   check(pages.get(path)?.schemas.some((schema) => schema["@type"] === "Service"), `${path}: Service schema missing`);
 }
-for (const slug of ["haredi-marketing", "seo-digital-marketing"]) {
+for (const slug of ["haredi-marketing", "seo-digital-marketing", "ecommerce"]) {
   const path = `/services/${slug}`;
   const page = pages.get(path);
   for (const type of ["FAQPage", "BreadcrumbList"]) check(page?.schemas.some((schema) => schema["@type"] === type), `${path}: missing ${type}`);
@@ -180,6 +184,15 @@ for (const slug of ["haredi-marketing", "seo-digital-marketing"]) {
       return url.protocol === "mailto:" && url.pathname === "hello@navines.com" && Boolean(url.searchParams.get("subject")) && Boolean(clean(link.textContent));
     }), `${path}: ${selector} contextual email CTA missing`);
   }
+}
+check(pages.get("/")?.html.querySelector('head meta[name="yandex-verification"]')?.getAttribute("content") === "1650634498dc3e97", "Yandex verification missing from server HTML");
+for (const [slug, service] of [["technical-seo-hebrew", "seo-digital-marketing"], ["shopify-israel", "shopify"], ["api-save-hours", "api-integrations"]]) {
+  const page = pages.get(`/blog/${slug}`);
+  check(page?.schemas.some((schema) => schema["@type"] === "FAQPage"), `${slug}: FAQ schema missing`);
+  check(page?.html.querySelector(`.cta-band a[href="/services/${service}"]`), `${slug}: relevant service CTA missing`);
+  check(page?.html.querySelectorAll("article h2").length >= 6, `${slug}: dedicated article sections missing`);
+  check(page?.title.length <= 70, `${slug}: unnecessarily long title`);
+  check(page?.description.length >= 120, `${slug}: insufficient description context`);
 }
 const robots = await (await get("/robots.txt")).text();
 for (const path of ["/llms.txt", "/llms-full.txt"]) {

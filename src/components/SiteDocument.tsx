@@ -35,6 +35,7 @@ export const siteMetadata: Metadata = {
   creator: "נביא נס ישראל בע״מ",
   publisher: "נביא נס ישראל בע״מ",
   verification: {
+    yandex: "1650634498dc3e97",
     other: {
       "msvalidate.01": "1D8AC936FC8DF262C59FE0023E2408C0",
     },
