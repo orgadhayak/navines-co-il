@@ -238,6 +238,11 @@ const sourceFiles = (await listFiles(join(root, "src"))).filter((path) => /\.(?:
 const sourceText = (await Promise.all(sourceFiles.map((path) => readFile(path, "utf8")))).join("\n");
 assert.ok(!/[\u2014\u2013\u2015]/u.test(sourceText), "Site source must not contain long dash characters");
 assert.ok(!/navines[\s-]+tools[\s-]+hub|ickjjfnfhmednmejidkphbcjdmlgjdpd|מרכז כלי נביא נס/iu.test(sourceText), "Removed extension must not reappear in site content or links");
+assert.ok(!/partnercrypto[\s-]+toolkit|kopifhlgbdmlanjgdckdjhmhanodifoo/iu.test(sourceText), "Unpublished PartnerCrypto extension must not appear in site content or links");
+for (const id of ["nlhpkfadkikhcaplbjeaehkiajhpiigi", "imbcdkdbibdofnhghfbkljgecohhlafc", "ldpdohcliffdcfmjhfjmangkipopdabo"]) {
+  assert.ok(siteData.includes(id), `Published extension ${id} must remain linked from the product catalog`);
+}
+assert.ok(siteData.includes("תצוגה פרטית מוגבלת"), "Browser Assistant availability must be described accurately");
 includes(nextConfig, '{ source: "/blog-Blog", destination: "/blog", permanent: true }', "Legacy blog redirect");
 includes(nextConfig, '{ source: "/products-Products", destination: "/products", permanent: true }', "Legacy products redirect");
 includes(sitemapSource, "serviceLastModified.get(path)", "Per-service sitemap modified dates");

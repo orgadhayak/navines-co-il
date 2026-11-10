@@ -862,11 +862,25 @@ function GlobalBrandServiceContent({ service }: { service: (typeof services)[num
 function BrowserExtensionExamples() {
   const extensions = [
     {
-      name: "PartnerCrypto Toolkit",
-      text: "תוסף שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות ישירות בדפדפן.",
-      why: "בנינו אותו כדוגמה לתוסף שמלווה עולם תוכן מקצועי ומרכז פעולות שימושיות במקום אחד.",
-      value: "המשתמש מקבל גישה מהירה לכלי מחקר, ניתוח ומחשבונים בלי לחפש בכל פעם את הכלי הנכון.",
-      href: "https://chromewebstore.google.com/detail/partnercrypto-toolkit/kopifhlgbdmlanjgdckdjhmhanodifoo",
+      name: "CheckLink.ai Trust Toolkit",
+      text: "תוסף של אתר CheckLink.ai שמאפשר לפתוח בדיקת קישור מהעמוד הנוכחי, מתפריט הלחיצה הימנית או מכתובת שהמשתמש מזין.",
+      why: "בנינו אותו כדי לקצר את הדרך לבדיקת קישור לפני פתיחה או שיתוף.",
+      value: "המשתמש בוחר מתי להעביר כתובת לבדיקה באתר CheckLink.ai; התוסף אינו קובע שקישור בטוח.",
+      href: "https://chromewebstore.google.com/detail/checklinkai-trust-toolkit/imbcdkdbibdofnhghfbkljgecohhlafc",
+    },
+    {
+      name: "NAVINES NOISE",
+      text: "תוסף של NAVINES SEO Lab לבדיקת העמוד הפעיל לפי SEO, תוכן, ביצועים, אמון ונגישות, לאחר שהמשתמש מפעיל סריקה.",
+      why: "בנינו אותו כדי לארגן ממצאים וראיות לפי סדר עדיפות בלי להציג ציון כהבטחת דירוג.",
+      value: "דוח מקומי עם פעולות לבדיקה ותקציר שאפשר להעביר למפתח או לכלי AI לפי בחירת המשתמש.",
+      href: "https://chromewebstore.google.com/detail/navines-noise/nlhpkfadkikhcaplbjeaehkiajhpiigi",
+    },
+    {
+      name: "NAVINES Browser Assistant",
+      text: "תוסף של NAVINES AGI Console לשיחה לצד עמוד Chrome שהמשתמש אישר. אפשר לקרוא ולחקור עמודים נתמכים; הגשת טופס סופית נשארת בידי המשתמש.",
+      why: "בנינו אותו כחלק מסביבת העבודה של NAVINES AGI Console, עם אישור מפורש לעמוד שבו עובדים.",
+      value: "פורסם בחנות, אך זמין כעת רק בתצוגה פרטית מוגבלת למי שיש לו חשבון NAVINES וסביבת עבודה מאושרת.",
+      href: "https://chromewebstore.google.com/detail/navines-browser-assistant/ldpdohcliffdcfmjhfjmangkipopdabo",
     },
   ];
 

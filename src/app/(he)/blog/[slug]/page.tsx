@@ -1029,7 +1029,7 @@ function BrowserExtensionArticleBody() {
 
       <h2>דוגמה לתוסף שבנינו</h2>
       <p>
-        PartnerCrypto Toolkit הוא תוסף שמרכז כלי קריפטו, מאפשר למצוא כלים במהירות ולבצע בדיקות פרטיות של גודל פוזיציה והשפעת עמלות מתוך הדפדפן.
+        <a href="https://chromewebstore.google.com/detail/checklinkai-trust-toolkit/imbcdkdbibdofnhghfbkljgecohhlafc" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">CheckLink.ai Trust Toolkit</bdi></a> הוא תוסף ציבורי שמאפשר לפתוח בדיקת קישור ב־CheckLink.ai מתוך הדפדפן, כאשר המשתמש בוחר לבצע את הבדיקה.
       </p>
       <p>
         הדוגמה ממחישה איך אפשר להפוך פעולות חוזרות לכלי נגיש בתוך הדפדפן. לתכנון פתרון משלכם, ראו את <Link href="/services/browser-extension-development">שירות פיתוח התוספים לדפדפן</Link>.
@@ -2462,12 +2462,15 @@ function ToolsPortfolioArticleBody() {
       <h2>תוספים לדפדפן: הכלים ליד המשתמש בכל יום</h2>
       <p>
         אחד התוספים שפיתחנו הוא
-        <a href="https://chromewebstore.google.com/detail/partnercrypto-toolkit/kopifhlgbdmlanjgdckdjhmhanodifoo" rel="noopener noreferrer" target="_blank"> <bdi dir="ltr">PartnerCrypto Toolkit</bdi></a>,
-        תוסף שמרכז כלי קריפטו ובדיקות שימושיות כגון גודל פוזיציה והשפעת עמלות. הוא מדגים איך אפשר לקחת פעולות חוזרות
-        ולהפוך אותן לכלי קטן שנמצא במקום שבו המשתמש עובד.
+        <a href="https://chromewebstore.google.com/detail/checklinkai-trust-toolkit/imbcdkdbibdofnhghfbkljgecohhlafc" rel="noopener noreferrer" target="_blank"> <bdi dir="ltr">CheckLink.ai Trust Toolkit</bdi></a>,
+        שמאפשר לפתוח בדיקת קישור ב־CheckLink.ai מתוך הדפדפן לפי בחירת המשתמש. הוא מדגים איך אפשר לקצר פעולה חוזרת
+        בלי להציג את תוצאת הבדיקה כהבטחת בטיחות.
       </p>
       <p>
         התוסף החדש <Link href="/products/navines-noise"><bdi dir="ltr">NAVINES NOISE</bdi></Link> מדגים מסלול נוסף: סריקה מקומית של העמוד הפעיל, חלוקת ממצאים לפי SEO, תוכן, ביצועים, אמון ונגישות, והפיכת הרעש לרשימת פעולות עם ראיות ומגבלות ברורות. אפשר לקרוא גם את <Link href="/blog/navines-noise-website-intelligence-extension">המדריך המלא על NAVINES NOISE</Link>.
+      </p>
+      <p>
+        <a href="https://chromewebstore.google.com/detail/navines-browser-assistant/ldpdohcliffdcfmjhfjmangkipopdabo" rel="noopener noreferrer" target="_blank"><bdi dir="ltr">NAVINES Browser Assistant</bdi></a> שייך ל־<a href="https://console.agi.navines.com/" rel="noopener noreferrer" target="_blank">NAVINES AGI Console</a>: הוא מאפשר לעבוד בשיחה לצד עמוד Chrome שאושר, כאשר המשתמש שומר בידיו את פעולת השליחה הסופית. עמוד התוסף מפורסם בחנות, אך השימוש בו עדיין בתצוגה פרטית מוגבלת ודורש חשבון וסביבת עבודה מאושרת.
       </p>
 
       <h2>העוזר החכם לאתרים וכלים מותאמים לעסק</h2>
