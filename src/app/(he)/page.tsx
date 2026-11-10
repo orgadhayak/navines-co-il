@@ -104,13 +104,13 @@ export default function HomePage() {
       <section className="feature-band border-y" style={{ borderColor: "var(--border)" }} aria-labelledby="talktodata-analytics-launch-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:py-16">
           <div className="max-w-4xl">
-            <p className="section-eyebrow">חדש ב־ChatGPT, מבית NAVINES</p>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="talktodata-analytics-launch-title">TalkToData Analytics מחבר את Google Analytics 4 לשיחה אמיתית</h2>
+            <p className="section-eyebrow">פלאגין של נביא נס ישראל בע״מ</p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight text-white md:text-5xl" id="talktodata-analytics-launch-title">דברו עם נתוני האתר בגוגל אנליטיקס</h2>
             <p className="mt-4 text-lg leading-8" style={{ color: "var(--text-muted)" }}>מתקינים את הפלאג ב־ChatGPT, מחברים נכס GA4 מאושר ושואלים בעברית, באנגלית או בשפת העבודה שלכם על תנועה, מקורות רכישה, עמודים ומכשירים. הפלאג משתמש בחמישה כלי קריאה בלבד ומציג את הנתונים בתוך ההקשר של השיחה.</p>
             <p className="mt-3 leading-7" style={{ color: "var(--text-soft)" }}>מכאן אפשר להפוך ממצא מבוסס נתונים לתדריך מדויק: איזה עמוד לבדוק, מה לשפר, אילו קבצים מותר לשנות ואילו בדיקות חייבות לעבור. סוכן קוד מורשה יכול לבצע את העבודה בתהליך נפרד עם בדיקות ודיפלוי. הפלאג עצמו אינו משנה את Analytics או את האתר.</p>
           </div>
           <div className="flex flex-wrap gap-3 lg:grid">
-            <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">להתקנת TalkToData Analytics</a>
+            <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">לפתיחת פלאגין האנליטיקה</a>
             <Link className="btn-on-dark" href="/blog/talktodata-analytics-chatgpt-plugin">למדריך המלא</Link>
             <Link className="editorial-link inline-flex items-center" href="/services/custom-ai-plugins-mcp-workspaces">לבניית פלאגין מותאם</Link>
           </div>
@@ -118,14 +118,14 @@ export default function HomePage() {
       </section>
 
       <Section eyebrow="מוצרי נביא נס ישראל בע״מ" title="לדבר עם הנתונים שלכם">
-        <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>פיתחנו את TalkToData כדי להפוך נתוני אתר, חיפוש, חנות ואימייל לשאלות ממוקדות בשיחה. אלה חמישה מסלולים נבחרים מתוך חיבורים נוספים; כל מסלול דורש חשבון והרשאה מתאימים.</p>
+        <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>חמשת הפלאגינים הציבוריים שפיתחנו במסגרת TalkToData מחברים נתוני אתר, חנות, קטלוג, מסחר וחיפוש לשיחה ממוקדת. כל אחד מתחיל בחשבון מאושר ובהרשאות שמתאימות למקור הנתונים.</p>
         <div className="mt-7 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
           {featuredTalkToData.map((item) => (
             <div className="border-t py-5" key={item.name} style={{ borderColor: "var(--border)" }}>
-              <small className="text-glowred">{item.kind} · {item.source}</small>
-              <h3 className="mt-2 text-lg font-semibold" dir="ltr" style={{ color: "var(--text)" }}>{item.name}</h3>
+              <small className="text-glowred">פלאגין ציבורי · {item.source}</small>
+              <h3 className="mt-2 text-lg font-semibold" style={{ color: "var(--text)" }}>{item.name}</h3>
               <p className="mt-2 leading-7" style={{ color: "var(--text-muted)" }}>{item.description}</p>
-              <a className="editorial-link mt-3 inline-flex" href={item.href} rel="noopener noreferrer" target="_blank">לפתיחה ב־ChatGPT</a>
+              <a className="editorial-link mt-3 inline-flex" href={item.href} rel="noopener noreferrer" target="_blank" aria-label={`פתיחת הפלאגין ${item.name} בצ׳אט ג׳י פי טי`}>לפתיחת הפלאגין</a>
             </div>
           ))}
         </div>

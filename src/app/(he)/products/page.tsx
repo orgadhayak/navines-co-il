@@ -30,7 +30,8 @@ export default function ProductsPage() {
             </div>
             <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:grid">
               <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">להתקנת הפלאג ב־ChatGPT</a>
-              <Link className="btn-secondary" href="/blog/talktodata-analytics-chatgpt-plugin">למדריך TalkToData Analytics</Link>
+              <Link className="btn-secondary" href="/plugins">לחמשת הפלאגינים שלנו</Link>
+              <Link className="editorial-link inline-flex items-center" href="/blog/talktodata-analytics-chatgpt-plugin">למדריך האנליטיקה</Link>
               <a className="editorial-link inline-flex items-center" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לכל החיבורים של TalkToData</a>
             </div>
           </div>

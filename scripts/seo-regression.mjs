@@ -50,8 +50,11 @@ for (const [source, label] of [[pluginPage, "Dedicated data conversation page"],
 }
 includes(pluginPage, "לדבר עם הנתונים", "Hebrew page identity");
 includes(pluginPage, "הרשאות", "Plugin availability context");
-for (const id of ["plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b", "plugin_asdk_app_6ade250261b881919135651c345c77ff", "g-6a3af0d06b3c8191b8cfe34149ff34bb", "g-6a37aa88323081919db653f950612b82", "g-6a3b12758ac88191afa9d13787187a62"]) {
+for (const id of ["plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b", "plugin_asdk_app_6ad4f6bc133c8191addce68babaf5923", "plugin_asdk_app_6ace4db7fe408191a105d520845152cb", "plugin_asdk_app_6ad3ae8580708191a5d99c9ca440a689", "plugin_asdk_app_6ade250261b881919135651c345c77ff"]) {
   includes(pluginData, id, "Verified TalkToData destination");
+}
+for (const name of ["תובנות האתר בגוגל אנליטיקס", "מנהל החנות בווקומרס", "תובנות קטלוג בגוגל מרצ׳נט סנטר", "תובנות מכירה באיביי", "מנהל הנראות בחיפוש בינג"]) {
+  includes(pluginData, name, "Hebrew plugin name");
 }
 for (const slug of ["account-hack-recovery", "amazon-seller-seo-website", "email-to-chatgpt-talktodata", "freelancers-ai-automation-systems"]) {
   includes(segment(siteData, slug), "metaTitle:", `${slug} dedicated search title`);

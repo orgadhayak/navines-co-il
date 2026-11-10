@@ -6,8 +6,8 @@ import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "לדבר עם הנתונים: פלאגינים וחיבורים לעסק",
-  description: "מוצרי נביא נס ישראל בע״מ לשיחה עם נתוני העסק: חמישה חיבורים נבחרים לצד פיתוח פלאגינים וסביבות עבודה מותאמות.",
+  title: "לדבר עם הנתונים: חמישה פלאגינים לעסק",
+  description: "חמישה פלאגינים ציבוריים של נביא נס ישראל בע״מ לאנליטיקה, חנויות, קטלוגים, איביי ובינג. הכירו את השימושים, ההרשאות ואפשרויות הפיתוח המותאם.",
   path: "/plugins",
 });
 
@@ -18,7 +18,7 @@ export default function PluginsPage() {
     <>
       <Section eyebrow="מוצרי נביא נס ישראל בע״מ" title="לדבר עם הנתונים" titleAs="h1" className="pb-10">
         <p className="max-w-4xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
-          נביא נס ישראל בע״מ בונה מוצרים שמאפשרים לדבר עם נתוני העסק מתוך סביבת העבודה שלכם. משפחת החיבורים הבינלאומית שלנו נקראת TalkToData: מתחילים ממקור נתונים מאושר ושואלים שאלות בהקשר שלו. כשצריך תהליך אחר, אנחנו מאפיינים ובונים פלאגין, חיבור מותאם, שרת MCP או סביבת עבודה ייעודית.
+          נביא נס ישראל בע״מ בונה מוצרים שמכניסים את נתוני העסק לשיחה שימושית. חמשת הפלאגינים הציבוריים שלנו עוזרים להבין מה קורה באתר, בחנות, בקטלוג ובחיפוש, כל אחד מתוך המקור המאושר שלו. בעולם הם פועלים תחת השם TalkToData. כשצריך תהליך אחר, אנחנו מאפיינים ובונים גם חיבור או סביבת עבודה מותאמים.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a className="btn-primary" href={requestHref} rel="noopener noreferrer" target="_blank">ספרו לנו מה תרצו לחבר</a>
@@ -26,23 +26,26 @@ export default function PluginsPage() {
         </div>
       </Section>
 
-      <Section eyebrow="המוצרים שלנו" title="חמישה מקומות להתחיל מהם" className="pt-8">
+      <Section eyebrow="המוצרים שלנו" title="חמישה פלאגינים, חמש דרכים לעבוד חכם" className="pt-8">
         <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>
-          אלה חמישה מסלולים נבחרים, לא כל הקטלוג. חלקם פלאגינים בתוך ChatGPT וחלקם GPT ייעודיים. בכל מקרה צריך לחבר חשבון מתאים ולאשר הרשאות לפני שמתקבלים נתונים. זמינות היכולות תלויה במקור ובהרשאות שלכם.
+          בחרו את המערכת שמחזיקה את התשובה. כל פלאגין נפתח בנפרד בצ׳אט ג׳י פי טי, דורש חשבון והרשאה מתאימים, ומחזיר רק נתונים ופעולות שהחיבור תומך בהם. אלה הפלאגינים הציבוריים הזמינים כעת; משפחת החיבורים הרחבה כוללת גם מסלולים אחרים.
         </p>
         <div className="mt-8 divide-y border-y" style={{ borderColor: "var(--border)" }}>
           {featuredTalkToData.map((item, index) => (
             <article className="grid gap-4 py-7 md:grid-cols-[3rem_minmax(0,1fr)_minmax(0,2fr)] md:gap-7" key={item.name} style={{ borderColor: "var(--border)" }}>
               <span className="editorial-index">0{index + 1}</span>
               <div>
-                <p className="text-sm font-semibold text-glowred">{item.kind} · {item.source}</p>
-                <h3 className="mt-2 text-xl font-semibold" dir="ltr" style={{ color: "var(--text)" }}>{item.name}</h3>
+                <p className="text-sm font-semibold text-glowred">פלאגין ציבורי · {item.source}</p>
+                <h3 className="mt-2 text-xl font-semibold" style={{ color: "var(--text)" }}>{item.name}</h3>
               </div>
               <div>
                 <p className="leading-7" style={{ color: "var(--text-muted)" }}>{item.description}</p>
+                <p className="mt-3 leading-7" style={{ color: "var(--text-muted)" }}><strong style={{ color: "var(--text)" }}>למי זה מתאים: </strong>{item.audience}</p>
+                <p className="mt-3 leading-7" style={{ color: "var(--text-muted)" }}><strong style={{ color: "var(--text)" }}>שאלה להתחלה: </strong>״{item.example}״</p>
+                <p className="mt-3 text-sm leading-6" style={{ color: "var(--text-soft)" }}>{item.caveat}</p>
                 <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
-                  <a className="editorial-link" href={item.href} rel="noopener noreferrer" target="_blank">לפתיחה ב־ChatGPT</a>
-                  <a className="editorial-link" href={item.connectionHref} rel="noopener noreferrer" target="_blank">על החיבור וההרשאות</a>
+                  <a className="editorial-link" href={item.href} rel="noopener noreferrer" target="_blank" aria-label={`פתיחת הפלאגין ${item.name} בצ׳אט ג׳י פי טי`}>לפתיחת הפלאגין</a>
+                  <a className="editorial-link" href={item.connectionHref} rel="noopener noreferrer" target="_blank" aria-label={`חיבור והרשאות עבור ${item.name}`}>לחיבור החשבון</a>
                 </div>
               </div>
             </article>
