@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const meta = siteLocales[locale];
 
   return {
-    title: content.metaTitle,
+    title: { absolute: `${content.metaTitle} | Navines` },
     description: content.metaDescription,
     alternates: { canonical: `${site.url}${path}`, languages: musicServiceAlternates },
     openGraph: { title: content.metaTitle, description: content.metaDescription, url: `${site.url}${path}`, locale: meta.ogLocale, type: "website" },

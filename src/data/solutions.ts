@@ -3,6 +3,7 @@
   updatedAt?: string;
   navLabel: string;
   title: string;
+  metaTitle?: string;
   eyebrow: string;
   summary: string;
   seoDescription: string;
@@ -218,6 +219,7 @@ export const solutionPages: SolutionPage[] = [
     slug: "amazon-sellers",
     navLabel: "מוכרי אמזון",
     title: "פתרונות למוכרי אמזון, ניהול, אוטומציה, דאטה וטיפול דחוף בחשבון",
+    metaTitle: "פתרונות למוכרי אמזון: ניהול, דאטה ואוטומציה",
     eyebrow: "איקומרס, דאטה וחירום",
     summary:
       "נביא נס ישראל בע\"מ מלווה מוכרי אמזון קטנים וגדולים בכל מה שקשור לחשבון, מוצרים, תוכן, דוחות, אוטומציה, ניתוח נתונים, תפעול, התראות, שיפור ביצועים וטיפול במצבי חירום. אנחנו עוזרים לראות את התמונה, להבין מה דורש טיפול ולבנות תשתית שמחזיקה את הפעילות בצורה מסודרת יותר.",

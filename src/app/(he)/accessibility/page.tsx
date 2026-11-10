@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "הצהרת נגישות",
-  description: "הצהרת נגישות בעברית עבור אתר נביא נס ישראל בע\"מ.",
+  description: "הצהרת הנגישות של אתר נביא נס ישראל: מידע על התאמות בסיסיות באתר ופרטי יצירת קשר לדיווח על קושי בשימוש, באמצעות מייל, טלפון או הכתובת המופיעה בעמוד.",
   path: "/accessibility",
 });
 

@@ -195,6 +195,18 @@ for (const [slug, service] of [["technical-seo-hebrew", "seo-digital-marketing"]
   check(page?.description.length >= 120, `${slug}: insufficient description context`);
 }
 const robots = await (await get("/robots.txt")).text();
+for (const [path, page] of pages) {
+  if (/^\/(de|jp|ar|hi|fr|zh)\/(insights|services)\/(music-distribution-for-artists|music-distribution-artist-digital-presence|roblox-brand-experiences)$/.test(path)) {
+    check(page.title.endsWith(" | Navines") && !/[\u0590-\u05ff]/.test(page.title), `${path}: unrelated Hebrew title suffix`);
+  }
+}
+for (const path of ["/services/account-hack-recovery", "/services/amazon-seller-seo-website", "/solutions/amazon-sellers", "/products/amazoniq", "/blog/email-to-chatgpt-talktodata", "/fr/tools", "/fr/insights/automatisation-ia-developpement-logiciel"]) {
+  check(pages.get(path)?.title.length <= 70, `${path}: verbose search title returned`);
+}
+for (const path of ["/accessibility", "/privacy", "/terms", "/games", "/blog/internal-business-system", "/blog/website-trust", "/blog/wordpress-security", "/blog/slow-website-cost", "/blog/business-website-2026", "/blog/amazon-ebay-mistakes", "/services/account-hack-recovery"]) {
+  const description = pages.get(path)?.description || "";
+  check(description.length >= 100 && description.length <= 180, `${path}: reviewed description context missing`);
+}
 for (const path of ["/llms.txt", "/llms-full.txt"]) {
   const response = await get(path);
   check(response.status === 200, `${path}: HTTP ${response.status}`);

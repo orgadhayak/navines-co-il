@@ -43,6 +43,14 @@ function includes(source, value, label) {
 }
 
 const mcpService = segment(siteData, "custom-ai-plugins-mcp-workspaces");
+for (const slug of ["account-hack-recovery", "amazon-seller-seo-website", "email-to-chatgpt-talktodata", "freelancers-ai-automation-systems"]) {
+  includes(segment(siteData, slug), "metaTitle:", `${slug} dedicated search title`);
+}
+includes(solutionPage, "title: solution.metaTitle || solution.title", "Search title does not replace the solution H1");
+includes(await read("src/content/localized/tools.ts"), "metaTitle?: string", "Localized tools can keep their visible heading");
+for (const section of ["insights/music-distribution-for-artists", "insights/roblox-brand-experiences", "services/music-distribution-artist-digital-presence", "services/roblox-brand-experiences"]) {
+  includes(await read(`src/app/[locale]/${section}/page.tsx`), "| Navines` }", `${section} localized title branding`);
+}
 for (const [slug, body] of [["technical-seo-hebrew", "TechnicalSeoArticleBody"], ["shopify-israel", "ShopifyIsraelArticleBody"], ["api-save-hours", "ApiPlanningArticleBody"]]) {
   const content = segment(siteData, slug);
   for (const field of ["metaTitle:", "metaDescription:", "relatedSlugs:", "faqs:", 'updatedAt: "2026-11-10"']) includes(content, field, `${slug} search intent`);

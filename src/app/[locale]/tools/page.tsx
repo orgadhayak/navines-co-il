@@ -18,13 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const meta = siteLocales[locale as PublicLocale];
   if (!copy || !meta) return {};
   const url = `${site.url}/${locale}/tools`;
+  const title = copy.metaTitle || copy.pageTitle;
 
   return {
-    title: { absolute: `${copy.pageTitle} | Navines` },
+    title: { absolute: `${title} | Navines` },
     description: copy.pageDescription,
     alternates: { canonical: url, languages: toolsAlternates },
-    openGraph: { title: copy.pageTitle, description: copy.pageDescription, url, siteName: "Navines", locale: meta.ogLocale, type: "website", images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "Navines digital tools" }] },
-    twitter: { card: "summary_large_image", title: copy.pageTitle, description: copy.pageDescription, images: ["/og-navines-israel.jpg"] },
+    openGraph: { title, description: copy.pageDescription, url, siteName: "Navines", locale: meta.ogLocale, type: "website", images: [{ url: "/og-navines-israel.jpg", width: 1106, height: 746, alt: "Navines digital tools" }] },
+    twitter: { card: "summary_large_image", title, description: copy.pageDescription, images: ["/og-navines-israel.jpg"] },
     robots: { index: true, follow: true },
   };
 }

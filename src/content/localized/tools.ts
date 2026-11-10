@@ -23,6 +23,7 @@ export type LocalizedToolsCopy = {
   locale: PublicLocale;
   eyebrow: string;
   pageTitle: string;
+  metaTitle?: string;
   pageDescription: string;
   previewTitle: string;
   previewText: string;
@@ -128,6 +129,7 @@ export const localizedToolsCopy: Record<PublicLocale, LocalizedToolsBaseCopy> = 
     locale: "fr",
     eyebrow: "Outils pratiques dans le navigateur",
     pageTitle: "De petites vérifications pour des décisions numériques plus claires",
+    metaTitle: "Outils gratuits : liens, QR codes et e-mails",
     pageDescription: "20 vérifications locales pour liens, images QR, en-têtes e-mail, demandes de paiement, redirections et campagnes. Sans inscription ni envoi de la saisie à un serveur.",
     previewTitle: "De petits outils pour des décisions numériques plus claires",
     previewText: "20 petits outils pour les liens, QR codes, e-mails, campagnes et premiers gestes numériques. Ils fonctionnent localement et donnent des repères, pas des garanties.",

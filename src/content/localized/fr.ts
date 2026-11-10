@@ -70,7 +70,7 @@ export const frContent: LocalizedPageContent = {
   article: {
     locale: "fr",
     slug: "automatisation-ia-developpement-logiciel",
-    metaTitle: "Automatisation par l’IA et développement logiciel sur mesure pour les entreprises",
+    metaTitle: "IA et logiciels sur mesure : guide pour les entreprises",
     metaDescription: "Guide pratique pour comprendre l’automatisation par l’IA, le développement logiciel sur mesure, les différences avec les outils standards et la bonne façon de démarrer.",
     title: "Automatisation par l’IA et développement logiciel sur mesure pour les entreprises",
     excerpt: "L’IA devient utile lorsqu’elle améliore un processus métier réel, avec des données fiables, des limites claires et une utilisation simple.",

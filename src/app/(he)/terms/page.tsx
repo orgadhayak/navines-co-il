@@ -2,7 +2,7 @@
 import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata = createMetadata({ title: "תנאי שימוש", description: "תנאי שימוש בסיסיים באתר נביא נס ישראל בע\"מ.", path: "/terms" });
+export const metadata = createMetadata({ title: "תנאי שימוש", description: "תנאי השימוש באתר נביא נס ישראל: מידע כללי על השירותים, זכויות בתוכן, קישורים לאתרים חיצוניים ודרך פנייה לשאלות. התחייבויות נקבעות בהסכם פרטני.", path: "/terms" });
 
 export default function TermsPage() {
   return (

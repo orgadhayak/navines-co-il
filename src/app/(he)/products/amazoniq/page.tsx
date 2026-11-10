@@ -15,7 +15,7 @@ const externalLinks = {
 };
 
 export const metadata = createMetadata({
-  title: "AmazonIQ למוכרי אמזון: דשבורד, GPT ומודיעין Seller Central",
+  title: "AmazonIQ למוכרי אמזון: דשבורד נתונים ו־GPT",
   description: "חברו Seller Central בהרשאה לקריאה בלבד וקבלו דשבורד למכירות, הזמנות, ליסטינגים, עמלות, מלאי FBA וסיכונים, לצד GPT ייעודי לחקירה בשפה טבעית.",
   path: "/products/amazoniq",
 });

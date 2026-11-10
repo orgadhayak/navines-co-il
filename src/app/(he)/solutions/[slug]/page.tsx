@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!solution) return {};
 
   return createMetadata({
-    title: solution.title,
+    title: solution.metaTitle || solution.title,
     description: solution.seoDescription,
     path: `/solutions/${solution.slug}`,
   });
