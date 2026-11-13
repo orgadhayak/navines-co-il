@@ -232,7 +232,7 @@ export function Header({ initialLocale = "he", initialTheme = "dark" }: { initia
             <span className="english-tech text-xs font-semibold">{activeLanguage.shortLabel}</span>
             <span className="hidden text-sm sm:inline">{activeLanguage.nativeName}</span>
           </button>
-          <a className="hidden min-h-10 items-center rounded-lg px-4 py-2 text-sm font-semibold xl:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)", color: "var(--primary-contrast)" }}>
+          <a className="header-contact-link hidden min-h-10 items-center px-4 py-2 text-sm font-semibold xl:inline-flex" href={site.whatsappHref} rel="noopener noreferrer" target="_blank" style={{ background: "var(--primary)", color: "var(--primary-contrast)" }}>
             {isHebrew ? "דברו איתנו" : localized?.cta || "WhatsApp"}
           </a>
           <button
