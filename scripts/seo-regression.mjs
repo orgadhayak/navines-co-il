@@ -45,6 +45,21 @@ function includes(source, value, label) {
 const mcpService = segment(siteData, "custom-ai-plugins-mcp-workspaces");
 const pluginPage = await read("src/app/(he)/plugins/page.tsx");
 const pluginData = await read("src/data/talktodata.ts");
+const accountingPromo = await read("src/components/AccountingPromo.tsx");
+const accountingPage = await read("src/app/(he)/products/talktodata-accounting/page.tsx");
+includes(pluginData, "plugin_asdk_app_6ae633e920a881919099b780ea44fa25", "Public invoice plugin destination");
+includes(pluginData, "  accountingPlugin,", "Invoice plugin in the shared catalog");
+includes(accountingPromo, "href={accountingPlugin.href}", "Invoice plugin direct CTA");
+includes(accountingPromo, "קריאה בלבד", "Invoice read-only scope");
+includes(accountingPromo, "לא כל גרסה או יכולת נתמכת", "Provider compatibility qualification");
+includes(accountingPromo, "אלה אינן הבטחות לחיבורים מוכנים", "Private connector qualification");
+includes(accountingPromo, 'full ? "h1" : "h2"', "Accessible accounting heading level");
+includes(accountingPage, 'path: "/products/talktodata-accounting"', "Preserved live accounting URL");
+assert.equal((homePage.match(/<AccountingPromo \/>/g) || []).length, 1, "Single accounting homepage promotion");
+assert.ok(homePage.indexOf("<AccountingPromo />") < homePage.indexOf('aria-labelledby="talktodata-analytics-launch-title"'), "Accounting promotion near the top of the homepage");
+for (const content of [homePage, pluginPage, await read("src/app/(he)/products/page.tsx")]) {
+  assert.ok(!/חמשת הפלאגינים|חמישה פלאגינים/.test(content), "No stale five-plugin count");
+}
 for (const [source, label] of [[pluginPage, "Dedicated data conversation page"], [homePage, "Homepage"], [await read("src/components/Header.tsx"), "Header"], [await read("src/components/Footer.tsx"), "Footer"], [sitemapSource, "Sitemap"]]) {
   includes(source, "/plugins", `${label} links to data conversation`);
 }

@@ -4,20 +4,21 @@
 
 :root {
   color-scheme: light;
-  --bg: #f7f9fc;
-  --bg-alt: #edf4f6;
+  --bg: #fafafa;
+  --bg-alt: #f1f3f2;
   --surface: #ffffff;
-  --surface-soft: #f1f6f7;
-  --text: #102126;
-  --text-muted: #4d6067;
-  --text-soft: #697b82;
-  --primary: #087f96;
-  --primary-hover: #06677c;
+  --surface-soft: #f4f6f5;
+  --text: #18221f;
+  --text-muted: #4c5b55;
+  --text-soft: #5e6d66;
+  --primary: #176b55;
+  --primary-hover: #10513f;
   --primary-contrast: #ffffff;
-  --accent: #e2f5f8;
-  --border: #d5e0e3;
-  --border-strong: #9fb9bf;
-  --focus: #087f96;
+  --accent: #e7f0eb;
+  --border: #dce2de;
+  --border-strong: #97a69e;
+  --focus: #176b55;
+  --hero-accent: #b4dfce;
   --danger: #b91c1c;
   --logo-filter: invert(1);
   --shadow-sm: 0 8px 24px rgba(16, 33, 38, 0.07);
@@ -26,20 +27,20 @@
 
 html.theme-dark {
   color-scheme: dark;
-  --bg: #000000;
-  --bg-alt: #05090b;
-  --surface: #020304;
-  --surface-soft: #0a1013;
-  --text: #f5f8f9;
-  --text-muted: #c8d4d8;
-  --text-soft: #8fa0a6;
-  --primary: #22d3ee;
-  --primary-hover: #67e8f9;
-  --primary-contrast: #031014;
-  --accent: #071b21;
-  --border: #252a2e;
-  --border-strong: #3b535d;
-  --focus: #8be9f5;
+  --bg: #101312;
+  --bg-alt: #151a17;
+  --surface: #171c19;
+  --surface-soft: #1e2521;
+  --text: #f3f5f3;
+  --text-muted: #c4cdc7;
+  --text-soft: #a0afa5;
+  --primary: #a6d8c3;
+  --primary-hover: #c5e8d9;
+  --primary-contrast: #12251b;
+  --accent: #23372b;
+  --border: #343e37;
+  --border-strong: #64766a;
+  --focus: #b4dfce;
   --danger: #fca5a5;
   --logo-filter: none;
   --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.32);
@@ -918,7 +919,7 @@ html.theme-light main [class*="bg-red-500"] :is(span, strong) {
   overflow: hidden;
   isolation: isolate;
   border-bottom: 1px solid #252a2e;
-  background: #050406;
+  background: #111713;
   color: #ffffff;
 }
 
@@ -939,7 +940,7 @@ html.theme-light main [class*="bg-red-500"] :is(span, strong) {
 
 .home-hero-kicker {
   margin-bottom: 1.25rem;
-  color: #8be9f5;
+  color: var(--hero-accent);
   font-size: 0.9rem;
   font-weight: 650;
 }
@@ -999,7 +1000,7 @@ html.theme-light main [class*="bg-red-500"] :is(span, strong) {
 
 .home-hero-proof a:hover,
 .home-hero-proof a:focus-visible {
-  color: #8be9f5;
+  color: var(--hero-accent);
 }
 
 .btn-on-dark {
@@ -1008,8 +1009,8 @@ html.theme-light main [class*="bg-red-500"] :is(span, strong) {
   min-width: 10rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid #3b535d;
-  border-radius: 4px;
+  border: 1px solid #64766a;
+  border-radius: 6px;
   padding: 0.7rem 1.4rem;
   color: #ffffff;
   font-weight: 650;
@@ -1017,8 +1018,8 @@ html.theme-light main [class*="bg-red-500"] :is(span, strong) {
 }
 
 .btn-on-dark:hover {
-  border-color: #8be9f5;
-  background: rgba(34, 211, 238, 0.08);
+  border-color: var(--hero-accent);
+  background: rgba(180, 223, 206, 0.08);
 }
 
 .capability-columns {
@@ -1340,12 +1341,12 @@ html.theme-dark .product-editorial-copy small {
 
 .home-final-cta {
   border-top: 1px solid #27363d;
-  background: #05090b;
+  background: #111713;
   color: #ffffff;
 }
 
 .home-final-cta p {
-  color: #8be9f5;
+  color: var(--hero-accent);
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -1443,8 +1444,12 @@ main:not(.games-page) .dashboard-row {
 @layer components {
   .btn-primary,
   .btn-secondary {
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: none;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.5;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
   }
 
   .btn-primary {
@@ -1459,13 +1464,137 @@ main:not(.games-page) .dashboard-row {
   }
 
   .btn-secondary {
-    background: transparent;
+    background: var(--surface);
+    border-color: var(--border-strong);
+    color: var(--text);
   }
 
   .form-field,
   .tag {
     border-radius: 4px;
   }
+}
+
+.accounting-promo {
+  border-block: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.accounting-intro,
+.accounting-connections,
+.accounting-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.accounting-heading {
+  max-width: 19ch;
+  margin-top: 0.8rem;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  font-weight: 650;
+}
+
+.accounting-lead {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.75;
+}
+
+.accounting-copy,
+.accounting-connections p,
+.accounting-details p {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.accounting-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.accounting-questions {
+  align-self: center;
+  min-width: 0;
+  border-block: 1px solid var(--border);
+  padding-block: 1.5rem;
+}
+
+.accounting-aside-title {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.accounting-questions li {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1.25rem;
+}
+
+.accounting-questions li + li {
+  border-top: 1px solid var(--border);
+}
+
+.accounting-questions h3,
+.accounting-connections h3 {
+  font-weight: 650;
+  font-size: 1.15rem;
+}
+
+.accounting-questions li p {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.accounting-note {
+  color: var(--text-soft);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.accounting-note a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.accounting-connections,
+.accounting-details {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.accounting-details h2 {
+  font-size: 1.65rem;
+  font-weight: 650;
+}
+
+.accounting-steps {
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .accounting-heading { font-size: 3.25rem; }
+  .accounting-connections { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+  .accounting-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .accounting-intro { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.85fr); gap: 4rem; }
+}
+
+@media (max-width: 479px) {
+  .accounting-actions > .btn-primary,
+  .accounting-actions > .btn-secondary { width: 100%; min-width: 0; }
 }
 
 @media (min-width: 768px) {

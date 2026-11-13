@@ -1,3 +1,4 @@
+import { AccountingPromo } from "@/components/AccountingPromo";
 import Link from "next/link";
 import { CTA } from "@/components/CTA";
 import { Section } from "@/components/Section";
@@ -6,8 +7,8 @@ import { site } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "לדבר עם הנתונים: חמישה פלאגינים לעסק",
-  description: "חמישה פלאגינים ציבוריים של נביא נס ישראל בע״מ לאנליטיקה, חנויות, קטלוגים, איביי ובינג. הכירו את השימושים, ההרשאות ואפשרויות הפיתוח המותאם.",
+  title: "לדבר עם הנתונים: פלאגינים לנתוני העסק",
+  description: "פלאגינים של נביא נס ישראל בע״מ לחשבוניות, אנליטיקה, חנויות, קטלוגים, איביי ובינג. הכירו את השימושים, ההרשאות ואפשרויות החיבור הפרטי.",
   path: "/plugins",
 });
 
@@ -18,7 +19,7 @@ export default function PluginsPage() {
     <>
       <Section eyebrow="מוצרי נביא נס ישראל בע״מ" title="לדבר עם הנתונים" titleAs="h1" className="pb-10">
         <p className="max-w-4xl text-lg leading-8" style={{ color: "var(--text-muted)" }}>
-          נביא נס ישראל בע״מ בונה מוצרים שמכניסים את נתוני העסק לשיחה שימושית. חמשת הפלאגינים הציבוריים שלנו עוזרים להבין מה קורה באתר, בחנות, בקטלוג ובחיפוש, כל אחד מתוך המקור המאושר שלו. בעולם הם פועלים תחת השם TalkToData. כשצריך תהליך אחר, אנחנו מאפיינים ובונים גם חיבור או סביבת עבודה מותאמים.
+          נביא נס ישראל בע״מ בונה מוצרים שמכניסים את נתוני העסק לשיחה שימושית. הפלאגינים הציבוריים שלנו עוזרים להבין מה קורה בתוכנת החשבוניות, באתר, בחנות, בקטלוג ובחיפוש, כל אחד מתוך המקור המאושר שלו. בעולם הם פועלים תחת השם TalkToData. כשצריך תהליך אחר, אנחנו מאפיינים ובונים גם חיבור או סביבת עבודה מותאמים.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a className="btn-primary" href={requestHref} rel="noopener noreferrer" target="_blank">ספרו לנו מה תרצו לחבר</a>
@@ -26,7 +27,9 @@ export default function PluginsPage() {
         </div>
       </Section>
 
-      <Section eyebrow="המוצרים שלנו" title="חמישה פלאגינים, חמש דרכים לעבוד חכם" className="pt-8">
+      <AccountingPromo />
+
+      <Section eyebrow="המוצרים שלנו" title="כל מקור מידע, והשיחה שמתאימה לו" className="pt-8">
         <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>
           בחרו את המערכת שמחזיקה את התשובה. כל פלאגין נפתח בנפרד בצ׳אט ג׳י פי טי, דורש חשבון והרשאה מתאימים, ומחזיר רק נתונים ופעולות שהחיבור תומך בהם. אלה הפלאגינים הציבוריים הזמינים כעת; משפחת החיבורים הרחבה כוללת גם מסלולים אחרים.
         </p>
@@ -71,7 +74,7 @@ export default function PluginsPage() {
 
       <Section eyebrow="ממשיכים לפתח" title="עוד חיבורים נבחנים כל הזמן" className="pt-8">
         <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>
-          TalkToData מציג חיבורים נוספים מעבר לחמישה שמופיעים כאן. אנחנו ממשיכים לבדוק מקורות מידע, מגבלות והרשאות ולפתח פתרונות חדשים. לא כל רעיון הופך מיד לחיבור ציבורי; קודם בודקים מה עובד בפועל ומה מתאים למשתמשים.
+          TalkToData מציג חיבורים נוספים מעבר לאלה שמופיעים כאן. אנחנו ממשיכים לבדוק מקורות מידע, מגבלות והרשאות ולפתח פתרונות חדשים. לא כל רעיון הופך מיד לחיבור ציבורי; קודם בודקים מה עובד בפועל ומה מתאים למשתמשים.
         </p>
         <a className="editorial-link mt-5 inline-flex" href="https://talktodata.navines.com/connections" rel="noopener noreferrer" target="_blank">לרשימת החיבורים העדכנית</a>
       </Section>

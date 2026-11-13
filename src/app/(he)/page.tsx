@@ -1,3 +1,4 @@
+import { AccountingPromo } from "@/components/AccountingPromo";
 import Image from "next/image";
 import Link from "next/link";
 import { featuredTalkToData } from "@/data/talktodata";
@@ -101,6 +102,8 @@ export default function HomePage() {
 
       <LanguageStrip current="he" title="נביא נס ישראל בע״מ בעולם" />
 
+      <AccountingPromo />
+
       <section className="feature-band border-y" style={{ borderColor: "var(--border)" }} aria-labelledby="talktodata-analytics-launch-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:py-16">
           <div className="max-w-4xl">
@@ -118,7 +121,7 @@ export default function HomePage() {
       </section>
 
       <Section eyebrow="מוצרי נביא נס ישראל בע״מ" title="לדבר עם הנתונים שלכם">
-        <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>חמשת הפלאגינים הציבוריים שפיתחנו במסגרת TalkToData מחברים נתוני אתר, חנות, קטלוג, מסחר וחיפוש לשיחה ממוקדת. כל אחד מתחיל בחשבון מאושר ובהרשאות שמתאימות למקור הנתונים.</p>
+        <p className="max-w-4xl leading-7" style={{ color: "var(--text-muted)" }}>הפלאגינים הציבוריים שפיתחנו במסגרת TalkToData מחברים חשבוניות, נתוני אתר, חנות, קטלוג, מסחר וחיפוש לשיחה ממוקדת. כל אחד מתחיל בחשבון מאושר ובהרשאות שמתאימות למקור הנתונים.</p>
         <div className="mt-7 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
           {featuredTalkToData.map((item) => (
             <div className="border-t py-5" key={item.name} style={{ borderColor: "var(--border)" }}>

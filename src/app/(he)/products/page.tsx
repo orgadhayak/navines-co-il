@@ -1,3 +1,4 @@
+import { AccountingPromo } from "@/components/AccountingPromo";
 ﻿import Link from "next/link";
 import { ProductCard } from "@/components/Cards";
 import { CTA } from "@/components/CTA";
@@ -30,7 +31,7 @@ export default function ProductsPage() {
             </div>
             <div className="mt-5 flex flex-wrap gap-3 lg:mt-0 lg:grid">
               <a className="btn-primary" href="https://chatgpt.com/plugins/plugin_asdk_app_6aba9bf4f37481919183ffb9cedfdf7b" rel="noopener noreferrer" target="_blank">להתקנת הפלאג ב־ChatGPT</a>
-              <Link className="btn-secondary" href="/plugins">לחמשת הפלאגינים שלנו</Link>
+              <Link className="btn-secondary" href="/plugins">לכל הפלאגינים שלנו</Link>
               <Link className="editorial-link inline-flex items-center" href="/blog/talktodata-analytics-chatgpt-plugin">למדריך האנליטיקה</Link>
               <a className="editorial-link inline-flex items-center" href="https://talktodata.navines.com" rel="noopener noreferrer" target="_blank">לכל החיבורים של TalkToData</a>
             </div>
@@ -56,6 +57,7 @@ export default function ProductsPage() {
           <div className="mt-5 flex flex-wrap gap-3"><Link className="btn-secondary" href="/tools">לפתיחת עמוד הכלים</Link><Link className="editorial-link inline-flex items-center" href="/blog/qr-email-and-link-safety-tools">למדריך הכלים החדשים</Link></div>
         </div>
       </Section>
+      <AccountingPromo />
       <CTA title="יש לכם תהליך שחוזר על עצמו?" text="כתבו לנו בוואטסאפ מה אתם בודקים או עושים ידנית היום. נבדוק אם אפשר להפוך את זה לכלי פשוט שחוסך זמן ומראה תמונה ברורה יותר." />
     </>
   );
