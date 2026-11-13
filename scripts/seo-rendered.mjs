@@ -28,6 +28,11 @@ for (const entry of entries) {
   const modified = entry.querySelector("lastmod")?.textContent;
   check(!modified || (!Number.isNaN(Date.parse(modified)) && modified.slice(0, 10) <= jerusalemDate), `Future or invalid sitemap lastmod: ${modified}`);
 }
+for (const path of ["/", "/products", "/plugins", "/products/talktodata-accounting"]) {
+  const entry = entries.find((item) => pathname(item.querySelector("loc").textContent) === path);
+  const modified = entry?.querySelector("lastmod")?.textContent;
+  check(modified && Date.parse(modified) >= Date.parse("2026-11-13"), `${path}: sitemap lastmod predates the invoice content release`);
+}
 
 const pages = new Map();
 let cursor = 0;
