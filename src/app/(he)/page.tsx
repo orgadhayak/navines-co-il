@@ -1,4 +1,5 @@
 import { AccountingPromo } from "@/components/AccountingPromo";
+import { HomeExperience } from "@/components/HomeExperience";
 import Image from "next/image";
 import Link from "next/link";
 import { featuredTalkToData } from "@/data/talktodata";
@@ -73,11 +74,14 @@ export default function HomePage() {
   const navinesNoiseProduct = products.find((product) => product.slug === "navines-noise");
 
   return (
-    <>
+    <HomeExperience>
       <JsonLd data={homeBreadcrumbSchema} />
       <JsonLd data={talkToDataAnalyticsSchema} />
 
       <section className="home-hero">
+        <div className="home-hero-media" aria-hidden="true">
+          <Image alt="" src="/brand/earth-at-night.webp" fill priority sizes="100vw" quality={80} />
+        </div>
         <div className="home-hero-inner mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="home-hero-copy">
             <p className="home-hero-kicker"><bdi dir="ltr">NAVINES</bdi> · בית תוכנה ישראלי לעסקים וארגונים</p>
@@ -97,8 +101,18 @@ export default function HomePage() {
             <Link href="/services/ecommerce">מסחר דיגיטלי</Link>
             <Link href="/services/technical-support-cyber-networks">אבטחה ותשתיות</Link>
           </nav>
+          <a className="home-image-credit" href="https://www.nasa.gov/image-article/space-station-view-of-earth-at-night/" target="_blank" rel="noopener noreferrer">צילום כדור הארץ: <bdi>NASA / Jessica Meir</bdi></a>
         </div>
       </section>
+
+      <nav className="home-chapters" aria-label="נושאים בעמוד הבית">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <a href="#accounting-title"><span aria-hidden="true">01</span>לדבר עם הנתונים</a>
+          <a href="#home-capabilities"><span aria-hidden="true">02</span>מה אנחנו בונים</a>
+          <a href="#home-products"><span aria-hidden="true">03</span>המוצרים שלנו</a>
+          <a href="#home-process"><span aria-hidden="true">04</span>איך עובדים יחד</a>
+        </div>
+      </nav>
 
       <LanguageStrip current="he" title="נביא נס ישראל בע״מ בעולם" />
 
@@ -135,7 +149,7 @@ export default function HomePage() {
         <Link className="btn-primary mt-6 inline-flex" href="/plugins">לדבר עם הנתונים: כל האפשרויות</Link>
       </Section>
 
-      <Section eyebrow="היכולות שלנו" title="טכנולוגיה שמתחילה בצורך העסקי">
+      <Section id="home-capabilities" eyebrow="היכולות שלנו" title="טכנולוגיה שמתחילה בצורך העסקי">
         <p className="section-lead">במקום למכור כלי אחד לכל בעיה, אנחנו בודקים מה צריך לעבוד טוב יותר ובונים את השילוב הנכון בין תוכנה, נתונים, אוטומציה ותשתית.</p>
         <div className="capability-columns mt-10">
           {capabilityGroups.map((group, index) => (
@@ -343,7 +357,7 @@ export default function HomePage() {
         </section>
       ) : null}
 
-      <Section eyebrow="מוצרים וכלים" title="מוצרים שבנינו כדי להפוך מידע לפעולה">
+      <Section id="home-products" eyebrow="מוצרים וכלים" title="מוצרים שבנינו כדי להפוך מידע לפעולה">
         <div className="product-editorial-list">
           {featuredProducts.map((product, index) => {
             const href = product.url || "/products";
@@ -372,7 +386,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="איך עובדים איתנו" title="תהליך שקוף מהרעיון ועד למערכת פעילה">
+      <Section id="home-process" eyebrow="איך עובדים איתנו" title="תהליך שקוף מהרעיון ועד למערכת פעילה">
         <ol className="process-line">
           {process.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{text}</p></li>)}
         </ol>
@@ -417,6 +431,6 @@ export default function HomePage() {
           <div className="mt-8 flex shrink-0 flex-wrap gap-3 lg:mt-0"><a className="btn-primary" href={site.whatsappHref} rel="noopener noreferrer" target="_blank">דברו איתנו בוואטסאפ</a><Link className="btn-on-dark" href="/contact">אפשרויות יצירת קשר</Link></div>
         </div>
       </section>
-    </>
+    </HomeExperience>
   );
 }
